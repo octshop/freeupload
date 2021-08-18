@@ -57,7 +57,7 @@ B2B2C模式和O2O模式可以自由切换,也可一体化运营!
 
 #### 系统架构与业务逻辑 -------
 
-![enter image description here](https://m.opencodetiger.com/Upload/ArtDescImgs/art_202107030836462070.jpg)
+![enter image description here](https://github.com/octshop/freeupload/blob/main/ImgsDesc/art_202107030836462070.jpg)
 
 ![enter image description here](https://m.opencodetiger.com/Upload/ArtDescImgs/art_202107040933170520.jpg)
 

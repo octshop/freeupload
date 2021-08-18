@@ -1,0 +1,69 @@
+/* pages/buyer/receiaddr/receiaddrae/receiaddrae.wxss */
+.addr-add-list{
+  background: white;
+}
+.addr-add-list .addr-add-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #f8f8f8;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.addr-add-list .addr-add-item input {
+  border: none;
+  width: 80%;
+  text-align: right;
+  color: #FF5200;
+}
+
+.sel-addr-region {
+  /* background: url(../../Imgs/Icon/arrows_right_black.png) right center no-repeat; */
+  background-size: 15px;
+  padding-right: 15px;
+  cursor: pointer;
+}
+.title-left-addr{
+  display: flex;
+  align-items: center;
+  color: #FF5200;
+}
+.title-left-addr image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+
+.add-addr-btn {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.add-addr-btn .btn-save-address {
+  background: #FF5200;
+  color: white;
+  padding: 6px 10px;
+  width: 80%;
+  border: none;
+  border-radius: 20px;
+  margin: 0 auto;
+  cursor: pointer;
+  font-size: 30rpx;
+}
+
+/* 小程序_改变switch组件的大小 */
+.wx-switch-input {
+  width: 45px !important;
+  height: 25px !important;
+}
+
+.wx-switch-input::before {
+  width: 45px !important;
+  height: 25px !important;
+}
+
+.wx-switch-input::after {
+  width: 22px !important;
+  height: 22px !important;
+}

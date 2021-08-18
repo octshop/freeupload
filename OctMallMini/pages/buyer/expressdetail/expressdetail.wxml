@@ -1,0 +1,74 @@
+<!--pages/buyer/expressdetail/expressdetail.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="查看物流" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--快递信息-->
+	<view class="express-msg">
+		<view class="express-msg-left">
+			<navigator url="../../buyer/orderdetail/orderdetail">
+				<image src="//{{loadOrderFirstGoodsMsgSimple_Data.GoodsCoverImgPath}}" />
+			</navigator>
+		</view>
+		<view class="express-msg-right">
+			<view class="express-msg-item">
+				<view><span>物流公司：</span>{{searchOrderExpress_Data.ExpName}}</view>
+				<view class="express-msg-code"><span>物流单号：</span>{{searchOrderExpress_Data.ExpNumber}}
+					<view class="btn-copy" bindtap="copyContentClipboard"
+						data-copy-content="{{searchOrderExpress_Data.ExpNumber}}">复制</view>
+				</view>
+				<view>
+					<span>物流电话：</span>{{searchOrderExpress_Data.ExpPhone}}
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<!--动态内容-->
+	<view class="express-dynamic">
+
+		<view class="express-dynamic-title">
+			<view class="dynamic-title-left">
+				物流动态
+			</view>
+			<view class="dynamic-title-right">
+				<navigator url="#">物流投诉
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/express_question.png"></image>
+				</navigator>
+			</view>
+		</view>
+		<view class="express-dynamic-item">
+			<view class="dynamic-item-left">
+			</view>
+			<view class="dynamic-item-right">
+				<view class="dynamic-right-ul">
+
+
+					<view class="{{index == 0 ? 'dynamic-current-li' : 'dynamic-li'}}"
+						wx:for="{{searchOrderExpress_Data.ExpList}}">
+						<span class="express-circle"> </span>
+						<view>
+							{{item.Status}}
+							<view class="express-datetime">
+								{{item.Time}}
+							</view>
+						</view>
+					</view>
+
+
+				</view>
+			</view>
+		</view>
+
+
+
+	</view>
+
+
+
+
+</view>

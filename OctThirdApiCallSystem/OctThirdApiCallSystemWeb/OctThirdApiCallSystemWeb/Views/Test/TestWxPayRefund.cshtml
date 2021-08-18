@@ -1,0 +1,87 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>【微信支付 支付的订单退款】</title>
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+
+</head>
+<body>
+    <div>
+        <input type="text" id="OutTradeNo" placeholder="商户订单号(交易号BillNumber)" style="width: 300px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="TotalFee" placeholder="订单总金额(以元为单位)" style="width: 300px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="RefundFee" placeholder="退款金额(以元为单位)" style="width: 300px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="TransactionID" placeholder="(可选)微信订单号（优先使用）微信支付自己生成的支付ID" style="width: 500px;" />
+    </div>
+    <br />
+    <div>
+        <input type="button" id="BtnRefund" value="微信立即退款" onclick="submitWxPayRefund()" />
+    </div>
+
+    <script type="text/javascript">
+
+        /*
+        * 提交退款请求
+        */
+        function submitWxPayRefund() {
+
+            //获取表单
+            var OutTradeNo = $("#OutTradeNo").val().trim();
+            var TotalFee = $("#TotalFee").val().trim();
+            var RefundFee = $("#RefundFee").val().trim();
+            var TransactionID = $("#TransactionID").val().trim();
+
+            //构造GET参数
+            var dataPOST = {
+                "type": "1", "OutTradeNo": OutTradeNo, "TotalFee": TotalFee,
+                "RefundFee": RefundFee, "TransactionID": TransactionID,
+            };
+
+            //正式发送GET请求
+            $.ajax({
+                type: "POST",
+                url: "../Refund/WxPayRefund?rnd=" + Math.random(),
+                data: dataPOST,
+                dataType: "html",
+                success: function (reTxt, status, xhr) {
+                    console.log(reTxt);
+                    if (reTxt != "") {
+                        if (reTxt == "PWXR_01")
+                        {
+                            alert("退款成功！");
+                        }
+                    }
+                    else {
+
+                    }
+
+                },
+                error: function (xhr, errorTxt, status) {
+                    console.log("异步请求错误，errorTxt=" + errorTxt + " | status=" + status);
+                    //alert("网速不给力哦,请刷新一下！");
+                    return;
+                }
+            });
+
+
+        }
+
+    </script>
+</body>
+</html>

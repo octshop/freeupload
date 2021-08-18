@@ -1,0 +1,226 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>商家中心-移动端</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/WapPage/Index.css?v=1" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/WapPage/Index.js?v=1"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidShopID" value="" />
+    <input type="hidden" id="hidOctWapWeb_AddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+    <input type="hidden" id="hidImSystemWebDomainURL" value="@ViewBag.ImSystemWebDomainURL" />
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--商家信息-->
+        <div class="shop-msg" id="ShopMsgBar">
+            <div>
+                <img id="ShopHeaderImg" src="#" />
+            </div>
+            <div>
+                <div class="shop-name" id="ShopName">某某店铺名称</div>
+                <div class="company-name" id="CompanyName">
+                    某某公司名称
+                </div>
+                <div class="user-account">
+                    ShopID:<b id="ShopIDB"></b>，UAC:<b id="MobileB"></b>
+                </div>
+            </div>
+        </div>
+
+        <!--提示信息-->
+        <div class="hint-msg">
+            <span><i class="am-icon-bell icon-msg"></i> <b id="StatusMsgB"> </b></span>
+        </div>
+
+        <!--导航区1-->
+        <div class="nav-list">
+            <div class="nav-title">
+                常用功能
+            </div>
+            <div class="nav-item">
+                <ul class="nav-item-ul">
+                    <li>
+                        <a href="../WapPage/MyOrder">
+                            <img src="../Assets/Imgs/Icon/wap_order.png" />
+                            <div>订单管理</div>
+                            <span class="bage-num" id="NewOrderTodayCount" style="display:none;">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../WapPage/VerifyCode">
+                            <img src="../Assets/Imgs/Icon/wap_verify.png" /><br />
+                            <div>核销验证</div>
+                            <span class="bage-num" style="display:none;">0</span>
+                        </a>
+                    </li>
+                    <li style="border:none;">
+                        <a href="javascript:enterImSys()">
+                            <img src="../Assets/Imgs/Icon/wap_im.png" /><br />
+                            <div>IM在线客服</div>
+                            <span class="bage-num" style="display:none;" id="CountIMNum">0</span>
+                        </a>
+                    </li>
+                    <li style="border:none;">
+                        <a href="../WapPage/AggregateOrderToday">
+                            <img src="../Assets/Imgs/Icon/wap_hint.png" /><br />
+                            <div>收单提醒</div>
+                            <span class="bage-num" style="display:none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-item">
+                <ul class="nav-item-ul">
+                    <li>
+                        <a href="../WapPage/SettleApply">
+                            <img src="../Assets/Imgs/Icon/wap_settle.png" />
+                            <div>商家结算</div>
+                            <span class="bage-num" id="CountSettleApplyChecking" style="display:none;">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../GoodsPage/GoodsMsg">
+                            <img src="../Assets/Imgs/Icon/wap_goods.png" /><br />
+                            <div>商品管理</div>
+                            <span class="bage-num" style="display:none;">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a id="CreateQRScanA" href="#">
+                            <img src="../Assets/Imgs/Icon/wap_qr.png" /><br />
+                            <div>二维码生成</div>
+                            <span class="bage-num" style="display:none;">…</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../WapPage/AggregateOrderMsg">
+                            <img src="../Assets/Imgs/Icon/wap_aggre.png" /><br />
+                            <div>扫码收单</div>
+                            <span class="bage-num" style="display:none;">…</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav-item">
+                <ul class="nav-item-ul">
+                    <li>
+                        <a href="../WapPage/BalanceDetail">
+                            <img src="../Assets/Imgs/Icon/wap_inex.png" />
+                            <div>交易流水</div>
+                            <span class="bage-num" style="display:none;">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../ComplainPage/ComplainMsg">
+                            <img src="../Assets/Imgs/Icon/wap_compalin.png" /><br />
+                            <div>投诉处理</div>
+                            <span class="bage-num" id="ComplainNoFinishCount" style="display:none;">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../AfterSalePage/AfterSaleApplyMsg">
+                            <img src="../Assets/Imgs/Icon/wap_as.png" /><br />
+                            <div>售后服务</div>
+                            <span class="bage-num" id="AsNoFinishCount" style="display:none;">0</span>
+                        </a>
+                    </li>
+                    <li style="border:none;">
+                        <a href="void(0)" id="MoreFunctionA">
+                            <img src="../Assets/Imgs/Icon/wap_fun.png" /><br />
+                            <div>更多功能</div>
+                            <span class="bage-num" style="display:none;">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+        </div>
+
+
+        <!--导航区2-->
+        <div class="nav-list-2">
+
+            <ul class="nav-list-ul">
+                <li class="nav-li" onclick="window.location.href='../WapPage/ShopSysMsg'">
+                    <div class="nav-li-left">
+                        <img src="../Assets/Imgs/Icon/wap_msg.png" />
+                        消息通知
+                    </div>
+                    <div>
+                        <span class="bage-num" id="NoReadShopSysMsgCount" style="display:none;">0</span>
+                    </div>
+                </li>
+                <li class="nav-li" id="ShopIndexLi">
+                    <div class="nav-li-left">
+                        <img src="../Assets/Imgs/Icon/wap_shopindex.png" />
+                        店铺首页
+                    </div>
+                    <div>
+                        <span class="bage-num" style="display:none;">0</span>
+                    </div>
+                </li>
+                <li class="nav-li" onclick="window.location.href='../SysPage/Index'">
+                    <div class="nav-li-left">
+                        <img src="../Assets/Imgs/Icon/wap_count.png" />
+                        数据统计
+                    </div>
+                    <div>
+                        <span class="bage-num" style="display:none;">0</span>
+                    </div>
+                </li>
+                <li class="nav-li" onclick="window.location.href='../WapPage/OfficialService'">
+                    <div class="nav-li-left">
+                        <img src="../Assets/Imgs/Icon/wap_customer.png" />
+                        官方客服
+                    </div>
+                    <div>
+                        <span class="bage-num" style="display:none;">0</span>
+                    </div>
+                </li>
+                <li class="nav-li" style="border:none;" onclick="window.location.href='../WapPage/Setting'">
+                    <div class="nav-li-left">
+                        <img src="../Assets/Imgs/Icon/wap_setting.png" />
+                        系统设置
+                    </div>
+                    <div>
+                        <span class="bage-num" style="display:none;">0</span>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+
+
+    </div>
+
+
+
+</body>
+</html>

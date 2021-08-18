@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>抽奖详情-预览</title>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="padding-top: 8px;"></div>
+
+    <iframe id="GoodsPreViewContentIframe" src="../Mall/LuckyDrawDetail?LID=@ViewBag.LID" height="800" width="500" name="GoodsPreView" scrolling="auto"></iframe>
+
+    <script type="text/javascript">
+        var _clientHeight = document.documentElement.clientHeight; //可视区宽度
+        document.getElementById("GoodsPreViewContentIframe").height = _clientHeight - 35;
+    </script>
+
+</body>
+</html>

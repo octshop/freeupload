@@ -1,0 +1,36 @@
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="分润余额明细" back-icon="/assets/imgs/icons/navbar_back.png"
+    home-icon="/assets/imgs/icons/navbar_question.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+  <view class="balance-list">
+
+    <navigator url="../inexdetaildividend/inexdetaildividend?IEID={{item.InExMsgID}}" class="balance-item"
+      wx:for="{{numberPage_Page.DataPage}}">
+      <view class="balance-item-left">
+        <view>
+          <b>{{item.InExMemo}}</b>
+        </view>
+        <view style="padding-top:5px;">
+          余额: {{item.CurrentBalance}}
+        </view>
+      </view>
+      <view class="balance-item-right">
+        <view>
+          {{item.WriteDate}}
+        </view>
+        <view style="padding-top:5px;">
+          <b wx:if="{{item.IncomeSum>0}}">+ {{item.IncomeSum}}</b>
+          <b wx:if="{{item.ExpenseSum>0}}">- {{item.ExpenseSum}}</b>
+        </view>
+      </view>
+    </navigator>
+
+  </view>
+
+
+
+</view>

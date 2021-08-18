@@ -1,0 +1,161 @@
+<!--pages/buyer/scart/scart.wxml-->
+<!-- navbar -->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="购物车" back-icon="/assets/imgs/icons/navbar_home.png" home-icon=""
+		background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{navbarHeight}}px">
+
+	<view id="SCartListview">
+
+		<!--购物车列表-->
+		<view class="scart-item" wx:for="{{initSCartMsg_Data.GoodsMsgArr}}">
+			<view class="scart-item-title">
+				<view class="scart-item-left">
+					<image class="scart-sel-img" bindtap="selShopGoodsItem"
+						data-shop-id="{{initSCartMsg_Data.ShopMsgArr[index].ShopID}}"
+						data-is-sel="{{jsonScartSelList[index].IsSel=='true'?'false':'true'}}"
+						src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_{{jsonScartSelList[index].IsSel=='true'?'yes':'no'}}.png" />
+					<navigator url="../../../pages/shop/index/index?SID={{initSCartMsg_Data.ShopMsgArr[index].ShopID}}">
+						<image class="shop-image" src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop.png" />
+						{{initSCartMsg_Data.ShopMsgArr[index].ShopName}}
+					</navigator>
+				</view>
+				<view class="scart-item-right" bindtap="openSlideBottom"
+					data-shop-user-id="{{initSCartMsg_Data.ShopMsgArr[index].ShopUserID}}">
+					领券
+				</view>
+			</view>
+
+			<view class="scart-item-goods" wx:for="{{item.ShopGoodsMsgArr}}" wx:for-item="itm" wx:for-index="idx">
+				<view class="item-goods-left">
+					<image class="scart-sel-img" bindtap="selGoodsItem" data-goods-id="{{itm.GoodsID}}"
+						data-spec-id="{{itm.SpecID}}"
+						data-is-sel="{{jsonScartSelList[index].ShopGoodsSel[idx].IsSel=='true'?'false':'true'}}"
+						src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_{{jsonScartSelList[index].ShopGoodsSel[idx].IsSel=='true'?'yes':'no'}}.png" />
+				</view>
+				<view class="item-goods-mid">
+					<navigator url="../../../pages/goods/goodsdetail/goodsdetail?GID={{itm.GoodsID}}">
+						<image src="//{{itm.GoodsImgPath}}" />
+					</navigator>
+				</view>
+				<view class="item-goods-right">
+					<view>
+						<view style="padding-bottom:4px">
+							{{itm.GoodsTitle}}<text class="badge-express" wx:if="{{itm.IsShopExpense=='true'}}">到店</text>
+						</view>
+						<view class="goods-right-spec">
+							{{itm.SpecPropNameArr}}
+						</view>
+						<view class="goods-right-price">
+							<view class="goods-price">
+								￥{{itm.GoodsPrice}}
+							</view>
+							<view class="goods-txt-number">
+								<view class="btn-reduce" bindtap="addReduceOrderNum" data-exe-type="reduce"
+									data-goods-id="{{itm.GoodsID}}" data-spec-id="{{itm.SpecID}}"
+									data-order-num="{{jsonScartSelList[index].ShopGoodsSel[idx].OrderNum}}">-</view>
+								<input class="input-order-number" type="number"
+									value="{{jsonScartSelList[index].ShopGoodsSel[idx].OrderNum}}" bindinput="bindInputOrderNum"
+									bindblur="bindBlurOrderNum" data-goods-id="{{itm.GoodsID}}" data-spec-id="{{itm.SpecID}}" />
+								<view class="btn-add" bindtap="addReduceOrderNum" data-exe-type="add" data-goods-id="{{itm.GoodsID}}"
+									data-spec-id="{{itm.SpecID}}" data-order-num="{{jsonScartSelList[index].ShopGoodsSel[idx].OrderNum}}">
+									+</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+
+		</view>
+
+		<!--购物车列表为空时-->
+		<view class="scart-empty-div" wx:if="{{initSCartMsg_Data.ShopMsgArr.length <= 0}}">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_scart.png" />
+			<view>
+				购物车没有商品,赶紧订购吧！
+			</view>
+			<navigator url="../../../pages/tabbar/index/index" open-type="switchTab">查找优惠打折商品</navigator>
+		</view>
+
+
+
+
+
+
+	</view>
+
+
+
+</view>
+
+
+
+
+<!--子页脚-->
+<view class="oct-footer-sub">
+	<view class="oct-footer-sub-1" bindtap="toggleAllSel" data-all-sel="{{isAllSel=='true'?'false':'true'}}">
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_{{isAllSel=='true'?'yes':'no'}}.png" />全选
+	</view>
+	<view class="oct-footer-sub-2">
+		<view class="btn-del" bindtap="delScartGoodsArr">删除</view>
+	</view>
+	<view class="oct-footer-sub-3">
+		合计：<b id="SumPriceB">￥{{sumOrderPrice}}</b>
+	</view>
+	<view class="oct-footer-sub-4">
+		<view class="btn-settle" bindtap="goSettle">结算</view>
+	</view>
+</view>
+
+
+
+<!-- ================= 底部滑出的自定义窗口 =================== -->
+
+<!--可用优惠券领取窗口-->
+<sliderDownWin id="SliderDownWin_1" is-display-slide="{{isDisplaySlideCoupons}}" is-display-title="false"
+	slide-win-height="{{slideWinHeightCoupons}}" slide-win-title="">
+	<view slot="outwxml">
+
+		<view class="win-ticket-content">
+
+			<view class="win-ticket-title">
+				优惠券
+				<text class="am-close" bindtap="closeSlideBottom">x</text>
+			</view>
+			<view class="win-ticket-integral">
+				<view>
+					领券
+				</view>
+				<view>
+					您的积分: --
+				</view>
+			</view>
+			<view class="win-ticket-list" style="height:{{slideWinHeightCoupons - 65}}px">
+
+				<view class="win-ticket-item {{ couponsStyleValObj[index].isGetCoupons ? 'win-ticket-item-gray':'' }}"
+					wx:for="{{goodsAbleUseCouponsListJson.ShopAbleUseCouponsList}}" bindtap="buyerGetCoupons"
+					data-coupons-id="{{item.CouponsID}}">
+					<view class="win-ticket-item-left">
+
+						<view wx:if="{{item.UseMoney>0 && item.UseDiscount<=0}}"><b>￥{{item.UseMoney}}</b> 店铺券 (需积分:0)</view>
+						<view wx:if="{{item.UseMoney<=0 && item.UseDiscount>0}}"><b>{{item.UseDiscount}}折</b> 店铺折扣券(需积分:0)</view>
+						<view wx:if="{{item.ExpenseReachSum>0}}">消费满{{item.ExpenseReachSum}}使用</view>
+						<view wx:if="{{item.ExpenseReachSum<=0}}">无消费限制</view>
+						<view wx:if="{{item.UseTimeRange!=''}}" class="coupons-usetime-win">
+							有效期:{{goodsAbleUseCouponsListJson.ExtraData[index].UseTimeRangeFormat}}
+							({{goodsAbleUseCouponsListJson.ExtraData[index].UseTimeRangeDiffDay}}天)</view>
+						<view wx:if="{{item.UseTimeRange==''}}" class="coupons-usetime-win">有效期:永久有效</view>
+
+					</view>
+					<view class="win-ticket-item-right" bindtap="buyerGetCoupons" data-coupons-id="{{item.CouponsID}}">
+						{{couponsStyleValObj[index].btnValTxt}}
+					</view>
+				</view>
+
+			</view>
+		</view>
+	</view>
+</sliderDownWin>

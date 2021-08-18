@@ -1,0 +1,30 @@
+﻿/*================Api调用记录========================*/
+
+/*窗口主体内容*/
+.userkeymsg-add-main {
+    padding: 10px 15px;
+    padding-bottom: 20px;
+}
+
+.userkeymsg-ul li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 8px;
+}
+
+    .userkeymsg-ul li label {
+        display: inline-block;
+        width: 150px;
+        font-weight: normal;
+        padding-right: 10px;
+    }
+
+.am-form-field {
+    font-size: 12px;
+}
+
+.userkeymsg-detail-main ul li {
+    border-bottom: 1px dashed #f3f3f3;
+}
+

@@ -1,0 +1,164 @@
+﻿/*===============公司信息===================*/
+
+.form-main {
+    padding-top: 10px;
+}
+/*表单列表*/
+.company-ul {
+    border-bottom: 1px dashed #e1e1e1;
+    padding-top: 15px;
+}
+
+    .company-ul li {
+        padding-bottom: 15px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+.txt-company-acc, .txt-company-name, .txt-reg-address {
+    width: 300px;
+    margin-right: 20px;
+}
+
+.company-acc-hint {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: gray;
+}
+
+.input-title-span {
+    width: 80px;
+    display: inline-block;
+}
+
+.img-header {
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.company-msg-li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+    .company-msg-li span {
+        padding-right: 10px;
+        width: 130px;
+        display: inline-block;
+    }
+
+    .company-msg-li .txt-css {
+        width: 250px;
+    }
+
+    .company-msg-li .txt-area {
+        width: 640px;
+        height: 50px;
+    }
+
+
+/*按钮列表*/
+.btn-list {
+    padding: 20px;
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+    .btn-list input {
+        width: 300px;
+        border-radius: 10px;
+    }
+
+
+
+/*上传公司图片资质*/
+.certificate-ul {
+    clear: both;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+    .certificate-ul li {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 300px;
+        overflow: hidden;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #e1e1e1;
+        background: #f8f8f8;
+        margin-right: 30px;
+        margin-bottom: 20px;
+    }
+
+.certificate-title {
+    font-size: 16px;
+    font-weight: bold;
+    background: #f1f1f1;
+    padding: 10px 0;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.am-close {
+    position: absolute;
+    top: 11px;
+    right: 5px;
+}
+
+.certificate-title i {
+    color: red;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.certificate-img-div img {
+    width: 280px;
+    border-radius: 5px;
+}
+.company-certificate-title{
+    font-size: 16px;
+    color:red;
+    padding-bottom: 30px;
+}
+
+/*公司状态信息*/
+
+.company-ul-status li span {
+    font-weight: bold;
+}
+
+.shop-status-li {
+    border-bottom: 1px dashed #e1e1e1;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.company-ul-status li .shop-status-span {
+    display: inline-block;
+    background: #ff6a00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.shop-status-span b {
+    font-size: 18px;
+}
+
+.shop-status-edit {
+    padding-left: 30px;
+}
+
+

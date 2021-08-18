@@ -1,0 +1,146 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>商品描述</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Goods/GoodsDetailMsg.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/Goods/GoodsDetailMsg.js"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidGoodsID" value="@ViewBag.GID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.go(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <div><a href="@ViewBag.MainHref">@ViewBag.MainName</a></div>
+            <div class="header-tab-current"><a href="../Goods/GoodsDetailMsg?GID=@ViewBag.GID&@ViewBag.BtGroup">详情</a></div>
+            <div><a href="../Goods/GoodsAppraise?GID=@ViewBag.GID&@ViewBag.BtGroup">评价</a></div>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-1 oct-header-sub-curren-a" onclick="chgTab('1')">商品介绍</a>
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-2" onclick="chgTab('2')">规格参数</a>
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-3" onclick="chgTab('3')">包装售后</a>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--商品介绍-->
+        <div class="goods-desc" id="GoodsDescDiv" style="display:normal;">
+            <!--习近平抵达时，孔特在停车处迎接。军乐团奏中意两国国歌。两国领导人一同检阅仪仗队。
+
+            习近平指出，中意关系植根于双方千年交往的历史积淀中，拥有深厚民意基础。近年来，两国各领域交流合作不断深化，为各自经济社会发展提供了助力。中意互为重要战略伙伴。双方要始终从战略高度和长远角度看待和把握中意关系，以今年中意建立全面战略伙伴关系15周年和明年两国建交50周年为契机，共同推动中意关系进入新时代，使各领域务实合作成果更好惠及两国人民。
+
+            习近平强调，中意双方发展目标契合，经济互补性强，合作前景光明。中方愿同意方一道，全面扩大和深化双边关系。双方要加强顶层设计，夯实政治基础，加强高层交往，密切各部门各层级对话，继续在涉及彼此核心利益和重大关切问题上相互理解和支持。中国和意大利分处古丝绸之路两端，开展“一带一路”合作天经地义。我们秉持的是共商、共建、共享，遵循的是开
+            <img src="../Assets/Imgs/goodsdesc.png" />
+            <img src="../Assets/Imgs/goodsdesc.png" />
+            习近平抵达时，孔特在停车处迎接。军乐团奏中意两国国歌。两国领导人一同检阅仪仗队。
+
+            习近平指出，中意关系植根于双方千年交往的历史积淀中，拥有深厚民意基础。近年来，两国各领域交流合作不断深化，为各自经济社会发展提供了助力。中意互为重要战略伙伴。双方要始终从战略高度和长远角度看待和把握中意关系，以今年中意建立全面战略伙伴关系15周年和明年两国建交50周年为契机，共同推动中意关系进入新时代，使各领域务实合作成果更好惠及两国人民。
+
+            习近平强调，中意双方发展目标契合，经济互补性强，合作前景光明。中方愿同意方一道，全面扩大和深化双边关系。双方要加强顶层设计，夯实政治基础，加强高层交往，密切各部门各层级对话，继续在涉及彼此核心利益和重大关切问题上相互理解和支持。中国和意大利分处古丝绸之路两端，开展“一带一路”合作天经地义。我们秉持的是共商、共建、共享，遵循的是开
+            <img src="../Assets/Imgs/goodsdesc.png" />-->
+        </div>
+
+        <!--规格参数-->
+        <div class="spec-content table-content" id="SpecContentDiv" style="display:none;">
+            <!--<table>
+                <tr>
+                    <td colspan="2">规格参数标题</td>
+                </tr>
+                <tr>
+                    <td>商品编号商品编号商品编号</td>
+                    <td>2134</td>
+                </tr>
+                <tr>
+                    <td>风格</td>
+                    <td>商务正装</td>
+                </tr>
+                <tr>
+                    <td colspan="2">规格参数标题</td>
+                </tr>
+                <tr>
+                    <td>主要材质</td>
+                    <td>棉</td>
+                </tr>
+                <tr>
+                    <td>主要材质</td>
+                    <td>棉</td>
+                </tr>
+            </table>-->
+        </div>
+
+        <!--包装售后-->
+        <div class="package-aftersale" id="PackageAfterSale" style="display:none;">
+            <!--<dl>
+                <dt>包装信息</dt>
+                <dd>
+                    这里是包装信息的说明,这里是包装信息的说明这里是包装信息的说明这里是包装信息的说明这里是
+                    包装信息的说明这里是包装信息的说明
+                </dd>
+                <dt>退换售后</dt>
+                <dd>
+                    这里是包装信息的说明,这里是包装信息的说明这里是包装信息的说明这里是包装信息的说明这里是
+                    包装信息的说明这里是包装信息的说明
+                </dd>
+            </dl>-->
+        </div>
+
+
+    </div>
+
+    <!--页脚
+    <div class="oct-footer">
+        <a href="#">
+            <img src="../Assets/Imgs/Icon/service.png" />
+            客服
+        </a>
+        <a href="#">
+            <img src="../Assets/Imgs/Icon/shop.png" />
+            店铺
+        </a>
+        <a href="#">
+            <img src="../Assets/Imgs/Icon/scart.png" />
+            购物车
+            <div class="badge-div">3</div>
+        </a>
+        <a href="javascript:void(0)" onclick="alert('加入购物车')" class="btn-scart">
+            加入购物车
+        </a>
+        <a href="javascript:void(0)" class="btn-order">
+            立即购买
+        </a>
+    </div>-->
+
+
+
+
+</body>
+</html>

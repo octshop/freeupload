@@ -1,0 +1,145 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>商品分类列表</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Mall/GoodsTypeList.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Mall/GoodsTypeList.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <input type="hidden" id="hidGoodsTypeIDSec" value="@ViewBag.GoodsTypeIDSec" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="goods-search" onclick="window.location.href='../Mall/SearchGoods'">
+            <img src="../Assets/Imgs/Icon/buyer_query.png" />
+            女款板鞋女款板鞋
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <div class="goods-type-nav">
+            <ul class="goods-type-ul" id="GoodsTypeUl">
+                @*<li>
+                        <div>热门</div>
+                    </li>
+                    <li class="goods-type-li-current" onclick="window.location.href='../Mall/GoodsTypeList?GTID=123'">
+                        <div>男装男装</div>
+                    </li>*@
+            </ul>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!--分类列表-->
+            <div class="goods-type-list" id="GoodsTypeList">
+                @*<a href="../Mall/GoodsTypeListDetail?GTID=1234" class="goods-type-item">
+                        <img src="../Assets/Imgs/06.jpg" />
+                        <div>大衣风采</div>
+                    </a>
+                    <a href="#" class="goods-type-item goods-type-all">
+                        <div class="icon-circle">
+                            <img src="../Assets/Imgs/Icon/3point.png" />
+                        </div>
+                        <div>查看全部</div>
+                    </a>*@
+            </div>
+
+
+            <!--横条广告
+            <div class="gg-bar">
+                <a href="#">
+                    <img src="../Assets/Imgs/03.jpg" />
+                </a>
+            </div>-->
+            <!--分割条件-->
+            <div style="padding-bottom: 8px;">
+            </div>
+
+            <!--商品列表-->
+            <ul class="goods-list" id="PageContentList">
+
+                @*<li class="goods-item">
+                        <div class="goods-img">
+                            <img src="../Assets/Imgs/05.jpg" />
+                        </div>
+                        <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                        <div class="goods-price">
+                            <b>&#165;234.2</b>
+                            <div>23432人付款</div>
+                        </div>
+                        <span class="goods-item-badge">9.3折</span>
+                    </li>*@
+
+            </ul>
+
+            <!--底部分隔-->
+            <div style="padding-bottom: 80px;">
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <a href="../Mall/Index" class="nav-current">
+            <img src="../Assets/Imgs/Icon/navhome_red.png" />
+            首页
+        </a>
+        <a href="../Mall/GoodsType">
+            <img src="../Assets/Imgs/Icon/navtype.png" />
+            分类
+        </a>
+        <a href="../Buyer/BuyerMsg">
+            <img src="../Assets/Imgs/Icon/navmsg.png" />
+            消息
+            <div class="badge-div" style="display:none;">3</div>
+        </a>
+        <a href="../Scart/Index">
+            <img src="../Assets/Imgs/Icon/navscart.png" />
+            购物车
+            <div class="badge-div" style="display:none;">3</div>
+        </a>
+        <a href="../Buyer/Index">
+            <img src="../Assets/Imgs/Icon/navmy.png" />
+            我的
+            <div class="badge-div" style="display:none;">3</div>
+        </a>
+    </div>
+
+
+
+
+</body>
+</html>

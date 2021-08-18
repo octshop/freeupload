@@ -1,0 +1,136 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>银行转账</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Order/BankTransfer.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Order/BankTransfer.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBillNum" value="@ViewBag.BillNum" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <input type="hidden" id="hidUploadGuid" value="@ViewBag.ImgKeyGuid" />
+
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>银行转账</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="logo-img">
+            <img src="../Assets/Imgs/transferlogo.png" />
+        </div>
+
+        <!--平台官方汇款账号信息-->
+        <div class="shop-transfer">
+            <div class="shop-transfer-title">
+                <b>平台官方汇款账号信息</b>
+            </div>
+            <ul>
+                <li>
+                    <span class="span-field">账户名：</span>
+                    <span id="BankAccName">平台运营某某公司</span>
+                </li>
+                <li>
+                    <span class="span-field">银行账号：</span>
+                    <span id="BankAccount">62284811003156596545</span>
+                </li>
+                <li>
+                    <span class="span-field">开户银行：</span>
+                    <span id="OpenAccBank">工商银行长沙市人民路支付行</span>
+                </li>
+                <li>
+                    <span class="span-field">汇款金额：</span>
+                    <span class="span-money" id="TotalOrderPrice">&#165; 2003.23</span>
+                </li>
+                <li class="li-memo">
+                    <span class="span-field">汇款备注：</span>
+                    <span id="TransMemo">商城商品购买 - 订单：<a href="#">23432432</a>，<a href="#">23423432</a>，<a href="#">23423432</a></span>
+                </li>
+                <!--<li style="text-align:center;">
+                    <input type="button" class="btn-other-transfer" value="其他银行汇款账号信息" />
+                </li>-->
+            </ul>
+        </div>
+        <!--买家汇款确认信息-->
+        <div class="shop-transfer buyer-transfer">
+            <div class="shop-transfer-title">
+                <b>买家汇款确认信息</b>
+            </div>
+            <ul>
+                <li>
+                    <span class="span-field">汇款账户名：</span>
+                    <input type="text" id="BuyerBankName" value="" placeholder="输入汇款银行账户名称" />
+                </li>
+                <li>
+                    <span class="span-field">汇款银行账号：</span>
+                    <input type="text" id="BuyerBankAcc" value="" placeholder="输入汇款银行账号" />
+                </li>
+                <li>
+                    <span class="span-field">汇款银行名称：</span>
+                    <input type="text" id="BankName" value="" placeholder="如:工商银行" />
+                </li>
+                <li>
+                    <span class="span-field">上传汇款凭证：</span>
+                    <span style="width: 80px; color:#a0a0a0">如:汇款回单</span>
+
+                    <div class="upload-img-file" style="position:relative">
+                        <img class="upload-camera" src="../Assets/Imgs/Icon/camera.png" />
+                        <input id="fileupload_0" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 120px; height:50px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                    </div>
+
+                </li>
+                <li class="bank-list-li">
+                    <a href="../Assets/Imgs/banklist.png" id="TransCertImgA" target="_blank"><img src="" id="TransCertImg" /></a>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+
+        <input type="button" class="btn-submit-transfer" id="BtnSubmitTransfer" value="提交汇款确认信息" onclick="submitPayTransRecord()" />
+
+    </div>
+
+
+</body>
+</html>

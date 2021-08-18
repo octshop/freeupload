@@ -1,0 +1,152 @@
+﻿/*==============买家消息==============================*/
+.oct-header {
+    height: 85px;
+    background: #F7F7F7;
+    overflow:hidden;
+    border:none;
+}
+/*主体内容*/
+.oct-content {
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 80px;
+    padding-top: 88px;
+}
+
+/*Tab选项卡*/
+ .tab-list {
+    width: 100%;
+    padding: 10px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 5px;
+    padding-bottom: 0;
+}
+.tab-item {
+    text-align:center;
+    position:relative;
+}
+.tab-item img {
+    width: 45px;
+    height: 40px;
+    display:block;
+    margin: 0 auto;
+}
+.bage-num{
+    position:absolute;
+    top: -3px;
+    right: -3px;
+    background: #ff0000;
+    border-radius: 50%;
+    color: #ffffff;
+     width: 15px;
+     height: 15px;
+     font-size: 10px;
+}
+/*当前选项卡*/
+.tab-item-current{
+    color: red;
+    border-bottom: 2px solid red;
+    padding-bottom: 5px;
+}
+
+
+/*订单列表*/
+.order-list {
+    margin-top: 8px;
+    background: #ffffff;
+    padding: 1px 5px;
+    border-radius: 5px;
+}
+
+    .order-list .order-item {
+        background: white;
+        margin-bottom: 10px;
+    }
+
+.order-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.order-status-txt {
+    color: red;
+}
+/*商品列表*/
+.order-item-mid {
+    background: #FAFAFA;
+    padding: 0 5px;
+}
+
+.order-goods-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 1px dashed #f4f4f4;
+}
+
+.goods-item-left {
+    padding-right: 10px;
+}
+
+    .goods-item-left img {
+        width: 55px;
+        height: 55px;
+        border-radius: 2px;
+    }
+
+.goods-item-mid {
+    width: 100%;
+    padding-right: 5px;
+}
+
+    .goods-item-mid span {
+        display: block;
+    }
+
+.goods-item-spec {
+    color: gray;
+    font-size: 10px;
+}
+
+.goods-item-right {
+    text-align: right;
+}
+.msg-date-time{
+    color: #b5b5b5;
+}
+/*咨询消息*/
+.customer-list {
+    background: white;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding: 5px;
+    margin-top: 8px;
+    border-radius: 5px;
+}
+.customer-list-left {
+
+}
+.customer-list-right {
+    width: 100%;
+}
+.customer-list-left img {
+    width: 55px;
+    height: 55px;
+    border-radius: 5px;
+    margin-right: 8px;
+}
+.customer-right-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.customer-right-bottom {
+    color: #b5b5b5;
+}

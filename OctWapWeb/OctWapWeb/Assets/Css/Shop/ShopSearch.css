@@ -1,0 +1,66 @@
+﻿/*===============店铺搜索=================*/
+.oct-header{
+    align-items:center;
+    padding: 22px 6px;
+}
+.oct-header-mid {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.oct-header-right{
+    width: 60px;
+    font-size: 14px;
+    color: #808080;
+}
+.oct-header-mid .header-search {
+    width: 100%;
+    background: #dbdbdb;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    justify-content: space-between;
+    padding-top:10px;
+    height:30px;
+    color:#3b3b3b;
+    font-weight:normal;
+}
+.header-search img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.header-search input {
+    border: none;
+    background: #dbdbdb;
+    width: 100%;
+}
+/*搜索提示*/
+.search-result{
+    padding: 6px;
+}
+.search-result-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+}
+.search-result-title img{
+    width: 20px;
+    height: 20px;
+    margin-top: -3px;
+}
+.search-result-content{
+    padding: 6px;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+}
+.result-item{
+    background: #dbdbdb;
+    margin-right:15px;
+    padding:3px 10px;
+    border-radius:15px;
+    margin-bottom:10px;
+    font-size: 10px;
+}

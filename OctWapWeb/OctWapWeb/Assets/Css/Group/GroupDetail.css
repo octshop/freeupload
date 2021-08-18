@@ -1,0 +1,90 @@
+﻿/*=================拼团商品详情===================*/
+.oct-footer .btn-scart, .oct-footer .btn-order {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    font-weight: normal;
+  }
+.oct-footer div{
+    font-size:12px;
+    font-weight:normal;
+}
+
+/*弹出窗口*/
+ .win-btn-list .win-btn-order {
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+}
+.win-btn-list div div {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+/*拼团列表*/
+.group-list{
+    margin-top:8px;
+    background:white;
+}
+.group-user-title{
+    display:flex;
+    justify-content:space-between;
+    font-size:14px;
+    padding: 10px;
+    align-items:center;
+    border-bottom: 1px solid #e6e6e6;
+}
+.user-title-more {
+    font-size: 12px;
+    color: gray;
+    cursor: pointer;
+}
+.group-user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px dashed #f5f5f5;
+}
+.user-item-left{
+    width: 100%;
+}
+.user-item-mid{
+    width: 280px;
+    font-size:10px;
+    text-align:center;
+}
+.user-item-mid-top{
+    font-size:12px;
+}
+    .user-item-mid-top b{
+        color: red;
+        font-weight:normal;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    .user-item-left img {
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+    }
+.btn-join-group{
+    background:#ff4040;
+    color:white;
+    border:none;
+    border-radius: 20px;
+    padding:5px 20px;
+    font-size:12px;
+}
+/*正在拼单窗口*/
+.win-groupuser-content{
+    padding: 8px;
+}
+.win-groupuser-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.am-close{
+    margin-top: -1px;
+}

@@ -1,0 +1,177 @@
+﻿/*==================商品信息=====================*/
+
+.table-content .td-hint-status {
+    color: red;
+    text-align: right;
+    padding: 5px;
+}
+
+
+/*添加规格，价格，库存窗口*/
+.goods-pricespec-content {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+/*规格表单*/
+.goods-pricespec-form {
+    height: 550px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 30px;
+}
+
+.goods-pricespec-item {
+    border: 1px solid #e2e2e2;
+    padding: 0px;
+    padding-top: 0;
+    border-radius: 5px;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+}
+
+.goods-pricespec-title {
+    padding: 15px 0;
+    text-align: center;
+    background: #f6f6f6;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+    .goods-pricespec-title span {
+        padding-right: 10px;
+    }
+
+    .goods-pricespec-title .pricespec-title-left {
+        margin-right: 40px;
+    }
+
+.pricespec-title, .spec-name-txt {
+    padding: 4px 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.pricespec-item-title {
+    display: flex;
+    align-items: center;
+    margin-top: -8px;
+    margin-bottom: -8px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+    .pricespec-item-title label {
+        margin-bottom: -1px;
+    }
+
+    .pricespec-item-title span {
+        padding-right: 10px;
+    }
+
+    .pricespec-item-title .spec-name-txt {
+        width: 132px;
+    }
+
+    .pricespec-item-title .spec-title-pricestock {
+        width: 60px;
+        margin-right: 15px;
+    }
+
+.pricespec-pre-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    border: 1px solid #ebebeb;
+    margin-right: 8px;
+}
+
+.pricespec-prop-list {
+    background: #fafafa;
+    padding: 0 10px;
+}
+
+.pricespec-prop-item {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 38px;
+    overflow: hidden;
+}
+
+    .pricespec-prop-item .spec-name-txt {
+        width: 65px;
+        margin-left: 8px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+
+    .pricespec-prop-item .spec-prop-name-txt {
+        width: 100px;
+    }
+
+.pricespec-prop-add {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    text-align: center;
+    border-top: 1px solid #ebebeb;
+    padding-top: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+    .pricespec-prop-add div {
+        width: 50%;
+        color: black;
+    }
+
+.btn-prop-add {
+    border-right: 1px solid #d0d0d0;
+}
+/*按钮区域*/
+.goods-pricespec-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    border-top: 1px solid #e2e2e2;
+    width: 100%;
+    padding-top: 8px;
+}
+
+    .goods-pricespec-btn input {
+        border: none;
+        background: none;
+        width: 49%;
+        color: gray;
+        font-size: 14px;
+        color: black;
+    }
+
+    .goods-pricespec-btn .pricespec-add-btn {
+        border-right: 1px solid #e2e2e2;
+    }
+
+.am-form-file {
+    margin-top: 20px;
+}
+
+    .am-form-file button {
+        font-size: 12px;
+    }
+
+
+#btnCustomDialogWinOk, #btnCustomDialogWinCancel{
+    padding-bottom: 10px;
+}
+
+.table-content tr td .label-span {
+    border-radius: 20px;
+    color: white;
+    background: red;
+    font-size: 8px;
+    padding: 0 5px;
+}

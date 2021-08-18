@@ -1,0 +1,94 @@
+<!--pages/buyer/banktransfer/banktransfer.wxml-->
+<form bindsubmit="submitPayTransRecord">
+
+  <view class="nav-bar-content">
+    <navBar id="NavBar" class="nav-bar" title-text="银行转账" back-icon="/assets/imgs/icons/navbar_back.png"
+      home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+  </view>
+
+  <!-- 主体内容  -->
+  <view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+    <view class="logo-img">
+      <image src="{{apiWebDoamin}}/Assets/Imgs/transferlogo.png" />
+    </view>
+
+    <!--平台官方汇款账号信息-->
+    <view class="shop-transfer content-list">
+      <view class="shop-transfer-title">
+        <text>平台官方汇款账号信息</text>
+      </view>
+      <view class="content-list">
+        <view class="content-item">
+          <text class="span-field">账户名：</text>
+          <text id="BankAccName">{{initPayTransBankMsg_Data.PayTransBankMsg.BankAccName}}</text>
+        </view>
+        <view class="content-item">
+          <text class="span-field">银行账号：</text>
+          <text id="BankAccount">{{initPayTransBankMsg_Data.PayTransBankMsg.BankAccount}}</text>
+        </view>
+        <view class="content-item">
+          <text class="span-field">开户银行：</text>
+          <text id="OpenAccBank">{{initPayTransBankMsg_Data.PayTransBankMsg.OpenAccBank}}</text>
+        </view>
+        <view class="content-item">
+          <text class="span-field">汇款金额：</text>
+          <text class="span-money" id="TotalOrderPrice">￥ {{initPayTransBankMsg_Data.OrderMsg.TotalOrderPrice}}</text>
+        </view>
+        <view class="li-memo content-item">
+          <text class="span-field">汇款备注：</text>
+          <view id="TransMemo">订单：
+            <navigator url="../../../pages/buyer/orderdetail/orderdetail?OID={{item}}"
+              wx:for="{{orderIDArr}}">{{item}},
+            </navigator>
+          </view>
+        </view>
+        <!--<li style="text-align:center;">
+                    <input type="button" class="btn-other-transfer" value="其他银行汇款账号信息" />
+                </li>-->
+      </view>
+    </view>
+    <!--买家汇款确认信息-->
+    <view class="shop-transfer buyer-transfer">
+      <view class="shop-transfer-title">
+        <text>买家汇款确认信息</text>
+      </view>
+      <view class="content-list">
+        <view class="content-item">
+          <text class="span-field">汇款账户名：</text>
+          <input type="text" name="BuyerBankName" value="{{initPayTransBankMsg_Data.InitPayTransRecord.BuyerBankName}}"
+            placeholder="输入汇款银行账户名称" />
+        </view>
+        <view class="content-item">
+          <text class="span-field">汇款银行账号：</text>
+          <input type="text" name="BuyerBankAcc" value="{{initPayTransBankMsg_Data.InitPayTransRecord.BuyerBankAcc}}"
+            placeholder="输入汇款银行账号" />
+        </view>
+        <view class="content-item">
+          <text class="span-field">汇款银行名称：</text>
+          <input type="text" name="BankName" value="{{initPayTransBankMsg_Data.InitPayTransRecord.BankName}}"
+            placeholder="如:工商银行" />
+        </view>
+        <view class="content-item">
+          <text class="span-field">上传汇款凭证：</text>
+          <text style="width: 80px; color:#a0a0a0">如:汇款回单</text>
+
+          <view class="upload-img-file" style="position:relative" bindtap="btnUploadImg">
+            <image class="upload-camera" src="{{apiWebDoamin}}/Assets/Imgs/Icon/camera.png" />
+          </view>
+
+        </view>
+        <view class="bank-list-li content-item">
+          <image wx:if="{{outUploadImgPath!=''}}" src="//{{outUploadImgPath}}" id="TransCertImg"
+            bindtap="previewImgShow" data-img-url="{{outUploadImgPath}}" />
+        </view>
+      </view>
+    </view>
+
+    <view class="oct-footer">
+      <button class="btn-submit-transfer" form-type="submit">提交汇款确认信息</button>
+    </view>
+
+  </view>
+
+</form>

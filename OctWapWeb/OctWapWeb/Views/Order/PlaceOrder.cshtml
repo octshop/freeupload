@@ -1,0 +1,586 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>确认订单</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Order/PlaceOrder.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Js/Order/PlaceOrder.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidOrderGuid" value="@ViewBag.OrderGuid" />
+    <input type="hidden" id="hidGoodsID" value="@ViewBag.GoodsID" />
+    <input type="hidden" id="hidOrderNum" value="@ViewBag.OrderNum" />
+    <input type="hidden" id="hidSpecID" value="@ViewBag.SpecID" />
+    <input type="hidden" id="hidInvoiceGuid" value="@ViewBag.InvoiceGuid" />
+    <input type="hidden" id="hidShopUserID" value="" />
+    <input type="hidden" id="hidExpressType" value="" />
+    <!--拼团相关-->
+    <input type="hidden" id="hidGroupSettingID" value="@ViewBag.GroupSettingID" />
+    <input type="hidden" id="hidIsGroup" value="@ViewBag.IsGroup" />
+    <input type="hidden" id="hidGroupID" value="@ViewBag.GroupID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>确认订单</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--限时秒杀-->
+        <div class="sec-kill-title" id="SecKillTitle" style="display:none;">
+            <div class="sec-kill-left" id="SecKillLeft">
+                <img src="../Assets/Imgs/Icon/clocktimer.png" />
+                限时秒杀
+            </div>
+            <div class="sec-kill-mid" id="SecKillMid">
+                <span>21</span>天
+                <span>21</span>:
+                <span>10</span>:
+                <span>26</span>
+            </div>
+            <div class="sec-kill-right">
+                <div class="sec-kill-right-top">
+                    仅剩 <span id="SkStockNum">0</span> 件
+                </div>
+                <div class="sec-kill-right-bottom">
+                    已抢 <span id="SkSaleNum">0</span> 件
+                </div>
+            </div>
+        </div>
+
+        <!--拼团条-->
+        <div class="sec-kill-title" id="GroupTitle" style="display:none;">
+            <div class="sec-kill-left" id="SecKillLeft">
+                <img src="../Assets/Imgs/Icon/buyer_group_white.png" style="width: 35px;" />
+                拼团
+            </div>
+            <div class="sec-kill-mid" id="SecKillMid">
+
+            </div>
+            <div class="sec-kill-right">
+                <div class="sec-kill-right-top">
+                    已拼 <span id="GroupSaleNum">1020</span> 件
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--选择收货地址-->
+        <div class="sel-addr oct-section" id="SelAddrClick" onclick="window.location.href='../Buyer/ReceiAddrList?BackUrl=@ViewBag.SelAddrBackHref'">
+            <div class="sel-addr-left">
+                &nbsp;
+            </div>
+            <div class="sel-addr-mid">
+                <div class="addr-mid-1">
+                    <div class="addr-mid-1-left" id="ReceiNameDiv">
+                        收货人：小黄人
+                    </div>
+                    <div class="addr-mid-1-right" id="MobileDiv">
+                        13203156008
+                    </div>
+                </div>
+                <div class="addr-mid-2" id="RegionDetailAddrDiv">
+                    收货地址：湖南省长沙市长沙县开元西路12号筑梦园5xxskw
+                </div>
+            </div>
+            <div class="sel-addr-right">
+                &nbsp;
+            </div>
+        </div>
+
+        <!--到店消费/自取  店铺地址-->
+        <div class="shop-addr-nav" id="ShopAddrNav" style="display:none;">
+            <div class="shop-addr-nav-left">
+                <span>店铺地址:</span><br />
+                <img src="../Assets/Imgs/Icon/address.png" />
+                <b style="color:#cb0000" id="DistanceKmB">2.4km</b>
+            </div>
+            <div class="shop-addr-nav-mid" id="ShopAddrDetailDiv">
+                湖南省长沙市长沙县开元西路w82号湖南省长沙市长长沙县开元西路w82号
+            </div>
+            <div class="shop-addr-nav-right">
+                <a href="javascript:openShopNavWin()">
+                    <img src="../Assets/Imgs/Icon/addr_nav.png" /><br />
+                    导航
+                </a>
+            </div>
+        </div>
+
+
+        <!--订单列表-->
+        <div class="oct-section order-list">
+
+            <div class="order-item-title" id="OrderItemTitle">
+                <a href="#" target="_blank">店铺的名称店铺的名称</a>
+            </div>
+
+            <div class="scart-item-goods">
+                <div class="item-goods-mid" id="GoodsImgDiv">
+                    <!--<a href="#" target="_blank">
+                    <img src="../Assets/Imgs/02.jpg" />
+                </a>-->
+                </div>
+                <div class="item-goods-right">
+                    <ul>
+                        <li>
+                            <span id="GoodsTitleSpan">名称商品的名称品的</span>
+                        </li>
+                        <li class="goods-right-spec">
+                            <span id="SpecParamValSpan">规格参数</span>
+                        </li>
+                        <li class="goods-right-price">
+                            <div class="goods-price" id="GoodsPriceDiv">
+                                &#165;0.0
+                            </div>
+                            <div class="goods-txt-number">
+                                <input class="btn-reduce" type="button" value="-" onclick="addReduceOrderNum('Reduce')" />
+                                <input class="input-order-number" id="OrderNum" type="number" value="1" onblur="chgOrderNumTxt()" />
+                                <input class="btn-add" type="button" value="+" onclick="addReduceOrderNum('Add')" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--<div class="scart-item-goods">
+            <div class="item-goods-mid">
+                <a href="#">
+                    <img src="../Assets/Imgs/02.jpg" />
+                </a>
+            </div>
+            <div class="item-goods-right">
+                <ul>
+                    <li>
+                        名称商品的名称品的名称商品的名称 名称商品的名称品的名称商品的名称
+                    </li>
+                    <li class="goods-right-spec">
+                        规格参数
+                    </li>
+                    <li class="goods-right-price">
+                        <div class="goods-price">
+                            &#165;234.24
+                        </div>
+                        <div class="goods-txt-number">
+                            <input class="btn-reduce" type="button" value="-" />
+                            <input class="input-order-number" type="number" value="1" />
+                            <input class="btn-add" type="button" value="+" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>-->
+
+
+            <div class="express-type">
+                <div class="express-type-top">
+                    <div>配送方式</div>
+                    <div class="express-type-val" id="ExpressTypeValDiv">送货上门(快递)</div>
+                </div>
+                <div class="express-type-bottom">
+                    <div class="express-type-current" id="ExpressValDiv" onclick="chgIsShopExpense('false')">
+                        送货上门(快递)
+                    </div>
+                    <div id="ShopToValDiv" onclick="chgIsShopExpense('true')">
+                        到店消费/自取
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="freight-main">
+                <div>
+                    运费
+                </div>
+                <div class="freight-price">
+                    <b id="FreightValB">&#165;0.0</b>
+                </div>
+            </div>*@
+
+            @*<div class="invoice" onclick="openInvoiceWin()">
+                <div>
+                    发票
+                </div>
+                <div class="invoice-val" id="InvoiceValDiv">
+                    不开发票
+                </div>
+            </div>*@
+
+            <div class="ticket" id="CouponsMsgDiv">
+                <div>
+                    优惠券
+                </div>
+                <div class="ticket-val" onclick="openUseTicketWin()">
+                    <span id="CouponsMsgSpan">满18减2元<b>&#165;-0.0 </b></span>
+                </div>
+            </div>
+
+            <div class="buyer-memo">
+                <div>留言</div>
+                <div class="buyer-memo-val">
+                    <input type="text" id="OrderMemo" value="" placeholder="给商家的留言信息" />
+                </div>
+            </div>
+
+            <div class="sum-price">
+                共<b id="OrderNumB">2</b>件商品,小计：<b class="sum-price-content" id="SumPriceContentDiv">&#165; 0.0</b>
+            </div>
+
+        </div>
+
+        <!--订单列表
+    <div class="oct-section order-list">
+
+        <div class="order-item-title">
+            <a href="#">店铺的名称店铺的名称</a>
+        </div>
+
+        <div class="scart-item-goods">
+            <div class="item-goods-mid">
+                <a href="#">
+                    <img src="../Assets/Imgs/02.jpg" />
+                </a>
+            </div>
+            <div class="item-goods-right">
+                <ul>
+                    <li>
+                        名称商品的名称品的名称商品的名称 名称商品的名称品的名称商品的名称
+                    </li>
+                    <li class="goods-right-spec">
+                        规格参数
+                    </li>
+                    <li class="goods-right-price">
+                        <div class="goods-price">
+                            &#165;234.24
+                        </div>
+                        <div class="goods-txt-number">
+                            <input class="btn-reduce" type="button" value="-" />
+                            <input class="input-order-number" type="number" value="1" />
+                            <input class="btn-add" type="button" value="+" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="scart-item-goods">
+            <div class="item-goods-mid">
+                <a href="#">
+                    <img src="../Assets/Imgs/02.jpg" />
+                </a>
+            </div>
+            <div class="item-goods-right">
+                <ul>
+                    <li>
+                        名称商品的名称品的名称商品的名称 名称商品的名称品的名称商品的名称
+                    </li>
+                    <li class="goods-right-spec">
+                        规格参数
+                    </li>
+                    <li class="goods-right-price">
+                        <div class="goods-price">
+                            &#165;234.24
+                        </div>
+                        <div class="goods-txt-number">
+                            <input class="btn-reduce" type="button" value="-" />
+                            <input class="input-order-number" type="number" value="1" />
+                            <input class="btn-add" type="button" value="+" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="express-type">
+            <div class="express-type-top">
+                <div>配送方式</div>
+                <div class="express-type-val">送货上门(快递)</div>
+            </div>
+            <div class="express-type-bottom">
+                <div class="express-type-current">
+                    送货上门(快递)
+                </div>
+                <div>
+                    到店消费/到店自取
+                </div>
+            </div>
+        </div>
+
+        <div class="freight-main">
+            <div>
+                运费
+            </div>
+            <div class="freight-price">
+                <b>&#165;25.21</b>
+            </div>
+        </div>
+
+        <div class="invoice">
+            <div>
+                发票
+            </div>
+            <div class="invoice-val">
+                不开发票
+            </div>
+        </div>
+
+        <div class="ticket">
+            <div>
+                优惠券
+            </div>
+            <div class="ticket-val" onclick="openUseTicketWin()">
+                满18减2元<b>&#165;-25.30 </b>
+            </div>
+        </div>
+
+        <div class="buyer-memo">
+            <div>留言</div>
+            <div class="buyer-memo-val">
+                <input type="text" value="" placeholder="给商家的留言信息" />
+            </div>
+        </div>
+
+        <div class="sum-price">
+            共<b>2</b>件商品,小计：<b class="sum-price-content">&#165; 234.234</b>
+        </div>
+
+    </div>-->
+
+
+
+
+    </div>
+
+
+
+    <!--页脚-->
+    <div class="oct-footer">
+
+        <div class="oct-footer-txt">
+            总计金额：<b id="SumOrderPriceB">&#165; 0.0 </b>
+        </div>
+        <div class="oct-footer-btn" onclick="submitOrderMsg()">
+            提交订单
+        </div>
+
+    </div>
+
+
+
+
+    <!--使用优惠券窗口-->
+    <div class="win-get-ticket" id="WinGetTicket" style="display:none;">
+
+        <div class="win-ticket-content">
+
+            <div class="win-ticket-title">
+                优惠券
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-ticket-integral">
+                <div>
+                    可使用优惠券
+                </div>
+                <div>
+                    <b id="CouponsSumB">0</b> 张
+                </div>
+            </div>
+            <div class="win-ticket-list" id="WinTicketList">
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>&#165;562</b> 店铺券 </li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (120天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即使用
+                    </div>
+                </div>
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>9.5折</b> 店铺折扣券</li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即使用
+                    </div>
+                </div>
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>&#165;563</b> 商城券</li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即使用
+                    </div>
+                </div>
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>&#165;563</b> 商城券 </li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即使用
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--选择支付窗口-->
+    <div class="win-sel-pay" id="WinSelPay" style="display:none;">
+
+        <div class="win-pay-content">
+            <div class="win-pay-title">
+                确认付款
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-pay-val">
+                <b id="OrderPriceBPayWin">&#165; 293.23</b>
+            </div>
+            <ul class="win-pay-list">
+                <li class="win-pay-item" onclick="chgPayType('WeiXinPay')">
+                    <div class="pay-item-left pay-item-wx">
+                        微信支付
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_yes.png" id="PayTypeImg_WeiXinPay" class="pay-type-img" />
+                    </div>
+                </li>
+                <li class="win-pay-item" onclick="chgPayType('Alipay')">
+                    <div class="pay-item-left pay-item-alipay">
+                        支付宝
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_no.png" class="pay-type-img" id="PayTypeImg_Alipay" />
+                    </div>
+                </li>
+                <li class="win-pay-item" onclick="chgPayType('Balance')">
+                    <div class="pay-item-left pay-item-balance">
+                        余额支付 <b id="CurrentBalanceB">&#165;0.00</b>
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_no.png" class="pay-type-img" id="PayTypeImg_Balance" />
+                    </div>
+                </li>
+                <li class="win-pay-item" id="PayIntegralLi" onclick="chgPayType('Integral')">
+                    <div class="pay-item-left pay-item-integral">
+                        积分支付 <b id="CurrentIntegralB">0.00</b>
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_no.png" class="pay-type-img" id="PayTypeImg_Integral" />
+                    </div>
+                </li>
+                <li class="win-pay-item" id="PayDeliveryLi" onclick="chgPayType('PayDelivery')">
+                    <div class="pay-item-left pay-item-delivery">
+                        货到付款
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_no.png" class="pay-type-img" id="PayTypeImg_PayDelivery" />
+                    </div>
+                </li>
+                <li class="win-pay-item" id="PayOfflineLi" onclick="chgPayType('Offline')">
+                    <div class="pay-item-left pay-item-shop">
+                        到店付
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_no.png" class="pay-type-img" id="PayTypeImg_Offline" />
+                    </div>
+                </li>
+                <li class="win-pay-item" id="PayTransferLi" onclick="chgPayType('Transfer')">
+                    <div class="pay-item-left pay-item-bank">
+                        银行转账
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_no.png" class="pay-type-img" id="PayTypeImg_Transfer" />
+                    </div>
+                </li>
+            </ul>
+            <div class="win-pay-btn">
+                <input type="button" value="立即付款" id="BtnPay" onclick="goPay()" />
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <!--选择店铺导航地图-->
+    <div class="win-sel-shopnav" id="WinSelShopNav" style="display:none;">
+        <div class="win-shopnav-content">
+            <ul>
+                <li class="shopnav-title-li">
+                    选择导航地图
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="qqmapA">腾讯地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="amapA">高德地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="bdmapA">百度地图</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="toggleSilderDownWin()" style="color: #000000; padding-bottom: 20px;">取消</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

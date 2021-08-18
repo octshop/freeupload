@@ -1,0 +1,88 @@
+﻿/*==================浏览足迹==============================*/
+
+.oct-content {
+    margin-top: 40px;
+}
+
+.history-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #F7F7F7;
+    padding: 10px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    background: white;
+}
+.history-item-right{
+    width: 100%;
+}
+.history-item-right div {
+    padding-top: 2px;
+}
+
+.history-item-left {
+    margin-right: 8px;
+}
+
+    .history-item-left img {
+        width: 80px;
+        height: 80px;
+    }
+
+.history-item-mid {
+    color: #c8c8c8
+}
+
+.history-item-bottom {
+    color: #FE5C13;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-same {
+    border: 1px solid #c8c8c8;
+    border-radius: 20px;
+    background: no-repeat;
+    color: #c8c8c8;
+    font-size: 12px;
+}
+
+.btn-scart {
+    border: 1px solid #FF6700;
+    padding: 0px 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+
+    .btn-scart img {
+        width: 15px;
+        height: 15px;
+    }
+
+.history-title {
+    margin-top: 8px;
+}
+
+
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 38px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}
+
+

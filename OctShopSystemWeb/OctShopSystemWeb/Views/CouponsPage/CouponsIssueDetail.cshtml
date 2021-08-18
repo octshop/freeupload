@@ -1,0 +1,135 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>优惠券发放详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/CouponsPage/CouponsIssueDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/CouponsPage/CouponsIssueDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidIssueID" value="@ViewBag.IssueID" />
+
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=优惠券">优惠券</a></li>
+            <li class="am-active">优惠券发放详情</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 优惠券发放详情
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding">
+            <div class="order-status">
+                <div class="order-status-title">
+                    <val id="StatusTtitle"></val>
+                </div>
+                <div class="order-status-desc">
+                    <val id="StatusDesc"></val>
+                </div>
+            </div>
+            <dl class="order-basic">
+                <dt>基本信息</dt>
+                <dd class="user-msg-dd">
+                    <span><img id="HeaderImg" src="#" /></span><val id="UserNick">用户昵称</val>
+                    <span>绑定手机：</span><val id="BindMobile"></val>
+                    <span>买家UserID：</span><val id="BuyerUserID"></val>
+                </dd>
+                <dd>
+                    <span>券号：</span><val id="IssueID"></val>
+                    <span>优惠券ID：</span><val id="CouponsID">
+                 
+                    </val>
+                    <span>使用：</span><val id="IsUsed">
+                  
+                    </val>
+                    <span>使用时间：</span><val id="UsedTime"></val>
+                </dd>
+                <dd>
+                    <span>锁定：</span><val id="IsLock">
+                      
+                    </val>
+                    <span>可使用时间范围：</span><val id="UseTimeRange"></val>
+                    <span>领取时间：</span><val id="WriteDate"></val>
+                </dd>
+                <dt>优惠券信息</dt>
+                <dd>
+                    <span>标题：</span><val id="CouponsTitle"></val>
+                    <span>描述：</span><val id="CouponsDesc">
+                      
+                    </val>
+                </dd>
+                <dd>
+                    <span>抵用金额：</span><val id="UseMoney">
+                        &#165;
+                    </val>
+                    <span>抵用折扣：</span><val id="UseDiscount">
+                       
+                    </val>
+                    <span>线下使用：</span><val id="IsOfflineUse">
+                     
+                    </val>
+                </dd>
+            </dl>
+
+            <dl class="order-basic">
+                <dt id="OrderDt">使用订单信息</dt>
+                <dd>
+                    <span>订单ID：</span><val id="OrderID"></val>
+                    <span>订单状态：</span><val id="OrderStatus"></val>
+                    <span>订单金额：</span><val id="OrderPrice">&#165;</val>
+                    <span>订单抵用金额：</span><val id="OrderUseMoney">&#165;</val>
+                    <span>已使用券号：</span><val id="IssueIDArr"> </val>
+                </dd>
+                <dd>
+                    <span></span><a href="#" id="SeeOrderDetail" target="_blank">查看订单详情</a>
+                </dd>
+            </dl>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+</html>

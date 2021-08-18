@@ -1,0 +1,490 @@
+<!--pages/buyer/orderdetail/orderdetail.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="订单详情" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--Logo区-->
+	<view class="logo-content">
+		<view class="logo-left">
+			<b id="StatusTtitle">{{initOrderMsg_Data.OrderStatusDesc.StatusTtitle}}</b>
+			<view id="StatusDesc">
+				{{initOrderMsg_Data.OrderStatusDesc.StatusDesc}}
+			</view>
+		</view>
+		<view class="logo-right" id="StatusLogoImg">
+			<image src="{{apiWebDoamin}}{{statusLogoImgUrl}}" />
+		</view>
+	</view>
+
+	<!--赠送信息，积分或优惠券-->
+	<view class="giving-msg" id="GivingMsg"
+		style="display:{{initOrderMsg_Data.OrderGivingMsg.GivingMsgID > 0  ? 'normal':'none'}}">
+		<view wx:for="{{orderGivingMsgList}}">
+			{{item}}
+		</view>
+	</view>
+
+
+	<!--到店消费/自取验证码-->
+	<view class="check-code" style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待消费/自取' ? 'normal':'none'}};">
+		<view class="check-code-left">
+			<view>到店消费/自取-验证码</view>
+			<view class="check-order-id">订单ID：<text>{{initShopCheckOrderStatus_Data.DataDic.OrderID}}</text></view>
+			<view class="check-code-number"><text>{{initShopCheckOrderStatus_Data.DataDic.CheckCode}}</text></view>
+			<view>
+				<button type="default" class="btn-reset" bindtap="initShopCheckOrderStatus" data-is-re-set="true">重新生成</button>
+			</view>
+		</view>
+		<view class="check-code-right">
+			<image
+				src="{{apiWebDoamin}}/ToolWeb/GetQrCodeImg.aspx?QrCodeContent={{initShopCheckOrderStatus_Data.DataDic.ScanUrl}}"
+				bindtap="previewImgShow"
+				data-img-url="{{apiWebDoamin}}/ToolWeb/GetQrCodeImg.aspx?QrCodeContent={{initShopCheckOrderStatus_Data.DataDic.ScanUrl}}" />
+		</view>
+	</view>
+
+
+	<!--收货地址和快递信息-->
+	<view class="express-recei">
+		<navigator url="../orderdynamic/orderdynamic?OID={{orderId}}" class="express-msg">
+			<view class="express-msg-left">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/order_greentrucks.png"></image>
+			</view>
+			<view class="express-msg-mid">
+				<view class="express-mid-content" id="MsgContent">
+					{{initOrderMsg_Data.OrderSysMsg.MsgContent}}
+				</view>
+				<view class="express-mid-date" id="MsgWriteDate">
+					{{initOrderMsg_Data.OrderSysMsg.WriteDate}}
+				</view>
+			</view>
+			<view class="express-msg-right">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+			</view>
+		</navigator>
+		<!--收货地址-->
+		<view class="recei-msg" id="ReceiMsg"
+			style="display:{{initOrderMsg_Data.OrderMsg.ExpressType=='送货上门' ? 'normal' : 'none'}};">
+			<view class="recei-msg-left">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/order_addr.png"></image>
+			</view>
+			<view class="recei-msg-mid">
+				<view class="recei-msg-nametel">
+					<view id="DeliName">
+						{{initOrderMsg_Data.OrderDelivery.DeliName}}
+					</view>
+					<view id="Mobile">
+						{{initOrderMsg_Data.OrderDelivery.Mobile}}
+					</view>
+				</view>
+				<view class="recei-msg-addr" id="RegionDetailAddr">
+					{{initOrderMsg_Data.OrderDelivery.RegionNameArr}}_{{initOrderMsg_Data.OrderDelivery.DetailAddr}}
+				</view>
+			</view>
+			<view class="recei-msg-right" bindtap="navigateToURL" data-open-type="redirect"
+				data-navigate-url="../../../pages/buyer/receiaddr/receiaddrlist/receiaddrlist?type=sel&backurl=pages/buyer/orderdetail/orderdetail^OID~{{orderId}}"
+				style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待发货' || initOrderMsg_Data.OrderMsg.OrderStatus=='待付款' || initOrderMsg_Data.OrderMsg.OrderStatus=='待分享' ? 'normal' : 'none'}}; cursor:pointer;">
+				修<view></view>改
+			</view>
+		</view>
+
+		<!--到店消费/自取  店铺地址-->
+		<view class="shop-addr-nav" id="ShopAddrNav"
+			style="display:{{initOrderMsg_Data.OrderMsg.ExpressType=='到店消费/自取' ? 'normal' : 'none'}};">
+			<view class="shop-addr-nav-left">
+				<view>店铺地址:</view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/address.png" />
+				<b style="color:#cb0000" id="DistanceKmB">{{initOrderMsg_Data.ShopMsg.DistanceKm}}km</b>
+			</view>
+			<view class="shop-addr-nav-mid" id="ShopAddrDetailDiv">
+				{{initOrderMsg_Data.ShopMsg.RegionNameArr}}_{{initOrderMsg_Data.ShopMsg.DetailAddr}}
+			</view>
+			<view class="shop-addr-nav-right" bindtap="openMap" data-latitude="{{initOrderMsg_Data.ShopMsg.Latitude}}"
+				data-longitude="{{initOrderMsg_Data.ShopMsg.Longitude}}" data-name="{{initOrderMsg_Data.ShopMsg.ShopName}}"
+				data-address="{{initOrderMsg_Data.ShopMsg.RegionNameArr}}_{{initOrderMsg_Data.ShopMsg.DetailAddr}}">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/addr_nav.png" />
+				<view>导航</view>
+			</view>
+		</view>
+
+	</view>
+
+
+
+	<!--订单商品和价格区-->
+	<view class="order-list">
+		<view class="order-item">
+			<view class="order-item-top">
+				<navigator url="../../shop/index/index?SID={{initOrderMsg_Data.ShopMsg.ShopID}}" id="ShopNameA">
+					<image src="//{{initOrderMsg_Data.ShopMsg.ShopHeaderImg}}" />{{initOrderMsg_Data.ShopMsg.ShopName}}
+					<image class="arrows-right" src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" />
+				</navigator>
+				<view class="order-status-txt" id="OrderStatusDiv">
+					{{initOrderMsg_Data.OrderMsg.OrderStatus}}
+				</view>
+			</view>
+			<view class="order-item-mid" id="OrderGoodsListDiv">
+
+				<navigator url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}" class="order-goods-item"
+					wx:for="{{orderGoodsList.GoodsMsgArr}}">
+					<view class="goods-item-left">
+						<image src="//{{item.GoodsCoverImgPath}}" />
+					</view>
+					<view class="goods-item-mid">
+						<view class="goods-item-title">{{item.GoodsTitle}}</view>
+						<view class="goods-item-spec">{{item.SpecPropName}}</view>
+					</view>
+					<view class="goods-item-right">
+						<view class="goods-item-price">￥{{item.GoodsUnitPrice}}</view>
+						<view class="goods-item-ordernum">x {{item.OrderNum}}</view>
+					</view>
+				</navigator>
+
+			</view>
+			<view class="order-item-bottom">
+				<view class="order-goods-sum">
+					<view>
+						<view>
+							商品总价
+						</view>
+						<view id="SumTotalGoodsPrice">
+							￥ {{sumOrderGoodsPrice}}
+						</view>
+					</view>
+					<view>
+						<view>
+							运费
+						</view>
+						<view id="FreightMoneyDiv">
+							￥ {{initOrderMsg_Data.OrderMsg.FreightMoney}}
+						</view>
+					</view>
+					<view>
+						<view>
+							优惠券
+						</view>
+						<view id="UseMoneyDiv">
+							- ￥ {{initOrderMsg_Data.OrderMsg.UseMoney}}
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="order-item-sum">
+
+				<view class="order-sum-ul">
+					<view>
+						<view>
+							订单总额
+						</view>
+						<view id="OrderPriceDIv">
+							￥ {{initOrderMsg_Data.OrderMsg.OrderPrice}}
+						</view>
+					</view>
+					<view>
+						<view>
+							实付款
+						</view>
+						<view class="order-price-sum">
+							<text class="order-type-label"
+								style="display:{{initOrderMsg_Data.OrderMsg.GroupDiscount > 0 ? 'normal' : 'none'}};">拼团</text> <text
+								class="order-type-label"
+								style="display:{{initOrderMsg_Data.OrderMsg.SkDiscount > 0 ? 'normal' : 'none'}};">秒杀</text> <b
+								class="pay-price-b" id="PayOrderPriceB">￥
+								{{initOrderMsg_Data.OrderMsg.OrderPrice}}</b>
+						</view>
+					</view>
+				</view>
+
+			</view>
+		</view>
+	</view>
+
+	<!--发票信息-->
+	<view class="invoice-msg" bindtap="openSlideBottom">
+		<view class="invoice-msg-left">
+			发票类型
+		</view>
+		<view class="invoice-msg-right" id="OrderInvoiceDiv">
+			{{orderInvoiceShow}}
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+		</view>
+	</view>
+
+	<!--赠品信息-->
+	<view class="invoice-msg" bindtap="openSlideBottomGift">
+		<view class="invoice-msg-left">
+			赠品信息
+		</view>
+		<view class="invoice-msg-right" id="OrderInvoiceDiv">
+			共 {{orderGiftCount}} 件
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+		</view>
+	</view>
+
+
+	<!--客服与投诉-->
+	<view class="customer-complain">
+		<view class="customer-item" catchtap="buildBuyerGoToImSysURL_ShopWap">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/order_customer.png" />商家客服
+		</view>
+		<view class="tel-item" catchtap="makePhoneCall" data-phone-number="{{initOrderMsg_Data.ShopMsg.ShopMobile}}">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/order_tel.png" />拨打电话
+		</view>
+		<view class="complain-item" bindtap="navigateToURL"
+			data-navigate-url="../../../pages/buyer/complain/complainsubmit/complainsubmit?SID={{initOrderMsg_Data.ShopMsg.ShopID}}">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/order_complain.png" />投诉商家
+		</view>
+	</view>
+
+
+	<!--订单其他信息-->
+	<view class="order-other">
+
+		<view class="order-other-ul">
+			<view>
+				<view>订单ID</view>
+				<view class="order-other-val">
+					<b id="OrderIDB">{{initOrderMsg_Data.OrderMsg.OrderID}}</b>
+					<view class="btn-copy" bindtap="copyContentClipboard"
+						data-copy-content="{{initOrderMsg_Data.OrderMsg.OrderID}}">复制</view>
+				</view>
+			</view>
+			<view>
+				<view>下单时间</view>
+				<view class="order-other-val" id="OrderTimeDiv">
+					{{initOrderMsg_Data.OrderMsg.OrderTime}}
+				</view>
+			</view>
+			<view>
+				<view>支付方式</view>
+				<view class="order-other-val" id="PayWayDiv">
+					{{initOrderMsg_Data.OrderMsg.PayWay}}
+				</view>
+			</view>
+			<view>
+				<view>支付时间</view>
+				<view class="order-other-val" id="PayTimeDiv">
+					{{initOrderMsg_Data.OrderMsg.PayTime}}
+				</view>
+			</view>
+			<view>
+				<view>配送方式</view>
+				<view class="order-other-val" id="ExpressTypeDiv">
+					{{initOrderMsg_Data.OrderMsg.ExpressType}}
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+
+	<!--页脚-->
+	<view class="oct-footer">
+
+		<view style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待收货' ? 'none':'normal'}}" bindtap="navigateToURL"
+			data-navigate-url="../../../pages/buyer/complain/complainsubmit/complainsubmit?OID={{orderId}}">
+			投诉
+		</view>
+		<view
+			style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待付款' || initOrderMsg_Data.OrderMsg.OrderStatus=='待确认'  || initOrderMsg_Data.OrderMsg.OrderStatus=='到店付' || initOrderMsg_Data.OrderMsg.OrderStatus=='转账' ?'normal':'none'}}"
+			bindtap="cancelOrder">
+			取消订单
+		</view>
+		<view class="footer-btn-current" style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待付款' ?'normal':'none'}}"
+			bindtap="navigateToURL" data-navigate-url="../../../pages/buyer/orderpay/orderpay?OID={{orderId}}">
+			立即付款
+		</view>
+		<view
+			style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待确认' || initOrderMsg_Data.OrderMsg.OrderStatus=='到店付' || initOrderMsg_Data.OrderMsg.OrderStatus=='转账' ? 'normal':'none'}}"
+			bindtap="navigateToURL" data-navigate-url="../../../pages/buyer/orderpay/orderpay?OID={{orderId}}">
+			其他支付
+		</view>
+
+		<view class="footer-btn-current" style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='转账' ? 'normal':'none'}}"
+			bindtap="navigateToURL" data-navigate-url="../../../pages/buyer/banktransfer/banktransfer?BN={{billNumber}}">
+			转账汇款
+		</view>
+
+		<view class="footer-btn-current"
+			style="width:90px;display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待分享' ? 'normal':'none'}}">
+			<button open-type="share" plain="true">邀好友参团</button>
+		</view>
+
+
+		<view style="display:{{isShowRefundBtn ? 'normal':'none'}}" bindtap="applyRefund">
+			申请退款
+		</view>
+
+		<view style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待发货' ? 'normal':'none'}}" bindtap="remindSendGoods">
+			提醒发货
+		</view>
+
+		<view style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='退款中' ? 'normal':'none'}}" bindtap="remindRefund"
+			data-pay-way-name="{{initOrderMsg_Data.OrderMsg.PayWay}}">
+			提醒退款
+		</view>
+
+		<view style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待消费/自取' ? 'normal':'none'}}" bindtap="initOrderMsg">
+			刷新订单
+		</view>
+
+
+
+		<view style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待收货' ? 'normal':'none'}}" bindtap="navigateToURL"
+			data-navigate-url="../../buyer/expressdetail/expressdetail?OID={{orderId}}">
+			查看物流
+		</view>
+		<view style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待收货' ? 'normal':'none'}}" bindtap="delayReceiOrder">
+			延长收货
+		</view>
+		<view class="footer-btn-current" bindtap="confirmReceiOrder"
+			style="width:120px; display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待收货' ? 'normal':'none'}}">
+			确认收货{{confirmReceiReturnIntegralShow}}
+		</view>
+
+		<view
+			style="display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待评价' || initOrderMsg_Data.OrderMsg.OrderStatus=='完成' ? 'normal':'none'}}"
+			bindtap="navigateToURL" data-navigate-url="../../../pages/buyer/aftersale/asmulsel/asmulsel?OID={{orderId}}">
+			申请售后
+		</view>
+
+		<view class="footer-btn-current"
+			style="width:90px;display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='待评价' ? 'normal':'none'}}"
+			bindtap="navigateToURL" data-navigate-url="../../../pages/buyer/appraiseform/appraiseform?OID={{orderId}}">
+			立即评价+积分
+		</view>
+
+		<view class="footer-btn-current"
+			style="width:90px;display:{{initOrderMsg_Data.OrderMsg.OrderStatus=='完成' ? 'normal':'none'}}"
+			bindtap="navigateToURL" data-navigate-url="../../../pages/buyer/appraisedetail/appraisedetail?OID={{orderId}}">
+			查看评价
+		</view>
+
+
+	</view>
+
+
+</view>
+
+
+<!--申请发票窗口-->
+<sliderDownWin is-display-slide="{{isDisplaySlide}}" is-display-title="true" slide-win-height="{{slideBottomWinHeight}}"
+	slide-win-title="发票信息">
+	<view slot="outwxml">
+
+		<view class="win-invoice-list" style="height:{{slideBottomWinHeight}}px; overflow-x: hidden;overflow-y: auto;">
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					发票类型
+				</view>
+				<view class="win-invoice-right" id="InvoiceTypeDiv">
+					{{initOrderMsg_Data.OrderInvoice.InvoiceType == 'AddValue'? '增值税专用发票' :'普通发票'}}
+				</view>
+			</view>
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					发票抬头
+				</view>
+				<view class="win-invoice-right" id="InvoiceTitleDiv">
+					{{initOrderMsg_Data.OrderInvoice.InvoiceTitle == 'Company'? '企业' :'个人'}}
+				</view>
+			</view>
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					收票人手机
+				</view>
+				<view class="win-invoice-right" id="ReceiMobileDiv">
+					{{initOrderMsg_Data.OrderInvoice.ReceiMobile}}
+				</view>
+			</view>
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					收票人邮箱
+				</view>
+				<view class="win-invoice-right" id="ReceiEmailDiv">
+					{{initOrderMsg_Data.OrderInvoice.ReceiEmail}}
+				</view>
+			</view>
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					发票内容
+				</view>
+				<view class="win-invoice-right" id="InvoiceContentDiv">
+					{{initOrderMsg_Data.OrderInvoice.InvoiceContent == 'GoodsDetail'? '商品明细' :''}}
+					{{initOrderMsg_Data.OrderInvoice.InvoiceContent == 'GoodsType'? '商品类别' :''}}
+					{{initOrderMsg_Data.OrderInvoice.InvoiceContent != 'GoodsType' &&
+					initOrderMsg_Data.OrderInvoice.InvoiceContent != 'GoodsDetail' ? '不开发票' :''}}
+				</view>
+			</view>
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					单位名称
+				</view>
+				<view class="win-invoice-right" id="CompanyNameDiv">
+					{{initOrderMsg_Data.OrderInvoice.CompanyName}}
+				</view>
+			</view>
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					企业税号
+				</view>
+				<view class="win-invoice-right" id="TaxNumberDiv">
+					{{initOrderMsg_Data.OrderInvoice.TaxNumber}}
+				</view>
+			</view>
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					公司注册地址
+				</view>
+				<view class="win-invoice-right" id="CompanyRegAddrDiv">
+					{{initOrderMsg_Data.OrderInvoice.CompanyRegAddr}}
+				</view>
+			</view>
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					公司电话
+				</view>
+				<view class="win-invoice-right" id="CompanyTelDiv">
+					{{initOrderMsg_Data.OrderInvoice.CompanyTel}}
+				</view>
+			</view>
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					银行账号
+				</view>
+				<view class="win-invoice-right" id="BankAccDiv">
+					{{initOrderMsg_Data.OrderInvoice.BankAcc}}
+				</view>
+			</view>
+			<view class="win-invoice-item">
+				<view class="win-invoice-left">
+					开户银行名称
+				</view>
+				<view class="win-invoice-right" id="OpeningBankDiv">
+					{{initOrderMsg_Data.OrderInvoice.OpeningBank}}
+				</view>
+			</view>
+		</view>
+
+	</view>
+</sliderDownWin>
+
+<!--赠品信息窗口-->
+<sliderDownWin is-display-slide="{{isDisplaySlideGift}}" is-display-title="true"
+	slide-win-height="{{slideBottomWinHeight}}" slide-win-title="赠品信息">
+	<view slot="outwxml">
+
+		<view class="win-gift-list" style="height:{{slideBottomWinHeight}}px; overflow-x: hidden;overflow-y: auto;">
+			<navigator url="../../../pages/goods/giftdetail/giftdetail?GID={{item.GiftID}}"
+				wx:for="{{initOrderMsg_Data.OrderGiftMsg != undefined ? initOrderMsg_Data.OrderGiftMsg.GiftMsgList: null}}">
+				<text>{{item.GiftName}}</text> <text>x {{initOrderMsg_Data.OrderGiftMsg.GiftNumList[index].GiftNum}}</text>
+			</navigator>
+		</view>
+
+
+	</view>
+</sliderDownWin>

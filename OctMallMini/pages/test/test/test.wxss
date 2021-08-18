@@ -1,0 +1,74 @@
+/* pages/test/test/test.wxss */
+
+/* ==============底部滑出的自定义窗口 ====================== */
+/* ------遮罩层------- */
+.slide-cover {
+  position: fixed;
+  width: 100%;
+  height: 600px;
+  top: 0;
+  left: 0;
+  z-index: 6000;
+  background: black;
+  filter: alpha(opacity=30);
+  /* IE */
+  -moz-opacity: 0.3;
+  /* 老版Mozilla */
+  -khtml-opacity: 0.3;
+  /* 老版Safari */
+  opacity: 0.3;
+  /* 支持opacity的浏览器*/
+}
+/* -----底部栏内容----- */
+.slide-bottom {
+  /* width: 300px;   
+  height: 300px; */
+  position: fixed;
+  left: 0px;
+  bottom:0;
+  z-index: 6001;
+  overflow: hidden;
+  font-size: 28rpx;
+  /* -----动画----- */
+  -webkit-animation: mymove 0.3s; /* Chrome, Safari, Opera */
+    animation: mymove 0.3s;
+}
+/*  --动画- Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+  from {bottom: -600px;}  /*窗口的高度*/
+  to {bottom: 0px;}
+}
+/*  --动画- Standard syntax */
+@keyframes mymove {
+  from {bottom: -600px;}  /*窗口的高度*/
+  to {bottom: 0px;}
+}
+
+/* -------底部栏主体内容------ */
+/* 列表 */
+.scroll-view-slide {
+  background: white;
+}
+/* 窗口标题 */
+.win-slide-bottom-title{
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  padding: 10rpx 0;
+  position: relative;
+}
+.win-slide-bottom-title text{
+  position: absolute;
+  top: 0;
+  font-size: 24rpx;
+  right: 0rpx;
+  padding: 20rpx 40rpx;
+  padding-top: 15rpx;
+  padding-right: 20rpx;
+  overflow: hidden;
+}
+/* 窗口主体内容 */
+.win-slide-bottom-content{
+  overflow: hidden;
+}
+  

@@ -1,0 +1,183 @@
+<!--pages/buyer//appraiseform/appraiseform.wxml-->
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="评价晒单" back-icon="/assets/imgs/icons/navbar_back.png"
+    home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+  <view class="appraise-list">
+
+    <!--评价列表-->
+    <view class="appraise-item" wx:for="{{initOrderGoodsMsg_Data.OrderGoodsList}}">
+
+      <view class="goods-main" bindtap="navigateToURL"
+        data-navigate-url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+        <view class="appraise-item-left">
+          <view class="goods-img">
+            <image src="//{{item.GoodsCoverImgPath}}"></image>
+          </view>
+          <view class="goods-title">
+            <view class="goods-title-txt">
+              {{item.GoodsTitle}}
+            </view>
+            {{item.SpecParamVal}}
+          </view>
+        </view>
+        <view class="appraise-item-right">
+          <view>￥{{item.GoodsUnitPrice}}</view>
+          <view style="padding-top: 5px">x {{item.OrderNum}}</view>
+        </view>
+      </view>
+
+      <view class="form-main">
+        <view class="form-main-top">
+          <text style="width:100%;white-space: nowrap;"
+            wx:if="{{initAppraiseShopIntegralSetting_Data.AppraiseIntegralSetting[index].IntegralPrice > 0}}">评价+晒单可获{{initAppraiseShopIntegralSetting_Data.AppraiseIntegralSetting[index].IntegralPrice}}积分</text>
+          <text style="width:100%" wx:else></text>
+          <button class="btn-app-sun" bindtap="tglFormShow" data-index="{{index}}">评价晒单</button>
+        </view>
+        <view class="form-main-bottom"
+          style="display:{{jsonAppraieList.AppraiseGoodsArr[index].IsShow == 'true' ? 'normal' : 'none'}}">
+
+
+          <view class="appraise-form-ul">
+            <view class="aprraise-form-title">
+              <view class="appraise-form-star">
+                商品评价：
+                <span class="appraise-star-item" id="AppraiseStarItem_">
+
+                  <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png"
+                    wx:for="{{jsonAppraieList.AppraiseGoodsArr[index].AppraiseScore}}" wx:for-item="itm"
+                    wx:for-index="idx" bindtap="clickAppraiseStar" data-app-score="{{idx+1}}" data-index="{{index}}" />
+
+                  <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png"
+                    wx:for="{{5-jsonAppraieList.AppraiseGoodsArr[index].AppraiseScore}}" wx:for-item="itm2"
+                    wx:for-index="idx2" bindtap="clickAppraiseStar" data-app-score="{{5-idx2}}"
+                    data-index="{{index}}" />
+
+                </span>
+              </view>
+              <view class="appraise-form-noname" bindtap="tglIsAnonymity" data-index="{{index}}">
+                <image
+                  src="{{apiWebDoamin}}/Assets/Imgs/Icon/circle_{{jsonAppraieList.AppraiseGoodsArr[index].IsAnonymity=='true'? '' : 'no'}}sel.png" />
+                匿名评价
+              </view>
+            </view>
+            <view style="padding-right:5px">
+              <textarea class="appraise-content-txtarea" bindinput="bindInputAppContent" data-index="{{index}}"
+                placeholder="评价商品超过10个字就有机会获得积分！"></textarea>
+            </view>
+            <view class="appraise-upload-img">
+              <view class="upload-img" bindtap="btnUploadImg" data-index="{{index}}">
+
+                <!--上传文件-->
+                <view class="upload-img-file" style="position:relative">
+                  <image class="upload-camera" src="{{apiWebDoamin}}/Assets/Imgs/Icon/camera.png" />
+                </view>
+                晒照片
+                <!--上传文件-->
+
+
+              </view>
+              <view class="upload-pre">
+
+                <view class="upload-pre-item" wx:for="{{jsonAppraieList.AppraiseGoodsArr[index].AppraiseImgs}}"
+                  wx:for-index="idx3" wx:for-item="itm3">
+                  <image src="//{{itm3.ImgUrl}}" />
+                  <image class="icon-del" src="{{apiWebDoamin}}/Assets/Imgs/Icon/icon-del.png" bindtap="delUploadImg"
+                    data-upload-guid="{{itm3.UploadGuid}}" data-img-path="{{itm3.ImgUrl}}" data-idx3="{{idx3}}"
+                    data-index="{{index}}" />
+                </view>
+
+              </view>
+            </view>
+          </view>
+
+
+
+        </view>
+      </view>
+
+    </view>
+
+
+
+
+
+  </view>
+
+
+  <!--店铺评分-->
+  <view class="shop-score">
+
+    <view class="shop-title">
+      <navigator url="../../../pages/shop/index/index?SID={{initOrderGoodsMsg_Data.ShopMsg.ShopID}}">
+        <image src="//{{initOrderGoodsMsg_Data.ShopMsg.ShopHeaderImg}}" />{{initOrderGoodsMsg_Data.ShopMsg.ShopName}}
+      </navigator>
+      <view class="shop-prompt-txt">
+        满意请给5星哦
+      </view>
+    </view>
+
+    <view class="shop-score-list">
+
+      <view class="shop-score-ul">
+        <view>
+          <view>商品符合度</view>
+          <view class="appraise-star-item" id="AppraiseStarItemShop_Goods">
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png"
+              wx:for="{{jsonAppraieList.ShopAppraise.ConformityScore}}" wx:for-index="index4"
+              bindtap="appraiseShopScore" data-item-index="1" data-item-score="{{index4 + 1}}" />
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png"
+              wx:for="{{5-jsonAppraieList.ShopAppraise.ConformityScore}}" bindtap="appraiseShopScore"
+              wx:for-index="index5" data-item-index="1" data-item-score="{{5-index5}}" />
+          </view>
+        </view>
+        <view>
+          <view>店家服务态度</view>
+          <view class="appraise-star-item" id="AppraiseStarItemShop_Goods">
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png"
+              wx:for="{{jsonAppraieList.ShopAppraise.AttitudeScore}}" wx:for-index="index6" bindtap="appraiseShopScore"
+              data-item-index="2" data-item-score="{{index6 + 1}}" />
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png"
+              wx:for="{{5-jsonAppraieList.ShopAppraise.AttitudeScore}}" bindtap="appraiseShopScore"
+              wx:for-index="index7" data-item-index="2" data-item-score="{{5-index7}}" />
+          </view>
+        </view>
+        <view>
+          <view>物流发货速度</view>
+          <view class="appraise-star-item" id="AppraiseStarItemShop_Goods">
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png"
+              wx:for="{{jsonAppraieList.ShopAppraise.ExpressScore}}" wx:for-index="index8" bindtap="appraiseShopScore"
+              data-item-index="3" data-item-score="{{index8 + 1}}" />
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png"
+              wx:for="{{5-jsonAppraieList.ShopAppraise.ExpressScore}}" bindtap="appraiseShopScore" wx:for-index="index9"
+              data-item-index="3" data-item-score="{{5-index9}}" />
+          </view>
+        </view>
+        <view>
+          <view>配送员服务态度</view>
+          <view class="appraise-star-item" id="AppraiseStarItemShop_Goods">
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png"
+              wx:for="{{jsonAppraieList.ShopAppraise.DeliverymanScore}}" wx:for-index="index10"
+              bindtap="appraiseShopScore" data-item-index="4" data-item-score="{{index10 + 1}}" />
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png"
+              wx:for="{{5-jsonAppraieList.ShopAppraise.DeliverymanScore}}" bindtap="appraiseShopScore"
+              wx:for-index="index11" data-item-index="4" data-item-score="{{5-index11}}" />
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+
+
+</view>
+
+<!--页脚-->
+<view class="oct-footer">
+  <button class="btn-submit-appriase" bindtap="submitAppraiseMsg">提交评价</button>
+</view>

@@ -1,0 +1,181 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+           <meta name="viewport" content="width=device-width initial-scale="1" />
+       viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+       原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>商家结算资料</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/SettlePage/SettleShopMsg.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/RegionCodeName.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/SettlePage/SettleShopMsg.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input id="hidRegionCodeArr" type="hidden" value="@ViewBag.RegionCodeArr" />
+    <input id="hidUserID" type="hidden" value="@ViewBag.UserID" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=财务结算">财务结算</a></li>
+            <li class="am-active">商家结算资料</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 商家结算资料
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding" id="ShopBaseMsgDiv">
+            <form>
+
+                <!--状态显示-->
+                <ul class="shop-form-ul">
+                    <li class="shop-status-li">
+                        <span class="shop-status-span" id="StatusSpanBg" style="background: #808080
+">
+
+                            <b class="am-icon-bell" id="StatusTtileB">&nbsp;请准确填写-商家结算资料</b><br /><label id="StatusContentLabel">注意：银行账户名称必须与营业执照公司名称保持一致，否则，很难通过审核！</label>
+                        </span>
+
+                    </li>
+                </ul>
+
+                <!--公司信息-->
+                <ul class="company-msg">
+                    <li class="company-msg-title">
+                        公司信息
+                    </li>
+                    <li>
+                        <div>
+                            <span class="input-title-span">公司名称：</span>
+                            <input type="text" id="CompanyName" onblur="blurBankAccName()" class="txt-css company-name-txt" placeholder="公司注册名称" />
+                            <span class="input-title-span" style="width: 130px;">统一社会信用代码：</span>
+                            <input type="text" id="CertificateID" class="txt-css certificate-id-txt" placeholder="营业执照注册号或信用代码" />
+                        </div>
+                    </li>
+                    <li>
+                        <div class="company-addr-div">
+                            <span class="input-title-span" style="width: 110px;">公司地址：</span>
+                            <select id="region_province" class="region-txt" style="margin-left: -13px;"></select>
+                            <select id="region_city" class="region-txt"></select>
+                            <select id="region_county" class="region-txt"></select>
+                            <input type="text" id="CompanyAddr" class="txt-css company-addr-txt" placeholder="详细地址:(街道,小区,乡镇,村等)" />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <span class="input-title-span">公司电话：</span>
+                            <input type="text" id="CompanyTel" class="txt-css" />
+                            <span class="input-title-span">公司法人：</span>
+                            <input type="text" id="LegalPerson" class="txt-css" />
+                        </div>
+                    </li>
+                    <li class="upload-shop-li">
+                        <span class="input-title-span">营业执照：</span>
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-danger am-btn-xs am-round">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                            </button>
+                            <input id="fileupload_0" type="file" multiple>
+                        </div>
+                    </li>
+                    <li class="img-pre-li" id="ImgPreLi" style="display:none;">
+                        <a href="#"><img src="../Assets/Imgs/company.jpg" /></a>
+                    </li>
+                </ul>
+
+                <!--联系人信息-->
+                <ul class="company-msg">
+                    <li class="company-msg-title" style="padding-top: 20px;">
+                        联系人信息
+                    </li>
+                    <li class="link-man-li">
+                        <div>
+                            <span class="input-title-span">联系人姓名：</span>
+                            <input type="text" id="LinkMan" class="txt-css" />
+                            <span class="input-title-span">联系人手机号：</span>
+                            <input type="text" id="MobileNumber" class="txt-css" />
+                        </div>
+                    </li>
+                    <li class="link-man-li">
+                        <div>
+                            <span class="input-title-span">所在部门：</span>
+                            <input type="text" id="Department" class="txt-css" value="财务部" />
+                            <span class="input-title-span">邮箱地址：</span>
+                            <input type="email" id="Email" class="txt-css" />
+                        </div>
+                    </li>
+
+                </ul>
+
+                <!--结算银行账号-->
+                <ul class="company-msg">
+                    <li class="company-msg-title" style="padding-top: 20px;">
+                        结算银行账号
+                    </li>
+                    <li class="link-man-li">
+                        <div>
+                            <span class="input-title-span">银行账号：</span>
+                            <input type="text" id="BankAccount" class="txt-css" />
+                            <span class="input-title-span">账户名称：</span>
+                            <input type="text" id="BankAccName" class="txt-css" />
+                        </div>
+                    </li>
+                    <li class="link-man-li">
+                        <div>
+                            <span class="input-title-span">开户支行名称 ：</span>
+                            <input type="text" id="OpeningBank" class="txt-css" style="width: 500px;" placeholder="各种大银行名称,如(某某银行长沙支行）" />
+                        </div>
+                    </li>
+
+                </ul>
+
+                <div class="btn-list">
+                    <input type="button" value="保存信息" onclick="submitSettleShopMsg()" class="am-btn am-btn-success am-btn-sm am-margin-right-lg" />
+                    <input type="reset" value="重置表单" class="am-btn am-btn-default am-btn-sm" />
+                </div>
+
+
+
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

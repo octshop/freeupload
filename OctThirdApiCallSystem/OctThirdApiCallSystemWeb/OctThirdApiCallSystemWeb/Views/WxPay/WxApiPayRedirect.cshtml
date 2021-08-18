@@ -1,0 +1,98 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <meta name="format-detection" content="telphone=no, email=no" />
+
+    <title>微信支付跳转处理页</title>
+
+</head>
+<body>
+
+
+    <div style="visibility:hidden; width:0px; height:0px; overflow:hidden;">
+        @Html.Raw(ViewBag.WxJsApiParam)
+    </div>
+
+    <script type="text/javascript">
+
+
+        //将后台返回的支付Json数据。转换成表达工
+        var _wxJsApiParam = eval('(@Html.Raw(ViewBag.WxJsApiParam))');
+
+
+        //调用微信JS api 支付
+        function jsApiCall() {
+            WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                _wxJsApiParam,//josn串
+        function (res) {
+            WeixinJSBridge.log(res.err_msg);
+
+            //alert(res.err_code + " | " + res.err_desc + " | " + res.err_msg);
+
+            //---------------支付成功呀-------------//
+            //alert("支付响应了呀！");
+
+            //处理返回结果
+            if (res.err_msg == "get_brand_wcpay_request:ok") //支付成功
+            {
+                window.location.href = "@ViewBag.ReturnUrl";
+                //window.location.href = "../Order/OrderDetail?OID=" + $("#hidOrderID").val().trim();
+                //window.location.href = "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzI4NzU3MTMyOA==#wechat_redirect";
+            }
+                //支付取消了
+            else if (res.err_msg == "get_brand_wcpay_request:cancel" || res.err_msg == "get_brand_wcpay_request:fail") {
+
+                window.location.href = "@ViewBag.QuitUrl";
+                //window.location.href = "OrderList.aspx?GSID=" + $("#HidGoodsID").val().trim() + "";
+                //window.location.href = "../Order/OrderDetail?OID=" + $("#hidOrderID").val().trim();
+            }
+
+        });
+
+        }
+
+        function callpay() {
+
+            //alert("执行了callpay");
+
+            if (typeof WeixinJSBridge == "undefined") {
+                if (document.addEventListener) {
+                    document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+                }
+                else if (document.attachEvent) {
+                    document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                    document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+                }
+            }
+            else {
+                jsApiCall();
+            }
+
+        }
+
+        //调用支付窗口
+        callpay();
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

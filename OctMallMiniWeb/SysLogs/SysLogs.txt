@@ -1,0 +1,181 @@
+﻿
+Log Entry : 15:33:00 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://ugs.opencodetiger.com/Search/GoodsSearch
+------------------------------------
+
+Log Entry : 15:33:00 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:33:00 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:33:46 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://ugs.opencodetiger.com/Goo/GooGoodsType
+------------------------------------
+
+Log Entry : 15:33:46 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:33:46 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 16:55:59 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://tac.opencodetiger.com/PayPubAjax/SimulatePay
+------------------------------------
+
+Log Entry : 16:55:59 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 16:55:59 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 18:04:58 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://tac.opencodetiger.com/PayPubAjax/SimulatePay
+------------------------------------
+
+Log Entry : 18:04:58 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 18:04:58 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 18:06:43 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://tac.opencodetiger.com/PayPubAjax/SimulatePay
+------------------------------------
+
+Log Entry : 18:06:43 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 18:06:43 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 18:10:42 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://tac.opencodetiger.com/PayPubAjax/SimulatePay
+------------------------------------
+
+Log Entry : 18:10:42 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 18:10:42 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 18:20:32 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://ugs.opencodetiger.com/Goo/GooGoodsType
+------------------------------------
+
+Log Entry : 18:20:32 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 18:20:32 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 18:20:32 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://oad.opencodetiger.com/Nav/NavIconMsg
+------------------------------------
+
+Log Entry : 18:20:32 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 18:20:32 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 18:20:33 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://ugs.opencodetiger.com/GuessYouLike/MallGuessYouLike
+------------------------------------
+
+Log Entry : 18:20:33 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 18:20:33 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 18:20:33 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://oad.opencodetiger.com/Adv/AdvCarousel
+------------------------------------
+
+Log Entry : 18:20:33 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://oad.opencodetiger.com/Adv/AdvImgList
+------------------------------------
+
+Log Entry : 18:20:33 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 18:20:33 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 18:21:02 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://oad.opencodetiger.com/Nav/NavIconMsg
+------------------------------------
+
+Log Entry : 18:21:02 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 18:21:02 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 18:21:03 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://ugs.opencodetiger.com/GuessYouLike/MallGuessYouLike
+------------------------------------
+
+Log Entry : 18:21:03 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 18:21:03 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 18:21:22 2021年8月14日 
+HttpService:System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://oad.opencodetiger.com/Adv/AdvImgList
+------------------------------------
+

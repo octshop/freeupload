@@ -1,0 +1,158 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>关注收藏</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/AttenFav.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Buyer/AttenFav.js"></script>
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>关注收藏</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-1 oct-header-sub-curren-a" onclick="chgTab('goods')">商品(<val id="CountFavGoods">0</val>)</a>
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-2" onclick="chgTab('shop')">店铺(<val id="CountFavShop">0</val>)</a>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+
+
+        <!--收藏的商品或店铺-->
+        <div class="use-shopgoods">
+
+            <div class="use-shopgoods-list">
+
+                <div class="mescroll" id="mescroll">
+
+                    <ul class="use-list-ul" id="PageContentList">
+
+                        @*<li>
+                            <div class="use-item-left">
+                                <a href="#">
+                                    <img src="../Assets/Imgs/02.png" />
+                                </a>
+                            </div>
+                            <div class="use-item-right">
+                                <div class="use-item-top">
+                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品
+                                    名称商
+                                </div>
+                                <div class="use-item-mid">
+                                    销量：23434，评价：2344
+                                </div>
+                                <div class="use-item-bottom">
+                                    <b>&#165;562.32</b>
+                                    <input type="button" class="btn-use" value="找相似" />
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="use-item-left">
+                                <a href="#">
+                                    <img src="../Assets/Imgs/02.png" />
+                                </a>
+                            </div>
+                            <div class="use-item-right">
+                                <div class="use-item-top">
+                                    商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品
+                                    名称商
+                                </div>
+                                <div class="use-item-mid">
+                                    销量：23434，评价：2344
+                                </div>
+                                <div class="use-item-bottom">
+                                    <b>&#165;562.32</b>
+                                    <input type="button" class="btn-use" value="找相似" />
+                                </div>
+                            </div>
+                        </li>
+
+                        <!--关注店铺-->
+                        <li class="use-shop-item">
+                            <div class="use-item-left">
+                                <a href="#">
+                                    <img src="../Assets/Imgs/03.jpg" />
+                                </a>
+                            </div>
+                            <div class="use-item-right">
+                                <div class="use-item-top">
+                                    商店名称商店名称商店名称商店名称商店
+                                </div>
+                                <div class="use-item-mid">
+                                    店铺简介呀店铺简介呀店铺简介呀店铺简介呀店铺简介呀店铺简介呀
+                                    店铺简介呀店铺简介呀
+                                </div>
+                                <div class="use-item-bottom">
+                                    <b>60234人关注，销量：23442，评分：9.3</b>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="use-shop-item">
+                            <div class="use-item-left">
+                                <a href="#">
+                                    <img src="../Assets/Imgs/03.jpg" />
+                                </a>
+                            </div>
+                            <div class="use-item-right">
+                                <div class="use-item-top">
+                                    商店名称商店名称商店名称商店名称商店
+                                </div>
+                                <div class="use-item-mid">
+                                    店铺简介呀店铺简介呀店铺简介呀店铺简介呀店铺简介呀店铺简介呀
+                                    店铺简介呀店铺简介呀
+                                </div>
+                                <div class="use-item-bottom">
+                                    <b>60234人关注，销量：23442，评分：9.3</b>
+                                </div>
+                            </div>
+                        </li>*@
+
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+</body>
+</html>

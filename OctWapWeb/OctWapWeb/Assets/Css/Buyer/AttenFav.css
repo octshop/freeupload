@@ -1,0 +1,79 @@
+﻿/*====================关注收藏================================*/
+
+/*主体内容*/
+.oct-content {
+    margin-top: 68px;
+}
+/*收藏商品或店铺*/
+.use-shopgoods {
+    margin-top: 8px;
+    height: 1%;
+    overflow: hidden;
+   
+}
+
+.use-shopgoods-list {
+    padding-top: 5px;
+    background: #F7F7F7;
+}
+
+.use-list-ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    background: white;
+    padding: 10px;
+}
+.use-item-right{
+    width: 100%;
+}
+.use-item-right div {
+    padding-top: 2px;
+}
+
+.use-item-left {
+    margin-right: 8px;
+}
+
+    .use-item-left img {
+        width: 80px;
+        height: 80px;
+    }
+
+.use-item-mid {
+    color: #c8c8c8
+}
+
+.use-item-bottom {
+    color: #FE5C13;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-use {
+    border: 1px solid #FE5C13;
+    border-radius: 20px;
+    background: no-repeat;
+    color: #FE5C13;
+}
+/*收藏的店铺*/
+.use-item-bottom b {
+    font-weight: normal;
+}
+
+
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 80px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}
+
+
+

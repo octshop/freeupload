@@ -1,0 +1,186 @@
+{
+  "pages": [
+    "pages/tabbar/index/index",
+    "pages/start/index/index",
+    "pages/test/test/test",
+    "pages/tabbar/goodstype/goodstype",
+    "pages/tabbar/shopnear/shopnear",
+    "pages/tabbar/scart/scart",
+    "pages/tabbar/buyerindex/buyerindex",
+    "pages/webviewpg/imwebview/imwebview",
+    "pages/webviewpg/webviewPub/webviewPub",
+    "pages/pubpage/redirurl/redirurl",
+    "pages/webviewpg/webviewindex/webviewinde"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": true
+  },
+  "usingComponents": {
+    "navBar": "/components/navbar/navbar",
+    "shopNav": "/components/shopnav/shopnav",
+    "shopNavBottom": "/components/shopnavbottom/shopnavbottom",
+    "customerBar": "/components/customerbar/customerbar",
+    "sliderDownWin": "/components/sliderdownwin/sliderdownwin"
+  },
+  "tabBar": {
+    "color": "#626262",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "selectedColor": "#d54422",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/index/index",
+        "text": "首页",
+        "iconPath": "assets/imgs/icons/navhome.png",
+        "selectedIconPath": "assets/imgs/icons/navhome_red.png"
+      },
+      {
+        "pagePath": "pages/tabbar/goodstype/goodstype",
+        "text": "分类",
+        "iconPath": "assets/imgs/icons/navtype.png",
+        "selectedIconPath": "assets/imgs/icons/navtype_red.png"
+      },
+      {
+        "pagePath": "pages/tabbar/shopnear/shopnear",
+        "text": "附近",
+        "iconPath": "assets/imgs/icons/navlocation.png",
+        "selectedIconPath": "assets/imgs/icons/navlocation_red.png"
+      },
+      {
+        "pagePath": "pages/tabbar/scart/scart",
+        "text": "购物车",
+        "iconPath": "assets/imgs/icons/navscart.png",
+        "selectedIconPath": "assets/imgs/icons/navscart_red.png"
+      },
+      {
+        "pagePath": "pages/tabbar/buyerindex/buyerindex",
+        "text": "我的",
+        "iconPath": "assets/imgs/icons/navmy.png",
+        "selectedIconPath": "assets/imgs/icons/navmy_red.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "pages/buyer/",
+      "pages": [
+        "placeordermul/placeordermul",
+        "myorder/myorder",
+        "myorderquery/myorderquery",
+        "shopexpensetake/shopexpensetake",
+        "paydeliveryorder/paydeliveryorder",
+        "orderdetail/orderdetail",
+        "expressdetail/expressdetail",
+        "orderdynamic/orderdynamic",
+        "coupons/coupons",
+        "coupons/couponsdetail/couponsdetail",
+        "attenfav/attenfav",
+        "history/history",
+        "receiaddr/receiaddrlist/receiaddrlist",
+        "receiaddr/receiaddrae/receiaddrae",
+        "setting/setting",
+        "setting/commonquestion/commonquestion",
+        "vip/index",
+        "vip/balanceintegral/balanceintegral",
+        "vip/balancedetail/balancedetail",
+        "vip/balancedetaildividend/balancedetaildividend",
+        "vip/inexdetail/inexdetail",
+        "vip/inexdetaildividend/inexdetaildividend",
+        "vip/integraldetail/integraldetail",
+        "vip/integraldetaildividend/integraldetaildividend",
+        "vip/viplevel/viplevel",
+        "vip/withdrawtype/withdrawtype",
+        "vip/withdrawsubmit/withdrawsubmit",
+        "vip/withdrawdetail/withdrawdetail",
+        "vip/onlinetopup/onlinetopup",
+        "placeorder/placeorder",
+        "paysu/paysu",
+        "paysunoorder/paysunoorder",
+        "banktransfer/banktransfer",
+        "orderpay/orderpay",
+        "officialservice/officialservice",
+        "appraiseform/appraiseform",
+        "appraisedetail/appraisedetail"
+
+      ] 
+    },
+    {
+      "root": "pages/mall/",
+      "pages": [
+        "goodssearch/goodssearch",
+        "goodssearchresult/goodssearchresult",
+        "goodssearchresulto2o/goodssearchresulto2o",
+        "searchshop/searchshop",
+        "searchshopresult/searchshopresult",
+        "searchshopresulto2o/searchshopresulto2o",
+        "goodstypelistdetail/goodstypelistdetail",
+        "discountgoods/discountgoods",
+        "coupons/coupons"
+      ]
+    },
+    {
+      "root": "pages/o2o/",
+      "pages": [
+        "citysame/citysame",
+        "goodstype/goodstype",
+        "goodstypeshow/goodstypeshow",
+        "shoptypeshow/shoptypeshow",
+        "cityshop/cityshop",
+        "maplocation/maplocation",
+        "discountgoodso2o/discountgoodso2o",
+        "couponso2o/couponso2o"
+      ]
+    },
+    {
+      "root": "pages/shop/",
+      "pages": [
+        "index/index",
+        "goodsall/goodsall",
+        "activity/activity",
+        "shoptype/shoptype",
+        "shoptypedetail/shoptypedetail",
+        "activitydetail/activitydetail",
+        "shopsearch/shopsearch",
+        "shopsearchresult/shopsearchresult",
+        "shopmsgdetail/shopmsgdetail",
+        "cusservice/chatmain",
+        "presentall/presentall",
+        "aggregate/index/index",
+        "aggregate/paybalance/paybalance",
+        "aggregate/paydirect/paydirect"
+      ]
+    },
+    {
+      "root": "pages/goods/",
+      "pages": [
+        "goodsdetail/goodsdetail",
+        "freebiedetail/freebiedetail",
+        "grouddetail/grouddetail"
+      ]
+    },
+    {
+      "root": "pages/login/",
+      "pages": [
+        "index/index",
+        "bindmobile/bindmobile",
+        "paypwdsetting/paypwdsetting",
+        "loginpwdsetting/loginpwdsetting",
+        "bindmobilechg/bindmobilechg",
+        "buyerlogin/buyerlogin"
+      ]
+    }
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

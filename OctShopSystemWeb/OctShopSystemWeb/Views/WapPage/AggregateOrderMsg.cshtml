@@ -1,0 +1,76 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>扫码收单</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/WapPage/AggregateOrderMsg.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/MobiscrollSelDate/QuoteMobiscrollSelDate.js"></script>
+    <script src="../Assets/Js/WapPage/AggregateOrderMsg.js"></script>
+
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <input id="SearchKeyDateTxt" name="SearchKeyDateTxt" type="text" class="txt-query" placeholder="支付日期" />
+            <input id="SearchKeyContentTxt" type="text" class="txt-query" placeholder="订单ID/状态" />
+        </div>
+        <div class="oct-header-right" id="SearchKeyBtn">
+            搜索
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="mescroll" id="mescroll">
+
+            <!--搜索列表-->
+            <ul class="order-list" id="PageContentList">
+                <li>
+                    <div class="order-user-header">
+                        <img src="../Assets/Imgs/header_1.jpg" />
+                    </div>
+                    <div class="order-user-msg">
+                        <div class="order-nick-name">
+                            昵称名称昵称名称昵称名称(13203156008)
+                        </div>
+                        <div class="order-pay-price">
+                            <b>&#165;123.23</b> - 支付宝 -  2020-05-15 12:32:00
+                        </div>
+                        <div class="order-pay-extra">
+                            订单ID：20060 ，状态：支付成功
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

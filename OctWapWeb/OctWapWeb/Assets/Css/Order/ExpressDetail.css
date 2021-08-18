@@ -1,0 +1,118 @@
+﻿/*====================查看物流 快递详情============================*/
+
+.oct-content {
+    margin-top: 48px;
+}
+
+.express-msg {
+    background: #ffffff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.express-msg-left {
+    padding-right: 10px;
+}
+
+    .express-msg-left img {
+        width: 80px;
+        height: 75px;
+    }
+
+.express-msg-right {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+    .express-msg-right a {
+        color: #0D8EC9;
+    }
+
+    .express-msg-right ul li {
+        padding-top: 5px;
+        color: gray;
+    }
+
+.btn-copy {
+    border: 1px solid #e0e0e0;
+    background: no-repeat;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/*快递动态*/
+.express-dynamic {
+    background: #ffffff;
+    margin-top: 8px;
+}
+
+.express-dynamic-title {
+    padding: 10px;
+    padding-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    border-bottom: 1px solid #f7f7f7;
+}
+
+.dynamic-title-right a {
+    color: #a7a7a7;
+    font-size: 12px;
+    background: url(../../Imgs/Icon/express_question.png) right center no-repeat;
+    background-size: 17px;
+    padding: 10px;
+    padding-right: 20px;
+}
+
+/*动态内容*/
+.express-dynamic-item {
+    background: #ffffff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.dynamic-item-left {
+    width: 20px;
+    overflow: hidden;
+    border-right: 1px solid #e0e0e0;
+    margin-right: 20px;
+}
+
+.dynamic-right-ul li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: gray;
+    border-bottom: 1px solid #f6f6f6;
+    position: relative;
+}
+
+    .dynamic-right-ul li span {
+        width: 10px;
+        height: 10px;
+        background: gray;
+        border-radius: 5px;
+        overflow: hidden;
+        position: absolute;
+        top: 13px;
+        left: -26px;
+    }
+
+
+.express-datetime {
+        color: #aaaaaa;
+    }
+/*当前物流动态*/
+.dynamic-current-li .express-circle {
+    background: #24B24D;
+}
+
+.dynamic-current-li div {
+    color: #24B24D;
+}

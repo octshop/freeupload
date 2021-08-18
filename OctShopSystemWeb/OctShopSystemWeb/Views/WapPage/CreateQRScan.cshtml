@@ -1,0 +1,86 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>二维码生成</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/WapPage/CreateQRScan.css?v=1" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidShopID" value="@ViewBag.ShopID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>二维码生成</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../WapPage/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="qr-content-div">
+            <dl class="qr-content-dl">
+                <dt>收款二维码</dt>
+                <dd>
+                    <a href="@ViewBag.QRCodeURLAggregate" target="_blank"><img src="@ViewBag.QRCodeURLAggregate" /></a>
+                </dd>
+                <dd>
+                    支付宝或微信扫码，即可收款收单，请将此二维码打印摆放至收银台。(长按二维码【保存到手机】)
+                </dd>
+                <dd style="padding-top:20px;display:@ViewBag.MiniAggreDisplay">
+                    <a href="@ViewBag.WxMiniAggreQRCodeURL" target="_blank"><img src="@ViewBag.WxMiniAggreQRCodeURL" /></a>
+                </dd>
+                <dd style="display:@ViewBag.MiniAggreDisplay">
+                    微信扫码打开小程序，即可收款收单，请将此二维码打印摆放至收银台。(长按二维码【保存到手机】)
+                </dd>
+
+            </dl>
+        </div>
+
+        <div class="qr-content-div qr-content-div-2">
+            <dl class="qr-content-dl">
+                <dt>店铺二维码</dt>
+                <dd>
+                    <a href="@ViewBag.QRCodeURL" target="_blank"><img src="@ViewBag.QRCodeURL" /></a>
+                </dd>
+                <dd>
+                    支付宝或微信扫码，即可访问店铺，请将此二维码打印摆放至收银台。(长按二维码【保存到手机】)
+                </dd>
+                <dd style="padding-top: 20px; display: @ViewBag.MiniShopDisplay">
+                    <a href="@ViewBag.WxMiniShopQRCodeURL" target="_blank"><img src="@ViewBag.WxMiniShopQRCodeURL" /></a>
+                </dd>
+                <dd style="display:@ViewBag.MiniShopDisplay">
+                    微信小程序店铺二维码，微信扫码即可访问店铺首页，请将此二维码打印摆放至收银台。(长按二维码【保存到手机】)
+                </dd>
+            </dl>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

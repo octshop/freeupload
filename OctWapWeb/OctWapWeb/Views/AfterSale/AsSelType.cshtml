@@ -1,0 +1,130 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>选择售后类型</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/AfterSale/AsSelType.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/AfterSale/AsSelType.js?v=13"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidOID" value="@ViewBag.OID" />
+    <input type="hidden" id="hidGID" value="@ViewBag.GID" />
+    <input type="hidden" id="hidSID" value="@ViewBag.SID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>选择售后类型</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--商品信息-->
+        <div class="as-goods">
+
+            <div class="as-goods-company">
+                本次售后服务由 <a href="#" id="ShopLinkA"></a> 为您提供
+            </div>
+            <div class="as-goods-list" onclick="window.location.href='../Order/OrderDetail?OID=@ViewBag.OID'">
+                <div class="as-goods-left">
+                    <img id="GoodsImg" src="#" />
+                </div>
+                <div class="as-goods-right">
+                    <div class="goods-title" id="GoodsTitle">
+                        @*商品名称商品*@
+                    </div>
+                    <div class="goods-spec" id="GoodsSpec">
+                        @*规格参数规格参数*@
+                    </div>
+                    <div class="goods-price">
+                        单价：<b id="GoodsPrice">&#165;0.00</b>
+                        订单数量：<b id="OrderNum">0</b>
+                    </div>
+                </div>
+            </div>
+            <div class="as-goods-num">
+                <div class="as-num-left">
+                    申请数量
+                </div>
+                <div class="as-num-right">
+                    <div class="goods-txt-number">
+                        <input class="btn-reduce" type="button" value="-" onclick="addReduceNumTxt('Reduce')" />
+                        <input class="input-order-number" id="NumberTxt" onblur="checkInputNumber()" type="number" value="1" />
+                        <input class="btn-add" type="button" value="+" onclick="addReduceNumTxt('Add')" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--选择售后类型-->
+        <div class="as-type">
+
+            <div class="as-type-item as-type-item-1" onclick="submitSelAsType('maintain')">
+                <div class="type-item-left">
+                    维修
+                </div>
+                <div class="type-item-right">
+                    质量问题，需要维修
+                </div>
+            </div>
+            <div class="as-type-item as-type-item-2" onclick="submitSelAsType('barter')">
+                <div class="type-item-left">
+                    换货
+                </div>
+                <div class="type-item-right">
+                    规格参数不对，需要换货
+                </div>
+            </div>
+            <div class="as-type-item as-type-item-3" onclick="submitSelAsType('refund')">
+                <div class="type-item-left">
+                    退货
+                </div>
+                <div class="type-item-right">
+                    严重的质量问题，需要退款
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--联系客服-->
+        <div class="as-customer" id="CustomerServicesOnLineDiv">
+            <img src="../Assets/Imgs/Icon/as_customer.png" />联系客服
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

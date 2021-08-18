@@ -1,0 +1,56 @@
+<!--pages/buyer/receiaddr/receiaddrlist/receiaddrlist.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="收货地址" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<view class="recei-addr-prompt" id="ReceiAddrPromptDiv" wx:if="{{isShowClickSelHint}}">
+		单击列表选择收货地址
+	</view>
+
+	<view class="page-content-list" id="PageContentList">
+
+		<view class="recei-addr-item oct-section" wx:for="{{numberPage_Page.DataPage}}" bindtap="selReceiAddr"
+			data-recei-addr-id="{{item.BReceiAddrID}}" data-region-code-arr="{{item.RegionCodeArr}}"
+			data-region-name-arr="{{item.RegionNameArr}}">
+			<view class="addr-item-top">
+				<view>
+					{{item.ReceiName}}
+				</view>
+				<view>
+					{{item.Mobile}}
+				</view>
+			</view>
+			<view class="addr-item-mid">
+				{{item.RegionNameArr}}_{{item.DetailAddr}}
+			</view>
+			<view class="addr-item-bottom">
+				<view class="addr-item-default" catchtap="setDefaultReceiAddr" data-recei-addrid="{{item.BReceiAddrID}}">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_{{item.AddrType=='default' ? 'yes' : 'no'}}.png" />默认地址
+				</view>
+				<view class="addr-item-btn">
+					<view class="addr-item-edit" catchtap="navigateToURL"
+						data-navigate-url="../receiaddrae/receiaddrae?RAID={{item.BReceiAddrID}}">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/addr_edit.png" /> 编辑
+					</view>
+					<view class="addr-item-del" catchtap="delReceiAddr" data-recei-addrid="{{item.BReceiAddrID}}">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/addr_del.png" /> 删除
+					</view>
+				</view>
+			</view>
+		</view>
+
+
+	</view>
+
+</view>
+
+
+<!--页脚-->
+<view class="oct-footer">
+	<navigator url="../receiaddrae/receiaddrae{{addReceiBackUrl}}" class="btn-add-address">
+		添加新地址
+	</navigator>
+</view>

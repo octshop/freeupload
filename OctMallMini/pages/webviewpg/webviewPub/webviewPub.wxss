@@ -1,0 +1,4 @@
+/* pages/webviewpg/webviewPub/webviewPub.wxss */
+page {
+  background: white;
+}

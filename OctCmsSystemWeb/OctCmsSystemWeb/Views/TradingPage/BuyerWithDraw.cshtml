@@ -1,0 +1,214 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>买家余额提现</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Js/TradingPage/BuyerWithDraw.js"></script>
+
+</head>
+<body>
+    <!--========隐藏控件记录信息===========-->
+    <input type="hidden" id="hidWithDrawStatus" value="@ViewBag.WithDrawStatus" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=财务结算">财务结算</a></li>
+            <li class="am-active">买家余额提现</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 买家余额提现
+            </div>
+            <div class="title-btn-div am-fl">
+                @*<button class="title-btn am-btn am-btn-xs am-btn-danger am-round am-margin-left-xs" onclick="window.location.href='../UserGoodsShopPage/ShopAdd'"><i class="am-icon-plus-circle"></i> 添加店铺</button>*@
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="WithDrawID_se" placeholder="提现ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="SerialNumberD_se" placeholder="业务流水号" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="ToType_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>提现到</option>
+                    <option value="WeChat">微信钱包</option>
+                    <option value="Alipay">支付宝</option>
+                    <option value="Bank">银行卡</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="WithDrawAmt_se" placeholder="提现金额" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="WithDrawStatus_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>提现状态</option>
+                    <option value="处理中">处理中</option>
+                    <option value="完成">完成</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="TrueName_se" placeholder="真实姓名(账户名)" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="LinkMobile_se" placeholder="联系电话" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="WeChatAccount_se" placeholder="微信账号" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="AlipayAccount_se" placeholder="支付宝账号" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="BankCardNumber_se" placeholder="银行卡号" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="BankAccName_se" placeholder="银行户名" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="OpeningBank_se" placeholder="开户行" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="WithDrawMemo_se" placeholder="提现备注" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="WxOpenID_se" placeholder="微信OPENID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="BuyerUserID_se" placeholder="买家UserID" />
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="FinishDate_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="完成时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="提现时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="7%">提现ID</td>
+                        <td width="12%">买家UserID<i style="color: #939393;display:block">买家昵称</i></td>
+                        <td width="8%">提现到</td>
+                        <td width="9%">提现金额</td>
+                        <td width="8%">提现状态</td>
+                        <td width="8%">真实姓名</td>
+                        <td width="11%">联系电话<i style="color: #939393;display:block">绑定手机</i></td>
+                        <td width="10%">账号卡号</td>
+                        <td width="10%">备注</td>
+                        <td width="9%">提现时间<i style="color: #939393;display:block">完成时间</i></td>
+                        <td width="8%">操作</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td><a href="#">23432</a></td>
+                        <td>23434<i style="color: #939393;display: block">小昵称</i></td>
+                        <td>微信钱包</td>
+                        <td>5262.32</td>
+                        <td>处理中</td>
+                        <td>小黄人</td>
+                        <td>13203156008<i style="color: #939393;display:block">13203156008</i></td>
+                        <td>62287456548654654</td>
+                        <td>
+                            备注备注备注备注备注
+                        </td>
+                        <td>2020-05-06 12:23:32<i style="color: #939393;display:block">2020-05-06 12:23:32</i></td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-danger am-round">提现</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <!--<div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" onclick="delMsgArr()"><span class="am-icon-trash-o"></span> 删除</button>
+                    </div>
+                </div>-->
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                备注说明
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

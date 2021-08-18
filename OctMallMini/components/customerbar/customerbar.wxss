@@ -1,0 +1,32 @@
+/* components/customerbar/customerbar.wxss */
+/*页脚*/
+.customer-bar {
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  z-index: 10;
+  background: #ffffff;
+  overflow: hidden;
+  border-top: 1px solid #F2F2F2;
+}
+
+.customer-bar view {
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.customer-bar image {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  margin-top: -2px;
+}

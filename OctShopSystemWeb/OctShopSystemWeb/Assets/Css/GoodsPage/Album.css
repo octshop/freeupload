@@ -1,0 +1,62 @@
+﻿/*==========相册管理============*/
+
+.img-item {
+    width: 210px;
+    height: 278px;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ededed;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.img-div {
+    text-align: center;
+}
+
+.img-item img {
+    height: 100%;
+}
+
+.btn-img span {
+    font-weight: normal;
+    font-size: 10px;
+    color: gray;
+}
+
+.item-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .item-btn input {
+        width: 49%;
+        font-size: 10px;
+    }
+
+.album-name-div {
+}
+
+    .album-name-div b {
+        color: #0E90D2;
+    }
+
+    .album-name-div .album-name-txt {
+        width: 120px;
+        font-weight: normal;
+        color: #0E90D2;
+        padding: 13px 2px;
+        font-size: 12px;
+        text-align:center;
+        border-radius: 4px;
+        border: 1px solid #cccccc;
+    }
+.album-cover-div {
+    text-align: center;
+    width: 100%;
+    height: 190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}

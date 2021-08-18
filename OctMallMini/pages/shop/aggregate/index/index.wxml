@@ -1,0 +1,39 @@
+<!--pages/shop//aggregate/index/index.wxml-->
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="买单支付" back-icon="/assets/imgs/icons/navbar_back.png"
+    home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+  <view class="pay-main">
+
+    <view class="logo-icon" bindtap="navigateToURL" data-navigate-url="../../../shop/index/index?SID={{shopId}}">
+      <image id="ShopHeaderImg" src="//{{loadShopMsgSimple_Data.ShopHeaderImg}}" />
+      <view id="ShopName">{{loadShopMsgSimple_Data.ShopName}}</view>
+    </view>
+    <view class="pay-type">
+
+      <view class="pay-type-shop" bindtap="navigateToURL"
+        data-navigate-url="../../../../pages/shop/index/index?SID={{shopId}}">
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/aggre_shop.png" style="width: 35px; height: 35px;" />店铺下单
+      </view>
+      <view class="pay-type-balance" bindtap="navigateToURL"
+        data-navigate-url="../../../../pages/shop/aggregate/paybalance/paybalance?SID={{shopId}}">
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/balance_white.png" style="width: 35px; height: 35px;" />余额支付
+      </view>
+      <view class="pay-type-direct" bindtap="navigateToURL"
+        data-navigate-url="../../../../pages/shop/aggregate/paydirect/paydirect?SID={{shopId}}">
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/aggre_direct.png" />直接付款
+      </view>
+
+    </view>
+    <view class="extra-link">
+      <navigator url="../../../../pages/shop/index/index?SID={{shopId}}">首页</navigator>
+      <navigator url="../../../../pages/tabbar/buyerindex/buyerindex" open-type="switchTab">会员中心</navigator>
+    </view>
+
+  </view>
+
+</view>

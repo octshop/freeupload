@@ -1,0 +1,25 @@
+﻿/*=============收支详情=========================*/
+
+/*头部*/
+.oct-header-right .header-icon-my {
+    width: 20px;
+    height: 20px;
+}
+/*主体内容*/
+.oct-content {
+    margin-top: 45px;
+}
+
+/*列表内容*/
+.inex-list li{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #fafafa;
+    background: #ffffff;
+}
+.inex-item-left{
+    color: #a1a1a1;
+    width: 80px;
+}

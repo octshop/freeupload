@@ -1,0 +1,161 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title id="PageTitle">赠品详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Lib/lightslider/lightslider.css" rel="stylesheet" />
+    <link href="../Assets/Css/Goods/GoodsDetail.css" rel="stylesheet" />
+    <link href="../Assets/Css/Goods/GiftDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/PhotoSwipe/initPhotoSwipe.js"></script>
+    <script src="../Assets/Lib/lightslider/lightslider.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Goods/GiftDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidGIID" value="@ViewBag.GIID" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <div class="header-tab-current"><a href="../Goods/GiftDetail?GIID=@ViewBag.GIID">赠品</a></div>
+            <div><a href="../Goods/GiftDetailMsg?GIID=@ViewBag.GIID">详情</a></div>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!-- 轮播区域 -->
+        <div class="oct-slider">
+
+            <div class="sliderMainContent" id="sliderMainContent" style="overflow:hidden;">
+
+
+            </div>
+
+            <div class="slider-pager-content">
+                <div id="SliderCountDiv">0/0</div>
+            </div>
+        </div>
+
+
+        <!--价格区-->
+        <div class="goods-price">
+            <div class="goods-price-top">
+                <div class="price-top-left">
+                    <label style="font-size:14px;font-weight:normal;">市场价：</label><b id="IntegralPriceLowB">&#165;5235.00</b><span id="IntegralNoEnough" class="integral-no-enough"></span>
+                </div>
+                <div class="price-top-right">
+                    <div style="padding-bottom: 6px;"><b class="surplus-txt" id="SurplusTxtB">剩余:2323432</b></div>
+                    <div class="btn-fav">关注</div>
+                </div>
+            </div>
+            <div class="goods-price-mid" id="PresentTitle">
+                创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创
+                意蘑菇台灯创意
+            </div>
+            <div class="goods-price-bottom">
+                <div id="SpecPropDiv">
+                    <!--2018款，黑色，27码-->
+                </div>
+                <div class="goods-support-msg" id="DeliveryShopExpense">
+                    <span class="badge-red-span" id="IsEntitySpan" style="display:none;">实体店</span> <!--<span id="IsShopExpenseSpan">需到店自取</span>-->
+                </div>
+            </div>
+        </div>
+
+
+        <!--查看赠品图文详情-->
+        <div class="view-appraise-img">
+            <a href="../Goods/GiftDetailMsg?GIID=@ViewBag.GIID">查看赠品图文详情</a>
+        </div>
+
+
+
+        <!--店铺信息-->
+        <div class="shop-msg" id="ShopMsgBar">
+            <div class="shop-msg-1" id="ShopMsgNameTitleDiv">
+                <div class="shop-msg-left" id="ShopHeaderImgDiv">
+                    <a href="#">
+                        <img src="../Assets/Imgs/01.jpg" />
+                    </a>
+                </div>
+                <div class="shop-msg-right">
+                    <div class="shop-right-top" id="ShopNameDiv">
+                        <a href="#" target="_blank">湖漫官方旗舰店官方旗舰店</a>
+                        <span class="shop-label">商城好店</span>
+                        <span class="shop-arrow">&nbsp;</span>
+                    </div>
+                    <div class="shop-right-mid" id="ShopAppraiseDiv">
+                        综合: <b>9.5</b>
+                        物流: <b>9.5高</b>
+                        商品: <b>9.5高</b>
+                        服务: <b>9.5高</b>
+                    </div>
+                    <div class="shop-right-bottom">
+                        <b id="FavAttenB"> 0 </b>人关注
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="shop-msg-2" id="MajorGoodsDiv">
+                店铺主营
+            </div>
+
+            <div class="shop-msg-3">
+                <ul id="PreListGoodsMsgUl">
+                    <li>
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" /><br />
+                            2018年冬季新款
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="shop-msg-4">
+
+                <a href="#" class="customer-service" id="CusServiceA">联系客服</a>
+                <a href="#" class="go-shop" id="GoShopA">进店逛逛</a>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+</body>
+</html>

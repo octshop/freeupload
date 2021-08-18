@@ -1,0 +1,25 @@
+/* pages/buyer//setting/commonquestion/commonquestion.wxss */
+
+.question-ul {
+  background: white;
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+.question-ul view {
+  padding: 10px 8px;
+  font-size: 14px;
+  border-bottom:2px solid #F7F7F7;
+  /* background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat; */
+  background-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: normal;
+}
+
+.question-ul image {
+  width: 10px;
+  height: 10px;
+}
+

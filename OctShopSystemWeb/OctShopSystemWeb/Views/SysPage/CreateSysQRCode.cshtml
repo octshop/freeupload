@@ -1,0 +1,79 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>生成二维码</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/SysPage/CreateSysQRCode.css" rel="stylesheet" />
+
+</head>
+<body>
+
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=系统信息">系统信息</a></li>
+            <li class="am-active">生成二维码</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 生成二维码
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding">
+
+            <ul class="ul-qrcode">
+                <li>
+                    <div class="qrcode-title"><b id="QRCodeTitle">@ViewBag.QRCodeTitle</b></div>
+                </li>
+                <li>
+                    <div class="qrcode-title-sub" id="QRCodeTitleSub">@ViewBag.QRCodeTitleSub</div>
+                </li>
+                <li class="qrcode-img">
+                    <a href="@ViewBag.QRCodeURL" target="_blank"><img src="@ViewBag.QRCodeURL" alt="收款二维码" /></a>
+                </li>
+                <li>
+                    <div class="hint-one qrcode-desc" id="QRCodeDesc">
+                        @ViewBag.QRCodeDesc
+                    </div>
+                    <div class="hint-two">
+                        电脑端->单击鼠标右边【图片另存为】，手机端->长按二维码【保存到手机】
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>

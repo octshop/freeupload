@@ -1,0 +1,334 @@
+﻿/*================中奖详情==================*/
+
+/*主体内容*/
+body .oct-content {
+    padding: 0;
+    margin: 0;
+    margin-top: 41px;
+}
+/*Logo区*/
+.logo-msg {
+    background: -webkit-linear-gradient(left, #ff0000, #ff6a00); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #ff0000,#ff6a00); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #ff0000,#ff6a00); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #ff0000, #ff6a00); /* 标准的语法（必须放在最后） */
+    color: white;
+    padding: 15px 6px;
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    font-size: 12px;
+}
+
+.logo-msg-left {
+    width: 100%;
+}
+
+.logo-msg img {
+    width: 40px;
+    height: 40px;
+    margin-left: 3px;
+}
+
+.logo-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.logo-desc {
+    padding: 5px 0;
+    font-size: 10px;
+}
+
+.check-msg {
+    padding: 8px;
+    background: white;
+    font-size: 14px;
+    text-align: center;
+}
+
+    .check-msg b {
+        color: #ff0000;
+        font-size: 16px;
+    }
+
+/*系统和快递信息*/
+.express-recei {
+    margin-top: 8px;
+    background: #ffffff;
+    padding: 10px 0;
+    padding-left: 5px;
+}
+
+    .express-recei a {
+        display: block;
+    }
+
+.express-msg {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.express-msg-mid {
+    overflow: hidden;
+    width: 100%;
+    line-height: 120%;
+}
+
+.express-msg-left {
+    width: 40px;
+    background: url(../../Imgs/Icon/order_greentrucks.png) left center no-repeat;
+    background-size: 25px;
+    height: 25px;
+}
+
+.express-mid-content {
+    color: #339629;
+}
+
+.express-mid-date {
+    color: #c4c4c4;
+    padding-top: 5px;
+}
+
+.express-msg-right {
+    width: 35px;
+    /*background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;*/
+    background-size: 15px;
+}
+
+
+/*导航地址*/
+.logo-address {
+    padding: 8px 6px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.logo-address-left {
+    width: 90px;
+    color: gray;
+}
+
+.logo-address-distance {
+    color: #ff0000;
+    background: url(../../Imgs/Icon/address.png) left center no-repeat;
+    background-size: 10px;
+    padding-left: 10px;
+}
+
+.logo-address-mid {
+    width: 100%;
+}
+
+.logo-address-right {
+    width: 50px;
+    text-align: center;
+    font-size: 11px;
+}
+
+    .logo-address-right img {
+        width: 25px;
+        height: 25px;
+    }
+
+
+/*商品列表*/
+.goods-list {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+    .goods-list li {
+        margin-top: 8px;
+        background: white;
+        padding: 5px 0;
+    }
+
+.shop-msg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0px;
+    padding-right: 5px;
+}
+
+    .shop-msg img {
+        width: 14px;
+        height: 14px;
+        margin: 0 5px;
+        margin-top: -4px;
+    }
+
+.shop-msg-left {
+    display: flex;
+    align-items: center;
+}
+
+.shop-msg-right {
+    color: #ff6a00;
+    display: flex;
+    align-items: center;
+}
+
+    .shop-msg-right span {
+        border: 1px solid #ff6a00;
+        font-size: 11px;
+        padding-left: 5px;
+        padding: 1px 5px;
+        border-radius: 20px;
+    }
+
+.goods-msg {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    background: #f8f8f8;
+}
+
+    .goods-msg img {
+        width: 80px;
+        height: 80px;
+        margin-right: 5px;
+        border-radius: 5px;
+    }
+
+.goods-msg-extra {
+    color: gray;
+    padding-top: 3px;
+}
+
+/*其他抽奖信息*/
+.extra-msg-ul {
+    background: white;
+    padding: 10px;
+    margin-bottom: 60px;
+    margin-top: 8px;
+}
+
+    .extra-msg-ul li {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        color: gray;
+        border-bottom: 1px dashed #f3f3f3;
+    }
+
+        .extra-msg-ul li .extra-msg-left {
+            color: #000000;
+        }
+
+
+
+/*页脚*/
+.oct-footer {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .oct-footer div {
+        width: 33%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .oct-footer img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        margin-top: -2px;
+    }
+
+
+/*参与验证*/
+.check-code {
+    background: white;
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.check-code-left {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+    .check-code-left div {
+        font-size: 14px;
+    }
+
+    .check-code-left .check-code-number {
+        font-size: 14px;
+        padding-top: 0px;
+        padding-bottom: 5px;
+    }
+
+.check-code-number b {
+    font-size: 20px;
+    color: red;
+}
+
+.btn-reset {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #c4c4c4;
+    padding: 5px 20px;
+    font-size: 12px;
+    color: gray;
+}
+
+.check-code-right {
+    width: 50%;
+    text-align: center;
+}
+
+    .check-code-right img {
+        width: 120px;
+        height: 120px;
+    }
+
+.check-code-left .check-order-id {
+    font-size: 12px;
+    color: gray;
+}
+
+/*--------------选择店铺导航地图 --  窗口---------------*/
+.win-shopnav-content {
+}
+
+    .win-shopnav-content ul {
+        padding-top: 5px;
+    }
+
+        .win-shopnav-content ul li {
+            text-align: center;
+            font-size: 18px;
+            color: #9b9b9b;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f8f8f8;
+        }
+
+            .win-shopnav-content ul li a {
+                display: block;
+                width: 90%;
+                margin: 0 auto;
+                color: #0086de;
+            }

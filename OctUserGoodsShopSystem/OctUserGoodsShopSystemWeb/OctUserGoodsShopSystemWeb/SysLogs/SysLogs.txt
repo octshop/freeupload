@@ -1,0 +1,43 @@
+
+Log Entry : 16:07:35 2021年8月5日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 16:07:35 2021年8月5日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 16:07:35 2021年8月5日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 16:10:28 2021年8月5日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 16:10:28 2021年8月5日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 16:10:28 2021年8月5日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 16:19:53 2021年8月5日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 16:19:53 2021年8月5日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 16:19:53 2021年8月5日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+

@@ -1,0 +1,134 @@
+﻿/*=================买家退换售后==========================*/
+
+/*主体内容*/
+.oct-content {
+    margin-top: 80px;
+}
+
+/*售后信息列表*/
+
+.order-list {
+    margin-top: 0px;
+}
+
+    .order-list .order-item {
+        background: white;
+        margin-bottom: 8px;
+    }
+
+.order-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+    .order-item-top a {
+        display: flex;
+        align-items: center;
+        background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+        background-size: 12px;
+        padding-right: 20px;
+    }
+
+    .order-item-top img {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+
+.order-status-txt {
+    color: #d4d4d4;
+}
+/*商品列表*/
+.order-item-mid {
+    background: #FAFAFA;
+    padding: 0 10px;
+}
+
+.order-goods-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 2px solid white;
+}
+
+.goods-item-left {
+    padding-right: 10px;
+}
+
+    .goods-item-left img {
+        width: 55px;
+        height: 55px;
+        border-radius: 2px;
+    }
+
+.goods-item-mid {
+    width: 100%;
+    padding-right: 5px;
+}
+
+    .goods-item-mid span {
+        display: block;
+    }
+
+.goods-item-spec {
+    color: gray;
+    font-size: 10px;
+}
+
+.goods-item-right {
+    text-align: right;
+}
+
+.goods-item-ordernum {
+    color: gray;
+}
+
+.goods-item-right span {
+    display: block;
+}
+
+.goods-aftersale-span {
+    width: 60px;
+    background: #FF6600;
+    text-align: center;
+    padding-top: 2px;
+    color: white;
+    border-radius: 10px;
+    font-size: 10px;
+}
+
+/*处理中列表*/
+.aftersale-item-top a {
+    background: none;
+}
+
+.aftersale-status-txt {
+    color: red;
+}
+
+.goods-aftersale-num {
+    width: 80px;
+    text-align: right;
+}
+.aftersale-item-top img{
+    height: 20px;
+}
+
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 76px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}
+
+

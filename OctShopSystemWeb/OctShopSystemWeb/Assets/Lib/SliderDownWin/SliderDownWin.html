@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+
+    <title>从底部滑出的窗口</title>
+
+    <!--<link href="SliderDownWin.css" rel="stylesheet" />-->
+
+    <script src="../jquery-2.2.2.min.js"></script>
+    <script src="SliderDownWin.js"></script>
+
+</head>
+<body style="background:#ffd800;">
+      <div class="main-win" style="height: 2000px;">
+          从底部滑出的窗口
+          <input type="button" value="打开与关闭窗口" onclick="openWin()" style="" />
+      </div>
+
+    <!--窗口区域
+    <div class="slider-down-win" style="display:none;">
+
+        <div class="slider-down-win-main">
+           
+            dsfdsfwerwe
+
+
+        </div>
+
+    </div>-->
+
+    <script type="text/javascript">
+
+        function openWin() {
+            //初始化SliderDown窗口
+            initSilderDownWin(600);
+
+            toggleSilderDownWin();
+        }
+
+    </script>
+
+
+</body>
+</html>

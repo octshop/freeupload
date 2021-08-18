@@ -1,0 +1,62 @@
+﻿/*================我的推广码===================*/
+
+/*二维码展示区*/
+.qr-code-main {
+    padding: 10px;
+    color: #808080;
+    background: white;
+    text-align: center;
+    margin-top: 45px;
+}
+
+.qr-code-img {
+    text-align: center;
+    width: 100%;
+    border: 1px solid #efefef;
+}
+
+    .qr-code-img img {
+        width: 100%;
+    }
+
+.qr-code-btn {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+    .qr-code-btn .btn-qr-css {
+        background: #ff6a00;
+        color: white;
+        font-size: 14px;
+        border: none;
+        border-radius: 10px;
+        padding:4px 7px;
+        cursor: pointer;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+    }
+
+.btn-qr-css img {
+    width: 20px;
+    height: 18px;
+    margin-right:3px;
+}
+.qr-code-btn b{
+    font-size:14px;
+    color: red;
+}
+
+.btn-qr-copy {
+    padding: 6px 40px;
+    background: #ff0000;
+    font-size: 14px;
+    color: white;
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}

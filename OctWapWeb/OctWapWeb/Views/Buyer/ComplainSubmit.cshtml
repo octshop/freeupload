@@ -1,0 +1,336 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>提交投诉</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/ComplainSubmit.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+
+    <script src="../Assets/Js/Buyer/ComplainSubmit.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidOID" value="@ViewBag.OID" />
+    <input type="hidden" id="hidPOID" value="@ViewBag.POID" />
+    <input type="hidden" id="hidAID" value="@ViewBag.AID" />
+    <input type="hidden" id="hidSID" value="@ViewBag.SID" />
+
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>提交投诉</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/Appraise_explain.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--不同分类的投诉显示代码-->
+        <div class="order-complain-category" id="OrderComplainCategory" style="display:none;">
+
+            <div class="order-msg">
+                <div class="order-msg-left">
+                    订单ID: <span id="OrderID"></span>
+                </div>
+                <div class="order-msg-right">
+                    下单时间：<span id="OrderTime"></span>
+                </div>
+            </div>
+
+            <!--订单列表-->
+            <ul class="order-list">
+                <li class="order-item">
+                    <div class="order-item-top" id="ShopMsg">
+                        <a href="#"><img src="../Assets/Imgs/02.jpg" /></a>
+                        <div class="order-status-txt">
+
+                        </div>
+                    </div>
+                    <div class="order-item-mid" id="OrderGoodsMsg" onclick="window.location.href='../Order/OrderDetail'">
+                        @*<a href="#" class="order-goods-item">
+                                <div class="goods-item-left">
+                                    <img src="~/Assets/Imgs/01.jpg" />
+                                </div>
+                                <div class="goods-item-mid">
+                                    <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                    <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                                </div>
+                                <div class="goods-item-right">
+                                    <span class="goods-item-price">&#165;2354.43</span>
+                                    <span class="goods-item-ordernum">&times; 3</span>
+                                </div>
+                            </a>*@
+
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+
+
+        <!--礼品订单投诉显示代码-->
+        <div class="order-complain-category" id="PresentOrderComplainCategory" style="display:none;">
+
+            <div class="order-msg">
+                <div class="order-msg-left">
+                    礼品订单ID: <span id="PresentOrderID"></span>
+                </div>
+                <div class="order-msg-right">
+                    下单时间：<span id="PresentOrderTime"></span>
+                </div>
+            </div>
+
+            <!--订单列表-->
+            <ul class="order-list">
+                <li class="order-item">
+                    <div class="order-item-top" id="PresentShopMsg">
+                        <a href="#"><img src="../Assets/Imgs/02.jpg" /></a>
+                        <div class="order-status-txt">
+
+                        </div>
+                    </div>
+                    <div class="order-item-mid" id="PresentOrderGoodsMsg">
+                        @*<a href="#" class="order-goods-item">
+                                <div class="goods-item-left">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </div>
+                                <div class="goods-item-mid">
+                                    <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                    <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                                </div>
+                                <div class="goods-item-right">
+                                    <span class="goods-item-price">&#165;2354.43</span>
+                                    <span class="goods-item-ordernum">&times; 3</span>
+                                </div>
+                            </a>*@
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+
+
+
+        <!--售后信息列表-->
+        <div class="after-sale-complain" id="AfterSaleComplain" style="display:none;">
+            <ul class="order-list page-content-list" id="AfterSaleComplainUl">
+                <li class="order-item">
+                    <div class="order-item-top aftersale-item-top">
+                        <a href="#"><img src="../Assets/Imgs/Icon/aftersale_list.png" />售后ID:</a>
+                        <div class="aftersale-status-txt">
+
+                        </div>
+                    </div>
+                    <div class="order-item-mid" onclick="window.location.href='#'">
+                        @*<a href="#" class="order-goods-item">
+                                <div class="goods-item-left">
+                                    <img src="~/Assets/Imgs/01.jpg" />
+                                </div>
+                                <div class="goods-item-mid">
+                                    <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                    <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                                </div>
+                                <div class="goods-item-right">
+                                    <span class="goods-item-price">&#165;2354.43</span>
+                                    <span class="goods-item-ordernum">&times; 3</span>
+                                    <span class="goods-aftersale-num">退货数量:8</span>
+                                </div>
+                            </a>*@
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!--店铺信息-->
+        <div class="shop-msg" id="ShopMsgBar" style="display:none;">
+            <div class="shop-msg-1">
+                <div class="shop-msg-left" id="ShopHeaderBar">
+                    <a href="#">
+                        <img src="../Assets/Imgs/01.jpg" />
+                    </a>
+                </div>
+                <div class="shop-msg-right">
+                    <div class="shop-right-top" id="ShopTitleBar">
+                        <a href="#" target="_blank"></a>
+                        <!--<span class="shop-label">商城好店</span>-->
+                        <span class="shop-arrow">&nbsp;</span>
+                    </div>
+                    <div class="shop-right-mid" id="ShopScoreBar">
+                        综合: <b>9.5</b>
+                        物流: <b>9.5高</b>
+                        商品: <b>9.5高</b>
+                        服务: <b>9.5高</b>
+                    </div>
+                    <div class="shop-right-bottom">
+                        <b id="ShopAttenBar">0</b>人关注
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="shop-msg-2" id="ShopMajorGoodBar">
+                “ 店铺的描述呀,取前十几个字。店铺的描述呀,取前十几个字店铺的描述呀,取前…… ”
+            </div>
+            <div class="shop-msg-4" style="padding-bottom:0; margin-bottom:0; padding-top: 10px;">
+                <a href="#" id="ShopGoSeviceBar" class="customer-service">联系客服</a>
+                <a href="#" id="ShopGoIndexBar" class="go-shop">进店逛逛</a>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    <!--官方投诉与意见-->
+    <div class="complain-offcial-content" id="ComplainOffcial" style="display:none;">
+        <div>
+            官方投诉与意见
+        </div>
+        <div class="complain-offcial-left">
+            给平台官方的意见与投诉
+        </div>
+    </div>
+
+
+
+    <div class="complain-type" onclick="openComplainTypeWin()">
+        <div class="complain-type-left">
+            投诉类型
+        </div>
+        <div class="complain-type-right" id="ComplainTypeVal">
+            配送问题
+        </div>
+    </div>
+
+    <div class="complain-content">
+        <div>
+            投诉内容：
+        </div>
+        <div>
+            <textarea class="txtarea-complain" id="ComplainContentTxtArea" placeholder="请输入投诉内容,控制在200个字内"></textarea>
+        </div>
+    </div>
+
+    <div class="btn-div">
+        <input class="btn-compalin" id="BtnComplain" type="button" value="提交投诉" onclick="submitComplainMsg()" />
+    </div>
+
+
+
+
+    <!--选择投诉类型窗口-->
+    <div class="win-sel-complain" id="WinSelComplainType" style="display:none;">
+
+        <div class="win-complain-content">
+            <div class="win-complain-title">
+                投诉类型
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <ul class="win-complain-list">
+                <li class="win-complain-item" onclick="selComplainTypeVal('配送问题')">
+                    <div class="complain-item-left">
+                        配送问题
+                    </div>
+                    <div class="complain-item-right">
+                        配送及快递相关问题
+                    </div>
+                </li>
+                <li class="win-complain-item" onclick="selComplainTypeVal('质量问题')">
+                    <div class="complain-item-left">
+                        质量问题
+                    </div>
+                    <div class="complain-item-right">
+                        商品损坏及本身问题
+                    </div>
+                </li>
+                <li class="win-complain-item" onclick="selComplainTypeVal('发票问题')">
+                    <div class="complain-item-left">
+                        发票问题
+                    </div>
+                    <div class="complain-item-right">
+                        发票开错或没有发票
+                    </div>
+                </li>
+                <li class="win-complain-item" onclick="selComplainTypeVal('退款问题')">
+                    <div class="complain-item-left">
+                        退款问题
+                    </div>
+                    <div class="complain-item-right">
+                        退款相关
+                    </div>
+                </li>
+                <li class="win-complain-item" onclick="selComplainTypeVal('售后问题')">
+                    <div class="complain-item-left">
+                        售后问题
+                    </div>
+                    <div class="complain-item-right">
+                        维修、换货、退货相关
+                    </div>
+                </li>
+                <li class="win-complain-item" onclick="selComplainTypeVal('安装问题')">
+                    <div class="complain-item-left">
+                        安装问题
+                    </div>
+                    <div class="complain-item-right">
+                        上门安装
+                    </div>
+                </li>
+                <li class="win-complain-item" onclick="selComplainTypeVal('店铺服务')">
+                    <div class="complain-item-left">
+                        店铺服务
+                    </div>
+                    <div class="complain-item-right">
+                        店铺服务问题
+                    </div>
+                </li>
+                <li class="win-complain-item" onclick="selComplainTypeVal('其他问题')">
+                    <div class="complain-item-left">
+                        其他问题
+                    </div>
+                    <div class="complain-item-right">
+                        其他相关问题
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+</body>
+</html>

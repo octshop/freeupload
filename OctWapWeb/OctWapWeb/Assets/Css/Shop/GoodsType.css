@@ -1,0 +1,57 @@
+﻿/*===============热门分类==================*/
+
+html, body {
+    background: #ebebeb;
+}
+
+    body .oct-content {
+        background: #ebebeb;
+        padding-bottom: 100px;
+    }
+
+/*主体内容*/
+.goods-type-list {
+    padding: 6px;
+    margin-top:0px;
+}
+
+.goods-type-item {
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+    .goods-type-item img {
+        width: 12px;
+        height: 12px;
+    }
+
+.type-item-title {
+    padding: 0px 5px;
+    padding-right: 0px;
+    font-size:12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    border-left: 2px solid #ff0000;
+    padding-top: 2px;
+}
+
+.type-item-content {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.type-name-item{
+    background: #ebebeb;
+    padding:3px 8px;
+    display:block;
+    border-radius:5px;
+    font-size:11px;
+    margin:5px;
+    display:flex;
+    align-items:center;
+}

@@ -1,0 +1,31 @@
+﻿/*=============文本编辑器==================*/
+.WebEditorContentDiv .webEditorInsertImg {
+    margin-top: 10px;
+}
+
+.webEditorInsertImg .insertPhotoDiv, .WebEditorContentDiv .PageBar {
+    width: 710px;
+    overflow: hidden;
+    background: #f3f3f3;
+}
+
+    .webEditorInsertImg .insertPhotoDiv div {
+        width: 90px;
+        height: 90px;
+        overflow: hidden;
+        float: left;
+        text-align: center;
+        margin: 5px;
+        background: #f2f2f2;
+        border: 1px solid #808080;
+        padding: 5px;
+        cursor: pointer;
+    }
+/*编辑器区域的分页控制条*/
+.WebEditorContentDiv .PageBar {
+    padding-bottom: 10px;
+}
+
+    .WebEditorContentDiv .PageBar span {
+        padding: 7px;
+    }

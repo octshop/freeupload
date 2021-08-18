@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>登录密码设置</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/LoginPage/LoginPage.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/LoginPage/LoginPwdSetting.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBackUrl" value="@ViewBag.BackUrl" />
+    <input type="hidden" id="hidUserID" value="" />
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="login-icon">
+            <img src="../Assets/Imgs/Icon/setting_pwdlogo.png" />
+        </div>
+        <div class="login-form">
+            <div class="login-form-mobile">
+                <span>OldPwd</span>
+                <input type="password" id="LoginPwdOld" class="txt-css" placeholder="输入旧的登录密码" />
+            </div>
+            <div class="login-form-mobile">
+                <span>NewPwd</span>
+                <input type="password" id="LoginPwdNew" class="txt-css" placeholder="输入新的登录密码" />
+            </div>
+            <div class="login-form-mobile">
+                <span>ConPwd</span>
+                <input type="password" id="LoginPwdCon" class="txt-css" placeholder="确认新的登录密码" />
+            </div>
+            <div class="login-form-btn">
+                <div class="btn-login-once" onclick="chgUserLoginPwd()">
+                    <img src="../Assets/Imgs/Icon/setting_pwd.png" /><b id="BtnResetLoginPwd">重设登录密码</b>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

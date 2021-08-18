@@ -1,0 +1,51 @@
+<!--pages/buyer/goodstype/goodstype.wxml-->
+<!--头部-->
+<view class="oct-header" style="top:{{statusHeight}}px; height:{{navBarHeight}}px">
+	<view class="oct-header-tab">
+		<view class="{{ tabNum == 1 ? 'header-tab-current' : '' }}" bindtap="chgTab" data-tab-num="1">全部</view>
+		<view class="{{ tabNum == 2 ? 'header-tab-current' : '' }}" bindtap="chgTab" data-tab-num="2">实体店</view>
+		<navigator url="../../mall/goodssearch/goodssearch{{tabNum == 2 ? '?ST=Entity': ''}}" class="header-tab-search">
+			<image class="header-tab-image" src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_search_black.png" />商品搜索
+		</navigator>
+	</view>
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<view class="scroll-view-content">
+		<!-- 左边的ScrollView -->
+		<scroll-view class="scroll-view-left" scroll-y="true" style="height: {{scrollViewHeight}}px;">
+			<view class="type-nav-left">
+
+				<view wx:for="{{loadGoodsTypeSecLevel_Data.GooGoodsTypeSecLevelList}}" bindtap="loadGoodsTypeThirdLevelBySec"
+					data-goods-type-id="{{item.GoodsTypeID}}" class="{{goodsTypeId==item.GoodsTypeID ? 'type-nav-current' : ''}}">
+					{{item.GoodsTypeName}}</view>
+					<view style="height:50px"></view>
+				<!-- <view class="type-nav-current">运动</view> -->
+			</view>
+
+		</scroll-view>
+
+		<!-- 右边的ScrollView -->
+		<scroll-view class="scroll-view-right" scroll-y="true" style="height: {{scrollViewHeight}}px;">
+			<view class="type-nav-right">
+
+				<view wx:for="{{loadGoodsTypeThirdLevelBySec_Data.GooGoodsTypeThirdLevelList}}" bindtap="navigateToURL"
+					data-navigate-url="{{item.IsEntity=='true' ? '../../../pages/o2o/goodstype/goodstype?GTID='+ item.GoodsTypeID +'' : '../../../pages/mall/goodstypelistdetail/goodstypelistdetail?GTID=' + item.GoodsTypeID}}">
+					<image class="type-image" src="//{{item.TypeIcon}}" />{{item.GoodsTypeName}}
+				</view>
+
+			</view>
+		</scroll-view>
+
+
+
+
+	</view>
+
+
+
+
+
+</view>

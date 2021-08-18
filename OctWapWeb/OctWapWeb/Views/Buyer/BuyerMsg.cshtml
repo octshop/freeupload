@@ -1,0 +1,206 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>买家消息</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/BuyerMsg.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/Buyer/BuyerMsg.js"></script>
+
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <!--Tab选项卡-->
+        <div class="tab-list">
+            <div class="tab-item tab-item-current" onclick="chgTab('All')">
+                <img src="../Assets/Imgs/Icon/msg_all.png" />
+                全部消息
+                <span class="bage-num" id="AllBageNum" style="display:none;">0</span>
+            </div>
+            <div class="tab-item" onclick="chgTab('CusSer')">
+                <img src="../Assets/Imgs/Icon/msg_customer.png" />
+                咨询消息
+                <span class="bage-num" id="CusSerBageNum" style="display:none;">0</span>
+            </div>
+            <div class="tab-item" onclick="chgTab('Order')">
+                <img src="../Assets/Imgs/Icon/msg_order.png" />
+                交易消息
+                <span class="bage-num" id="OrderBageNum" style="display:none;">0</span>
+            </div>
+            <div class="tab-item" onclick="chgTab('AfterSale')">
+                <img src="../Assets/Imgs/Icon/msg_aftersale.png" />
+                售后消息
+                <span class="bage-num" id="AfterSaleBageNum" style="display:none;">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--具体信息列表-->
+        <div class="msg-list" id="MsgList">
+
+            <!--订单消息
+            <ul class="order-list">
+                <li class="order-item">
+                    <div class="order-item-top">
+                        <div class="order-status-txt">
+                            订单已发货订单已发货订单已发货
+                        </div>
+                        <div class="msg-date-time">
+                            2018-05-17 12:32:23
+                        </div>
+                    </div>
+                    <div class="order-item-mid" onclick="window.location.href='../Order/OrderDetail'">
+                        <a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/01.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                </li>
+            </ul>-->
+            <!--咨询消息
+            <div class="customer-list">
+                <div class="customer-list-left">
+                    <img src="../Assets/Imgs/02.png" />
+                </div>
+                <div class="customer-list-right">
+                    <div class="customer-right-top">
+                        <div>
+                            店铺名称
+                        </div>
+                        <div class="msg-date-time">
+                            2018-05-17 12:32:23
+                        </div>
+                    </div>
+                    <div class="customer-right-bottom">
+                        [  这个东西的价格已经优惠很大的了，不能再优惠的！ ]
+                    </div>
+                </div>
+            </div>
+            <div class="customer-list">
+                <div class="customer-list-left">
+                    <img src="../Assets/Imgs/03.jpg" />
+                </div>
+                <div class="customer-list-right">
+                    <div class="customer-right-top">
+                        <div>
+                            店铺名称
+                        </div>
+                        <div class="msg-date-time">
+                            2018-05-17 12:32:23
+                        </div>
+                    </div>
+                    <div class="customer-right-bottom">
+                        [个东西的价格已经优惠很大的了，不能再优]
+                    </div>
+                </div>
+            </div>-->
+            <!--售后信息
+            <ul class="order-list">
+                <li class="order-item">
+                    <div class="order-item-top">
+                        <div class="order-status-txt">
+                            等待商家确认售后
+                        </div>
+                        <div class="msg-date-time">
+                            2018-05-17 12:32:23
+                        </div>
+                    </div>
+                    <div class="order-item-mid" onclick="window.location.href='../Order/OrderDetail'">
+                        <a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/01.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                            </div>
+                        </a>
+                        <a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/02.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                            </div>
+                        </a>
+                    </div>
+
+                </li>
+            </ul>-->
+
+
+
+        </div>
+
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <a href="../Mall/Index">
+            <img src="../Assets/Imgs/Icon/navhome.png" />
+            首页
+        </a>
+        <a href="../Mall/GoodsType">
+            <img src="../Assets/Imgs/Icon/navtype.png" />
+            分类
+        </a>
+        <a href="../Buyer/BuyerMsg" class="nav-current">
+            <img src="../Assets/Imgs/Icon/navmsg_red.png" />
+            消息
+            <div class="badge-div" style="display:none">3</div>
+        </a>
+        <a href="../SCart/Index">
+            <img src="../Assets/Imgs/Icon/navscart.png" />
+            购物车
+            <div class="badge-div" style="display:none">3</div>
+        </a>
+        <a href="../Buyer/Index">
+            <img src="../Assets/Imgs/Icon/navmy.png" />
+            我的
+            <div class="badge-div" style="display:none">3</div>
+        </a>
+    </div>
+
+
+</body>
+</html>

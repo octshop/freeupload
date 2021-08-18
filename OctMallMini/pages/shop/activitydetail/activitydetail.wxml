@@ -1,0 +1,249 @@
+<!--pages/shop/activitydetail/activitydetail.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="活动详情" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--Logo区-->
+	<view class="logo-msg">
+		<view class="logo-msg-left">
+			<view class="logo-title">
+				{{initActivityDetail_Data.ActivityMsg.AcType=='OffLine' ? '线下' : '线上'}}
+				:{{initActivityDetail_Data.ActivityMsg.AcTitle}}
+			</view>
+			<view class="logo-desc">
+				{{initActivityDetail_Data.ActivityMsg.AcSketch}}
+			</view>
+			<view class="logo-status">
+				当前报名：{{activityJoinNumber}}，
+				活动人数限：{{initActivityDetail_Data.ActivityMsg.LimitNumber=='0' ? '无上限':
+				initActivityDetail_Data.ActivityMsg.LimitNumber + '人'}}，
+				参与验证：{{initActivityDetail_Data.ActivityMsg.IsJoinCheck=='false' ? '否': '是'}}
+				<view>
+					活动时间：{{initActivityDetail_Data.ActivityMsg.StartDate}} 至 {{initActivityDetail_Data.ActivityMsg.EndDate}}
+				</view>
+			</view>
+		</view>
+		<view class="logo-msg-right">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_activity_white.png" />
+		</view>
+	</view>
+
+
+	<!--参与验证-->
+	<view class="check-code" id="CheckCodeDiv"
+		wx:if="{{initActivityDetail_Data.ActivityMsg.IsJoinCheck == 'true' && initActivityDetail_Data.UserMsgCurrent.UserNick != '' && initActivityDetail_Data.UserMsgCurrent.IsChecked != 'true'}}">
+		<view class="check-code-left">
+			<view>参与活动-验证码</view>
+			<view class="check-order-id">活动ID：<text>{{initActivityDetail_Data.ActivityMsg.ActivityID}}</text></view>
+			<view class="check-code-number"><text
+					id="checkCodeNumberB">{{initActivityJoinVerifyCode_Data.DataDic.VerifyCode}}</text></view>
+			<view>
+				<button class="btn-reset" style="width:110px" bindtap="initActivityJoinVerifyCode"
+					data-is-re-set="true">重新生成</button>
+			</view>
+		</view>
+		<view class="check-code-right">
+			<image id="ScanImg"
+				src="{{apiWebDoamin}}/ToolWeb/GetQrCodeImg.aspx?QrCodeContent={{initActivityJoinVerifyCode_Data.DataDic.ScanUrl}}"
+				bindtap="previewImgShow"
+				data-img-url="{{apiWebDoamin}}/ToolWeb/GetQrCodeImg.aspx?QrCodeContent={{initActivityJoinVerifyCode_Data.DataDic.ScanUrl}}">
+			</image>
+		</view>
+	</view>
+
+	<!--用户活动参与中-->
+	<view class="user-joining" id="UserJoiningDiv"
+		wx:if="{{initActivityDetail_Data.UserMsgCurrent.IsChecked == 'true' && initActivityDetail_Data.UserMsgCurrent.UserNick != ''}}">
+		<view id="UserJoiningName">
+			<image src="{{initActivityDetail_Data.UserMsgCurrent.HeaderImg}}" />
+			{{initActivityDetail_Data.UserMsgCurrent.UserNick}}
+		</view>
+		<view>
+			<text style="color:red; font-weight:bold">正在参与活动</text>
+		</view>
+	</view>
+
+
+	<view class="logo-check">
+		<view style="font-weight:bold; color: #DB8B00">
+			状态：{{initActivityDetail_Data.ActivityStatus}}
+		</view>
+		<view>
+			<view class="btn-apply" style="background:#9B9B9B"
+				wx:if="{{initActivityDetail_Data.UserMsgCurrent.UserNick != ''}}">
+				你已报名</view>
+			<view class="btn-apply" style="background:#9B9B9B"
+				wx:elif="{{initActivityDetail_Data.ActivityMsg.IsJoinPause == 'true'}}">
+				暂停报名</view>
+			<view class="btn-apply" wx:else bindtap="openSlideBottomJoin">立即报名</view>
+		</view>
+	</view>
+
+
+	<view class="logo-address" wx:if="{{initActivityDetail_Data.ActivityMsg.AcType == 'OffLine'}}">
+		<view class="logo-address-left">
+			活动地址:
+			<view class="logo-address-distance">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/address.png" />
+				{{initActivityDetail_Data.DistanceKm}} km
+			</view>
+		</view>
+		<view class="logo-address-mid">
+			{{initActivityDetail_Data.ActivityMsg.RegionNameArr}}_{{initActivityDetail_Data.ActivityMsg.AcAddress}}
+		</view>
+		<view class="logo-address-right" bindtap="openMap" data-latitude="{{initActivityDetail_Data.ActivityMsg.Latitude}}"
+			data-longitude="{{initActivityDetail_Data.ActivityMsg.Longitude}}"
+			data-name="{{initActivityDetail_Data.ActivityMsg.ShopName}}"
+			data-address="{{initActivityDetail_Data.ActivityMsg.AcAddress}}">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/addr_nav.png" />
+			<view>导航</view>
+		</view>
+	</view>
+
+	<view class="activity-img">
+		<image src="//{{item.ImgURL}}" wx:for="{{initActivityDetail_Data.ActivityImgs}}" bindtap="previewImg"
+			data-pre-index="index" mode="widthFix"></image>
+		<view class="activity-desc">
+			{{initActivityDetail_Data.ActivityMsg.AcDesc}}
+		</view>
+	</view>
+
+	<view class="activity-join">
+		<view class="activity-join-top">
+			当前有<b>{{initActivityDetail_Data.ActivityJoin.length}}</b>位报名者
+		</view>
+		<view class="activity-join-mid">
+			<image src="{{item.HeaderImg}}" wx:for="{{initActivityDetail_Data.ActivityJoin}}" wx:if="{{index <34}}" />
+		</view>
+		<view class="activity-join-bottom">
+			<navigator url="#" bindtap="openSlideBottom">还有更多>></navigator>
+		</view>
+
+		<!--分享按钮区-->
+		<view class="share-section">
+			<button class="btn-share-friend" open-type="share">邀请好友参与</button>
+		</view>
+
+	</view>
+
+	<!--店铺信息-->
+	<view class="shop-msg">
+		<view class="shop-msg-1" bindtap="navigateToURL"
+			data-navigate-url="../../../pages/shop/index/index?SID={{loadShopBarMsg_Data.ShopMsg.ShopID}}">
+			<view class="shop-msg-left">
+				<image src="//{{loadShopBarMsg_Data.ShopMsg.ShopHeaderImg}}" />
+			</view>
+			<view class="shop-msg-right">
+				<view class="shop-right-top">
+					<view class="shop-name-msg">{{loadShopBarMsg_Data.ShopMsg.ShopName}}</view>
+					<span wx:if="{{loadShopBarMsg_Data.ShopMsg.IsSelfShop == 'true'}}" class="shop-label">自营店</span>
+					<span class="shop-label" wx:for="{{shopLabelArr}}">{{item}}</span>
+					<span class="shop-arrow">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/icon/arrows_right.png" />
+					</span>
+				</view>
+				<view class="shop-right-mid">
+					综合: <b>{{loadShopBarMsg_Data.ShopAppScoreList.ShopScoreAvg}}</b>
+					物流: <b>{{loadShopBarMsg_Data.ShopAppScoreList.ExpressScoreAvg}}</b>
+					商品: <b>{{loadShopBarMsg_Data.ShopAppScoreList.ConformityScoreAvg}}</b>
+					服务: <b>{{loadShopBarMsg_Data.ShopAppScoreList.AttitudeScoreAvg}}</b>
+					配送: <b>{{loadShopBarMsg_Data.ShopAppScoreList.DeliverymanScoreAvg}}</b>
+				</view>
+				<view class="shop-right-bottom">
+					<b>{{loadShopBarMsg_Data.ShopFavCount}}</b>人关注
+				</view>
+
+			</view>
+		</view>
+
+		<view class="shop-msg-2">
+			{{loadShopBarMsg_Data.ShopMsg.MajorGoods}}
+		</view>
+
+		<view class="shop-msg-3">
+			<view class="shop-msg-ul">
+
+				<view wx:for="{{loadShopBarMsg_Data.PreListGoodsMsg}}">
+					<navigator url="../../../pages/goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+						<image src="//{{item.CoverImgPath}}" mode="widthFix" style="width:100%" /><br />
+						{{item.GoodsTitle}}
+					</navigator>
+				</view>
+
+				<!-- <view>
+						<navigator url="#">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/02.jpg" /><br />
+							2018年冬季新款
+						</navigator>
+					</view> -->
+
+			</view>
+		</view>
+
+		<view class="shop-msg-4">
+
+			<navigator url="#" class="customer-service" bindtap="buildBuyerGoToImSysURL_ShopWap">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/customer.png" />
+				联系客服
+			</navigator>
+			<view style="width:50rpx"></view>
+			<navigator url="../../../pages/shop/index/index?SID={{loadShopBarMsg_Data.ShopMsg.ShopID}}" class="go-shop">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_small.png" />
+				进店逛逛
+			</navigator>
+
+		</view>
+	</view>
+
+</view>
+
+
+<!--查看更多参与窗口-->
+<sliderDownWin is-display-slide="{{isDisplaySlide}}" is-display-title="true" slide-win-height="{{slideBottomWinHeight}}"
+	slide-win-title="参与用户">
+	<view slot="outwxml">
+
+		<view class="win-user-list" style="height:{{slideBottomWinHeight}}px; overflow-x: hidden;overflow-y: auto;">
+
+			<image src="{{item.HeaderImg}}" wx:for="{{initActivityDetail_Data.ActivityJoin}}"></image>
+
+		</view>
+
+
+	</view>
+</sliderDownWin>
+
+
+
+<!--立即报名 窗口-->
+<sliderDownWin is-display-slide="{{isDisplaySlideJoin}}" is-display-title="true"
+	slide-win-height="{{slideBottomWinHeightJoin}}" slide-win-title="立即报名">
+	<view slot="outwxml">
+
+		<view class="win-join-list">
+			<view>
+				<text style="padding-bottom: 15px; display:block;font-size:14px">
+					* 联系手机号：
+				</text>
+				<input type="number" class="limit-number-txt" placeholder="报名手机号" value="{{loginBuyerMobile}}"
+					bindinput="bindInputJoinMobile" />
+			</view>
+			<view>
+				<button class="btn-submit" bindtap="addActivityJoin">提交报名</button>
+			</view>
+		</view>
+
+	</view>
+</sliderDownWin>
+
+
+
+
+<!-- 底部客服条组件 -->
+<customerBar id="customerbar" api-web-doamin="{{apiWebDoamin}}" phone-number="{{phoneNumber}}"
+	complain-navigate-url="../../../pages/buyer/complain/complainsubmit/complainsubmit?SID={{shopId}}"
+	bindimshopwap="buildBuyerGoToImSysURL_ShopWap" />

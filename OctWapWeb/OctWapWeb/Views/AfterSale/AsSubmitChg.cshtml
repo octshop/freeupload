@@ -1,0 +1,217 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>提交换货申请</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/AfterSale/AsSubmitChg.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Js/AfterSale/AsSubmitChg.js"></script>
+
+</head>
+<body>
+   
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>提交换货申请</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--商品信息-->
+        <div class="as-goods">
+
+            <div class="as-goods-company">
+                本次售后服务由 <a href="#">某某某公司</a> 为您提供
+            </div>
+            <div class="as-goods-list">
+                <div class="as-goods-left">
+                    <img src="~/Assets/Imgs/03.jpg" />
+                </div>
+                <div class="as-goods-right">
+                    <div class="goods-title">
+                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品
+                        名称商
+                    </div>
+                    <div class="goods-spec">
+                        规格参数规格参数
+                    </div>
+                    <div class="goods-price">
+                        单价:<b>&#165;283.234</b>
+                        订单数量:<b>23</b>
+                        申请数量:<b>23</b>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--申请原因-->
+        <div class="apply-reason">
+            <div class="apply-reason-top" onclick="openAsReasonTypeWin()">
+                <div class="reason-top-left">
+                    申请原因
+                </div>
+                <div class="reason-top-right">
+                    请选择
+                </div>
+            </div>
+            <div class="apply-reason-bottom">
+                请选择具体问题，建议你先与商家沟通确认
+            </div>
+        </div>
+
+        <!--问题描述-->
+        <div class="apply-question">
+            <div class="apply-question-top">
+                问题描述
+            </div>
+            <div class="apply-question-mid">
+                <textarea class="apply-question-txtArea" placeholder="请描述申请售后服务的具体原因，还可以上传5张问题图片哦！"></textarea>
+            </div>
+            <div class="appraise-upload-img">
+                <div class="upload-img">
+                    <img src="../Assets/Imgs/Icon/camera.png" />
+                    晒照片
+                </div>
+                <div class="upload-pre">
+                    <div class="upload-pre-item">
+                        <img src="../Assets/Imgs/01.jpg" />
+                        <img class="icon-del" src="~/Assets/Imgs/Icon/icon-del.png" />
+                    </div>
+                    <div class="upload-pre-item">
+                        <img src="../Assets/Imgs/02.jpg" />
+                        <img class="icon-del" src="~/Assets/Imgs/Icon/icon-del.png" />
+                    </div>
+                    <div class="upload-pre-item">
+                        <img src="../Assets/Imgs/01.jpg" />
+                        <img class="icon-del" src="~/Assets/Imgs/Icon/icon-del.png" />
+                    </div>
+                    <div class="upload-pre-item">
+                        无照片
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--买家收货地址-->
+        <div class="as-recei-addr">
+            <div class="as-recei-item" onclick="window.location.href='../Buyer/ReceiAddrList'">
+                <div class="recei-item-top">
+                    服务/收货地址：
+                </div>
+                <div class="recei-item-bottom">
+                    <div class="recei-item-right">
+                        湖南 省长沙市长沙县星沙开元西路12号i湖南 省长沙市长沙
+                        县星沙开元西路12号
+                    </div>
+                </div>
+            </div>
+            <div class="as-recei-item as-recei-link">
+                <div>
+                    联系人：
+                </div>
+                <div class="recei-item-val">
+                    <input type="text" value="小黄人" />
+                </div>
+            </div>
+            <div class="as-recei-item as-recei-link" style="border-bottom:none;">
+                <div>
+                    联系电话：
+                </div>
+                <div class="recei-item-val">
+                    <input type="text" value="15675178605" />
+                </div>
+            </div>
+        </div>
+
+        <div class="as-hint">
+            提交申请后，售后专员可能电话与你沟通，请保持电话畅通。
+        </div>
+
+    </div>
+
+
+    <!--页脚-->
+    <div class="oct-footer">
+
+        <input type="button" class="btn-apply" value="提交申请" />
+
+    </div>
+
+
+
+
+
+
+    <!--选择申请原因窗口-->
+    <div class="win-sel-reason" id="WinSelReasonType" style="display:none;">
+
+        <div class="win-reason-content">
+            <div class="win-reason-title">
+                申请原因
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <ul class="win-reason-list">
+                <li class="win-reason-item">
+                    <div class="reason-item-left">
+                        质量问题
+                    </div>
+                    <div class="reason-item-right">
+                        产品质量问题
+                    </div>
+                </li>
+                <li class="win-reason-item">
+                    <div class="reason-item-left">
+                        其他问题
+                    </div>
+                    <div class="reason-item-right">
+                        产品其他问题
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

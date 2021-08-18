@@ -1,0 +1,212 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>中奖详情</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/LuckyDrawDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Buyer/LuckyDrawDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidLuckydrawID" value="@ViewBag.LuckydrawID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>中奖详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <!--Logo区-->
+        <div class="logo-msg">
+            <div class="logo-msg-left">
+                <div class="logo-title" id="LogoTitleDiv">
+                    .....
+                </div>
+                <div class="logo-desc" id="LogoDescDiv">
+                    .....
+                </div>
+            </div>
+            <div class="logo-msg-right">
+                <img src="../Assets/Imgs/Icon/award.png" />
+            </div>
+        </div>
+
+
+        <!--参与验证-->
+        <div class="check-code" id="CheckCodeDiv" style="display:none;">
+            <div class="check-code-left">
+                <div>奖品领取-验证码</div>
+                <div class="check-order-id">抽奖ID：<span>@ViewBag.LuckydrawID</span></div>
+                <div class="check-code-number"><b id="checkCodeNumberB">563254</b></div>
+                <div>
+                    <input type="button" class="btn-reset" id="BtnReset" value="重新生成" onclick="initLuckyDrawVerifyCode('true')" />
+                </div>
+            </div>
+            <div class="check-code-right">
+                <a href="../Assets/Imgs/scan.png" id="ScanImgA" target="_blank">
+                    <img id="ScanImg" src="../Assets/Imgs/scan.png" />
+                </a>
+            </div>
+        </div>
+
+
+
+        <!--系统和快递信息-->
+        <div class="express-recei" id="ExpressReceiDiv" style="display:none;">
+            <div class="express-msg">
+                <div class="express-msg-left">
+                    &nbsp;
+                </div>
+                <div class="express-msg-mid">
+                    <div class="express-mid-content" id="ExpressMidContent">
+                        
+                    </div>
+                    <div class="express-mid-date" id="ExpressMidDate">
+                        
+                    </div>
+                </div>
+                <div class="express-msg-right">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+
+        <!--地址导航-->
+        <div class="logo-address" id="GetAddressDiv">
+            <div class="logo-address-left">
+                领奖地址:
+                <div class="logo-address-distance" id="AddrDistanceDiv">0.00km</div>
+            </div>
+            <div class="logo-address-mid" id="AddressDetailContent">
+                
+            </div>
+            <div class="logo-address-right" onclick="openShopNavWin()">
+                <img src="../Assets/Imgs/Icon/addr_nav.png" /><br />
+                导航
+            </div>
+        </div>
+
+        <!--商品列表-->
+        <ul class="goods-list" id="LuckyDrawMsgUl">
+            @*<li>
+                <div class="shop-msg" onclick="window.location.href='../shop/index?SID=2343'">
+                    <div class="shop-msg-left">
+                        <img src="../Assets/Imgs/Icon/shop.png" />
+                        店铺名称店铺名称店铺名称
+                        <img src="../Assets/Imgs/Icon/arrows_right.png" />
+                    </div>
+                    <div class="shop-msg-right">
+                        <span>您中奖啦</span>
+                        &nbsp;已中奖-等发货
+                    </div>
+                </div>
+                <div class="goods-msg" onclick="window.location.href='../Buyer/LuckyDrawDetail'">
+                    <div class="goods-msg-left">
+                        <img src="../Assets/Imgs/03.jpg" />
+                    </div>
+                    <div class="goods-msg-right">
+                        <div class="goods-msg-title">
+                            奖品名称奖品名称奖品名称奖品名称奖品名称
+                        </div>
+                        <div class="goods-msg-extra">
+                            奖项:一等奖，奖品数量:23，验证码:2343<br />
+                            配送:到店消费或领取<br />
+                            开奖日期:2020-05-12 12:22:23
+                        </div>
+                    </div>
+                </div>
+            </li>*@
+        </ul>
+
+        <!--其他抽奖信息-->
+        <ul class="extra-msg-ul">
+            <li>
+                <span class="extra-msg-left">开奖方式：</span>
+                <span id="StartLuckyType"> </span>
+            </li>
+            <li>
+                <span class="extra-msg-left">奖品配送方式：</span>
+                <span id="ExpressType"> </span>
+            </li>
+            <li>
+                <span class="extra-msg-left">参与条件：</span>
+                <span id="JoinLimit"> </span>
+            </li>
+        </ul>
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <div id="CusServiceDiv" onclick="window.location.href='../shop/GoodsAll'">
+            <img src="../Assets/Imgs/Icon/order_customer_gray.png" />
+            商家客服
+        </div>
+        <div id="ShopTelDiv" onclick="window.location.href='../shop/GoodsType'">
+            <img src="../Assets/Imgs/Icon/order_tel_gray.png" />
+            拨打电话
+        </div>
+        <div id="ComplainShopDiv">
+            <img src="../Assets/Imgs/Icon/order_complain_gray.png" />
+            投诉商家
+        </div>
+    </div>
+
+
+
+    <!--选择店铺导航地图-->
+    <div class="win-sel-shopnav" id="WinSelShopNav" style="display:none;">
+        <div class="win-shopnav-content">
+            <ul>
+                <li class="shopnav-title-li">
+                    选择导航地图
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="qqmapA">腾讯地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="amapA">高德地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="bdmapA">百度地图</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="toggleSilderDownWin()" style="color: #000000; padding-bottom: 20px;">取消</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

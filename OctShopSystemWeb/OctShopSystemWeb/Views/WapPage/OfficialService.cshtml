@@ -1,0 +1,90 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>官方客服</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/WapPage/OfficialService.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/WapPage/OfficialService.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidImSystemWebDomainURL" value="@ViewBag.ImSystemWebDomainURL" />
+    <input type="hidden" id="hidImSystemShopUserAccount" value="@ViewBag.ImSystemShopUserAccount" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>官方客服</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../WapPage/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="services-top">
+            <div class="services-top-list" id="ServiceTelList">
+                <div>
+                    <span>客服电话：</span><a href="tel:40087895454">40087895454</a>
+                </div>
+                <div>
+                    <span>投诉电话：</span><a href="tel:40087895454">40087895454</a>
+                </div>
+                <div>
+                    <span>技术支持：</span><a href="tel:40087895454">40087895454</a>
+                </div>
+            </div>
+            <div class="services-top-btn">
+                <a class="btn-services btn-services-online" href="#" id="BtnServicesOnLine">
+                    <img src="../Assets/Imgs/Icon/order_customer_orangae.png" />
+                    在线客服
+                </a>
+                <a class="btn-services btn-services-Tel" href="#" id="BtnServicesTel">
+                    <img src="../Assets/Imgs/Icon/order_tel_orangae.png" />
+                    电话客服
+                </a>
+            </div>
+        </div>
+
+        <div class="services-bottom">
+            <div>
+                问题类型
+            </div>
+            <ul class="question-ul" id="QuestionUl">
+                <li>
+                    <span>发货时间</span>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

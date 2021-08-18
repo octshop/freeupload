@@ -1,0 +1,224 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>退换售后</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/AfterSale/BuyerAsIndex.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Js/AfterSale/BuyerAsIndex.js"></script>
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>退换售后 </b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-1 oct-header-sub-curren-a" onclick="chgTabLoad(0)">售后申请</a>
+        <a href="javascript:void(0)"  class="oct-header-sub-a oct-header-sub-a-2" onclick="chgTabLoad(1)">处理中</a>
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-2" onclick="chgTabLoad(2)">售后记录</a>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!--售后信息列表-->
+            <ul class="order-list page-content-list" id="PageContentList">
+
+                <!--申请售后列表-->
+                @**<li class="order-item">
+                    <div class="order-item-top">
+                        <a href="#"><img src="../Assets/Imgs/02.jpg" />韩版男装专卖店</a>
+                        <div class="order-status-txt">
+                            2019-05-12
+                        </div>
+                    </div>
+                    <div class="order-item-mid" onclick="window.location.href='../Order/OrderDetail'">
+                        <a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/01.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                                <span class="goods-aftersale-span" onclick="applyAfterSale()">申请售后</span>
+                            </div>
+                        </a>
+                        <a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/01.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                                <span class="goods-aftersale-span">申请售后</span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="order-item">
+                    <div class="order-item-top">
+                        <a href="#"><img src="../Assets/Imgs/02.jpg" />韩版男装专卖店</a>
+                        <div class="order-status-txt">
+                            2019-05-12
+                        </div>
+                    </div>
+                    <div class="order-item-mid" onclick="window.location.href='../Order/OrderDetail'">
+                        <a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/01.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                                <span class="goods-aftersale-span">申请售后</span>
+                            </div>
+                        </a>
+                        <a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/01.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                                <span class="goods-aftersale-span">申请售后</span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <!--处理中-->
+                <li class="order-item">
+                    <div class="order-item-top aftersale-item-top">
+                        <a href="#"><img src="../Assets/Imgs/Icon/aftersale_list.png" />售后ID:234432</a>
+                        <div class="aftersale-status-txt">
+                            商家审核中
+                        </div>
+                    </div>
+                    <div class="order-item-mid" onclick="window.location.href='../AfterSale/AsDetail'">
+                        <a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/01.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                                <span class="goods-aftersale-num">维修数量:82</span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="order-item">
+                    <div class="order-item-top aftersale-item-top">
+                        <a href="#"><img src="../Assets/Imgs/Icon/aftersale_list.png" />售后ID:234432</a>
+                        <div class="aftersale-status-txt">
+                            商家审核中
+                        </div>
+                    </div>
+                    <div class="order-item-mid" onclick="window.location.href='#'">
+                        <a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/01.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                                <span class="goods-aftersale-num">换货数量:82</span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="order-item">
+                    <div class="order-item-top aftersale-item-top">
+                        <a href="#"><img src="../Assets/Imgs/Icon/aftersale_list.png" />售后ID:234432</a>
+                        <div class="aftersale-status-txt">
+                            商家审核中
+                        </div>
+                    </div>
+                    <div class="order-item-mid" onclick="window.location.href='#'">
+                        <a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/01.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                                <span class="goods-aftersale-num">退货数量:8</span>
+                            </div>
+                        </a>
+                    </div>
+                </li>*@
+
+
+
+
+            </ul>
+
+
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>

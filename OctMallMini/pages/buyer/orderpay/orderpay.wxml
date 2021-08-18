@@ -1,0 +1,284 @@
+<form bindsubmit="formSubmit">
+
+  <view class="nav-bar-content">
+    <navBar id="NavBar" class="nav-bar" title-text="订单支付" back-icon="/assets/imgs/icons/navbar_back.png"
+      home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+  </view>
+  <!-- 主体内容  -->
+  <view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+    <!--选择收货地址-->
+    <view class="sel-addr oct-section" id="SelAddrCviewck"
+      style="display:{{expressType == 'express' ? 'normal' : 'none'}};">
+      <view class="sel-addr-left">
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/addr_outline.png"></image>
+      </view>
+
+      <view class="sel-addr-mid"
+        wx:if="{{initOrderMsg_Data.OrderDelivery.Mobile != '' && initOrderMsg_Data.OrderDelivery.Mobile != null}}"
+        bindtap="navigateToURL"
+        data-navigate-url="../../../pages/buyer/receiaddr/receiaddrlist/receiaddrlist?type=sel&backurl=pages/buyer/orderpay/orderpay^OID~{{orderId}}">
+        <view class="addr-mid-1">
+          <view class="addr-mid-1-left" id="ReceiNameview">
+            收货人：{{initOrderMsg_Data.OrderDelivery.DeliName}}
+          </view>
+          <view class="addr-mid-1-right" id="Mobileview">
+            {{initOrderMsg_Data.OrderDelivery.Mobile}}
+          </view>
+        </view>
+        <view class="addr-mid-2" id="RegionDetailAddrview">
+          收货地址： {{initOrderMsg_Data.OrderDelivery.RegionNameArr}}_{{initOrderMsg_Data.OrderDelivery.DetailAddr}}
+        </view>
+      </view>
+
+      <view class="sel-addr-mid" wx:else bindtap="navigateToURL"
+        data-navigate-url="../../../pages/buyer/receiaddr/receiaddrae/receiaddrae?type=add&backurl=pages/buyer/orderpay/orderpay^OID~{{orderId}}">
+        <view class="addr-mid-1">
+          <view class="addr-mid-1-left" id="ReceiNameview">
+            请先添加收货地址！
+          </view>
+        </view>
+        <view class="addr-mid-2" id="RegionDetailAddrview">
+        </view>
+      </view>
+
+      <view class="sel-addr-right">
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+      </view>
+    </view>
+
+    <!--到店消费/自取  店铺地址-->
+    <view class="shop-addr-nav" id="ShopAddrNav" style="display:{{expressType == 'shop' ? 'normal' : 'none'}};">
+      <view class="shop-addr-nav-left">
+        <view>店铺地址:</view>
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/address.png" />
+        <b style="color:#cb0000" id="DistanceKmB"> {{initOrderMsg_Data.ShopMsg.DistanceKm}}Km</b>
+      </view>
+      <view class="shop-addr-nav-mid" id="ShopAddrDetailview">
+        {{initOrderMsg_Data.ShopMsg.RegionNameArr}}_{{initOrderMsg_Data.ShopMsg.DetailAddr}}
+      </view>
+      <view class="shop-addr-nav-right" bindtap="openMap" data-latitude="{{initOrderMsg_Data.ShopMsg.Latitude}}"
+        data-longitude="{{initOrderMsg_Data.ShopMsg.Longitude}}" data-name="{{initOrderMsg_Data.ShopMsg.ShopName}}"
+        data-address="{{initOrderMsg_Data.ShopMsg.RegionNameArr}}_{{initOrderMsg_Data.ShopMsg.DetailAddr}}">
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/addr_nav.png" />
+        <view>导航</view>
+      </view>
+    </view>
+
+
+
+    <!--列表内容主体区-->
+    <view class="order-goods-msg-view" id="OrderGoodsMsgview">
+
+      <!--订单列表-->
+      <view class="oct-section">
+
+        <view class="order-item-title" id="OrderItemTitle">
+          <navigator url="../../../pages/shop/index/index?SID={{initOrderMsg_Data.ShopMsg.ShopID}}">
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop.png"></image>
+            {{initOrderMsg_Data.ShopMsg.ShopName}}
+          </navigator>
+        </view>
+
+        <view class="scart-item-goods" wx:for="{{orderGoodsList.GoodsMsgArr}}">
+          <view class="item-goods-mid" id="GoodsImgview">
+            <navigator url="../../../pages/goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+              <image src="//{{item.GoodsCoverImgPath}}" />
+            </navigator>
+          </view>
+          <view class="item-goods-right">
+            <view>
+              <view style="height: 38px">
+                {{item.GoodsTitle}}
+              </view>
+              <view class="goods-right-spec">
+                {{item.SpecPropName}}
+              </view>
+              <view class="goods-right-price">
+                <view class="goods-price">
+                  ￥{{item.GoodsUnitPrice}}
+                </view>
+                <view class="goods-txt-number">
+                  <text>x {{item.OrderNum}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+
+        <view class="express-type">
+          <view class="express-type-top">
+            <view>配送方式</view>
+            <view class="express-type-val" id="ExpressTypeValview">{{ expressType=='express' ? '送货上门(快递)' : '到店消费/自取'}}
+            </view>
+          </view>
+          <view class="express-type-bottom">
+            <view class="express-type-current">
+              {{ expressType=='shop' ? '到店消费/自取' :'送货上门(快递)'}}
+            </view>
+          </view>
+        </view>
+
+        <view class="freight-main">
+          <view>
+            运费
+          </view>
+          <view class="freight-price">
+            <b
+              id="FreightValB">￥{{initOrderMsg_Data.OrderMsg.FreightMoney>0 ? initOrderMsg_Data.OrderMsg.FreightMoney : '免运费'}}</b>
+          </view>
+        </view>
+
+        <view class="invoice">
+          <view>
+            发票
+          </view>
+          <view class="invoice-val">
+            {{invoiceShowTxt}}
+          </view>
+        </view>
+
+        <view class="ticket">
+          <view>
+            优惠券
+          </view>
+          <view class="ticket-val">
+            <span
+              id="CouponsMsgSpan">减{{initOrderMsg_Data.OrderMsg.UseMoney}}元<b>￥-{{initOrderMsg_Data.OrderMsg.UseMoney}}
+              </b></span>
+          </view>
+        </view>
+
+        <view class="buyer-memo">
+          <view>留言</view>
+          <view class="buyer-memo-val">
+            <input type="text" id="OrderMemo" name="OrderMemo" value="{{initOrderMsg_Data.OrderMsg.OrderMemo}}"
+              placeholder="给商家的留言信息" />
+          </view>
+        </view>
+
+        <view class="sum-price">
+          共<b id="OrderNumB">{{orderGoodsCount}}</b>件商品,小计：<b class="sum-price-content" id="SumPriceContentview">￥
+            {{initOrderMsg_Data.OrderMsg.OrderPrice}}</b>
+        </view>
+
+      </view>
+
+
+    </view>
+  </view>
+
+  <!--页脚-->
+  <view class="oct-footer">
+
+    <view class="oct-footer-txt">
+      总计金额：<b id="SumOrderPriceB">￥ {{initOrderMsg_Data.OrderMsg.OrderPrice}} </b>
+    </view>
+    <view class="oct-footer-btn">
+      <button class="oct-footer-btn" form-type="submit" data-submit-type="order"
+        style="width: 100%; border:none;font-size:16px; padding: 6px 0; margin-top:0;">立即支付</button>
+    </view>
+
+  </view>
+
+
+
+
+  <!-- ================= 底部滑出的自定义窗口 =================== -->
+
+  <!--选择支付的窗口-->
+  <sliderDownWin is-display-slide="{{isDisplaySlidePay}}" is-display-title="false" slide-win-height="420">
+    <view slot="outwxml">
+
+      <view class="win-pay-title">
+        <view>确认支付</view>
+        <view class="win-pay-close" bindtap="closeSlideBottom">X</view>
+      </view>
+
+      <view class="win-pay-content">
+        <view class="win-pay-val">
+          <text> ￥ {{sumOrderPrice}}</text>
+        </view>
+        <view class="win-pay-list">
+          <view class="win-pay-item" bindtap="chgPayType" data-pay-type="WeiXinPay">
+            <view class="pay-item-left pay-item-wx">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_wx.png"></image> 微信支付
+            </view>
+            <view class="pay-item-right">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_{{payType=='WeiXinPay'? 'yes':'no'}}.png"
+                class="pay-type-img" />
+            </view>
+          </view>
+          <!-- <view class="win-pay-item" onclick="chgPayType('Alipay')">
+						<view class="pay-item-left pay-item-alipay">
+							支付宝
+						</view>
+						<view class="pay-item-right">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_no.png" class="pay-type-img" id="PayTypeImg_Alipay" />
+						</view>
+					</view> -->
+          <view class="win-pay-item" bindtap="chgPayType" data-pay-type="Balance">
+            <view class="pay-item-left pay-item-balance">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_balance.png"></image> 余额支付 <text
+                id="CurrentBalanceB">￥{{currentBalance}}</text>
+            </view>
+            <view class="pay-item-right">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_{{payType=='Balance'? 'yes':'no'}}.png"
+                class="pay-type-img" id="PayTypeImg_Balance" />
+            </view>
+          </view>
+          <view class="win-pay-item" bindtap="chgPayType" data-pay-type="Integral"
+            wx:if="{{payMsg_Data.IsBuyerIntegralPay=='true'}}">
+            <view class="pay-item-left pay-item-integral">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_Integral.png"></image> 积分支付 <text
+                id="CurrentIntegralB">￥{{currentIntegral}}</text>
+            </view>
+            <view class="pay-item-right">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_{{payType=='Integral'? 'yes':'no'}}.png"
+                class="pay-type-img" id="PayTypeImg_Integral" />
+            </view>
+          </view>
+          <view class="win-pay-item" bindtap="chgPayType" data-pay-type="PayDelivery"
+            wx:if="{{payMsg_Data.IsPayDelivery=='true'}}">
+            <view class="pay-item-left pay-item-delivery">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_delivery.png"></image> 货到付款
+            </view>
+            <view class="pay-item-right">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_{{payType=='PayDelivery'? 'yes':'no'}}.png"
+                class="pay-type-img" id="PayTypeImg_PayDelivery" />
+            </view>
+          </view>
+          <view class="win-pay-item" bindtap="chgPayType" data-pay-type="Offline"
+            wx:if="{{payMsg_Data.IsPayOffline=='true'}}">
+            <view class="pay-item-left pay-item-shop">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_shop.png"></image> 到店付
+            </view>
+            <view class="pay-item-right">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_{{payType=='Offline'? 'yes':'no'}}.png"
+                class="pay-type-img" id="PayTypeImg_Offline" />
+            </view>
+          </view>
+          <view class="win-pay-item" bindtap="chgPayType" data-pay-type="Transfer"
+            wx:if="{{payMsg_Data.IsPayTransfer=='true'}}">
+            <view class="pay-item-left pay-item-bank">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_bank.png"></image> 银行转账
+            </view>
+            <view class="pay-item-right">
+              <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_{{payType=='Transfer'? 'yes':'no'}}.png"
+                class="pay-type-img" id="PayTypeImg_Transfer" />
+            </view>
+          </view>
+        </view>
+        <view class="win-pay-btn">
+          <button style="width:250px;" bindtap="goPay">立即付款</button>
+        </view>
+      </view>
+
+
+    </view>
+  </sliderDownWin>
+  
+
+
+</form>

@@ -1,0 +1,139 @@
+﻿/*=====================评价中心=====================*/
+.oct-header-right {
+    padding-top: 2px;
+}
+
+    .oct-header-right .header-icon-my {
+        width: 22px;
+        height: 22px;
+    }
+
+
+
+/*订单列表*/
+.order-list {
+    margin-top: 30px;
+}
+
+    .order-list .order-item {
+        background: white;
+        margin-bottom: 10px;
+    }
+
+.order-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+    .order-item-top a {
+        display: flex;
+        align-items: center;
+        background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+        background-size: 12px;
+        padding-right: 20px;
+    }
+
+    .order-item-top img {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+
+.order-status-txt {
+    color: red;
+}
+/*商品列表*/
+.order-item-mid {
+    background: #FAFAFA;
+    padding: 0 10px;
+}
+
+.order-goods-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 1px dashed #f4f4f4;
+}
+
+.goods-item-left {
+    padding-right: 10px;
+}
+
+    .goods-item-left img {
+        width: 55px;
+        height: 55px;
+        border-radius: 2px;
+    }
+
+.goods-item-mid {
+    width: 100%;
+    padding-right: 5px;
+}
+
+    .goods-item-mid span {
+        display: block;
+    }
+
+.goods-item-spec {
+    color: gray;
+    font-size: 10px;
+}
+
+.goods-item-right {
+    text-align: right;
+}
+
+.goods-item-ordernum {
+    color: gray;
+}
+
+.order-item-bottom {
+    text-align: right;
+    background: white;
+    padding: 8px 10px;
+    border-bottom: 1px solid #FAFAFA
+}
+
+    .order-item-bottom b {
+        color: #ff0000;
+    }
+
+.order-item-btn {
+    padding: 8px 10px;
+    background: white;
+    text-align: right;
+}
+
+    .order-item-btn input {
+        border: 1px solid #e0e0e0;
+        background: white;
+        border-radius: 30px;
+        padding: 4px 10px;
+        font-size: 10px;
+        margin-left: 5px;
+    }
+    .order-item-btn {
+        color: #bbbbbb;
+    }.order-item-btn .btn-appraise-img {
+        border: 1px solid red;
+        color: red;
+    }
+
+
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 48px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}
+

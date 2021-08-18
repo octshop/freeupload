@@ -1,0 +1,134 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>热门分类</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Shop/Index.css" rel="stylesheet" />
+    <link href="../Assets/Css/Shop/GoodsType.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Shop/GoodsType.js"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidShopID" value="@ViewBag.ShopID" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-top">
+            <div class="oct-header-left" onclick="window.location.href='../shop/ShopMsgDetail?SID=@ViewBag.ShopID'">
+                <img id="ShopHeaderImgVal" src="../Assets/Imgs/03.jpg" />
+            </div>
+            <div class="oct-header-mid">
+                <div class="header-mid-top" onclick="window.location.href='../shop/ShopMsgDetail?SID=@ViewBag.ShopID'" id="ShopName">
+                    店铺名称
+                </div>
+                <div class="header-mid-bottom" onclick="window.location.href='../shop/ShopMsgDetail?SID=@ViewBag.ShopID'">
+                    <span class="header-span-star" id="HeaderSpanStar">
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                    </span>
+                    <span class="header-span-val" id="AvgAppraiseScoreVal">
+                        4.0分
+                    </span>
+                    <span>
+                        粉丝数:
+                    </span>
+                    <span class="header-span-val" id="CountFansVal">
+                        0
+                    </span>
+                </div>
+            </div>
+            <div class="oct-header-right">
+                <div class="header-right-top">
+                    <div class="btn-focus" onclick="addBuyerFocusFav()">
+                        关注
+                    </div>
+                    <div class="btn-home" onclick="window.location.href='../Mall/Index'">
+                        <img src="../Assets/Imgs/Icon/navhome.png" />
+                    </div>
+                </div>
+                <div class="header-right-bottom">
+                    <span id="CountFavShopVal">0人</span>
+                </div>
+            </div>
+        </div>
+        <div class="oct-header-bottom">
+            <div>
+                <a href="../shop/index?SID=@ViewBag.ShopID">首页</a>
+            </div>
+            <div>
+                <a href="../shop/GoodsAll?SID=@ViewBag.ShopID">全部商品</a>
+            </div>
+            <div>
+                <a href="../shop/Activity?SID=@ViewBag.ShopID">活动优惠</a>
+            </div>
+            <div class="header-bottom-search">
+                <a href="../Shop/ShopSearch?SID=@ViewBag.ShopID">商品搜索</a>
+            </div>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="goods-type-list" id="GoodsTypeList">
+
+            <div class="goods-type-item">
+                @*<div class="type-item-title" onclick="window.location.href='../Shop/GoodsTypeDetail'">
+                    <span>人身装备</span>
+                    <img src="../Assets/Imgs/Icon/arrows_right_black.png" />
+                </div>
+                <div class="type-item-content">
+                    <a href="../Shop/GoodsTypeDetail" class="type-name-item">
+                        头盔小贝头盔小贝
+                    </a>
+                </div>*@
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <div onclick="window.location.href='../shop/GoodsAll?SID=@ViewBag.ShopID'">
+            <img src="../Assets/Imgs/Icon/shop_allgoods.png" />
+            全部商品
+        </div>
+        <div onclick="window.location.href='../shop/GoodsType?SID=@ViewBag.ShopID'">
+            <img src="../Assets/Imgs/Icon/shop_goodstype.png" />
+            热门分类
+        </div>
+        <div id="CusServiceFooter">
+            <img src="../Assets/Imgs/Icon/shop_customer.png" />
+            咨询商家
+        </div>
+    </div>
+
+
+</body>
+</html>

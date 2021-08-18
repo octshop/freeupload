@@ -1,0 +1,118 @@
+﻿/*================店铺详细信息=====================*/
+
+.shop-main-ul {
+}
+
+    .shop-main-ul li span {
+        font-weight: bold;
+    }
+
+.shop-status-li {
+    border-bottom: 1px dashed #e1e1e1;
+    padding-bottom: 20px;
+}
+
+.shop-main-ul li .shop-status-span {
+    display: inline-block;
+    background: #ff6a00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight:normal;
+    font-size: 14px;
+}
+
+    .shop-status-span b {
+        font-size: 18px;
+    }
+
+.shop-status-edit {
+    padding-left: 30px;
+}
+/*账号和公司信息*/
+.shop-company-li {
+    border-bottom: 1px dashed #e1e1e1;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+    .shop-company-li div {
+        padding-bottom: 10px;
+    }
+
+
+    .shop-company-li img {
+        width: 30px;
+        height: 30px;
+        margin-left: 20px;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+/*店铺类别和头像*/
+.shop-type-li {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px dashed #e1e1e1;
+}
+
+    .shop-type-li div {
+        padding-right: 30px;
+        line-height: 250%;
+    }
+
+    .shop-type-li img {
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+/*店铺门头照*/
+.shop-logo-li {
+    padding: 20px 0;
+    border-bottom: 1px dashed #e1e1e1;
+}
+
+.shop-logo-img {
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    .shop-logo-img img {
+        width: 200px;
+        margin-right: 10px;
+        margin-top: 10px;
+        border: 1px solid #e1e1e1;
+        padding: 5px;
+    }
+/*搜索关键字，主营，描述*/
+.shop-key-desc {
+    padding: 20px 0;
+    padding-bottom: 0;
+    border-bottom: 1px dashed #e1e1e1;
+}
+
+    .shop-key-desc div {
+        padding-bottom: 10px;
+    }
+/*地址联系电话*/
+.shop-link-addr {
+    padding: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e1e1e1;
+}
+
+    .shop-link-addr div {
+        padding-bottom: 15px;
+    }
+
+    .shop-link-addr span {
+        padding-right: 15px;
+        padding-left: 20px;
+    }
+
+    .shop-link-addr .span-left {
+        padding-left: 0;
+    }

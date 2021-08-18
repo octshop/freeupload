@@ -1,0 +1,219 @@
+﻿/*=============抢购秒杀==================*/
+
+/*分享按钮*/
+.oct-header-right .header-icon-my {
+    width: 22px;
+    height: 22px;
+}
+
+/*子标题*/
+.oct-header-sub {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    padding: 8px 0;
+}
+
+    .oct-header-sub div {
+        display: flex;
+        align-items: center;
+    }
+
+    .oct-header-sub img {
+        width: 6px;
+        height: 6px;
+        margin-left: 5px;
+    }
+/*弹出条件层*/
+body .all-where-show {
+    clear: both;
+    display: block;
+    width: 100%;
+    background: white;
+    padding: 6px;
+    padding-bottom: 0;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    z-index: 10000;
+    padding-bottom: 10px;
+    padding-top: 0;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/*弹出条件层*/
+body .all-where-show {
+    clear: both;
+    display: block;
+    width: 100%;
+    background: white;
+    padding: 6px;
+    padding-bottom: 0;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    z-index: 10000;
+    padding-bottom: 10px;
+    padding-top: 0;
+}
+
+.all-where-type {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    clear: both;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+    .all-where-type span {
+        float: left;
+        padding: 2px 6px;
+        font-size: 12px;
+        margin: 0 auto;
+        background: #ededed;
+        border-radius: 5px;
+        display: block;
+        margin-right: 16px;
+        margin-bottom: 8px;
+    }
+
+    .all-where-type .goods-type-current {
+        color: white;
+        background: #ff6a00;
+    }
+
+.search-where-1 {
+    color: red;
+}
+
+.search-current {
+    color: red;
+}
+
+
+
+
+/*主体内容*/
+body .oct-content {
+    padding-top: 35px;
+}
+
+
+
+/*----商品列表-----*/
+.goods-list {
+    padding: 0;
+    margin: 0;
+}
+
+.goods-item {
+    padding: 6px;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: white;
+    font-size: 12px;
+}
+
+.goods-item-img {
+    padding-right: 8px;
+}
+
+    .goods-item-img img {
+        width: 110px;
+        height: 110px;
+        border-radius: 3px;
+    }
+
+.goods-item-msg .goods-item-title {
+    height: 25px;
+    margin-bottom: 18px;
+}
+/*进度条*/
+.goods-item-progress {
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+    color: #808080;
+    margin-bottom: 6px;
+}
+
+.progress-bar-bottom {
+    position: relative;
+    margin-right: 15px;
+    background: #eaeaea;
+    width: 80px;
+    height: 15px;
+    overflow: hidden;
+    font-size: 10px;
+    text-align: right;
+    color: white;
+    border-radius: 10px;
+    margin-top: -5px;
+}
+
+.progress-bar-top {
+    background: #ff0000;
+    width: 50%;
+    height: 15px;
+}
+.goods-item-badge{
+    display:flex;
+    flex-wrap:wrap;
+}
+.goods-item-badge span {
+    background: #ffdec9;
+    border-radius: 5px;
+    color: red;
+    padding: 2px 5px;
+    font-size: 10px;
+    margin-right: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.goods-item-price {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0;
+}
+
+    .goods-item-price b {
+        font-size: 14px;
+        color: #ff0000;
+    }
+
+    .goods-item-price span {
+        padding-left: 10px;
+        padding-right: 10px;
+        text-decoration: line-through;
+        color: #9b9b9b;
+    }
+/*马上抢按钮*/
+.btn-robbed {
+    background: #ff6a00;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    padding: 5px 20px;
+}
+
+
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 85px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+    background: #f5f5f5;
+}

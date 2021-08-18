@@ -1,0 +1,111 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>店铺搜索</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Shop/ShopSearch.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Shop/ShopSearch.js"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidShopID" value="@ViewBag.ShopID" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <div class="header-search">
+                <img src="../Assets/Imgs/Icon/buyer_query.png" />
+                <input type="text" class="search-txt" id="SearchTxt" />
+            </div>
+        </div>
+        <div class="oct-header-right" onclick="clickSearchGoods()">
+            <span>搜本店</span>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="search-result">
+            <div class="search-result-title">
+                <div>
+                    <img src="../Assets/Imgs/Icon/se_recent.png" />
+                    最近搜索
+                </div>
+                <div>
+                    <img src="~/Assets/Imgs/Icon/se_del.png" onclick="delSearchHistoryGoodsShop()" />
+                </div>
+            </div>
+            <div class="search-result-content" id="SearchResultContent">
+                @*<div class="result-item">
+                    商品名称1
+                </div>*@
+            </div>
+        </div>
+
+        @*<div class="search-result">
+            <div class="search-result-title">
+                <div>
+                    <img src="../Assets/Imgs/Icon/se_find.png" />
+                    搜索发现
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div class="search-result-content">
+                <div class="result-item">
+                    商品名称1
+                </div>
+                <div class="result-item">
+                    商品名称1
+                </div>
+                <div class="result-item">
+                    商品名称1
+                </div>
+                <div class="result-item">
+                    商品名称1
+                </div>
+                <div class="result-item">
+                    商品名称1
+                </div>
+                <div class="result-item">
+                    商品名称1
+                </div>
+            </div>
+        </div>*@
+
+
+
+
+    </div>
+
+
+</body>
+</html>

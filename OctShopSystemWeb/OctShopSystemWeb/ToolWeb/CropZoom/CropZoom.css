@@ -1,0 +1,50 @@
+﻿/*==================上传图片裁剪=========================*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #5b5b5b;
+    padding-top: 5px;
+}
+
+.crop-main {
+    width: 1000px;
+    height: 750px;
+    background: #c1c1c1;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.cropzoom_container {
+    margin: 0 auto;
+    position: absolute;
+    top: 80px;
+}
+
+/*裁剪区域*/
+.crop-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    background: #efefef;
+    font-size: 30px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.send_data {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+    background-color: #1ab5ee;
+    color: #fff;
+    line-height: 26px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    padding: 30px 0;
+}

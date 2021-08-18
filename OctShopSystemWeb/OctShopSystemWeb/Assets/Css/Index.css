@@ -1,0 +1,209 @@
+﻿/*****************首页-后台管理模块***************/
+
+body {
+    background: #2A3542;
+}
+
+/*顶部导航*/
+.my-header {
+    font-size: 14px;
+}
+
+.topnav-item {
+}
+
+.button-item {
+    margin-top: 11px;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.button-item-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
+.search-form div {
+    padding-top: 4px;
+}
+
+.search-form-select {
+}
+
+.search-input {
+    margin-left: -5px;
+    margin-top: 8px;
+    border: 1px solid #E6E6E6;
+    border-left: none;
+    border-right: none;
+    height: 32px;
+    overflow: hidden;
+}
+
+.search-btn {
+    border: none;
+    background: #F7FFE8;
+    color: #1a9f00;
+    border: 1px solid #E6E6E6;
+    border-left: none;
+    height: 32px;
+    margin-left: -10px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.start-fullscreen {
+    background: none;
+    border: 1px solid #E6E6E6;
+    margin-top: 8px;
+}
+
+.menu-dropdown-item {
+    border: none;
+    background: none;
+    margin-top: 12px;
+}
+
+.admin-main {
+    clear: both;
+    overflow: hidden;
+}
+/*左侧导航*/
+.nav-left {
+    width: 15%;
+}
+
+.login-msg, .side-menu-content {
+    padding: 15px;
+}
+    .side-menu-content{
+        padding-top: 0;
+    }
+
+    .login-msg, .side-menu, .side-menu a {
+        color: #d0d0d0;
+        font-size: 12px;
+    }
+
+.login-msg {
+    padding-top: 15px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.side-menu {
+    background: #35404D;
+    padding: 10px;
+    padding-bottom: 0;
+    border-radius: 5px;
+    margin-bottom: 3px;
+}
+
+    .side-menu h3 {
+        padding: 0;
+        margin: 0;
+        display: block;
+        padding-bottom: 8px;
+    }
+
+.sidemenu-title-a {
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+.side-menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+    .side-menu ul li {
+        list-style: none;
+        padding-left: 23px;
+        padding-bottom: 8px;
+        cursor: pointer;
+    }
+
+        .side-menu ul li a {
+            display: block;
+            color: #808269;
+        }
+
+            .side-menu ul li a:hover {
+                color: #d0d0d0;
+            }
+
+        .side-menu ul li .nav-active-a {
+            color: #d0d0d0;
+        }
+
+.am-icon-angle-down {
+    color: #d0d0d0;
+}
+
+.sidemenu-cur-icon {
+    color: #FF6C60;
+}
+
+/*右侧内容*/
+.nav-right {
+    width: 85%;
+    overflow: hidden;
+}
+
+.side-menu-title {
+    width: 200px;
+}
+
+.top-nav-cookie {
+    padding-top: 5px;
+    padding-bottom: 8px;
+    background: #2A3542;
+}
+
+    .top-nav-cookie ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .top-nav-cookie ul li {
+            float: left;
+            margin-right: 10px;
+        }
+
+.cookie-menu {
+    overflow: hidden;
+    font-size: 12px;
+    background: #415164;
+    border: none;
+    color: #d0d0d0;
+    padding: 4px 0px;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
+   .cookie-menu:visited {
+        color: #d0d0d0;
+    }
+    .cookie-menu:hover {
+        background: #FF5A4D;
+        color: #ffffff;
+    }
+
+        .cookie-menu span {
+            color: #d0d0d0;
+            margin-top: -15px;
+            padding: 0;
+        }
+
+/*表单主体内容*/
+.form-content {
+    background: #F1F2F7;
+    overflow:hidden;
+    clear:both;
+}

@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>上拉刷新，下拉加载 (自己重定义后，含后台请求，有效) PC版不能用</title>
+
+    <!-- 必须要引用的Css和Js文件 -->
+    <link href="JsPublicLib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <script src="JsPublicLib/mescroll/mescroll.min.js"></script>
+
+    <!--mescroll本身不依赖jq,这里为了模拟发送ajax请求-->
+    <script src="JsPublicLib/jquery-1.12.1.min.js"></script>
+
+
+    <style type="text/css">
+
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /*列表承载Div*/
+        .mescroll {
+            position: fixed;
+            top: 60px; /*这个值可以控制滚动区离顶部的距离*/
+            bottom: 0;
+            height: auto;
+        }
+
+
+
+
+
+        /*列表区样式,不是必须的*/
+        #ListContentDiv div {
+            border: 1px solid gray;
+            padding: 20px 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--标题-->
+    <div style="background: #00ffff; height: 50px;"><a class="btn-left" href="#">main</a> 新闻列表 <a class="btn-right" href="#">list-products</a></div>
+
+
+    <!--滑动区域-->
+    <div id="mescroll" class="mescroll">
+
+
+        <p class="notice">本Demo的下拉刷新: 添加新数据到列表顶部</p>
+
+        <!-- 分页加载区域 -->
+        <div id="ListContentDiv">
+
+        </div>
+
+
+    </div>
+
+
+
+    <script type="text/javascript" charset="utf-8">
+        $(function () {
+
+
+            //----------------------处理分页加载的代码 初始化必须是这样------------------------//
+            //创建MeScroll对象
+            var mescroll = new MeScroll("mescroll", {
+                down: {
+                    auto: false, //是否在初始化完毕之后自动执行下拉回调callback; 默认true
+                    callback: downCallback //下拉刷新的回调
+                },
+                up: {
+                    auto: true, //是否在初始化时以上拉加载的方式自动加载第一页数据; 默认false
+                    isBounce: false, //此处禁止ios回弹,解析(务必认真阅读,特别是最后一点): http://www.mescroll.com/qa.html#q10
+                    callback: upCallback, //上拉回调,此处可简写; 相当于 callback: function (page) { upCallback(page); }
+                    toTop: { //配置回到顶部按钮
+                        src: "../img/mescroll-totop.png", //默认滚动到1000px显示,可配置offset修改
+                        //offset : 1000
+                    }
+                }
+            });
+
+            /*下拉刷新的回调 */
+            function downCallback() {
+
+                //为下拉刷新
+                mIsRefresh = true;
+
+                //联网加载数据
+                getListDataFromNet(0, 1, function (data) {
+                    //联网成功的回调,隐藏下拉刷新的状态
+                    mescroll.endSuccess();
+
+                    //------这里是操作前台显示代码-----//
+                    pageSuccess(data);
+
+
+                }, function () {
+                    //联网失败的回调,隐藏下拉刷新的状态
+                    mescroll.endErr();
+                });
+            }
+
+            /*上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
+            function upCallback(page) {
+
+                //不是下拉刷新
+                mIsRefresh = false;
+
+                //联网加载数据
+                getListDataFromNet(page.num, page.size, function (curPageData) {
+                    console.log(curPageData);
+                    //联网成功的回调,隐藏下拉刷新和上拉加载的状态;
+                    //mescroll会根据传的参数,自动判断列表如果无任何数据,则提示空;列表无下一页数据,则提示无更多数据;
+                    console.log("page.num=" + page.num + ", page.size=" + page.size + ", curPageData.length=" + curPageData.DataPage.length);
+
+                    //方法一(推荐): 后台接口有返回列表的总页数 totalPage
+                    //mescroll.endByPage(curPageData.length, totalPage); //必传参数(当前页的数据个数, 总页数)
+
+                    //方法二(推荐): 后台接口有返回列表的总数据量 totalSize
+                    //mescroll.endBySize(curPageData.length, totalSize); //必传参数(当前页的数据个数, 总数据量)
+
+                    //方法三(推荐): 您有其他方式知道是否有下一页 hasNext
+                    //mescroll.endSuccess(curPageData.length, hasNext); //必传参数(当前页的数据个数, 是否有下一页true/false)
+
+                    //方法四 (不推荐),会存在一个小问题:比如列表共有20条数据,每页加载10条,共2页.如果只根据当前页的数据个数判断,则需翻到第三页才会知道无更多数据,如果传了hasNext,则翻到第二页即可显示无更多数据.
+                    mescroll.endSuccess(curPageData.DataPage.length);
+
+                    //------这里是操作前台显示代码-----//
+                    pageSuccess(curPageData);
+
+                }, function () {
+                    //联网失败的回调,隐藏下拉刷新和上拉加载的状态;
+                    mescroll.endErr();
+                });
+            }
+            //----------------------处理分页加载的代码 初始化必须是这样------------------------//
+
+
+
+
+        });
+
+
+
+
+
+        /*------------联网加载列表数据------------
+            在您的实际项目中,请参考官方写法: http://www.mescroll.com/api.html#tagUpCallback
+            请忽略getListDataFromNet的逻辑,这里仅仅是在本地模拟分页数据,本地演示用
+            实际项目以您服务器接口返回的数据为准,无需本地处理分页.
+            @ pageNum 当前页数
+            @ pageSize 每页多少条记录
+            * */
+        function getListDataFromNet(pageNum, pageSize, successCallback, errorCallback) {
+
+            //获取搜索条件
+            var searchTxt = "";
+
+            //构造GET参数
+            var dataGET = {
+                "type": "1",
+                "PageCurrent": pageNum,
+                "searchTxt": searchTxt,
+            };
+            //正式发送GET请求
+            $.ajax({
+                type: "GET",
+                url: "Ajax.ashx?rnd=" + Math.random(),
+                data: dataGET,
+                dataType: "html",
+                success: function (reTxt, status, xhr) {
+                    console.log("Ajax返回的值：" + reTxt);
+
+                    if (reTxt != "") {
+                        //转换为Json对象
+                        var jsonObj = JSON.parse(reTxt);
+                        console.log(jsonObj);
+
+                        //联网成功的回调 并传值，传Json对象
+                        successCallback && successCallback(jsonObj);
+                        //特别注意返回的Json数据中必须要有 JsonObj.DataPage.length, JsonObj.PageSum
+                        return;
+                    }
+
+                    successCallback && successCallback(null);
+                },
+                error: function (xhr, errorTxt, status) {
+
+                    console.log("异步请求错误，errorTxt=" + errorTxt + " | status=" + status);
+
+                    //联网失败的回调
+                    errorCallback && errorCallback();
+
+                    return;
+                }
+            });
+        }
+
+        //记录是否为下拉刷新 变量
+        var mIsRefresh = false;
+        /*----------------这里是操作前台显示代码---------------
+        @ curPageData 返回的数据 一般为Json对象
+        */
+        function pageSuccess(curPageData) {
+
+            var dataPage = curPageData.DataPage;
+            var dataPageExtra = curPageData.DataPageExtra;
+
+            //构造前台显示代码
+            var xhtml = "";
+            for (var i = 0; i < dataPage.length; i++) {
+                xhtml += "<div>姓名：" + dataPage[i].Name + "，性别：" + dataPage[i].Sex + "，年龄：" + dataPage[i].Age + "</div>";
+            }
+
+            //显示代码插入前台
+            if (mIsRefresh == false)
+            {
+                document.getElementById("ListContentDiv").innerHTML += xhtml;
+            }
+            else
+            {
+                document.getElementById("ListContentDiv").innerHTML = xhtml;
+            }
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

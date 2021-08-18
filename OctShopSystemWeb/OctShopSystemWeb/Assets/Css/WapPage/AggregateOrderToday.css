@@ -1,0 +1,110 @@
+﻿/*=================收单提醒====================*/
+
+/*----------头部--------------*/
+.oct-header {
+    height: 110px;
+    overflow: hidden;
+    padding: 5px;
+}
+/*支付实时提示区*/
+.real-hint {
+    background: #f8f8f8;
+    margin: 5px auto;
+    font-size: 14px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid #eaeaea;
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .real-hint .real-hint-left {
+        background: #ff6a00;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        padding-left: 10px;
+        padding-right: 10px;
+        height: 100px;
+        width: 155px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+.real-hint-content-extra {
+    width: 100%;
+}
+
+.real-hint .real-hint-mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+.real-hint-mid img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
+    margin-right: 11px;
+}
+
+.nick-name {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+/*----------主体内容--------------*/
+.oct-content {
+    padding: 0;
+    margin: 0;
+}
+
+.order-list li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:white;
+    margin:6px;
+    border-radius:5px;
+}
+.order-user-header{
+    width: 110px;
+    overflow:hidden;
+}
+.order-user-header img {
+    width: 65px;
+    height: 65px;
+    border-radius: 80px;
+}
+.order-user-msg{
+    width: 100%;
+    overflow:hidden;
+}
+.order-pay-price b{
+    font-size: 18px;
+    font-weight:bold;
+    color: #ff6a00;
+}
+.order-nick-name{
+    font-weight:bold;
+}
+.order-pay-extra {
+    color: gray;
+}
+/*========数据分页===========*/
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 110px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}

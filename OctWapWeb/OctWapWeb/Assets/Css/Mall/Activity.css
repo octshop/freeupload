@@ -1,0 +1,230 @@
+﻿/*=============活动优惠=================*/
+
+/*子标题*/
+.oct-header-sub {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    padding: 8px 0;
+}
+
+    .oct-header-sub div {
+        display: flex;
+        align-items: center;
+    }
+
+    .oct-header-sub img {
+        width: 6px;
+        height: 6px;
+        margin-left: 5px;
+    }
+/*弹出条件层*/
+body .all-where-show {
+    clear: both;
+    display: block;
+    width: 100%;
+    background: white;
+    padding: 6px;
+    padding-bottom: 0;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    z-index: 10000;
+    padding-bottom: 10px;
+    padding-top: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/*弹出条件层*/
+body .all-where-show {
+    clear: both;
+    display: block;
+    width: 100%;
+    background: white;
+    padding: 6px;
+    padding-bottom: 0;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    z-index: 10000;
+    padding-bottom: 10px;
+    padding-top: 0;
+}
+
+.all-where-type {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    clear: both;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+    .all-where-type span {
+        float: left;
+        padding: 2px 6px;
+        font-size: 12px;
+        margin: 0 auto;
+        background: #ededed;
+        border-radius: 5px;
+        display: block;
+        margin-right: 16px;
+        margin-bottom: 8px;
+    }
+
+    .all-where-type .goods-type-current {
+        color: white;
+        background: #ff6a00;
+    }
+
+.search-where-1 {
+    color: red;
+}
+
+.search-current {
+    color: red;
+}
+
+
+/*主体内容*/
+body .oct-content {
+    padding-top: 28px;
+}
+
+
+/*商品列表*/
+.goods-list {
+    padding: 0;
+    margin: 0;
+}
+
+.goods-item {
+    background: white;
+    padding: 6px;
+    margin-top: 6px;
+}
+
+.goods-item-img {
+    position: relative;
+}
+
+    .goods-item-img img {
+        width: 100%;
+    }
+
+    .goods-item-img div {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 3px 10px;
+        font-size: 14px;
+        color: #ffffff;
+        background: #000000;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+    }
+
+.goods-item-title {
+    font-size: 14px;
+    color: #000000;
+    line-height: 130%;
+    padding: 10px 0;
+    border-bottom: 1px solid #e8e8e8;
+    font-weight: bold;
+}
+
+.goods-item-luckydraw {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: gray;
+}
+
+    .goods-item-luckydraw div {
+        padding-bottom: 6px;
+    }
+
+    .goods-item-luckydraw b {
+        padding-left: 8px;
+        padding-right: 8px;
+        color: #000000;
+        font-weight: normal;
+    }
+
+.goods-item-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e8e8e8;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.goods-luckydraw-extra {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    .goods-luckydraw-extra span {
+        border: 1px solid red;
+        border-radius: 10px;
+        color: #ff0000;
+        font-size: 12px;
+        padding: 1px 5px;
+        display: block;
+        margin-left: 7px;
+        background: #fffcf7;
+        margin-bottom: 5px;
+        white-space: nowrap;
+    }
+
+    .goods-luckydraw-extra .express-type-span {
+        color: white;
+        border: 1px solid #ff6a00;
+        background: #FF6A00;
+        padding: 2px 20px;
+    }
+
+
+.goods-item-luckydraw .activity-label-status {
+    color: white;
+    font-size: 14px;
+    background: #FF5F00;
+    width: 100px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-align: center;
+    margin-top: 8px;
+    display: block;
+    margin-bottom: -30px;
+}
+
+.goods-item-luckydraw .activity-label-status-gray {
+    color: white;
+    font-size: 14px;
+    background: gray;
+    width: 100px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-align: center;
+    margin-top: 8px;
+    display: block;
+    margin-bottom: -30px;
+}
+/*========数据分页===========*/
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 80px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+    background: #f5f5f5;
+}

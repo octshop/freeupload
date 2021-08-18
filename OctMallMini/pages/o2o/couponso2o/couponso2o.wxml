@@ -1,0 +1,98 @@
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="领取中心" back-icon="/assets/imgs/icons/navbar_back.png"
+    home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 内容导航子菜单 -->
+<view class="oct-header-bottom-nav" style="top:{{navbarHeight}}px">
+  <view bindtap="showItemSearchWhere" data-tab-num="1">
+    {{shopTypeName}}
+    <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrowdownsolid.png" />
+  </view>
+  <view bindtap="showItemSearchWhere" data-tab-num="2">
+    {{regionCountyName}}
+    <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrowdownsolid.png" />
+  </view>
+  <view bindtap="showItemSearchWhere" data-tab-num="3">
+    {{pageOrderName}}
+    <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrowdownsolid.png" />
+  </view>
+</view>
+
+
+<!--条件选择层区-->
+<view class="all-filer-show" wx:if="{{isFilterShow}}" style="top:{{navbarHeight + 32}}px;">
+
+  <view class="filer-area-win" wx:if="{{tabNum == '1'}}">
+    <view class="{{shopTypeId=='' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere1" data-shop-type-id=""
+      data-shop-type-name="全部分类">全部分类</view>
+    <view class="{{shopTypeId==item.ShopTypeID ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere1"
+      data-goods-type-id="{{item.ShopTypeID}}" data-goods-type-name="{{item.ShopTypeName}}"
+      wx:for="{{loadCouponsShopType_Data.ShopTypeList}}">
+      {{item.ShopTypeName}}</view>
+  </view>
+
+  <view class="filer-area-win" wx:if="{{tabNum == '2'}}">
+    <view class="{{regionCountyCode=='' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere2"
+      data-region-county-code="" data-region-county-name="全部地区">全部地区</view>
+    <view class="{{regionCountyCode==item.REGIONCODE ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere2"
+      wx:for="{{loadCurUserCountyList_Data}}" data-region-county-code="{{item.REGIONCODE}}"
+      data-region-county-name="{{item.REGIONNAME}}">
+      {{item.REGIONNAME}}</view>
+  </view>
+
+  <view class="filer-area-win" wx:if="{{tabNum == '3'}}">
+    <view class="{{pageOrderCode=='' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere3"
+      data-page-order-code="" data-page-order-name="使用条件">使用条件</view>
+    <view class="{{pageOrderCode=='OfflineUse' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere3"
+      data-page-order-code="OfflineUse" data-page-order-name="可线下使用">可线下使用</view>
+    <view class="{{pageOrderCode=='NoExpenseReach' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere3"
+      data-page-order-code="NoExpenseReach" data-page-order-name="无消费门槛"> 无消费门槛</view>
+  </view>
+
+
+</view>
+
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px" bindtouchmove="closeShowSubType">
+
+	<!--商品列表-->
+	<view class="goods-list" id="PageContentList">
+
+
+<view class="goods-item" wx:for="{{numberPage_Page.DataPage}}" bindtap="navigateToURL"
+  data-navigate-url="../../../pages/buyer/coupons/couponsdetail/couponsdetail?CID={{item.CouponsID}}">
+  <view class="goods-item-img">
+    <view class="coupons-price-div" wx:if="{{item.UseMoney>0}}">￥<b>{{item.UseMoney}}</b></view>
+    <view class="coupons-price-div" wx:if="{{item.UseDiscount>0}}"><b>{{item.UseDiscount}}折</b></view>
+    <view wx:if="{{item.ExpenseReachSum>0}}">满{{item.ExpenseReachSum}}元可用</view>
+  </view>
+  <view class="goods-item-msg">
+    <view class="goods-item-title">
+      {{item.CouponsTitle}}
+    </view>
+    <view class="coupons-label-span">
+      <span wx:if="{{item.IsOfflineUse=='true'}}">线下可用</span> <span
+        wx:if="{{item.UseTimeRange==null || item.UseTimeRange==''}}">永久有效</span> <span
+        wx:if="{{item.ExpenseReachSum<=0}}">无门槛</span> <span
+        wx:if="{{item.UseTimeRange!=null && item.UseTimeRange!=''}}">限期使用</span>
+    </view>
+  </view>
+  <view class="goods-item-integral">
+    <view>
+      消耗积分
+    </view>
+    <view class="expend-integral">0.00</view>
+    <view>
+      <button class="btn-get" style="width:65px">领取</button>
+    </view>
+  </view>
+</view>
+
+
+
+</view>
+
+
+</view>

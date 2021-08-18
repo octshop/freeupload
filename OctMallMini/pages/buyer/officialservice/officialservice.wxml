@@ -1,0 +1,51 @@
+<!--pages/buyer//officialservice/officialservice.wxml-->
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="官方客服" back-icon="/assets/imgs/icons/navbar_back.png"
+    home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+
+  <view class="services-top">
+    <view class="services-top-list" id="ServiceTelList">
+
+      <view wx:for="{{loadServiceTel_Data.ExplainTextList}}">
+        <span>{{item.ExplainTitle}}：</span><text bindtap="makePhoneCall"
+          data-phone-number="{{item.ExplainContent}}">{{item.ExplainContent}}</text>
+      </view>
+
+
+    </view>
+    <view class="services-top-btn">
+      <navigator class="btn-services btn-services-online" url="#" catchtap="buildBuyerGoToImSysURL_ShopWap">
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/order_customer_orangae.png" />
+        在线客服
+      </navigator>
+      <navigator class="btn-services btn-services-Tel" url="#" id="BtnServicesTel" catchtap="makePhoneCall"
+        data-phone-number="{{pubServiceTel}}">
+        <image src=" {{apiWebDoamin}}/Assets/Imgs/Icon/order_tel_orangae.png" />
+        电话客服
+      </navigator>
+    </view>
+  </view>
+
+  <view class="services-bottom">
+    <view>
+      问题类型
+    </view>
+    <view class="question-ul" id="QuestionUl">
+
+      <view wx:for="{{loadQuestionList_Data.ExplainTextList}}" bindtap="goToWebViewQuestion"
+        data-explain-id="{{item.ExplainID}}">
+        <span style="width:100%">{{item.ExplainTitle}}</span>
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+      </view>
+
+    </view>
+  </view>
+
+
+
+</view>

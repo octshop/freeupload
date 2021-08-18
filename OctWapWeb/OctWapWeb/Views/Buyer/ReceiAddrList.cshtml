@@ -1,0 +1,107 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>收货地址</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/ReceiAddrList.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+
+    <script src="../Assets/Js/Buyer/ReceiAddrList.js"></script>
+
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>收货地址</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="mescroll" id="mescroll">
+
+
+        <div class="recei-addr-prompt" id="ReceiAddrPromptDiv">
+            单击列表选择收货地址
+        </div>
+
+        <div class="page-content-list" id="PageContentList">
+
+            <!--<div class="recei-addr-item oct-section">
+                <div class="addr-item-top">
+                    <div>
+                        黄小明
+                    </div>
+                    <div>
+                        13203156008
+                    </div>
+                </div>
+                <div class="addr-item-mid">
+                    湖南省长沙市长沙县开元西路24号湖南省长沙市长沙县开元西路24号湖南省长沙市长沙县开元西
+                    路24号湖南省长沙市长沙县开元西路24号湖南省长沙市长沙县开元西路24号湖南省长沙市
+                </div>
+                <div class="addr-item-bottom">
+                    <div class="addr-item-default">
+                        <img src="../Assets/Imgs/Icon/sel_no.png" />默认地址
+                    </div>
+                    <div class="addr-item-btn">
+                        <div class="addr-item-edit" onclick="window.location.href='../Buyer/ReceiAddrEdit'">
+                            编辑
+                        </div>
+                        <div class="addr-item-del">
+                            删除
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <!--页脚-->
+    <div class="oct-footer">
+
+        <a href="javascript:void(0)" onclick="goToAddReceiAdd()">
+            添加新地址
+        </a>
+
+    </div>
+
+
+
+</body>
+</html>

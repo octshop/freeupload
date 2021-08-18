@@ -1,0 +1,282 @@
+.shop-search {
+  position: fixed;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #F0F0F0;
+  overflow: hidden;
+  padding-bottom: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 10;
+  background: #ffffff;
+  overflow: hidden;
+  align-items: center;
+  padding: 10px;
+}
+
+.oct-header-mid {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.oct-header-right {
+  width: 65px;
+  font-size: 24rpx;
+  text-align: center;
+  color: black;
+  padding-right: 30rpx;
+  padding-top: 15rpx;
+  height: 40px;
+}
+
+.oct-header-right image {
+  width: 45rpx;
+  height: 45rpx;
+  margin: 0;
+  padding: 0;
+}
+
+.oct-header-right view {
+  padding: 0;
+  margin: 0;
+  margin-top: -10rpx;
+  font-size: 24rpx;
+}
+
+.oct-header-mid .header-search {
+  width: 100%;
+  background: #dbdbdb;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: space-between;
+  height: 25px;
+  color: #3b3b3b;
+  font-weight: normal;
+  padding: 10rpx;
+  margin-right: 10rpx;
+}
+
+.header-search image {
+  width: 22px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.header-search .search-txt {
+  border: none;
+  background: #dbdbdb;
+  width: 100%;
+  font-size: 35rpx;
+  text-align: left;
+}
+
+/* 商品查询类别导航 */
+.oct-header-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  left: 0;
+  position: fixed;
+  background: white;
+  width: 100%;
+  z-index: 2000;
+}
+
+.oct-header-bottom-nav view {
+  color: #000000;
+  text-align: center;
+  font-size: 30rpx;
+  padding: 8px 0;
+}
+
+.oct-header-bottom-nav .nav-item-current {
+  color: red;
+}
+
+.oct-header-bottom-nav view image {
+  width: 12px;
+  height: 12px;
+}
+
+.oct-content {
+  padding: 20rpx 10rpx;
+}
+
+/* 价格 */
+.oct-header-bottom-nav .filter-price {
+  width: 50px;
+}
+
+/* 筛选 */
+.oct-header-bottom-nav .filter-where {
+  width: 50px;
+  font-size: 32rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.oct-header-bottom-nav .filter-where image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-top: 10rpx;
+}
+
+/*商品列表*/
+.goods-list {}
+
+.goods-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 12px;
+  background: white;
+  padding: 8px 6px;
+  margin-top: 6px;
+  padding-bottom: 10rpx;
+}
+
+.goods-item image {
+  width: 105px;
+  height: 105px;
+  border-radius: 5px;
+  margin-right: 8px;
+  z-index: 2;
+}
+
+.goods-item .goods-price-item {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.goods-price {
+  font-weight: bold;
+  color: red;
+  font-size: 14px;
+}
+
+.goods-label span {
+  font-size: 10px;
+  background: #f1f1f1;
+  color: #f65402;
+  padding: 0 3px;
+  border-radius: 5px;
+  margin-right: 20rpx;
+}
+
+.goods-extra {
+  font-size: 12px;
+  color: #979797
+}
+
+.goods-extra navigator {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #000000;
+}
+
+.goods-img {
+  position: relative;
+  z-index: 2;
+}
+
+.goods-img span {
+  background: #f65402;
+  color: white;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  padding: 1px 5px;
+  border-radius: 10px;
+}
+
+.enter-shop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000000;
+}
+
+.goods-price-item .goods-title {
+  height: 75rpx;
+  padding: 0;
+  margin-top: -10rpx;
+}
+
+.goods-extra text {
+  font-style: italic;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  display: block;
+  font-size: 11px;
+}
+
+/* 弹出层- 条件选择 */
+.oct-header-bottom-nav .filter-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+}
+
+.oct-header-bottom-nav .filter-other-cur {
+  color: red;
+}
+
+.oct-header-bottom-nav .filter-area image {
+  width: 6px;
+  height: 6px;
+  margin-left: 5px;
+}
+
+/* 条件选择层区 */
+.all-filer-show {
+  clear: both;
+  background: white;
+  padding: 6px;
+  padding-bottom: 20rpx;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 25rpx;
+  border-bottom: 1px solid #E0E0E0;
+  overflow: hidden;
+}
+
+/* 地区选择样式 */
+.filer-area-win {
+  width: 100%;
+  height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.filer-area-win view {
+  font-size: 12px;
+  background: #EDEDED;
+  padding: 0px 6px;
+  margin: 5px;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 25px;
+}
+
+.filer-area-win view.sel-filter-cur {
+  color: white;
+  background: #ff6a00;
+}

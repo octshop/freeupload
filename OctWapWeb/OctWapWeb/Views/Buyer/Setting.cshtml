@@ -1,0 +1,76 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>买家设置</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/Setting.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Buyer/Setting.js"></script>
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>设置</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <ul class="setting-ul">
+            <li class="setting-item-1">
+                <a href="../Buyer/QuestionList">常见问题</a>
+            </li>
+            <li class="setting-item-2">
+                <a href="../Buyer/QuestionDetail?EType=ShopEnter&ETitle=商家入驻">商家免费入驻</a>
+            </li>
+            <li class="setting-item-3">
+                <a href="../Setting/PayPwdSetting?BackUrl=../Buyer/Index">支付密码设置</a>
+            </li>
+            <li class="setting-item-4">
+                <a href="../Setting/LoginPwdSetting?BackUrl=../Buyer/Index">登录密码设置</a>
+            </li>
+            <li class="setting-item-6">
+                <a href="../Setting/BindMobileChg?BackUrl=../Buyer/Index">更换绑定手机</a>
+            </li>
+            <li class="setting-item-7" id="AbleFreezeUserAccount" style="display:none;">
+                <a href="javascript:freezeUserAccount()">冻结账号</a>
+            </li>
+            <li class="setting-item-5">
+                <a href="javascript:clearAllCookieValue()">清除所有缓存</a>
+            </li>
+        </ul>
+
+        <div class="setting-exit" onclick="exitLogin('true')">
+            安全退出登录
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

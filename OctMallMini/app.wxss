@@ -1,0 +1,141 @@
+/**-----------公共样式---------------**/
+page {
+  background: #F7F7F7;
+}
+
+/*-----头部----*/
+.oct-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  border-bottom: 1px solid #F0F0F0;
+  overflow: hidden;
+  padding-bottom: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 10;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+
+/* 顶部navbar样式 */
+.nav-bar-content {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000000;
+}
+
+/* navbar子导航 */
+.nav-bar-sub {
+  position: fixed;
+  left: 0;
+  height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0rpx;
+  font-size: 30rpx;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #EAEAEA;
+  overflow: hidden;
+  z-index: 10000000;
+}
+
+
+/* 主体内容 */
+.oct-content {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 30px;
+  overflow-x: hidden;
+  overflow: hidden;
+}
+
+
+/*页脚*/
+.oct-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  width: 100%;
+  z-index: 1000;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.oct-footer view {
+  display: block;
+  text-align: center;
+  width: 200px;
+  padding: 5px 0;
+  justify-content: center;
+  position: relative;
+  font-size: 25rpx;
+}
+
+.oct-footer view image {
+  width: 22px;
+  height: 22px;
+  display: block;
+  margin: 0 auto;
+}
+
+.oct-footer view .badge-view {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  width: 15px;
+  height: 15px;
+  background: #fe0000;
+  color: white;
+  border-radius: 10px;
+  font-size: 10px;
+  padding: 0;
+  display: block;
+}
+
+.oct-footer view.btn-scart,
+.oct-footer view.btn-order {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  background: #FEA700;
+  color: white;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.oct-footer view.btn-scart {
+  background: #FEA700;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.oct-footer view.btn-order {
+  background: #FD3F0F;
+}
+
+.oct-footer .nav-current {
+  color: #D62B2B;
+}
+
+.oct-footer view .customer-service-footer{
+  height: 30px;
+}
+.oct-footer view .customer-service-footer image {
+  width: 22px;
+  height:22px;
+  display: block;
+  margin: 0 auto;
+}

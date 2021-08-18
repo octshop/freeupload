@@ -1,0 +1,101 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+
+    <title>线下扫码核销订单-[待消费/自取]验证</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="~/Assets/Css/OrderPage/VerifyOrderCheckCode.css?v=5" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/TradingPage/VerifyOrderCheckCode.js?v=14"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidScanData" value="@ViewBag.ScanData" />
+    <input type="hidden" id="hidOctWapWebAddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+    <!--是否在微信中-->
+    <input type="hidden" id="hidIsInWeiXinBrowse" value="@ViewBag.IsInWeiXinBrowse" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="#" id="ShopNameALink"><img src="../Assets/Imgs/Icon/shop_verify.png" />店铺名称</a>
+        </div>
+        <div class="oct-header-mid">
+            <b></b>
+        </div>
+        <div class="oct-header-right">
+            <a href="javascript:exitLogin()"><img class="header-icon-my" style="width: 25px; height: 25px;" src="../Assets/Imgs/Icon/exit_login.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="main-logo" style="">
+
+            <div class="logo-hint-success" id="LogoHintSuccess" style="display:none;">
+                <img src="../Assets/Imgs/Icon/order_verify.png" />
+                订单核销成功
+            </div>
+            <div class="logo-hint-err" id="LogoHintErr" style="display:none;">
+                <img src="../Assets/Imgs/Icon/order_verify_err.png" />
+                订单核销失败
+                <div class="err-hint" id="ErrHintContent">
+                    订单核销失败的原因
+                </div>
+            </div>
+            <div class="logo-order-msg">
+                <div class="logo-order-price">
+                    <span>订单金额：</span><b id="OrderPriceB">&#165; 0.0</b>
+                </div>
+                <div class="logo-order-code">
+                    <span>订单ID：</span><b id="OrderIDB"></b>
+                    <span style="padding-left: 20px;"></span>
+                    <span>验证码：</span><b id="CheckCodeB"></b>
+                </div>
+            </div>
+
+            <div class="logo-btn-list">
+                <input type="button" value="查看订单详情" id="BtnSeeOrderDetail" />
+                <span style="padding-left: 20px;"></span>
+                <input type="button" value="继续扫码核销" onclick="window.location.href='../VerifyCodePage/PopVerifyScanWin'" />
+            </div>
+
+        </div>
+        <!--订单商品信息-->
+        <div class="main-order">
+            <ul class="order-goods-ul" id="OrderGoodsUl">
+                @*<li>
+                    <a href="#">订单商品名称订单商品名称订单商品名称[规格名称]</a>
+                    <span>&#165; 200000.32 x 2</span>
+                </li>*@
+            </ul>
+        </div>
+
+    </div>
+
+
+
+   
+
+
+
+
+</body>
+</html>

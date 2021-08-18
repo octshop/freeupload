@@ -1,0 +1,16 @@
+﻿/*=================订单信息管理=======================*/
+
+/*详情窗口*/
+.detail-ul li {
+    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.detail-ul li div{
+    width: 100px;
+    overflow:hidden;
+    text-align:right;
+}

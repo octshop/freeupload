@@ -1,0 +1,86 @@
+<!--pages/mall/searchshopresult/searchshopresult.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="店铺搜索结果" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 搜索栏 -->
+<view class="shop-search" style="top:{{navbarHeight}}px;z-index: 2000">
+	<view class="oct-header-mid" bindtap="backSearch">
+		<view class="header-search">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_query.png" />
+			<view class="search-txt">{{searchTxt}}</view>
+		</view>
+	</view>
+	<view class="oct-header-right">
+		<navigator url="../../tabbar/goodstype/goodstype" open-type="switchTab">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_allgoods.png" />
+			<view>分类</view>
+		</navigator>
+	</view>
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--店铺列表-->
+	<view class="goods-list" id="PageContentList">
+
+		<view class="goods-item" wx:for="{{numberPage_Page.DataPage}}">
+			<navigator class="shop-item-top" url="../../shop/index/index?SID={{item.ShopID}}">
+				<view class="shop-item-left">
+					<view>
+						<image src="//{{item.ShopHeaderImg}}" />
+					</view>
+					<view class="shop-name-right">
+						<view class="shop-name-title">{{item.ShopName}}<span wx:if="{{item.IsEntity == 'true'}}">实体店</span><span
+								wx:if="{{item.IsSelfShop=='true'}}">自营店</span></view>
+						<view class="shop-goods-item">
+							<image wx:for="{{numberPage_Page.DataPageExtra[index].ShopAvgAppraiseScore}}"
+								src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+							<image wx:for="{{numberPage_Page.DataPageExtra[index].ShopAvgAppraiseScoreGray}}"
+								src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png" />
+							<text>{{numberPage_Page.DataPageExtra[index].ShopAvgAppraiseScore}}分</text>
+							<text style="margin-left: 10px">销量：{{item.SumPaidCount}}</text>
+						</view>
+
+					</view>
+				</view>
+				<view class="shop-item-right">
+					进店 >>
+				</view>
+			</navigator>
+			<view class="shop-item-bottom">
+				<view class="shop-goods-ul">
+
+					<navigator url="../../goods/goodsdetail/goodsdetail?GID={{itm.GoodsID}}"
+						wx:for="{{numberPage_Page.DataPageExtra[index].ShopPreGoodsList}}" wx:for-index="idx" wx:for-item="itm">
+						<image src="//{{itm.ImgPathCover}}" />
+						<view class="price-goods">￥ {{itm.GoodsPrice}}</view>
+					</navigator>
+
+				</view>
+
+
+				<view class="shop-item-bage" catchtap="navigateToURL"
+					data-navigate-url="../../shop/index/index?SID={{item.ShopID}}">
+					<text wx:if="{{item.CountSecKill > 0}}">秒杀</text> <text wx:if="{{item.CountDiscount > 0}}">打折</text> <text
+						wx:if="{{item.GroupMsgCount > 0}}">团购</text> <text wx:if="{{item.CountActivity > 0}}">活动</text><text
+						wx:if="{{item.CountLuckyDraw > 0}}">抽奖</text><text wx:if="{{item.CountPresent > 0}}">礼品</text>
+				</view>
+
+				<view class="shop-item-addr" wx:if="{{item.IsEntity=='true'}}" catchtap="navigateToURL"
+					data-navigate-url="../../shop/index/index?SID={{item.ShopID}}">
+					<view><b>地址:</b></view>
+					<view>
+						{{item.RegionNameArr}} _{{item.DetailAddr}}
+					</view>
+				</view>
+
+
+			</view>
+		</view>
+
+
+
+	</view>
+</view>

@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>添加收货地址</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Lib/SwitchButton/switch.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/ReceiAddrAdd.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SwitchButton/switch.js"></script>
+    <script src="../Assets/Lib/RegionCodeName.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Buyer/ReceiAddrAdd.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>添加收货地址</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+
+        <div class="add-addr oct-section">
+            <ul class="addr-add-list">
+                <li>
+                    <span>收货人</span>
+                    <input id="ReceiName" type="text" placeholder="收货人姓名" />
+                </li>
+                <li>
+                    <span>联系手机</span>
+                    <input id="Mobile" type="text" placeholder="联系手机号码" />
+                </li>
+                <li>
+                    <span>所在区域</span>
+                    <div>
+                        <select id="region_province"></select>
+                        <select id="region_city"></select>
+                        <select id="region_county"></select>
+                    </div>
+                    
+                </li>
+                <li>
+                    <span>详细地址</span>
+                    <input id="DetailAddr" type="text" placeholder="如：街道，小区，门牌号，楼栋号，单元室" />
+                </li>
+                <li>
+                    <span>设置默认地址</span>
+                    <!-- Switch按钮 -->
+                    <input id="AddrType" type="checkbox" class="switch-default-1" />
+                </li>
+            </ul>
+        </div>
+
+        <div class="add-addr-btn">
+            <input type="button" value="保存" onclick="addReceiAddr()" />
+        </div>
+
+    </div>
+
+
+</body>
+</html>

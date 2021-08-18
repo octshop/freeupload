@@ -1,0 +1,272 @@
+﻿/*==================支付成功========================*/
+
+.oct-header {
+    background: #FF7E3B;
+    color: white;
+    border: none;
+}
+
+.oct-content {
+    padding: 0;
+    margin: 0;
+    padding-top: 40px;
+}
+
+.pay-hint {
+    background: #FF7E3B;
+    color: white;
+    overflow: hidden;
+    clear: both;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.pay-icon-title {
+    font-weight: normal;
+    font-size: 18px;
+}
+
+    .pay-icon-title img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        margin-top: -5px;
+    }
+
+.pay-icon-price {
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pay-btn-list {
+    padding: 20px 0;
+    padding-bottom: 75px;
+}
+
+    .pay-btn-list a {
+        font-size: 14px;
+        color: #ffffff;
+        border: 1px solid white;
+        padding: 5px 40px;
+        border-radius: 20px;
+    }
+
+    .pay-btn-list .pay-see-btn {
+        margin-left: 20px;
+    }
+
+/*提示信息*/
+.pay-msg-hint {
+    width: 90%;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: -35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 1px #d5d5d5;
+}
+
+.pay-msg-left {
+    width: 20%;
+    padding-right: 20px;
+    height: 40px;
+    background: url(../../Imgs/Icon/pay_sumsg.png) center no-repeat;
+    background-size: 30px;
+}
+
+.pay-msg-right {
+    width: 90%;
+}
+
+.pay-msg-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+
+.pay-msg-desc {
+    font-size: 12px;
+    color: gray;
+}
+
+/*产品列表*/
+.goods-list {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.goods-ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+    .goods-ul li {
+        /*width:165px;*/
+        width: 48%;
+        /*height: 275px;*/
+        overflow: hidden;
+        background: white;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        overflow:hidden;
+       
+    }
+
+.goods-item img {
+    width: 100%;
+    /*height: 180px;*/
+}
+
+.goods-item-title {
+    font-size: 14px;
+    padding: 5px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.goods-item-price {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    padding-bottom: 10px;
+    align-items:center;
+}
+
+.goods-price-left {
+    color: gray;
+}
+
+    .goods-price-left b {
+        color: #FF5803;
+        font-weight: bold;
+        font-size: 16px;
+        padding-right: 5px;
+    }
+.goods-price-right a {
+    display: block;
+    padding: 2px 10px;
+    border: 1px solid #e0e0e0;
+    color: #808080;
+    border-radius: 10px;
+    cursor:pointer;
+    font-size: 12px;
+}
+
+
+/*产品列表*/
+.goods-list {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.goods-ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+    .goods-ul li {
+        /*width: 165px;*/
+        width: 48%;
+        /*height: 270px;*/
+        /*        overflow: hidden;*/
+        background: white;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+.goods-item a {
+    display: block;
+    height: 180px;
+    overflow: hidden;
+}
+
+.goods-item img {
+    width: 100%;
+    height: 180px;
+}
+
+.goods-item-title {
+    font-size: 14px;
+    padding: 5px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.goods-item-price {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    padding-bottom: 10px;
+    align-items: center;
+}
+
+.goods-price-left {
+    color: gray;
+}
+
+    .goods-price-left b {
+        color: #FF5803;
+        font-weight: bold;
+        font-size: 16px;
+        padding-right: 5px;
+    }
+
+.goods-price-right {
+    color: #9B9B9B;
+}
+
+
+.goods-ul li.goods-item {
+    position: relative;
+    overflow: visible;
+}
+
+.goods-item .goods-item-badge {
+    background: #ff6a00;
+    color: white;
+    font-size: 12px;
+    border-radius: 20px;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.goods-item img {
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/*加载更多*/
+.goods-list .btn-more-goods {
+    background: #FFFFFF;
+    border-radius: 20px;
+    color: #000000;
+    margin: 50px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: block;
+    padding: 5px;
+    color: gray;
+}
+
+.btn-more-goods:hover {
+    background: #fffdfb;
+    color: black;
+}
+
+
+
+
+

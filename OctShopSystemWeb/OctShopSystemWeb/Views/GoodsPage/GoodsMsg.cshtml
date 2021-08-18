@@ -1,0 +1,281 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>我的商品</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/GoodsPage/GoodsMsg.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+
+    <script src="../Assets/Js/GoodsPage/GoodsMsg.js"></script>
+
+
+
+</head>
+<body>
+
+    <!--========隐藏控件记录信息===========-->
+    <input type="hidden" id="hidOctWapWeb_AddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+
+    <input type="hidden" id="hidShopUserID" value="@ViewBag.ShopUserID" />
+    <input type="hidden" id="hidGoodsMsgGuid" value="@ViewBag.GoodsMsgGuid" />
+
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=商品管理">商品管理</a></li>
+            <li class="am-active">我的商品</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 我的商品
+            </div>
+            <div class="title-btn-div am-fl">
+                <button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="window.location.href='../GoodsPage/GoodsAdd'"><i class="am-icon-plus-circle"></i> 发布商品</button>
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="GoodsID_se" placeholder="商品ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css" style="width: 200px">
+                <input type="text" class="keyword-input am-form-field am-fl" id="GoodsTitle_se" placeholder="商品标题" style="width: 180px;" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="GoodsStatus_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>商品状态</option>
+                    <option value="售">出售中</option>
+                    <option value="审">审核中</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="IsSpecParam_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>规格属性</option>
+                    <option value="true">有</option>
+                    <option value="false">无</option>
+                </select>
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="IsUnSale_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>是否下架</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="IsPayDelivery_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>支持货到付款</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="IsShopExpense_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>支持到店消费</option>
+                    <option value="true">到店</option>
+                    <option value="false">快递</option>
+                    <option value="both">到店或快递</option>
+                </select>
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="IsDistri_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>是否允许分销</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" class="datetime-input am-form-field" placeholder="发布时间" data-am-datepicker="{theme: 'success',}" style="background:white;width:150px;" readonly>
+                </div>
+            </div>
+
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="3%" height="22"><input type="checkbox" id="SelAllCb" name="SelAllCb" onchange="toggleSelAll()" /></td>
+                        <td width="9%">商品ID</td>
+                        <td width="27%">商品标题</td>
+                        <td width="7%">状态</td>
+                        <td width="6%">下架</td>
+                        <td width="8%">货到付款</td>
+                        <td width="8%">配送方式</td>
+                        <td width="8%">支持分销</td>
+                        <td width="12%">发布时间</td>
+                        <td width="12%">操作</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>234332</td>
+                        <td><a href="#" target="_blank">商品标题商品标题商品标题商品标题商品标题商品标题商品标题商品标题</a><i class="goods-hint-i">库存不足</i></td>
+                        <td>出售中</td>
+                        <td>是</td>
+                        <td>是</td>
+                        <td>是</td>
+                        <td>是</td>
+                        <td>2019-05-05 13:27:45.563</td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round"><span class="am-icon-pencil-square-o"></span></button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-success  am-round"><span class="am-icon-cny"></span></button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-warning  am-round"><span class="am-icon-arrow-circle-down"></span></button>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" onclick="delMsgArr()"><span class="am-icon-trash-o"></span> 删除</button>
+
+                        <button type="button" class="am-btn am-btn-default" onclick="tglGoodsShopCommendArr('true')"><span class="am-icon-star"></span> 推荐商品</button>
+
+                        <button type="button" class="am-btn am-btn-default" onclick="tglGoodsShopCommendArr('false')"><span class="am-icon-star-o"></span> 取消推荐</button>
+
+
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>备注与说明</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!--==========添加规格，价格，库存窗口============-->
+    <div class="goods-pricespec-win" id="GoodsPriceSpecWin" style="display:none;">
+        <div class="goods-pricespec-content">
+            <div class="goods-pricespec-form" id="GoodsPriceSpecForm">
+
+                <div class="goods-pricespec-title">
+                    <span>规格标题</span>
+                    <input type="text" id="SpecTitleTxt" class="pricespec-title pricespec-title-left" />
+                    <span>属性标题</span>
+                    <input type="text" id="SpecAttrNameTxt" class="pricespec-title" placeholder="规格无属性则为空！" />
+                </div>
+                <div class="goods-pricespec-list" id="GoodsPriceSpecList">
+                    <!--规格列表Item项
+                    <div class="goods-pricespec-item">
+                        <div class="pricespec-item-title">
+                            <label>规格1：</label>
+                            <span>名称</span><input id="id_SpecName_1" name="name_SpecName" type="text" class="spec-name-txt" />
+
+                            <div id="id_SpecPriceStock_1">
+                                <span>价格</span><input id="id_SpecPrice_1" name="name_SpecPrice" type="number" class="spec-title-pricestock spec-name-txt" spec-name-txt" />
+                                <span>库存</span><input id="id_SpecStock_1" name="name_SpecStock" type="number" class="spec-title-pricestock spec-name-txt" />
+                            </div>
+
+
+                            <img id="id_SpecPropImg_1" class="pricespec-pre-img" src="../Assets/Imgs/Icon/icon_spec_default.png" />
+                            <div class="am-form-group am-form-file">
+                                <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                    <i class="am-icon-cloud-upload"></i> 规格图片(可选)
+                                </button>
+                                <input id="id_SpecPropUpload_1" name="name_SpecUpload" type="file">
+                                <input type="hidden" id="id_SpecPropUploadValArr_1" name="name_SpecUploadValArr" value="" />
+
+
+                            </div>
+                        </div>
+                        <div class="pricespec-prop-list" id="id_PropList_1">
+
+                        </div>
+                        <div class="pricespec-prop-add">
+                            <div class="btn-prop-add" onclick="addPropItem(1)">添加属性</div>
+                            <div onclick="removePropItem(1)">删除属性</div>
+                        </div>-->
+                </div>
+
+            </div>
+        </div>
+        <div class="goods-pricespec-btn">
+            <input type="button" id="btnCustomDialogWinOk" class="pricespec-add-btn" value="添加规格" />
+            <input type="button" id="btnCustomDialogWinCancel" class="pricespec-save-btn" value="保存规格" />
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

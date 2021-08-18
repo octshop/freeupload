@@ -1,0 +1,101 @@
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="打折商品" back-icon="/assets/imgs/icons/navbar_back.png"
+    home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 内容导航子菜单 -->
+<view class="oct-header-bottom-nav" style="top:{{navbarHeight}}px">
+  <view bindtap="showItemSearchWhere" data-tab-num="1">
+    {{goodsTypeName}}
+    <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrowdownsolid.png" />
+  </view>
+  <view bindtap="showItemSearchWhere" data-tab-num="2">
+    {{regionCountyName}}
+    <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrowdownsolid.png" />
+  </view>
+  <view bindtap="showItemSearchWhere" data-tab-num="3">
+    {{pageOrderName}}
+    <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrowdownsolid.png" />
+  </view>
+</view>
+
+
+<!--条件选择层区-->
+<view class="all-filer-show" wx:if="{{isFilterShow}}" style="top:{{navbarHeight + 32}}px;">
+
+  <view class="filer-area-win" wx:if="{{tabNum == '1'}}">
+    <view class="{{goodsTypeId=='' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere1" data-goods-type-id=""
+      data-goods-type-name="全部分类">全部分类</view>
+    <view class="{{goodsTypeId==item.GoodsTypeID ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere1"
+      data-goods-type-id="{{item.GoodsTypeID}}" data-goods-type-name="{{item.GoodsTypeName}}"
+      wx:for="{{loadDiscountGoodsType_Data.DiscountGoodsTypeList}}">{{item.GoodsTypeName}}</view>
+  </view>
+
+  <view class="filer-area-win" wx:if="{{tabNum == '2'}}">
+    <view class="{{regionCountyCode=='' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere2"
+      data-region-county-code="" data-region-county-name="全部地区">全部地区</view>
+    <view class="{{regionCountyCode==item.REGIONCODE ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere2"
+      wx:for="{{loadCurUserCountyList_Data}}" data-region-county-code="{{item.REGIONCODE}}"
+      data-region-county-name="{{item.REGIONNAME}}">
+      {{item.REGIONNAME}}</view>
+  </view>
+
+  <view class="filer-area-win" wx:if="{{tabNum == '3'}}">
+    <view class="{{pageOrderCode=='Distance' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere3"
+      data-page-order-code="Distance" data-page-order-name="距离最近">距离最近</view>
+    <view class="{{pageOrderCode=='SaleCount' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere3"
+      data-page-order-code="SaleCount" data-page-order-name="销量最高">销量最高</view>
+    <view class="{{pageOrderCode=='GoodsPriceAsc' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere3"
+      data-page-order-code="GoodsPriceAsc" data-page-order-name=" 价格由低到高"> 价格由低到高</view>
+    <view class="{{pageOrderCode=='GoodsPriceDesc' ? 'sel-filter-cur' :''}}" bindtap="clickItemSearchWhere3"
+      data-page-order-code="GoodsPriceDesc" data-page-order-name=" 价格由高到低"> 价格由高到低</view>
+  </view>
+
+
+
+
+</view>
+
+
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px" bindtouchmove="closeShowSubType">
+
+  <!-- 商品列表item -->
+  <view class="goods-item" wx:for="{{numberPage_Page.DataPage}}">
+    <navigator class="goods-img" url="../../goods/groupdetail/groupdetail?GID={{item.GoodsID}}">
+      <image src="//{{item.ImgPathCover}}" />
+      <span wx:if="{{item.GroupDiscount>0}}">团购</span>
+      <span wx:elif="{{item.SkDiscount>0}}">秒杀</span>
+      <span wx:elif="{{item.Discount>0}}">{{item.Discount}}折</span>
+    </navigator>
+    <view class="goods-price-item">
+      <view class="goods-title" catchtap="navigateToURL"
+        data-navigate-url="../../goods/groupdetail/groupdetail?GID={{item.GoodsID}}">
+        {{item.GoodsTitle}} <span
+          style="background:red; color:white; border-radius: 10px; padding-left:3px; padding-right:3px;white-space: nowrap;"
+          wx:if="{{item.IsSelfShop == 'true'}}">自营</span>
+      </view>
+      <view class="goods-price" catchtap="navigateToURL"
+        data-navigate-url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+        ￥ {{item.GoodsPrice}}
+      </view>
+      <view class="goods-label" catchtap="navigateToURL"
+        data-navigate-url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+        <span wx:if="{{item.IsShopExpense == 'true'}}">到店消费/自取</span>
+        <span wx:if="{{item.IsPayDelivery == 'true'}}">货到付款</span>
+        <span wx:if="{{item.IsOfflinePay == 'true'}}">到店付</span>
+        <span wx:if="{{item.GiftIDArr != '' && item.GiftIDArr != null}}">赠品</span>
+      </view>
+      <view class="goods-extra">
+        <text>{{item.PaidCount}}人付款 ，{{item.CountAppraise}}条评价</text>
+        <view class="enter-shop">
+          {{item.ShopName}}<navigator url="../../shop/index/index?SID={{item.ShopID}}">进店>></navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+</view>

@@ -1,0 +1,39 @@
+﻿/*=====================核销验证===========================*/
+.oct-content{
+    margin-top: 45px;
+}
+.verify-content {
+    background: white;
+    padding: 20px;
+    padding-bottom: 50px;
+}
+.verify-ul li{
+    padding:5px;
+    text-align:center;
+}
+.verify-ul li span{
+    display:inline-block;
+    width: 70px;
+    text-align:left;
+}
+    .verify-ul li .txt-css{
+        width: 200px;
+    }
+.verify-code-txt{
+    font-size:12px;
+    font-weight:bold;
+    color: #ff6a00;
+}
+/*按钮*/
+.btn-verify{
+    padding: 10px 101px;
+    background: #ff6a00;
+    color: white;
+    font-size:12px;
+    border:none;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+.btn-verify-scan{
+    background: #00ac0e;
+}

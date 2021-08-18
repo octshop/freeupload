@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>标签中设置复制对象和事件对象</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="clipboard.min.js"></script>
+
+</head>
+<body>
+
+    <h1>标签中设置复制对象和事件对象</h1>
+
+    <!-- 1. Define some markup -->
+    <div>hello复制111122222</div>
+    <button class="btn"  data-clipboard-target="div">复制Hello</button>
+
+
+    <!-- 3. Instantiate clipboard data-clipboard-action="copy"-->
+    <script>
+
+        //实例化Clipboard对象
+        var clipboard = new ClipboardJS('.btn');
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+            alert("复制成功！");
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+            alert("复制失败！");
+        });
+
+    </script>
+
+
+</body>
+</html>

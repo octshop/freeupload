@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>幸运抽奖</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Mall/LuckyDraw.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Mall/LuckyDraw.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>幸运抽奖</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Mall/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/navbar_home.png" style="width:25px; height:25px;" /></a>
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <div class="nav-item search-where-1" onclick="searchWhere1()">
+            <span id="SearchWhere1Span">开奖方式</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+        <div class="goods-type-order search-current" onclick="clickItemSearchWhere2('WriteDate')">最新</div>
+        <div class="goods-type-order" onclick="clickItemSearchWhere2('CountJoinNumber')">参与人数</div>
+        <div class="goods-type-order" onclick="clickItemSearchWhere2('NoLimit')">无门槛</div>
+    </div>
+    <!--条件显示层-->
+    <div class="all-where-show" id="AllWhereShow" style="display: none;">
+        <div class="all-where-type" id="AllWhereType" style="display:normal">
+            <span class="goods-type-item goods-type-current" onclick="clickItemSearchWhere1('')">全部方式</span>
+            <span class="goods-type-item" onclick="clickItemSearchWhere1('JoinNumber')">
+                人数开奖
+            </span>
+            <span class="goods-type-item" onclick="clickItemSearchWhere1('OverTime')">
+                时间开奖
+            </span>
+        </div>
+    </div>
+
+
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!--商品列表-->
+            <ul class="goods-list" id="PageContentList">
+                @*<li class="goods-item" onclick="window.location.href='../Mall/LuckyDrawDetail'">
+                        <div class="goods-item-img">
+                            <img src="../Assets/Imgs/04.jpg" />
+                            <div>店铺名称呀 - 赞助</div>
+                        </div>
+                        <div class="goods-item-title">
+                            抽奖标题抽奖标题抽奖标题抽奖标题抽奖标题抽奖标题抽奖标题
+                        </div>
+                        <div class="goods-item-luckydraw">
+                            一等奖：200元快客购物券200元快客购物券200元快客购物券<span>x 10</span><br />
+                            二等奖：200元快客购物券200元快券<span> x 10</span><br />
+                            三等奖：200元快客购物客购物券<span>x 10</span><br />
+                        </div>
+                        <div class="goods-item-extra">
+                            <div>
+                                2020-05-23 13:32:23 自动开奖
+                            </div>
+                            <div class="goods-luckydraw-extra">
+                                <span class="user-joined-span">你已参与</span>
+                                <span class="express-type-span">到店领取/自取</span>
+                            </div>
+                        </div>
+                    </li>*@
+            </ul>
+
+
+            <!--底部分隔-->
+            <div style="padding-bottom: 80px;">
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

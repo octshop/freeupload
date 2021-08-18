@@ -1,0 +1,10 @@
+<!--pages/o2o/maplocation/maplocation.wxml-->
+<view class="" hover-class="none" hover-stop-propagation="false" style="width: 100%; height: 100%;">
+
+  <!-- <map id="map" longitude="28.205188" latitude="113.075409" scale="13" show-location style="width: 100%; height: 100%;"></map> -->
+
+  <map id="map" longitude="113.324520" latitude="23.099994" scale="14" markers="{{markers}}"  show-location style="width: 100%; height: 300px;"></map>
+
+ 
+
+</view>

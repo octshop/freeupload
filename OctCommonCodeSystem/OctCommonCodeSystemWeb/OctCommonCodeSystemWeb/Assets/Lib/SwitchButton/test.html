@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+
+
+    <title>Switch滑动开关按钮,自定义测试</title>
+
+    <link href="switch.css" rel="stylesheet" />
+    <script src="switch.js"></script>
+
+
+</head>
+<body>
+    <div class="main-content">
+
+
+        <input type='range' id='r1' class='tip fill fill-replace'
+               value='7' min='1' max='13' />
+
+
+        <div class="demo-box-content">
+
+            <!-- Switch按钮 -->
+            <input type="checkbox" class="demo-default-1" />
+
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+
+        //配置参数
+        var switchConfig = {
+            checked: true,
+            onChange: function (data) {
+
+                console.log("执行了…… ");
+                console.log(data);
+
+            }
+        };
+        //新建对象
+        var switchBtn = new Switch(document.querySelector('.demo-default-1'), switchConfig);
+
+            //switchBtn.on();
+
+
+
+
+//        配置参数
+//        switch.js滑动按钮插件的默认配置参数如下：
+//       defaults = {
+//            size: 'default'
+//            , checked: undefined
+//            , onText: 'Y'
+//            , offText: 'N'
+//            , onSwitchColor: '#64BD63'
+//            , offSwitchColor: '#fff'
+//            , onJackColor: '#fff'
+//            , offJackColor: '#fff'
+//            , showText: false
+//            , disabled: false
+//            , onInit: function () { }
+//            , onChange: function () { }
+//            , onRemove: function () { }
+//            , onDestroy: function () { }
+//        };
+//        size：滑动按钮的尺寸，可以是default | small | large。
+//        checked：滑动按钮的状态。如果是undefined，在滑动按钮的状态根据checkbox来确定。
+//        onText：ON状态的文本。
+//        offText：OFF状态的文本。
+//        onSwitchColor：选中状态时switch元素的颜色。
+//        offSwitchColor：未选中状态时switch元素的颜色。
+//        onJackColor：选中状态时凸起圆形的颜色。
+//        offJackColor：未选中状态时凸起圆形的颜色。
+//        showText：在凸起圆形中是否显示文本。
+//        disabled：是否允许点击切换滑动按钮的状态。
+//        onInit：滑动按钮初始化结束后触发的事件。
+//        onChange：在原始的checkbox为checked状态时触发的回调函数。
+//        onRemove：当mySwitch.remove()时触发。
+//        onDestroy：当mySwitch.destroy()时触发。
+//        API
+//        switch.js滑动按钮插件的可用API如下：
+//.on() ：设置为ON状态。
+//.off() ：设置为OFF状态。
+//.toggle() ：切换滑动按钮的状态。
+//.disable() ：禁用滑动按钮。
+//.enable() ：启用滑动按钮。
+//.destroy() ：销毁滑动按钮，移除所有绑定的事件。
+//.remove() ：移除滑动按钮，显示原始的checkbox。
+
+
+
+    </script>
+</body>
+</html>

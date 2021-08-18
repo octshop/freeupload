@@ -1,0 +1,345 @@
+﻿/*=======================页面的公共样式表===============================*/
+
+/*==============公共样式================*/
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    background: #F7F7F7;
+}
+
+ul, dl {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+    ul li, dl, dt, dd {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+a, a:hover, a:visited {
+    text-decoration: none;
+    color: #444;
+}
+input {
+    outline: none;
+}
+
+/*-------表格-----------*/
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    word-wrap: break-word;
+    word-break: break-all;
+    width: 100%;
+}
+
+.table-content table tr td {
+    padding: 2px;
+    border: #E5E5E5 1px solid;
+    text-align: center;
+    font-size: 12px;
+}
+
+.table-content table .headertr {
+    color: #005089;
+    background: #CEEDFF;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.table-content table tr td span {
+    color: #0089ED;
+    display: inline-block;
+    padding: 2px;
+    font-size: 12px;
+}
+
+.table-content table tr td .click-span, .table-content table tr td a {
+    cursor: pointer;
+    color: blue;
+}
+
+    .table-content table tr td a:hover, .table-content table tr td .click-span:hover {
+        color: Red;
+        text-decoration: underline;
+    }
+
+
+.table-content table tr td b {
+    color: Red;
+    font-weight: normal;
+}
+/*表单中的按钮 */
+.table-content table tr td [type=button] {
+    border: none;
+    color: white;
+    background: #0083E5;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 8px;
+    -webkit-appearance: none;
+    margin: 2px;
+}
+
+
+
+
+
+/*-----头部----*/
+.oct-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid #F0F0F0;
+    overflow: hidden;
+    padding-bottom: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 10;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+    .oct-header img {
+        width: 22px;
+        height: 22px;
+    }
+
+.oct-header-mid {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+}
+
+    .oct-header-mid div {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333333;
+        padding: 10px;
+        padding-top: 0;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+.header-tab-current {
+    border-bottom: 2px solid #FF0000;
+}
+
+.oct-header-mid b {
+    display: block;
+}
+
+.oct-header .header-icon-my {
+    width: 27px;
+    height: 27px;
+    margin-top: -3px;
+}
+
+
+/*子标题*/
+.oct-header-sub {
+    position: fixed;
+    top: 40px;
+    left: 0;
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0;
+    overflow: hidden;
+    background: #ffffff;
+    width: 100%;
+    z-index: 10;
+    font-size: 14px;
+}
+
+    .oct-header-sub a {
+        color: #444;
+    }
+    /*子标题*/
+    .oct-header-sub .oct-header-sub-curren-a {
+        color: Red;
+    }
+/*主体内容*/
+.oct-content {
+    margin-top: 50px;
+    height: 1%;
+}
+/*子页脚*/
+.oct-footer-sub {
+    clear: both;
+    width: 100%;
+    position: fixed;
+    bottom: 53px;
+    left: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+/*页脚*/
+.oct-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 100%;
+    z-index: 10;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+    .oct-footer a {
+        display: block;
+        text-align: center;
+        width: 200px;
+        padding: 5px 0;
+        justify-content: center;
+        position: relative;
+    }
+
+        .oct-footer a img {
+            width: 22px;
+            height: 22px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .oct-footer a .badge-div {
+            position: absolute;
+            top: 2px;
+            right: 8px;
+            width: 15px;
+            height: 15px;
+            background: #fe0000;
+            color: white;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+
+        .oct-footer a.btn-scart, .oct-footer a.btn-order {
+            width: 250px;
+            display: flex;
+            align-items: center;
+            background: #FEA700;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .oct-footer a.btn-scart {
+            background: #FEA700;
+            margin-left: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .oct-footer a.btn-order {
+            background: #FD3F0F;
+        }
+
+    .oct-footer .nav-current {
+        color: #D62B2B;
+    }
+/*主体内容*/
+.oct-content {
+    overflow: hidden;
+}
+
+
+/*区域样式*/
+.oct-section {
+    background: white;
+    padding: 6px;
+    margin-top: 6px;
+}
+
+/*------------数据分页----------*/
+
+/*-点我加载更多*/
+.up-pull-loading {
+    padding: 5px;
+    border-left: none;
+    border-right: none;
+    background: white;
+    cursor: pointer;
+    text-align: center;
+    font-size: 10px;
+    color: #ff6a00;
+    margin-bottom: 5px;
+    margin-top: -20px;
+}
+
+    .up-pull-loading:hover {
+        background: #FFEDD1;
+    }
+
+
+
+
+
+
+
+
+/*文本框*/
+.txt-css {
+    padding: 7px;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 8px;
+}
+/*多行文本框*/
+.area-txt-css {
+    padding: 7px;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 8px;
+}
+/*提示文字*/
+.hint-prompt {
+    font-size: 12px;
+    color: #FF6A00;
+    padding: 5px 0;
+    font-style: italic;
+}
+/*单选按钮*/
+input[type='radio'] {
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    margin-left: 10px;
+    margin-top:-2px;
+}
+
+
+/**表单栏目标题Div*/
+.form-main-title {
+    border-bottom: 1px solid #eeeeee;
+    padding: 3px 10px;
+    font-size: 14px;
+    border-left: 2px solid red;
+    margin-left: -11px;
+}
+/*栏目内容*/
+.form-main-item{
+    padding: 18px;
+    padding-bottom: 28px;
+    padding-left: 4px;
+}
+
+
+

@@ -1,0 +1,179 @@
+﻿
+Log Entry : 15:19:58 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:21:20 2019年2月28日 
+HttpService:System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:24:06 2019年2月28日 
+HttpService:System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:26:32 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:32:22 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:32:22 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:32:22 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:32:58 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:34:02 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:34:02 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:34:02 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:36:43 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:36:43 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:36:43 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:39:04 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:39:04 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:39:04 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:39:39 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:39:39 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:39:39 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:41:41 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:41:41 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:41:41 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:49:28 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:50:05 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:51:49 2019年2月28日 
+HttpService:System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 16:42:46 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 16:44:59 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 16:44:59 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 16:44:59 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 17:14:26 2019年2月28日 
+HttpService:System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 17:04:30 2021年7月23日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:9966
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 17:05:04 2021年7月23日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:9966
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+

@@ -1,0 +1,132 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>抢购秒杀_实体店</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Mall/SecondsKill.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/O2o/SecondsKillO2o.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>抢购秒杀</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../O2o/index"><img class="header-icon-my" src="../Assets/Imgs/Icon/navbar_home.png" style="width:25px; height:25px;" /></a>
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <div class="nav-item search-where-1" onclick="searchWhere1()">
+            <span id="SearchWhere1Span" style="color:red;">全部分类</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+        <div class="nav-item search-where-1" onclick="searchWhere2()">
+            <span id="SearchWhere2Span" style="color:red;">全部地区</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+        <div class="goods-type-order search-current" onclick="clickItemSearchWhere3('Distance')">距离最近</div>
+        <div class="goods-type-order" onclick="clickItemSearchWhere3('SaleCount')">销量</div>
+        <div class="goods-type-order search-price" onclick="chgTabPrice()">价格 <img style="width:10px; height:10px;" src="../Assets/Imgs/Icon/order_price_gray.png" /></div>
+        <div class="goods-type-order" onclick="clickItemSearchWhere3('WriteDate')">新品</div>
+    </div>
+    <!--条件显示层-->
+    <div class="all-where-show" id="AllWhereShow" style="display: none;">
+        <div class="all-where-type" id="AllWhereType" style="display:none">
+            <span class="goods-type-current">全部分类</span>
+            <span class="goods-type-item">
+                休闲裤
+            </span>
+        </div>
+        <div class="all-where-type" id="AllWhereType2" style="display:normal">
+            <span>全部地区</span>
+            <span class="goods-type-current">
+                开福区
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!--商品列表-->
+            <ul class="goods-list" id="PageContentList">
+
+                @*<li class="goods-item">
+                        <div class="goods-item-img">
+                            <img src="../Assets/Imgs/03.jpg" />
+                        </div>
+                        <div class="goods-item-msg">
+                            <div class="goods-item-title">
+                                秒杀商品名称秒杀商品名称秒杀商品名称秒杀商品名称
+                            </div>
+                            <div class="goods-item-progress">
+                                <div class="progress-bar-bottom">
+                                    <div class="progress-bar-top">
+                                        60.0%
+                                    </div>
+                                </div>
+                                <div class="robbed-num">
+                                   2小时结束，已抢232344件
+                                </div>
+                            </div>
+                            <div class="goods-item-badge">
+                                <span>优惠券</span>
+                                <span>活动</span>
+                                <span>打折</span>
+                                <span>团购</span>
+                            </div>
+                            <div class="goods-item-price">
+                                <div>
+                                    <b>&#165; 2832.23</b>
+                                    <span>&#165; 1832.23</span>
+                                </div>
+                                <input class="btn-robbed" type="button" value="马上抢" />
+                            </div>
+                        </div>
+                    </li>*@
+
+
+
+
+            </ul>
+
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

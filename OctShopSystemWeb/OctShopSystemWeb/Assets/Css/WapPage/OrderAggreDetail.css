@@ -1,0 +1,64 @@
+﻿/*================扫码支付订单详情========================*/
+
+.oct-content {
+    background: #ffffff;
+    padding: 8px;
+    margin-top: 45px;
+    margin-bottom:80px;
+}
+
+/*订单状态显示*/
+.order-status {
+    background: #03AD05;
+    padding: 5px 8px;
+    color: white;
+    border-radius: 8px;
+}
+
+.order-status-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.order-status-desc {
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+}
+
+.order-status-dynamic {
+    font-size: 12px;
+    color: #eeeeee;
+}
+.order-basic dt{
+    padding-top: 10px;
+    padding-bottom:10px;
+    border-bottom: 1px dashed #e1e1e1;
+    margin-top: 10px;
+    padding-left:8px;
+}
+.order-basic dd {
+    padding: 8px;
+}
+    .order-basic dd span{
+        padding-left:8px;
+    }
+
+    .order-basic val {
+        color: #ff6a00;
+    }
+.order-goods-list{
+    background: #fafafa;
+    border-radius:5px;
+}
+
+/*付款者信息*/
+.order-pay-user{
+    padding-bottom:10px;
+}
+
+.pay-user-dd img {
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+}

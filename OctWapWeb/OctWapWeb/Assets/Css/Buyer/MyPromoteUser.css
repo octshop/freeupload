@@ -1,0 +1,43 @@
+﻿/*============我推广的人=============*/
+
+/*列表*/
+.promote-user-item {
+    background: white;
+    padding: 8px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+}
+
+    .promote-user-item img {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        border: 1px solid #f1f1f1;
+        margin-right: 10px;
+    }
+
+.promote-user-name {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size:14px;
+}
+
+    .promote-user-name i {
+        color: gray;
+        font-size:12px;
+    }
+
+
+
+/*========数据分页===========*/
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 45px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}

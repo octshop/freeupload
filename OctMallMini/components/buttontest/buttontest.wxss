@@ -1,0 +1,10 @@
+/* components/buttontest/buttontest.wxss */
+.main{
+  padding: 10rpx;
+}
+.btn-custom{
+  background: #1586F5;
+  color: white;
+  border-radius: 20rpx;
+  text-align: center;
+}

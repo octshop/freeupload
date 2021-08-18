@@ -1,0 +1,72 @@
+﻿/*==================我的投诉==========================*/
+
+.oct-content{
+    margin-top: 46px;
+}
+/*投诉列表信息*/
+.complain-list {
+}
+
+    .complain-list li {
+        background: white;
+        padding: 10px;
+        margin-bottom: 8px;
+        padding-top: 5px;
+    }
+
+.complain-item-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #F7F7F7;
+}
+
+.complain-item-right {
+    color: #FF6600;
+}
+
+.complain-item-mid {
+    padding: 8px 0;
+    color: #b5b5b5;
+    border-bottom: 1px solid #F7F7F7;
+}
+
+    .complain-item-mid b {
+        color: #000000;
+        font-weight: normal;
+    }
+
+.complain-item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    padding-bottom: 0;
+}
+
+.complain-bottom-left {
+    color: #b5b5b5;
+}
+
+    .complain-bottom-left input {
+        border: 1px solid gray;
+        color: gray;
+        background: no-repeat;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 48px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}
+
+
+

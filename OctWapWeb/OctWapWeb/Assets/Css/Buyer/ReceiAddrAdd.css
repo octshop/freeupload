@@ -1,0 +1,38 @@
+﻿/*=================添加收货地址=================*/
+
+.oct-content {
+   margin-top: 40px;
+}
+.addr-add-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f8f8f8;
+    align-items: center;
+}
+
+    .addr-add-list li input {
+        border: none;
+        width: 80%;
+        text-align: right;
+    }
+
+.sel-addr-region {
+    background: url(../../Imgs/Icon/arrows_right_black.png) right center no-repeat;
+    background-size: 15px;
+    padding-right: 15px;
+    cursor:pointer;
+}
+.add-addr-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .add-addr-btn input {
+        background: #FF5700;
+        color: white;
+        padding: 5px 10px;
+        width: 90%;
+        border: none;
+        border-radius: 20px;
+    }

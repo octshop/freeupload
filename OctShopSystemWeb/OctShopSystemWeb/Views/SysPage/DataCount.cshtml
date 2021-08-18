@@ -1,0 +1,198 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>数据统计</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/SysPage/DataCount.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Js/SysPage/DataCount.js"></script>
+
+</head>
+<body>
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=系统信息">系统信息</a></li>
+            <li class="am-active">数据统计</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+
+        <!--订单统计-->
+        <div class="main-today am-cf am-nbfc">
+            <div class="today-count-title">
+                <b>订单统计</b>
+            </div>
+            <div class="today-count-item">
+                @*<div class="count-item">
+                        今日新增：<b id="NewOrderTodayCount"></b>
+                    </div>*@
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=待发货'">
+                    待发货：<b id="WaitSendOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=待消费/自取'">
+                    待消费/自取：<b id="WaitExpenseOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=待收货'">
+                    待收货：<b id="WaitReceiOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=待分享'">
+                    待分享：<b id="WaitShareOrderCount"></b>
+                </div>
+
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=待付款'">
+                    待付款：<b id="WaitPayOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=待确认'">
+                    待确认(货到付款)：<b id="WaitComfirmOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=到店付'">
+                    到店付：<b id="ShopPayOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=转账'">
+                    转账支付：<b id="TransPayOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=待评价'">
+                    待评价：<b id="WaitAppraiseOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=完成'">
+                    完成的订单：<b id="FinishOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=取消'">
+                    取消的订单：<b id="CancelOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=拒收'">
+                    拒收(货到付款)：<b id="RefuseOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=退款中'">
+                    退款中：<b id="WaitRefundOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../TradingPage/OrderMan?OrderStatus=退款成功'">
+                    退款成功：<b id="WaitRefundSuOrderCount"></b>
+                </div>
+            </div>
+        </div>
+
+        <!--扫码收单-->
+        <div class="main-today am-cf am-nbfc">
+            <div class="today-count-title">
+                <b>扫码收单统计</b>
+            </div>
+            <div class="today-count-item">
+                <div class="count-item" onclick="window.location.href='../AggregatePage/AggregateOrderMsg?OrderStatus=支付成功'">
+                    支付成功：<b id="AggrePaySuOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../AggregatePage/AggregateOrderMsg?OrderStatus=退款中'">
+                    退款中：<b id="AggreRefundOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../AggregatePage/AggregateOrderMsg?OrderStatus=退款成功'">
+                    退款成功：<b id="AggreRefundOrderSuCount"></b>
+                </div>
+            </div>
+        </div>
+
+        <!--礼品订单-->
+        <div class="main-today am-cf am-nbfc">
+            <div class="today-count-title">
+                <b>礼品订单统计</b>
+            </div>
+            <div class="today-count-item">
+                <div class="count-item" onclick="window.location.href='../PresentPage/PresentOrderMsg?OrderStatus=待支付'">
+                    待支付：<b id="PresentWaitPayOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../PresentPage/PresentOrderMsg?OrderStatus=待发货'">
+                    待发货：<b id="PresentWaitSendOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../PresentPage/PresentOrderMsg?OrderStatus=待消费/自取'">
+                    待消费/自取：<b id="PresentWaitExpenseOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../PresentPage/PresentOrderMsg?OrderStatus=待收货'">
+                    待收货：<b id="PresentWaitReceiOrderCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../PresentPage/PresentOrderMsg?OrderStatus=完成'">
+                    完成：<b id="PresentWaitFinishOrderCount"></b>
+                </div>
+            </div>
+        </div>
+
+        <!--优惠券统计-->
+        <div class="main-today am-cf am-nbfc">
+            <div class="today-count-title">
+                <b>优惠券统计</b>
+            </div>
+            <div class="today-count-item">
+                <div class="count-item" onclick="window.location.href='../CouponsPage/CouponsMsg'">
+                    优惠券总数：<b id="CouponsMsgCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../CouponsPage/CouponsIssueMsg'">
+                    已发放总数：<b id="CouponsIssueMsgCount"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../CouponsPage/CouponsIssueMsg?IsUsed=true'">
+                    已使用总数：<b id="CouponsIssuUsedCount"></b>
+                </div>
+            </div>
+        </div>
+
+
+        <!--评价统计-->
+        <div class="main-today am-cf am-nbfc">
+            <div class="today-count-title">
+                <b>评价统计</b>
+            </div>
+            <div class="today-count-item">
+                <div class="count-item" onclick="window.location.href='../GoodsPage/GooAppraise'">
+                    总评价数：<b id="CountAppraiseB"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../GoodsPage/GooAppraise?AppScore=4'">
+                    总好评：<b id="CountGoodsAppraiseB"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../GoodsPage/GooAppraise?AppScore=3'">
+                    总中评：<b id="CountMidAppraiseB"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../GoodsPage/GooAppraise?AppScore=2'">
+                    总差评：<b id="CountBadAppraiseB"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../GoodsPage/GooAppraise?CountAppraiseImg=1'">
+                    总晒单图：<b id="SumAppraiseImgsB"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../GoodsPage/GooAppraise?AppScore=4'">
+                    总好评度：<b id="GoodAppraisePercentB"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../GoodsPage/GooAppraise?AppScore=3'">
+                    总中评度：<b id="MidAppraisePercentB"></b>
+                </div>
+                <div class="count-item" onclick="window.location.href='../GoodsPage/GooAppraise?AppScore=2'">
+                    总差评度：<b id="BadAppraisePercentB"></b>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+</html>

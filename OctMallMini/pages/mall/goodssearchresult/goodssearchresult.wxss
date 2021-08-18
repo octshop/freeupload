@@ -1,0 +1,350 @@
+/* pages/mall/goodssearchresult/goodssearchresult.wxss */
+.shop-search {
+  position: fixed;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #F0F0F0;
+  overflow: hidden;
+  padding-bottom: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 10;
+  background: #ffffff;
+  overflow: hidden;
+  align-items: center;
+  padding: 10px;
+}
+
+.oct-header-mid {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.oct-header-right {
+  width: 65px;
+  font-size: 24rpx;
+  text-align: center;
+  color: black;
+  padding-right: 30rpx;
+  padding-top: 15rpx;
+  height: 40px;
+}
+
+.oct-header-right image {
+  width: 45rpx;
+  height: 45rpx;
+  margin: 0;
+  padding: 0;
+}
+
+.oct-header-right view {
+  padding: 0;
+  margin: 0;
+  margin-top: -10rpx;
+  font-size: 24rpx;
+}
+
+.oct-header-mid .header-search {
+  width: 100%;
+  background: #dbdbdb;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: space-between;
+  height: 25px;
+  color: #3b3b3b;
+  font-weight: normal;
+  padding: 10rpx;
+  margin-right: 10rpx;
+}
+
+.header-search image {
+  width: 22px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.header-search .search-txt {
+  border: none;
+  background: #dbdbdb;
+  width: 100%;
+  font-size: 35rpx;
+  text-align: left;
+}
+
+/* 商品查询类别导航 */
+.oct-header-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  left: 0;
+  position: fixed;
+  background: white;
+  width: 100%;
+  z-index: 2000;
+}
+
+.oct-header-bottom-nav view {
+  width: 30px;
+  color: #000000;
+  text-align: center;
+  padding: 5px;
+  font-size: 30rpx;
+}
+
+.oct-header-bottom-nav .nav-item-current {
+  color: red;
+}
+
+.oct-header-bottom-nav view image {
+  width: 12px;
+  height: 12px;
+}
+
+.oct-content {
+  padding: 20rpx 10rpx;
+}
+
+/* 价格 */
+.oct-header-bottom-nav .filter-price {
+  width: 50px;
+}
+
+/* 筛选 */
+.oct-header-bottom-nav .filter-where {
+  width: 50px;
+  font-size: 32rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.oct-header-bottom-nav .filter-where image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-top: 10rpx;
+}
+
+/*商品列表*/
+.goods-list {}
+
+.goods-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 12px;
+  background: white;
+  padding: 8px 6px;
+  margin-top: 6px;
+  padding-bottom: 10rpx;
+}
+
+.goods-item image {
+  width: 105px;
+  height: 105px;
+  border-radius: 5px;
+  margin-right: 8px;
+  z-index: 2;
+}
+
+.goods-item .goods-price-item {
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.goods-price {
+  font-weight: bold;
+  color: red;
+  font-size: 14px;
+}
+
+.goods-label span {
+  font-size: 10px;
+  background: #f1f1f1;
+  color: #f65402;
+  padding: 0 3px;
+  border-radius: 5px;
+  margin-right: 20rpx;
+}
+
+.goods-extra {
+  font-size: 12px;
+  color: #979797
+}
+
+.goods-extra navigator {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #000000;
+}
+
+.goods-img {
+  position: relative;
+  z-index: 2;
+}
+
+.goods-img span {
+  background: #f65402;
+  color: white;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  padding: 1px 5px;
+  border-radius: 10px;
+}
+
+.enter-shop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000000;
+}
+
+.goods-price-item .goods-title {
+  height: 75rpx;
+  padding: 0;
+  margin-top: -10rpx;
+}
+
+.goods-extra text {
+  font-style: italic;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  display: block;
+  font-size: 11px;
+}
+
+
+/* ================侧边栏样式====================== */
+/* 遮罩层 */
+.slide-cover {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 6000;
+  background: black;
+  filter: alpha(opacity=30);
+  /* IE */
+  -moz-opacity: 0.3;
+  /* 老版Mozilla */
+  -khtml-opacity: 0.3;
+  /* 老版Safari */
+  opacity: 0.3;
+  /* 支持opacity的浏览器*/
+}
+
+/* 侧边栏 */
+.slide-right {
+  width: 300px;
+  /*侧边栏的宽度*/
+  height: 300px;
+  position: fixed;
+  background: white;
+  right: 0px;
+  top: 50px;
+  z-index: 6001;
+  overflow: hidden;
+  font-size: 28rpx;
+  /* -----动画----- */
+  -webkit-animation: mymove 0.3s;
+  /* Chrome, Safari, Opera */
+  animation: mymove 0.3s;
+}
+
+/*  --动画- Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+  from {
+    right: -300px;
+  }
+
+  /*侧边栏的宽度*/
+  to {
+    right: 0px;
+  }
+}
+
+/*  --动画- Standard syntax */
+@keyframes mymove {
+  from {
+    right: -300px;
+  }
+
+  /*侧边栏的宽度*/
+  to {
+    right: 0px;
+  }
+}
+
+
+/* ================侧边栏 主体内容 样式====================== */
+/* 列表 */
+.scroll-view-slide {
+  background: white;
+}
+
+.sidebar-title-filter {
+  background: #ededed;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.sidebar-title {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+.scroll-view-slide view {
+  padding: 5px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: center;
+}
+
+.scroll-view-slide view view {
+  display: block;
+  padding: 5px 10px;
+  background: #ededed;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.scroll-view-slide view view.sub-nav-current {
+  background: red;
+  color: white;
+}
+
+
+/*底部按钮*/
+.navContent {
+  display: flex;
+  align-content: space-between;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.navContent view {
+  display: block;
+  width: 50%;
+  text-align: center;
+  padding: 7px 0;
+  margin: 0;
+}
+
+.navContent .btn-reset {
+  background: #eb9700;
+  color: white;
+}
+
+.navContent .btn-ok {
+  background: red;
+  color: white;
+}

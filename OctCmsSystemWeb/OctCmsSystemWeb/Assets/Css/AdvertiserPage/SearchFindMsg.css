@@ -1,0 +1,17 @@
+﻿/*================搜索发现展示===================*/
+
+
+/*添加与编辑窗口主体内容*/
+.add-edit-ul span {
+    padding-left: 10px;
+    display: inline-block;
+    width: 80px;
+}
+
+.c-memo {
+    width: 460px;
+}
+
+
+
+

@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>测试微信扫码支付</title>
+</head>
+<body>
+    <div> 
+        @ViewBag.ScanURL
+        <br /><br />
+        <img src="../WxPay/MakeQRCode?data=@ViewBag.ScanURL" />
+    </div>
+</body>
+</html>

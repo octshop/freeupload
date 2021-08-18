@@ -1,0 +1,68 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>【测试】相关页</title>
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+
+    <link href="../Assets/Lib/DateTimeDropper/datedropper.css" rel="stylesheet" />
+    <link href="../Assets/Lib/DateTimeDropper/timedropper.min.css" rel="stylesheet" />
+    <script src="../Assets/Lib/DateTimeDropper/datedropper.min.js"></script>
+    <script src="../Assets/Lib/DateTimeDropper/timedropper.min.js"></script>
+
+</head>
+<body>
+    <div style="margin-top:100px; margin-left: 100px;">
+
+
+        <input type="text" id="pickdate_1" />
+        <input type="text" id="pickdate_2" />
+
+        <input type="text" id="picktime_1" />
+        <input type="text" id="picktime_2" />
+
+
+    </div>
+
+    <script type="text/javascript">
+
+
+        $("#pickdate_1").dateDropper(
+            {
+                maxYear: '3020',
+                animate: false
+            }
+        );
+        $("#pickdate_2").dateDropper(
+            {
+                maxYear: '3020',
+                animate: false
+            }
+        );
+
+        $("#picktime_1").timeDropper(
+            {
+                format: "HH:mm",
+                setCurrentTime: '00:00'
+            });
+        $("#picktime_2").timeDropper(
+            {
+                format: "HH:mm",
+                setCurrentTime: "00:00"
+            });
+
+
+
+    </script>
+
+</body>
+</html>

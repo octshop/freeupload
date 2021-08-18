@@ -1,0 +1,4 @@
+<!--components/buttontest/buttontest.wxml-->
+<view class="main" hidden="{{isHide}}">
+   <view class="btn-custom" bindtap="clickEvent">{{buttonText}}</view>
+</view>

@@ -1,0 +1,120 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>可结算订单列表</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/WapPage/SettleOrder.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/WapPage/SettleOrder.js"></script>
+
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>商家结算</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../WapPage/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-1" onclick="window.location.href='../WapPage/SettleApply'" id="chgTab_0">申请结算</a>
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-2 oct-header-sub-curren-a" onclick="chgTab('4')" id="chgTab_1">可结算商城订单</a>
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-3" onclick="chgTab('5')" id="chgTab_2">可结算扫码订单</a>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="mescroll" id="mescroll">
+
+            <!--订单列表-->
+            <ul class="page-content-list" id="PageContentList">
+
+                @*<li class="settle-msg-li">
+                        <div class="settle-top">
+                            <div>订单ID：<b>23434</b> 金额：<b>&#165;25635.654</b></div>
+                            <div>
+                                <b>完成</b>
+                            </div>
+                        </div>
+                        <div class="settle-content">
+                            <div>
+                                <span>交易号：</span><b>2020121719202851851821523</b>
+                            </div>
+                            <div>
+                                <span>抽成金额：</span><b>&#165;123.23</b>
+                                <span class="right-span">结算金额：</span><b>&#165;123.23</b>
+                            </div>
+                        </div>
+                        <div class="settle-date">
+                            <div>
+                                支付方式：<b>微信支付</b>
+                            </div>
+                            <div>
+                                完成时间：<b>2021-01-18</b>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="settle-msg-li">
+                        <div class="settle-top">
+                            <div>扫码订单ID：<b>23434</b> 金额：<b>&#165;25635.654</b></div>
+                            <div>
+                                <b>完成</b>
+                            </div>
+                        </div>
+                        <div class="settle-content">
+                            <div>
+                                <span>交易号：</span><b>2020121719202851851821523</b>
+                            </div>
+                            <div>
+                                <span>抽成金额：</span><b>&#165;123.23</b>
+                                <span class="right-span">结算金额：</span><b>&#165;123.23</b>
+                            </div>
+                        </div>
+                        <div class="settle-date">
+                            <div>
+                                支付方式：<b>微信支付</b>
+                            </div>
+                            <div>
+                                完成时间：<b>2021-01-18</b>
+                            </div>
+                        </div>
+                    </li>*@
+
+
+
+            </ul>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

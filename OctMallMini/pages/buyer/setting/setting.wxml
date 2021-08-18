@@ -1,0 +1,67 @@
+<!--pages/buyer/setting/setting.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="设置" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<view class="setting-ul">
+
+		<navigator class="setting-item setting-item-1" url="../setting/commonquestion/commonquestion">
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_question.png" />
+				常见问题
+			</view>
+			<image class="arrows-right-black" src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png" />
+		</navigator>
+
+		<navigator class="setting-item setting-item-1" catchtap="goToWebViewShopEnter">
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_shopenter.png" />
+				商家免费入驻
+			</view>
+			<image class="arrows-right-black" src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png" />
+		</navigator>
+
+		<navigator class="setting-item setting-item-1" url="../../login/paypwdsetting/paypwdsetting">
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_settingpay.png" />
+				支付密码设置
+			</view>
+			<image class="arrows-right-black" src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png" />
+		</navigator>
+
+		<navigator class="setting-item setting-item-1" url="../../login/loginpwdsetting/loginpwdsetting">
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_password.png" />
+				登录密码设置
+			</view>
+			<image class="arrows-right-black" src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png" />
+		</navigator>
+
+		<navigator class="setting-item setting-item-1" url="../../login/bindmobilechg/bindmobilechg">
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_settingmobile.png" />
+				更改绑定手机
+			</view>
+			<image class="arrows-right-black" src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png" />
+		</navigator>
+
+		<navigator class="setting-item setting-item-1" catchtap="clearAllCookieValue">
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_delcookie.png" />
+				清除所有缓存
+			</view>
+			<image class="arrows-right-black" src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png" />
+		</navigator>
+
+	</view>
+
+	<view class="setting-exit" bindtap="exitLogin">
+		退出登录
+	</view>
+
+
+
+</view>

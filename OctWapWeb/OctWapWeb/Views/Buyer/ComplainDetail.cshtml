@@ -1,0 +1,299 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>投诉详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/ComplainDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Buyer/ComplainDetail.js"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidCID" value="@ViewBag.CID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="../Buyer/ComplainMy"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>投诉详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/Appraise_explain.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--步骤-->
+        <div class="complain-step">
+
+            <!--步骤条-->
+            <div class="complain-step-bg">
+                <div class="complain-step-current">
+                </div>
+            </div>
+            <!--步骤说明-->
+            <div class="compplain-step-desc">
+
+                <div class="step-desc-item">
+                    <div class="step-desc-num step-desc-num-current">1</div>
+                    <div class="step-desc-txt step-desc-txt-current">商家/平台处理</div>
+                </div>
+                <div class="step-desc-item" id="StepDescItem2">
+                    <div class="step-desc-num">2</div>
+                    <div class="step-desc-txt" id="StepDescTxt2">官方介入</div>
+                </div>
+                <div class="step-desc-item" id="StepDescItem3">
+                    <div class="step-desc-num">3</div>
+                    <div class="step-desc-txt" id="StepDescTxt3">买家确认</div>
+                </div>
+                <div class="step-desc-item" id="StepDescItem4">
+                    <div class="step-desc-num">4</div>
+                    <div class="step-desc-txt" id="StepDescTxt4">完成</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--提示信息-->
+        <div class="complain-hint" id="ComplainHint">
+            请等待商家的处理反馈，请保持电话的畅通！
+        </div>
+
+        <!--商家回复-->
+        <div class="complain-hint complain-reply" id="ShopReply" style="display:none;">
+            @*<b>商家回复：</b>  <div>2020-05-05 12:23:32</div>*@
+        </div>
+
+        <!--官方回复-->
+        <div class="complain-hint complain-reply" id="ComplainReply" style="color:#ff6a00;display:none;">
+            @*<b>官方回复：</b>  <div>2020-05-05 12:23:32</div>*@
+        </div>
+
+
+        <!--投诉内容-->
+        <div class="complain-content">
+            <ul class="complain-content-ul">
+                <li>
+                    <div class="complain-content-left">投诉对象：</div>
+                    <div class="complain-content-question" id="ComplainCategory">订单</div>
+                </li>
+                <li>
+                    <div class="complain-content-left">投诉类型：</div>
+                    <div class="complain-content-question" id="ComplainType">配送问题</div>
+                </li>
+                <li class="complain-content-li">
+                    <div>
+                        投诉内容：
+                    </div>
+                    <div class="complain-content-txt" id="ComplainContent">
+                        @*快递总是不送*@
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!--不同分类的投诉显示代码-->
+        <div class="order-complain-category" id="OrderComplainCategory" style="display:none;">
+
+            <div class="order-msg">
+                <div class="order-msg-left">
+                    订单ID: <span id="OrderID">@*238438284*@</span>
+                </div>
+                <div class="order-msg-right">
+                    下单时间：<span id="OrderTime">@*2018-05-12 23:32:12*@</span>
+                </div>
+            </div>
+
+            <!--订单列表-->
+            <ul class="order-list">
+                <li class="order-item">
+                    <div class="order-item-top" id="ShopMsg">
+                        <a href="#"><img src="../Assets/Imgs/02.jpg" />@*韩版男装专卖店*@</a>
+                        <div class="order-status-txt">
+                            @*待收货*@
+                        </div>
+                    </div>
+                    <div class="order-item-mid" id="OrderGoodsMsg" onclick="window.location.href='../Order/OrderDetail'">
+                        @*<a href="#" class="order-goods-item">
+                                <div class="goods-item-left">
+                                    <img src="~/Assets/Imgs/01.jpg" />
+                                </div>
+                                <div class="goods-item-mid">
+                                    <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                    <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                                </div>
+                                <div class="goods-item-right">
+                                    <span class="goods-item-price">&#165;2354.43</span>
+                                    <span class="goods-item-ordernum">&times; 3</span>
+                                </div>
+                            </a>*@
+
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+
+
+        <!--礼品订单投诉显示代码-->
+        <div class="order-complain-category" id="PresentOrderComplainCategory" style="display:none;">
+
+            <div class="order-msg">
+                <div class="order-msg-left">
+                    礼品订单ID: <span id="PresentOrderID">@*238438284*@</span>
+                </div>
+                <div class="order-msg-right">
+                    下单时间：<span id="PresentOrderTime">@*2018-05-12 23:32:12*@</span>
+                </div>
+            </div>
+
+            <!--订单列表-->
+            <ul class="order-list">
+                <li class="order-item">
+                    <div class="order-item-top" id="PresentShopMsg">
+                        <a href="#"><img src="../Assets/Imgs/02.jpg" />@*韩版男装专卖店*@</a>
+                        <div class="order-status-txt">
+                            @*待收货*@
+                        </div>
+                    </div>
+                    <div class="order-item-mid" id="PresentOrderGoodsMsg">
+                        @*<a href="#" class="order-goods-item">
+                                <div class="goods-item-left">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </div>
+                                <div class="goods-item-mid">
+                                    <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                    <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                                </div>
+                                <div class="goods-item-right">
+                                    <span class="goods-item-price">&#165;2354.43</span>
+                                    <span class="goods-item-ordernum">&times; 3</span>
+                                </div>
+                            </a>*@
+                    </div>
+
+                </li>
+            </ul>
+
+        </div>
+
+
+
+
+        <!--售后信息列表-->
+        <div class="after-sale-complain" id="AfterSaleComplain" style="display:none;">
+            <ul class="order-list page-content-list" id="AfterSaleComplainUl">
+                <li class="order-item">
+                    <div class="order-item-top aftersale-item-top">
+                        <a href="#"><img src="../Assets/Imgs/Icon/aftersale_list.png" />售后ID:234432</a>
+                        <div class="aftersale-status-txt">
+                            商家审核中
+                        </div>
+                    </div>
+                    <div class="order-item-mid" onclick="window.location.href='#'">
+                        @*<a href="#" class="order-goods-item">
+                                <div class="goods-item-left">
+                                    <img src="~/Assets/Imgs/01.jpg" />
+                                </div>
+                                <div class="goods-item-mid">
+                                    <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                    <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                                </div>
+                                <div class="goods-item-right">
+                                    <span class="goods-item-price">&#165;2354.43</span>
+                                    <span class="goods-item-ordernum">&times; 3</span>
+                                    <span class="goods-aftersale-num">退货数量:8</span>
+                                </div>
+                            </a>*@
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!--店铺信息-->
+        <div class="shop-msg" id="ShopMsgBar" style="display:none;">
+            <div class="shop-msg-1">
+                <div class="shop-msg-left" id="ShopHeaderBar">
+                    <a href="#">
+                        <img src="../Assets/Imgs/01.jpg" />
+                    </a>
+                </div>
+                <div class="shop-msg-right">
+                    <div class="shop-right-top" id="ShopTitleBar">
+                        @*<a href="#" target="_blank"></a>
+                            <span class="shop-label"></span>
+                            <span class="shop-arrow">&nbsp;</span>*@
+                    </div>
+                    <div class="shop-right-mid" id="ShopScoreBar">
+                        综合: <b>9.5</b>
+                        物流: <b>9.5高</b>
+                        商品: <b>9.5高</b>
+                        服务: <b>9.5高</b>
+                    </div>
+                    <div class="shop-right-bottom">
+                        <b id="ShopAttenBar"></b>人关注
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="shop-msg-2" id="ShopMajorGoodBar">
+
+            </div>
+
+            <div class="shop-msg-4">
+                <a href="#" id="ShopGoSeviceBar" class="customer-service">联系客服</a>
+                <a href="#" id="ShopGoIndexBar" class="go-shop">进店逛逛</a>
+            </div>
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <!--页脚-->
+    <div class="oct-footer" id="OctFooterBtn">
+        @*<div>
+                确认已处理
+            </div>
+            <div class="footer-btn-current">
+                申请官方介入
+            </div>*@
+    </div>
+
+
+
+
+</body>
+</html>

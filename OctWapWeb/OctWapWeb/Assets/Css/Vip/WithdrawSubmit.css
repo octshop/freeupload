@@ -1,0 +1,128 @@
+﻿/*=========立即提现==============================*/
+/*头部*/
+.oct-header-right .header-icon-my {
+    width: 20px;
+    height: 20px;
+}
+/*主体内容*/
+.oct-content {
+    margin-top: 38px;
+}
+
+/*提现金额*/
+.topup-sum {
+    background: #ffffff;
+    padding: 20px;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.topup-sum-top span {
+    color: #FE6B43;
+    padding-left: 10px;
+}
+
+.topup-sum-bottom {
+    text-align: center;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.topup-sum-txt {
+    border: none;
+    background: url(../../Imgs/Icon/vip_topup.png) left top no-repeat;
+    background-size: 30px;
+    padding-left: 45px;
+    width: 180px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 2px;
+    padding-top: 4px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 20px;
+    color: #FE6B43;
+}
+
+/*提现信息*/
+.withdraw-msg {
+    padding: 10px;
+    background: white;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.withdraw-ul li {
+    padding: 10px 10px;
+    border-bottom: 1px solid #F7F7F7;
+}
+
+    .withdraw-ul li span {
+        display:inline-block;
+        width: 70px;
+    }
+
+.txt-css {
+    border: none;
+    padding-left: 10px;
+    color: #FE6B43;
+}
+
+.withdraw-ul .withdraw-li-bottom {
+    margin-bottom: 5px;
+}
+/*发送验证码*/
+.withdraw-sms {
+    padding: 20px;
+    background: #ffffff;
+    margin-top: 8px;
+}
+
+.withdraw-sms-top {
+    text-align: center;
+    padding-bottom: 10px;
+    color: gray;
+}
+
+    .withdraw-sms-top span {
+        color: #FE6B43;
+    }
+
+.withdraw-sms-bottom {
+    text-align: center;
+}
+
+.txt-sms {
+    padding: 8px;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    width: 100px;
+    margin-right: 10px;
+    text-align: center;
+    color: #FE6B43;
+    font-size: 14px;
+}
+
+.btn-send {
+    border: 1px solid #eaeaea;
+    padding: 8px 10px;
+    color: #000000;
+    background: #FAFAFA;
+    border-radius: 10px;
+    cursor:pointer;
+}
+/*按钮-*/
+.withdraw-btn-div {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.btn-withdraw {
+    width: 80%;
+    padding: 8px;
+    color: white;
+    background: #FE6B43;
+    margin: 0 auto;
+    border: none;
+    border-radius: 20px;
+    cursor:pointer;
+}

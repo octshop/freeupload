@@ -1,0 +1,623 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden; overflow-y:hidden;">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>商城-后台管理系统</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminFrame.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+
+    <script src="../Assets/Lib/AdminFrame/jquery.cookie.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminFrame.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminData.js"></script>
+
+</head>
+<body>
+
+
+    <!--顶部导航条-->
+    <header class="my-header am-topbar am-topbar-fixed-top">
+        <div class="am-topbar-brand">
+            <img src="../Assets/Lib/AdminFrame/logo.png" style="height: 80%;" />
+        </div>
+
+        <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+            <ul class="topnav-item am-nav am-nav-pills am-topbar-nav am-topbar-right">
+                <li>
+                    <input type="text" class="search-input am-form-field am-input-sm" placeholder="请输入搜索内容…" />
+                </li>
+                <li>
+                    <button class="search-btn am-btn am-btn-xs am-xiao"><i class="am-icon-search"></i></button>
+                </li>
+                <li class="dropdown-last-left am-dropdown" id="MessageDropDown" data-am-dropdown>
+                    <button class="button-item am-btn am-btn-default am-btn-xs am-radius am-icon-bell-o am-dropdown-toggle" data-am-dropdown-toggle>
+                        消息管理<span class="button-item-badge am-badge am-badge-danger am-round" id="SumCountMsgNoRead">0</span>
+                    </button>
+                    <ul class="am-dropdown-content">
+                        <li class="am-dropdown-header">所有消息都在这里</li>
+                        <li><a href="../AfterSaleAccCusPage/PlatformSysMsg" target="IframeContentPageName">平台通知信息 <span class="am-badge am-badge-danger am-round" id="PlatformMsgNoRead">0</span></a></li>
+                        <li><a href="../CommonCodePage/SystemMsg" target="IframeContentPageName">系统异常信息 <span class="am-badge am-badge-danger am-round" id="SystemMsgNoRead">0</span></a></li>
+                        @*<li><a href="#">未处理汇款</a></li>
+                            <li><a href="#">未发放提现</a></li>
+                            <li><a href="#">未发货订单</a></li>
+                            <li><a href="#">低库存产品</a></li>
+                            <li><a href="#">信息反馈</a></li>*@
+                    </ul>
+                </li>
+                @*<li class="am-dropdown menu-dropdown-li" data-am-dropdown>
+                            <button class="menu-dropdown-item am-dropdown-toggle" data-dropdown-toggle>会员管理</button>
+                            <ul class="am-dropdown-content">
+                                <li><a href="#">菜单1</a></li>
+                                <li><a href="#">菜单2</a></li>
+                                <li><a href="#">菜单3</a></li>
+                                <li><a href="#">菜单4</a></li>
+                            </ul>
+                        </li>
+                    <li>
+                        <a href="#">奖金管理</a>
+                    </li>
+                    <li>
+                        <a href="#">订单管理</a>
+                    </li>
+                    <li>
+                        <a href="#">产品管理</a>
+                    </li>*@
+                <li>
+                    <a href="@ViewBag.OctWapWeb_AddrDomain/Mall/PagePreMobileIframe?LoadPreURL=@ViewBag.OctWapWeb_AddrDomain/Mall/Index" target="_blank">商城首页</a>
+                </li>
+                <li>
+                    <a href="../SysPage/Index" target="IframeContentPageName">系统首页</a>
+                </li>
+                <li>
+                    <a href="../LoginPage/LoginPwdSetting" target="IframeContentPageName">修改密码</a>
+                </li>
+                <li>
+                    <a href="../CommonCodePage/SystemConfigParam" target="IframeContentPageName">系统设置</a>
+                </li>
+                <li>
+                    <a href="@ViewBag.ImSystemWebDomainURL/Login/Index" target="_blank">IM在线客服</a>
+                </li>
+                <li class="am-dropdown menu-dropdown-li" data-am-dropdown>
+                    <button class="menu-dropdown-item am-dropdown-toggle" data-dropdown-toggle>常用操作</button>
+                    <ul class="am-dropdown-content">
+                        <li><a href="../TradingPage/SettleApply" target="IframeContentPageName">商家结算申请</a></li>
+                        <li><a href="../TradingPage/BuyerWithDraw" target="IframeContentPageName">买家余额提现</a></li>
+                        <li><a href="../TradingPage/OrderMsg" target="IframeContentPageName">订单管理</a></li>
+                        <li><a href="../UserGoodsShopPage/GooGoodsMsg" target="IframeContentPageName">商品管理</a></li>
+                        <li><a href="../UserGoodsShopPage/ShopMsg" target="IframeContentPageName">店铺管理</a></li>
+                        <li><a href="../UserGoodsShopPage/UserAccount" target="IframeContentPageName">会员账号管理</a></li>
+                        <li><a href="../AfterSaleAccCusPage/AfterSaleApplyMsg" target="IframeContentPageName">售后管理</a></li>
+                        <li><a href="../AfterSaleAccCusPage/OrderComplainMsg" target="IframeContentPageName">投诉管理</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="@ViewBag.ImSystemWebDomainURL/Login/Index" target="_blank"><i class="am-icon-comments am-icon-sm" style="font-size:16px;"></i></a>
+                </li>
+                @*<li>
+                        <a href="#"><i class="am-icon-wechat am-icon-sm"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="am-icon-qq am-icon-sm"></i></a>
+                    </li>*@
+                <li class="am-dropdown" data-am-dropdown>
+                    <span class="user-header-span am-dropdown-toggle" data-am-dropdown-toggle>
+                        <img class="user-header-img am-circle" src="../Assets/Imgs/Icon/login_user.png" />
+                    </span>
+                    <div class="am-dropdown-content login-user-msg">
+                        <div>
+                            <span>用户类别：</span><b id="AdUserTypeNameB"><br />超级管理员</b>
+                        </div>
+                        <div>
+                            <span>用户名：</span><b id="AdUserNameB"><br /></b>
+                        </div>
+                        <div>
+                            <span>开通时间：</span><b id="WriteDateB"><br />2020-xx-xx</b>
+                        </div>
+                        <div>
+                            <input type="button" id="SafeExitBtn" class="am-btn am-btn-sm am-btn-success am-round" style="width: 100%;" value="安全退出" onclick="ExitSafeLogin()" />
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </header>
+
+    <!--左侧导航-->
+    <div class="nav-left" id="NavLeft" style="overflow-y:auto;">
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-home" style="font-size: 20px;"></i>
+            <a href="#" class="nav-left-nav-a">系统信息</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-cubes" style="font-size: 16px;"></i>
+            <a href="#" class="nav-left-nav-a">商品管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-university" style="font-size: 16px;"></i>
+            <a href="#" class="nav-left-nav-a">店铺管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-cart-plus" style="font-size:20px; margin-left: -1px;"></i>
+            <a href="#" class="nav-left-nav-a">交易管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        @*<div class="nav-left-item am-nbfc">
+            <i class="am-icon-gift" style="font-size: 21px; margin-right: 1px;"></i>
+            <a href="#" class="nav-left-nav-a">礼品管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>*@
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-money" style="font-size:20px; margin-left: -1px;"></i>
+            <a href="#" class="nav-left-nav-a">优惠券管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-user" style="font-size: 23px; margin-right: 1px;"></i>
+            <a href="#" class="nav-left-nav-a">会员管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-calculator" style="font-size:18px; margin-left: 0px;"></i>
+            <a href="#" class="nav-left-nav-a">财务结算</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-comment"></i>
+            <a href="#" class="nav-left-nav-a">评价管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        @*<div class="nav-left-item am-nbfc">
+            <i class="am-icon-ambulance" style="font-size:18px; margin-left: -2px;"></i>
+            <a href="#" class="nav-left-nav-a">售后管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-thumbs-down" style="font-size:18px; margin-left: 0px;"></i>
+            <a href="#" class="nav-left-nav-a">投诉管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-clock-o" style="font-size: 21px; margin-right: 3px;"></i>
+            <a href="#" class="nav-left-nav-a">秒杀抢购</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-users" style="font-size: 18px; margin-right: 0px;"></i>
+            <a href="#" class="nav-left-nav-a">拼团管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-star-half-o" style="font-size: 21px; margin-right: 0px;"></i>
+            <a href="#" class="nav-left-nav-a">活动管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-trophy" style="font-size: 21px; margin-right: 0px;"></i>
+            <a href="#" class="nav-left-nav-a">抽奖管理</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>*@
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-paypal" style="font-size:20px; margin-left: 2px;"></i>
+            <a href="#" class="nav-left-nav-a">支付系统</a>
+            <span class="am-close am-close-spin am-fr">&ge;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-buysellads" style="font-size: 20px;"></i>
+            <a href="#" class="nav-left-nav-a">广告系统</a>
+            <span class="am-close am-close-spin am-fr">&gt;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-volume-up"></i>
+            <a href="#" class="nav-left-nav-a">信息通知</a>
+            <span class="am-close am-close-spin am-fr">&gt;</span>
+        </div>
+
+        <div class="nav-left-item am-nbfc">
+            <i class="am-icon-cloud" style="font-size: 16px;"></i>
+            <a href="#" class="nav-left-nav-a">系统管理</a>
+            <span class="am-close am-close-spin am-fr">&gt;</span>
+        </div>
+
+    </div>
+
+
+    <!--主体内容-->
+    <div class="main am-cf am-nbfc" id="MainContent">
+
+        <!--子菜单区域-->
+        <div class="main-left am-fl" id="MainLeftNav">
+            <div class="main-nav-title">
+                <b class="main-nav-title-b" id="MainNavSubNameB">商品管理</b>
+            </div>
+            <div class="main-nav-list">
+
+                <!-- 系统信息 子菜单-->
+                <ul class="main-nav-ul" style="display:none;">
+                    <!--<li class="main-nav-current link-li-iframe"> 这个是选中时的LI类名称-->
+                    <li class="main-nav-current link-li-iframe">
+                        <a href="../SysPage/Index" target="IframeContentPageName">系统首页</a>
+                    </li>
+                    <li class="main-nav-current link-li-iframe">
+                        <a href="../SysPage/DataCount" target="IframeContentPageName">数据统计</a>
+                    </li>
+                    @*<li class="link-li-iframe">
+                            <a href="../IframePage/GoodsList" target="IframeContentPageName">商品列表及操作</a>
+                        </li>*@
+                </ul>
+
+
+                <!--商品管理 子菜单-->
+                <ul class="main-nav-ul" style="display:none;">
+                    <!--<li class="main-nav-current link-li-iframe"> 这个是选中时的LI类名称-->
+                    <li class="main-nav-fold">
+                        <a href="#" class="main-nav-sub-a"><span class="am-icon-caret-down arrow-icon-span"></span>商品类目</a>
+                        <ul style="display:block;">
+                            <li class="link-li-iframe"><a href="../UserGoodsShopPage/GooGoodsType" target="IframeContentPageName">类目管理</a></li>
+                            <li class="link-li-iframe"><a href="../UserGoodsShopPage/GooGoodsTypeNeedProp" target="IframeContentPageName">类目参数</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/GooGoodsMsg" target="IframeContentPageName">商品信息管理</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/GooGiftMsg" target="IframeContentPageName">商品赠品管理</a>
+                    </li>
+
+                </ul>
+
+
+                <!--店铺管理 子菜单-->
+                <ul class="main-nav-ul" style="display:none;">
+                    <!--<li class="main-nav-current link-li-iframe"> 这个是选中时的LI类名称-->
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/ShopType" target="IframeContentPageName">店铺类别</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/ShopAdd" target="IframeContentPageName">添加店铺</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/ShopMsg" target="IframeContentPageName">店铺信息管理</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/ShopCommission" target="IframeContentPageName">店铺抽成比例</a>
+                    </li>
+                    <li class="main-nav-fold">
+                        <a href="#" class="main-nav-sub-a"><span class="am-icon-caret-down arrow-icon-span"></span>公司管理</a>
+                        <ul style="display:block;">
+                            <li class="link-li-iframe"><a href="../UserGoodsShopPage/CompanyMsgAdd" target="IframeContentPageName">添加公司</a></li>
+                            <li class="link-li-iframe"><a href="../UserGoodsShopPage/CompanyMsg" target="IframeContentPageName">公司信息</a></li>
+                            <li class="link-li-iframe"><a href="../UserGoodsShopPage/CompanyCertificate" target="IframeContentPageName">证件资质</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+                <!--交易管理 子菜单-->
+                <ul class="main-nav-ul" style="display:none;">
+                    <!--<li class="main-nav-current link-li-iframe"> 这个是选中时的LI类名称-->
+                    <li class="main-nav-current link-li-iframe">
+                        <a href="../TradingPage/OrderMsg" target="IframeContentPageName">订单信息管理</a>
+                    </li>
+                    <li class="main-nav-current link-li-iframe">
+                        <a href="../TradingPage/AggregateOrderMsg" target="IframeContentPageName">扫码支付订单</a>
+                    </li>
+
+                </ul>
+
+                <!-- 礼品管理 子菜单-->
+                @*<ul class="main-nav-ul" style="display:none;">
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/PresentMsg" target="IframeContentPageName">礼品信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/PresentOrderMsg" target="IframeContentPageName">礼品订单</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/PresentGoodsType" target="IframeContentPageName">礼品分类</a>
+                    </li>
+                </ul>*@
+
+
+                <!--优惠券管理 子菜单-->
+                <ul class="main-nav-ul" style="display: none;">
+                    <!--<li class="main-nav-current link-li-iframe"> 这个是选中时的LI类名称-->
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/CouponsMsg" target="IframeContentPageName">优惠券信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/CouponsIssueMsg" target="IframeContentPageName">优惠券发放</a>
+                    </li>
+
+                </ul>
+
+                <!--会员管理 子菜单-->
+                <ul class="main-nav-ul" style="display: none;">
+                    <!--<li class="main-nav-current link-li-iframe"> 这个是选中时的LI类名称-->
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/UserAccount" target="IframeContentPageName">会员账号管理</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/BuyerPromoteUser" target="IframeContentPageName">推广会员信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/BuyerExpandShop" target="IframeContentPageName">会员发展店铺</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/UserSettingMsg" target="IframeContentPageName">会员配置参数</a>
+                    </li>
+
+                </ul>
+
+                <!-- 财务结算 子菜单-->
+                <ul class="main-nav-ul" style="display:none;">
+                    <!--<li class="main-nav-current link-li-iframe"> 这个是选中时的LI类名称-->
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/SettleApply" target="IframeContentPageName">商家结算申请</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/SettleShopMsg" target="IframeContentPageName">商家结算资料</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/SettleOrderMsg" target="IframeContentPageName">商城结算订单</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/OrderCommission" target="IframeContentPageName">商城订单抽成</a>
+                    </li>
+
+
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/SettleAggregateOrderMsg" target="IframeContentPageName">扫码支付结算订单</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/AggregateOrderCommission" target="IframeContentPageName">扫码支付订单抽成</a>
+                    </li>
+
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/BuyerInExMan" target="IframeContentPageName">会员账户余额管理</a>
+                    </li>
+
+
+                    <li class="main-nav-fold">
+                        <a href="#" class="main-nav-sub-a"><span class="am-icon-caret-down arrow-icon-span"></span>买家余额积分</a>
+                        <ul style="display:block;">
+                            <li class="link-li-iframe"><a href="../TradingPage/BuyerWithDraw" target="IframeContentPageName">买家余额提现</a></li>
+                            <li class="link-li-iframe"><a href="../TradingPage/BuyerRecharge" target="IframeContentPageName">买家余额充值</a></li>
+                            <li class="link-li-iframe"><a href="../TradingPage/BuyerIncomeExpense" target="IframeContentPageName">账户余额收支</a></li>
+                            <li class="link-li-iframe"><a href="../TradingPage/BuyerIncomeExpenseDividend" target="IframeContentPageName">分润余额收支</a></li>
+                            <li class="link-li-iframe"><a href="../TradingPage/BuyerIntegral" target="IframeContentPageName">账户积分收支</a></li>
+                            <li class="link-li-iframe"><a href="../TradingPage/BuyerIntegralDividend" target="IframeContentPageName">分润积分收支</a></li>
+                        </ul>
+                    </li>
+                    <li class="main-nav-fold">
+                        <a href="#" class="main-nav-sub-a"><span class="am-icon-caret-down arrow-icon-span"></span>商家余额积分</a>
+                        <ul style="display:block;">
+                            <li class="link-li-iframe"><a href="../TradingPage/ShopIncomeExpense" target="IframeContentPageName">商家余额收支</a></li>
+                            <li class="link-li-iframe"><a href="../TradingPage/ShopIntegral" target="IframeContentPageName">商家积分收支</a></li>
+                            <li class="link-li-iframe"><a href="../TradingPage/ShopIntegralRecharge" target="IframeContentPageName">商家积分充值</a></li>
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+
+                <!-- 评价管理 子菜单-->
+                <ul class="main-nav-ul" style="display:none;">
+                    <!--<li class="main-nav-current link-li-iframe"> 这个是选中时的LI类名称-->
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/GooAppraise" target="IframeContentPageName">商品评价</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/ShopAppraise" target="IframeContentPageName">店铺评价</a>
+                    </li>
+                </ul>
+
+
+                <!--售后管理 子菜单-->
+                @*<ul class="main-nav-ul" style="display:none;">
+                    <li class="link-li-iframe">
+                        <a href="../AfterSaleAccCusPage/AfterSaleApplyMsg" target="IframeContentPageName">售后申请信息</a>
+                    </li>
+                </ul>*@
+
+
+                <!--投诉管理 子菜单-->
+                @*<ul class="main-nav-ul" style="display:none;">
+                    <li class="link-li-iframe">
+                        <a href="../AfterSaleAccCusPage/OrderComplainMsg" target="IframeContentPageName">投诉信息处理</a>
+                    </li>
+                </ul>*@
+
+
+
+                <!-- 秒杀抢购 子菜单-->
+                @*<ul class="main-nav-ul" style="display:none;">
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/SecKillGoodsMsg" target="IframeContentPageName">秒杀商品设置</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/SecKillGoodsType" target="IframeContentPageName">秒杀商品分类</a>
+                    </li>
+                </ul>*@
+
+
+                <!-- 拼团管理 子菜单-->
+                @*<ul class="main-nav-ul" style="display:none;">
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/GroupGoodsSetting" target="IframeContentPageName">拼团商品设置</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/GroupCreateMsg" target="IframeContentPageName">发起拼团管理</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/GroupJoinMsg" target="IframeContentPageName">参与拼团信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/GroupGoodsType" target="IframeContentPageName">拼团商品分类</a>
+                    </li>
+                </ul>*@
+
+
+                <!-- 活动管理 子菜单-->
+                @*<ul class="main-nav-ul" style="display:none;">
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/ActivityMsg" target="IframeContentPageName">活动信息管理</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/ActivityJoin" target="IframeContentPageName">活动参与信息</a>
+                    </li>
+                </ul>*@
+
+
+                <!-- 抽奖管理 子菜单-->
+                @*<ul class="main-nav-ul" style="display:none;">
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/LuckyDrawMsg" target="IframeContentPageName">抽奖信息管理</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/LuckyDrawJoinMsg" target="IframeContentPageName">抽奖参与信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../UserGoodsShopPage/LuckyDrawResult" target="IframeContentPageName">中奖结果信息</a>
+                    </li>
+                </ul>*@
+
+
+
+                <!--支付系统 子菜单-->
+                <ul class="main-nav-ul" style="display:none;">
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/PayTransBankMsg" target="IframeContentPageName">转账银行信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../TradingPage/PayTransRecord" target="IframeContentPageName">转账记录信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../ThirdApiCallPage/PaySetting" target="IframeContentPageName">支付设置信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../ThirdApiCallPage/PayPreMsg" target="IframeContentPageName">预支付信息</a>
+                    </li>
+
+                </ul>
+
+                <!--广告系统子菜单-->
+                <ul class="main-nav-ul" style="display:none;">
+                    <li class="link-li-iframe">
+                        <a href="../AdvertiserPage/AdvCarousel" target="IframeContentPageName">轮播图片广告</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../AdvertiserPage/AdvBanner" target="IframeContentPageName">横幅通栏广告</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../AdvertiserPage/AdvImgList" target="IframeContentPageName">图片列表栏目</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../AdvertiserPage/NavIconMsg" target="IframeContentPageName">栏目图标导航</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../AdvertiserPage/RcdGoodsShop" target="IframeContentPageName">推荐商品商家</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../AdvertiserPage/SearchFindMsg" target="IframeContentPageName">搜索发现展示</a>
+                    </li>
+                </ul>
+
+                <!--信息通知 子菜单-->
+                <ul class="main-nav-ul" style="display:none;">
+                    <!--<li class="main-nav-current link-li-iframe"> 这个是选中时的LI类名称-->
+                    <li class="link-li-iframe">
+                        <a href="../AfterSaleAccCusPage/BuyerSysMsg" target="IframeContentPageName">买家通知信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../AfterSaleAccCusPage/ShopSysMsg" target="IframeContentPageName">商家通知信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../AfterSaleAccCusPage/PlatformSysMsg" target="IframeContentPageName">平台通知信息</a>
+                    </li>
+                </ul>
+
+
+                <!--系统管理子菜单-->
+                <ul class="main-nav-ul" style="display:none;">
+                    <!--<li class="main-nav-current link-li-iframe"> 这个是选中时的LI类名称-->
+                    <li class="main-nav-fold">
+                        <a href="#" class="main-nav-sub-a"><span class="am-icon-caret-down arrow-icon-span"></span>API接口管理</a>
+                        <ul style="display:block;">
+                            <li class="link-li-iframe"><a href="../CommonCodePage/UserKeyMsg" target="IframeContentPageName">API用户管理</a></li>
+                            <li class="link-li-iframe"><a href="../CommonCodePage/KeyVerifyRecord" target="IframeContentPageName">Key验证记录</a></li>
+                            <li class="link-li-iframe"><a href="../CommonCodePage/ApiReqRecord" target="IframeContentPageName">API调用记录</a></li>
+                        </ul>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../CommonCodePage/UserKeyMsg" target="IframeContentPageName">API用户管理</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../CommonCodePage/SystemConfigParam" target="IframeContentPageName">系统配置参数</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../CommonCodePage/SystemMsg" target="IframeContentPageName">系统异常信息</a>
+                    </li>
+                    <li class="link-li-iframe">
+                        <a href="../ThirdApiCallPage/SmsSendMsg" target="IframeContentPageName">短信发送信息</a>
+                    </li>
+                    <li class="main-nav-fold">
+                        <a href="#" class="main-nav-sub-a"><span class="am-icon-caret-down arrow-icon-span"></span>说明文章管理</a>
+                        <ul style="display:block;">
+                            <li class="link-li-iframe"><a href="../AfterSaleAccCusPage/ExplainText" target="IframeContentPageName">说明文章信息</a></li>
+                            <li class="link-li-iframe"><a href="../AfterSaleAccCusPage/ExplainImg" target="IframeContentPageName">说明图片管理</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+        <!--右侧表单主体内容-->
+        <div class="main-right am-fl" id="MainRightForm">
+
+            <!--Iframe 主体加载区 -->
+            <iframe id="IframeContentPageID" name="IframeContentPageName" onload="iframeURLChangeListener(this)" src="../AdminAli/IframeContent" frameborder="0" width="100" height="100" scrolling="auto"></iframe>
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

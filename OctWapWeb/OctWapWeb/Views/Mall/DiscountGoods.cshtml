@@ -1,0 +1,106 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>折扣商品</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Mall/GroupBuy.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Mall/DiscountGoods.js"></script>
+
+</head>
+<body>
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>折扣商品</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Mall/Index"><img class="header-icon-my" style="width:20px; height:20px;" src="../Assets/Imgs/Icon/navbar_home.png" /></a>
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <div class="nav-item search-where-1" onclick="searchWhere1()">
+            <span id="SearchWhere1Span">全部分类</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+        <div class="goods-type-order search-current" onclick="clickItemSearchWhere2('Commend')">综合</div>
+        <div class="goods-type-order" onclick="clickItemSearchWhere2('SaleCount')">销量</div>
+        <div class="goods-type-order search-price" onclick="chgTabPrice()">价格 <img style="width:10px; height:10px;" src="../Assets/Imgs/Icon/order_price_gray.png" /></div>
+        <div class="goods-type-order" onclick="clickItemSearchWhere2('WriteDate')">新品</div>
+    </div>
+    <!--条件显示层-->
+    <div class="all-where-show" id="AllWhereShow" style="display: none;">
+        <div class="all-where-type" id="AllWhereType" style="display:normal">
+            <span class="goods-type-current">全部分类</span>
+            <span class="goods-type-item">
+                休闲裤
+            </span>
+            <span>
+                T恤
+            </span>
+            <span>
+                夹克外套
+            </span>
+            <span>
+                夹克外套
+            </span>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!--商品列表-->
+            <ul class="goods-list" id="PageContentList">
+
+                <li class="goods-item">
+                    <div class="goods-img">
+                        <img src="../Assets/Imgs/05.jpg" />
+                    </div>
+                    <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                    <div class="goods-price">
+                        <b>&#165;234.2</b>
+                        <div>23432人付款</div>
+                    </div>
+                    <span class="goods-item-badge">9.3折</span>
+                </li>
+
+            </ul>
+
+
+
+            <!--底部分隔-->
+            <div style="padding-bottom: 80px;">
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+</body>
+</html>

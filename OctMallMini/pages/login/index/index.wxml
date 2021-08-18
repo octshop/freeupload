@@ -1,0 +1,16 @@
+<!--pages/login/index.wxml-->
+<view class="main-content">
+  <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/mini_logo.png"></image>
+  <view class="desc-title">
+    小程序授权
+  </view>
+  <view class="desc-sub-title">
+    您需要授权登录系统才能使用!
+  </view>
+  <view>
+    <button class="btn-user-iinfo" type="primary" open-type="getUserInfo"
+      bindgetuserinfo="getLoginWxUserInfo">立即授权</button>
+      <button class="btn-user-center" type="default"  bindtap="navigateSwitchToURL" data-open-type-url="switchTab" data-navigate-url="../../tabbar/buyerindex/buyerindex">会员中心</button>
+  </view>
+
+</view>

@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>买单支付-聚合扫码支付</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Aggregate/Index.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/Aggregate/Index.js"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidShopID" value="@ViewBag.ShopID" />
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="logo-icon" onclick="window.location.href='../Shop/Index?SID=@ViewBag.ShopID'">
+            <img id="ShopHeaderImg" src="../Assets/Imgs/Icon/aggre_logo.png" />
+            <div id="ShopName"></div>
+        </div>
+        <div class="pay-type">
+
+            <div class="pay-type-shop" onclick="window.location.href='../Shop/Index?SID=@ViewBag.ShopID'">
+                <img src="../Assets/Imgs/Icon/aggre_shop.png" style="width: 35px; height: 35px;" />店铺下单
+            </div>
+            <div class="pay-type-balance" onclick="window.location.href='../Aggregate/PayBalance?SID=@ViewBag.ShopID'">
+                <img src="../Assets/Imgs/Icon/balance_white.png" style="width: 35px; height: 35px;" />余额支付
+            </div>
+            <div class="pay-type-direct" onclick="window.location.href='../Aggregate/PayDirect?SID=@ViewBag.ShopID'">
+                <img src="../Assets/Imgs/Icon/aggre_direct.png" />直接付款
+            </div>
+
+        </div>
+        <div class="extra-link">
+            <a href="../Mall/Index">首页</a>
+            <a href="../Buyer/Index">会员中心</a>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

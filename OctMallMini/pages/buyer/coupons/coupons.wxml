@@ -1,0 +1,103 @@
+<!--pages/buyer/coupons/coupons.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="优惠券" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 内容导航子菜单 -->
+<view class="oct-header-bottom-nav" style="top:{{navbarHeight}}px">
+	<view class="{{chgTabNum == 1 ? 'nav-item-current' : ''}}" bindtap="chgTab" data-chg-tab-num="1">
+		可使用优惠券({{countAllCouponsMsg_Data.CountAbleUse}})
+	</view>
+	<view class="{{chgTabNum == 2 ? 'nav-item-current' : ''}}" bindtap="chgTab" data-chg-tab-num="2">
+		已使用优惠券({{countAllCouponsMsg_Data.CountUsed}})
+	</view>
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+
+
+	<view class="coupons-list" style="padding-bottom: 20px">
+
+		<navigator
+			url="../coupons/couponsdetail/couponsdetail?CID={{numberPage_Page.DataPage1[index].CouponsID}}&IID={{numberPage_Page.DataPage1[index].IssueID}}"
+			class="coupons-item" wx:if="{{chgTabNum == '1'}}" wx:for="{{numberPage_Page.DataPage2}}">
+			<view class="coupons-item-left">
+				<view class="coupons-price">
+
+					<text wx:if="{{item.UseDiscount > 0}}">{{item.UseDiscount}}折</text>
+					<text wx:else>￥{{item.UseMoney}}</text>
+					<view> 满 {{item.ExpenseReachSum}} 元可用</view>
+
+				</view>
+			</view>
+			<view class="coupons-item-right">
+				<view class="coupons-item-top">
+					{{item.CouponsTitle}}<text>店铺券</text>
+				</view>
+				<view class="coupons-item-mid">
+					有效期：{{numberPage_Page.DataPageExtra[index].CouponsOverTime == '' ? '永久有效' :
+					numberPage_Page.DataPageExtra[index].CouponsOverTime}}
+					<span
+						wx:if="{{numberPage_Page.DataPageExtra[index].OverDayNum != ''}}">{{numberPage_Page.DataPageExtra[index].OverDayNum}}天</span>
+				</view>
+				<view class="coupons-item-bottom">
+					<view>
+						券号:{{numberPage_Page.DataPage1[index].IssueID}} <text
+							wx:if="{{numberPage_Page.DataPage2[index].IsOfflineUse == 'true'}}">(可线下使用)</text>
+					</view>
+					<view class="btn-use">立即使用</view>
+				</view>
+			</view>
+		</navigator>
+
+
+		<navigator class="coupons-item coupons-used" wx:if="{{chgTabNum == '2'}}" wx:for="{{numberPage_Page.DataPage2}}"
+			url="../coupons/couponsdetail/couponsdetail?CID={{numberPage_Page.DataPage1[index].CouponsID}}&IID={{numberPage_Page.DataPage1[index].IssueID}}"
+			style="background: white url({{apiWebDoamin}}/Assets/Imgs/Icon/coupons_used.png) right center no-repeat; background-size: 100px;">
+			<view class="coupons-item-left">
+				<view class="coupons-price">
+					<text wx:if="{{item.UseDiscount > 0}}">{{item.UseDiscount}}折</text>
+					<text wx:else>￥{{item.UseMoney}}</text>
+					<view> 满 {{item.ExpenseReachSum}} 元可用</view>
+				</view>
+			</view>
+			<view class="coupons-item-right">
+				<view class="coupons-item-top">
+					{{item.CouponsTitle}}<text>店铺券</text>
+				</view>
+				<view class="coupons-item-mid">
+					有效期：{{numberPage_Page.DataPageExtra[index].CouponsOverTime == '' ? '永久有效' :
+					numberPage_Page.DataPageExtra[index].CouponsOverTime}}
+					<span wx:if="{{ numberPage_Page.DataPageExtra[index].OrderUseMoney != '' }}">已省:
+						{{numberPage_Page.DataPageExtra[index].OrderUseMoney }}元</span>
+				</view>
+				<view class="coupons-item-bottom">
+					<view>
+						使用订单ID：{{numberPage_Page.DataPageExtra[index].UseOrderID}}
+					</view>
+				</view>
+			</view>
+		</navigator>
+
+
+	</view>
+
+
+
+</view>
+
+
+<!--页脚-->
+<view class="oct-footer coupons-msg">
+	<view class="coupons-msg-txt">
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/coupons_ico.png"></image><text>您有待领取的优惠券哦</text>
+	</view>
+	<view class="coupons-msg-btn-list">
+		<navigator url="../../../pages/mall/coupons/coupons">线上券</navigator>
+		<navigator url="../../../pages/o2o/couponso2o/couponso2o">线下券</navigator>
+	</view>
+	<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+</view>

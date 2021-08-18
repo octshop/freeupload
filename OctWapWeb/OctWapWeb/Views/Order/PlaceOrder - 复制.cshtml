@@ -1,0 +1,579 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>确认订单</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Order/PlaceOrder.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Js/Order/PlaceOrder.js"></script>
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>确认订单</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--选择收货地址-->
+        <div class="sel-addr oct-section" id="SelAddrClick" onclick="window.location.href='../Buyer/ReceiAddrList?BackUrl=../Order/PlaceOrder'">
+            <div class="sel-addr-left">
+                &nbsp;
+            </div>
+            <div class="sel-addr-mid">
+                <div class="addr-mid-1">
+                    <div class="addr-mid-1-left" id="ReceiNameDiv">
+                        收货人：小黄人
+                    </div>
+                    <div class="addr-mid-1-right" id="MobileDiv">
+                        13203156008
+                    </div>
+                </div>
+                <div class="addr-mid-2" id="RegionDetailAddrDiv">
+                    收货地址：湖南省长沙市长沙县开元西路12号筑梦园5xxskw
+                </div>
+            </div>
+            <div class="sel-addr-right">
+                &nbsp;
+            </div>
+        </div>
+
+
+        <!--订单列表-->
+        <div class="oct-section order-list">
+
+            <div class="order-item-title">
+                <a href="#">店铺的名称店铺的名称</a>
+            </div>
+
+            <div class="scart-item-goods">
+                <div class="item-goods-mid">
+                    <a href="#">
+                        <img src="../Assets/Imgs/02.jpg" />
+                    </a>
+                </div>
+                <div class="item-goods-right">
+                    <ul>
+                        <li>
+                            名称商品的名称品的名称商品的名称 名称商品的名称品的名称商品的名称
+                        </li>
+                        <li class="goods-right-spec">
+                            规格参数
+                        </li>
+                        <li class="goods-right-price">
+                            <div class="goods-price">
+                                &#165;234.24
+                            </div>
+                            <div class="goods-txt-number">
+                                <input class="btn-reduce" type="button" value="-" />
+                                <input class="input-order-number" type="number" value="1" />
+                                <input class="btn-add" type="button" value="+" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="scart-item-goods">
+                <div class="item-goods-mid">
+                    <a href="#">
+                        <img src="../Assets/Imgs/02.jpg" />
+                    </a>
+                </div>
+                <div class="item-goods-right">
+                    <ul>
+                        <li>
+                            名称商品的名称品的名称商品的名称 名称商品的名称品的名称商品的名称
+                        </li>
+                        <li class="goods-right-spec">
+                            规格参数
+                        </li>
+                        <li class="goods-right-price">
+                            <div class="goods-price">
+                                &#165;234.24
+                            </div>
+                            <div class="goods-txt-number">
+                                <input class="btn-reduce" type="button" value="-" />
+                                <input class="input-order-number" type="number" value="1" />
+                                <input class="btn-add" type="button" value="+" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="express-type">
+                <div class="express-type-top">
+                    <div>配送方式</div>
+                    <div class="express-type-val">送货上门(快递)</div>
+                </div>
+                <div class="express-type-bottom">
+                    <div class="express-type-current">
+                        送货上门(快递)
+                    </div>
+                    <div>
+                        到店消费/到店自取
+                    </div>
+                </div>
+            </div>
+
+            <div class="freight-main">
+                <div>
+                    运费
+                </div>
+                <div class="freight-price">
+                    <b>&#165;25.21</b>
+                </div>
+            </div>
+
+            <div class="invoice" onclick="openInvoiceWin()">
+                <div>
+                    发票
+                </div>
+                <div class="invoice-val">
+                    不开发票
+                </div>
+            </div>
+
+            <div class="ticket">
+                <div>
+                    优惠券
+                </div>
+                <div class="ticket-val" onclick="openUseTicketWin()">
+                    满18减2元<b>&#165;-25.30 </b>
+                </div>
+            </div>
+
+            <div class="buyer-memo">
+                <div>留言</div>
+                <div class="buyer-memo-val">
+                    <input type="text" value="" placeholder="给商家的留言信息" />
+                </div>
+            </div>
+
+            <div class="sum-price">
+                共<b>2</b>件商品,小计：<b class="sum-price-content">&#165; 234.234</b>
+            </div>
+
+        </div>
+
+        <!--订单列表-->
+        <div class="oct-section order-list">
+
+            <div class="order-item-title">
+                <a href="#">店铺的名称店铺的名称</a>
+            </div>
+
+            <div class="scart-item-goods">
+                <div class="item-goods-mid">
+                    <a href="#">
+                        <img src="../Assets/Imgs/02.jpg" />
+                    </a>
+                </div>
+                <div class="item-goods-right">
+                    <ul>
+                        <li>
+                            名称商品的名称品的名称商品的名称 名称商品的名称品的名称商品的名称
+                        </li>
+                        <li class="goods-right-spec">
+                            规格参数
+                        </li>
+                        <li class="goods-right-price">
+                            <div class="goods-price">
+                                &#165;234.24
+                            </div>
+                            <div class="goods-txt-number">
+                                <input class="btn-reduce" type="button" value="-" />
+                                <input class="input-order-number" type="number" value="1" />
+                                <input class="btn-add" type="button" value="+" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="scart-item-goods">
+                <div class="item-goods-mid">
+                    <a href="#">
+                        <img src="../Assets/Imgs/02.jpg" />
+                    </a>
+                </div>
+                <div class="item-goods-right">
+                    <ul>
+                        <li>
+                            名称商品的名称品的名称商品的名称 名称商品的名称品的名称商品的名称
+                        </li>
+                        <li class="goods-right-spec">
+                            规格参数
+                        </li>
+                        <li class="goods-right-price">
+                            <div class="goods-price">
+                                &#165;234.24
+                            </div>
+                            <div class="goods-txt-number">
+                                <input class="btn-reduce" type="button" value="-" />
+                                <input class="input-order-number" type="number" value="1" />
+                                <input class="btn-add" type="button" value="+" />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="express-type">
+                <div class="express-type-top">
+                    <div>配送方式</div>
+                    <div class="express-type-val">送货上门(快递)</div>
+                </div>
+                <div class="express-type-bottom">
+                    <div class="express-type-current">
+                        送货上门(快递)
+                    </div>
+                    <div>
+                        到店消费/到店自取
+                    </div>
+                </div>
+            </div>
+
+            <div class="freight-main">
+                <div>
+                    运费
+                </div>
+                <div class="freight-price">
+                    <b>&#165;25.21</b>
+                </div>
+            </div>
+
+            <div class="invoice">
+                <div>
+                    发票
+                </div>
+                <div class="invoice-val">
+                    不开发票
+                </div>
+            </div>
+
+            <div class="ticket">
+                <div>
+                    优惠券
+                </div>
+                <div class="ticket-val" onclick="openUseTicketWin()">
+                    满18减2元<b>&#165;-25.30 </b>
+                </div>
+            </div>
+
+            <div class="buyer-memo">
+                <div>留言</div>
+                <div class="buyer-memo-val">
+                    <input type="text" value="" placeholder="给商家的留言信息" />
+                </div>
+            </div>
+
+            <div class="sum-price">
+                共<b>2</b>件商品,小计：<b class="sum-price-content">&#165; 234.234</b>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <!--页脚-->
+    <div class="oct-footer">
+
+        <div class="oct-footer-txt">
+            总计金额：<b>¥ 1225.30 </b>
+        </div>
+        <div class="oct-footer-btn" onclick="openPayConfirmWin()">
+            提交订单
+        </div>
+
+    </div>
+
+
+
+
+    <!--使用优惠券窗口-->
+    <div class="win-get-ticket" id="WinGetTicket" style="display:none;">
+
+        <div class="win-ticket-content">
+
+            <div class="win-ticket-title">
+                优惠券
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-ticket-integral">
+                <div>
+                    可使用优惠券
+                </div>
+                <div>
+                    52张
+                </div>
+            </div>
+            <div class="win-ticket-list">
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>&#165;562</b> 店铺券 </li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (120天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即使用
+                    </div>
+                </div>
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>9.5折</b> 店铺折扣券</li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即使用
+                    </div>
+                </div>
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>&#165;563</b> 商城券</li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即使用
+                    </div>
+                </div>
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>&#165;563</b> 商城券 </li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即使用
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--选择支付窗口-->
+    <div class="win-sel-pay" id="WinSelPay" style="display:none;">
+
+        <div class="win-pay-content">
+            <div class="win-pay-title">
+                确认付款
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-pay-val">
+                <b>&#165; 293.23</b>
+            </div>
+            <ul class="win-pay-list">
+                <li class="win-pay-item">
+                    <div class="pay-item-left pay-item-wx">
+                        微信支付
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_yes.png" />
+                    </div>
+                </li>
+                <li class="win-pay-item">
+                    <div class="pay-item-left pay-item-alipay">
+                        支付宝
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_yes.png" />
+                    </div>
+                </li>
+                <li class="win-pay-item">
+                    <div class="pay-item-left pay-item-balance">
+                        余额支付 <b>&#165;234.234</b>
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_yes.png" />
+                    </div>
+                </li>
+                <li class="win-pay-item">
+                    <div class="pay-item-left pay-item-delivery">
+                        货到付款
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_yes.png" />
+                    </div>
+                </li>
+                <li class="win-pay-item">
+                    <div class="pay-item-left pay-item-shop">
+                        到店付
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_yes.png" />
+                    </div>
+                </li>
+                <li class="win-pay-item">
+                    <div class="pay-item-left pay-item-bank">
+                        银行转账
+                    </div>
+                    <div class="pay-item-right">
+                        <img src="../Assets/Imgs/Icon/sel_yes.png" />
+                    </div>
+                </li>
+            </ul>
+            <div class="win-pay-btn">
+                <input type="button" value="立即付款" onclick="window.location.href='../pay/PaySuRedirect'" />
+            </div>
+        </div>
+
+    </div>
+
+    <!--申请发票窗口-->
+    <div class="win-invoice" id="WinInvoice" style="display:none;">
+
+        <div class="win-invoice-content">
+            <div class="win-invoice-title">
+                申请发票
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-invoice-list">
+                <div class="win-invoice-item">
+                    <div class="win-invoice-item-title">
+                        发票类型
+                    </div>
+                    <div class="win-invoice-item-type">
+                        <span class="win-invoice-currenttype">电子普通发票</span>
+                        <span>增值税专用发票</span>
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-item-title">
+                        发票抬头
+                    </div>
+                    <div class="win-invoice-item-type">
+                        <span class="win-invoice-currenttype">个人</span>
+                        <span>单位</span>
+                    </div>
+                    <div class="win-invoice-item-company">
+                        <ul class="win-invoice-company-item">
+                            <li>
+                                <span>单位名称</span>
+                                <input type="text" value="" placeholder="请填写单位名称" />
+                            </li>
+                            <li>
+                                <span>纳税人识别号</span>
+                                <input type="text" value="" placeholder="请填写纳税人识别号" />
+                            </li>
+                        </ul>
+                        <ul class="win-invoice-company-item">
+                            <li>
+                                <span>公司注册地址</span>
+                                <input type="text" value="" placeholder="请填写公司注册地址" />
+                            </li>
+                            <li>
+                                <span>公司电话:</span>
+                                <input type="text" value="" placeholder="请填写公司电话" />
+                            </li>
+                            <li>
+                                <span>银行账号:</span>
+                                <input type="text" value="" placeholder="请填写银行账号" />
+                            </li>
+                            <li>
+                                <span>开户银行:</span>
+                                <input type="text" value="" placeholder="请填写开户银行" />
+                            </li>
+                        </ul>
+                        
+                    </div>
+                </div>
+
+                <div class="win-invoice-item">
+                    <div class="win-invoice-item-title">
+                       收票人信息
+                    </div>
+                    <div>
+                        <ul class="win-invoice-recei">
+                            <li>
+                               <span>收票人手机:</span>  
+                                <input type="text" placeholder="收票人手机号码" />
+                            </li>
+                            <li>
+                                <span>收票人邮箱:</span>
+                                <input type="text" placeholder="用来接收电子发票,可选" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="win-invoice-item">
+                    <div class="win-invoice-item-title">
+                        发票内容
+                    </div>
+                    <div class="win-invoice-item-type">
+                        <span class="win-invoice-currenttype">商品明细</span>
+                        <span>商品类别</span>
+                    </div>
+                    <div class="win-invoice-desc">
+                        发票内容将显示详细商品名称与价格信息
+                    </div>
+                </div>
+
+            </div>
+
+          <div class="win-invoice-btn">
+              <input type="button" value="确定" />
+          </div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

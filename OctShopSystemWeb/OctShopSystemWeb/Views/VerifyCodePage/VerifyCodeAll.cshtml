@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>线下扫码验证与核销</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/VerifyCodePage/VerifyCodeAll.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/VerifyCodePage/VerifyCodeAll.js?v=3"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidScanData" value="@ViewBag.ScanData" />
+    <input type="hidden" id="hidOctWapWebAddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+    <!--是否在微信中-->
+    <input type="hidden" id="hidIsInWeiXinBrowse" value="@ViewBag.IsInWeiXinBrowse" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="#" id="ShopNameALink"><img src="../Assets/Imgs/Icon/shop_verify.png" />店铺名称</a>
+        </div>
+        <div class="oct-header-mid">
+            <b></b>
+        </div>
+        <div class="oct-header-right">
+            <a href="javascript:exitLogin()"><img class="header-icon-my" style="width: 25px; height: 25px;" src="../Assets/Imgs/Icon/exit_login.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="main-logo" style="">
+
+            <div class="logo-hint-success" id="LogoHintSuccess" style="display: none;">
+                <img src="../Assets/Imgs/Icon/order_verify.png" />
+                <b id="LogoHintSuccessB">优惠券核销成功</b>
+            </div>
+            <div class="logo-hint-err" id="LogoHintErr" style="display:none;">
+                <img src="../Assets/Imgs/Icon/order_verify_err.png" />
+                <b id="LogoHintErrB">优惠券核销失败</b>
+                <div class="err-hint" id="ErrHintContent">
+                    <span id="LogoHintErrSpan">优惠券核销失败的原因</span>
+                </div>
+            </div>
+            <div class="logo-order-msg">
+                <div class="logo-order-price" id="VerifyContentMain">
+                    @*<span>抵用金额：</span><b>&#165; 0.0</b>*@
+                </div>
+                <div class="logo-order-code" id="VerifyContentSub">
+                    @*<span>券号：</span><b></b>
+                        <span style="padding-left: 20px;"></span>
+                        <span>验证码：</span><b></b>*@
+                </div>
+            </div>
+
+            <div class="logo-btn-list">
+                <input type="button" value="查看详情" id="BtnSeeDetail" />
+                <span style="padding-left: 20px;"></span>
+                <input type="button" value="继续扫码核销" onclick="window.location.href='../VerifyCodePage/PopVerifyScanWin'" />
+            </div>
+
+        </div>
+        <!--核销内容信息-->
+        <div class="main-order">
+            <ul class="order-goods-ul" id="VerifyContentUl">
+                <li>
+                    @*<a href="#">优惠券标题优惠券标题优惠券标题优惠券标题优惠券标题</a>
+                        <span>小风风(买家)小风风(买家)<br />132****6008</span>*@
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

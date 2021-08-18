@@ -1,0 +1,22 @@
+<!--components/shopnavbottom/shopnavbottom.wxml-->
+<!--店铺底部导航-->
+<view class="shop-nav-bottom">
+	<view>
+		<navigator url="../../../pages/shop/goodsall/goodsall?SID={{shopId}}" open-type="redirect">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_allgoods.png" />
+			全部商品
+		</navigator>
+	</view>
+	<view>
+		<navigator url="../../../pages/shop/shoptype/shoptype?SID={{shopId}}" open-type="redirect">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_goodstype.png" />
+			热门分类
+		</navigator>
+	</view>
+	<view>
+		<view bindtap="buildBuyerGoToImSysURL_ShopWap">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_customer.png" />
+			咨询商家
+		</view>
+	</view>
+</view>

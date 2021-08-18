@@ -1,0 +1,123 @@
+/*===================银行转账============================*/
+
+page {
+  background: white;
+}
+
+
+/*Logo区*/
+.oct-content .logo-img image {
+  width: 100%;
+  height: 90px;
+}
+
+/*平台官方汇款账号信息*/
+.shop-transfer {
+  padding: 15px 20px;
+  padding-top: 0;
+}
+
+.shop-transfer-title {
+  font-size: 12px;
+  font-weight: bold;
+  border-bottom: 1px solid #CCCCCC;
+  padding-bottom: 5px;
+}
+
+.content-list .content-item {
+  padding: 10px 0;
+  border-bottom: 1px dashed #efefef;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000000
+}
+
+.shop-transfer .content-list .content-item .span-field {
+  width: 120px;
+}
+
+.span-field {
+  color: #808080;
+}
+
+.span-money {
+  color: #ff6a00;
+  font-weight: bold;
+}
+
+.btn-other-transfer {
+  border: 1px solid #CCCCCC;
+  color: black;
+  background: none;
+  padding: 5px 20px;
+  font-size: 12px;
+  border-radius: 20px;
+  margin: 0 auto;
+}
+
+/*买家汇款确认信息*/
+.buyer-transfer .content-list .content-item {
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buyer-transfer .content-list .content-item text {
+  width: 250px;
+}
+
+.buyer-transfer .content-list .content-item input {
+  width: 100%;
+  border: none;
+  text-align: right;
+}
+
+.upload-camera {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+.buyer-transfer .content-list .bank-list-li {
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+.bank-list-li image {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.li-memo view {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.li-memo navigator {
+  color: #0078d1;
+}
+
+/*页脚*/
+.oct-footer {
+  text-align: center;
+  border-top: 1px solid #ededed;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.oct-footer .btn-submit-transfer {
+  border: none;
+  background: #ff6a00;
+  color: white;
+  font-size: 14px;
+  border-radius: 20px;
+  padding: 8px 10px;
+  width: 80%;
+  margin: 0 auto;
+}

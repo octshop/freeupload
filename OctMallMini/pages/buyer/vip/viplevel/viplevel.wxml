@@ -1,0 +1,50 @@
+<!--pages/buyer/vip/viplevel/viplevel.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="会员等级" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--Logo区-->
+	<view class="oct-logo">
+		<view class="oct-logo-txt">
+			<view class="logo-txt-top">
+				{{loadUserVipLevelMsg_Data.CreditScore}}
+			</view>
+			<view class="logo-txt-bottom">
+				{{loadUserVipLevelMsg_Data.CreditScoreLevelName}}
+			</view>
+		</view>
+	</view>
+
+	<view class="vip-msg">
+		<view class="vip-msg-left">
+			{{loadUserVipLevelMsg_Data.VipLevelName}}
+		</view>
+		<view class="vip-msg-mid">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/vip_cert.png" />
+		</view>
+		<view class="vip-msg-right">
+			信用分: {{loadUserVipLevelMsg_Data.CreditScore}}
+		</view>
+	</view>
+
+
+	<view class="vip-desc">
+
+		<view class="vip-desc-dl" wx:for="{{loadExplainTextList_Data.ExplainTextList}}">
+			<view class="vip-dl-item">{{item.ExplainTitle}}：</view>
+			<view>
+				{{item.ExplainContent}}
+			</view>
+		</view>
+
+
+
+	</view>
+
+
+
+</view>

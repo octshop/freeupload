@@ -1,0 +1,52 @@
+<!--pages/buyer/history/history.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="浏览足迹" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--列表项-->
+	<view class="history-list" wx:for="{{numberPage_Page.DataPageExtra}}">
+
+		<view class="history-title"
+			wx:if="{{index==0 || item.BrowserDate != numberPage_Page.DataPageExtra[index-1].BrowserDate}}">
+			<b>{{item.BrowserDate}}</b>
+		</view>
+
+		<view class="history-goods">
+			<view class="history-item-left">
+				<navigator url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+					<image src="//{{item.GoodsCoverImgPath}}" />
+				</navigator>
+			</view>
+			<view class="history-item-right">
+				<view class="history-item-top">
+					{{item.GoodsTitle}}
+				</view>
+				<view class="history-item-mid">
+					销量：{{item.SaleCount}}，评价：{{item.CountGoodsAppraise}}
+				</view>
+				<view class="history-item-bottom">
+					<view>
+						<b>￥{{item.DefaulLowPrice}}</b>
+					</view>
+					<view class="btn-list">
+						<view class="btn-same" catchtap="findSameGoodsType"
+							data-goods-type-id="{{numberPage_Page.DataPageExtra[index].GoodsTypeID}}"
+							data-is-entity="{{numberPage_Page.DataPageExtra[index].IsEntityGoodsType}}">找相似</view>
+						<view class="btn-scart" bindtap="navigateToURL"
+							data-navigate-url="../../../pages/goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_scart.png" />
+						</view>
+					</view>
+
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+
+</view>

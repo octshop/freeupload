@@ -1,0 +1,35 @@
+﻿
+Log Entry : 9:17:45 2020年5月16日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 7:11:43 2021年5月25日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 7:11:43 2021年5月25日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 7:11:43 2021年5月25日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 7:12:21 2021年5月25日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 7:12:21 2021年5月25日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 7:12:21 2021年5月25日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+

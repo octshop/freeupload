@@ -1,0 +1,78 @@
+<!--pages/buyer/attenfav/attenfav.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="关注收藏" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 内容导航子菜单 -->
+<view class="oct-header-bottom-nav" style="top:{{navbarHeight}}px">
+	<view class=" {{chgTabNum=='1' ? 'nav-item-current' : ''}}" bindtap="chgTab" data-tab-num="1">
+		商品({{countAllFavMsg_Data.CountFavGoods}})
+	</view>
+	<view class=" {{chgTabNum=='2' ? 'nav-item-current' : ''}}" bindtap="chgTab" data-tab-num="2">
+		店铺({{countAllFavMsg_Data.CountFavShop}})
+	</view>
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--收藏的商品或店铺-->
+	<view class="use-shopgoods">
+
+		<view class="use-shopgoods-list">
+
+			<view class="use-list-ul">
+
+				<navigator url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}" class="use-list-item"
+					wx:if="{{chgTabNum=='1'}}" wx:for="{{numberPage_Page.DataPageExtra}}">
+					<view class="use-item-left">
+						<navigator url="#">
+							<image src="//{{item.GoodsCoverImgPath}}" />
+						</navigator>
+					</view>
+					<view class="use-item-right">
+						<view class="use-item-top use-item-title">
+							{{item.GoodsTitle}}
+						</view>
+						<view class="use-item-mid">
+							销量：{{item.SaleCount}}，评价：{{item.CountGoodsAppraise}}
+						</view>
+						<view class="use-item-bottom">
+							<b>￥{{item.DefaulLowPrice}}</b>
+							<view class="btn-use" catchtap="findSameGoodsType" data-goods-type-id="{{item.GoodsTypeID}}"
+								data-is-entity="{{item.IsEntityGoodsType}}">找相似</view>
+						</view>
+					</view>
+				</navigator>
+
+				<!--关注店铺-->
+				<navigator url="../../shop/index/index?SID={{item.ShopID}}" class="use-list-item use-shop-item"
+					wx:if="{{chgTabNum=='2'}}" wx:for="{{numberPage_Page.DataPageExtra}}">
+					<view class="use-item-left">
+						<navigator url="#">
+							<image src="//{{item.ShopHeaderImg}}" />
+						</navigator>
+					</view>
+					<view class="use-item-right">
+						<view class="use-item-top">
+							{{item.ShopName}}
+						</view>
+						<view class="use-item-mid">
+							{{item.MajorGoods}}
+						</view>
+						<view class="use-item-bottom">
+							<b> {{item.CountFavShop}}人关注，评分：{{item.AvgAppraiseScore}}</b>
+						</view>
+					</view>
+				</navigator>
+
+
+			</view>
+
+		</view>
+
+	</view>
+
+
+</view>

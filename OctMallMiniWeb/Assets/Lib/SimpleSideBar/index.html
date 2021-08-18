@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>html5手机网站侧边栏导航代码 - 站长素材</title>
+
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.simplesidebar.js"></script>
+
+</head>
+<body>
+
+<div class="toolbar">
+	<div id="open-sb" class="menu-button menu-left"></div>
+</div>
+
+<section class="sidebar">
+	<div class="subNav"><h5>站长素材</h5></div>
+	<hr />
+	<div class="subNav"><h6> 首页</h6></div>
+	<div class="subNav"><h6>新品推荐</h6></div>
+	<ul class="navContent">
+		<li><a href="#">当季新品</a></li>
+	</ul>
+	<div class="subNav"><h6>星享俱乐部</h6></div>
+	<div class="subNav"><h6>星巴克中国官应用</h6></div>
+	<div class="subNav"><h6>咖啡文化</h6></div>
+	<ul class="navContent">
+		<li><a href="#">咖啡文化</a></li>
+		<li><a href="#">星巴克甄选咖啡</a></li>
+		<li><a href="#">如何冲泡咖啡</a></li>
+	</ul>
+	<div class="subNav"><h6>饮品美食</h6></div>
+	<ul class="navContent">
+		<li><a href="#">饮品</a></li>
+		<li><a href="#">星巴克美食</a></li>
+		<li><a href="#">星巴克咖啡</a></li>
+		<li><a href="#">星巴克免煮咖啡</a></li>
+	</ul>
+	<div class="subNav"><h6>星礼卡</h6></div>
+	<div class="subNav"><h6>关于我们</h6></div>
+	<ul class="navContent">
+		<li><a href="#">使命宣言</a></li>
+		<li><a href="#">星巴克责任</a></li>
+		<li><a href="#">星巴克责任</a></li>
+		<li><a href="#">星巴克责任</a></li>
+		<li><a href="#">星巴克责任</a></li>
+	</ul>
+	<div class="subNav"><h6>帮助中心</h6></div>
+	<ul class="navContent">
+		<li><a href="#">常见问题</a></li>
+		<li><a href="#">联系我们</a></li>
+		<li><a href="#">使用条款</a></li>
+		<li><a href="#">隐私权政策</a></li>
+	</ul>
+</section>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	$( '.sidebar' ).simpleSidebar({
+		settings: {
+			opener: '#open-sb',
+			wrapper: '.wrapper',
+			animation: {
+				duration: 500,
+				easing: 'easeOutQuint'
+			}
+		},
+		sidebar: {
+			align: 'right',
+			width: 200,
+			closingLinks: 'a',
+		}
+	});
+});
+</script>
+
+<script type="text/javascript">
+$(function(){
+$(".subNav").click(function(){
+			// 修改数字控制速度， slideUp(500)控制卷起速度
+			$(this).next(".navContent").slideToggle(500);
+	})	
+})
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
+</div>
+</body>
+</html>

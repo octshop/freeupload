@@ -1,0 +1,618 @@
+﻿/*=====================订单详情==========================*/
+
+/*主体内容*/
+.oct-content {
+    margin-top: 40px;
+    padding: 0;
+}
+/*Logo区*/
+.logo-content {
+    background: -webkit-linear-gradient(left, #FF8C01, #FF5300); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #FF8C01, #FF5300); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #FF8C01, #FF5300); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #FF8C01, #FF5300); /* 标准的语法 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.logo-left {
+    width: 100%;
+}
+
+.logo-right {
+    /*background: url(../../Imgs/Icon/order_trucks.png) right center no-repeat;*/
+    background-size: 50px;
+    padding-left: 20px;
+}
+
+    .logo-right img {
+        width: 60px;
+    }
+/*收货地址和快递信息*/
+.express-recei {
+    margin-top: 8px;
+    background: #ffffff;
+    padding: 10px;
+}
+
+    .express-recei a {
+        display: block;
+    }
+
+.express-msg {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.express-msg-mid {
+    overflow: hidden;
+    width: 100%;
+    line-height: 120%;
+}
+
+.express-msg-left {
+    width: 40px;
+    background: url(../../Imgs/Icon/order_greentrucks.png) left center no-repeat;
+    background-size: 25px;
+    height: 25px;
+}
+
+.express-mid-content {
+    color: #339629;
+}
+
+.express-mid-date {
+    color: #c4c4c4;
+    padding-top: 5px;
+}
+
+.express-msg-right {
+    width: 35px;
+    background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+    background-size: 15px;
+}
+
+.express-msg {
+    border-bottom: 1px dashed #f2f2f2;
+    padding-bottom: 5px;
+}
+/*收货地址*/
+.recei-msg {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.recei-msg-mid {
+    width: 100%;
+}
+
+.recei-msg-left {
+    width: 40px;
+    background: url(../../Imgs/Icon/order_addr.png) left center no-repeat;
+    background-size: 25px;
+    height: 25px;
+}
+
+.recei-msg-nametel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.recei-msg-addr {
+    color: gray;
+}
+
+.recei-msg-right {
+    border: 1px solid #f3f3f3;
+    padding: 10px 5px;
+    text-align: center;
+    margin-left: 10px;
+    color: gray;
+    border-radius: 10px;
+    font-size: 10px;
+}
+
+/*到店消费/自取  店铺地址*/
+.shop-addr-nav {
+    padding: 8px 0;
+    padding-bottom: 0;
+    margin-top: 8px;
+    background: #ffffff;
+    display: flex;
+    align-items: start;
+}
+
+.shop-addr-nav-left {
+    width: 90px;
+}
+
+    .shop-addr-nav-left span {
+        color: gray;
+    }
+
+    .shop-addr-nav-left img {
+        width: 10px;
+        height: 10px;
+    }
+
+.shop-addr-nav-mid {
+    width: 100%;
+}
+
+.shop-addr-nav-right {
+    padding-left: 6px;
+}
+
+    .shop-addr-nav-right img {
+        width: 25px;
+        height: 25px;
+    }
+
+
+
+/*订单商品和价格区*/
+.order-list {
+    margin-top: 8px;
+}
+
+    .order-list .order-item {
+        background: white;
+        margin-bottom: 10px;
+    }
+
+.order-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+    .order-item-top a {
+        display: flex;
+        align-items: center;
+        background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+        background-size: 12px;
+        padding-right: 20px;
+    }
+
+    .order-item-top img {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+
+.order-status-txt {
+    color: red;
+}
+/*商品列表*/
+.order-item-mid {
+    background: #FAFAFA;
+    padding: 0 10px;
+}
+
+.order-goods-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 1px dashed #f4f4f4;
+}
+
+.goods-item-left {
+    padding-right: 10px;
+}
+
+    .goods-item-left img {
+        width: 55px;
+        height: 55px;
+        border-radius: 2px;
+    }
+
+.goods-item-mid {
+    width: 100%;
+    padding-right: 5px;
+}
+
+    .goods-item-mid span {
+        display: block;
+    }
+
+.goods-item-spec {
+    color: gray;
+    font-size: 10px;
+}
+
+.goods-item-right {
+    text-align: right;
+}
+
+.goods-item-ordernum {
+    color: gray;
+}
+
+.order-item-bottom {
+    text-align: right;
+    background: white;
+    padding: 8px 10px;
+    border-bottom: 1px solid #FAFAFA
+}
+
+    .order-item-bottom b {
+        color: #ff0000;
+    }
+
+.order-item-btn {
+    padding: 8px 10px;
+    background: white;
+    text-align: right;
+}
+
+    .order-item-btn input {
+        border: 1px solid #e0e0e0;
+        background: white;
+        border-radius: 30px;
+        padding: 4px 10px;
+        font-size: 10px;
+        margin-left: 5px;
+    }
+
+.order-goods-sum li, .order-sum-ul li {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 8px;
+    color: gray;
+}
+
+.order-item-sum {
+    background: white;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 10px;
+}
+
+.order-sum-ul li {
+    color: black;
+}
+
+.pay-price-b {
+    color: red;
+}
+
+/*客服与投诉*/
+.customer-complain {
+    padding: 10px;
+    background: white;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .customer-complain div {
+        color: gray;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+    }
+
+        .customer-complain div img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+/*发票信息*/
+.invoice-msg {
+    padding: 10px;
+    background: white;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.invoice-msg-right {
+    color: gray;
+    background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+    background-size: 15px;
+    padding-right: 20px;
+}
+
+/*订单其他信息*/
+.order-other {
+    padding: 10px;
+    background: white;
+    margin-top: 8px;
+    margin-bottom: 60px;
+}
+
+.order-other-ul li {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+}
+
+.order-other-val {
+    color: gray;
+}
+
+    .order-other-val b {
+        font-weight: normal;
+    }
+
+.btn-copy {
+    border: 1px solid #e0e0e0;
+    background: no-repeat;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+/*页脚*/
+.oct-footer {
+    padding: 10px;
+    justify-content: flex-end;
+    border-top: 1px solid #f6f6f6;
+    align-items: center;
+}
+
+    .oct-footer div {
+        border: 1px solid #e0e0e0;
+        color: gray;
+        border-radius: 20px;
+        padding: 3px 10px;
+        margin-left: 10px;
+        cursor: pointer;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+    }
+
+        .oct-footer div.footer-btn-current {
+            border: 1px solid #FF5100;
+            color: #FF5100;
+        }
+
+
+
+/*申请发票窗口*/
+.win-invoice-content {
+    padding: 10px;
+    clear: both;
+    overflow: hidden;
+    height: 1%;
+}
+
+.win-invoice-title {
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+
+.am-close {
+    position: absolute;
+    top: -3px;
+    right: 4px;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.win-invoice-item {
+    padding-bottom: 10px;
+}
+
+.win-invoice-item-title {
+    font-weight: bold;
+    padding: 5px 0;
+}
+
+.win-invoice-list {
+    padding-top: 10px;
+}
+
+.win-invoice-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.win-invoice-right {
+    color: gray;
+}
+
+
+
+/*--------------选择店铺导航地图 --  窗口---------------*/
+.win-shopnav-content {
+}
+
+    .win-shopnav-content ul {
+        padding-top: 5px;
+    }
+
+        .win-shopnav-content ul li {
+            text-align: center;
+            font-size: 18px;
+            color: #9b9b9b;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f8f8f8;
+        }
+
+            .win-shopnav-content ul li a {
+                display: block;
+                width: 90%;
+                margin: 0 auto;
+                color: #0086de;
+            }
+
+/*到店消费/自取验证码*/
+.check-code {
+    background: white;
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.check-code-left {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+    .check-code-left div {
+        font-size: 14px;
+    }
+
+    .check-code-left .check-code-number {
+        font-size: 14px;
+        padding-top: 0px;
+        padding-bottom: 5px;
+    }
+
+.check-code-number b {
+    font-size: 20px;
+    color: red;
+}
+
+.btn-reset {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #c4c4c4;
+    padding: 5px 20px;
+    font-size: 12px;
+    color: gray;
+}
+
+.check-code-right {
+    width: 50%;
+    text-align: center;
+}
+
+    .check-code-right img {
+        width: 120px;
+        height: 120px;
+    }
+
+.check-code-left .check-order-id {
+    font-size: 12px;
+    color: gray;
+}
+
+/*赠品信息窗口*/
+.win-gift-title {
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+
+    .win-gift-title .am-close {
+        top: 6px;
+    }
+
+.win-order-gift-content {
+    padding: 10px;
+    padding-top: 0;
+}
+
+    .win-order-gift-content div {
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .win-order-gift-content div a {
+            display: block;
+            color: #0075cc;
+            width: 100%;
+        }
+
+        .win-order-gift-content div span {
+            display: block;
+            width: 80px;
+            text-align: right;
+        }
+/*赠送信息*/
+.giving-msg {
+    padding: 8px;
+    background: #ffffff;
+}
+
+    .giving-msg div {
+        padding: 3px;
+        color: gray;
+    }
+
+/*拼团秒杀标签*/
+.order-type-label {
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 0 5px;
+    border-radius: 20px;
+}
+
+
+/*=================礼品订单Logo======================*/
+
+/*Logo区*/
+.logo-content-present {
+    background: -webkit-linear-gradient(left, #D6AD00, #F7C600); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #D6AD00, #F7C600); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #D6AD00, #F7C600); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #D6AD00, #F7C600); /* 标准的语法 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: #ffffff;
+}
+
+/*=================商家订单操作======================*/
+
+.express-exe{
+    background: white;
+    padding: 10px 0; 
+    text-align:center;
+    font-size:12px;
+}
+.express-exe-ul li{
+    padding: 5px 10px;
+}
+    .express-exe-ul li span{
+        display:inline-block;
+        width: 70px;
+        text-align:left;
+    }
+    .express-exe-ul li .txt-css {
+        padding: 3px 5px;
+        width: 200px;
+        color: #FF6001;
+    }
+.btn-submit-send {
+    padding: 5px;
+    border: none;
+    background: #FF6001;
+    color: white;
+    padding: 8px 100px;
+    border-radius: 10px;
+    margin-top: 8px;
+    font-size:12px;
+}

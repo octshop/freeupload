@@ -1,0 +1,1299 @@
+﻿
+Log Entry : 15:19:58 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:21:20 2019年2月28日 
+HttpService:System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:24:06 2019年2月28日 
+HttpService:System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:26:32 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:32:22 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:32:22 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:32:22 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:32:58 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:34:02 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:34:02 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:34:02 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:36:43 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:36:43 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:36:43 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:39:04 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:39:04 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:39:04 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:39:39 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:39:39 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:39:39 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:41:41 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:41:41 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 15:41:41 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 15:49:28 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:50:05 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 15:51:49 2019年2月28日 
+HttpService:System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 16:42:46 2019年2月28日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 16:44:59 2019年2月28日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 16:44:59 2019年2月28日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 16:44:59 2019年2月28日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 17:14:26 2019年2月28日 
+HttpService:System.Net.WebException: 请求被中止: 操作超时。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 18:03:39 2021年5月18日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)
+------------------------------------
+
+Log Entry : 18:03:46 2021年5月18日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)
+------------------------------------
+
+Log Entry : 18:03:58 2021年5月18日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)
+------------------------------------
+
+Log Entry : 18:04:01 2021年5月18日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)
+------------------------------------
+
+Log Entry : 8:35:17 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 11:49:13 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 14:29:29 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 14:46:55 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 14:47:28 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 14:57:21 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 14:59:21 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:00:20 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:01:14 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:02:05 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:02:29 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:03:40 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:03:41 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:06:29 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:07:07 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:07:56 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:08:30 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:11:23 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:15:25 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:16:49 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:18:50 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:19:27 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:20:12 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:23:24 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:23:32 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:23:43 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:23:49 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:24:26 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:26:05 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:26:09 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:26:15 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:26:24 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:29:27 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:29:31 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:29:54 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:30:00 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:30:05 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:30:11 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:39:18 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:40:04 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:40:38 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:40:56 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:41:09 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:44:00 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:44:08 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:44:09 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:44:14 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:44:16 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:44:18 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:44:57 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:45:02 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:45:04 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:45:55 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:46:00 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:46:26 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:46:31 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:47:59 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:48:32 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:48:36 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:48:38 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:48:41 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:48:42 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:48:48 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:48:51 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:48:52 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:48:53 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:48:59 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:49:46 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:49:54 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:49:58 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:50:03 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:50:11 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:50:14 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:50:20 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:50:24 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:50:32 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 15:50:35 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 16:22:18 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 16:59:53 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 16:59:59 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 17:00:04 2021年5月26日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 6:34:01 2021年5月27日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 6:37:02 2021年5月27日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 6:37:06 2021年5月27日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 6:37:10 2021年5月27日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 9:49:59 2021年5月27日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 16:55:25 2021年5月27日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 8:19:32 2021年5月28日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 9:48:46 2021年5月28日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 18:36:06 2021年5月29日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 18:37:01 2021年5月29日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 18:37:07 2021年5月29日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 18:38:47 2021年5月29日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 18:39:57 2021年5月29日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 9:48:03 2021年5月30日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 18:56:35 2021年5月31日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 18:58:20 2021年5月31日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 7:14:02 2021年6月1日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 18:18:53 2021年6月1日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 18:22:16 2021年6月1日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 18:23:55 2021年6月1日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 10:30:25 2021年6月2日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 16:44:49 2021年6月2日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 10:52:44 2021年6月3日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 10:25:47 2021年6月7日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 8:01:59 2021年6月9日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 14:00:20 2021年6月9日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 14:00:25 2021年6月9日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 14:00:38 2021年6月9日 
+HttpService:System.Net.WebException: 无法连接到远程服务器 ---> System.Net.Sockets.SocketException: 由于目标计算机积极拒绝，无法连接。 192.168.3.10:6688
+   在 System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   在 System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 116
+------------------------------------
+
+Log Entry : 8:32:39 2021年7月13日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+
+Log Entry : 8:32:39 2021年7月13日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 8:32:39 2021年7月13日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+

@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>公司信息详细</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/UserGoodsShopPage/ShopMsgDetail.css" rel="stylesheet" />
+    <link href="../Assets/Css/UserGoodsShopPage/CompanyMsgDetail.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=店铺管理">店铺管理</a></li>
+            <li class="am-active">公司信息详细</li>
+        </ul>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 公司信息详细
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--详情内容-->
+        <div class="form-main am-nbfc am-padding">
+
+            <ul class="shop-main-ul">
+                <li class="shop-status-li">
+                    <span class="shop-status-span" style="background:@ViewBag.ShopStatusBg"><b class="am-icon-bell">&nbsp;@ViewBag.ShopStatusTxt</b><br />@ViewBag.ShopStatusDesc</span>
+                    <span class="shop-status-edit"><a href="../UserGoodsShopPage/CompanyMsgEdit?CompanyID=@ViewBag.CompanyID" class="am-btn am-btn-default am-btn-xs am-round btn-add-company">修改公司信息</a></span>
+                </li>
+                <li class="shop-company-li">
+                    <div>
+                        <span class="input-title-span">用户账号：</span>
+                        @ViewBag.UserAccount <img src="@ViewBag.HeaderImg" /> @ViewBag.UserNick，UserID：@ViewBag.UserID
+                    </div>
+                    <div>
+                        <span class="input-title-span">公司ID：</span>
+                        @ViewBag.CompanyID，@ViewBag.CompanyName，@ViewBag.RegAddress
+                    </div>
+                </li>
+                <li class="shop-type-li">
+                    <div>
+                        <span>社会信用代码：</span> @ViewBag.CreditCode <br />
+                        <span>企业法人：</span>@ViewBag.LegalPerson
+                    </div>
+                    <div>
+                        <span>注册资本(万元)：</span>@ViewBag.RegMoney<br />
+                        <span>成立时间：</span>@ViewBag.SetUpDate
+                    </div>
+                </li>
+                <li class="shop-key-desc">
+                    <div>
+                        <div><span>公司营业范围：</span></div>
+                        <div>
+                            @ViewBag.BusiScope
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+            <!--公司资质列表-->
+            <ul class="shop-main-ul compay-cert-ul" id="CompanyCertUl">
+                @Html.Raw(ViewBag.Xhtml)
+                <!--<li class="compay-cert-li">
+                   <div>
+                       <a href="//192.168.3.10:1400/Upload/CompanyCertificateImg/CCI_1_201906290832553600.jpg" target="_blank"><img src="//192.168.3.10:1400/Upload/CompanyCertificateImg/CCI_1_201906290832553600.jpg" /></a>
+                   </div>
+                    <div class="cert-name">
+                        营业执照
+                    </div>
+                </li>-->
+            </ul>
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+</body>
+</html>

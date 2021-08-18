@@ -1,0 +1,274 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>商品类目</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/UserGoodsShopPage/GooGoodsType.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+    <script src="../Assets/Js/UserGoodsShopPage/GooGoodsType.js"></script>
+
+
+</head>
+<body>
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=商品管理">商品管理</a></li>
+            <li class="am-active">商品类目</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 商品类目
+            </div>
+            <div class="title-btn-div am-fl">
+                <button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类目</button>
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="GoodsTypeID_se" placeholder="类目ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="GoodsTypeName_se" placeholder="类目名称" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="FatherTypeID_se" placeholder="父级类目ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width:200px;">
+                <select id="TypeLevel_se" data-am-selected="{btnWidth:'180',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" ">类目级别</option>
+                    <option value="1">第一级</option>
+                    <option value="2">第二级</option>
+                    <option value="3">第三级</option>
+                </select>
+            </div>
+
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="GoodsTypeMemo_se" placeholder="类目备注" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="LinkURL_se" placeholder="跳转链接地址" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="IsEntity_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>实体店分类</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 100px;">
+                <select id="IsShow_se" data-am-selected="{btnWidth:'80',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>显示</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 100px;">
+                <select id="IsLock_se" data-am-selected="{btnWidth:'80',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>锁定</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" class="datetime-input am-form-field" placeholder="写入日期" data-am-datepicker="{theme: 'success',}" style="background:none; cursor:pointer;" readonly>
+                </div>
+            </div>
+
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="3%"><input type="checkbox" id="SelAllCb" name="SelAllCb" onchange="toggleSelAll()" /></td>
+                        <td width="6%">类目ID</td>
+                        <td width="20%">类目名称</td>
+                        <td width="20%">父级类目ID</td>
+                        <td width="8%">类目级别</td>
+                        <td width="8%">图标</td>
+                        <td width="10%">备注</td>
+                        <td width="5%">显示</td>
+                        <td width="4%">锁定</td>
+                        <td width="11%">写入时间</td>
+                        <td width="5%">操作</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>234332</td>
+                        <td>制冷材料/制冷剂/铜管</td>
+                        <td>234 <i> ( 制冷材料/制冷剂/铜管 ) </i></td>
+                        <td>第二级</td>
+                        <td><img src="../Assets/Imgs/Icon/balance_customer.png" class="goods-type-icon" /></td>
+                        <td>备注呀备注</td>
+                        <td>是</td>
+                        <td>否</td>
+                        <td>2019-05-05 13:27:45.563</td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round"><span class="am-icon-pencil-square-o"></span></button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-warning  am-round"><span id="BtnToggleLock" class="am-icon-lock"></span></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" onclick="delMsg()"><span class="am-icon-trash-o"></span> 删除</button>
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>备注与说明</span>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+    <!--添加与编辑窗口主体内容-->
+    <div class="add-edit-win" id="AddEditWin" style="display:none;">
+        <div class="add-edit-main">
+            <ul class="add-edit-ul">
+                <li>
+                    <label class="am-form-label">
+                        类目级别:<font color="red">*</font>
+                    </label>
+                    <select id="TypeLevel_ae" onchange="loadFatherGoodsTypeIDAndNameList()">
+                        <option value="1">第一级</option>
+                        <option value="2">第二级</option>
+                        <option value="3">第三级</option>
+                    </select>
+                </li>
+                <li id="FatherGoodsTypeIDAndNameLi" style="display:none;">
+                    <label class="am-form-label">
+                        父级类目:<font color="red">*</font>
+                    </label>
+                    <select id="FatherTypeID_ae">
+                        <option value="0"></option>
+                    </select>
+                </li>
+                <li>
+                    <label class="am-form-label">类目名称:<font color="red">*</font></label>
+                    <input type="text" id="GoodsTypeName_ae" class="am-form-field goods-type-name" />
+                </li>
+                <li>
+                    <div>
+                        <label class="am-form-label">类目图标:</label>
+                        <img class="type-icon-img" id="TypeIcon_ae" src="../Assets/Imgs/Icon/icon_no.png" />
+                    </div>
+                    <div>
+                        <input id="fileupload" type="file" name="files[]" multiple>
+                    </div>
+                </li>
+                <li>
+                    <label class="am-form-label">类目备注:</label>
+                    <input type="text" id="GoodsTypeMemo_ae" class="am-form-field goods-type-name" />
+                </li>
+                <li>
+                    <label class="am-form-label">链接地址:</label>
+                    <input type="text" id="LinkURL_ae" placeholder="如：Http://www.opencodetiger.com" class="am-form-field goods-type-name" />
+                </li>
+                <li>
+                    <label class="am-form-label">排序数值:</label>
+                    <input type="text" id="SortNum_ae" placeholder="越大越排序前面" class="am-form-field goods-type-name" />
+                </li>
+                <li class="add-edit-li-checkbox">
+                    <label class="am-form-label">实体店分类:<font color="red">*</font></label>
+                    <input id="IsEntity_ae" type="checkbox" style="width:15px;height:15px;" />
+                    <label class="am-form-label" style="margin-left: 80px;">锁定:<font color="red">*</font></label>
+                    <input id="IsLock_ae" type="checkbox" style="width:15px;height:15px;" />
+                    <label class="am-form-label" style="margin-left: 80px;">显示:<font color="red">*</font></label>
+                    <input id="IsShow_ae" type="checkbox" checked="checked" style="width:15px;height:15px;" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>

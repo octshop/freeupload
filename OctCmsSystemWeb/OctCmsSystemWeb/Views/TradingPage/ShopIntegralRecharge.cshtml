@@ -1,0 +1,161 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>商家积分充值</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/UserGoodsShopPage/BuyerPromoteUser.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/TradingPage/ShopIntegralRecharge.js"></script>
+
+</head>
+<body>
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=财务结算">财务结算</a></li>
+            <li class="am-active">商家积分充值</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 商家积分充值
+            </div>
+            <div class="title-btn-div am-fl">
+                @*<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加</button>*@
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="RechargeID_se" placeholder="积分充值ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="BillNumberRhg_se" placeholder="流水号" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="RechargePrice_se" placeholder="积分金额(>=)" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="RechargeMemo_se" placeholder="充值备注" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ShopUserID_se" placeholder="商家UserID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 120px;">
+                <select id="IsPaySuccess_se" data-am-selected="{btnWidth:'100',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>是否支付</option>
+                    <option value="true">已支付</option>
+                    <option value="false">未支付</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" class="datetime-input am-form-field" placeholder="充值时间" data-am-datepicker="{theme: 'success',}" style="background:none; cursor:pointer;" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="10%">充值ID</td>
+                        <td width="20%">流水号</td>
+                        <td width="10%">积分金额</td>
+                        <td width="10%">是否支付</td>
+                        <td width="23%">充值备注</td>
+                        <td width="10%">商家UserID</td>
+                        <td width="17%">充值时间</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td>10012</td>
+                        <td>772021052416092945352502103</td>
+                        <td>100.00</td>
+                        <td>已支付</td>
+                        <td>备注备注备注备注</td>
+                        <td>30103</td>
+                        <td>2019-05-05 13:27:45</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        @*<button type="button" class="am-btn am-btn-default" onclick="delBuyerNoRechargeMsg()"><span class="am-icon-trash-o"></span> 删除1天之前,没有充值成功的信息</button>*@
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>备注</span>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

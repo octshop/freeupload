@@ -1,0 +1,99 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>投诉详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/TradingPage/OrderDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Js/ComplainPage/ComplainDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidCID" value="@ViewBag.CID" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=投诉管理">投诉管理</a></li>
+            <li class="am-active">投诉详情</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 投诉详情
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding">
+            <div class="order-status complain-status">
+                <div class="order-status-title">
+                    <val id="StatusTtitle">标题呀</val>
+                </div>
+                <div class="order-status-desc">
+                    <val id="StatusDesc">状态描述呀</val>
+                </div>
+            </div>
+            <dl class="order-basic">
+                <dt>基本信息</dt>
+                <dd>
+                    <span>投诉ID：</span><val id="ComplainID">23432</val>
+                    <span>投诉对象：</span><val id="ComplainCategory">售后</val>
+                    <span>投诉类型：</span><val id="ComplainType">质量问题</val>
+                    <span>投诉时间：</span><val id="WriteDate">2020-05-15 12:32:32</val>
+                </dd>
+                <dd>
+                    <span>订单ID：</span><a href="#" id="OrderID" target="_blank"></a>
+                    <span>售后ID：</span><a href="#" id="AfterSaleID" target="_blank"></a>
+                    <span>店铺ID：</span><a href="#" id="ShopID" target="_blank"></a>
+                    <span>礼品订单ID：</span><a href="#" id="PstOrderID" target="_blank"></a>
+                </dd>
+                <dd>
+                    <span>投诉内容 ：</span><val id="ComplainContent">111111投诉内容投诉内容22222投诉内容</val>
+                </dd>
+                <dd></dd>
+                <dd class="problem-desc-dd">
+                    <span>商家回复 ：</span><val id="ShopReply">111111商家回复商家回复商家回复商家回复2222容</val>
+                    <div id="ShopReplyDate" style="color:gray; margin-top:4px; padding:0;">2020-05-15 12:32:32</div>
+                </dd>
+                <dd class="problem-desc-dd">
+                    <span>官方回复 ：</span><val id="ComplainReply">111111官方回复官方回复官方回复</val>
+                    <div id="ReplyDate" style="color:gray;margin-top:4px; padding:0;">2020-05-15 12:32:32</div>
+                </dd>
+            </dl>
+
+
+
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>

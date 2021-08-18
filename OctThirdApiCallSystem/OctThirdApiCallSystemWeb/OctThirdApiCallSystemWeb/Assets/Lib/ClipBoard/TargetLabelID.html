@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>标签中设置复制对象,以标签ID为标记</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="clipboard.min.js"></script>
+
+</head>
+<body>
+
+    <h1>标签中设置复制对象,以标签ID为标记</h1>
+
+    <!-- 1. Define some markup -->
+    <input id="foo" type="text" value="复制hello11112222">
+    <!--<div id="foo">
+        复制hello33334444
+    </div>-->
+    <button class="btn"  data-clipboard-target="#foo">复制Input中的内容</button>
+
+
+    <!-- 3. Instantiate clipboard data-clipboard-action="copy"-->
+    <script type="text/javascript">
+
+        //实例化Clipboard
+        var clipboard = new ClipboardJS('.btn');
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+            alert("复制成功");
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+            alert("复制失败");
+        });
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+﻿/*=========提现详情=====================*/
+
+/*头部*/
+.oct-header-right .header-icon-my {
+    width: 20px;
+    height: 20px;
+}
+/*主体内容*/
+.oct-content {
+    margin-top: 45px;
+}
+
+
+/*步骤*/
+.complain-step {
+    padding: 10px;
+    background: white;
+}
+
+.complain-step-bg {
+    background: #F2F2F2;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.complain-step-current {
+    width: 55%;
+    height: 5px;
+    border-radius: 5px;
+    background: #7ABD54;
+}
+
+.compplain-step-desc {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.step-desc-item {
+    margin-top: -13px;
+}
+
+.step-desc-num {
+    width: 20px;
+    height: 20px;
+    background: #D7D7D7;
+    border-radius: 50%;
+    color: white;
+    margin: 0 auto;
+}
+
+.step-desc-txt {
+    margin-top: 5px;
+}
+
+.step-desc-num-current {
+    background: #7ABD54;
+}
+
+.step-desc-txt-current {
+    color: #7ABD54;
+}
+
+.step-time {
+    font-size: 10px;
+    color: #D7D7D7;
+}
+
+.hint-step-desc {
+    color: #FE6B43;
+    padding-bottom: 8px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 8px;
+}
+
+    .hint-step-desc a {
+        color: #0077e9;
+    }
+/*提现金额*/
+.topup-sum {
+    background: #ffffff;
+    padding: 20px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.topup-sum-top {
+    font-size: 16px;
+}
+
+    .topup-sum-top span {
+        color: #FE6B43;
+        padding-left: 10px;
+        font-size: 12px;
+    }
+
+.topup-sum-bottom {
+    text-align: center;
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.withdraw-price {
+    border: none;
+    background: url(../../Imgs/Icon/vip_topup.png) left center no-repeat;
+    background-size: 30px;
+    padding-bottom: 2px;
+    padding-top: 6px;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 auto;
+    color: #FE6B43;
+    text-align: left;
+    padding-left: 35px;
+}
+/*提现信息*/
+.withdraw-msg {
+    padding: 20px;
+    padding-top: 10px;
+    background: white;
+    margin-top: 8px;
+}
+
+.withdraw-ul li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #fbfbfb;
+}
+
+.withdraw-ul .withdraw-title {
+    border: none;
+    color: #000000;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.withdraw-ul .withdraw-val {
+    color: #FE6B43;
+    font-size: 14px;
+}
+
+.withdraw-span {
+    color: #808080;
+}

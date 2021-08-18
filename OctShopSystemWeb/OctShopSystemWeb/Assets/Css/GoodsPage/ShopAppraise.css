@@ -1,0 +1,32 @@
+﻿/*===============店铺评价===============*/
+
+/*附加信息*/
+.main-extra-msg {
+    font-size: 14px;
+    padding: 15px 5px;
+    background: #F8F8F8;
+}
+
+    .main-extra-msg b {
+        padding-right: 20px;
+    }
+/*表格内容*/
+.user-header-appraise {
+}
+
+    .user-header-appraise img {
+        width: 30px;
+        height: 30px;
+        border-radius: 25px;
+        margin-right: 6px;
+    }
+
+.appraise-img-msg {
+    color: #0364ad;
+    cursor: pointer;
+}
+
+    .appraise-img-msg b {
+        color: #ff0000;
+        padding: 0 4px;
+    }

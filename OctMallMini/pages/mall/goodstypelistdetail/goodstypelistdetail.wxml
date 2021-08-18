@@ -1,0 +1,90 @@
+<!--pages/mall/goodstypelistdetail/goodstypelistdetail.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="{{loadListGoodsTypeThirdByThird_Data.GoodsTypeSecName}}"
+		back-icon="/assets/imgs/icons/navbar_back.png" home-icon="/assets/imgs/icons/navbar_search.png" background="#F2F2F2"
+		bindhome="home" bindback="back" />
+</view>
+<!--子标题-->
+<view class="nav-bar-sub" style="top:{{navBarSubTop}}px;">
+	<view class="goods-type-nav">
+		<view class="goods-type-ul">
+			<view class="{{goodsTypeIdThird=='' ? 'goods-type-li-current':''}}" bindtap="chgThirdGoodsTypeItem"
+				data-goods-type-id-third="">
+				<view>全部</view>
+			</view>
+
+			<view
+				class="{{goodsTypeIdThird == loadListGoodsTypeThirdByThird_Data.GooGoodsTypeCurrent.GoodsTypeID  ? 'goods-type-li-current' :'' }}"
+				bindtap="chgThirdGoodsTypeItem"
+				data-goods-type-id-third="{{loadListGoodsTypeThirdByThird_Data.GooGoodsTypeCurrent.GoodsTypeID}}">
+				<view>{{loadListGoodsTypeThirdByThird_Data.GooGoodsTypeCurrent.GoodsTypeName}}</view>
+			</view>
+
+			<view class="{{goodsTypeIdThird ==item.GoodsTypeID  ? 'goods-type-li-current' :'' }}"
+				wx:for="{{loadListGoodsTypeThirdByThird_Data.GooGoodsTypeList}}" bindtap="chgThirdGoodsTypeItem"
+				data-goods-type-id-third="{{item.GoodsTypeID}}">
+				<view>{{item.GoodsTypeName}}</view>
+			</view>
+
+			<view class="goods-type-last">
+				<view>e</view>
+			</view>
+		</view>
+	</view>
+
+	<view class="btn-arrow" bindtap="toggleShowSubType">
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrowdown.png" />
+	</view>
+</view>
+
+<!--全部商品三级分类-->
+<view class="all-type-show" hidden="{{!isSubTypeShow}}" style="display:normal;top:{{navBarSubTop + 40}}px;">
+
+	<view class="{{goodsTypeIdThird=='' ? 'goods-type-li-current':''}}" bindtap="chgThirdGoodsTypeItem"
+		data-goods-type-id-third="">全部</view>
+
+	<view bindtap="chgThirdGoodsTypeItem"
+		data-goods-type-id-third="{{loadListGoodsTypeThirdByThird_Data.GooGoodsTypeCurrent.GoodsTypeID}}"
+		class="{{goodsTypeIdThird == loadListGoodsTypeThirdByThird_Data.GooGoodsTypeCurrent.GoodsTypeID  ? 'goods-type-li-current' :'' }}">
+		{{loadListGoodsTypeThirdByThird_Data.GooGoodsTypeCurrent.GoodsTypeName}}</view>
+
+
+	<view wx:for="{{loadListGoodsTypeThirdByThird_Data.GooGoodsTypeList}}" bindtap="chgThirdGoodsTypeItem"
+		data-goods-type-id-third="{{item.GoodsTypeID}}"
+		class="{{goodsTypeIdThird ==item.GoodsTypeID  ? 'goods-type-li-current' :'' }}">
+		<view>{{item.GoodsTypeName}}</view>
+	</view>
+
+
+</view>
+
+
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px" bindtouchmove="closeShowSubType">
+
+
+	<!--商品列表-->
+	<view class="goods-list">
+
+		<view class="goods-item" wx:for="{{numberPage_Page.DataPage}}">
+			<navigator url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+				<view class="goods-img">
+					<image src="//{{item.ImgPathCover}}" />
+				</view>
+				<view class="goods-name">{{item.GoodsTitle}}</view>
+				<view class="goods-price">
+					<b>￥{{item.GoodsPrice}}</b>
+					<view>{{item.SaleCount}}人付款</view>
+				</view>
+				<span class="goods-item-badge" wx:if="{{item.GroupDiscount>0}}">团购</span>
+				<span class="goods-item-badge" wx:elif="{{item.SkDiscount>0}}">秒杀</span>
+				<span class="goods-item-badge" wx:elif="{{item.Discount>0}}">{{item.Discount}}折</span>
+			</navigator>
+		</view>
+
+
+	</view>
+
+
+</view>

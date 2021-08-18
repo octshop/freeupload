@@ -1,0 +1,152 @@
+﻿/*======================商品评价=========================*/
+
+/*主体内容*/
+.oct-content {
+    margin-top: 45px;
+    overflow: hidden;
+    height: 1%;
+    margin-bottom: 100px;
+}
+
+.appraise-title {
+    padding: 8px;
+    font-size: 14px;
+    padding-bottom: 0;
+    background: #ffffff;
+}
+
+.appraise-title-top {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    padding-top: 2px;
+    border-bottom: 1px solid #fafafa;
+}
+
+.appraise-title-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 8px 0;
+    padding-top: 12px;
+}
+
+.appraise-tab {
+    padding: 5px 20px;
+    background: #FDF1F1;
+    margin-right: 10px;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+    .appraise-tab b {
+        padding-left: 5px;
+    }
+
+.appraise-tab-current {
+    border: 1px solid #D12D19;
+    background: #FDF1F1 url(../../Imgs/Icon/gou_red.png) 2px center no-repeat;
+    background-size: 25px;
+    color: #D12D19;
+    padding-left: 25px;
+}
+/*评价列表*/
+.appraise-list {
+    margin-top: 6px;
+    background: #F7F7F7;
+}
+.appraise-item {
+    padding: 10px;
+    padding-bottom: 8px;
+    margin-bottom: 6px;
+    background: #ffffff;
+}
+.appraise-item-user {
+    display: flex;
+    justify-content: space-between;
+}
+.appraise-user-left {
+    display: flex;
+    align-items:center;
+}
+.appraise-user-left-img img{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+.appraise-user-left-txt {
+   display:flex;
+   flex-direction:column;
+   margin-left: 8px;
+}
+.appraise-user-left-txt div img {
+    width: 10px;
+    height: 10px;
+}
+.appraise-user-right{
+    display:flex;
+    color: #acacac;
+    align-items:center;
+}
+.appraise-item-content{
+    padding: 6px 0;
+}
+.appraise-item-content-txt {
+    padding: 6px 0;
+}
+.appraise-item-content-img {
+   position:relative;
+   padding: 5px 0;
+}
+.appraise-item-content-img img {
+    width: 24%;
+}
+
+.appraise-img-count {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: rgba(255,255,255,0.8);
+    padding: 0 10px;
+    font-size: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #000000;
+}
+.appraise-item-content-spec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0;
+    color: #959595;
+    /*border-bottom: 1px solid #F4F4F4;*/
+}
+.appraise-give-like{
+   width: 50px;
+   background: url(../../Imgs/Icon/good.png) center top no-repeat;
+   background-size: 15px;
+   display:flex;
+   align-items:center;
+   color:black;
+   cursor:pointer;
+}
+.appraise-shop-back {
+    padding-top: 8px;
+    color: #959595;
+}
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 45px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}
+

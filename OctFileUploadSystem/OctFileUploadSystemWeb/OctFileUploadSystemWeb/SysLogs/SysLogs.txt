@@ -1,0 +1,7 @@
+
+Log Entry : 17:32:54 2019年8月6日 
+HttpService:System.Net.WebException: 操作超时
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout) 位置 E:\OpenCodeTigerProject\OctCommonCodeSystem\OctCommonCodeNS\OctCommonCodeNS\PublicUtils\HttpService.cs:行号 121
+------------------------------------
+

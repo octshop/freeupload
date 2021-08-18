@@ -1,0 +1,702 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+
+    <title id="PageTitle">商品详情</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Lib/lightslider/lightslider.css" rel="stylesheet" />
+    <link href="../Assets/Css/Goods/GoodsDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/ClipBoard/clipboard.min.js"></script>
+    <script src="../Assets/Lib/PhotoSwipe/initPhotoSwipe.js"></script>
+    <script src="../Assets/Lib/lightslider/lightslider.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+
+    <script src="../Assets/Js/Goods/GoodsDetail.js?v=4"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidWxUrlScheme" value="@ViewBag.WxUrlScheme" />
+
+    <input type="hidden" id="hidGID" value="@ViewBag.GID" />
+    <input type="hidden" id="hidShopUserID" value="" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <input type="hidden" id="hidBuyerReceiAddrSelCookieArr" value="@ViewBag.BuyerReceiAddrSelCookieArr" />
+    <input type="hidden" id="hidInputOrderNumber" value="1" />
+
+    <!--是否在微信中-->
+    <input type="hidden" id="hidIsInWeiXinBrowse" value="@ViewBag.IsInWeiXinBrowse" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <div class="header-tab-current"><a href="../Goods/GoodsDetail?GID=@ViewBag.GID">商品</a></div>
+            <div><a href="../Goods/GoodsDetailMsg?GID=@ViewBag.GID">详情</a></div>
+            <div><a href="../Goods/GoodsAppraise?GID=@ViewBag.GID">评价</a></div>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Mall/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/navbar_home.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!-- 轮播区域 -->
+        <div class="oct-slider">
+
+            <div class="sliderMainContent" id="sliderMainContent" style="overflow:hidden;">
+
+
+            </div>
+
+            <div class="slider-pager-content">
+                <div id="SliderCountDiv">0/0</div>
+            </div>
+        </div>
+
+        <!--可选规格-->
+        <div class="spec-list" id="SpecList">
+            <div class="spec-list-left" id="SpecListDiv">
+                可选
+            </div>
+            <div class="spec-list-right">
+                <div class="spec-list-item" id="SpecListItemDiv">
+                </div>
+            </div>
+        </div>
+
+        <!--赠品列表-->
+        <div class="gift-list" id="GiftListDiv" style="display:none;">
+            <div class="gift-list-left">
+                赠品x
+            </div>
+            <div class="gift-list-right" id="GiftListItemDiv">
+
+                @*<a href="#">
+                    <div><img src="../Assets/Imgs/01.jpg" /></div>
+                    <div>
+                        赠品名称赠品名称赠(2件)
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div><img src="../Assets/Imgs/02.jpg" /></div>
+                    <div>
+                        赠品名称赠品名称赠品名称赠(2件)...
+                    </div>
+                </a>
+                <a href="#">
+                    <div><img src="../Assets/Imgs/02.jpg" /></div>
+                    <div>
+                        赠品名称赠品名称赠
+                    </div>
+                </a>*@
+
+            </div>
+        </div>
+
+        <!--限时秒杀-->
+        <div class="sec-kill-title" id="SecKillTitle" style="display:none;">
+            <div class="sec-kill-left" id="SecKillLeft">
+                <img src="../Assets/Imgs/Icon/clocktimer.png" />
+                限时秒杀
+            </div>
+            <div class="sec-kill-mid" id="SecKillMid">
+                <span>21</span>天
+                <span>21</span>:
+                <span>10</span>:
+                <span>26</span>
+            </div>
+            <div class="sec-kill-right">
+                <div class="sec-kill-right-top">
+                    仅剩 <span id="SkStockNum">0</span> 件
+                </div>
+                <div class="sec-kill-right-bottom">
+                    已抢 <span id="SkSaleNum">0</span> 件
+                </div>
+            </div>
+        </div>
+
+        <!--价格区-->
+        <div class="goods-price">
+            <div class="goods-price-top">
+                <div class="price-top-left">
+                    <b id="GoodsPriceLowB">&#165;55.00</b><span id="MarketPrice" style="font-size: 12px;">&#165;155.00</span> <span class="badge-red-span" style="display:none; white-space:nowrap;">实体店</span>
+                </div>
+                <div class="price-top-right" style="width: 80px; overflow:hidden; white-space:nowrap;">
+                    <div><b id="Discount">8.5折</b></div>
+                    <div class="btn-fav" onclick="addBuyerFocusFav()">收藏</div>
+                </div>
+            </div>
+            <div class="goods-price-mid" id="GoodsTitle">
+                创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创
+                意蘑菇台灯创意
+            </div>
+            <div class="goods-price-bottom">
+                <div id="SpecPropDiv">
+                    <!--2018款，黑色，27码-->
+                </div>
+                <div class="goods-support-msg" id="DeliveryShopExpense">
+                    支持货到付款 &nbsp; <span>需到店自取</span>
+                </div>
+            </div>
+        </div>
+
+        <!--选择规格-->
+        <div class="goods-spec" id="GoodsSpec" onclick="openSelSpecWin()">
+            <div class="goods-spec-left">
+                <span>已选：</span><b id="SelGoodsSpecPropB">1件</b>
+            </div>
+            <div class="goods-spec-right">
+                <img src="../Assets/Imgs/Icon/3point.png" />
+            </div>
+        </div>
+
+        <!--优惠券-->
+        <div class="goods-spec" id="GoodsCouponsSelDiv" style="display:none;" onclick="openGetTicketWin()">
+            <div class="goods-spec-left" id="GoodsCouponsTwoShow">
+                <span>领券：</span> <b class="ticket-b">满300减100</b><b class="ticket-b">满300减100</b>
+            </div>
+            <div class="goods-spec-right">
+                <img src="../Assets/Imgs/Icon/3point.png" />
+            </div>
+        </div>
+
+        <!--返积分-->
+        <div class="goods-spec" id="GoodsReturnIntegralDiv" style="display:none;" onclick="window.location.href='#'">
+            <div class="goods-spec-left">
+                <span>返积分：</span>
+            </div>
+            <div class="goods-spec-right">
+                <b style="color: #ff6a00" id="GoodsReturnIntegralValB"> + 0.00</b>
+            </div>
+        </div>
+
+        <!--到店消费/自取 店铺导航-->
+        <div class="shop-addr-nav" id="ShopAddrNav" style="display:none;">
+            <div class="shop-addr-nav-left">
+                <div>
+                    <span>店铺地址：</span>
+                    <img src="../Assets/Imgs/Icon/address.png" />
+                    <span class="shop-nav-val-span" id="ShopAddrSpan">湖南省开元西路234号湖南省开元西路234号</span>
+                </div>
+                <div>
+                    <span>配送：</span>
+                    <span class="shop-nav-val-span">到店消费/自取</span>
+                    <span style="padding-left: 15px;">电话：</span>
+                    <a href="tel:13203156002" id="ShopTelA">13203156002</a>
+                </div>
+            </div>
+            <div class="shop-addr-nav-right">
+                <a href="javascript:void(0)" onclick="openShopNavWin()">
+                    <img src="../Assets/Imgs/Icon/addr_nav.png" /><br />
+                    导航
+                </a>
+            </div>
+        </div>
+
+        <!--运费，送至-->
+        <div class="express-freight" id="ExpressFreight" style="display:none;">
+
+            <div class="express-freight-top" onclick="openSelReceiAddrWin()">
+                <div class="express-top-left">
+                    <span>送至：</span>
+                    <div class="express-address">
+                        <div id="ExpressAddressDiv">
+                            无收货地址,请添加…
+                        </div>
+                        <div>
+                            <b>现货</b>,我们将尽快安排发货或送货。
+                        </div>
+                    </div>
+                </div>
+                <div class="express-top-right">
+                    <img src="../Assets/Imgs/Icon/3point.png" />
+                </div>
+            </div>
+
+            <div class="express-freight-mid">
+                <span>运费：</span><b id="FreightMoneyB">……</b>
+            </div>
+        </div>
+
+        <!--分享商品返佣-->
+        <div class="goods-spec share-goods-content" id="ShareMoneyDiv" style="display:none; padding-top:8px; padding-bottom:8px;">
+            <div class="goods-spec-left">
+                <span>分享商品返佣：</span>
+            </div>
+            <div class="goods-spec-right">
+                <b style="color: #ff6a00;display:none; font-size:12px;" id="ShareMoneyValB">订单总额 x 0.0</b>
+                <input type="button" class="btn-share-goods" value="立即分享" onclick="openWinShareGoods()" />
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="goods-safe-desc">
+            <div>
+                店铺发货售后
+            </div>
+            <div class="goods-safe-desc-mid">
+                快速发货
+            </div>
+            <div class="goods-safe-desc-mid">
+                闪电退款
+            </div>
+            <div>
+                7天无理由退货
+            </div>
+        </div>
+
+        <!--评价内容-->
+        <div class="appraise-content">
+            <div class="appraise-content-top" onclick="window.location.href='../Goods/GoodsAppraise?GID=@ViewBag.GID'">
+                <div class="appraise-title-left">
+                    评价(<b id="CountAppraiseB">0</b>)
+                </div>
+                <div class="appraise-title-right">
+                    好评度：<b id="GoodAppraisePercentB"> 0%</b>
+                </div>
+            </div>
+            <div class="appraise-content-mid" id="AppraiseContentList">
+
+                @*<!--评价项-->
+                    <div class="appraise-content-item">
+                        <div class="appraise-list-1">
+                            <div class="appraise-list-header">
+                                <img src="../Assets/Imgs/01.jpg" />美美的呀
+                            </div>
+                            <div class="appraise-list-star">
+                                <img src="../Assets/Imgs/Icon/star_red.png" />
+                                <img src="../Assets/Imgs/Icon/star_red.png" />
+                                <img src="../Assets/Imgs/Icon/star_red.png" />
+                                <img src="../Assets/Imgs/Icon/star_gray.png" />
+                                <img src="../Assets/Imgs/Icon/star_gray.png" />
+                            </div>
+                        </div>
+                        <div class="appraise-list-2">
+                            穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的
+                            ，超有气质的呢穿的美美的，超有气质的呢
+                        </div>
+                        <div class="appraise-list-3">
+                            <div class="appraise-list-img">
+                                <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/02.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/03.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </a>
+                            </div>
+                            <div class="appraise-list-count">
+                                共24张
+                            </div>
+                        </div>
+                        <div class="appraise-list-4">
+                            黑色（7厘米），37码
+                        </div>
+                    </div>
+
+                    <!--评价项-->
+                    <div class="appraise-content-item">
+                        <div class="appraise-list-1">
+                            <div class="appraise-list-header">
+                                <img src="../Assets/Imgs/01.jpg" />美美的呀
+                            </div>
+                            <div class="appraise-list-star">
+                                <img src="../Assets/Imgs/Icon/star_red.png" />
+                                <img src="../Assets/Imgs/Icon/star_red.png" />
+                                <img src="../Assets/Imgs/Icon/star_red.png" />
+                                <img src="../Assets/Imgs/Icon/star_gray.png" />
+                                <img src="../Assets/Imgs/Icon/star_gray.png" />
+                            </div>
+                        </div>
+                        <div class="appraise-list-2">
+                            穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的
+                            ，超有气质的呢穿的美美的，超有气质的呢
+                        </div>
+                        <div class="appraise-list-3">
+                            <div class="appraise-list-img">
+                                <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/02.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/03.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </a>
+                            </div>
+                            <div class="appraise-list-count">
+                                共24张
+                            </div>
+                        </div>
+                        <div class="appraise-list-4">
+                            黑色（7厘米），37码
+                        </div>
+                    </div>
+
+                    <!--评价项-->
+                    <div class="appraise-content-item">
+                        <div class="appraise-list-1">
+                            <div class="appraise-list-header">
+                                <img src="../Assets/Imgs/01.jpg" />美美的呀
+                            </div>
+                            <div class="appraise-list-star">
+                                <img src="../Assets/Imgs/Icon/star_red.png" />
+                                <img src="../Assets/Imgs/Icon/star_red.png" />
+                                <img src="../Assets/Imgs/Icon/star_red.png" />
+                                <img src="../Assets/Imgs/Icon/star_gray.png" />
+                                <img src="../Assets/Imgs/Icon/star_gray.png" />
+                            </div>
+                        </div>
+                        <div class="appraise-list-2">
+                            穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的
+                            ，超有气质的呢穿的美美的，超有气质的呢
+                        </div>
+                        <div class="appraise-list-3">
+                            <div class="appraise-list-img">
+                                <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/02.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/03.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </a>
+                            </div>
+                            <div class="appraise-list-count">
+                                共24张
+                            </div>
+                        </div>
+                        <div class="appraise-list-4">
+                            黑色（7厘米），37码
+                        </div>
+                    </div>*@
+            </div>
+            <div class="appraise-content-bottom">
+                <a href="../Goods/GoodsAppraise?GID=@ViewBag.GID" class="btn-appraise">查看全部评价</a>
+            </div>
+
+        </div>
+
+        <!--店铺信息-->
+        <div class="shop-msg" id="ShopMsgBar">
+            <div class="shop-msg-1" id="ShopMsgNameTitleDiv">
+                <div class="shop-msg-left" id="ShopHeaderImgDiv">
+                    <a href="#">
+                        <img src="../Assets/Imgs/01.jpg" />
+                    </a>
+                </div>
+                <div class="shop-msg-right">
+                    <div class="shop-right-top" id="ShopNameDiv">
+                        @*<a href="#" target="_blank">湖漫官方旗舰店官方旗舰店</a>
+                        <span class="shop-label">商城好店</span>
+                        <span class="shop-arrow">&nbsp;</span>*@
+                    </div>
+                    <div class="shop-right-mid" id="ShopAppraiseDiv">
+                        综合: <b>9.5</b>
+                        物流: <b>9.5高</b>
+                        商品: <b>9.5高</b>
+                        服务: <b>9.5高</b>
+                    </div>
+                    <div class="shop-right-bottom">
+                        <b id="FavAttenB"> 0 </b>人关注
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="shop-msg-2" id="MajorGoodsDiv">
+                店铺主营
+            </div>
+
+            <div class="shop-msg-3">
+                <ul id="PreListGoodsMsgUl">
+                    <li>
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" /><br />
+                            2018年冬季新款
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="shop-msg-4">
+
+                <a href="#" class="customer-service" id="CusServiceA">联系客服</a>
+                <a href="#" class="go-shop" id="GoShopA">进店逛逛</a>
+
+            </div>
+
+        </div>
+
+        <!--查看商品图文详情-->
+        <div class="view-appraise-img">
+            <a href="../Goods/GoodsDetailMsg?GID=@ViewBag.GID">查看商品图文详情</a>
+        </div>
+
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <a id="CusServiceAA" href="#">
+            <img src="../Assets/Imgs/Icon/service.png" />
+            客服
+        </a>
+        <a id="Footer_ShopLinkHref" href="#">
+            <img src="../Assets/Imgs/Icon/shop.png" />
+            店铺
+        </a>
+        <a href="../SCart/Index">
+            <img src="../Assets/Imgs/Icon/scart.png" />
+            购物车
+            <div class="badge-div" style="display:none;">3</div>
+        </a>
+        <a href="javascript:openSelSpecWin()" class="btn-scart">
+            加入购物车
+        </a>
+        <a href="javascript:openSelSpecWin()" class="btn-order" id="BtnOrder">
+            立即购买
+        </a>
+    </div>
+
+
+
+
+
+    <!--定义选择规格窗口代码-->
+    <div class="win-sel-spec-win" id="SelSpecWin" style="display:none">
+
+        <div class="win-sel-spec-content">
+
+            <input type="hidden" id="hidSpecImgPre" value="" />
+
+            <div class="win-sel-spec-top">
+                <div class="win-spec-top-left" style="display:none;">
+                    <a href="#"><img id="SpecPropImgPre" src="#" /></a>
+                </div>
+                <div class="win-spec-top-right">
+                    <div class="win-spec-price-div" id="WinSpecPriceDiv">&#165; 85.22</div>
+                    <div id="WinGoodsIDDiv">商品编码：255665454854</div>
+                    <div id="WinGoodsSpecPropDiv">当前选择：<span id="SelSpecSpan"></span>,<span id="SelPropSpan"></span></div>
+                </div>
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+
+            <div class="win-sel-spec-mid" id="WinSelSpecMidDiv">
+                <div class="win-spec-type" id="WinSpecTitle">
+                    颜色
+                </div>
+                <div class="win-spec-list" id="WinSpeckList">
+                    <span>白色</span><span>黑色黑色</span><span>红色</span><span>红色</span>
+                    <span>白色</span><span>黑色</span><span>红色黑色</span><span>红色黑色</span>
+                    <span>白色</span><span>黑色</span><span>红色黑色</span><span>红色黑色</span>
+                </div>
+                <div class="win-spec-type" id="WinPropTitle">
+                    尺码
+                </div>
+                <div class="win-spec-list" id="WinPropList">
+                    <div class="win-prop-item">
+                        <span>32</span><span>33</span><span>34</span><span>36</span>
+                        <span>38</span><span>39</span><span>40</span><span>44</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="win-order-number">
+                <div class="win-title-number">数量</div>
+                <div class="win-txt-number" id="WinTxtNumber">
+                    <input class="btn-reduce" id="BtnReduce" onclick="chgOrderNum('Reduce')" type="button" value="-" />
+                    <input class="input-order-number" id="InputOrderNumber" type="number" value="1" disabled="disabled" />
+                    <input class="btn-add" id="BtnAdd" onclick="chgOrderNum('Add')" type="button" value="+" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="win-btn-list">
+            <div class="win-btn-scart" onclick="btnAddToSCart(true)">
+                加入购物车
+            </div>
+            <div class="win-btn-order" id="WinBtnOrder" onclick="btnOrderNow(true)">
+                立即购买
+            </div>
+        </div>
+
+    </div>
+
+    <!--领取优惠券窗口-->
+    <div class="win-get-ticket" id="WinGetTicket" style="display:none;">
+
+        <div class="win-ticket-content">
+
+            <div class="win-ticket-title">
+                优惠券
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-ticket-integral">
+                <div>
+                    领券
+                </div>
+                <div>
+                    您的积分: 234
+                </div>
+            </div>
+            <div class="win-ticket-list">
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>&#165;562</b> 店铺券 (需积分:234)</li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (120天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即领取
+                    </div>
+                </div>
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>9.5折</b> 店铺折扣券</li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即领取
+                    </div>
+                </div>
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>&#165;563</b> 商城券 (需积分:234)</li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即领取
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--选择收货地址-->
+    <div class="win-sel-receiaddr" id="WinSelReceiAddr" style="display:none;">
+        <div class="win-receiaddr-content">
+            <div class="win-receiaddr-title">
+                配送至
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-receiaddr-list">
+                <ul id="ReceiAddListUl">
+                    <li>
+                        …无收货地址,请添加…
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="win-receiaddr-btn">
+            <a href="../Buyer/ReceiAddrList" id="ReceiAddrABtn">选择其他地址</a>
+        </div>
+    </div>
+
+
+    <!--选择店铺导航地图-->
+    <div class="win-sel-shopnav" id="WinSelShopNav" style="display:none;">
+        <div class="win-shopnav-content">
+            <ul>
+                <li class="shopnav-title-li">
+                    选择导航地图
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="qqmapA">腾讯地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="amapA">高德地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="bdmapA">百度地图</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="toggleSilderDownWin()" style="color: #000000; padding-bottom: 20px;">取消</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!--分享商品URL和二维码窗口-->
+    <div class="win-share-goods" id="WinShareGoods" style="display:none">
+        <div class="win-share-Content">
+            <div class="win-share-title">
+                分享商品返佣
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <ul class="win-share-ul">
+                <li>
+                    <div class="win-scan-code">
+                        <a href="#" id="WinScanCodeHref" target="_blank"><img id="WinScanCodeImg" src="" alt="分享二维码" /></a>
+                    </div>
+                    <div class="win-scan-txt">
+                        长按二维码保存或发送给好友
+                    </div>
+                </li>
+                <li>
+                    <div class="win-share-url" id="WinShareURLDiv">
+                        @*http://localhost:1000/Goods/GoodsDetail?GID=60069&KeyEn=mbXgyEYARYS5k%2By90Aj//n54YE6smCX4YUICDzMmqvaa8zukvdDLlG8eiuRu8JKEUK4ey38hcTxQyqnX30tFf4pxZ7zGLqg7LEpUMIQwwarnLewjzolv9Zz%2BGkFICvLOWMRegUwBToixLY9FnMxBnVnFaDbaEKZ1syd2x4TJkpM=*@
+                    </div>
+                    <div class="share-goods-btn">
+                        <input type="button" value="复制商品分享链接,发给好友" data-clipboard-text="11111" id="BtnShareGoods" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+</html>

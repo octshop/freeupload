@@ -1,0 +1,71 @@
+﻿/*================= Iframe 首页 ==================*/
+
+/*主体内容*/
+
+
+/*统计条*/
+.main-count {
+    clear: both;
+    margin: 0 auto;
+}
+
+.main-count-item {
+    width: 250px;
+    height: 80px;
+    overflow: hidden;
+    margin-right: 20px;
+    background: white;
+    margin-bottom: 10px;
+}
+
+.count-item-left {
+    background: #6CCAC9;
+    height: 100px;
+    width: 80px;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.count-item-right {
+    width: 170px;
+    font-size: 16px;
+    color: #C6CAD6;
+    text-align: center;
+    overflow: hidden;
+}
+
+.count-text {
+    color: #AAADB9;
+    font-size: 30px;
+    padding-top: 2px;
+    padding-bottom: 0;
+    margin-bottom: -10px;
+}
+/*表单主体*/
+.form-main-left {
+    padding: 0;
+}
+
+.form-main-right {
+    padding: 0;
+}
+
+.form-left-content {
+    padding-right: 10px;
+}
+
+    .form-left-content div {
+        height: 300px;
+        background: #ffffff;
+        margin-bottom: 10px;
+        overflow: hidden;
+    }
+
+.form-right-content div {
+    height: 300px;
+    background: #ffffff;
+    margin-bottom: 10px;
+    overflow:hidden;
+}

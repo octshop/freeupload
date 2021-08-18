@@ -1,0 +1,57 @@
+﻿/*===============礼品=======================*/
+
+
+/*主体内容*/
+.oct-content {
+    background: #ebebeb;
+    padding-bottom: 80px;
+}
+
+.goods-main{
+    margin-top: -35px;
+   
+}
+
+.goods-price div {
+    font-size: 11px;
+    color: #b5b5b5;
+}
+
+.goods-price img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.goods-item {
+    position: relative;
+    overflow: visible;
+}
+
+    .goods-item .goods-item-badge {
+        background: #ff6a00;
+        color: white;
+        font-size: 12px;
+        border-radius: 20px;
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 130px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+    background: white;
+}
+
+
+

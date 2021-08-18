@@ -1,0 +1,51 @@
+﻿/*===============商家结算申请========================*/
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    font-size: 16px;
+    flex-wrap: wrap;
+    line-height: 180%;
+    background: #FAFAFA;
+    margin-bottom: 10px;
+}
+
+    .search-bar div {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+        .search-bar div span {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .search-bar div b {
+            color: #ff0000;
+            padding-right: 10px;
+        }
+
+        .search-bar div i {
+            font-size: 12px;
+            color: gray;
+        }
+
+.settle-btn {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+/*列表选项卡*/
+.tab-list-order ul li{
+    
+}
+    .tab-list-order ul li a {
+        font-size: 15px;
+        padding: 10px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+.tab-list-order ul .am-active a {
+    background: #EDF7ED;
+}

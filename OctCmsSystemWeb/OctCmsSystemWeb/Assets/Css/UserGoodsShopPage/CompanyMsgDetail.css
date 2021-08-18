@@ -1,0 +1,31 @@
+﻿/*================公司信息详细=====================*/
+
+/*公司资质列表*/
+.compay-cert-ul {
+    display: flex;
+    justify-content:flex-start;
+    margin-top: 20px;
+    flex-wrap:wrap;
+}
+.compay-cert-li {
+    padding: 5px;
+    overflow:hidden;
+    border: 1px solid #cfcfcf;
+    margin-right: 20px;
+    border-radius: 5px;
+    width: 300px;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.compay-cert-li img{
+    width: 100%;
+    margin-bottom: 5px;
+}
+.cert-name{
+    background: #fafafa;
+    text-align:center;
+    padding: 5px 0;
+    font-size: 14px;
+}

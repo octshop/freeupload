@@ -1,0 +1,321 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>售后详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/AfterSale/AsDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+
+    <script src="../Assets/Js/AfterSale/AsDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidAID" value="@ViewBag.AID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b id="PageTitle">售后详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--Logo区域-->
+        <div class="logo-content">
+            <div class="logo-left" id="StatusTitleDesc">
+                <div>商家审核</div>
+                售后审核中,商家可能联系你哦!
+            </div>
+            <div class="logo-right">
+
+            </div>
+        </div>
+        <div class="auto-finish-datetime" id="AutoFinishDateTime" style="display:none;">
+            [ 自动确认签收完成售后剩：<b> 9天23小时 </b> ]
+        </div>
+
+        <!--步骤-->
+        <div class="complain-step">
+
+            <!--步骤条-->
+            <div class="complain-step-bg">
+                <div class="complain-step-current">
+                </div>
+            </div>
+            <!--步骤说明-->
+            <div class="compplain-step-desc">
+
+                <div class="step-desc-item">
+                    <div class="step-desc-num step-desc-num-current">1</div>
+                    <div class="step-desc-txt step-desc-txt-current">审核中</div>
+                </div>
+                <div class="step-desc-item" id="StepDescItem2">
+                    <div class="step-desc-num">2</div>
+                    <div class="step-desc-txt" id="StepDescTxt2">买家发货</div>
+                </div>
+                <div class="step-desc-item" id="StepDescItem3">
+                    <div class="step-desc-num">3</div>
+                    <div class="step-desc-txt" id="StepDescTxt3">维修中</div>
+                </div>
+                <div class="step-desc-item" id="StepDescItem4">
+                    <div class="step-desc-num">4</div>
+                    <div class="step-desc-txt">买家确认</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--退款金额提示-->
+        <div class="refund-money-show auto-finish-datetime" id="RefundMoneyShow" style="display:none; margin-top: 6px; padding-bottom: 10px;">
+            [ 退款金额：<b> &#165; 221.00 </b> ]
+        </div>
+
+        <!--上门服务相关信息-->
+        <div class="visiting-msg-show" id="VisitingMsgShow" style="display:none;">
+            <span>上门人员姓名：</span>小黄人 <span style="padding-left: 20px;">联系电话：</span><a href="tel:13203156008">13203156008</a>
+        </div>
+
+        <!--买家填写快递信息-->
+        <div class="buyer-express-msg" id="BuyerExpressMsg" style="display:none;">
+            <div>
+                <span>物流名称：</span>
+                <input class="txt-css" id="ExpressName" type="text" placeholder="输入物流快递名称" value="" /><input id="BtnSelExpress" class="btn-sel-express" type="button" value="选择" onclick="openSelExpressWin()" />
+            </div>
+            <div>
+                <span>物流单号：</span>
+                <input class="txt-css" id="ExpressNumber" type="text" placeholder="输入物流快递单号" value="" />
+            </div>
+            <div>
+                <input type="button" class="btn-submit-express" id="BtnSubmitExpress" value="提交物流信息" onclick="buyerSendGoods()" />
+            </div>
+        </div>
+
+
+
+
+        <!--快递信息-->
+        <div class="express-msg" id="ExpressMsg" onclick="window.location.href='../AfterSale/AsDynamic?AID=@ViewBag.AID'">
+            <div class="express-msg-left">
+                &nbsp;
+            </div>
+            <div class="express-msg-mid">
+                <div class="express-mid-content" id="AfterSaleDynamicMsg">
+                    物流快递信息呀
+                </div>
+                <div class="express-mid-date" id="AfterSaleDynamicDate">
+                    2018-09-15 13:32:23
+                </div>
+            </div>
+            <div class="express-msg-right">
+                &nbsp;
+            </div>
+        </div>
+
+        <!--拒绝售后理由-->
+        <div class="refuse-explain" id="RefuseExplain" style="display:none; ">
+            <b>商家拒绝售后-理由与说明:</b>
+            <span id="RefuseExplainContent">这个产品是不能</span>
+        </div>
+
+
+        <!--商品信息-->
+        <div class="as-goods">
+
+            <div class="as-goods-company">
+                本次售后服务由 <a href="#" id="ShopLinkA"></a> 为您提供
+            </div>
+            <div class="as-goods-list" id="ToOrderDetail">
+                <div class="as-goods-left">
+                    <img id="GoodsImg" src="~/Assets/Imgs/03.jpg" />
+                </div>
+                <div class="as-goods-right">
+                    <div class="goods-title" id="GoodsTitle">
+                        商品名称商
+                    </div>
+                    <div class="goods-spec" id="GoodsSpec">
+                        规格参数规
+                    </div>
+                    <div class="goods-price">
+                        单价: <b id="GoodsPrice">&#165;0.00</b>
+                        订单数量: <b id="OrderNum">0</b>
+                        申请数量: <b id="ApplyNum">0</b>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--商家售后地址-->
+        <div class="as-shop" id="AfterSaleDeliveryShop" style="display:none;">
+            <div class="as-shop-item">
+                <div class="as-shop-left">
+                    商家售后地址：
+                </div>
+                <div class="as-shop-right" id="RegionNameDetailAddrShop">
+                    @*i湖南 省长沙市长沙县*@
+                </div>
+            </div>
+            <div class="as-shop-item">
+                <div class="as-shop-left">
+                    售后人员：
+                </div>
+                <div class="as-shop-right" id="DeliNameShop">
+                    小黄人
+                </div>
+            </div>
+            <div class="as-shop-item" style="border:none;">
+                <div class="as-shop-left">
+                    售后电话：
+                </div>
+                <div class="as-shop-right" id="MobileShop">
+                    <a href="tel:"></a>
+                </div>
+            </div>
+        </div>
+
+        <!--售后信息-->
+        <div class="as-msg">
+            <div class="as-msg-item">
+                <div class="as-item-left">
+                    售后类型
+                </div>
+                <div class="as-item-right" id="ServiceTypeName">
+                    维修
+                </div>
+            </div>
+            <div class="as-msg-item">
+                <div class="as-item-left">
+                    申请原因
+                </div>
+                <div class="as-item-right" id="ApplyReason">
+                    质量问题
+                </div>
+            </div>
+            <div class="as-msg-content">
+                <div class="as-msg-title">
+                    问题描述
+                </div>
+                <div>
+                    <textarea class="as-content-txtarea" id="ProblemDesc" disabled="disabled">请描述申请售后服务的具体原因，还可以上传5张问题图片哦！</textarea>
+                </div>
+                <div class="as-img-item" id="ProblemImgsList">
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/01.jpg" /></a>
+                    <a href="#"><img src="../Assets/Imgs/02.png" /></a>
+                    <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+                    <a href="#"><img src="../Assets/Imgs/02.png" /></a>
+                </div>
+            </div>
+        </div>
+
+        <!--买家收货地址-->
+        <div class="as-shop as-buyer" id="AfterSaleDelivery" style="display:none;">
+            <div class="as-shop-item">
+                <div class="as-shop-left">
+                    服务/收货地址：
+                </div>
+                <div class="as-shop-right" id="RegionNameDetailAddr">
+                    @*i湖南 省长沙市*@
+                </div>
+            </div>
+            <div class="as-shop-item">
+                <div class="as-shop-left">
+                    联系人：
+                </div>
+                <div class="as-shop-right" id="DeliName">
+                   
+                </div>
+            </div>
+            <div class="as-shop-item">
+                <div class="as-shop-left">
+                    联系电话：
+                </div>
+                <div class="as-shop-right" id="Mobile">
+                   
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--客服与投诉-->
+        <div class="customer-complain">
+            <div class="customer-item" id="CustomServicesOnlineDiv">
+                <img src="../Assets/Imgs/Icon/order_customer.png" />商家客服
+            </div>
+            <div class="tel-item" id="CustomServicesTelDiv">
+                <img src="../Assets/Imgs/Icon/order_tel.png" />拨打电话
+            </div>
+            <div class="complain-item" id="ComplainShopDiv">
+                <img src="../Assets/Imgs/Icon/order_complain.png" />投诉商家
+            </div>
+        </div>
+
+
+        <div class="as-hint">
+            售后专员可能电话与你沟通，请保持电话畅通。
+        </div>
+
+
+    </div>
+
+
+    <!--页脚-->
+    <div class="oct-footer" id="BottomBtnList">
+
+        <div>
+            提醒审核
+        </div>
+        <div class="footer-btn-current">
+            确认售后
+        </div>
+
+
+    </div>
+
+
+
+    <!--选择物流窗口-->
+    <div class="win-sel-express" id="WinSelExpress" style="display:none;">
+        <div class="win-express-title">
+            选择快递物流
+            <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+        </div>
+        <div class="win-sel-express-content" id="WinSelExpressContent">
+            <div onclick="clickSelExpress('顺丰')">顺丰</div><div onclick="clickSelExpress('EMS')">EMS</div><div onclick="clickSelExpress('圆通')">圆通</div><div onclick="clickSelExpress('中通')">中通</div>
+            <div onclick="clickSelExpress('申通')">申通</div><div onclick="clickSelExpress('韵达')">韵达</div><div onclick="clickSelExpress('天天')">天天</div><div onclick="clickSelExpress('百世')">百世</div>
+            <div onclick="clickSelExpress('宅急送')">宅急送</div><div onclick="clickSelExpress('德邦物流')">德邦物流</div><div onclick="clickSelExpress('中铁快运')">中铁快运</div><div onclick="clickSelExpress('联邦快递')">联邦快递</div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

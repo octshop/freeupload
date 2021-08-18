@@ -1,0 +1,90 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>余额积分详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Vip/BalanceIntegral.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Vip/BalanceIntegral.js"></script>
+
+
+</head>
+<body>
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back_white.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>余额积分详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my_white.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="oct-logo">
+            <div class="oct-logo-left" onclick="window.location.href='../Vip/BalanceDetail'">
+                账户余额(元)
+                <div id="CurBalance">
+                    0.00
+                </div>
+
+            </div>
+            <div class="oct-logo-right" onclick="window.location.href='../Vip/IntegralDetail'">
+                账户积分
+                <div id="CurIntegral">
+                    0.00
+                </div>
+            </div>
+        </div>
+
+        <div class="oct-logo oct-logo-dividend">
+
+            <div class="oct-logo-left" onclick="window.location.href='../Vip/DividendBalanceDetail'">
+                分润余额(元)
+                <div id="CurBalanceDividend">
+                    0.00
+                </div>
+                <div class="dividend-btn">
+                    <input type="button" id="BtnTransBalance" value="转入账户余额" onclick="transDividendToAccBalance()" />
+                </div>
+            </div>
+            <div class="oct-logo-right" onclick="window.location.href='../Vip/DividendIntegralDetail'">
+                分润积分
+                <div id="CurIntegralDividend">
+                    0.00
+                </div>
+                <div class="dividend-btn">
+                    <input type="button" id="BtnTransIntegral" onclick="transDividendToAccIntegral()" value="转入账户积分" />
+                </div>
+            </div>
+
+        </div>
+        <div class="oct-balance-description">
+            <span>说明：</span>分润余额、分润积分【转入】账户余额、账户积分后, 可使用账户余额、账户积分在本商城中购买商品。账户余额可以提现，而账户积分不能。<br />
+            <div style="text-align:center;font-weight:bold; padding-top: 10px;">注意：1个积分 = 1元 = 余额1元</div>
+        </div>
+
+    </div>
+</body>
+</html>

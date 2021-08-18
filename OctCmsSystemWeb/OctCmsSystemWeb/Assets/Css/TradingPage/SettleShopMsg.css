@@ -1,0 +1,14 @@
+﻿/*=================商家结算资料=================*/
+
+/*详情内容窗口*/
+.detail-main {
+  padding: 10px 0;
+}
+.detail-main .detail-ul li{
+    padding: 10px;
+}
+.detail-ul li span {
+    font-weight: bold;
+    padding-right: 10px;
+    padding-left: 15px;
+}

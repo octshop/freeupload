@@ -1,0 +1,284 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title id="PageTitle">抽奖详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Mall/LuckyDrawDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/ClipBoard/clipboard.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Mall/LuckyDrawDetail.js?v=1"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidLuckydrawID" value="@ViewBag.LuckydrawID" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>抽奖详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Mall/Index"><img class="header-icon-my" style="width:25px; height: 25px;" src="../Assets/Imgs/Icon/navbar_home.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="goods-item" onclick="window.location.href='#'">
+            <div class="goods-item-img">
+                <img id="CoverImgUrlLabel" src="" />
+                <div><b id="SponsorName">店铺名称</b> - 赞助</div>
+            </div>
+            <div class="goods-item-title" id="LuckydrawTitle">
+                抽奖标题
+            </div>
+            <div class="goods-item-luckydraw" id="AwardsItemContentWinnerTotal">
+                一等奖：xxx<span>数量： 0</span><br />
+            </div>
+            <div class="goods-item-extra">
+                <div id="StartLuckyType">
+                    2020-05-23 13:32:23 自动开奖
+                </div>
+                <div class="goods-luckydraw-extra" id="LuckydrawExtra">
+                    <span class="user-joined-span">你已参与</span>
+                    <span class="express-type-span">到店领取/自取</span>
+                </div>
+            </div>
+        </div>
+        <!--抽奖信息-->
+        <div class="luckydraw-msg">
+            <div class="luckydraw-msg-top" id="LuckydrawShopNameDiv">
+                <div class="luckydraw-msg-top-title">此奖品赞助商</div>
+                <div>
+                    <b id="SponsorNameB">店铺名称</b><img src="../Assets/Imgs/Icon/arrows_right.png" />
+                </div>
+            </div>
+            <div class="luckydraw-msg-mid">
+                <div>
+                    <span>奖项数量</span>
+                    <span class="luckydraw-num" id="SumAwardsItem">0</span>
+                </div>
+                <div>
+                    <span>中奖人数</span>
+                    <span class="luckydraw-num" id="SumWinnerTotal">0</span>
+                </div>
+                <div>
+                    <span>配送方式</span>
+                    <span class="luckydraw-num" id="ExpressTypeSpan">到店领取/消费</span>
+                </div>
+            </div>
+            <div class="luckydraw-msg-bottom" id="LuckydrawGetAddr" style="display:none;" onclick="openShopNavWin()">
+                <div class="luckydraw-msg-top-title" id="">领取/消费地址</div>
+                <div>
+                    <span id="GetAddressSpan">湖南省长沙市</span><img src="../Assets/Imgs/Icon/arrows_right.png" />
+                </div>
+            </div>
+        </div>
+
+        <!--中奖结果-->
+        <div class="joined-msg" id="ResultLuckyDraw" style="display:none;">
+            <div class="joined-msg-btn">
+
+                <input class="btn-joined-luckydraw" id="btn-joined-luckydraw" type="button" value="已开奖-抽奖结束" />
+
+            </div>
+            <div style="padding: 10px;
+font-size: 16px; font-weight:bold;">
+                中奖共 <b id="ResultCountB" style="color:red;">0</b> 人
+            </div>
+            <div class="result-user-list" id="ResultUserList">
+                <a href="../Assets/Imgs/06.jpg"><img src="../Assets/Imgs/06.jpg" /><br />132****1236</a>
+            </div>
+        </div>
+
+        <!--参与信息-->
+        <div class="joined-msg">
+            <div class="joined-msg-btn">
+                <input class="btn-join-luckydraw" type="button" id="btn-join" value="参与抽奖" onclick="openJoinWin()" />
+                <input class="btn-joined-luckydraw" id="btn-joined" style="display:none;" type="button" value="您已参与,等待开奖" />
+
+                <input class="btn-joined-luckydraw" id="btn-joined-luckydraw" style="display:none;" type="button" value="已开奖-抽奖结束" />
+
+
+            </div>
+            <div>
+                已有 <b id="JoinCountB" style="color:red;">0</b> 人参与
+            </div>
+            <div class="join-user-list" id="JoinUserList">
+                <!--<img src="../Assets/Imgs/06.jpg" />-->
+            </div>
+            <div>
+                <a href="javascript:void(0)" onclick="openJoinUserWin()">查看更多 >></a>
+            </div>
+        </div>
+
+        <!--分享按钮区-->
+        <div class="share-section">
+            <input class="btn-share-friend" type="button" id="BtnCopyALink" data-clipboard-text="@ViewBag.CurrentALink" value="邀请好友参与" />
+        </div>
+
+        <!--奖品详情-->
+        <div class="luckydraw-goods-detail">
+            @*<div class="luckydraw-detail-title">
+                    ---------- &nbsp; 奖品详情 &nbsp; ---------
+                </div>*@
+            <div class="luckydraw-detail-content" id="LuckydrawDetailContent">
+                奖品介绍
+                @*<img src="../Assets/Imgs/05.jpg" />*@
+
+            </div>
+        </div>
+
+
+
+        <!--店铺信息-->
+        <div class="shop-msg" id="ShopMsgBar">
+            <div class="shop-msg-1" id="ShopMsgNameTitleDiv">
+                <div class="shop-msg-left" id="ShopHeaderImgDiv">
+                    <a href="#">
+                        <img src="../Assets/Imgs/01.jpg" />
+                    </a>
+                </div>
+                <div class="shop-msg-right">
+                    <div class="shop-right-top" id="ShopNameDiv">
+                        <a href="#" target="_blank">湖漫官方旗舰店官方旗舰店</a>
+                        <span class="shop-label">商城好店</span>
+                        <span class="shop-arrow">&nbsp;</span>
+                    </div>
+                    <div class="shop-right-mid" id="ShopAppraiseDiv">
+                        综合: <b>9.5</b>
+                        物流: <b>9.5高</b>
+                        商品: <b>9.5高</b>
+                        服务: <b>9.5高</b>
+                    </div>
+                    <div class="shop-right-bottom">
+                        <b id="FavAttenB"> 0 </b>人关注
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="shop-msg-2" id="MajorGoodsDiv">
+                店铺主营
+            </div>
+
+            <div class="shop-msg-3">
+                <ul id="PreListGoodsMsgUl">
+                    <li>
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" /><br />
+                            2018年冬季新款
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="shop-msg-4">
+
+                <a href="#" class="customer-service" id="CusServiceA">联系客服</a>
+                <a href="#" class="go-shop" id="GoShopA">进店逛逛</a>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+    <!--底部分隔-->
+    <div style="padding-bottom: 80px;">
+    </div>
+
+
+    <!--报名窗口-->
+    <div class="win-join-activity" id="WinJoinActivity" style="display:none;">
+
+        <div class="win-join-content">
+            <div class="win-join-title">
+                参与抽奖
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+        </div>
+        <div class="win-join-list">
+            <div>
+                <span style="padding-bottom: 15px; display:block;"><font color="red">*</font>联系手机号：</span>
+                <input type="number" class="limit-number-txt" id="LimitNumberWin" placeholder="领奖手机号" />
+            </div>
+            <div>
+                <input type="button" class="btn-submit" id="BtnSubmit" value="立即参与" onclick="addLuckyDrawJoinMsg()" />
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--参与用户窗口-->
+    <div class="win-join-user" id="WinJoinUserActivity" style="display:none;">
+
+        <div class="win-join-content">
+            <div class="win-join-title">
+                参与用户
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+        </div>
+        <div class="win-user-list" id="WinUserList">
+            <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+        </div>
+    </div>
+
+
+
+    <!--选择店铺导航地图-->
+    <div class="win-sel-shopnav" id="WinSelShopNav" style="display:none;">
+        <div class="win-shopnav-content">
+            <ul>
+                <li class="shopnav-title-li">
+                    选择导航地图
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="qqmapA">腾讯地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="amapA">高德地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="bdmapA">百度地图</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="toggleSilderDownWin()" style="color: #000000; padding-bottom: 20px;">取消</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

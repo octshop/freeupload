@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>我的投诉</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/ComplainMy.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Buyer/ComplainMy.js"></script>
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>我的投诉 </b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="mescroll" id="mescroll">
+            <ul class="complain-list order-list" id="PageContentList">
+                @*<li class="complain-item" onclick="window.location.href='../Buyer/ComplainDetail'">
+                    <div class="complain-item-top">
+                        <div class="complain-item-left">
+                            投诉ID：13434 &nbsp; 订单ID：13434
+                        </div>
+                        <div class="complain-item-right">
+                            商家处理
+                        </div>
+                    </div>
+                    <div class="complain-item-mid">
+                        <b>配送问题：</b>没有收货，快递说这个货丢了呀，怎么处理呢递说这个货丢了呀，怎么处
+                        理呢递说这个货丢了呀，怎么处理呢递说这个货丢了呀，怎么处理呢
+                    </div>
+                    <div class="complain-item-bottom">
+                        <div class="complain-bottom-left">
+                            2018-05-15 12：32：43
+                        </div>
+                        <div class="complain-bottom-left">
+                            <input type="button" value="申请官方介入" />
+                            <input type="button" value="确认已处理" />
+                        </div>
+                    </div>
+                </li>*@
+               
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

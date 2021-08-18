@@ -1,0 +1,335 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>抽奖信息编辑</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Lib/DateTimeDropper/datedropper.css" rel="stylesheet" />
+    <link href="../Assets/Lib/DateTimeDropper/timedropper.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/LuckyDrawPage/LuckyDrawMsgAdd.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+
+    <script src="../Assets/Lib/DateTimeDropper/datedropper.min.js"></script>
+    <script src="../Assets/Lib/DateTimeDropper/timedropper.min.js"></script>
+
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+
+    <script src="../Assets/Js/LuckyDrawPage/LuckyDrawMsgEdit.js"></script>
+
+</head>
+<body>
+
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidShopUserID" value="@ViewBag.ShopUserID" />
+    <input type="hidden" id="hidLuckydrawID" value="@ViewBag.LuckydrawID" />
+
+    <form>
+        <!--面包屑导航-->
+        <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+            <ul class="am-breadcrumb">
+                <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+                <li><a href="../NavPage/NavSubList?NavName=抽奖管理">抽奖管理</a></li>
+                <li class="am-active">抽奖信息编辑</li>
+            </ul>
+        </div>
+
+
+        <!--主体内容-->
+        <div class="main am-nbfc">
+
+            <!--标题栏-->
+            <div class="main-title am-cf am-nbfc">
+                <div class="title-txt-div am-fl">
+                    <i class="am-icon-list"></i> 抽奖信息编辑
+                </div>
+                <div class="title-btn-div am-fl">
+                    <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+                </div>
+            </div>
+
+
+            <!--发布礼品具体属性  操作表单-->
+            <div class="form-main form-main-put am-nbfc" id="PutGoodsTypePropDiv" style="display:normal;">
+
+
+                <!--抽奖标题-->
+                <div class="goods-title am-nbfc">
+                    <div class="goods-title-div">
+                        抽奖标题 <font color="red">*</font>
+                    </div>
+                    <div class="goods-title-content">
+                        <div class="goods-title-prompt">
+                            提示：抽奖标题字数控制在80个之内,精简提炼标题关键字有助于搜索排名
+                        </div>
+                        <input class="goods-title-txt" id="LuckydrawTitle" type="text" />
+                    </div>
+                </div>
+
+                <!--联系电话地址-->
+                <div class="goods-price am-nbfc">
+                    <div class="goods-title-div">
+                        抽奖联系 <font color="red">*</font>
+                    </div>
+                    <div class="goods-price-content" style="display:normal;">
+                        <span>奖品配送方式: </span>
+                        <select class="select-css" id="ExpressType" onchange="chgExpressType()" style="margin-right: 10px;margin-left: 10px; padding: 7px;">
+                            <option value="express">送货上门(快递)</option>
+                            <option value="shop">到店消费/自取</option>
+                        </select>
+                        <span> 联系电话:</span>
+                        <input type="text" class="goods-pricestock-txt" id="LuckydrawMobile" style="width: 200px;" placeholder="抽奖联系咨询电话" />
+
+                        <div class="activity-detail-addr" id="RegionDetailDiv" style="display:none;">
+                            <span>领奖详细地址:</span>
+                            <input type="text" class="goods-pricestock-txt" id="GetAddress" style="width: 500px;" placeholder="" />
+                        </div>
+                        <div class="activity-detail-location" id="RegionLocationDiv" style="display:none;">
+                            <span class="input-title-span addr-gps-span">领奖位置坐标：</span>
+                            <input type="text" readonly id="LatitudeTxt" class="txt-css txt-css-location" placeholder="纬度(latitude)" value="@ViewBag.Latitude" />
+                            <input type="text" readonly id="LongitudeTxt" class="txt-css txt-css-location" placeholder="经度(longitude)" value="@ViewBag.Longitude" />
+                            <a href="javascript:void(0)" onclick="openSelLocationWin()" class="am-btn am-btn-success am-btn-xs am-round btn-add-company">地图上选择</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--开奖方式-->
+                <div class="goods-price am-nbfc">
+                    <div class="goods-title-div">
+                        开奖方式 <font color="red">*</font>
+                    </div>
+                    <div class="goods-price-content startlucky-type" style="display:normal;">
+
+                        <span>开奖方式: </span>
+                        <select class="select-css" id="StartLuckyType" onchange="chgStartLuckyType()" style="margin-right: 10px;margin-left: 10px;padding: 7px;">
+                            <option value="JoinNumber">到人数开奖</option>
+                            <option value="OverTime">到时间开奖</option>
+                        </select>
+
+                        <label id="JoinNumberLabel" style="display:normal">
+                            <span>开奖人数:</span>
+                            <input type="number" class="goods-pricestock-txt" id="StartLuckyNumber" placeholder="" />
+                        </label>
+
+                        <label id="OverTimeLabel" style="display:none">
+                            <span>开奖时间:</span>
+                            <input type="text" class="goods-pricestock-txt" id="StartLuckyDate" style="width: 100px; margin-right:0" placeholder="日期" readonly />
+                            <input type="text" class="goods-pricestock-txt" id="StartLuckyTime" style="width: 80px; margin-left:0;" placeholder="时间" readonly />
+                        </label>
+                    </div>
+                </div>
+
+
+                <!-- 奖项设置 -->
+                <div class="goods-price am-nbfc">
+                    <div class="goods-title-div">
+                        奖项设置 <font color="red">*</font>
+                    </div>
+                    <div class="goods-price-content" style="display:normal;">
+                        <table class="luckydraw-table">
+                            <thead>
+                                <tr class="table-header">
+                                    <td>奖项名称</td>
+                                    <td>奖品内容</td>
+                                    <td>奖项数量</td>
+                                </tr>
+                            </thead>
+                            <tbody id="TableTbody">
+                                <!--<tr>
+                                    <td>一等奖</td>
+                                    <td>2000元快客购物卡 x 10 </td>
+                                    <td>20</td>
+                                </tr>-->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <input type="button" class="am-btn am-btn-success am-btn-xs am-round btn-setting-ld" value="立即设置奖项" onclick="openSettingWin()">
+                    </div>
+                </div>
+
+
+                <!--抽奖照片-->
+                <div class="goods-img am-nbfc">
+                    <div class="goods-title-div">
+                        抽奖照片 <font color="red">*</font>
+                    </div>
+                    <div class="goods-price-content">
+                        <div class="goods-title-prompt">
+                            <font color="red"><b>注意：第一张照片为【封面图片】</b></font>   提示：抽奖图片尺寸 800 * 800 像素以上，长宽比例为 1:1 的正方形图片为最佳，至少上传一张活动照片。
+                        </div>
+                        <div class="goods-upload-list">
+                            <ul class="goods-upload-ul">
+                                <li>
+                                    <div class="upload-goods-img" style="position:relative">
+                                        <img id="GoodsImgPre_1" src="../Assets/Imgs/Icon/icon_camera_dl.png" class="goods-pre-img" />
+                                        <input id="UploadGoods_1" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 100%; height:120px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                    </div>
+                                    <input type="hidden" id="HidUploadGoodsVal_1" value="" />
+                                    <div id="BtnGoodsList_1" class="upload-goods-btn" style="display:none;">
+                                        <a href="#" target="_blank">裁剪</a>
+                                        <div>刷新</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="upload-goods-img" style="position:relative">
+                                        <img id="GoodsImgPre_2" src="../Assets/Imgs/Icon/icon_camera_dl.png" class="goods-pre-img" />
+                                        <input id="UploadGoods_2" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 100%; height:120px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                    </div>
+                                    <input type="hidden" id="HidUploadGoodsVal_2" value="" />
+                                    <div id="BtnGoodsList_2" class="upload-goods-btn" style="display:none;">
+                                        <a href="#" target="_blank">裁剪</a>
+                                        <div>刷新</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="upload-goods-img" style="position:relative">
+                                        <img id="GoodsImgPre_3" src="../Assets/Imgs/Icon/icon_camera_dl.png" class="goods-pre-img" />
+                                        <input id="UploadGoods_3" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 100%; height:120px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                    </div>
+                                    <input type="hidden" id="HidUploadGoodsVal_3" value="" />
+                                    <div id="BtnGoodsList_3" class="upload-goods-btn" style="display:none;">
+                                        <a href="#" target="_blank">裁剪</a>
+                                        <div>刷新</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="upload-goods-img" style="position:relative">
+                                        <img id="GoodsImgPre_4" src="../Assets/Imgs/Icon/icon_camera_dl.png" class="goods-pre-img" />
+                                        <input id="UploadGoods_4" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 100%; height:120px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                    </div>
+                                    <input type="hidden" id="HidUploadGoodsVal_4" value="" />
+                                    <div id="BtnGoodsList_4" class="upload-goods-btn" style="display:none;">
+                                        <a href="#" target="_blank">裁剪</a>
+                                        <div>刷新</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="upload-goods-img" style="position:relative">
+                                        <img id="GoodsImgPre_5" src="../Assets/Imgs/Icon/icon_camera_dl.png" class="goods-pre-img" />
+                                        <input id="UploadGoods_5" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 100%; height:120px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                    </div>
+                                    <input type="hidden" id="HidUploadGoodsVal_5" value="" />
+                                    <div id="BtnGoodsList_5" class="upload-goods-btn" style="display:none;">
+                                        <a href="#" target="_blank">裁剪</a>
+                                        <div>刷新</div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--抽奖描述-->
+                <div class="goods-packas am-nbfc">
+                    <div class="goods-title-div">
+                        抽奖描述
+                    </div>
+                    <div class="goods-packas-cntent">
+                        <textarea id="LuckydrawDesc" class="goods-packas-areatxt" style="height: 220px;" placeholder="抽奖的详细介绍内容"></textarea>
+                    </div>
+                </div>
+
+                <!--其他设置-->
+                <div class="goods-other am-nbfc">
+                    <div class="goods-title-div">
+                        其他设置
+                    </div>
+                    <div class="goods-other-cntent">
+                        <div class="goods-other-support other-activity-list">
+                            <span>参与条件:</span>
+                            <select id="JoinLimit" class="select-css" style="padding: 7px;">
+                                <option value="NoLimit">不限制</option>
+                                <option value="FavShop">已收藏店铺</option>
+                                <option value="OrderShop">订购过店铺商品</option>
+                                <option value="FavOrderShop">收藏店铺或订购过商品</option>
+                            </select>
+
+                            <span>最大参与人数:</span>
+                            <input type="number" class="goods-pricestock-txt" id="JoinNumberMax" style="width: 80px;" value="0" placeholder="为 0 不限制" />
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!--按钮区-->
+                <div class="goods-btn am-nbfc">
+                    <input type="button" class="am-btn am-btn-sm am-btn-danger am-round" value="立即保存抽奖" onclick="submitLuckyDrawMsg()" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!--================选择地图位置窗口=================-->
+        <div class="win-form-content" style="display:none;">
+            <div class="win-form-main" style="width:100%; height: 800px; padding: 0; margin: 0;">
+                <iframe id="mapPage" width="100%" height="800" frameborder=0
+                        src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=6C7BZ-3ZPLF-KB5JJ-NM2X4-JZU2S-FTBAN&referer=myapp">
+                </iframe>
+            </div>
+        </div>
+
+
+
+
+        <!--================添加设置奖项窗口=================-->
+        <div class="win-form-setting" id="SettingWin" style="display:none;">
+            <div class="win-form-main" style="width:100%; padding: 0; margin: 0;">
+                <ul class="win-setting-ul" id="WinSettingUL">
+                    <li>
+                        <div>
+                            <span>奖项名称：</span>
+                            <input type="text" name="AwardsItem" class="txt-css-win" />
+                        </div>
+                        <div>
+                            <span>奖品内容：</span>
+                            <input type="text" name="AwardsContent" class="txt-css-win" />
+                        </div>
+                        <div>
+                            <span>奖项数量：</span>
+                            <input type="number" name="WinnerTotal" class="txt-css-win" />
+                        </div>
+                    </li>
+                </ul>
+                <div class="win-btn-list">
+                    <input type="button" class="btn-win" value="添加奖项" onclick="addAwardsItemXhtml()" />
+                    <input type="button" class="btn-win" value="删除奖项" onclick="removeAwardsItemXhtml()" />
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </form>
+
+
+
+
+</body>
+</html>

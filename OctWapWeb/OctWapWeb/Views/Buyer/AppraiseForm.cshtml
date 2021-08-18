@@ -1,0 +1,299 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>评价晒单</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/AppraiseForm.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Buyer/AppraiseForm.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件-->
+    <input type="hidden" id="hidOrderID" value="@ViewBag.OrderID" />
+    <input type="hidden" id="hidUserID" value="@ViewBag.UserID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>评价晒单</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="#"><img class="header-icon-my" src="../Assets/Imgs/Icon/Appraise_explain.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--订单列表-->
+        <ul class="order-list" id="OrderList">
+
+           
+           @* <li class="order-item">
+                <div class="order-item-mid">
+
+                    <a href="#" class="order-goods-item">
+                        <div class="goods-item-left">
+                            <img src="~/Assets/Imgs/01.jpg" />
+                        </div>
+                        <div class="goods-item-mid">
+                            <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                            <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                        </div>
+                        <div class="goods-item-right">
+                            <span class="goods-item-price">&#165;2354.43</span>
+                            <span class="goods-item-ordernum">&times; 3</span>
+                        </div>
+                    </a>
+
+                    <div class="appraise-item-form">
+                        <div class="appraise-form-btn">
+                            <span>评价+晒单可获20虎点</span>
+                            <input type="button" class="btn-appraise-img" value="评价晒单" onclick="window.location.href='../Buyer/AppraiseForm'" />
+                        </div>
+                        <div class="appraise-form-item" style="display:normal;">
+                            <ul class="appraise-form-ul">
+                                <li class="aprraise-form-title">
+                                    <div class="appraise-form-star">
+                                        商品评价：
+                                        <span class="appraise-star-item" id="AppraiseStarItem_">
+                                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                                        </span>
+                                    </div>
+                                    <div class="appraise-form-noname">
+                                        <img src="../Assets/Imgs/Icon/circle_sel.png" />匿名评价
+                                    </div>
+                                </li>
+                                <li>
+                                    <textarea class="appraise-content-txtarea" placeholder="评价20元以上的商品超过10个字就有机会获得虎点！"></textarea>
+                                </li>
+                                <li class="appraise-upload-img">
+                                    <div class="upload-img">
+
+                                        <!--上传文件-->
+                                        <div class="upload-img-file" style="position:relative">
+                                            <img class="upload-camera" src="../Assets/Imgs/Icon/camera.png" />
+                                            <input id="fileupload_0" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 120px; height:50px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                        </div>
+                                        晒照片
+                                        <input id="hidUploadGuid_0" type="hidden" value="69a50da5-1126-42a5-90a9-01ac39f67004" />
+                                        <!--上传文件-->
+
+
+                                    </div>
+                                    <div class="upload-pre">
+                                        <div class="upload-pre-item">
+                                            <img src="../Assets/Imgs/01.jpg" />
+                                            <img class="icon-del" src="~/Assets/Imgs/Icon/icon-del.png" />
+                                        </div>
+                                        <div class="upload-pre-item">
+                                            <img src="../Assets/Imgs/02.jpg" />
+                                            <img class="icon-del" src="~/Assets/Imgs/Icon/icon-del.png" />
+                                        </div>
+                                        <div class="upload-pre-item">
+                                            <img src="../Assets/Imgs/01.jpg" />
+                                            <img class="icon-del" src="~/Assets/Imgs/Icon/icon-del.png" />
+                                        </div>
+                                        <div class="upload-pre-item">
+                                            无照片
+                                        </div>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </li>
+
+
+
+            <li class="order-item">
+                <div class="order-item-mid">
+
+                    <a href="#" class="order-goods-item">
+                        <div class="goods-item-left">
+                            <img src="~/Assets/Imgs/01.jpg" />
+                        </div>
+                        <div class="goods-item-mid">
+                            <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                            <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                        </div>
+                        <div class="goods-item-right">
+                            <span class="goods-item-price">&#165;2354.43</span>
+                            <span class="goods-item-ordernum">&times; 3</span>
+                        </div>
+                    </a>
+
+                    <div class="appraise-item-form">
+                        <div class="appraise-form-btn">
+                            <span>评价+晒单可获20虎点</span>
+                            <input type="button" class="btn-appraise-img" value="评价晒单" onclick="window.location.href='../Buyer/AppraiseForm'" />
+                        </div>
+                        <div class="appraise-form-item" style="display:normal;">
+                            <ul class="appraise-form-ul">
+                                <li class="aprraise-form-title">
+                                    <div class="appraise-form-star">
+                                        商品评价：
+                                        <span class="appraise-star-item">
+                                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                                        </span>
+                                    </div>
+                                    <div class="appraise-form-noname">
+                                        <img src="../Assets/Imgs/Icon/circle_sel.png" />匿名评价
+                                    </div>
+                                </li>
+                                <li>
+                                    <textarea class="appraise-content-txtarea" placeholder="评价20元以上的商品超过10个字就有机会获得虎点！"></textarea>
+                                </li>
+                                <li class="appraise-upload-img">
+                                    <div class="upload-img">
+                                        <img src="../Assets/Imgs/Icon/camera.png" />
+                                        晒照片
+                                    </div>
+                                    <div class="upload-pre">
+                                        <div class="upload-pre-item">
+                                            <img src="../Assets/Imgs/01.jpg" />
+                                            <img class="icon-del" src="~/Assets/Imgs/Icon/icon-del.png" />
+                                        </div>
+                                        <div class="upload-pre-item">
+                                            <img src="../Assets/Imgs/02.jpg" />
+                                            <img class="icon-del" src="~/Assets/Imgs/Icon/icon-del.png" />
+                                        </div>
+                                        <div class="upload-pre-item">
+                                            <img src="../Assets/Imgs/01.jpg" />
+                                            <img class="icon-del" src="~/Assets/Imgs/Icon/icon-del.png" />
+                                        </div>
+                                        <div class="upload-pre-item">
+                                            无照片
+                                        </div>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </li>*@
+
+
+
+
+        </ul>
+
+
+        <!--店铺评分-->
+        <div class="shop-score">
+
+            <div class="shop-title">
+                <a href="#"><img src="../Assets/Imgs/02.jpg" />韩版男装专卖店</a>
+                <div class="shop-prompt-txt">
+                    满意请给5星
+                </div>
+            </div>
+
+            <div class="shop-score-list">
+
+                <ul class="shop-score-ul">
+                    <li>
+                        <div>商品符合度</div>
+                        <div class="appraise-star-item" id="AppraiseStarItemShop_Goods">
+                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                        </div>
+                        <input type="hidden" id="hidAppraiseStarItemShop_Goods" value="" />
+                    </li>
+                    <li>
+                        <div>店家服务态度</div>
+                        <div class="appraise-star-item" id="AppraiseStarItemShop_Service">
+                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                        </div>
+                        <input type="hidden" id="hidAppraiseStarItemShop_Service" value="" />
+                    </li>
+                    <li>
+                        <div>物流发货速度</div>
+                        <div class="appraise-star-item" id="AppraiseStarItemShop_Speed">
+                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                        </div>
+                        <input type="hidden" id="hidAppraiseStarItemShop_Speed" value="" />
+                    </li>
+                    <li>
+                        <div>配送员服务态度</div>
+                        <div class="appraise-star-item" id="AppraiseStarItemShop_Attitude">
+                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                        </div>
+                        <input type="hidden" id="hidAppraiseStarItemShop_Attitude" value="" />
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <input class="btn-submit-appraise" type="button" value="提交评价" onclick="submitAppraiseMsg()" />
+
+    </div>
+
+
+
+
+</body>
+</html>

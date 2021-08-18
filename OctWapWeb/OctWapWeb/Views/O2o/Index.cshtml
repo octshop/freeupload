@@ -1,0 +1,459 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>附近</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Lib/lightslider/lightslider.css" rel="stylesheet" />
+    <link href="../Assets/Css/O2o/Index.css?rnd=3" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/WeiXin_JSSDK/jweixin-1.0.0.js"></script>
+    <script src="../Assets/Lib/lightslider/lightslider.js"></script>
+    <script src="../Assets/Lib/MobileSelect/MobileSelectCityQuote.js"></script>
+    <script src="../Assets/Js/O2o/Index.js?rnd=12"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <input type="hidden" id="hidSelCityRegionArrCookie" value="@ViewBag.SelCityRegionArrCookie" />
+    <!--是否在微信中-->
+    <input type="hidden" id="hidIsInWeiXinBrowse" value="@ViewBag.IsInWeiXinBrowse" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-addr">
+            <b id="MobileSelectCitySelRegion">选择城市</b>
+            <img src="../Assets/Imgs/Icon/arrowdown.png" />
+        </div>
+        <div class="goods-search" onclick="window.location.href='../Mall/SearchGoods?ST=Entity'">
+            <img src="../Assets/Imgs/Icon/buyer_query.png" />
+            输入店铺名,商品或品类
+        </div>
+        <div class="oct-header-scan" id="BtnOpenScan">
+            <img src="../Assets/Imgs/Icon/scan.png" />
+            <div>扫码</div>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!-- 轮播区域 -->
+            <div class="oct-slider">
+
+                <div class="sliderMainContent" id="sliderMainContent" style="overflow:hidden;">
+
+                    <ul id="content-slider" class="content-slider">
+                        @*<li>
+                            <a href="javascript:void(0)" target="_blank">
+                                <div class="img-slider img-slider-1">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </div>
+                            </a>
+                        </li>*@
+                    </ul>
+
+                </div>
+
+                <div class="slider-pager-content">
+                    <div id="SliderCountDiv">0/0</div>
+                </div>
+            </div>
+
+            <!--导航-->
+            <div class="nav-list">
+
+                <div class="sliderMainContent" id="sliderMainContent2" style="overflow:hidden; width: 100%;">
+
+                    <ul id="content-slider-2" class="content-slider">
+                        @*<li>
+                            <a class="nav-item" href="../O2o/GoodsIndex">
+                                <img src="../Assets/Imgs/Icon/o2o_commend.png" />
+                                同城优选
+                            </a>
+                            <a class="nav-item" href="../O2o/ShopNear">
+                                <img src="../Assets/Imgs/Icon/o2o_all.png" />
+                                附近商家
+                            </a>
+                            <a class="nav-item" href="../Mall/PresentExchange">
+                                <img src="../Assets/Imgs/Icon/o2o_food.png" />
+                                美食
+                            </a>
+                            <a class="nav-item" href="../Mall/DiscountGoods">
+                                <img src="../Assets/Imgs/Icon/o2o_film.png" />
+                                电影
+                            </a>
+                            <a class="nav-item" href="../Mall/Coupons">
+                                <img src="../Assets/Imgs/Icon/o2o_hotel.png" />
+                                酒店
+                            </a>
+                            <a class="nav-item" href="../Mall/LuckyDraw">
+                                <img src="../Assets/Imgs/Icon/o2o_recreation.png" />
+                                休闲娱乐
+                            </a>
+                            <a class="nav-item" href="#">
+                                <img src="../Assets/Imgs/Icon/o2o_takeout.png" />
+                                外卖
+                            </a>
+                            <a class="nav-item" href="../Mall/Activity">
+                                <img src="../Assets/Imgs/Icon/o2o_life.png" />
+                                生活服务
+                            </a>
+                            <a class="nav-item" href="#">
+                                <img src="../Assets/Imgs/Icon/o2o_travel.png" />
+                                周边游
+                            </a>
+                            <a class="nav-item" href="#">
+                                <img src="../Assets/Imgs/Icon/o2o_all.png" />
+                                全部
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-item" href="../O2o/GroupBuyO2o">
+                                <img src="../Assets/Imgs/Icon/index_nav01.png" />
+                                拼团
+                            </a>
+                            <a class="nav-item" href="../O2o/SecondsKillO2o">
+                                <img src="../Assets/Imgs/Icon/index_nav02.png" />
+                                秒杀
+                            </a>
+                            <a class="nav-item" href="../O2o/PresentExchangeO2o">
+                                <img src="../Assets/Imgs/Icon/index_nav03.png" />
+                                礼品
+                            </a>
+                            <a class="nav-item" href="../O2o/DiscountGoodsO2o">
+                                <img src="../Assets/Imgs/Icon/index_nav04.png" />
+                                打折
+                            </a>
+                            <a class="nav-item" href="../O2o/CouponsO2o">
+                                <img src="../Assets/Imgs/Icon/index_nav05.png" />
+                                领券
+                            </a>
+                            <a class="nav-item" href="../O2o/LuckyDrawO2o">
+                                <img src="../Assets/Imgs/Icon/index_nav06.png" />
+                                抽奖
+                            </a>
+                            <a class="nav-item" href="#">
+                                <img src="../Assets/Imgs/Icon/index_nav07.png" />
+                                实体店
+                            </a>
+                            <a class="nav-item" href="../O2o/ActivityO2o">
+                                <img src="../Assets/Imgs/Icon/index_nav08.png" />
+                                活动
+                            </a>
+                            <a class="nav-item" href="#">
+                                <img src="../Assets/Imgs/Icon/index_nav09.png" />
+                                入驻
+                            </a>
+                            <a class="nav-item" href="#">
+                                <img src="../Assets/Imgs/Icon/index_nav09.png" />
+                                全部
+                            </a>
+                        </li>*@
+                    </ul>
+
+                </div>
+                <div class="slider-pager-content">
+
+                </div>
+
+            </div>
+
+            <!--中心列表广告-->
+            <div class="gg-list" id="AdvO2oAdvImgList">
+                @*<a class="gg-item" href="../shop/index">
+                    <img src="../Assets/Imgs/06.jpg" />
+                </a>
+                <a class="gg-item" href="../shop/index">
+                    <img src="../Assets/Imgs/05.jpg" />
+                </a>
+                <a class="gg-item" href="../shop/index">
+                    <img src="../Assets/Imgs/06.jpg" />
+                </a>
+                <a class="gg-item" href="../shop/index">
+                    <img src="../Assets/Imgs/05.jpg" />
+                </a>
+                <a class="gg-item" href="../shop/index">
+                    <img src="../Assets/Imgs/06.jpg" />
+                </a>
+                <a class="gg-item" href="../shop/index">
+                    <img src="../Assets/Imgs/05.jpg" />
+                </a>*@
+            </div>
+
+            <!--推荐商家-->
+            <div class="commend-shop">
+                <div class="commend-shop-title" onclick="window.location.href='../O2o/ShopNear'">
+                    <span>推荐商家</span>
+                    <span class="shop-title-right">优选商家<img src="../Assets/Imgs/Icon/arrows_right.png" /></span>
+                </div>
+                <div class="commend-shop-list" id="CommendShopList">
+
+                    <!--推荐商家Item-->
+                    @*<a class="commend-item" href="../Shop/Index?SID=234">
+                        <div class="commend-item-img">
+                            <img src="../Assets/Imgs/04.jpg" />
+                        </div>
+                        <div class="commend-item-msg">
+                            <div class="item-msg-title">
+                                <span>长沙世界之窗(4A)</span>
+                                <span class="item-msg-distance">30.3km</span>
+                            </div>
+                            <div class="item-msg-appraise">
+                                3.5分 | 23432人评价
+                            </div>
+                            <div class="item-msg-badge">
+                                <span>优惠券</span>
+                                <span>活动</span>
+                                <span>打折</span>
+                                <span>团购</span>
+                            </div>
+                            <div class="item-msg-price">
+                                <span><b>&#165; 2343.23</b> 起</span>
+                                <span class="item-msg-sale">已售:2334323</span>
+                            </div>
+                        </div>
+                    </a>*@
+
+                </div>
+            </div>
+
+
+            <!--推荐商品-->
+            <div class="commend-goods">
+                <div class="commend-goods-title" onclick="window.location.href='../O2o/GoodsIndex'">
+                    <div>推荐商品</div>
+                    <div class="goods-title-right">精选商品<img src="../Assets/Imgs/Icon/arrows_right.png" /></div>
+                </div>
+                <div class="commend-goods-list" id="CommendGoodsList">
+
+                    @*<div class="commend-goods-item">
+                        <div class="commend-goods-img">
+                            <img src="../Assets/Imgs/05.jpg" />
+                        </div>
+                        <div class="commend-goods-name">
+                            商品名称商品名称商品名称商品名称
+                        </div>
+                        <div class="commend-goods-price">
+                            <span>&#165;2343.23</span>
+                            <span class="commend-goods-del">&#165;2563.24</span>
+                        </div>
+                    </div>*@
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+
+
+        @Html.Raw(ViewBag.TechSupport)
+
+
+
+    </div>
+
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <a href="../Mall/Index">
+            <img src="../Assets/Imgs/Icon/navhome.png" />
+            首页
+        </a>
+        <a href="../Mall/GoodsType">
+            <img src="../Assets/Imgs/Icon/navtype.png" />
+            分类
+        </a>
+        <a href="../O2o/Index" class="nav-current">
+            <img src="../Assets/Imgs/Icon/navlocation_red.png" />
+            附近
+            <div class="badge-div" style="display:none">3</div>
+        </a>
+        <a href="../Scart/Index">
+            <img src="../Assets/Imgs/Icon/navscart.png" />
+            购物车
+            <div class="badge-div" style="display:none">3</div>
+        </a>
+        <a href="../Buyer/Index">
+            <img src="../Assets/Imgs/Icon/navmy.png" />
+            我的
+            <div class="badge-div" style="display:none">3</div>
+        </a>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        //判断是否在微信中
+        var IsInWeiXinBrowse = $("#hidIsInWeiXinBrowse").val().trim();
+        var IsBuyerUserID = $("#hidBuyerUserID").val().trim();
+
+
+        //if (IsInWeiXinBrowse == "true" && IsBuyerUserID != "" && IsBuyerUserID != "0") {
+
+        if (IsInWeiXinBrowse == "true") {
+
+        wx.config(@Html.Raw(ViewBag.mJsSkdConfig));
+
+        //-------------接口处理--------------//
+        wx.ready(function () {
+
+            //alert("微信JS-SDK Is Ready!");
+
+            //获取用户地理坐标
+            wx.getLocation({
+                type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                success: function (res) {
+
+                    _latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                    _longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                    _speed = res.speed; // 速度，以米/每秒计
+                    _accuracy = res.accuracy; // 位置精度
+                    console.log("纬度_latitude=" + _latitude + " | 经度_longitude=" + _longitude);
+
+                    //将用户当前定位到的坐标保存到Cookie中，无需注册
+                    saveCookieLongitudeLatitude(_longitude, _latitude, function () {
+
+                        if (IsBuyerUserID != "" && IsBuyerUserID != "0") {
+                            //---保存当前用户的位置信息----//
+                            updateUserLongitudeLatitude(_longitude, _latitude);
+                        }
+                        else {
+                            //重新加载推荐商家
+                            loadRcdGoodsShop("Shop", function () {
+
+                            });
+                        }
+
+                    });
+
+
+                }
+            });
+
+
+            //-----微信扫一扫-----//
+            $("#BtnOpenScan").click(function () {
+                wx.scanQRCode({
+                    needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                    scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                    success: function (res) {
+                        var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                        //$("#qrCodeContent").text(result);
+                        window.location.href = result;
+                    }
+                });
+            });
+
+        });
+
+        //--------错误处理----------//
+        wx.error(function (res) {
+
+            alert("接口验证失败，详细信息：\n" + JSON.stringify(res));
+
+        });
+
+
+        }
+
+
+                /**
+                     * 将用户当前定位到的坐标保存到Cookie中，无需注册
+                     * pLongitude 用户当前经度 (以腾讯地图坐标系为准)
+                     * pLatitude 用户当前纬度 (以腾讯地图坐标系为准)
+                     * pCallBack 回调函数
+                     */
+                function saveCookieLongitudeLatitude(pLongitude, pLatitude,pCallBack) {
+
+                    //构造POST参数
+                    var dataPOST = {
+                        "Type": "5", "Longitude": pLongitude, "Latitude": pLatitude,
+                    };
+                    console.log(dataPOST);
+                   
+                    //正式发送异步请求
+                    $.ajax({
+                        type: "POST",
+                        url: "../BuyerAjax/Index?rnd=" + Math.random(),
+                        data: dataPOST,
+                        dataType: "html",
+                        success: function (reTxt, status, xhr) {
+                            console.log("位置信息保存Cookie=" + reTxt);
+                            if (reTxt != "") {
+                                pCallBack();
+                            }
+                        }
+                    });
+
+                }
+
+
+             /**
+             * 保存用户最新的位置信息
+             * pLongitude 用户当前经度 (以腾讯地图坐标系为准)
+             * pLatitude 用户当前纬度 (以腾讯地图坐标系为准)
+             */
+            function updateUserLongitudeLatitude(pLongitude, pLatitude) {
+
+                //构造POST参数
+                var dataPOST = {
+                    "Type": "4", "Longitude": pLongitude, "Latitude": pLatitude,
+                };
+                console.log(dataPOST);
+                //正式发送异步请求
+                $.ajax({
+                    type: "POST",
+                    url: "../BuyerAjax/Index?rnd=" + Math.random(),
+                    data: dataPOST,
+                    dataType: "html",
+                    success: function (reTxt, status, xhr) {
+                        console.log("保存用户最新的位置信息=" + reTxt);
+                        if (reTxt != "") {
+                            var _jsonReTxt = JSON.parse(reTxt);
+                            if (_jsonReTxt.Msg != "" && _jsonReTxt.Msg != null && _jsonReTxt.Msg != undefined) {
+
+                                //重新加载推荐商家
+                                loadRcdGoodsShop("Shop", function () {
+
+                                });
+                            }
+                        }
+                    }
+                });
+
+            }
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

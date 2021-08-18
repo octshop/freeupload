@@ -1,0 +1,108 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>商家充积分</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/IntegralPage/IntegralRecharge.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/IntegralPage/IntegralRecharge.js"></script>
+
+</head>
+<body>
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=积分管理">积分管理</a></li>
+            <li class="am-active">充积分</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc" style="min-height: 600px;">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 充积分
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="window.location.href='../TradingPage/VerifyCheckCodeOrderStatus'"><i class="am-icon-get-pocket"></i> 订单核销验证</button>-->
+            </div>
+        </div>
+
+        <div class="main-msg am-cf am-nbfc">
+            <span>我的积分：</span><b id="ShopCurrentIntegralB">0.00</b>
+            <button class="title-btn am-btn am-btn-xs am-btn-default am-round" onclick="window.location.href='#'"><i class="am-icon-question" style="font-size:16px"></i>  &nbsp;积分规则说明</button>
+            <span style="font-size:12px;font-weight:bold;">( &nbsp; 说明：1个积分等于1元 &nbsp; )</span>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="integral-recharge-form">
+                <span>充积分多少：</span>
+                <input type="number" class="txt-css" id="RechargeIntegralTxt" onkeyup="hidePayScanImgDiv()" />
+                <button type="button" id="BtnCreatePayScanImg" class="am-btn am-radius am-btn-success" onclick="createPayScanImg()">立即支付</button>
+            </div>
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <div class="pay-content" style="display:none;">
+
+                <div class="pay-content-left">
+
+                    <div class="wxpay-content" style="margin-top: -15px">
+                        <a href="#" id="WxPayScanA">
+                            <img src="#" id="WxPayScanImg" />
+                        </a>
+                        <div class="pay-type-name" style="margin-top: -10px">
+                            微信扫码支付
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="pay-content-right">
+
+                    <div class="alipay-content">
+                        <a href="#" id="AlipayScanA">
+                            <img src="#" id="AlipayScanImg" />
+                        </a>
+                        <div class="pay-type-name">
+                            支付宝扫码支付
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!--pages/shop/goodsall/goodsall.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="店铺-全部商品" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 店铺导航Logo -->
+<shopNav id="shopNav" top-fix="{{navbarHeight}}" api-web-doamin="{{apiWebDoamin}}"
+	shop-name="{{initShopMsgTopBarItem_Data.ShopName}}"
+	avg-appraise-score="{{initShopMsgTopBarItem_Data.AvgAppraiseScore}}"
+	count-fans="{{initShopMsgTopBarItem_Data.CountFans}}" count-fav-shop="{{initShopMsgTopBarItem_Data.CountFavShop}}人"
+	shop-header-img="//{{initShopMsgTopBarItem_Data.ShopHeaderImg}}" appraise-star-red="{{appraiseStarRed}}"
+	appraise-star-gray="{{appraiseStarGray}}" tab-cur-num="1" shop-id="{{shopID}}" nologin-back-url="../../../pages/shop/goodsall/goodsall" is-self-shop="{{initShopMsgTopBarItem_Data.IsSelfShop}}"  />
+
+<!-- 类别导航 -->
+<view class="oct-header-bottom-nav" style="top:{{navbarHeight + 91}}px">
+	<view class="{{curTabClassArr[0]}}" bindtap="chgTab" data-tab-num="0">
+		推荐
+	</view>
+	<view class="{{curTabClassArr[1]}}" bindtap="chgTab" data-tab-num="1">
+		销量
+	</view>
+	<view class="{{curTabClassArr[2]}}" bindtap="chgTab" data-tab-num="2" style="padding-left:8rpx;">
+		价格
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/order_price_gray.png" />
+	</view>
+	<view class="{{curTabClassArr[3]}}" bindtap="chgTab" data-tab-num="3">
+		新品
+	</view>
+	<view class="{{curTabClassArr[4]}}" bindtap="chgTab" data-tab-num="4">
+		打折
+	</view>
+	<view class="{{curTabClassArr[5]}}" bindtap="chgTab" data-tab-num="5">
+		团购
+	</view>
+	<view class="{{curTabClassArr[6]}}" bindtap="chgTab" data-tab-num="6">
+		秒杀
+	</view>
+</view>
+
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+
+	<!--商品列表-->
+	<view class="goods-list">
+
+		<view class="goods-item" wx:for="{{numberPage_Page.DataPage}}">
+			<navigator url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+				<view class="goods-img">
+					<image src="//{{item.ImgPathCover}}" />
+				</view>
+				<view class="goods-name">{{item.GoodsTitle}}</view>
+				<view class="goods-price">
+<!-- 
+					<b wx:if="{{item.Discount > 0 && item.GroupDiscount <= 0}}">￥{{item.GoodsPrice * (item.Discount / 10)}}</b>
+					<b wx:elif="{{item.GroupDiscount > 0}}">￥{{item.GoodsPrice * (item.GroupDiscount / 10)}}</b>
+					<b wx:elif="{{item.SkDiscount > 0 && item.GroupDiscount <= 0}}">￥{{item.GoodsPrice * (item.SkDiscount / 10)}}</b> -->
+					<b>￥{{item.GoodsPrice}}</b>
+
+
+					<view>{{item.PaidCount}}人付款</view>
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/scart_add.png" catchtap="addToSCartNoSpecPropID" data-goods-id="{{item.GoodsID}}" />
+				</view>
+
+				<span class="goods-item-badge" wx:if="{{item.Discount > 0 && item.GroupDiscount <= 0}}">{{item.Discount}}折</span>
+				<span class="goods-item-badge" wx:elif="{{item.GroupDiscount > 0}}">团购</span>
+				<span class="goods-item-badge" wx:elif="{{item.SkDiscount > 0 && item.GroupDiscount <= 0}}">秒杀</span>
+				<span class="goods-item-badge" wx:else></span>
+
+			</navigator>
+		</view>
+
+		<!-- <view class="goods-item">
+			<navigator url="../../goods/goodsdetail/goodsdetail">
+				<view class="goods-img">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+				</view>
+				<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+				<view class="goods-price">
+					<b>￥234.2</b>
+					<view>23432人付款</view>
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/scart_add.png" />
+				</view>
+				<span class="goods-item-badge">团</span>
+			</navigator>
+		</view> -->
+
+
+
+
+	</view>
+
+
+
+</view>
+
+<!--店铺底部导航-->
+<shopNavBottom id="ShopNavBottom" shop-id="{{shopID}}" api-web-doamin="{{apiWebDoamin}}" bindimshopwap="buildBuyerGoToImSysURL_ShopWap"  />

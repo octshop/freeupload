@@ -1,0 +1,370 @@
+/* pages/start/index/index.wxss */
+
+/*=================首页=================*/
+
+pages {
+  background: #e2e2e2;
+}
+
+/*头部导航*/
+.oct-header {
+  height: 35px;
+  border-bottom: 1px solid #ededed;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+  .oct-header .nav-item {
+      /*    border: 1px solid #e4e4e4;*/
+      /*padding: 5px 6px;*/
+      height: 35px;
+      overflow: hidden;
+      /*    border-radius: 15px;*/
+      font-size: 12px;
+      width: 25%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+
+  .oct-header .nav-item-current {
+      background: #5FC900;
+      color: white;
+      font-weight: bold;
+  }
+
+      .oct-header .nav-item-current:hover {
+          color: white;
+      }
+
+
+
+
+/*页脚*/
+.oct-footer {
+  overflow: hidden;
+}
+
+.oct-footer .footer-nav {
+  font-size: 14px;
+  text-align: center;
+  width: 50%;
+  overflow: hidden;
+  padding: 10px 0;
+  border-top: 1px solid #ededed;
+}
+
+.footer-nav-left {
+  border-right: 1px solid #efefef;
+}
+
+.footer-nav-current {
+  background: #5FC900;
+  color: white;
+  font-weight: bold;
+}
+
+
+
+/*-----------主体内容-----------------*/
+.oct-content {
+  padding-bottom: 0;
+}
+
+  .oct-content .other-content {
+      margin-bottom: 0px;
+      font-size: 12px;
+      overflow: hidden;
+  }
+
+.other-content-title {
+  background: #55b500;
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px #b7b7b7;
+}
+
+.other-content-desc {
+  background: white;
+  padding: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 8px #b7b7b7;
+}
+/*-------轮播区--------*/
+.oct-slider {
+  position: relative;
+  margin-top: 45px;
+}
+
+.sliderMainContent {
+  height: 170px;
+  overflow: hidden;
+}
+
+.content-slider li {
+  height: 170px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-pager-content {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: white;
+  color: #808080;
+  border-radius: 5px;
+  padding: 0 4px;
+  filter: alpha(Opacity=80);
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+
+.img-slider image {
+  width: 100%;
+  height: 170px;
+  overflow:hidden;
+}
+
+/*其他的内容，描述*/
+.other-content {
+  clear: both;
+  display: block;
+  padding: 3px;
+  overflow: hidden;
+  background: #e2e2e2;
+  padding-top: 5px;
+}
+
+.client-type-main {
+  background: #55b500;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.client-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: -3px;
+}
+
+  .client-type view {
+      width: 25%;
+      overflow: hidden;
+  }
+
+.client-item {
+  width: 25%;
+  height: 95px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 10px;
+  padding-top: 2px;
+  border-right: 1px dashed #5FC900;
+}
+
+  .client-item view {
+      width: 100%;
+      height: 50px;
+      text-align: center;
+  }
+
+  .client-item image {
+      width: 40px;
+      height: 40px;
+  }
+
+/*系统演示*/
+.client-type-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  border-bottom: 1px dashed #5FC900;
+  margin-bottom: 10px;
+  padding-bottom: 3px;
+  align-items:center;
+}
+.client-hint-title{
+  font-size:14px;
+  font-weight:bold;
+}
+/*特色介绍Item*/
+.item-desc-content {
+  padding: 6px;
+  background: white;
+  margin-top: 8px;
+  border-radius: 5px;
+}
+
+.item-desc-title {
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ededed;
+  margin-bottom: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-desc-content .item-desc-title navigator {
+  color: #008aff;
+  font-size: 10px;
+  font-weight: normal;
+  display: block;
+  text-align: right;
+  width: 60px;
+  overflow: hidden;
+}
+
+.item-desc-img {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-top: 1px solid #ededed;
+  margin-top: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+  .item-desc-img image {
+      width: 25%;
+  }
+
+/*询问的版权信息区*/
+.bottom-copyright {
+  width: 100%;
+  overflow: hidden;
+  clear: both;
+  font-size: 14px;
+  background: #414141;
+  margin-top: 20px;
+  color: white;
+  padding-bottom: 20px;
+  padding-top: 15px;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+  .bottom-copyright .bottom-nav-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #4e4e4e;
+      padding-bottom: 15px;
+  }
+
+.bottom-nav-list navigator {
+  color: white;
+  display: block;
+  border: 1px solid #7e7e7e;
+  padding: 2px 8px;
+  border-radius: 5px;
+  background: #5b5b5b;
+  font-size: 14px;
+}
+
+.bottom-copyright-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-bottom: 1px solid #4e4e4e;
+  padding-bottom: 10px;
+}
+
+  .bottom-copyright-top .footer-mid-item {
+      text-align: center;
+      color: #ffffff;
+  }
+
+.footer-mid-item image {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  margin-top: -10px;
+}
+
+.footer-mid-item navigator {
+  display: block;
+  color: #ffffff;
+}
+/*具体版权内容*/
+.bottom-copyright-bottom view {
+  padding: 20px;
+  padding-top: 8px;
+  padding-bottom: 0;
+  text-align: center;
+  color: #d9d9d9;
+}
+
+.bottom-copyright-bottom .copyright-address {
+  padding-top: 5px;
+}
+
+.copyright-visit-pc {
+  color: white;
+  display: block;
+  border: 1px solid #7e7e7e;
+  padding: 2px 8px;
+  border-radius: 5px;
+  background: #5b5b5b;
+  text-align: center;
+  margin: 0 auto;
+  width: 200px;
+  margin-top: 10px;
+}
+
+  .copyright-visit-pc:hover {
+      color: white;
+  }
+/*我们的服务*/
+.footer-service {
+  border-top: 1px solid #4e4e4e;
+  border-bottom: 1px solid #4e4e4e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px;
+  color: #cacaca;
+}
+
+.footer-service-item {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow: hidden;
+  border-bottom: 1px solid #4e4e4e;
+}
+
+  .footer-service-item image {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      margin-left: 10px;
+  }
+.footer-cx{
+  font-weight: bold;
+}
+
+
+  /*每页询问的关键字与标签*/
+.label-key-word {
+  text-align: center;
+  padding: 10px;
+  overflow: hidden;
+  padding-bottom: 0;
+  color: #b7b7b7;
+}

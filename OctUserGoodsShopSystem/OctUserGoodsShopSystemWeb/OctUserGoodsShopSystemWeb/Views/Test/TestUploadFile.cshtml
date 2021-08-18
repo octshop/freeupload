@@ -1,0 +1,107 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Http上传文件到远程服务器测试</title>
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+    
+
+
+</head>
+<body>
+    
+
+    <div style="padding: 10px; text-align: center">
+
+        <h2>上传图片文件到远程服务器</h2>
+        <!--<input id="fileupload" type="file" name="files[]" data-url="fileUpload.ashx" multiple>-->
+
+        <input id="fileupload" type="file" name="files[]" multiple>
+
+
+        <div id="fileUploadList"></div>
+
+        <div style="padding:10px;">
+            上传的进度：
+            <div id="progress" class="progress-bar" style="width: 1%; height: 30px; background: #cc4b2c"></div>
+        </div>
+
+
+    </div>
+
+
+    <!------------------初始化框架----------------->
+    <script type="text/javascript">
+
+
+        $(function () {
+
+
+            $('#fileupload').fileupload({
+                url: "../Test/UploadFile",
+                //dataType: 'json',
+                dataType: "text",
+
+                //------------处理上传成功后的事件------------//
+                done: function (e, data) {
+
+                    //------遍历其中的各各对象------//
+                    //                var obj =data;//上面复制的data
+                    //                $.each(obj, function(key, val) {
+                    //                    console.log(key);//对象名称
+                    //                    console.log(obj[key]);//对象值
+                    //                });
+
+                    //上传成功后，将上传后文件内容返回过来
+                    //                $.each(data.result.files, function (index, file) {
+                    //                    $('#fileUploadList').text(file.name).appendTo('#fileupload');
+                    //
+                    //                });
+
+                    //-------------此处是返回后后台文件输出的内容----------------//
+                    console.log(data.result);
+                    alert(data.result);
+
+                },
+
+                //---------------处理上传进度的方法-------------//
+                progressall: function (e, data) {
+
+                    console.log("progressall 执行");
+
+                    var progress = parseInt(data.loaded / data.total * 100, 10);
+                    $('#progress').css(
+                            'width',
+                            progress + '%'
+                    );
+
+                    //输出进度
+                    console.log("上传的进度：" + progress);
+
+                    if (progress >= 100) {
+                        //alert("上传成功！");
+                    }
+
+
+                }
+            }).prop('disabled', !$.support.fileInput)
+                    .parent().addClass($.support.fileInput ? undefined : 'disabled');
+
+
+        });
+    </script>
+
+
+
+
+</body>
+</html>

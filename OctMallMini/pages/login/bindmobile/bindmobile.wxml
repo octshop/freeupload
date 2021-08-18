@@ -1,0 +1,18 @@
+<!--pages/login/bindmobile/bindmobile.wxml-->
+<view class="main-content">
+  <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/login-bindmobile.png"></image>
+  <view class="desc-title">
+    手机号登录
+  </view>
+  <view class="desc-sub-title">
+    您需要手机号登录才能使用系统功能!
+  </view>
+  <view>
+    <button class="btn-user-iinfo" type="primary" open-type="getPhoneNumber"
+    bindgetphonenumber="getPhoneNumber" style="background:#FF6A00">立即登录</button>
+    <button class="btn-user-center" type="default" bindtap="navigateSwitchToURL" data-open-type-url="switchTab" data-navigate-url="../../tabbar/index/index">商城首页</button>
+
+
+  </view>
+
+</view>

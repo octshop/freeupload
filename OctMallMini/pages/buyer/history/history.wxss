@@ -1,0 +1,77 @@
+/* pages/buyer/history/history.wxss */
+.history-list .history-goods {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #F7F7F7;
+  padding: 10px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  background: white;
+  font-size: 24rpx;
+}
+.history-item-right {
+  width: 100%;
+}
+.history-item-right view {
+  padding-top: 2px;
+}
+
+.history-item-left {
+  margin-right: 8px;
+}
+.history-item-top{
+  height: 75rpx;
+}
+  .history-item-left image {
+      width: 80px;
+      height: 80px;
+      border-radius: 10rpx;
+  }
+
+.history-item-mid {
+  color: #c8c8c8
+}
+
+.history-item-bottom {
+  color: #FE5C13;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-same {
+  border: 1px solid #c8c8c8;
+  border-radius: 20px;
+  background: no-repeat;
+  color: #c8c8c8;
+  font-size: 12px;
+  padding: 5rpx 20rpx;
+}
+
+.btn-scart {
+  border: 1px solid #FF6700;
+  padding: 0px 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
+  .btn-scart image {
+      width: 15px;
+      height: 15px;
+  }
+
+.history-title {
+  margin-top: 8px;
+  background: white;
+  border-bottom: 1px solid #D6D6D6;
+  padding-bottom: 10rpx;
+  padding:10rpx 20rpx;
+}

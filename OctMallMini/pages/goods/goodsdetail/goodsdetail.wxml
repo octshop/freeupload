@@ -1,0 +1,865 @@
+<!--pages/goods/goodsdetail/goodsdetail.wxml-->
+<!-- navbar -->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="{{GoodsTitleShow}}" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 子导航 -->
+<view class="nav-bar-sub" style="top:{{navbarHeight}}px">
+	<view data-tab="1" bindtap="chgTab">
+		<text class="{{navTabIndex==1 ? 'nav-bar-sub-current' : ''}}">商品</text>
+	</view>
+	<view data-tab="2" bindtap="chgTab">
+		<text class="{{navTabIndex==2 ? 'nav-bar-sub-current' : ''}}">详情</text>
+	</view>
+	<view data-tab="3" bindtap="chgTab">
+		<text class="{{navTabIndex==3 ? 'nav-bar-sub-current' : ''}}">评价</text>
+	</view>
+</view>
+<!-- 商品详情切换 -->
+<view wx:if="{{navDetailIsShow}}" class="oct-content-detail-nav" style="top:{{navbarHeight + 35}}px">
+	<view class="{{chgGoodsDescTab==1 ? 'oct-content-detail-nav-current':''}}" bindtap="chgGoodsDescTabView"
+		data-tab-num="1">
+		商品介绍
+	</view>
+	<view class="{{chgGoodsDescTab==2 ? 'oct-content-detail-nav-current':''}}" bindtap="chgGoodsDescTabView"
+		data-tab-num="2">
+		规格参数
+	</view>
+	<view class="{{chgGoodsDescTab==3 ? 'oct-content-detail-nav-current':''}}" bindtap="chgGoodsDescTabView"
+		data-tab-num="3">
+		包装售后
+	</view>
+</view>
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!-- ===================商品信息======================== -->
+	<view class="oct-content-goods" style="display:{{navTabIndex==1 ? 'normal':'none'}}">
+
+		<!-- 轮播区域区域 -->
+		<view class='carousel'>
+			<swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8"
+				autoplay="true" interval='2000' circular='true'>
+				<block wx:for="{{loadSliderContent_Data.GoodsImgList}}" wx:key="key">
+					<swiper-item data-url='{{item.GoodsID}}' bindtap='previewImg' data-pre-index='{{index}}'>
+						<image class="carouselImg" src='//{{item.ImgPath}}' mode='aspectFill'></image>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+		<!--可选规格-->
+		<view class="spec-list" id="SpecList" wx:if="{{specPropImgIsShow}}">
+			<view class="spec-list-left">
+				可选<br />{{specPropImgArr.length}}
+			</view>
+			<view class="spec-list-right">
+				<view class="spec-list-item" id="SpecListItemview">
+					<image wx:for="{{specPropImgArr}}" src="//{{item}}" bindtap='previewImgSpecProp' data-pre-index='{{index}}' />
+				</view>
+			</view>
+		</view>
+
+		<!--赠品列表-->
+		<view class="gift-list" id="GiftListview" wx:if="{{giftIDArrMsg.length}}">
+			<view class="gift-list-left">
+				赠品<br />{{giftIDArrMsg.length}}
+			</view>
+			<view class="gift-list-right" id="GiftListItemview">
+
+				<navigator url="../freebiedetail/freebiedetail?GIID={{item.GiftID}}" wx:for="{{giftIDArrMsg}}">
+					<view class="goods-image">
+						<image src="//{{item.ImgURL}}" />
+					</view>
+					<view>
+						{{item.GiftName}}({{item.GiftNum}}件)
+					</view>
+				</navigator>
+
+
+			</view>
+		</view>
+
+		<!--限时秒杀-->
+		<view class="sec-kill-title" id="SecKillTitle" wx:if="{{loadGoodsMsg_Data.SecKillMsg.SkDiscount > 0}}">
+			<view class="sec-kill-left" id="SecKillLeft">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/clocktimer.png" />
+				{{secKillTypeTxt}}
+			</view>
+			<view class="sec-kill-mid" id="SecKillMid">
+				<view wx:if="{{secKillTypeTxt=='限时秒杀' && countDownTimerObj.isOver==false}}">
+					<span>{{countDownTimerObj.day}}</span>天
+					<span>{{countDownTimerObj.hour}}</span>:
+					<span>{{countDownTimerObj.minute}}</span>:
+					<span>{{countDownTimerObj.second}}</span>
+				</view>
+				<view wx:if="{{secKillTypeTxt=='限时秒杀' && countDownTimerObj.isOver==true}}" class="second-kill-end">
+					秒杀已结束
+				</view>
+
+			</view>
+			<view class="sec-kill-right">
+				<view class="sec-kill-right-top">
+					仅剩 <span id="SkStockNum">{{loadGoodsMsg_Data.SecKillMsg.SkStockNum}}</span> 件
+				</view>
+				<view class="sec-kill-right-bottom">
+					已抢 <span id="SkSaleNum">{{loadGoodsMsg_Data.SecKillMsg.SkSaleNum}}</span> 件
+				</view>
+			</view>
+		</view>
+
+
+		<!--价格区-->
+		<view class="goods-price">
+			<view class="goods-price-top">
+				<view class="price-top-left">
+					<b id="GoodsPriceLowB">￥{{goodsPriceShow}}</b><span id="MarketPrice"
+						style="font-size: 12px;">{{marketPriceName}}￥{{loadGoodsMsg_Data.GoodsMsg.MarketPrice}} </span> <span
+						class="badge-red-span" style="display:normal;"
+						wx:if="{{loadGoodsMsg_Data.ShopMsg.IsEntity=='true'}}">实体店</span>
+				</view>
+				<view class="price-top-right">
+					<view class="price-discount"><b id="Discount"
+							wx:if="{{loadGoodsMsg_Data.GoodsMsg.Discount>0}}">{{loadGoodsMsg_Data.GoodsMsg.Discount}}折</b></view>
+					<view class="goods-btn-fav" bindtap="addBuyerFocusFav">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/fav.png" />
+						收藏
+					</view>
+				</view>
+			</view>
+			<view class="goods-price-mid" id="GoodsTitle">
+				{{loadGoodsMsg_Data.GoodsMsg.GoodsTitle}}
+			</view>
+			<view class="goods-price-bottom">
+				<view id="SpecPropview">
+					{{defaultSpecPropShow}}
+				</view>
+				<view class="goods-support-msg" id="DeliveryShopExpense">
+					{{IsPayDeliveryShow}} <span style="background:#F5A000"
+						wx:if="{{loadGoodsMsg_Data.ShopMsg.IsSelfShop=='true'}}">自营</span><text style="padding-left:10rpx"></text>
+					<span>{{IsShopExpenseShow}}</span>
+				</view>
+			</view>
+		</view>
+
+		<!--选择规格-->
+		<view class="goods-spec" id="GoodsSpec" bindtap="openSlideBottom">
+			<view class="goods-spec-left">
+				<span>已选：</span><b id="SelGoodsSpecPropB">{{defaultSpecPropShow}}</b>
+			</view>
+			<view class="goods-spec-right">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/3point.png" />
+			</view>
+		</view>
+
+		<!--优惠券-->
+		<view class="goods-spec" id="GoodsCouponsSelview" style="display:normal;" bindtap="openSlideBottomCoupons">
+			<view class="goods-spec-left" id="GoodsCouponsTwoShow">
+				<span>领券：</span>
+
+				<block wx:for="{{goodsAbleUseCouponsListJson.GoodsAbleUseCouponsList}}">
+					<b wx:if="{{item.UseMoney != 0 && item.UseDiscount == 0 && item.ExpenseReachSum != 0 && index <2}}"
+						class="ticket-b">满{{item.ExpenseReachSum}}减{{item.UseMoney}}</b>
+					<b wx:elif="{{item.UseMoney != 0 && item.UseDiscount == 0 && item.ExpenseReachSum <= 0 && index <2}}"
+						class="ticket-b">{{item.UseMoney}}元券</b>
+					<b wx:elif="{{item.UseMoney == 0 && item.UseDiscount != 0 && item.ExpenseReachSum != 0 && index <2}}"
+						class="ticket-b">满{{item.ExpenseReachSum}}打{{item.UseDiscount}}折</b>
+					<b wx:elif="{{item.UseMoney == 0 && item.UseDiscount != 0 && item.ExpenseReachSum <= 0 && index <2}}"
+						class="ticket-b">{{item.UseDiscount}}折券</b>
+				</block>
+
+			</view>
+			<view class="goods-spec-right">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/3point.png" />
+			</view>
+		</view>
+
+		<!--返积分-->
+		<view class="goods-spec" id="GoodsCouponsSelview"
+			wx:if="{{loadGoodsMsg_Data.GoodsMsgExtra.ConfirmReceiReturnIntegral>0}}">
+			<view class="goods-spec-left">
+				<span>返积分：</span>
+			</view>
+			<view class="goods-spec-right">
+				<b style="font-weight:bold; color: #FF6600">+ {{loadGoodsMsg_Data.GoodsMsgExtra.ConfirmReceiReturnIntegral}}</b>
+			</view>
+		</view>
+
+		<!--到店消费/自取 店铺导航-->
+		<view class="shop-addr-nav" id="ShopAddrNav"
+			wx:if="{{loadGoodsMsg_Data.GoodsMsg.IsShopExpense=='true' || loadGoodsMsg_Data.GoodsMsg.IsShopExpense=='both'}}">
+			<view class="shop-addr-nav-left">
+				<view>
+					<span class="addr-nav-title">店铺地址：</span>
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/address.png" />
+					<span class="shop-nav-val-span" id="ShopAddrSpan">
+						{{loadGoodsMsg_Data.ShopMsg.RegionNameArr}}_{{loadGoodsMsg_Data.ShopMsg.DetailAddr}}
+					</span>
+				</view>
+				<view>
+					<span class="addr-nav-title">配送：</span>
+					<span class="shop-nav-val-span">到店消费/自取</span>
+					<span style="padding-left: 15px;" class="addr-nav-title">电话：</span>
+					<span class="shop-tel" bindtap="makePhoneCall"
+						data-phone-number="{{loadGoodsMsg_Data.ShopMsg.ShopMobile}}">{{loadGoodsMsg_Data.ShopMsg.ShopMobile}}</span>
+				</view>
+			</view>
+			<view class="shop-addr-nav-right" bindtap="openMiniMap" data-latitude="{{loadGoodsMsg_Data.ShopMsg.Latitude}}"
+				data-longitude="{{loadGoodsMsg_Data.ShopMsg.Longitude}}" data-name="{{loadGoodsMsg_Data.ShopMsg.ShopName}}"
+				data-address="{{loadGoodsMsg_Data.ShopMsg.DetailAddr}}">
+				<view>
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/addr_nav.png" /><br />
+					导航
+				</view>
+			</view>
+		</view>
+
+		<!--运费，送至-->
+		<view class="express-freight" id="ExpressFreight"
+			wx:if="{{loadGoodsMsg_Data.GoodsMsg.IsShopExpense=='false' || loadGoodsMsg_Data.GoodsMsg.IsShopExpense=='both'}}"
+			bindtap="openSelReceiAddrWin">
+
+			<view class="express-freight-top">
+				<view class="express-top-left">
+					<span>送至：</span>
+					<view class="express-address">
+						<view id="ExpressAddressview" wx:if="{{loadBuyerDefaultReceiAddr_Data.ReceiAddrRegion == '无收货地址'}}">
+							无收货地址，请添加…
+						</view>
+						<view wx:elif="{{selBuyerReceiAddrRegionName!=''}}">{{selBuyerReceiAddrRegionName}}</view>
+						<view>
+							<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/address.png" /> <b>现货</b>,我们将尽快安排发货或送货。
+						</view>
+					</view>
+				</view>
+				<view class="express-top-right">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/3point.png" />
+				</view>
+			</view>
+
+			<view class="express-freight-mid">
+				<span>运费：</span><b id="FreightMoneyB">{{freightMoneyShow}}</b>
+			</view>
+		</view>
+
+		<!--分享商品返佣-->
+		<view class="goods-spec share-goods-content" wx:if="{{loadGoodsMsg_Data.GoodsMsgExtra.ShareGoodsPersent > 0}}"
+			bindtap="openSlideShareGoodsWin" style="padding-top:8px; padding-bottom:8px;">
+			<view class="goods-spec-left">
+				<span>分享商品返佣：</span>
+			</view>
+			<view class="goods-spec-right">
+				<b style="color: #ff6a00; font-size:12px;" id="ShareMoneyValB"
+					wx:if="{{loadGoodsMsg_Data.GoodsMsg.IsShowShareMoney == 'true'}}">订单总额x{{loadGoodsMsg_Data.GoodsMsgExtra.CommissionPersent}}x{{loadGoodsMsg_Data.GoodsMsgExtra.ShareGoodsPersent}}</b>
+				<button class="btn-share-goods">立即分享</button>
+			</view>
+		</view>
+
+
+		<view class="goods-safe-desc">
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/gou.png" />店铺发货售后
+			</view>
+			<view class="goods-safe-desc-mid">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/gou.png" />快速发货
+			</view>
+			<view class="goods-safe-desc-mid">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/gou.png" />闪电退款
+			</view>
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/gou.png" />7天无理由退货
+			</view>
+		</view>
+
+		<!--评价内容-->
+		<view class="appraise-content">
+			<view class="appraise-content-top" data-tab="3" bindtap="chgTab">
+				<view class="appraise-title-left">
+					评价({{countAppraiseMsg_Data.CountAppraise}})
+				</view>
+				<view class="appraise-title-right">
+					好评度 <b style="padding-left:10rpx">{{goodAppraisePercent}}%</b>
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" />
+				</view>
+			</view>
+			<view class="appraise-content-mid">
+
+				<!--评价项-->
+				<view class="appraise-content-item" wx:for="{{initGoodsAppraiseSelTop_Data.ListGooAppraise}}">
+					<view class="appraise-list-1">
+						<view class="appraise-list-header">
+							<block wx:if="{{item.IsAnonymity == 'true' || item.HeaderImg == '' || item.HeaderImg == null}}">
+								<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_group.png" />匿名
+							</block>
+							<block wx:else>
+								<image src="{{item.HeaderImg}}" />{{item.UserNick}}
+							</block>
+						</view>
+						<view class="appraise-list-star">
+							<image wx:for="{{item.AppScore}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_red.png" />
+							<image wx:for="{{5-item.AppScore}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_gray.png" />
+						</view>
+					</view>
+					<view class="appraise-list-2">
+						{{item.AppContent}}
+					</view>
+					<view class="appraise-list-3"
+						wx:if="{{initGoodsAppraiseSelTop_Data.ListGooAppraiseImg[index].ListGooAppraiseImgs.length}}">
+						<view class="appraise-list-img">
+							<image wx:for="{{initGoodsAppraiseSelTop_Data.ListGooAppraiseImg[index].ListGooAppraiseImgs}}"
+								src="//{{item.ImgUrl}}" bindtap="previewImgGoodsAppraise" data-appimg-id="{{item.AppImgID}}" />
+						</view>
+						<view class="appraise-list-count">
+							共{{initGoodsAppraiseSelTop_Data.ListGooAppraiseImg[index].ListGooAppraiseImgs.length}}张
+						</view>
+					</view>
+					<view class="appraise-list-4">
+						{{item.SpecParamVal}}
+					</view>
+				</view>
+
+				<!--评价项-->
+				<!-- <view class="appraise-content-item">
+					<view class="appraise-list-1">
+						<view class="appraise-list-header">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/01.jpg" />美美的呀
+						</view>
+						<view class="appraise-list-star">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_red.png" />
+							<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_red.png" />
+							<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_red.png" />
+							<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_gray.png" />
+							<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_gray.png" />
+						</view>
+					</view>
+					<view class="appraise-list-2">
+						穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的
+						，超有气质的呢穿的美美的，超有气质的呢
+					</view>
+					<view class="appraise-list-3">
+						<view class="appraise-list-img">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/01.jpg" />
+							<image src="{{apiWebDoamin}}/Assets/Imgs/02.jpg" />
+							<image src="{{apiWebDoamin}}/Assets/Imgs/03.jpg" />
+							<image src="{{apiWebDoamin}}/Assets/Imgs/01.jpg" />
+						</view>
+						<view class="appraise-list-count">
+							共24张
+						</view>
+					</view>
+					<view class="appraise-list-4">
+						黑色（7厘米），37码
+					</view>
+				</view> -->
+
+				<view class="appraise-content-bottom" data-tab="3" bindtap="chgTab">
+					<view class="btn-appraise">查看全部评价</view>
+				</view>
+
+
+
+			</view>
+		</view>
+
+
+		<!--店铺信息-->
+		<view class="shop-msg" bindtap="navigateToURL"
+			data-navigate-url="../../../pages/shop/index/index?SID={{loadShopBarMsg_Data.ShopMsg.ShopID}}">
+			<view class="shop-msg-1">
+				<view class="shop-msg-left">
+					<image src="//{{loadShopBarMsg_Data.ShopMsg.ShopHeaderImg}}" />
+				</view>
+				<view class="shop-msg-right">
+					<view class="shop-right-top">
+						<view class="shop-name-msg">{{loadShopBarMsg_Data.ShopMsg.ShopName}}</view>
+						<span wx:if="{{loadShopBarMsg_Data.ShopMsg.IsSelfShop == 'true'}}" class="shop-label">自营店</span>
+						<span class="shop-label" wx:for="{{shopLabelArr}}">{{item}}</span>
+						<span class="shop-arrow">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/icon/arrows_right.png" />
+						</span>
+					</view>
+					<view class="shop-right-mid">
+						综合: <b>{{loadShopBarMsg_Data.ShopAppScoreList.ShopScoreAvg}}</b>
+						物流: <b>{{loadShopBarMsg_Data.ShopAppScoreList.ExpressScoreAvg}}</b>
+						商品: <b>{{loadShopBarMsg_Data.ShopAppScoreList.ConformityScoreAvg}}</b>
+						服务: <b>{{loadShopBarMsg_Data.ShopAppScoreList.AttitudeScoreAvg}}</b>
+						配送: <b>{{loadShopBarMsg_Data.ShopAppScoreList.DeliverymanScoreAvg}}</b>
+					</view>
+					<view class="shop-right-bottom">
+						<b>{{loadShopBarMsg_Data.ShopFavCount}}</b>人关注
+					</view>
+
+				</view>
+			</view>
+
+			<view class="shop-msg-2">
+				{{loadShopBarMsg_Data.ShopMsg.MajorGoods}}
+			</view>
+
+			<view class="shop-msg-3">
+				<view class="shop-msg-ul">
+
+					<view wx:for="{{loadShopBarMsg_Data.PreListGoodsMsg}}">
+						<navigator url="../../../pages/goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+							<image src="//{{item.CoverImgPath}}" />
+							<text style="display:block">{{item.GoodsTitle}}</text>
+						</navigator>
+					</view>
+
+					<!-- <view>
+						<navigator url="#">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/02.jpg" /><br />
+							2018年冬季新款
+						</navigator>
+					</view> -->
+
+				</view>
+			</view>
+
+			<view class="shop-msg-4">
+
+				<navigator class="customer-service" catchtap="buildBuyerGoToImSysURL_ShopWap">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/customer.png" />
+					联系客服
+				</navigator>
+				<view style="width:50rpx"></view>
+				<navigator url="../../../pages/shop/index/index?SID={{loadShopBarMsg_Data.ShopMsg.ShopID}}" class="go-shop">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_small.png" />
+					进店逛逛
+				</navigator>
+
+			</view>
+		</view>
+
+
+		<!--查看商品图文详情-->
+		<view class="view-appraise-img" data-tab="2" bindtap="chgTab">
+			<view>查看商品图文详情</view>
+		</view>
+
+
+
+	</view>
+
+	<!--================= 商品详情 ==================-->
+	<view class="oct-content-detail" style="display:{{navTabIndex==2 ? 'normal':'none'}}">
+		<!-- 商品介绍 -->
+		<view class='product-content' wx:if="{{chgGoodsDescTab==1}}">
+			<import src="../../../wxParse/wxParse.wxml" />
+			<view class="wxParse">
+				<scroll-view style="height:100%;" scroll-y='true'>
+					<template is="wxParse" data="{{wxParseData:detail_content.nodes}}" />
+				</scroll-view>
+			</view>
+		</view>
+		<!-- 规格参数 -->
+		<view class="product-spec-prop" wx:if="{{chgGoodsDescTab==2}}">
+
+			<!-- 表格的实现 -->
+			<view class="table-v">
+
+				<view class="table-tr" wx:for="{{goodsSpecPropTable}}">
+					<view class="table-td table-td-sep">
+						{{item.SpecPropName}}
+					</view>
+					<view class="table-td table-td-gray">
+						{{item.SpecPropVal}}
+					</view>
+				</view>
+
+			</view>
+
+		</view>
+		<view class="product-bz-content" wx:if="{{chgGoodsDescTab==3}}">
+			{{loadGoodsDescPropPackAfterSale_Data.PackAfterSaleDesc}}
+		</view>
+
+	</view>
+
+	<!--================ 商品评价=================== -->
+	<view class="oct-content-appraise" style="display:{{navTabIndex==3 ? 'normal':'none'}}">
+		<!--评价标题-->
+		<view class="appraise-title">
+			<view class="appraise-title-top">
+				<view class="appraise-title-count">
+					评价总数：<b>{{countAppraiseMsg_Data.CountAppraise}}</b>
+				</view>
+				<view class="appraise-title-good">
+					好评度：<b>{{goodAppraisePercent}}%</b>
+				</view>
+			</view>
+			<view class="appraise-title-bottom">
+				<view class="appraise-tab {{goodsAppraiseTabNum==0 ? 'appraise-tab-current':''}}" bindtap="chgAppraiseTab"
+					data-tab-num="0">
+					全部<b>{{countAppraiseMsg_Data.CountAppraise}}+</b>
+				</view>
+				<view class="appraise-tab {{goodsAppraiseTabNum==1 ? 'appraise-tab-current':''}}" bindtap="chgAppraiseTab"
+					data-tab-num="1">
+					好评<b>{{countAppraiseMsg_Data.CountGoodsAppraise}}+</b>
+				</view>
+				<view class="appraise-tab {{goodsAppraiseTabNum==2 ? 'appraise-tab-current':''}}" bindtap="chgAppraiseTab"
+					data-tab-num="2">
+					中评<b>{{countAppraiseMsg_Data.CountMidAppraise}}</b>
+				</view>
+				<view class="appraise-tab {{goodsAppraiseTabNum==3 ? 'appraise-tab-current':''}}" bindtap="chgAppraiseTab"
+					data-tab-num="3">
+					差评<b>{{countAppraiseMsg_Data.CountBadAppraise}}</b>
+				</view>
+				<view class="appraise-tab {{goodsAppraiseTabNum==4 ? 'appraise-tab-current':''}}" bindtap="chgAppraiseTab"
+					data-tab-num="4">
+					有图<b>{{countAppraiseMsg_Data.CountAppraiseImgs}}</b>
+				</view>
+			</view>
+		</view>
+
+		<!--评价列表-->
+		<view class="appraise-list">
+
+			<!--评价列表项-->
+			<view class="appraise-item" wx:for="{{numberPage_Page.DataPage}}">
+
+				<view class="appraise-item-user">
+					<view class="appraise-user-left">
+						<view class="appraise-user-left-img">
+							<block wx:if="{{item.IsAnonymity == 'true' || item.HeaderImg == '' || item.HeaderImg == null}}">
+								<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_group.png" />
+							</block>
+							<block wx:else>
+								<image src="{{item.HeaderImg}}" />
+							</block>
+						</view>
+						<view class="appraise-user-left-txt">
+							<view wx:if="{{item.IsAnonymity == 'true' || item.HeaderImg == '' || item.HeaderImg == null}}">匿名
+							</view>
+							<view wx:else>{{item.UserNick}}</view>
+							<view>
+								<image wx:for="{{item.AppScore}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_red.png" />
+								<image wx:for="{{5-item.AppScore}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_gray.png" />
+							</view>
+						</view>
+					</view>
+					<view class="appraise-user-right">
+						{{item.WriteDate}}
+					</view>
+				</view>
+
+				<view class="appraise-item-content">
+
+					<view class="appraise-item-content-txt">
+						{{item.AppContent}}
+					</view>
+					<view class="appraise-item-content-img">
+						<image wx:for="{{numberPage_Page.ListGooAppraiseImg[index].ListGooAppraiseImgs}}" src="//{{item.ImgUrl}}"
+							bindtap="previewImgAllGoodsAppraise" data-appimg-id="{{item.AppImgID}}" />
+						<view class="appraise-img-count">
+							共{{numberPage_Page.ListGooAppraiseImg[index].ListGooAppraiseImgs.length}}张
+						</view>
+					</view>
+					<view class="appraise-item-content-spec">
+						<view> {{item.SpecParamVal}}</view>
+						<!-- <view class="appraise-give-like">
+							<b>
+								<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/good.png" />3</b>
+						</view> -->
+					</view>
+					<!-- <view class="appraise-shop-back">
+						这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容
+						这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容
+					</view> -->
+				</view>
+			</view>
+
+
+			<!--评价列表项-->
+			<!-- <view class="appraise-item">
+
+				<view class="appraise-item-user">
+					<view class="appraise-user-left">
+						<view class="appraise-user-left-img">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/02.jpg" />
+						</view>
+						<view class="appraise-user-left-txt">
+							<view>IT独孤键客</view>
+							<view>
+								<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_red.png" />
+								<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_red.png" />
+								<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_red.png" />
+								<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_gray.png" />
+								<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/star_gray.png" />
+							</view>
+						</view>
+					</view>
+					<view class="appraise-user-right">
+						2018-05-18
+					</view>
+				</view>
+
+				<view class="appraise-item-content">
+
+					<view class="appraise-item-content-txt">
+						用户评价的内容呀，用户评价的内容呀，用户评价的内容呀。
+					</view>
+					<view class="appraise-item-content-img">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/01.jpg" />
+						<image src="{{apiWebDoamin}}/Assets/Imgs/02.jpg" />
+						<image src="{{apiWebDoamin}}/Assets/Imgs/03.jpg" />
+						<image src="{{apiWebDoamin}}/Assets/Imgs/01.jpg" />
+						<view class="appraise-img-count">
+							共24张
+						</view>
+					</view>
+					<view class="appraise-item-content-spec">
+						<view>规格参数</view>
+						<view class="appraise-give-like">
+							<b>
+								<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/good.png" />3</b>
+						</view>
+					</view>
+					<view class="appraise-shop-back">
+						这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容
+						这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容
+					</view>
+				</view>
+			</view> -->
+
+
+
+
+		</view>
+	</view>
+
+
+
+	<view style="height: 160rpx">
+	</view>
+
+</view>
+
+
+
+<!--页脚-->
+<view class="oct-footer">
+	<view>
+		<span class="customer-service-footer" bindtap="buildBuyerGoToImSysURL_GoodsWap">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/service.png" />
+			客服
+		</span>
+	</view>
+	<view>
+		<navigator url="../../../pages/shop/index/index?SID={{loadShopBarMsg_Data.ShopMsg.ShopID}}">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop.png" />
+			店铺
+		</navigator>
+	</view>
+	<view>
+		<navigator open-type="switchTab" url="../../../pages/tabbar/scart/scart">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/scart.png" />
+			购物车
+			<!-- <view class="badge-view">13</view> -->
+		</navigator>
+	</view>
+	<view class="btn-scart" bindtap="openSlideBottom">
+		加入购物车
+	</view>
+	<view class="btn-order" bindtap="openSlideBottom">
+		{{btnOrderTxt}}
+	</view>
+</view>
+
+
+
+<!-- ================= 底部滑出的自定义窗口 =================== -->
+
+<!--商品规格属性选择窗口-->
+<sliderDownWin id="SliderDownWin_1" is-display-slide="{{isDisplaySlide}}" is-display-title="false"
+	slide-win-height="{{slideWinHeight}}" slide-win-title="">
+	<view slot="outwxml">
+
+		<view class="win-sel-spec-content">
+
+			<view class="win-sel-spec-top">
+				<view class="win-spec-top-left" style="display:normal;" wx:if="{{specPropImgPreSrc != ''}}">
+					<image id="SpecPropImgPre" src="//{{specPropImgPreSrc}}" />
+				</view>
+				<view class="win-spec-top-right">
+					<view class="win-spec-price-view" id="WinSpecPriceview">￥ {{goodsPriceCurrent}}</view>
+					<view id="WinGoodsIDview">商品编码：{{goodsId}}</view>
+					<view id="WinGoodsSpecPropview">当前选择：{{specPropSelName}}</view>
+				</view>
+				<text class="am-close" bindtap="closeSlideBottom">x</text>
+			</view>
+
+			<view class="win-sel-spec-mid" id="WinSelSpecMidview" wx:if="{{isSpecShowWin==true}}">
+
+				<view class="win-spec-type" id="WinSpecTitle" wx:if="{{isSpecShowWin==true}}">
+					{{loadGoodsMsg_Data.GoodsMsgExtra.SpecTitle}}
+				</view>
+				<view class="win-spec-list" id="WinSpeckList" wx:if="{{isSpecShowWin==true}}">
+
+					<span wx:for="{{loadSpecPropMsg_Data}}"
+						class="{{specObjArrCurrent[index].currentSelSpec ? 'current-sel-specprop':''}}" bindtap="selCurrentSpec"
+						data-spec-id="{{item.SpecID}}">{{item.SpecParamVal}}</span>
+
+				</view>
+
+				<view class="win-spec-type" id="WinPropTitle" wx:if="{{isPropShowWin==true}}">
+					{{loadGoodsMsg_Data.GoodsMsgExtra.SpecAttrName}}
+				</view>
+				<view class="win-spec-list" id="WinPropList" wx:if="{{isPropShowWin==true}}">
+					<view class="win-prop-item">
+
+						<span wx:for="{{propObjArrCurrent}}"
+							class="{{propObjArrCurrent[index].currentSelProp ? 'current-sel-specprop':''}}" bindtap="selCurrentProp"
+							data-prop-id="{{item.SpecID}}">{{item.SpecParamVal}}</span>
+
+					</view>
+				</view>
+
+			</view>
+
+			<view class="win-order-number">
+				<view class="win-title-number">数量</view>
+				<view class="win-txt-number" id="WinTxtNumber">
+					<view class="btn-reduce" id="BtnReduce" bindtap="addReduceOrderNum" data-exe-type="reduce">-</view>
+					<input class="input-order-number" id="InputOrderNumber" bindinput="bindInputOrderNum"
+						bindblur="bindBlurOrderNum" type="number" value="{{orderNumCurrent}}" />
+					<view class="btn-add" bindtap="addReduceOrderNum" data-exe-type="add">+</view>
+				</view>
+			</view>
+
+		</view>
+
+		<view class="win-btn-list">
+			<view class="win-btn-scart" bindtap="btnAddToSCartWin">
+				加入购物车
+			</view>
+			<view class="win-btn-order" bindtap="btnOrderNow">
+				{{btnOrderTxt}}
+			</view>
+		</view>
+
+	</view>
+
+</sliderDownWin>
+
+
+<!--可用优惠券领取窗口-->
+<sliderDownWin id="SliderDownWin_1" is-display-slide="{{isDisplaySlideCoupons}}" is-display-title="false"
+	slide-win-height="{{slideWinHeightCoupons}}" slide-win-title="">
+	<view slot="outwxml">
+
+		<view class="win-ticket-content">
+
+			<view class="win-ticket-title">
+				优惠券
+				<text class="am-close" bindtap="closeSlideBottom">x</text>
+			</view>
+			<view class="win-ticket-integral">
+				<view>
+					领券
+				</view>
+				<view>
+					您的积分: --
+				</view>
+			</view>
+			<view class="win-ticket-list" style="height:{{slideWinHeightCoupons - 65}}px">
+
+				<view class="win-ticket-item {{ couponsStyleValObj[index].isGetCoupons ? 'win-ticket-item-gray':'' }}"
+					wx:for="{{goodsAbleUseCouponsListJson.GoodsAbleUseCouponsList}}" bindtap="buyerGetCoupons"
+					data-coupons-id="{{item.CouponsID}}">
+					<view class="win-ticket-item-left">
+
+						<view wx:if="{{item.UseMoney>0 && item.UseDiscount<=0}}"><b>￥{{item.UseMoney}}</b> 店铺券 (需积分:0)</view>
+						<view wx:if="{{item.UseMoney<=0 && item.UseDiscount>0}}"><b>{{item.UseDiscount}}折</b> 店铺折扣券(需积分:0)
+						</view>
+						<view wx:if="{{item.ExpenseReachSum>0}}">消费满{{item.ExpenseReachSum}}使用</view>
+						<view wx:if="{{item.ExpenseReachSum<=0}}">无消费限制</view>
+						<view wx:if="{{item.UseTimeRange!=''}}" class="coupons-usetime-win">
+							有效期:{{goodsAbleUseCouponsListJson.ExtraData[index].UseTimeRangeFormat}}
+							({{goodsAbleUseCouponsListJson.ExtraData[index].UseTimeRangeDiffDay}}天)</view>
+						<view wx:if="{{item.UseTimeRange==''}}" class="coupons-usetime-win">有效期:永久有效</view>
+
+					</view>
+					<view class="win-ticket-item-right">
+						{{couponsStyleValObj[index].btnValTxt}}
+					</view>
+				</view>
+
+			</view>
+		</view>
+	</view>
+</sliderDownWin>
+
+
+
+<!--收货地址选择窗口-->
+<sliderDownWin is-display-slide="{{isDisplaySlideReceiAddr}}" is-display-title="false"
+	slide-win-height="{{slideWinHeightReceiAddr}}" slide-win-title="">
+	<view slot="outwxml">
+
+		<view class="win-sel-receiaddr" style="height:{{slideWinHeightReceiAddr}}px; overflow: hidden;">
+			<view class="win-receiaddr-content" style="height:{{slideWinHeightReceiAddr}}px">
+				<view class="win-receiaddr-title">
+					配送至
+					<text class="am-close" bindtap="closeSlideBottom">x</text>
+				</view>
+				<view class="win-receiaddr-list" style="height:{{slideWinHeightReceiAddr - 70}}px">
+
+					<block wx:for="{{loadBuyerReceiAddrList_Data.DataPage}}">
+						<view wx:if="{{loadBuyerReceiAddrList_Data == ''}}">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/address.png" style="width:12px; height:12px" />
+							…无收货地址,请添加…
+						</view>
+						<view wx:if="{{loadBuyerReceiAddrList_Data.DataPage.length > 0}}" bindtap="selReceiAddrCurrent"
+							data-recei-addr-id="{{item.BReceiAddrID}}" data-region-code-arr="{{item.RegionCodeArr}}"
+							data-region-name-arr="{{item.RegionNameArr}}">
+							{{item.RegionNameArr}}_{{item.DetailAddr}}
+						</view>
+					</block>
+				</view>
+			</view>
+			<view class="win-receiaddr-btn">
+				<navigator wx:if="{{loadBuyerReceiAddrList_Data == ''}}" open-type="navigate"
+					url="../../../pages/buyer/receiaddr/receiaddrae/receiaddrae?type=add&backurl=pages/goods/goodsdetail/goodsdetail^GID~{{goodsId}}">
+					添加收货地址</navigator>
+				<navigator open-type="navigate"
+					url="../../../pages/buyer/receiaddr/receiaddrlist/receiaddrlist?type=sel&backurl=pages/goods/goodsdetail/goodsdetail^GID~{{goodsId}}"
+					wx:else>选择其他地址
+				</navigator>
+			</view>
+		</view>
+
+
+	</view>
+</sliderDownWin>
+
+
+<!--分享商品返佣 窗口-->
+<sliderDownWin is-display-slide="{{isDisplaySlideShare}}" is-display-title="true"
+	slide-win-height="{{slideBottomWinHeightShare}}" slide-win-title="分享商品返佣">
+	<view slot="outwxml">
+
+		<view class="win-share-cotnent">
+			<view class="win-scan-code">
+				<image
+					src="{{apiWebDoamin}}/ToolWeb/GetQrCodeImg.aspx?QrCodeContent={{getBuyerShareGoodsURL_Data.BuyerShareGoodsURL}}"
+					mode="aspectFill" bindtap="previewImgShow"
+					data-img-url="{{apiWebDoamin}}/ToolWeb/GetQrCodeImg.aspx?QrCodeContent={{getBuyerShareGoodsURL_Data.BuyerShareGoodsURL}}">
+				</image>
+			</view>
+			<view class="win-scan-txt">
+				单击二维码保存或发送给好友
+			</view>
+			<view class="win-share-url">
+				{{getBuyerShareGoodsURL_Data.BuyerShareGoodsURL}}
+			</view>
+			<view class="share-goods-btn">
+				<button bindtap="copyContentClipboard" style="width: 80%"
+					data-copy-content="{{getBuyerShareGoodsURL_Data.BuyerShareGoodsURL}}">复制商品分享链接,发给好友</button>
+			</view>
+
+
+		</view>
+
+	</view>
+</sliderDownWin>

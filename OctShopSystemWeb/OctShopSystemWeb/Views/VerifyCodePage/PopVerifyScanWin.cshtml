@@ -1,0 +1,87 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>弹出验证微信扫码窗口</title>
+    <script src="../Assets/Lib/WeiXin_JSSDK/jweixin-1.0.0.js"></script>
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBackUrl" value="@ViewBag.BackUrl" />
+    <!--是否在微信中-->
+    <input type="hidden" id="hidIsInWeiXinBrowse" value="@ViewBag.IsInWeiXinBrowse" />
+
+
+    <div>
+
+    </div>
+
+
+    <script type="text/javascript">
+
+        //判断是否在微信中
+        var IsInWeiXinBrowse = $("#hidIsInWeiXinBrowse").val().trim();
+
+
+        if (IsInWeiXinBrowse == "true") {
+
+
+            wx.config(@Html.Raw(ViewBag.mJsSkdConfig));
+
+            //-------------接口处理--------------//
+            wx.ready(function () {
+
+                //alert("微信JS-SDK Is Ready!");
+
+                //-----微信扫一扫-----//
+            @*$("#BtnOpenScan").click(function () {*@
+                wx.scanQRCode({
+                    needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                    scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                    success: function (res) {
+                        var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                        //$("#qrCodeContent").text(result);
+                        window.location.href = result;
+                    },
+                    cancel: function () {
+                        //alert("取消扫码");
+                        //回退
+                        window.history.back(-1);
+                    }
+                });
+            @*});*@
+
+            });
+
+            //--------错误处理----------//
+            wx.error(function (res) {
+
+                alert("接口验证失败，详细信息：\n" + JSON.stringify(res));
+
+                //返回URL
+                //window.location.href = $("#hidBackUrl").val().trim();
+
+                //回退
+                window.history.back(-1);
+
+            });
+
+        }
+        else {
+            //回退
+            window.history.back(-1);
+        }
+
+    </script>
+
+
+</body>
+</html>

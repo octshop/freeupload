@@ -1,0 +1,175 @@
+/* pages/buyer/myorder/myorder.wxss */
+/* 内容导航子菜单 */
+.oct-header-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  background: white;
+  width: 100%;
+}
+
+.oct-header-bottom-nav view {
+  width: 75px;
+  color: #000000;
+  text-align: center;
+  padding: 20rpx 5px;
+  font-size: 30rpx;
+}
+
+.oct-header-bottom-nav .nav-item-current {
+  color: red;
+}
+
+.oct-header-bottom-nav view image {
+  width: 12px;
+  height: 12px;
+}
+
+/* 主体内容 */
+.oct-content {
+  padding: 20rpx 0rpx;
+}
+
+/*订单列表*/
+.order-list {
+  margin-top: 0rpx;
+}
+
+.order-list .order-item {
+  background: white;
+  margin-bottom: 15rpx;
+}
+
+.order-item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.order-item-top navigator {
+  display: flex;
+  align-items: center;
+  /* background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat; */
+  background-size: 12px;
+  padding-right: 20px;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.order-item-top image {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.order-item-top .arrows-right {
+  width: 26rpx;
+  height: 26rpx;
+  margin-left: 10rpx;
+}
+
+.order-status-txt {
+  color: red;
+  font-size: 28rpx;
+}
+
+/*商品列表*/
+.order-item-mid {
+  background: #FAFAFA;
+  padding: 0 10px;
+  font-size: 26rpx;
+}
+
+.order-goods-item {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-bottom: 1px dashed #f4f4f4;
+}
+
+.goods-item-left {
+  padding-right: 10px;
+}
+
+.goods-item-left image {
+  width: 55px;
+  height: 55px;
+  border-radius: 2px;
+}
+
+.goods-item-mid {
+  width: 100%;
+  padding-right: 5px;
+}
+
+.goods-item-mid view {
+  display: block;
+}
+.goods-item-title{
+  height: 85rpx;
+}
+.goods-item-spec {
+  color: gray;
+  font-size: 10px;
+}
+
+.goods-item-right {
+  text-align: right;
+}
+
+.goods-item-ordernum {
+  color: gray;
+}
+
+.order-item-bottom {
+  text-align: right;
+  background: white;
+  padding: 8px 10px;
+  border-bottom: 1px solid #FAFAFA;
+  font-size: 24rpx;
+}
+
+.order-item-bottom b {
+  color: #ff0000;
+}
+
+.order-item-btn {
+  padding: 8px 10px;
+  background: white;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.order-item-btn view {
+  border: 1px solid #e0e0e0;
+  background: white;
+  border-radius: 30px;
+  padding: 4px 10px;
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+
+/*列表 -- 秒杀，拼团 -- 徽章*/
+.order-item-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+}
+.badge-label {
+  background: #ff6a00;
+  color: white;
+  border-radius: 10px;
+  padding: 2px 5px;
+  margin-right: 10px;
+  display: block;
+  font-size:10px;
+}

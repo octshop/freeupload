@@ -1,0 +1,110 @@
+﻿/*==================系统首页========================*/
+
+/*统计条*/
+.main-count {
+    clear: both;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.main-count-item {
+    width: 250px;
+    height: 80px;
+    overflow: hidden;
+    margin-right: 20px;
+    background: white;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: #fbfbfb;
+    border-radius: 10px;
+}
+
+.count-item-left {
+    background: #6CCAC9;
+    height: 100px;
+    width: 80px;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.count-item-right {
+    width: 170px;
+    font-size: 16px;
+    color: #808080;
+    text-align: center;
+    overflow: hidden;
+}
+
+.count-text {
+    color: #000000;
+    font-size: 30px;
+    padding-top: 2px;
+    padding-bottom: 0;
+    margin-bottom: -10px;
+}
+/*通知提示*/
+.main-notification {
+    padding: 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    background: #fbfbfb;
+    margin:20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 14px;
+    padding-bottom:5px;
+}
+.notification-bar{
+    padding: 5px 10px;
+    background: #ff6a00;
+    margin-right: 10px;
+    border-radius: 10px;
+    color:white;
+    cursor:pointer;
+    margin-bottom: 10px;
+}
+    .notification-bar:hover{
+        background: #ff0000;
+    }
+    .notification-bar i {
+        padding-right: 5px;
+    }
+.notification-bar:hover{
+    color:white;
+}
+/*今日统计*/
+.main-today {
+    padding: 15px;
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
+/*    background: #fbfbfb;*/
+    margin:20px 10px;
+}
+.today-count-title b{
+    font-size: 18px;
+}
+.today-count-item{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+}
+.count-item {
+    padding: 6px 15px;
+    background: #f2f2f2;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size:16px;
+    border-radius: 10px;
+    cursor:pointer;
+}
+    .count-item:hover{
+        border:1px solid #808080;
+    }
+    .count-item b {
+        color: #ff6a00;
+    }

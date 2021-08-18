@@ -1,0 +1,409 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title id="PageTitle">店铺首页</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Lib/lightslider/lightslider.css" rel="stylesheet" />
+    <link href="../Assets/Css/Shop/Index.css?v=3" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/lightslider/lightslider.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Shop/Index.js?v=5"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidShopID" value="@ViewBag.ShopID" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <input type="hidden" id="hidOctShopSystemWeb_AddrDomain" value="@ViewBag.OctShopSystemWeb_AddrDomain" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-top">
+            <div class="oct-header-left" onclick="window.location.href='../shop/ShopMsgDetail?SID=@ViewBag.ShopID'">
+                <img id="ShopHeaderImgVal" src="../Assets/Imgs/03.jpg" />
+            </div>
+            <div class="oct-header-mid">
+                <div class="header-mid-top" onclick="window.location.href='../shop/ShopMsgDetail?SID=@ViewBag.ShopID'" id="ShopName">
+                    @*店铺名称*@
+                </div>
+                <div class="header-mid-bottom" onclick="window.location.href='../shop/ShopMsgDetail?SID=@ViewBag.ShopID'">
+                    <span class="header-span-star" id="HeaderSpanStar">
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                    </span>
+                    <span class="header-span-val" id="AvgAppraiseScoreVal">
+                        4.0分
+                    </span>
+                    <span>
+                        粉丝数:
+                    </span>
+                    <span class="header-span-val" id="CountFansVal">
+                        0
+                    </span>
+                </div>
+            </div>
+            <div class="oct-header-right">
+                <div class="header-right-top">
+                    <div class="btn-focus" onclick="addBuyerFocusFav()">
+                        关注
+                    </div>
+                    <div class="btn-home" onclick="window.location.href='../Mall/Index'">
+                        <img src="../Assets/Imgs/Icon/navhome.png" />
+                    </div>
+                </div>
+                <div class="header-right-bottom">
+                    <span id="CountFavShopVal">0人</span>
+                    <a href="#" class="shop-man-a" id="ShopManA" style="display:none;">管理店铺</a>
+                </div>
+            </div>
+        </div>
+        <div class="oct-header-bottom">
+            <div class="nav-current">
+                <a href="../shop/index?SID=@ViewBag.ShopID">首页</a>
+            </div>
+            <div>
+                <a href="../shop/GoodsAll?SID=@ViewBag.ShopID">全部商品</a>
+            </div>
+            <div>
+                <a href="../shop/Activity?SID=@ViewBag.ShopID">活动优惠</a>
+            </div>
+            <div class="header-bottom-search">
+                <a href="../Shop/ShopSearch?SID=@ViewBag.ShopID">商品搜索</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!-- 轮播区域 -->
+        <div class="oct-slider" id="OctSlider" style="display:none;">
+
+            <div class="sliderMainContent" id="sliderMainContent" style="overflow:hidden;">
+
+                <ul id="content-slider" class="content-slider">
+                    @*<li>
+                            <a href="javascript:void(0)" target="_blank">
+                                <div class="img-slider img-slider-1">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </div>
+                            </a>
+                        </li>*@
+                </ul>
+
+            </div>
+
+            <div class="slider-pager-content">
+                <div id="SliderCountDiv">0/0</div>
+            </div>
+        </div>
+
+
+        <!--买单区域-->
+        @*<div class="pay-bill">
+            <div class="pay-bill-left" onclick="window.location.href='../Aggregate/Index?SID=@ViewBag.ShopID'">
+                <div class="btn-pay-bill">
+                    <img src="../Assets/Imgs/Icon/aggre_direct.png" />直接买单
+                </div>
+            </div>
+            <div class="pay-bill-right">
+                <div id="ShopMobileA2">
+                    <img src="../Assets/Imgs/Icon/tel_fix.png" />电话
+                </div>
+                <div id="CusServiceFooter2">
+                    <img src="../Assets/Imgs/Icon/customer.png" />客服
+                </div>
+            </div>
+        </div>*@
+
+
+        <!--导航地址-->
+        <div class="address-nav" id="AddressNav" style="display:none;">
+            <div class="address-nav-left">
+                <img src="../Assets/Imgs/Icon/buyer_addr.png" />
+            </div>
+            <div class="address-nav-mid" id="DetailAddrDiv">
+                @*湖南省长沙市芙蓉区五一西路153湖南省长沙市芙蓉区五一西路153<span> (距您<b>23.34km</b>)</span>*@
+            </div>
+            <div class="address-nav-right">
+                @*<div>
+                    <a href="#" id="ShopMobileA">
+                        <img src="../Assets/Imgs/Icon/tel_fix.png" /><br />
+                        电话
+                    </a>
+                </div>*@
+                <div>
+                    <a href="javascript:void(0)" onclick="openShopNavWin()">
+                        <img src="../Assets/Imgs/Icon/addr_nav.png" /><br />
+                        导航
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--优惠券-->
+        <div class="coupons-content" id="CouponsContentDiv" style="display:none;">
+            <div class="coupons-list" id="CouponsListDiv">
+                @*<div class="coupons-item">
+                        <b>&#165;23243.23</b>
+                        <div>
+                            满243元可用
+                        </div>
+                        <span>点击领取>></span>
+                    </div>*@
+
+            </div>
+            <div class="coupons-more" onclick="window.location.href='../shop/Activity?SID=@ViewBag.ShopID'">
+                还有更多>>
+            </div>
+        </div>
+
+        <!--排行榜-->
+        <div class="order-content" id="OrderSortListDiv" style="display:none;">
+            <div class="order-title">
+                <div class="order-title-left">
+                    排行榜
+                </div>
+                <div class="order-title-right">
+                    <span id="SaleCountSortTab" onclick="chgSortListTab('1')" class="order-current">销量排行</span>
+                    <span id="FavCountSortTab" onclick="chgSortListTab('2')">关注排行</span>
+                </div>
+            </div>
+            <div class="order-list" id="SaleCountSortList" style="display:normal;">
+                @*<div class="order-item">
+                        <img src="../Assets/Imgs/04.jpg" />
+                        <div>
+                            商品标题商品标题商品标题商品标题
+                        </div>
+                        <span>
+                            20302付款
+                        </span>
+                    </div>*@
+            </div>
+
+            <div class="order-list" id="FavCountSortList" style="display:none">
+                @*<div class="order-item">
+                        <img src="../Assets/Imgs/04.jpg" />
+                        <div>
+                            商品标题商品标题商品标题商品标题
+                        </div>
+                        <span>
+                            20302付款
+                        </span>
+                    </div>*@
+            </div>
+
+
+        </div>
+
+
+        <div id="ShopShowMsgContent" style="display:none;">
+
+
+
+
+
+            <!--打折商品-->
+            <div class="goods-main">
+                <div class="goods-title">
+                    <div class="goods-title-left">
+                        打折商品
+                    </div>
+                    <div class="goods-title-right">
+                        更多>>
+                    </div>
+                </div>
+                <div class="goods-list">
+                    @*<div class="goods-item">
+                        <div class="goods-img">
+                            <img src="../Assets/Imgs/05.jpg" />
+                        </div>
+                        <div class="goods-name">商品名称</div>
+                        <div class="goods-price">
+                            <b>&#165;0.0</b>
+                            <span>0.0折</span>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+
+
+            <!--团购商品-->
+            <div class="goods-main">
+                <div class="goods-title">
+                    <div class="goods-title-left">
+                        团购商品
+                    </div>
+                    <div class="goods-title-right">
+                        更多>>
+                    </div>
+                </div>
+                <div class="goods-list">
+
+                    @*<div class="goods-item">
+                        <div class="goods-img">
+                            <img src="../Assets/Imgs/05.jpg" />
+                        </div>
+                        <div class="goods-name">商品名称</div>
+                        <div class="goods-price">
+                            <b>&#165;234.2</b>
+                            <span>团购</span>
+                        </div>
+                    </div>*@
+
+                </div>
+            </div>
+
+            <!--商家推荐-->
+            <div class="goods-main">
+                <div class="goods-title">
+                    <div class="goods-title-left">
+                        商家推荐
+                    </div>
+                    <div class="goods-title-right">
+                        更多>>
+                    </div>
+                </div>
+                <div class="goods-list">
+                    @*<div class="goods-item">
+                        <div class="goods-img">
+                            <img src="../Assets/Imgs/05.jpg" />
+                        </div>
+                        <div class="goods-name">商品名称</div>
+                        <div class="goods-price">
+                            <b>&#165;234.2</b>
+                            <span class="goods-price-no">&#165;434.20</span>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+
+            <!--礼品领取-->
+            <div class="goods-main">
+                <div class="goods-title">
+                    <div class="goods-title-left">
+                        礼品领取
+                    </div>
+                    <div class="goods-title-right">
+                        更多>>
+                    </div>
+                </div>
+                <div class="goods-list">
+
+                    @*<div class="goods-item">
+                        <div class="goods-img">
+                            <img src="../Assets/Imgs/05.jpg" />
+                        </div>
+                        <div class="goods-name">礼品名称</div>
+                        <div class="goods-price">
+                            <b>积分:234.2</b>
+                            <span class="goods-stock-residue">剩余:112312</span>
+                        </div>*@
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <!--猜你喜欢-->
+        <div class="goods-main favgoods-main">
+            <div class="goods-title">
+                <img src="../Assets/Imgs/Icon/buyer_recommendgoods.png" />
+                猜你喜欢
+            </div>
+            <div class="goods-list" id="PageContentList">
+
+                @*<div class="goods-item">
+                        <div class="goods-img">
+                            <img src="../Assets/Imgs/05.jpg" />
+                        </div>
+                        <div class="goods-name">礼品名称礼品名称礼品名称礼品名称</div>
+                        <div class="goods-price">
+                            <b>&#165;234.2</b>
+                            <span class="goods-price-no">&#165;434.20</span>
+                        </div>
+                    </div>*@
+
+            </div>
+            <div class="btn-more-goods" id="BtnMoreGoods" style="display:none;" onclick="nextPage()">
+                … 加载更多 …
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <div onclick="window.location.href='../shop/GoodsAll?SID=@ViewBag.ShopID'">
+            <img src="../Assets/Imgs/Icon/shop_allgoods.png" />
+            全部商品
+        </div>
+        <div onclick="window.location.href='../shop/GoodsType?SID=@ViewBag.ShopID'">
+            <img src="../Assets/Imgs/Icon/shop_goodstype.png" />
+            热门分类
+        </div>
+        <div id="CusServiceFooter">
+            <img src="../Assets/Imgs/Icon/shop_customer.png" />
+            咨询商家
+        </div>
+    </div>
+
+
+
+
+    <!--选择店铺导航地图-->
+    <div class="win-sel-shopnav" id="WinSelShopNav" style="display:none;">
+        <div class="win-shopnav-content">
+            <ul>
+                <li class="shopnav-title-li">
+                    选择导航地图
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="qqmapA">腾讯地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="amapA">高德地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="bdmapA">百度地图</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="toggleSilderDownWin()" style="color: #000000; padding-bottom: 20px;">取消</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

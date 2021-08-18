@@ -1,0 +1,490 @@
+﻿/*==============抽奖详情==================*/
+
+/*主体内容*/
+body .oct-content {
+    padding-top: 40px;
+    margin-top: 0px;
+}
+
+/*抽奖信息*/
+.goods-item {
+    background: white;
+    padding: 6px;
+    margin-top: 6px;
+}
+
+.goods-item-img {
+    position: relative;
+}
+
+    .goods-item-img img {
+        width: 100%;
+    }
+
+    .goods-item-img div {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 3px 10px;
+        font-size: 14px;
+        color: #ffffff;
+        background: #000000;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+    }
+
+.goods-item-title {
+    font-size: 14px;
+    color: #000000;
+    line-height: 130%;
+    padding: 10px 0;
+}
+
+.goods-item-luckydraw {
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #808080;
+    line-height: 180%;
+}
+
+    .goods-item-luckydraw span {
+        padding-left: 10px;
+        color: #ff6a00;
+    }
+
+.goods-item-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e8e8e8;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.goods-luckydraw-extra {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+    .goods-luckydraw-extra span {
+        border: 1px solid red;
+        border-radius: 10px;
+        color: #ff0000;
+        font-size: 12px;
+        padding: 1px 5px;
+        display: block;
+        margin-left: 7px;
+        text-align: center;
+    }
+
+    .goods-luckydraw-extra .express-type-span {
+        color: #ff6a00;
+        border: 1px solid #ff6a00;
+        text-align: center;
+    }
+
+/*抽奖信息*/
+.luckydraw-msg {
+    padding: 6px;
+    margin-top: 6px;
+    background: white;
+}
+
+.luckydraw-msg-top, .luckydraw-msg-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.luckydraw-msg-top-title {
+    color: #808080;
+}
+
+.luckydraw-msg-top img, .luckydraw-msg-bottom img {
+    width: 13px;
+    height: 13px;
+    margin-left: 5px;
+    margin-top: -2px;
+}
+
+.luckydraw-msg-mid {
+    padding: 10px 5px;
+}
+
+    .luckydraw-msg-mid div {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.luckydraw-num {
+    color: #808080;
+}
+
+.luckydraw-msg-bottom {
+    border-top: 1px solid #e8e8e8;
+    border-bottom: none;
+    display: flex;
+    padding-top: 15px;
+    font-size: 12px;
+}
+
+/*参与用户列表窗口*/
+.win-user-list {
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+    .win-user-list a img {
+        width: 43px;
+        height: 43px;
+        margin: 4px;
+        border-radius: 5px;
+    }
+
+/*参与信息*/
+.joined-msg {
+    padding: 6px;
+    margin-top: 6px;
+    background: white;
+}
+
+.joined-msg-btn {
+    padding: 5px 0;
+    text-align: center;
+}
+
+    .joined-msg-btn input {
+        background: red;
+        color: white;
+        font-size: 14px;
+        border-radius: 30px;
+        border: none;
+        width: 200px;
+        padding: 10px 8px;
+    }
+
+    .joined-msg-btn .btn-joined-luckydraw {
+        background: #9c0000;
+    }
+
+.joined-msg div {
+    padding: 5px 0;
+    text-align: center;
+    color: #808080;
+}
+
+.join-user-list img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin: 4px;
+}
+/*奖品详情*/
+.luckydraw-goods-detail {
+    padding: 6px;
+    background: white;
+    margin-top: 6px;
+    overflow: hidden;
+    font-size: 12px;
+}
+
+.luckydraw-detail-title {
+    padding: 10px 5px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.luckydraw-detail-content {
+    color: #484848;
+    clear: both;
+}
+
+    .luckydraw-detail-content img {
+        width: 100%;
+    }
+
+
+/*--------------选择店铺导航地图 --  窗口---------------*/
+.win-shopnav-content {
+}
+
+    .win-shopnav-content ul {
+        padding-top: 5px;
+    }
+
+        .win-shopnav-content ul li {
+            text-align: center;
+            font-size: 18px;
+            color: #9b9b9b;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f8f8f8;
+        }
+
+            .win-shopnav-content ul li a {
+                display: block;
+                width: 90%;
+                margin: 0 auto;
+                color: #0086de;
+            }
+
+
+/*报名窗口*/
+.am-close {
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.win-join-content {
+    padding: 10px;
+    clear: both;
+    overflow: hidden;
+    height: 1%;
+}
+
+.win-join-title {
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+
+    .win-join-title .am-close {
+        top: -2px;
+        right: 2px;
+    }
+
+.win-join-list {
+    height: 200px;
+    padding-top: 10px;
+}
+    /*窗口内容*/
+    .win-join-list div {
+        font-size: 14px;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+.limit-number-txt {
+    border: 1px solid #dbdbdb;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 210px;
+}
+
+.btn-submit {
+    border: none;
+    background: #ff0000;
+    color: white;
+    padding: 8px 125px;
+    border-radius: 10px;
+}
+
+.activity-status {
+    font-size: 14px;
+    color: #A56A00;
+    font-weight: bold;
+}
+
+/*中奖结果*/
+.result-user-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+    .result-user-list a {
+        display: block;
+        width: 80px;
+        margin: 3px;
+    }
+
+    .result-user-list img {
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        margin: 4px;
+    }
+
+
+
+/*店铺信息*/
+.shop-msg {
+    background: white;
+    padding: 10px 5px;
+    clear: both;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.shop-msg-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.shop-msg-left {
+    width: 80px;
+}
+
+    .shop-msg-left img {
+        width: 70px;
+        height: 70px;
+        border: 1px solid #F7F7F7;
+        cursor: pointer;
+        padding: 2px;
+        border-radius: 5px;
+    }
+
+.shop-msg-right {
+    width: 100%;
+    padding-left: 10px;
+}
+
+    .shop-msg-right div {
+        padding-bottom: 4px;
+    }
+
+.shop-right-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .shop-right-top a {
+        font-size: 14px;
+        font-weight: bold;
+        padding-right: 10px;
+    }
+
+.shop-label {
+    background: #894EEE;
+    color: white;
+    padding: 0 5px;
+    border-radius: 8px;
+    font-size: 10px;
+    padding-top: 2px;
+    height: 18px;
+    overflow: hidden;
+}
+
+.shop-arrow {
+    background: url(../../Imgs/Icon/arrows_right.png) right no-repeat;
+    background-size: 40%;
+    display: inline-block;
+    height: 20px;
+    width: 40px;
+}
+
+.shop-right-mid b {
+    font-weight: normal;
+    color: #EF240F;
+    padding-right: 5px;
+}
+
+.shop-right-bottom {
+    color: gray;
+}
+
+.shop-msg-2 {
+    border-top: 1px solid #F7F7F7;
+    margin-top: 6px;
+    padding: 6px;
+    padding-bottom: 0;
+}
+
+.shop-msg-3 {
+    border-bottom: 1px solid #F7F7F7;
+    padding-bottom: 2px;
+}
+
+    .shop-msg-3 ul {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+        .shop-msg-3 ul li {
+            width: 80px;
+            height: 90px;
+            overflow: hidden;
+            padding: 5px;
+        }
+
+            .shop-msg-3 ul li a {
+                color: #909090;
+                font-size: 10px;
+            }
+
+            .shop-msg-3 ul li img {
+                width: 60px;
+                height: 60px;
+                border-radius: 5px;
+                margin-bottom: 3px;
+            }
+
+.shop-msg-4 {
+    padding: 15px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+    .shop-msg-4 a {
+        display: block;
+        padding: 3px 30px;
+        padding-right: 20px;
+        margin: 0 20px;
+        border: 1px solid #D7D7D7;
+        border-radius: 10px;
+    }
+
+    .shop-msg-4 .customer-service {
+        background: url(../../Imgs/Icon/customer.png) 15px center no-repeat;
+        padding-left: 42px;
+        background-size: 18px;
+    }
+
+    .shop-msg-4 .go-shop {
+        background: url(../../Imgs/Icon/shop_small.png) 15px center no-repeat;
+        padding-left: 42px;
+        background-size: 18px;
+    }
+
+
+/*分享按钮*/
+.share-section {
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    clear: both;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: white;
+}
+
+.btn-share-friend {
+    padding: 6px 20px;
+    background: #ff9400;
+    color: white;
+    font-size: 14px;
+    border-radius: 40px;
+    border: none;
+    width: 60%;
+    cursor: pointer;
+}

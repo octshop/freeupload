@@ -1,0 +1,62 @@
+﻿/*===============买家设置============================*/
+
+.setting-ul {
+    padding: 10px;
+    background: #ffffff;
+    padding-top: 5px;
+}
+
+    .setting-ul li {
+        border-bottom: 1px solid #F7F7F7;
+        padding: 10px 0;
+        padding-left: 25px;
+    }
+
+        .setting-ul li a {
+            width: 100%;
+            display: block;
+            background: url(../../Imgs/Icon/arrows_right_black.png) right center no-repeat;
+            background-size: 10px;
+            padding-top: 3px;
+        }
+
+.setting-item-1 {
+    background: url(../../Imgs/Icon/buyer_question.png) left center no-repeat;
+    background-size: 20px;
+}
+
+.setting-item-2 {
+    background: url(../../Imgs/Icon/buyer_shopenter.png) left center no-repeat;
+    background-size: 20px;
+}
+
+.setting-item-3 {
+    background: url(../../Imgs/Icon/buyer_settingpay.png) left center no-repeat;
+    background-size: 22px;
+}
+
+.setting-item-4 {
+    background: url(../../Imgs/Icon/buyer_password.png) left center no-repeat;
+    background-size: 22px;
+}
+
+.setting-item-5 {
+    background: url(../../Imgs/Icon/buyer_delcookie.png) left center no-repeat;
+    background-size: 20px;
+}
+.setting-item-6 {
+    background: url(../../Imgs/Icon/buyer_settingmobile.png) left center no-repeat;
+    background-size: 20px;
+}
+.setting-item-7 {
+    background: url(../../Imgs/Icon/buyer_settingfreeze.png) left center no-repeat;
+    background-size: 20px;
+}
+
+.setting-exit {
+    padding: 10px;
+    background: white;
+    margin-top: 20px;
+    text-align: center;
+    cursor: pointer;
+}

@@ -1,0 +1,103 @@
+﻿/*==============多商品售后选择页===========================*/
+
+/*主体内容*/
+.oct-content{
+    margin-top: 45px;
+}
+
+/*商品列表*/
+.order-list {
+    margin-top: 0px;
+}
+
+    .order-list .order-item {
+        background: white;
+        margin-bottom: 8px;
+    }
+
+.order-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+    .order-item-top a {
+        display: flex;
+        align-items: center;
+        background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+        background-size: 12px;
+        padding-right: 20px;
+    }
+
+    .order-item-top img {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+
+.order-status-txt {
+    color: #d4d4d4;
+}
+/*商品列表*/
+.order-item-mid {
+    background: #FAFAFA;
+    padding: 0 10px;
+}
+
+.order-goods-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 2px solid white;
+}
+
+.goods-item-left {
+    padding-right: 10px;
+}
+
+    .goods-item-left img {
+        width: 55px;
+        height: 55px;
+        border-radius: 2px;
+    }
+
+.goods-item-mid {
+    width: 100%;
+    padding-right: 5px;
+}
+
+    .goods-item-mid span {
+        display: block;
+    }
+
+.goods-item-spec {
+    color: gray;
+    font-size: 10px;
+}
+
+.goods-item-right {
+    text-align: right;
+}
+
+.goods-item-ordernum {
+    color: gray;
+}
+
+.goods-item-right span {
+    display: block;
+}
+
+.goods-aftersale-span {
+    width: 60px;
+    background: #FF6600;
+    text-align: center;
+    padding-top: 2px;
+    color: white;
+    border-radius: 10px;
+    font-size: 10px;
+}
+

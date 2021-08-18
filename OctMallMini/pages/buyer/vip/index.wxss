@@ -1,0 +1,113 @@
+/* pages/buyer/vip/index.wxss */
+.oct-header,
+.oct-logo {
+  background: -webkit-linear-gradient(left, #FE6944, #FC7939, #FE6944);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #FE6944, #FC7939, #FE6944);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #FE6944, #FC7939, #FE6944);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #FE6944, #FC7939, #FE6944);
+  /* 标准的语法 */
+  border-bottom: 1px solid #FE6A44;
+  color: #ffffff;
+}
+
+/*Logo区域*/
+.oct-logo {
+  padding: 10px;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.oct-logo-left view,
+.oct-logo-right view {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+/*列表项*/
+.oct-balance-list {
+  background: white;
+}
+
+.oct-balance-item {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #F2F2F2;
+  align-items: center;
+  font-size: 14px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.balance-item-left {
+  padding-top: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.balance-item-left image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.balance-item-right {
+  color: #FE6944;
+  /* background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat; */
+  background-size: 10px;
+  padding-right: 0px;
+  font-size: 12px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+
+.oct-balance-item-1 {
+  /* background: url(../../Imgs/Icon/balance_vip.png) 10px center no-repeat; */
+  background-size: 24px;
+  margin-top: 10px;
+}
+
+.oct-balance-item-2 image {
+  /* background: url(../../Imgs/Icon/balance_withdraw.png) 10px center no-repeat; */
+  background-size: 25px;
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.oct-balance-item-3 image {
+  /* background: url(../../Imgs/Icon/balance_recharge.png) 10px center no-repeat; */
+  background-size: 25px;
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.balance-item-right image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 20rpx;
+}
+
+.oct-balance-list {
+  margin-top: 8px;
+}
+
+.oct-logo .fr-balance,
+.oct-logo .fr-Integral {
+  font-size: 12px;
+  font-weight: normal;
+  padding-top: 8px;
+}
+
+.oct-logo .fr-balance text,
+.oct-logo .fr-Integral text {
+  font-weight: bold;
+}

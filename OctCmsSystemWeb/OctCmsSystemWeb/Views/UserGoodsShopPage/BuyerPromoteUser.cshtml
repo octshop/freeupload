@@ -1,0 +1,201 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>推广会员信息</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/UserGoodsShopPage/BuyerPromoteUser.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+
+    <script src="../Assets/Js/UserGoodsShopPage/BuyerPromoteUser.js"></script>
+
+
+</head>
+<body>
+
+
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidOctWapWebAddrDomain" value="@ViewBag.OctWapWebAddrDomain" />
+
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=会员管理">会员管理</a></li>
+            <li class="am-active">推广会员信息</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 推广会员信息
+            </div>
+            <div class="title-btn-div am-fl">
+                <button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加</button>
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="PromoteID_se" placeholder="推广ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="BuyerUserID_se" placeholder="推广者UserID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="BuyerUserIDPromoted_se" placeholder="被推广者UserID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="UserNick_se" placeholder="推广者昵称" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="BindMobile_se" placeholder="推广者手机号" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="UserNickPromoted_se" placeholder="被推广者昵称" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="BindMobilePromoted_se" placeholder="被推广者手机号" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 100px;">
+                <select id="IsLock_se" data-am-selected="{btnWidth:'80',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>锁定</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" class="datetime-input am-form-field" placeholder="推广日期" data-am-datepicker="{theme: 'success',}" style="background:none; cursor:pointer;" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="4%"><input type="checkbox" id="SelAllCb" name="SelAllCb" onchange="toggleSelAll()" /></td>
+                        <td width="10%">推广ID</td>
+                        <td width="12%">推广者UserID<i style="color:gray;display:block;">被推广者UserID</i></td>
+                        <td width="12%">推广者手机号<i style="color:gray;display:block;">被推广者手机号</i></td>
+                        <td width="15%">推广者昵称</td>
+                        <td width="15%">被推广者昵称</td>
+                        <td width="6%">锁定</td>
+                        <td width="8%">推广日期</td>
+                        <td width="8%">操作</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>234332</td>
+                        <td>10006<i style="color:gray;display:block;">10004</i></td>
+                        <td>13203156008<i style="color:gray;display:block;">15675178605</i></td>
+                        <td><div class="td-header-img"><img src="../Assets/Imgs/header_1.jpg" />推广者昵称</div></td>
+                        <td><div class="td-header-img"><img src="../Assets/Imgs/header_1.jpg" />被推广者昵称被推广</div></td>
+                        <td>否</td>
+                        <td>2019-05-05 13:27:45</td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-warning am-round">锁定</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" onclick="delBuyerPromoteUserArr()"><span class="am-icon-trash-o"></span> 批量删除</button>
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>备注</span>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!--添加与编辑窗口主体内容-->
+    <div class="add-edit-win" id="AddEditWin" style="display:none;">
+        <div class="add-edit-main">
+            <ul class="add-edit-ul">
+                <li>
+                    <label class="am-form-label" style="width:120px; display:block;">推广者UserID:</label>
+                    <input type="number" id="BuyerUserIDWin" class="am-form-field txt-css" />
+                </li>
+                <li>
+                    <label class="am-form-label" style="width:120px; display:block;">被推广者UserID:</label>
+                    <input type="number" id="BuyerUserIDPromotedWin" class="am-form-field txt-css" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

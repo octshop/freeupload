@@ -1,0 +1,252 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>优惠券信息</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/TradingPage/CouponsMsg.js"></script>
+
+</head>
+<body>
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=优惠券管理">优惠券管理</a></li>
+            <li class="am-active">优惠券信息</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 优惠券信息
+            </div>
+            <div class="title-btn-div am-fl">
+                @*<button class="title-btn am-btn am-btn-xs am-btn-danger am-round am-margin-left-xs" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加</button>*@
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="CouponsID_se" placeholder="优惠券ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ShopUserID_se" placeholder="商家UserID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="CouponsTitle_se" placeholder="优惠券标题" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="CouponsDesc_se" placeholder="优惠券描述" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="UseMoney_se" placeholder="抵用金额(元)" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="UseDiscount_se" placeholder="使用折扣" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="NumTotal_se" placeholder="优惠券总数(剩余)" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="UseShopIDArr_se" placeholder="可使用店铺ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="UseGoodsIDArr_se" placeholder="可使用商品ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ExpenseReachSum_se" placeholder="消费满多少可以使用" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="IssueType_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>发放方式</option>
+                    <option value="BuyGoods">下单自动发放</option>
+                    <option value="ShopGet">商铺中领取</option>
+                    <option value="BuyOrShop">两者均可</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="IssueExpenseSum_se" placeholder="订单满多少自动发放" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="IsMallCoupons_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>是否商城券</option>
+                    <option value="false">店铺券</option>
+                    <option value="true">商城券</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="IssuePause_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>暂停发放</option>
+                    <option value="false">否</option>
+                    <option value="true">是</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="IsRepeatGet_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>重复领取</option>
+                    <option value="false">否</option>
+                    <option value="true">是</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="IsOfflineUse_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>线下验证使用</option>
+                    <option value="false">否</option>
+                    <option value="true">是</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="IsLock_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>锁定</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="UseTimeRangeStart_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="使用开始时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="UseTimeRangeEnd_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="使用结束时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="发布时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="10%">优惠券ID<i style="color: #939393;display:block">商家UserID</i></td>
+
+                        <td width="12%">标题</td>
+
+                        <td width="8%">抵用金额<i style="color: #939393;display:block">使用折扣</i></td>
+
+                        <td width="9%">总数(剩余)<i style="color: #939393;display:block">消费满</i></td>
+
+                        <td width="11%">发放方式<i style="color: #939393;display:block">满自动发放</i></td>
+
+                        <td width="8%">商城券<i style="color: #939393;display:block">暂停</i></td>
+
+                        <td width="8%">重复领取<i style="color: #939393;display:block">线下使用</i></td>
+
+                        <td width="16%">使用开始时间<i style="color: #939393;display:block">使用结束时间</i></td>
+
+                        <td width="10%">锁定 <i style="color: #939393;display:block">写入时间</i></td>
+
+                        <td width="8%">
+                            操作
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td>234324<i style="color: #939393;display:block"><a href="#" target="_blank">10004</a></i></td>
+                        <td>优惠券标题优惠券标题</td>
+                        <td>&#165;234.23<i style="color: #939393;display:block">2.5折</i></td>
+                        <td>25625<i style="color: #939393;display:block">&#165;32.43</i></td>
+                        <td>下单自动发放<i style="color: #939393;display:block">&#165;234.32</i></td>
+                        <td>店铺券<i style="color: #939393;display:block">否</i></td>
+                        <td>可以<i style="color: #939393;display:block">不可以</i></td>
+                        <td> 2019-05-05 13:27:45<i style="color: #939393;display:block"> 2019-05-05 13:27:45</i></td>
+                        <td>
+                            否
+                            <i style="color: #939393;display:block"> 2019-05-05 13:27:45</i>
+                        </td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round">锁定</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-success am-round">详情</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        @*<button type="button" class="am-btn am-btn-default" onclick=""><span class="am-icon-trash-o"></span> 批量删除</button>*@
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                优惠券信息
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+</html>

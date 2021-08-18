@@ -1,0 +1,111 @@
+<!--pages/shop/activity/activity.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="店铺-活动优惠" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 店铺导航Logo -->
+<shopNav id="shopNav" top-fix="{{navbarHeight}}" api-web-doamin="{{apiWebDoamin}}"
+	shop-name="{{initShopMsgTopBarItem_Data.ShopName}}"
+	avg-appraise-score="{{initShopMsgTopBarItem_Data.AvgAppraiseScore}}"
+	count-fans="{{initShopMsgTopBarItem_Data.CountFans}}" count-fav-shop="{{initShopMsgTopBarItem_Data.CountFavShop}}人"
+	shop-header-img="//{{initShopMsgTopBarItem_Data.ShopHeaderImg}}" appraise-star-red="{{appraiseStarRed}}"
+	appraise-star-gray="{{appraiseStarGray}}" tab-cur-num="2" shop-id="{{shopID}}" nologin-back-url="../../../pages/shop/activity/activity" is-self-shop="{{initShopMsgTopBarItem_Data.IsSelfShop}}" />
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--活动优惠-->
+	<view class="activity-content">
+		<view class="activity-content-title">
+			优惠券
+		</view>
+		<view class="activity-content-list">
+
+			<view class="activity-item" bindtap="navigateToURL"
+				data-navigate-url="../../buyer/coupons/couponsdetail/couponsdetail?CID={{item.CouponsID}}"
+				wx:for="{{loadShopCouponsTopList_Data.CouponsMsgList}}">
+
+				<view class="activity-item-1" wx:if="{{item.UseDiscount > 0}}">
+					{{item.UseDiscount}}折券
+				</view>
+				<view class="activity-item-1" wx:if="{{item.UseDiscount <= 0}}">
+					￥{{item.UseMoney}}
+				</view>
+				<view class="activity-item-2">
+					<view wx:if="{{item.ExpenseReachSum > 0}}">满{{item.ExpenseReachSum}}可用</view>
+					<view wx:else>无消费限制</view>
+					<block wx:if="{{item.UseTimeRange != ''}}">{{item.UseTimeRange}}</block>
+					<block wx:else>永久有效</block>
+				</view>
+				<view class="activity-item-3">
+				</view>
+
+				<view class="activity-item-4" catchtap="buyerGetCoupons" data-coupons-id="{{item.CouponsID}}">
+					<view>立即领取</view>
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+
+
+	<!--店铺活动-->
+	<view class="activity-content activity-shop">
+		<view class="activity-content-title">
+			店铺活动
+		</view>
+		<view class="activity-content-list">
+
+			<view class="activity-shop-item" wx:for="{{loadActivityPageMsg_Data.ActivityMsg.ActivityMsgList}}">
+				<navigator url="../../shop/activitydetail/activitydetail?AID={{item.ActivityID}}">
+					<view class="activity-shop-item-1" wx:if="{{item.AcType == 'OffLine'}}">
+						线下活动
+					</view>
+					<view class="activity-shop-item-1" wx:else>
+						线上活动
+					</view>
+					<view class="activity-shop-item-2">
+						{{item.AcTitle}}
+					</view>
+					<view class="activity-shop-item-3">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png" />
+					</view>
+				</navigator>
+			</view>
+
+		</view>
+	</view>
+
+
+
+
+
+	<!--店铺抽奖-->
+	<view class="activity-content activity-shop">
+		<view class="activity-content-title">
+			店铺抽奖
+		</view>
+		<view class="activity-content-list">
+
+			<view class="activity-shop-item" wx:for="{{loadActivityPageMsg_Data.LuckyDrawMsg.LuckyDrawMsgList}}">
+				<navigator url="../../mall/luckydraw/luckydrawdetail/luckydrawdetail?LID={{item.LuckydrawID}}">
+					<view class="luckydraw-title">
+						{{item.LuckydrawTitle}}
+					</view>
+					<view class="activity-shop-item-3">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png" />
+					</view>
+				</navigator>
+			</view>
+
+		</view>
+	</view>
+
+
+
+
+</view>
+
+<!--店铺底部导航-->
+<shopNavBottom id="ShopNavBottom" shop-id="{{shopID}}" api-web-doamin="{{apiWebDoamin}}" bindimshopwap="buildBuyerGoToImSysURL_ShopWap" />

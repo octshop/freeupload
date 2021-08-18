@@ -1,0 +1,323 @@
+<!--pages/tabbar/buyerindex/buyerindex.wxml-->
+<!-- navbar -->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="买家中心" back-icon="/assets/imgs/icons/navbar_home.png" home-icon=""
+		background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{navbarHeight}}px">
+
+	<!--顶部Logo-->
+	<view class="logo-main">
+		<view class="logo-main-left">
+			<view class="user-header" bindtap="">
+				<navigator url="../../buyer/vip/index">
+					<image src="{{loadUserMsgAccFinance_Data.HeaderImg}}" />
+				</navigator>
+			</view>
+			<view class="user-msg">
+				<view class="user-msg-title">{{loadUserMsgAccFinance_Data.UserNick}}
+					<span>{{loadUserMsgAccFinance_Data.VipLevelName}}</span>
+				</view>
+				<view class="user-msg-userid">UID:{{loadUserMsgAccFinance_Data.UserID}}</view>
+				<view class="user-msg-uac">UAC:{{loadUserMsgAccFinance_Data.UserAccount}}</view>
+			</view>
+		</view>
+		<view class="logo-main-right">
+			<view class="tool-bar">
+				<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_setting.png" bindtap="navigateToURL"
+					data-navigate-url="../../../pages/buyer/setting/setting"></image>
+				<image src="{{apiWebDoamin}}/Assets/imgs/Icon/scan_buyer.png" bindtap="scanCodeQr" />
+			</view>
+			<view class="user-balance" oncviewck="window.location. url='{{apiWebDoamin}}/Vip/Index'">
+				<view class="user-level">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_level.png" />
+				</view>
+				<view class="user-value" bindtap="navigateToURL" data-navigate-url="../../buyer/vip/index">
+					<view>余额：<b>￥{{loadUserMsgAccFinance_Data.CurBalance}}</b></view>
+					<view>积分：<b>{{loadUserMsgAccFinance_Data.CurIntegral}}</b></view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<!--主订单导航-->
+	<view class="nav-main">
+		<view class="nav-main-ul">
+			<view class="nav-li">
+				<navigator url="../../../pages/buyer/myorder/myorder?OS=待付款">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_nopay.png" class="ico-nopay" />
+					待付款
+				</navigator>
+				<view class="nav-badge" wx:if="{{countBuyerIndexRCHint_Data.WaitPayOrder > 0}}">
+					{{countBuyerIndexRCHint_Data.WaitPayOrder}}</view>
+			</view>
+			<view class="nav-li">
+				<navigator url="../../../pages/buyer/myorder/myorder?OS=待发货">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_nosend.png" class="ico-nosend" />
+					待发货
+				</navigator>
+				<view class="nav-badge" wx:if="{{countBuyerIndexRCHint_Data.WaitSendOrder > 0}}">
+					{{countBuyerIndexRCHint_Data.WaitSendOrder}}</view>
+			</view>
+			<view class="nav-li">
+				<navigator url="../../../pages/buyer/myorder/myorder?OS=待收货">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_norecei.png" class="ico-norecei" />
+					待收货
+				</navigator>
+				<view class="nav-badge" wx:if="{{countBuyerIndexRCHint_Data.WaitReceiOrder > 0}}">
+					{{countBuyerIndexRCHint_Data.WaitReceiOrder}}</view>
+			</view>
+			<view class="nav-li">
+				<navigator url="../../../pages/buyer/myorder/myorder?OS=待评价">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_noappraise.png" class="ico-noappraise" />
+					待评价
+				</navigator>
+				<view class="nav-badge" wx:if="{{countBuyerIndexRCHint_Data.WaitAppraiseOrder > 0}}">
+					{{countBuyerIndexRCHint_Data.WaitAppraiseOrder}}</view>
+			</view>
+			<view class="nav-main-myorder nav-li">
+				<navigator url="../../buyer/myorder/myorder">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_myorder.png" class="ico-myorder" />
+					我的订单
+				</navigator>
+				<view class="nav-badge" style="display:none">10</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 次订单导航
+	<view class="nav-main nav-sub">
+		<view class="nav-main-ul">
+			<view>
+				<navigator url="../../../pages/buyer/myordergroup/myordergroup">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_group.png" class="ico-group" />
+					拼团订单
+				</navigator>
+				<view class="nav-badge" wx:if="{{countBuyerIndexRCHint_Data.GroupOrder > 0}}">
+					{{countBuyerIndexRCHint_Data.GroupOrder}}</view>
+			</view>
+			<view>
+				<navigator url="../../../pages/buyer/presentorder/mypresentorder/mypresentorder">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_gift.png" class="ico-gift" />
+					礼品订单
+				</navigator>
+				<view class="nav-badge" wx:if="{{countBuyerIndexRCHint_Data.PresentOrder > 0}}">
+					{{countBuyerIndexRCHint_Data.PresentOrder}}</view>
+			</view>
+			<view>
+				<navigator url="../../buyer/luckydraw/luckydrawlist/luckydrawlist">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_drawlucky.png" class="ico-drawlucky" />
+					抽奖信息
+				</navigator>
+				<view class="nav-badge" wx:if="{{countBuyerIndexRCHint_Data.LuckyDrawCount > 0}}">
+					{{countBuyerIndexRCHint_Data.LuckyDrawCount}}</view>
+			</view>
+			<view>
+				<navigator url="../../buyer/activity/activitylist/activitylist">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_activity.png" class="ico-activity" />
+					参与活动
+				</navigator>
+				<view class="nav-badge" wx:if="{{countBuyerIndexRCHint_Data.ActivityCount > 0}}">
+					{{countBuyerIndexRCHint_Data.ActivityCount}}</view>
+			</view>
+			<view>
+				<navigator url="../../buyer/aftersale/afterlist/afterlist">
+					<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_aftersale.png" class="ico-aftersale" />
+					退换售后
+				</navigator>
+				<view class="nav-badge" wx:if="{{countBuyerIndexRCHint_Data.AfterSaleCount > 0}}">
+					{{countBuyerIndexRCHint_Data.AfterSaleCount}}</view>
+			</view>
+		</view>
+	</view> -->
+
+	<!--导航3-->
+	<view class="nav-third">
+		<view class="nav-third-left">
+			<navigator url="../../../pages/buyer/shopexpensetake/shopexpensetake">
+				<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_shoptake.png" />
+				到店消费/自取
+				<span class="nav-third-badge" wx:if="{{countBuyerIndexRCHint_Data.ExpenseTakeOrder > 0}}">
+					{{countBuyerIndexRCHint_Data.ExpenseTakeOrder}}
+				</span>
+			</navigator>
+		</view>
+		<view class="nav-third-right">
+			<navigator url="../../../pages/buyer/paydeliveryorder/paydeliveryorder" class="nav-third-delivery">
+				<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_deliverypay.png" />
+				货到付款订单
+				<span class="nav-third-badge" wx:if="{{countBuyerIndexRCHint_Data.PayDeliveryOrder > 0}}">
+					{{countBuyerIndexRCHint_Data.PayDeliveryOrder}}
+				</span>
+
+			</navigator>
+
+		</view>
+	</view>
+
+	<!--导航3-->
+	<view class="nav-third">
+		<view class="nav-third-left">
+			<navigator url="#">
+				<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_scanpay.png" />
+				扫码支付订单
+				<span class="nav-third-badge" style="display:none">
+					10
+				</span>
+			</navigator>
+		</view>
+		<view class="nav-third-right">
+			<navigator url="../../buyer/vip/balanceintegral/balanceintegral" class="nav-third-delivery">
+				<image src="{{apiWebDoamin}}/Assets/imgs/Icon/buyer_fh.png" />
+				返现分红分润
+				<span class="nav-third-badge" style="display:none">
+					10
+				</span>
+
+			</navigator>
+
+		</view>
+	</view>
+
+
+	<!--最新订单动态
+	<navigator url="../../buyer/expressdetail/expressdetail" class="order-status">
+		<view class="order-status-1">
+			最新物流<br />
+			08:48
+		</view>
+		<view class="order-status-2">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/02.jpg" />
+		</view>
+		<view class="order-status-3">
+			<view><b>派送中</b></view>
+			<view>
+				[长沙市]湖南省长沙县老百姓分部派件员：长呆优源控股
+			</view>
+		</view>
+	</navigator>-->
+
+
+	<!--导航4-->
+	<view class="nav-four">
+		<navigator url="../../buyer/coupons/coupons" class="nav-four-item">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_ticket.png" class="ico-ticket" />
+			优惠券
+			<span class="nav-four-badge"
+				wx:if="{{countBuyerIndexRCHint_Data.CouponsCount > 0}}">{{countBuyerIndexRCHint_Data.CouponsCount}}</span>
+		</navigator>
+		<navigator url="../../buyer/attenfav/attenfav" class="nav-four-item">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_fav.png" class="ico-fav" />
+			关注收藏
+		</navigator>
+		<navigator url="../../buyer/history/history" class="nav-four-item">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_history.png" class="ico-history" />
+			浏览足迹
+		</navigator>
+		<navigator url="#" class="nav-four-item">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_complain.png" class="ico-complain" />
+			我的投诉
+			<span class="nav-four-badge"
+				wx:if="{{countBuyerIndexRCHint_Data.ComplainCount > 0}}">{{countBuyerIndexRCHint_Data.ComplainCount}}</span>
+		</navigator>
+	</view>
+
+	<!--导航5-->
+	<view class="nav-five">
+
+		<navigator url="../../buyer/receiaddr/receiaddrlist/receiaddrlist" class="nav-five-item">
+			<view class="nav-five-receiaddr">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_addr.png" class="ico-history" />
+				收货地址
+			</view>
+			<view class="nav-five-right">
+				快递配送或上门服务地址
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" class="ico-history" />
+			</view>
+		</navigator>
+
+		<!-- <navigator url="../../buyer/mypromoteQRCode/mypromoteQRCode" class="nav-five-item">
+			<view class="nav-five-receiaddr">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/promote_scan.png" class="ico-history" />
+				我的分享码
+			</view>
+			<view class="nav-five-right">
+				推荐分享二维码
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" class="ico-history" />
+			</view>
+		</navigator>
+
+		<navigator url="../../buyer/mypromoteuser/mypromoteuser" class="nav-five-item">
+			<view class="nav-five-receiaddr">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/promote_user.png" class="ico-history" />
+				分享的好友
+			</view>
+			<view class="nav-five-right">
+				我分享的好友
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" class="ico-history" />
+			</view>
+		</navigator> -->
+
+
+		<navigator url="../../buyer/officialservice/officialservice" class="nav-five-item">
+			<view class="nav-five-service">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_service.png" class="ico-history" />
+				官方客服
+			</view>
+			<view class="nav-five-right">
+				平台官方联系方式
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" class="ico-history" />
+			</view>
+		</navigator>
+
+		<navigator url="../../buyer/setting/setting" class="nav-five-item nav-five-item-bottom">
+			<view class="nav-five-setting">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_settinggray.png" class="ico-history" />
+				设置
+			</view>
+			<view class="nav-five-right">
+				密码,支付,登录
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" class="ico-history" />
+			</view>
+		</navigator>
+
+	</view>
+
+	<!-- 为您推荐 -->
+	<view class="recommend-goods-ico">
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_recommendgoods.png" />
+		为您推荐
+	</view>
+
+	<!--商品列表-->
+	<view class="goods-list">
+
+		<view class="goods-item" wx:for="{{numberPage_Page.DataPage}}">
+			<navigator url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+				<view class="goods-img">
+					<image src="//{{item.ImgPathCover}}" />
+				</view>
+				<view class="goods-name">{{item.GoodsTitle}}</view>
+				<view class="goods-price">
+					<b>￥{{item.GoodsPrice}}</b>
+					<view>{{item.SaleCount}}人付款</view>
+				</view>
+				<span class="goods-item-badge" wx:if="{{item.GroupDiscount>0}}">团购</span>
+				<span class="goods-item-badge" wx:elif="{{item.SkDiscount>0}}">秒杀</span>
+				<span class="goods-item-badge" wx:elif="{{item.Discount>0}}">{{item.Discount}}折</span>
+			</navigator>
+		</view>
+
+
+	</view>
+
+
+
+	<view style="width:100%; overflow:hidden; text-align:center; font-size:12px; color: #d0d0d0">
+		技术支持：m.OpenCodeTiger.com
+	</view>
+
+
+
+</view>

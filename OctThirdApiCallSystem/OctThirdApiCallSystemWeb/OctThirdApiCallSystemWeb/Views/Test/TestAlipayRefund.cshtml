@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>支付宝 支付的订单退款</title>
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+
+</head>
+<body>
+    <div>
+        <input type="text" id="OutTradeNo" placeholder="商户订单号(交易号BillNumber)" style="width: 500px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="RefundAmount" placeholder="退款金额，不能大于订单总金额(以元为单位)" style="width: 500px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="TradeNo" placeholder="(可选)支付宝交易号(支付宝生成的标记ID)，和商户订单号不能同时为空" style="width: 500px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="RefundReason" placeholder="(可选)退款原因" style="width: 500px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="OutRequestNo" placeholder="(可选)退款单号，同一笔多次退款需要保证唯一，部分退款该参数必填。" style="width: 500px;" />
+    </div>
+    <br />
+    <div>
+        <input type="button" id="BtnRefund" value="支付宝立即退款" onclick="submitAlipayRefund()" />
+    </div>
+
+    <script type="text/javascript">
+
+        /*
+        * 提交退款请求
+        */
+        function submitAlipayRefund() {
+
+            //获取表单
+            var OutTradeNo = $("#OutTradeNo").val().trim();
+            var RefundAmount = $("#RefundAmount").val().trim();
+            var TradeNo = $("#TradeNo").val().trim();
+            var RefundReason = $("#RefundReason").val().trim();
+            var OutRequestNo = $("#OutRequestNo").val().trim();
+
+            //构造GET参数
+            var dataPOST = {
+                "type": "1", "OutTradeNo": OutTradeNo, "RefundAmount": RefundAmount,
+                "TradeNo": TradeNo, "RefundReason": RefundReason, "OutRequestNo": OutRequestNo
+            };
+
+            //正式发送GET请求
+            $.ajax({
+                type: "POST",
+                url: "../Refund/AlipayRefund?rnd=" + Math.random(),
+                data: dataPOST,
+                dataType: "html",
+                success: function (reTxt, status, xhr) {
+                    console.log(reTxt);
+                    if (reTxt != "") {
+                        if (reTxt == "PAR_01") {
+                            alert("退款成功！");
+                        }
+                    }
+                    else {
+
+                    }
+
+                },
+                error: function (xhr, errorTxt, status) {
+                    console.log("异步请求错误，errorTxt=" + errorTxt + " | status=" + status);
+                    //alert("网速不给力哦,请刷新一下！");
+                    return;
+                }
+            });
+
+
+        }
+
+    </script>
+</body>
+</html>

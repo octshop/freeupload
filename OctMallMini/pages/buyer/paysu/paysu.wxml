@@ -1,0 +1,90 @@
+<!--pages/buyer/paysu/paysu.wxml-->
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="支付成功" back-icon="/assets/imgs/icons/navbar_my.png"
+    background="#F2F2F2" bindback="home" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+
+  <view class="pay-hint">
+    <view class="pay-icon-title">
+      <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_su.png" />支付成功
+    </view>
+    <view class="pay-icon-price">
+      实付：<text id="SumBillNumberOrderPriceB">￥ {{initBillNumberOrderMsg_Data.SumBillNumberOrderPrice}}</text>
+    </view>
+    <view class="pay-btn-list">
+      <navigator url="../../tabbar/index/index" open-type="switchTab">返回首页</navigator>
+
+      <navigator url="{{payOrderCount>1 ? '../../buyer/myorder/myorder' :'../../buyer/orderdetail/orderdetail?OID=' + orderIdSingle}}" open-type="redirect" class="pay-see-btn">查看订单
+
+      </navigator>
+    </view>
+  </view>
+
+  <!--提示信息-->
+  <view class="pay-msg-hint">
+    <view class="pay-msg-left">
+      <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_sumsg.png"></image>
+    </view>
+    <view class="pay-msg-right">
+      <view class="pay-msg-title">
+        完成订单,将可能获得:积分和优惠券.
+      </view>
+      <view class="pay-msg-desc">
+        确认收货，评价晒单，优惠送不停哦！
+        <!--支付成功，获取10个积分  满200减100元  满200打9.5折-->
+      </view>
+    </view>
+  </view>
+
+  <!--产品列表-->
+  <view class="goods-list-main">
+
+    <!-- 商品正式列表 -->
+    <view class="goods-list" id="PageContentList">
+
+      <view class="goods-item" wx:for="{{numberPage_Page.DataPage}}">
+			<navigator url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+				<view class="goods-img">
+					<image src="//{{item.ImgPathCover}}" />
+				</view>
+				<view class="goods-name">{{item.GoodsTitle}}</view>
+				<view class="goods-price">
+					<b>￥{{item.GoodsPrice}}</b>
+					<view>{{item.PaidCount}}人付款</view>
+					<!-- <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/scart_add.png" catchtap="addToSCartNoSpecPropID" data-goods-id="{{item.GoodsID}}" /> -->
+				</view>
+
+				<span class="goods-item-badge" wx:if="{{item.Discount > 0 && item.GroupDiscount <= 0}}">{{item.Discount}}折</span>
+				<span class="goods-item-badge" wx:elif="{{item.GroupDiscount > 0}}">团购</span>
+				<span class="goods-item-badge" wx:elif="{{item.SkDiscount > 0 && item.GroupDiscount <= 0}}">秒杀</span>
+				<span class="goods-item-badge" wx:else></span>
+
+			</navigator>
+    </view>
+    
+      <!-- <view class="goods-item">
+        <navigator url="../../goods/goodsdetail/goodsdetail">
+          <view class="goods-img">
+            <image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+          </view>
+          <view class="goods-name">商品名称商品名称商品名称商品名称</view>
+          <view class="goods-price">
+            <b>￥234.2</b>
+            <view>23432人付款</view>
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/scart_add.png" />
+          </view>
+          <span class="goods-item-badge">9.3折</span>
+        </navigator>
+      </view> -->
+
+    </view>
+
+  </view>
+
+
+
+</view>

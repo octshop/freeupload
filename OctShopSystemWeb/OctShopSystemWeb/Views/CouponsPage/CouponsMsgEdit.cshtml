@@ -1,0 +1,222 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>编辑优惠券</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+
+    <link href="../Assets/Css/CouponsPage/CouponsMsgAdd.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+
+    <script src="../Assets/Js/CouponsPage/CouponsMsgEdit.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidCouponsID" value="@ViewBag.CID" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=优惠券">优惠券</a></li>
+            <li class="am-active">编辑优惠券</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 编辑优惠券
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--表单区-->
+        <div class="form-main am-nbfc am-padding">
+
+            <!--提示区-->
+            <div class="form-main-item am-cf am-nbfc form-coupons-hint">
+                <div class="hint-prompt">
+                    注意：如果有买家获得了此优惠券，那么 [ 抵用属性设置 ] , [ 可使用的商品 ] , [ 可使用的条件 ] 不可修改!
+                </div>
+            </div>
+
+            <!--优惠券标题-->
+            <div class="form-main-title">
+                优惠券标题 <font color="red">*</font>
+            </div>
+            <div class="form-main-item form-coupons-title">
+                <div class="hint-prompt">
+                    提示：字数控制在15个之内,请精简提炼标题关键字
+                </div>
+                <input class="txt-css coupons-title-txt" id="CouponsTitle" type="text" />
+            </div>
+
+            <!--抵用属性设置-->
+            <div class="form-main-title">
+                抵用属性设置 <font color="red">*</font>
+            </div>
+            <div class="form-main-item form-Coupons">
+                <div>
+                    <span>类别：</span>
+                    <input type="radio" id="CouponsType1" name="CouponsType" onchange="chgCouponsType()" checked="checked" />抵用券
+                    <input type="radio" id="CouponsType2" name="CouponsType" onchange="chgCouponsType()" />折扣券
+                </div>
+                <div class="touse-money-div" id="ToUseMoneyDiv">
+                    <span>抵用金额：</span>
+                    <input type="number" id="UseMoney" class="txt-css" />元
+                </div>
+                <div class="touse-money-div" id="ToDiscountDiv" style="display:none;">
+                    <span>使用折扣：</span>
+                    <input type="number" id="UseDiscount" class="txt-css" placeholder="0到10之间的数字" />折
+                </div>
+            </div>
+
+            <!--发放设置-->
+            <div class="form-main-title">
+                发放设置 <font color="red">*</font>
+            </div>
+            <div class="form-main-item form-issue am-nbfc">
+                <div class="issue-coupons-total">
+                    <span>优惠券总数：</span>
+                    <input type="number" id="NumTotal" class="txt-css" /> 张
+
+                    <span class="left-span"></span>
+                    <input type="checkbox" class="isrepeatget-checkbox" id="IsRepeatGet" />
+                    <span style="padding-left: 10px;">可多次领取(使用后可再次领取)</span>
+                </div>
+                <div class="issue-type-radio">
+                    <span>发放方式：</span>
+                    <input type="radio" id="IsSueType1" name="IsSueType" onchange="chgIssueType()" checked="checked" />店铺中领取
+                    <input type="radio" id="IsSueType2" onchange="chgIssueType()" name="IsSueType" />购买商品自动发放
+                    <input type="radio" id="IsSueType3" onchange="chgIssueType()" name="IsSueType" />两者均可
+                </div>
+                <div id="IssueOrderGoodsDiv" style="display:none;">
+                    <span>消费满多少时自动发放：</span>
+                    <input type="number" id="IssueExpenseSum" class="txt-css" /> 元
+                </div>
+            </div>
+
+            <!--可使用的商品-->
+            <div class="form-main-title">
+                可使用的商品
+            </div>
+            <div class="form-main-item form-usegoods am-nbfc">
+                <div class="hint-prompt">提示：不添加商品，则店铺所有商品都可使用！</div>
+                <div class="form-usegoods-list" id="UseGoodsListDiv">
+                    <!--<a href="#" target="_blank">商品名称</a>，-->
+                </div>
+                <div class="use-goods-btn">
+                    <input class="am-btn am-btn-xs am-btn-success am-round" id="BtnUseGoods" type="button" value="添加" onclick="openGoodsSelWin()" />
+                </div>
+            </div>
+
+            <!--可使用的条件-->
+            <div class="form-main-title">
+                可使用的条件
+            </div>
+            <div class="form-main-item form-use-where am-nbfc">
+                <div class="hint-prompt">提示：不填写，则无使用条件限制！【使用日期范围】为空，则永久有效！</div>
+                <div style="display:flex; align-items:center;">
+                    <span>使用日期范围：</span>
+                    <input type="text" class="txt-css" id="UseTimeRangeStart" data-am-datepicker="{theme: 'success',}" readonly /> 至 <input type="text" class="txt-css" id="UseTimeRangeEnd" data-am-datepicker="{theme: 'success',}" readonly /> &nbsp; &nbsp; &nbsp; <input type="checkbox" class="isrepeatget-checkbox" id="LongEffectiveCb" />
+                    <span style="padding-left: 10px; display:inline-block; padding-top: 5px;">永久有效</span>
+
+                </div>
+                <div style="display:flex; align-items:center;">
+                    <span>消费满多少可用：</span>
+                    <input type="number" id="ExpenseReachSum" class="txt-css txt-expense-to" /> 元
+
+                    <input type="checkbox" class="isrepeatget-checkbox" style="margin-left: 40px;" id="IsOfflineUseCb" checked="checked" />
+                    <span style="padding-left: 10px; display:inline-block;padding-top: 5px;">允许线下验证使用</span>
+                </div>
+            </div>
+
+
+            <!--使用说明与描述-->
+            <div class="form-main-title">
+                使用说明与描述
+            </div>
+            <div class="form-main-item form-use-where am-nbfc">
+                <textarea id="CouponsDesc" class="area-txt-css"></textarea>
+            </div>
+
+            <!--按钮区域-->
+            <div class="btn-div">
+                <input type="button" id="SubmitBtn" class="am-btn am-btn-sm am-btn-danger am-round" value="保存优惠券信息" onclick="submitCouponsMsg()" />
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!--===========选择商品窗口===============-->
+    <div class="goods-sel-win" id="GoodsSelWin" style="display:none;">
+        <div class="goods-sel-main">
+            <ul class="goods-sel-ul" id="GoodsSelUL">
+                <li>
+                    <div class="goods-item-1">
+                        <img src="../Assets/Imgs/header_1.jpg" />
+                    </div>
+                    <div class="goods-item-2">
+                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                        商品名称商品名称商品名称商品名称商品名称商品名称商
+                    </div>
+                    <div class="goods-item-3">
+                        <img src="../Assets/Imgs/Icon/sel_no.png" />
+                    </div>
+                </li>
+                <li>
+                    <div class="goods-item-1">
+                        <img src="../Assets/Imgs/header_1.jpg" />
+                    </div>
+                    <div class="goods-item-2">
+                        商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                        商品名称商品名称商品名称商品名称商品名称商品名称商
+                    </div>
+                    <div class="goods-item-3">
+                        <img src="../Assets/Imgs/Icon/sel_no.png" />
+                    </div>
+                </li>
+            </ul>
+            <div class="page-bar" id="PageBar1">
+                <div>首页</div>
+                <div onclick="alert('执行了')">上一页</div>
+                <div>下一页</div>
+                <div>尾页</div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

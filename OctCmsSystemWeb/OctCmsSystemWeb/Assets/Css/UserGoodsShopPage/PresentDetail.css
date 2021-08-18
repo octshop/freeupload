@@ -1,0 +1,17 @@
+﻿/*=====================礼品详情=========================*/
+
+.order-status {
+    background: #07b100;
+}
+
+.presend-detail-img div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+    .presend-detail-img div img {
+        width: 150px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }

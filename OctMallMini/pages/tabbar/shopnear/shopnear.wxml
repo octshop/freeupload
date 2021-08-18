@@ -1,0 +1,356 @@
+<!--pages/buyer/shopnear/shopnear.wxml-->
+<view class="nav-bar-content" style="display:{{tabbarMidIndex == 3 || tabbarMidIndex == 4 ? 'normal':'none'}};">
+	<navBar id="NavBar" class="nav-bar" title-text="消息" back-icon="/assets/imgs/icons/navbar_home.png" home-icon=""
+		background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!--==============	显示买家消息====================-->
+<view wx:if="{{tabbarMidIndex == 3 || tabbarMidIndex == 4}}">
+
+	<!-- 内容导航子菜单 -->
+	<view class="oct-header-bottom-nav" style="top:{{navbarHeight}}px">
+		<!--Tab选项卡-->
+		<view class="tab-list">
+			<view class="tab-item {{sysMsgType=='All' ? 'tab-item-current' : ''}}" bindtap="chgTabMsg"
+				data-sys-msg-type="All">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/msg_all.png" />
+				全部消息
+				<span class="bage-num" wx:if="{{countAllMsg>0}}">{{countAllMsg}}</span>
+			</view>
+			<view class="tab-item {{sysMsgType=='Order' ? 'tab-item-current' : ''}}" bindtap="chgTabMsg"
+				data-sys-msg-type="Order">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/msg_order.png" />
+				交易消费
+				<span class="bage-num" wx:if="{{countOrderMsg>0}}">{{countOrderMsg}}</span>
+			</view>
+			<view class="tab-item {{sysMsgType=='CusSer' ? 'tab-item-current' : ''}}" bindtap="chgTabMsg"
+				data-sys-msg-type="CusSer">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/msg_customer.png" />
+				咨询消息
+				<span class="bage-num" wx:if="{{countCusSerMsg>0}}">{{countCusSerMsg}}</span>
+			</view>
+			<view class="tab-item {{sysMsgType=='AfterSale' ? 'tab-item-current' : ''}}" bindtap="chgTabMsg"
+				data-sys-msg-type="AfterSale">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/msg_aftersale.png" />
+				售后消息
+				<span class="bage-num" wx:if="{{countAfterSaleMsg>0}}">{{countAfterSaleMsg}}</span>
+			</view>
+		</view>
+	</view>
+
+	<!-- 主体内容  -->
+	<view class="oct-content" style="margin-top:{{octContentMarginTopMsg}}px">
+
+		<!--具体信息列表-->
+		<view class="msg-list" wx:for="{{loadReadAllSysMsgBuyerList_Data.ReadAllSysMsgList}}">
+
+			<!--订单消息-->
+			<view class="order-list" wx:if="{{item.SysMsgType=='Order'}}">
+				<view class="order-item">
+					<view class="order-item-top">
+						<view class="order-status-txt">
+							[交易]：{{item.MsgTitle}}
+						</view>
+						<view class="msg-date-time">
+							{{item.WriteDate}}
+						</view>
+					</view>
+					<view class="order-item-mid">
+						<navigator url="../../buyer/orderdetail/orderdetail?OID={{item.ExtraData}}" class="order-goods-item"
+							wx:for="{{loadReadAllSysMsgBuyerList_Data.ExtraDataList[index].GoodsMsgList}}" wx:for-item="itm"
+							wx:for-index="idx">
+							<view class="goods-item-left">
+								<image src="//{{itm.GoodsCoverImgPath}}" />
+							</view>
+							<view class="goods-item-mid">
+								<span class="goods-item-title">{{itm.GoodsTitle}}</span>
+								<span class="goods-item-spec">{{itm.SpecParamVal}}</span>
+							</view>
+							<view class="goods-item-right">
+								<span class="goods-item-price">￥{{itm.GoodsUnitPrice}}</span>
+								<span class="goods-item-ordernum">x {{item.OrderNum}}</span>
+							</view>
+						</navigator>
+					</view>
+
+				</view>
+			</view>
+
+			<!--咨询消息-->
+			<navigator url="#" class="customer-list" wx:if="{{item.SysMsgType == 'CusSer'}}"
+				catchtap="buildBuyerGoToImSysURL_ShopWap" data-shop-user-id="{{item.ShopUserID}}">
+				<view class="customer-list-left">
+					<image src="//{{loadReadAllSysMsgBuyerList_Data.ExtraDataList[index].ShopHeaderImg}}" />
+				</view>
+				<view class="customer-list-right">
+					<view class="customer-right-top">
+						<view>
+							[咨询]：{{loadReadAllSysMsgBuyerList_Data.ExtraDataList[index].ShopName}}
+						</view>
+						<view class="msg-date-time">
+							{{item.WriteDate}}
+						</view>
+					</view>
+					<view class="customer-right-bottom">
+						{{item.MsgContent}}
+					</view>
+				</view>
+			</navigator>
+
+
+			<!--售后信息-->
+			<view class="order-list" wx:if="{{item.SysMsgType == 'AfterSale'}}">
+				<view class="order-item">
+					<view class="order-item-top">
+						<view class="order-status-txt">
+							[售后]：{{item.MsgTitle}}
+						</view>
+						<view class="msg-date-time">
+							{{item.WriteDate}}
+						</view>
+					</view>
+					<view class="order-item-mid">
+
+						<navigator url="../../buyer/aftersale/afterdetail/afterdetail?AID={{item.ExtraData}}"
+							class="order-goods-item">
+							<view class="goods-item-left">
+								<image src="//{{loadReadAllSysMsgBuyerList_Data.ExtraDataList[index].GoodsCoverImgPath}}" />
+							</view>
+							<view class="goods-item-mid">
+								<span
+									class="goods-item-title">{{loadReadAllSysMsgBuyerList_Data.ExtraDataList[index].GoodsTitle}}</span>
+								<span
+									class="goods-item-spec">{{loadReadAllSysMsgBuyerList_Data.ExtraDataList[index].SpecParamVal}}</span>
+							</view>
+							<view class="goods-item-right">
+								<span
+									class="goods-item-price">￥{{loadReadAllSysMsgBuyerList_Data.ExtraDataList[index].GoodsUnitPrice}}</span>
+								<span class="goods-item-ordernum">x
+									{{loadReadAllSysMsgBuyerList_Data.ExtraDataList[index].OrderNum}}</span>
+							</view>
+						</navigator>
+
+
+					</view>
+
+				</view>
+			</view>
+
+
+
+		</view>
+
+
+	</view>
+
+</view>
+
+<!--==============	显示附近商家====================-->
+<view wx:if="{{tabbarMidIndex == 0 || tabbarMidIndex == 1}}">
+
+	<!--头部-->
+	<view class="oct-header-topbackground" style="height:{{statusHeight + 10}}px"></view>
+	<view class="oct-header oct-header-shop-nav" style="top:{{statusHeight}}px; height:{{navBarHeight}}px">
+
+		<view class="nav-search-addr">
+
+			<view class="sel-current-addr">
+				<!-- 长沙长长沙长长
+				<image class="arrow-sel-addr-image" src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrowdown.png" />-->
+				<!--省市县选择器-->
+				<picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
+					value="{{multiIndex}}" range="{{multiArray}}">
+					<view class="picker">
+
+						<view class='title-left-addr'>
+							<text> {{selRegionCityName}} </text>
+							<image class="arrow-sel-addr-image" src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrowdown.png"></image>
+						</view>
+
+					</view>
+				</picker>
+
+			</view>
+
+
+
+
+			<navigator url="../../mall/goodssearch/goodssearch?ST=Entity" class="goods-search">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_query.png" />
+				店铺名,商品或品类
+			</navigator>
+
+		</view>
+	</view>
+
+	<!-- 主体内容  -->
+	<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+		<!-- 轮播区域区域 -->
+		<view class='carousel'>
+			<swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8"
+				autoplay="true" interval='2000' circular='true'>
+				<block wx:for="{{loadAdvCarousel_Data.AdvCarouselList}}">
+					<swiper-item bindtap='navigateToURL' data-navigate-url='{{item.AdvLinkA}}'>
+						<image class="carouselImg" src='//{{item.ImgURL}}' mode='aspectFill'></image>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+
+
+		<!-- 图标导航区 -->
+		<view class='carousel-icon-nav'>
+			<swiper class='carousel_swiper_icon' indicator-color="#f4f4f4" indicator-active-color="#4eb8b8"
+				style="height: 155px">
+				<block>
+					<swiper-item>
+
+						<view class="nav-list">
+							<navigator class="nav-item" url="{{item.LinkURL}}" wx:for="{{loadListNavIconMsg_Data.NavIconList}}"
+								wx:if="{{index < 5}}">
+								<image src="//{{item.IconUrl}}" />
+								{{item.NavName}}
+							</navigator>
+						</view>
+
+						<view class="nav-list">
+							<navigator class="nav-item" url="{{item.LinkURL}}" wx:for="{{loadListNavIconMsg_Data.NavIconList}}"
+								wx:if="{{index >= 5 && index <10}}">
+								<image src="//{{item.IconUrl}}" />
+								{{item.NavName}}
+							</navigator>
+						</view>
+
+					</swiper-item>
+
+					<swiper-item>
+
+						<view class="nav-list">
+							<navigator class="nav-item" url="{{item.LinkURL}}" wx:for="{{loadListNavIconMsg_Data.NavIconList}}"
+								wx:if="{{index >= 10 && index <15}}">
+								<image src="//{{item.IconUrl}}" />
+								{{item.NavName}}
+							</navigator>
+						</view>
+
+						<view class="nav-list">
+							<navigator class="nav-item" url="{{item.LinkURL}}" wx:for="{{loadListNavIconMsg_Data.NavIconList}}"
+								wx:if="{{index >= 15 && index <20}}">
+								<image src="//{{item.IconUrl}}" />
+								{{item.NavName}}
+							</navigator>
+						</view>
+
+					</swiper-item>
+
+
+				</block>
+			</swiper>
+		</view>
+
+
+		<!--中心列表广告-->
+		<view class="gg-list">
+
+			<navigator class="gg-item" bindtap="navigateToURL" data-navigate-url="{{item.AdvLinkA}}"
+				wx:for="{{loadAdvImgList_Data[0].AdvImgSubList}}">
+				<image src="//{{item.ImgURL}}" mode="widthFix"></image>
+			</navigator>
+
+		</view>
+
+
+		<!--推荐商家-->
+		<view class="commend-shop">
+			<navigator class="commend-shop-title" url="../../o2o/cityshop/cityshop">
+				<span>推荐商家</span>
+				<span class="shop-title-right">优选商家
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" />
+				</span>
+			</navigator>
+			<view class="commend-shop-list">
+
+				<!--推荐商家Item-->
+				<navigator class="commend-item"
+					url="../../shop/index/index?SID={{loadRcdShop_Data.RcdGoodsShopList[index].ShopID}}"
+					wx:for="{{loadRcdShop_Data.ShopMsgList}}">
+					<view class="commend-item-img">
+						<image src="//{{item.ShopHeaderImg}}" />
+					</view>
+					<view class="commend-item-msg">
+						<view class="item-msg-title">
+							<span>{{item.ShopName}}</span>
+							<span class="item-msg-distance">{{loadRcdShop_Data.ExtraData[index].DistanceKm}}km</span>
+						</view>
+						<view class="item-msg-appraise">
+							{{loadRcdShop_Data.ExtraData[index].ShopAvgAppraiseScore}}分 | {{item.SumPaidCount}}人付款
+						</view>
+						<view class="item-msg-badge">
+							<span wx:if="{{item.CountSecKill > 0}}">秒杀</span>
+							<span wx:if="{{item.CountDiscount > 0}}">打折</span>
+							<span wx:if="{{item.GroupMsgCount > 0}}">团购</span>
+							<span wx:if="{{item.CountActivity > 0}}">活动</span>
+							<span wx:if="{{item.CountLuckyDraw > 0}}">抽奖</span>
+							<span wx:if="{{item.CountPresent > 0}}">礼品</span>
+						</view>
+						<view class="item-msg-price">
+							<span><b>￥ {{item.ShopAllGoodsMinPrice}}</b> 起</span>
+							<span class="item-msg-sale">已售:{{item.SumPaidCount}}</span>
+						</view>
+					</view>
+				</navigator>
+
+
+
+			</view>
+		</view>
+
+
+
+		<!--推荐商品-->
+		<view class="commend-goods">
+			<navigator class="commend-goods-title" url="../../o2o/citysame/citysame">
+				<view>推荐商品</view>
+				<view class="goods-title-right">精选商品
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" />
+				</view>
+			</navigator>
+			<view class="commend-goods-list">
+
+				<!--商品列表-->
+				<view class="goods-list">
+
+					<view class="goods-item" wx:for="{{loadRcdGoods_Data.GoodsMsgList}}">
+						<navigator url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+							<view class="goods-img">
+								<image src="//{{item.ImgPathCover}}" />
+							</view>
+							<view class="goods-name">{{item.GoodsTitle}}</view>
+							<view class="goods-price">
+								<b>￥{{item.GoodsPrice}}</b>
+								<view>{{item.SaleCount}}人付款</view>
+							</view>
+							<span class="goods-item-badge" wx:if="{{item.GroupDiscount>0}}">团购</span>
+							<span class="goods-item-badge" wx:elif="{{item.SkDiscount>0}}">秒杀</span>
+							<span class="goods-item-badge" wx:elif="{{item.Discount>0}}">{{item.Discount}}折</span>
+						</navigator>
+					</view>
+
+
+				</view>
+			</view>
+		</view>
+
+
+	</view>
+
+
+
+	<view style="width:100%; overflow:hidden; text-align:center; font-size:12px; color: #d0d0d0;padding-bottom: 20px;">
+		技术支持：m.OpenCodeTiger.com
+	</view>
+
+
+
+</view>

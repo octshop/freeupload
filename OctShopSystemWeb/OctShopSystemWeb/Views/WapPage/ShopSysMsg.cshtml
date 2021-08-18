@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>消息通知</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/WapPage/ShopSysMsg.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/WapPage/ShopSysMsg.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidOrderID" value="@ViewBag.OrderID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>消息通知</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../WapPage/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="mescroll" id="mescroll">
+
+
+            <!--订单动态列表-->
+            <div class="order-dynamic-list" id="PageContentList">
+
+                @*<div class="order-dynamic-item order-dynamic-item-current">
+                    <div class="dynamic-item-left">
+                        2020-05-92<br />
+                        11:23:23
+                    </div>
+                    <div class="dynamic-item-mid">
+                        <div class="dynamic-circle"></div>
+                    </div>
+                    <div class="dynamic-item-right">
+                        <div class="msg-title">
+                            这里是信息标题呀
+                        </div>
+                        等待商家确认货到付款订单，确认后发货，订单ID：250720等待商家确认货到付款订单，确认后发货，订单ID：250720
+                    </div>
+                </div>
+
+
+                <div class="order-dynamic-item">
+                    <div class="dynamic-item-left">
+                        2020-05-92<br />
+                        11:23:23
+                    </div>
+                    <div class="dynamic-item-mid">
+                        <div class="dynamic-circle"></div>
+                    </div>
+                    <div class="dynamic-item-right">
+                        <div class="msg-title">
+                            这里是信息标题呀
+                        </div>
+                        等待商家确认货到付款订单，确认后发货，订单ID：250720等待商家确认货到付款订单，确认后发货，订单ID：250720
+                    </div>
+                </div>*@
+
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+</html>

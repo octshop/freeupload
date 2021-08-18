@@ -1,0 +1,119 @@
+/* pages/buyer/vip/onlinetopup/onlinetopup.wxss */
+/*充值金额*/
+.topup-sum {
+  background: #ffffff;
+  padding: 20px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.topup-sum-bottom {
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.topup-sum-bottom image {
+  width: 68rpx;
+  height: 55rpx;
+  margin-right: 20rpx;
+}
+
+.topup-sum-txt {
+  border: none;
+  /* background: url(../../Imgs/Icon/vip_topup.png) left top no-repeat; */
+  background-size: 30px;
+  width: 120px;
+  height: 70rpx;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 2px;
+  padding-top: 4px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 20px;
+  color: #FE6B43;
+  text-align: left;
+  padding-left: 70rpx;
+}
+
+.topup-sum-bottom view {
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  /* background: url(../../Imgs/Icon/vip_balance.png) left top no-repeat; */
+  background-size: 30px;
+  margin: 0 auto;
+  text-align: left;
+  padding-left: 40px;
+}
+
+/*按钮*/
+.topup-btn-item {
+  text-align: center;
+}
+
+.btn-next {
+  padding: 8px;
+  background: #FE6B43;
+  margin: 0 auto;
+  cursor: pointer;
+  color: #ffffff;
+  margin-top: 40px;
+  border: none;
+  width: 70%;
+  border-radius: 30px;
+}
+
+/*充值方式*/
+.win-pay-item {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #fbfbfb;
+  align-items: center;
+  cursor: pointer;
+}
+
+.topup-type-bottom {
+  padding: 20px;
+  padding-top: 15px;
+}
+
+.pay-item-right image {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.pay-item-left {
+  padding-left: 5px;
+  padding-top: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.pay-item-left image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+
+.pay-item-wx {
+  /* background: url(../../Imgs/Icon/pay_wx.png) left center no-repeat; */
+  background-size: 25px;
+}
+
+.pay-item-alipay {
+  /* background: url(../../Imgs/Icon/pay_alipay.png) left center no-repeat; */
+  background-size: 19px;
+}
+
+.pay-item-bank {
+  /* background: url(../../Imgs/Icon/pay_bank.png) left center no-repeat; */
+  background-size: 19px;
+}

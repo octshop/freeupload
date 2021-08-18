@@ -1,0 +1,156 @@
+﻿/*====================订单详情============================*/
+
+/*订单状态显示*/
+.order-status {
+    background: #03AD05;
+    border: 1px solid #e1e1e1;
+    padding: 8px;
+    color: white;
+    border-radius: 8px;
+}
+
+.order-status-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.order-status-desc {
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+}
+
+.order-status-dynamic {
+    font-size: 12px;
+    color: #eeeeee;
+}
+/*基本信息*/
+.order-basic dd {
+    padding: 8px 5px;
+    color: #f35402;
+}
+
+    .order-basic dd span {
+        padding-left: 10px;
+        color: #000000;
+    }
+
+.order-goods-list {
+    background: #fcfcfc;
+    border: 1px solid #e1e1e1;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+    .order-goods-list div {
+        padding: 5px 0;
+    }
+
+/*操作按钮列表*/
+.exe-btn-item {
+    padding: 20px 0;
+    padding-bottom: 0px;
+}
+
+    .exe-btn-item input {
+        padding: 10px 20px;
+        border: none;
+        background: #f35402;
+        color:white;
+        font-size:14px;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+
+/*============售后详情================*/
+.order-basic .problem-desc-dd span {
+    padding-left: 0;
+}
+
+.after-sale-status {
+    background: #05B6B4;
+}
+
+.problem-desc-dd {
+    background: #FCFCFC;
+    border: 1px solid #E1E1E1;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+/*问题图片*/
+.after-sale-problemimgs dd {
+    background: #FCFCFC;
+    border: 1px solid #E1E1E1;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+    .after-sale-problemimgs dd img {
+        width: 135px;
+        border: 1px solid #E1E1E1;
+        border-radius: 10px;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+/*============投诉详情================*/
+.complain-status {
+    background: #7ABD54;
+}
+
+/*============礼品订单详情================*/
+.order-status-present {
+    background: #D3AA00;
+}
+
+/*============活动详情================*/
+.order-status-activity {
+    background: #e88000;
+}
+
+/*============抽奖详情================*/
+.order-status-luckydraw {
+    background: #7ABD54;
+}
+
+/*奖项设置 */
+.luckydraw-table {
+    border: 1px solid #e2e2e2;
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    color: #000000;
+}
+
+.table-header {
+    background: #f8f8f8;
+}
+
+.luckydraw-table tr td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #eeeeee;
+}
+
+.btn-setting-ld {
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.luckydraw-table tr td img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 8px;
+}
+/*店铺信息*/
+.shop-msg-dl img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid #e1e1e1;
+    margin-right: 8px;
+}

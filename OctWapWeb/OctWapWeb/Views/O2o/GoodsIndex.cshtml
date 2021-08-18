@@ -1,0 +1,237 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>同城优选</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Lib/lightslider/lightslider.css" rel="stylesheet" />
+    <link href="../Assets/Css/O2o/GoodsIndex.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/lightslider/lightslider.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/O2o/GoodsIndex.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left" onclick="window.history.back(-1)">
+            <img src="../Assets/Imgs/Icon/back.png" />
+        </div>
+        <div class="goods-search" onclick="window.location.href='../Mall/SearchGoods?ST=Entity'">
+            <img src="../Assets/Imgs/Icon/buyer_query.png" />
+            输入商品或品类
+        </div>
+        <div class="oct-header-right" onclick="window.location.href='../O2O/Index'">
+            <img src="../Assets/Imgs/Icon/navbar_home.png" style="width:25px; height: 25px; margin-top:4px;" />
+            @*<div>商家</div>*@
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!-- 轮播区域 -->
+            <div class="oct-slider">
+
+                <div class="sliderMainContent" id="sliderMainContent" style="overflow:hidden;">
+
+                    <ul id="content-slider" class="content-slider">
+                        @*<li>
+                                <a href="javascript:void(0)" target="_blank">
+                                    <div class="img-slider img-slider-1">
+                                        <img src="../Assets/Imgs/01.jpg" />
+                                    </div>
+                                </a>
+                            </li>*@
+
+                    </ul>
+
+                </div>
+
+                <div class="slider-pager-content">
+                    <div id="SliderCountDiv">0/0</div>
+                </div>
+            </div>
+
+            <!--导航-->
+            <div class="nav-list">
+
+                <div class="sliderMainContent" id="sliderMainContent2" style="overflow:hidden; width: 100%;">
+
+                    <ul id="content-slider-2" class="content-slider">
+                        @*<li>
+                                    <a class="nav-item" href="../O2o/GoodsType">
+                                        <img src="../Assets/Imgs/Icon/o2o_commend.png" />
+                                        商品分类
+                                    </a>
+                                    <a class="nav-item" href="../O2o/GoodsType">
+                                        <img src="../Assets/Imgs/Icon/o2o_all.png" />
+                                        商品分类
+                                    </a>
+                                    <a class="nav-item" href="../Mall/GoodsType">
+                                        <img src="../Assets/Imgs/Icon/o2o_food.png" />
+                                        商品分类
+                                    </a>
+                                    <a class="nav-item" href="../Mall/DiscountGoods">
+                                        <img src="../Assets/Imgs/Icon/o2o_film.png" />
+                                        电影
+                                    </a>
+                                    <a class="nav-item" href="../Mall/Coupons">
+                                        <img src="../Assets/Imgs/Icon/o2o_hotel.png" />
+                                        酒店
+                                    </a>
+                                    <a class="nav-item" href="../Mall/LuckyDraw">
+                                        <img src="../Assets/Imgs/Icon/o2o_recreation.png" />
+                                        休闲娱乐
+                                    </a>
+                                    <a class="nav-item" href="#">
+                                        <img src="../Assets/Imgs/Icon/o2o_takeout.png" />
+                                        外卖
+                                    </a>
+                                    <a class="nav-item" href="../Mall/Activity">
+                                        <img src="../Assets/Imgs/Icon/o2o_life.png" />
+                                        生活服务
+                                    </a>
+                                    <a class="nav-item" href="#">
+                                        <img src="../Assets/Imgs/Icon/o2o_travel.png" />
+                                        周边游
+                                    </a>
+                                    <a class="nav-item" href="#">
+                                        <img src="../Assets/Imgs/Icon/o2o_all.png" />
+                                        全部
+                                    </a>
+                                </li>
+                                <li>
+                                <a class="nav-item" href="../Mall/GroupBuy">
+                                    <img src="../Assets/Imgs/Icon/index_nav01.png" />
+                                    拼团
+                                </a>
+                                <a class="nav-item" href="../Mall/SecondsKill">
+                                    <img src="../Assets/Imgs/Icon/index_nav02.png" />
+                                    秒杀
+                                </a>
+                                <a class="nav-item" href="../Mall/PresentExchange">
+                                    <img src="../Assets/Imgs/Icon/index_nav03.png" />
+                                    礼品
+                                </a>
+                                <a class="nav-item" href="../Mall/DiscountGoods">
+                                    <img src="../Assets/Imgs/Icon/index_nav04.png" />
+                                    打折
+                                </a>
+                                <a class="nav-item" href="../Mall/Coupons">
+                                    <img src="../Assets/Imgs/Icon/index_nav05.png" />
+                                    领券
+                                </a>
+                                <a class="nav-item" href="../Mall/LuckyDraw">
+                                    <img src="../Assets/Imgs/Icon/index_nav06.png" />
+                                    抽奖
+                                </a>
+                                <a class="nav-item" href="#">
+                                    <img src="../Assets/Imgs/Icon/index_nav07.png" />
+                                    实体店
+                                </a>
+                                <a class="nav-item" href="../Mall/Activity">
+                                    <img src="../Assets/Imgs/Icon/index_nav08.png" />
+                                    活动
+                                </a>
+                                <a class="nav-item" href="#">
+                                    <img src="../Assets/Imgs/Icon/index_nav09.png" />
+                                    入驻
+                                </a>
+                                <a class="nav-item" href="#">
+                                    <img src="../Assets/Imgs/Icon/index_nav09.png" />
+                                    全部
+                                </a>
+                            </li>*@
+                    </ul>
+
+                </div>
+                <div class="slider-pager-content">
+
+                </div>
+            </div>
+
+            <!--自定义栏目-->
+            <div class="section-content" id="SectionContent">
+
+                <!--抢购秒杀-->
+                @*<div class="second-kill">
+                        <div class="second-kill-title">
+                            <div>抢购秒杀</div>
+                            <div class="second-kill-arrow">开抢超低好货低价</div>
+                        </div>
+                        <div class="second-kill-list">
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                        </div>
+                    </div>*@
+
+
+
+            </div>
+
+            <!--分割条件-->
+            <div style="padding-bottom: 8px;">
+            </div>
+
+            <!--商品列表-->
+            <ul class="goods-list" id="PageContentList">
+
+                <li class="goods-item">
+                    <div class="goods-img">
+                        <img src="../Assets/Imgs/05.jpg" />
+                    </div>
+                    <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                    <div class="goods-price">
+                        <b>&#165;234.2</b>
+                        <div>23432人付款</div>
+                        <img src="../Assets/Imgs/Icon/scart_add.png" />
+                    </div>
+                    <span class="goods-item-badge">9.3折</span>
+                </li>
+
+            </ul>
+            <div class="btn-more-goods" id="BtnMoreGoods" style="display:normal;" onclick="nextPage()">
+                … 加载更多 …
+            </div>
+
+
+            <!--底部分隔-->
+            <div style="padding-bottom: 80px;">
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

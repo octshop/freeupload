@@ -1,0 +1,232 @@
+﻿/********************** 后台管理框架样式表 **********************/
+
+/*格式化标签*/
+ul, ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*顶部导航*/
+.my-header {
+    font-size: 14px;
+    background: #252A2F;
+    color: #ffffff;
+}
+
+.topnav-item li:hover, .topnav-item li:visited, .topnav-item li:after, .topnav-item li:focus {
+    color: none;
+    background: none;
+}
+
+.topnav-item li a {
+    color: white;
+}
+
+    .topnav-item li a:hover, .topnav-item li a:focus {
+        background: none;
+    }
+
+.button-item {
+    margin-top: 11px;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.button-item-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
+.search-form div {
+    padding-top: 4px;
+}
+
+.search-input {
+    margin-left: -5px;
+    margin-top: 8px;
+    border: none;
+    border-right: none;
+    height: 32px;
+    overflow: hidden;
+    background: #3F4347;
+    color: white;
+}
+
+    .search-input:focus {
+        background: #3F4347;
+    }
+
+.search-btn {
+    border: none;
+    background: #626467;
+    color: #ffffff;
+    border: none;
+    height: 32px;
+    margin-left: -10px;
+    margin-top: 8px;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+    .search-btn:hover {
+        color: #ffffff;
+    }
+
+.menu-dropdown-item {
+    border: none;
+    background: none;
+    color: white;
+}
+
+.menu-dropdown-li {
+    padding-top: 12px;
+}
+
+.user-header-img {
+    width: 38px;
+    height: 38px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #717171;
+    padding: 3px;
+    margin-top: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: #3d3d3d 1px 1px;
+}
+
+.dropdown-last-left {
+    margin-right: 15px;
+}
+/*左侧导航栏*/
+.nav-left {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    background: #252A2F;
+    color: #ffffff;
+    height: 700px;
+    z-index: 1000;
+    border-top: 1px solid #717171;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-left: 8px;
+    overflow: hidden;
+    clear: both;
+    transition: width 0.5s;
+    -moz-transition: width 0.5s; /* Firefox 4 */
+    -webkit-transition: width 0.5s; /* Safari 和 Chrome */
+    -o-transition: width 0.5s; /* Opera */
+    width: 50px;
+    /*width: 180px;*/
+}
+
+.nav-left-item {
+    width: 200px;
+    padding: 5px 10px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .nav-left-item:hover {
+        background: #0099CC;
+    }
+
+    .nav-left-item i {
+        font-size: 18px;
+    }
+
+    .nav-left-item a {
+        color: #ffffff;
+        padding-left: 15px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav-left-item span {
+        padding-right: 20px;
+    }
+
+
+/*主体内容*/
+.main {
+    margin-left: 50px;
+    clear: both;
+    overflow: hidden;
+    padding: 0px;
+    background: #ffffff;
+}
+
+/*左侧子菜单列表*/
+.main-left {
+    width: 150px;
+    background: #EDF2F2;
+    font-size: 12px;
+    color: #252A2F;
+    overflow: hidden;
+}
+
+.main-nav-title {
+    padding: 15px;
+    font-size: 14px;
+    background: #E0E8E8;
+    margin-bottom: 5px;
+}
+
+.main-nav-list ul {
+    list-style: none;
+}
+
+    .main-nav-list ul li {
+        cursor: pointer;
+    }
+
+        .main-nav-list ul li:hover {
+            background: #ffffff;
+        }
+
+        .main-nav-list ul li a {
+            display: block;
+            color: #252A2F;
+            padding: 6px 15px;
+        }
+
+        .main-nav-list ul li.main-nav-fold:hover {
+            background: none;
+        }
+
+.main-nav-fold ul {
+    padding: 0;
+    margin: 0;
+    padding-top: 5px;
+}
+
+    .main-nav-fold ul li a {
+        color: #717171;
+        padding-left: 30px;
+    }
+
+.main-nav-fold span {
+    padding-right: 8px;
+}
+
+.main-nav-current {
+    background: white;
+}
+
+/*登录会员信息面板*/
+.login-user-msg {
+    color: #252A2F;
+}
+
+    .login-user-msg div {
+        padding-top: 5px;
+        border-bottom: 1px dashed #efefef;
+        padding: 7px 0;
+    }

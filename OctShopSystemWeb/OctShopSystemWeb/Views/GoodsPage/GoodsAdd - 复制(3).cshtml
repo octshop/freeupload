@@ -1,0 +1,643 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>发布商品</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/GoodsPage/GoodsAdd.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+    <script charset="utf-8" src="../Assets/Lib/kindeditor4/kindeditor-all-min.js"></script>
+
+
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+
+    <script src="../Assets/Js/GoodsPage/GoodsAdd.js"></script>
+
+
+</head>
+<body>
+
+    <form>
+
+        <!--隐藏控件记录值-->
+        <input type="hidden" id="hidFirstGoodsTypeID" value="" />
+        <input type="hidden" id="hidSecondGoodsTypeID" value="" />
+        <input type="hidden" id="hidThirdGoodsTypeID" value="" />
+        <input type="hidden" id="hidGoodsMsgGuid" value="@ViewBag.GoodsMsgGuid" />
+        <input type="hidden" id="hidShopUserID" value="@ViewBag.ShopUserID" />
+
+        <!--面包屑导航-->
+        <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+            <ul class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">商品管理</a></li>
+                <li class="am-active">发布商品</li>
+            </ul>
+        </div>
+
+        <!--主体内容-->
+        <div class="main am-nbfc">
+
+            <!--标题栏-->
+            <div class="main-title am-cf am-nbfc">
+                <div class="title-txt-div am-fl">
+                    <i class="am-icon-list"></i> 发布商品
+                </div>
+                <div class="title-btn-div am-fl">
+                    <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+                </div>
+            </div>
+
+            <!--选择商品类目  操作表单-->
+            <div class="form-main am-nbfc am-padding" id="SelGoodsTypeDiv" style="display:normal;">
+
+
+                <!--当前选择的商品类目-->
+                <div class="goods-type-current">
+                    <div>
+                        <b>当前选择的商品类目:</b>
+                    </div>
+                    <div>
+                        <span id="GoodsTypeSpanFirst"></span> > <span id="GoodsTypeSpanSecond"></span> > <span id="GoodsTypeSpanThird"></span>
+                    </div>
+                </div>
+
+                <!--三个选择框-->
+                <div class="goods-type">
+
+                    <div class="goods-type-left">
+                        <div class="goods-type-list" id="GoodsTypeFirstDiv">
+                            …加载中…
+                        </div>
+                    </div>
+
+                    <div class="goods-type-mid">
+                        <div class="goods-type-list" id="GoodsTypeSecondDiv">
+                            <!--<div id="GoodsType_123" class="goods-type-item">家用电器</div>-->
+
+                        </div>
+                    </div>
+                    <div class="goods-type-right">
+                        <div class="goods-type-list" id="GoodsTypeThirdDiv">
+                            <!--<div id="GoodsType_123" class="goods-type-item">家用电器</div>-->
+                        </div>
+                    </div>
+                </div>
+                <!--商品列表-->
+                <div class="goods-list-pre">
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_01.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_01.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_02.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_02.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_01.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_02.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_01.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_02.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_01.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_01.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_01.jpg" /></a>
+                    <a href="#" target="_blank"><img src="../Assets/Imgs/product_01.jpg" /></a>
+                </div>
+                <!--按钮-->
+                <div class="goods-type-btn">
+                    <input type="button" value="选择当前商品类目,下一步" onclick="nextStep()" class="am-btn am-btn-sm am-btn-danger am-round">
+                </div>
+
+            </div>
+
+
+            <!--发布商品具体属性  操作表单-->
+            <div class="form-main form-main-put am-nbfc" id="PutGoodsTypePropDiv" style="display:none;">
+
+                <!--选择类目-->
+                <div class="goods-prop am-nbfc">
+                    <div class="goods-type-div goods-title-div">
+                        商品类目
+                    </div>
+                    <div class="goods-type-content">
+                        <span id="GoodsTypeSpan_First">男装/女装/童装/内衣</span> > <span id="GoodsTypeSpan_Second">男装</span> > <span id="GoodsTypeSpan_Third">休闲裤</span>
+                    </div>
+                    <div class="goods-type-edit-btn">
+                        <input class="am-btn am-btn-xs am-btn-success am-round" type="button" value="编辑" onclick="editGoodsType()" />
+                    </div>
+                </div>
+
+                <!--商品属性-->
+                <div class="goods-prop am-nbfc">
+                    <!--商品必填属性-->
+                    <div class="goods-prop-title goods-title-div">
+                        商品必填属性
+                    </div>
+                    <div class="goods-prop-content">
+                        <ul class="goods-prop-ul" id="GoodsNeedPropUl">
+                            <!--<li>
+                <span>袖长</span>
+                <select class="goods-prop-select">
+                    <option value="无袖">无袖</option>
+                    <option value="短袖">短袖</option>
+                    <option value="五分袖">五分袖</option>
+                </select>
+            </li>
+            <li>
+                <span>当季热销</span>
+                <input type="text" class="goods-prop-txt" />
+            </li>
+            <li>
+                <span>袖长</span>
+                <select class="goods-prop-select">
+                    <option value="无袖">无袖</option>
+                    <option value="短袖">短袖</option>
+                    <option value="五分袖">五分袖</option>
+                </select>
+            </li>
+            <li>
+                <span>当季热销</span>
+                <input type="text" class="goods-prop-txt" />
+            </li>
+            <li>
+                <span>袖长</span>
+                <select class="goods-prop-select">
+                    <option value="无袖">无袖</option>
+                    <option value="短袖">短袖</option>
+                    <option value="五分袖">五分袖</option>
+                </select>
+            </li>
+            <li>
+                <span>当季热销</span>
+                <input type="text" class="goods-prop-txt" />
+            </li>
+            <li>
+                <span>袖长</span>
+                <select class="goods-prop-select">
+                    <option value="无袖">无袖</option>
+                    <option value="短袖">短袖</option>
+                    <option value="五分袖">五分袖</option>
+                </select>
+            </li>
+            <li>
+                <span>当季热销</span>
+                <input type="text" class="goods-prop-txt" />
+            </li>-->
+                        </ul>
+                    </div>
+                </div>
+                <!--商品自定义属性-->
+                <div class="goods-myprop am-nbfc">
+                    <div class="goods-title-div">
+                        自定义属性
+                    </div>
+                    <div class="goods-myprop-content">
+                        <ul class="goods-prop-ul" id="GoodsPropUl">
+                            <li>
+                                <span>属性名称(如:生产地):</span>
+                                属性值(如:中国大陆)
+                            </li>
+                            <!--<li>
+                                <span>当季热销:</span>
+                                小清鲜
+                            </li>-->
+                        </ul>
+                        <div class="goods-myprop-btn">
+                            <input class="am-btn am-btn-xs am-btn-success am-round" type="button" value="编辑" onclick="openGoodsMyPropWin()" />
+                        </div>
+                    </div>
+                </div>
+                <!--商品标题-->
+                <div class="goods-title am-nbfc">
+                    <div class="goods-title-div">
+                        商品标题
+                    </div>
+                    <div class="goods-title-content">
+                        <div class="goods-title-prompt">
+                            提示：商品标题字数控制在80个之内,精简提炼标题关键字有助于搜索排名
+                        </div>
+                        <input class="goods-title-txt" id="GoodsTitle" type="text" />
+                    </div>
+                </div>
+                <!--价格与库存-->
+                <div class="goods-price am-nbfc">
+                    <div class="goods-title-div">
+                        价格与库存
+                    </div>
+                    <div class="goods-price-content" id="GoodsSpecPropPriceStockNoDiv" style="display:normal;">
+                        <span>价格:</span>
+                        <input type="number" class="goods-pricestock-txt" id="GoodsPrice" placeholder="以 '元' 为单位" />
+                        <span>库存:</span>
+                        <input type="number" id="StockNum"  class="goods-pricestock-txt" />
+                    </div>
+                    <div class="goods-price-spec" id="GoodsSpecPropPriceStockDiv" style="display:none;">
+                        <div class="price-spec-div">
+                            <div class="price-spec-div-left" id="SpecTitleDiv">
+                                规格标题：
+                            </div>
+                            <div class="price-spec-div-right" id="SpecItemDiv">
+                                <div class="current-price-spec"><img src="../Assets/Imgs/header_1.jpg" /></div>
+                                <div><span>规格名称</span></div>
+                                <div class="current-price-spec"><img src="../Assets/Imgs/header_1.jpg" /></div>
+                                <div><span>规格名称</span></div>
+                            </div>
+                        </div>
+                        <div class="price-spec-div">
+                            <div class="price-spec-div-left" id="PropTitleDiv">
+                                属性标题：
+                            </div>
+                            <div class="price-spec-div-right" id="PropItemDiv">
+                                <div class="price-spec-div-item">
+                                    <div><img src="../Assets/Imgs/header_1.jpg" /></div>
+                                    <div class="current-price-spec"><span>属性名称</span></div>
+                                    <div><img src="../Assets/Imgs/header_1.jpg" /></div>
+                                    <div class="current-price-spec"><span>属性名称</span></div>
+                                </div>
+                                <div class="price-spec-div-item">
+                                    <div><img src="../Assets/Imgs/header_1.jpg" /></div>
+                                    <div class="current-price-spec"><span>属性名称</span></div>
+                                    <div><img src="../Assets/Imgs/header_1.jpg" /></div>
+                                    <div class="current-price-spec"><span>属性名称</span></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="price-stock-div">
+                            <span>价格：</span><b id="GoodsPriceB">234.23</b>
+                            <span>库存：</span><b id="GoodsStockB">8695</b>
+                        </div>
+                    </div>
+                    <div class="goods-price-btn">
+                        <input class="am-btn am-btn-xs am-btn-success am-round" type="button" value="编辑规格" onclick="openPriceSpecWin()" />
+                        <input class="am-btn am-btn-xs am-btn-default am-round" type="button" id="BtnDelAllSpecPropMsg" value="删除所有规格" onclick="delAllSpecPriceStock()" style="display:none;" />
+                    </div>
+                </div>
+                <!--商品照片-->
+                <div class="goods-img am-nbfc">
+                    <div class="goods-title-div">
+                        商品照片
+                    </div>
+                    <div class="goods-price-content">
+                        <div class="goods-title-prompt">
+                            提示：商品图片尺寸 800 * 800 像素以上，长宽比例为 1:1 的正方形图片为最佳，至少上传一张商品照片。
+                        </div>
+                        <div class="goods-upload-list">
+                            <ul class="goods-upload-ul">
+                                <li>
+                                    <div class="upload-goods-img" style="position:relative">
+                                        <img id="GoodsImgPre_1" src="~/Assets/Imgs/Icon/icon_camera.png" class="goods-pre-img" />
+                                        <input id="UploadGoods_1" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 100%; height:120px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                    </div>
+                                    <input type="hidden" id="HidUploadGoodsVal_1" value="" />
+                                    <div id="BtnGoodsList_1" class="upload-goods-btn" style="display:none;">
+                                        <a href="#" target="_blank">裁剪</a>
+                                        <div>刷新</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="upload-goods-img" style="position:relative">
+                                        <img id="GoodsImgPre_2" src="~/Assets/Imgs/Icon/icon_camera.png" class="goods-pre-img" />
+                                        <input id="UploadGoods_2" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 100%; height:120px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                    </div>
+                                    <input type="hidden" id="HidUploadGoodsVal_2" value="" />
+                                    <div id="BtnGoodsList_2" class="upload-goods-btn" style="display:none;">
+                                        <a href="#" target="_blank">裁剪</a>
+                                        <div>刷新</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="upload-goods-img" style="position:relative">
+                                        <img id="GoodsImgPre_3" src="~/Assets/Imgs/Icon/icon_camera.png" class="goods-pre-img" />
+                                        <input id="UploadGoods_3" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 100%; height:120px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                    </div>
+                                    <input type="hidden" id="HidUploadGoodsVal_3" value="" />
+                                    <div id="BtnGoodsList_3" class="upload-goods-btn" style="display:none;">
+                                        <a href="#" target="_blank">裁剪</a>
+                                        <div>刷新</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="upload-goods-img" style="position:relative">
+                                        <img id="GoodsImgPre_4" src="~/Assets/Imgs/Icon/icon_camera.png" class="goods-pre-img" />
+                                        <input id="UploadGoods_4" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 100%; height:120px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                    </div>
+                                    <input type="hidden" id="HidUploadGoodsVal_4" value="" />
+                                    <div id="BtnGoodsList_4" class="upload-goods-btn" style="display:none;">
+                                        <a href="#" target="_blank">裁剪</a>
+                                        <div>刷新</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="upload-goods-img" style="position:relative">
+                                        <img id="GoodsImgPre_5" src="~/Assets/Imgs/Icon/icon_camera.png" class="goods-pre-img" />
+                                        <input id="UploadGoods_5" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 100%; height:120px; background:gray; overflow:hidden; position:absolute; left:0px; top:0" />
+                                    </div>
+                                    <input type="hidden" id="HidUploadGoodsVal_5" value="" />
+                                    <div id="BtnGoodsList_5" class="upload-goods-btn" style="display:none;">
+                                        <a href="#" target="_blank">裁剪</a>
+                                        <div>刷新</div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--商品描述-->
+                <div class="goods-desc am-nbfc">
+                    <div class="goods-title-div">
+                        商品描述
+                    </div>
+                    <div class="goods-desc-cntent">
+                        <div class="goods-desc-editor">
+                            <textarea id="EditorGoodsDesc" name="content" style="width:100%;height:500px;">商品描述</textarea>
+                        </div>
+                    </div>
+                    <div class="goods-desc-btn">
+                        <input class="am-btn am-btn-xs am-btn-success am-round" type="button" value="插入图片" onclick="openInsertImgWin()" />
+                        <input type="button" style="margin-left: 20px;" class="am-btn am-btn-xs am-btn-default am-round" value="移动端预览" />
+                        <input type="button" style="margin-left: 20px;" class="am-btn am-btn-xs am-btn-default am-round" value="电脑端预览" />
+                    </div>
+                </div>
+                <!--赠品-->
+                <div class="goods-gift am-nbfc">
+                    <div class="goods-title-div">
+                        赠品添加
+                    </div>
+                    <div class="goods-gift-cntent">
+                        <ul class="goods-gift-ul" id="GoodsGiftUL">
+                            <li>
+                                … 无赠品 …
+                            </li>
+                            <!--<li>
+                                <div class="gift-item-1">
+                                    <img src="../Assets/Imgs/header_1.jpg" />
+                                    赠品名称赠品名称赠品名称赠品名称赠品名称
+                                </div>
+                                <div class="gift-item-2">
+                                    正常
+                                </div>
+                                <div class="gift-item-3">
+                                    <div class="gift-item-input">
+                                        <input type="button" class="gift-num-reduce" value=" - " />
+                                        <input type="number" class="gift-num-txt" value="1" />
+                                        <input type="button" class="gift-num-add" value=" + " />
+                                    </div>
+                                </div>
+                                <div class="gift-item-4">
+                                    <span class="gift-del am-icon-trash-o"></span>
+                                </div>
+                            </li>-->
+                        </ul>
+                    </div>
+                    <div class="goods-price-btn">
+                        <input class="am-btn am-btn-xs am-btn-success am-round" type="button" value="添加" onclick="openGoodsGiftWin()" />
+                    </div>
+                </div>
+                <!--分销设置-->
+                <div class="goods-distri am-nbfc">
+                    <div class="goods-title-div">
+                        分销设置
+                    </div>
+                    <div class="goods-distri-cntent">
+                        <ul class="goods-distri-ul">
+                            <li>
+                                <span>允许分销:</span>
+                                <input id="IsDistri" type="checkbox" class="allow-check-box" />
+                            </li>
+                            <li>
+                                <span>分销佣金:</span>
+                                <input id="DistriMoney" type="number" placeholder="以'元'为单位" class="allow-text-css" />
+                            </li>
+                            <li>
+                                <a href="#" target="_blank" class="allow-a-link am-icon-question-circle-o"> 分销规则说明</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <!--其他设置-->
+                <div class="goods-other am-nbfc">
+                    <div class="goods-title-div">
+                        其他设置
+                    </div>
+                    <div class="goods-other-cntent">
+                        <div class="goods-other-sel">
+                            <span>店铺商品类别：</span>
+                            <select id="ShopGoodsTypeTop" onchange="chgSecondShopGoodsType()">
+                                <option value="">选择类别</option>
+                            </select>
+                            <select id="ShopGoodsTypeSecond" style="display:none;">
+                                <option value="">选择类别</option>
+                            </select>
+                            <span class="goods-type-manager">类别管理</span>
+                        </div>
+                        <div class="goods-other-support">
+                            <span>支持【到店消费】:</span>
+                            <input id="IsShopExpense" type="checkbox" class="allow-check-box" />
+                            <span>支持【送货上门(快递发货)】:</span>
+                            <input id="IsExpressHome" type="checkbox" class="allow-check-box" checked="checked" />
+                            <span>支持【货到付款】:</span>
+                            <input id="IsPayDelivery" type="checkbox" class="allow-check-box" />
+                        </div>
+                    </div>
+                </div>
+                <!--包装售后说明-->
+                <div class="goods-packas am-nbfc">
+                    <div class="goods-title-div">
+                        包装售后说明
+                    </div>
+                    <div class="goods-packas-cntent">
+                        <textarea id="PackAfterSaleDesc" class="goods-packas-areatxt"></textarea>
+                    </div>
+                </div>
+
+                <!--按钮区-->
+                <div class="goods-btn am-nbfc">
+                    <input type="button" class="am-btn am-btn-sm am-btn-danger am-round" value="立即发布商品" onclick="submitGoodsMsg()" />
+                </div>
+            </div>
+        </div>
+
+
+        <!--=========插入图片窗口===========-->
+        <div class="insert-img-win" id="InsertImgWin" style="display:none;">
+            <div class="am-tabs" data-am-tabs>
+                <ul class="am-tabs-nav am-nav am-nav-tabs">
+                    <li class="am-active"><a href="#tab1">本地上传</a></li>
+                    <li><a href="#tab2">商品照片</a></li>
+                </ul>
+
+                <div class="am-tabs-bd" style="border:none;">
+                    <!--本地上传-->
+                    <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                        <div class="photo-img-upload">
+                            <div class="photo-album-sel">
+                                <span>选择相册：</span>
+                                <select id="ShopAlbumSelect1" onchange="chgShopAlbumSelect()">
+                                    <option value="234">相册名称</option>
+                                    <option value="234">相册名称</option>
+                                </select>
+                            </div>
+                            <div class="am-form-group am-form-file">
+                                <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                                </button>
+                                <input id="fileupload_Album" type="file" multiple>
+                            </div>
+                        </div>
+                        <div class="photo-img-item">
+                            <ul class="photo-img-ul" id="PhotoImgUl">
+                                <li> </li>
+                                <!--<li>
+                                    <img src="../Assets/Imgs/product_01.jpg" />
+                                    <input class="sel-img-cb" type="checkbox" data-imgurl="//192.168.1.220:1700/Assets/Imgs/product_01.jpg" onchange="chgSelInsertImgCb()" />
+                                </li>-->
+
+                            </ul>
+                            <div class="page-bar" id="PageBar1">
+                                <div>首页</div>
+                                <div onclick="alert('执行了')">上一页</div>
+                                <div>下一页</div>
+                                <div>尾页</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--商品图片-->
+                    <div class="am-tab-panel am-fade" id="tab2">
+                        <div class="goods-img-item photo-img-item">
+                            <ul class="photo-img-ul" id="GoodsImgUl">
+                                <li> </li>
+                                <!--<li>
+                                    <img src="../Assets/Imgs/product_04.jpg" />
+                                    <input class="sel-img-cb" type="checkbox" data-imgurl="//192.168.1.220:1700/Assets/Imgs/product_04.jpg" onchange="chgSelInsertImgCb()" />
+                                </li>-->
+                            </ul>
+                            <div class="page-bar" id="PageBar2">
+                                <div>首页</div>
+                                <div onclick="alert('执行了')">上一页</div>
+                                <div>下一页</div>
+                                <div>尾页</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--===========自定义属性窗口===============-->
+        <div class="goods-myprop-win" id="GoodsMyPropWin" style="display:none;">
+            <ul class="goods-myprop-ul" id="GoodsMyPropUl">
+                <li>
+                    <input placeholder="如：生产地" name="name_GoodsPropName" class="goods-prop-name" />
+                    <b>:</b>
+                    <input placeholder="如：中国" name="name_GoodsPropValue" class="goods-prop-value" />
+                </li>
+                <li>
+                    <input placeholder="属性名称" name="name_GoodsPropName" class="goods-prop-name" />
+                    <b>:</b>
+                    <input placeholder="属性值" name="name_GoodsPropValue" class="goods-prop-value" />
+                </li>
+                <li>
+                    <input placeholder="属性名称" name="name_GoodsPropName" class="goods-prop-name" />
+                    <b>:</b>
+                    <input placeholder="属性值" name="name_GoodsPropValue" class="goods-prop-value" />
+                </li>
+            </ul>
+            <div class="btn-add-div">
+                <input type="button" class="btn-add-item" value="删除" onclick="delGoodsMyPropItem()" />
+                <input type="button" class="btn-add-item" value="增加" onclick="addGoodsMyPropItem()" />
+            </div>
+        </div>
+
+
+        <!--===========添加赠品窗口===============-->
+        <div class="goods-gift-win" id="GoodsGiftWin" style="display:none;">
+            <div class="goods-gift-main">
+                <ul class="goods-gift-win-ul" id="GoodsGiftWinUL">
+                    <li>
+                        …加载中…
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--==========添加规格，价格，库存窗口============-->
+        <div class="goods-pricespec-win" id="GoodsPriceSpecWin" style="display:none;">
+            <div class="goods-pricespec-content">
+                <div class="goods-pricespec-form" id="GoodsPriceSpecForm">
+                    <div class="goods-pricespec-title">
+                        <span>规格标题</span>
+                        <input type="text" id="SpecTitleTxt" class="pricespec-title pricespec-title-left" />
+                        <span>属性标题</span>
+                        <input type="text" id="SpecAttrNameTxt" class="pricespec-title" placeholder="规格无属性则为空！" />
+                    </div>
+                    <div class="goods-pricespec-list" id="GoodsPriceSpecList">
+
+                        <!--规格列表Item项-->
+                        <div class="goods-pricespec-item">
+                            <div class="pricespec-item-title">
+                                <label>规格1：</label>
+                                <span>名称</span><input id="id_SpecName_1" name="name_SpecName" type="text" class="spec-name-txt" />
+
+                                <div id="id_SpecPriceStock_1">
+                                    <span>价格</span><input id="id_SpecPrice_1" name="name_SpecPrice" type="number" class="spec-title-pricestock spec-name-txt" spec-name-txt" />
+                                    <span>库存</span><input id="id_SpecStock_1" name="name_SpecStock" type="number" class="spec-title-pricestock spec-name-txt" />
+                                </div>
+
+
+                                <img id="id_SpecPropImg_1" class="pricespec-pre-img" src="../Assets/Imgs/Icon/icon_spec_default.png" />
+                                <div class="am-form-group am-form-file">
+                                    <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                        <i class="am-icon-cloud-upload"></i> 规格图片(可选)
+                                    </button>
+                                    <input id="id_SpecPropUpload_1" name="name_SpecUpload" type="file">
+                                    <input type="hidden" id="id_SpecPropUploadValArr_1" name="name_SpecUploadValArr" value="" />
+
+
+                                </div>
+                            </div>
+                            <div class="pricespec-prop-list" id="id_PropList_1">
+
+                            </div>
+                            <div class="pricespec-prop-add">
+                                <div class="btn-prop-add" onclick="addPropItem(1)">添加属性</div>
+                                <div onclick="removePropItem(1)">删除属性</div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="goods-pricespec-btn">
+                    <input type="button" id="btnCustomDialogWinOk" class="pricespec-add-btn" value="添加规格" />
+                    <input type="button" id="btnCustomDialogWinCancel" class="pricespec-save-btn" value="保存规格" />
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </form>
+
+</body>
+</html>

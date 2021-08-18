@@ -1,0 +1,72 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>扫码支付订单</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Vip/AggreOrder.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Vip/AggreOrder.js"></script>
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>扫码支付订单</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="#"><img class="header-icon-my" src="../Assets/Imgs/Icon/vip_question.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <ul class="aggreorder-list" id="PageContentList">
+                @*<li>
+                    <div class="aggreorder-item-left">
+                        <div>
+                            <img src="../Assets/Imgs/Icon/pay_wellat.png" />
+                        </div>
+                        <div>
+                            <div class="shop-name">店铺的名称呀店铺的名称呀店铺的名称呀</div>
+                            <div class="pay-time"> 2018-05-16 12:32:32</div>
+                        </div>
+                    </div>
+                    <div class="aggreorder-item-right">
+                        <div>
+                            <b>-13.32</b>
+                        </div>
+                    </div>
+                </li>*@
+            </ul>
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

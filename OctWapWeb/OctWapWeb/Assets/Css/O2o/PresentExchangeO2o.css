@@ -1,0 +1,229 @@
+﻿/*=============礼品兑换================*/
+/*分享按钮*/
+.oct-header-right .header-icon-my {
+    width: 22px;
+    height: 22px;
+}
+
+/*子导航*/
+.oct-header-sub {
+    clear: both;
+    display: block;
+    height: 75px;
+}
+
+.goods-type-nav {
+    clear: both;
+    display: flex;
+    align-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background: white;
+    padding: 6px;
+    position: fixed;
+    top: 75px;
+    left: 0;
+    z-index: 100;
+    padding-bottom: 0px;
+    padding-top: 0;
+    height: 40px;
+    background: white;
+    border-top: 1px dashed #f1f1f1;
+    overflow: hidden;
+}
+
+    .goods-type-nav div {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        justify-content: center;
+        cursor: pointer;
+        text-align: center;
+        width: 100px;
+    }
+
+    .goods-type-nav .nav-item {
+        width: 150px;
+    }
+
+    .goods-type-nav img {
+        width: 6px;
+        height: 6px;
+        margin-left: 5px;
+    }
+
+.search-where-1 {
+    color: red;
+}
+
+.search-current {
+    color: red;
+}
+/*弹出条件层*/
+body .all-where-show {
+    clear: both;
+    display: block;
+    width: 100%;
+    background: white;
+    padding: 6px;
+    padding-bottom: 0;
+    position: fixed;
+    top: 110px;
+    left: 0;
+    z-index: 199;
+    padding-bottom: 10px;
+    padding-top: 0;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.all-where-type {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: left;
+    clear: both;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+    .all-where-type span {
+        float: left;
+        padding: 2px 6px;
+        font-size: 12px;
+        margin: 0 auto;
+        background: #ededed;
+        border-radius: 5px;
+        display: block;
+        margin-right: 16px;
+        margin-bottom: 8px;
+    }
+
+    .all-where-type .goods-type-current {
+        color: white;
+        background: #ff6a00;
+    }
+
+
+
+
+
+body .oct-content {
+    padding-top: 68px;
+}
+
+/*积分信息*/
+.integral-msg {
+    padding: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+    .integral-msg b {
+        font-weight: normal;
+        color: red;
+        padding-left: 5px;
+    }
+
+
+/*-------------商品列表--------------*/
+
+
+/*商品列表*/
+.goods-list li {
+    background: white;
+    padding: 8px 6px;
+    margin-top: 6px;
+}
+
+.goods-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 12px;
+}
+
+    .goods-item img {
+        width: 105px;
+        height: 105px;
+        border-radius: 5px;
+        margin-right: 8px;
+    }
+
+.goods-price {
+    font-weight: bold;
+    color: red;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.goods-label {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    height: 20px;
+}
+
+    .goods-label span {
+        font-size: 10px;
+        background: #f1f1f1;
+        color: #f65402;
+        padding: 3px;
+        border-radius: 5px;
+        display: block;
+        margin-right: 3px;
+        padding: 0 6px;
+        margin-top: 5px;
+    }
+
+.goods-extra {
+    font-size: 12px;
+    color: gray;
+}
+
+    .goods-extra i {
+        font-size: 10px;
+        color: gray;
+    }
+
+    .goods-extra a {
+        padding-left: 10px;
+        padding-right: 10px;
+        color: #000000;
+    }
+
+.goods-img {
+    position: relative;
+}
+
+    .goods-img span {
+        background: #f65402;
+        color: white;
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        padding: 1px 5px;
+        border-radius: 10px;
+    }
+
+.goods-title-div {
+    height: 40px;
+    overflow: hidden;
+}
+
+.present-title-div {
+    height: 35px;
+    overflow: hidden;
+}
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 115px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+    background: #f5f5f5;
+}

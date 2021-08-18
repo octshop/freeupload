@@ -1,0 +1,171 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+           <meta name="viewport" content="width=device-width initial-scale="1" />
+       viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+       原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>会员账号详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/UserGoodsShopPage/UserAccountDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/UserGoodsShopPage/UserAccountDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidUserID" value="@ViewBag.UserID" />
+
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=会员管理">会员管理</a></li>
+            <li class="am-active">会员账号详情</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 会员账号详情
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding">
+            <div class="order-status">
+                <div class="order-status-title">
+                    <val id="StatusTtitle">账号正常</val>
+                </div>
+                <div class="order-status-desc">
+                    <val id="StatusDesc">可以正常购物与消费</val>
+                </div>
+            </div>
+            <dl class="order-basic">
+                <dt>基本信息</dt>
+                <dd>
+                    <span>用户UserID：</span><val id="UserID"></val>
+                    <span>用户账号(手机号)：</span><val id="UserAccount">
+                    </val>
+                    <span>用户昵称(微信)：</span><val id="UserNick">
+                    </val>
+                    <span>手机号绑定：</span><val id="BindMobile"></val>
+                </dd>
+                <dd>
+                    <span>信用评分：</span><val id="CreditScore">
+                    </val>
+                    <span>
+                        会员等级：
+                    </span>
+                    <val id="VipLevel"></val>
+                    <span>微信OPENID：</span><val id="WxOpenID"></val>
+                    <span>微信UnionID：</span><val id="WxUnionID"></val>
+                </dd>
+                <dd>
+                    <span>开通店铺：</span><val id="IsOpenShop">
+
+                    </val>
+                    <span>
+                        分润转入：
+                    </span>
+                    <val id="IsTransDividend"></val>
+                    <span>锁定：</span><val id="IsLock"></val>
+                    <span>注册时间：</span><val id="RegDate"></val>
+                </dd>
+                <dd>
+                    <span>选择的当前城市：</span><val id="SelCityRegionCodeArr">
+
+                    </val>
+                    <span>
+                        当前所在地区(定位)：
+                    </span>
+                    <val id="CurrentRegionCodeArr">
+
+                    </val>
+                </dd>
+                <dd>
+                    <span>查看用户当前位置：</span><val id="LongitudeLatitude"><a href="#" target="_blank"></a></val>
+                </dd>
+
+                <dd>
+                    <span>账户备注：</span><val id="AccountMemo">
+
+                    </val>
+                </dd>
+
+            </dl>
+
+
+            <dl class="order-basic buyer-msg">
+                <dt>买家信息</dt>
+                <dd>
+                    <span>头像：</span>
+                    <b id="HeaderImgB">
+                        <img src="../Assets/Imgs/header_1.jpg" />
+
+                    </b>
+                    <span>真实姓名：</span><val id="TrueName"></val>
+                    <span>联系手机：</span><val id="LinkMobile"></val>
+                </dd>
+                <dd>
+                    <span>买家性别：</span><val id="BuyerSex"></val>
+                    <span>出生日期：</span><val id="BirthDay"></val>
+                    <span>邮箱地址：</span><val id="Email"></val>
+                    <span>职业：</span><val id="Profession"></val>
+                </dd>
+                <dd>
+                    <span>地区范围：</span><val id="RegionCodeArr"></val>
+                    <span>详细地址：</span><val id="DetailAddr"></val>
+                </dd>
+                <dd>
+                    <span>写入时间：</span><val id="WriteDate"></val>
+                </dd>
+            </dl>
+
+            <dl class="order-basic buyer-msg">
+                <dt>店铺信息</dt>
+                <dd>
+                    <span>店铺名称：</span>
+                    <b id="ShopNameB">
+                        <img src="../Assets/Imgs/header_1.jpg" />
+
+                    </b>
+                    <span>店铺手机号：</span><val id="ShopMobile"></val>
+                    <span>联系人：</span><val id="LinkMan"></val>
+                    <span>联系手机：</span><val id="LinkManMobile"></val>
+                </dd>
+                <dd>
+                    <span></span>
+                    <a id="SeeShopDetailLinkA" href="../UserGoodsShopPage/ShopMsgDetail?ShopID=50019">查看店铺详细信息</a>
+                </dd>
+            </dl>
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+/*列表内容*/
+.inex-list .inex-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #fafafa;
+  background: #ffffff;
+  font-size: 30rpx;
+}
+
+.inex-item-left {
+  color: #a1a1a1;
+  white-space: nowrap;
+}

@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>活动参与验证</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/TradingPage/verifyCheckCodeOrderStatus.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/ActivityPage/ActivityJoinVerify.js"></script>
+
+
+</head>
+<body>
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=活动管理">活动管理</a></li>
+            <li class="am-active">活动参与验证</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 活动参与验证
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding">
+            <div class="check-form">
+                <ul class="check-form-ul">
+                    <li>
+                        <span>活动ID:</span>
+                        <input type="number" id="ActivityIDTxt" placeholder="选填" value="@ViewBag.AID" class="txt-css" />
+                    </li>
+                    <li>
+                        <span>验证码<font color="red">*</font> :</span>
+                        <input type="number" id="CheckCodeTxt" class="txt-css" />
+                    </li>
+                    <li>
+                        <input type="button" id="BtnOk" class="btn-common am-btn am-radius am-btn-success" value="查询" onclick="searchCheckActivity()">
+                    </li>
+                </ul>
+            </div>
+            <div class="check-order-list" id="CheckOrderList">
+
+                <!--列表项
+                <div class="check-order-item">
+                    <ul>
+                        <li class="order-item-title">
+                            <span>
+                                活动ID：<b>23432423</b>
+                                活动状态：<b>活动进行中</b>
+                            </span>
+                            <a href="#" target="_blank" class="am-btn">活动详情</a>
+                        </li>
+
+                        <li class="order-item-goods">
+                            <a href="#" target="_blank">商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名</a>
+                        </li>
+                        <li class="order-user-msg">
+                            <span>
+                                用户昵称：<b>IT独孤键客</b>
+                                手机号：<b>132****5632</b>
+                            </span>
+                            <span>
+                                <input type="button" class="btn-common am-btn am-radius am-btn-success" value="参与验证" />
+                            </span>
+                        </li>
+                    </ul>
+                </div>-->
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>

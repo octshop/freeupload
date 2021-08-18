@@ -1,0 +1,80 @@
+﻿/*==================店铺评分==========================*/
+
+.oct-header-right {
+    padding-top: 2px;
+}
+
+    .oct-header-right .header-icon-my {
+        width: 22px;
+        height: 22px;
+    }
+
+/*评价星星*/
+.appraise-star-item {
+    display: flex;
+    justify-content: flex-start;
+}
+
+    .appraise-star-item img {
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+    }
+/*店铺评分*/
+.shop-score {
+    background: #ffffff;
+    margin-bottom: 10px;
+}
+
+.shop-title {
+    padding: 10px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+    .shop-title img {
+        width: 20px;
+        height: 20px;
+        border-radius: 2px;
+        margin-right: 5px;
+    }
+
+.shop-prompt-txt {
+    font-size: 12px;
+    color: #bbbbbb;
+}
+
+.shop-score-list {
+    padding: 10px;
+    padding-top: 0;
+    padding-bottom:20px;
+
+}
+
+.shop-score-ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.btn-appraise-div {
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+    text-align:center;
+}
+
+.btn-submit-appraise {
+    background: #FF5700;
+    color: white;
+    width: 90%;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    margin: 0 auto;
+    cursor: pointer;
+}

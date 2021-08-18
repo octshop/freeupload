@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OctWapWeb", "OctWapWeb\OctWapWeb.csproj", "{66DEE9D7-15AD-4A93-A4E5-AE8CE539FCDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66DEE9D7-15AD-4A93-A4E5-AE8CE539FCDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66DEE9D7-15AD-4A93-A4E5-AE8CE539FCDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66DEE9D7-15AD-4A93-A4E5-AE8CE539FCDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66DEE9D7-15AD-4A93-A4E5-AE8CE539FCDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {399459D6-C130-4A7F-A580-053BADD05862}
+	EndGlobalSection
+EndGlobal

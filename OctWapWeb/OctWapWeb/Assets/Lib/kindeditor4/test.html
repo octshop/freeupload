@@ -1,0 +1,106 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>KindEditor 4.x 在线HTML编辑器Demo</title>
+
+    <script charset="utf-8" src="../Assets/Lib/kindeditor4/kindeditor-all-min.js"></script>
+
+    <script src="../Assets/Lib/jquery-1.12.1.min.js"></script>
+
+</head>
+<body>
+    <div>
+
+        <textarea id="editor_id" name="content" style="width:700px;height:300px;">
+          &lt;strong&gt;HTML内容&lt;/strong&gt;
+       </textarea>
+
+    </div>
+    <div>
+
+        <input type="button" value="获取编辑器的内容" onclick="getEditorContent()" />
+        <input type="button" value="设置编辑器的内容" onclick="setEditorContent()" />
+        <input type="button" value="得到光标索引位置" onclick="getStartOffset()" />
+        <input type="button" value="在光标位置插入内容" onclick="insertHtmlToStartOffset()" />
+
+    </div>
+
+    <div id="EditorContent" style="border: 1px solid gray; padding: 20px; margin: 20px; margin-left: 0;">
+
+    </div>
+
+
+    <script type="text/javascript">
+
+        var mEditor; //编辑器对象
+
+        // 关闭过滤模式，保留所有标签 ,这样设置后那么 style=\"color:red\" 才有效
+        KindEditor.options.filterMode = false;
+
+        //将初始化KindEditor
+        KindEditor.ready(function (K) {
+            mEditor = window.editor = K.create('#editor_id');
+        });
+
+
+
+        /**
+         * 得到KindEditor的内容
+         * */
+        function getEditorContent() {
+
+            // 同步数据后可以直接取得textarea的value,必须同步否则得不到值
+            editor.sync();
+
+            var _editorContent = $("#editor_id").val().trim();
+            _editorContent = document.getElementById('editor_id').value;
+            alert(_editorContent);
+            console.log(_editorContent);
+            $("#EditorContent").html(_editorContent);
+        }
+
+        /**
+         * 设置KindEditor的内容
+         * */
+        function setEditorContent() {
+
+            // 同步数据后可以直接取得textarea的value
+            editor.sync();
+
+
+
+            // 设置HTML内容
+            editor.html("<b style=\"color:red\">设置的HTML内容</b>");
+        }
+
+        /**
+         * 得到当前光标在编辑器中的位置
+         * */
+        function getStartOffset() {
+
+            var _startOffset = mEditor.cmd.range.startOffset;
+            alert(_startOffset);
+            console.log(_startOffset);
+
+        }
+
+        /**
+         *将内容插入到光标位置
+         * */
+        function insertHtmlToStartOffset() {
+
+            mEditor.insertHtml('<b style=\"color:green\">光标位置插入的内容</b>')
+
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

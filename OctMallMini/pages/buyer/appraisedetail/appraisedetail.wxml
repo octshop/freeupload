@@ -1,0 +1,153 @@
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="评价详情" back-icon="/assets/imgs/icons/navbar_back.png"
+    home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+  <view class="appraise-list">
+
+    <!--评价列表-->
+    <view class="appraise-item" wx:for="{{initOrderGoodsMsg_Data.OrderGoodsList}}">
+
+      <view class="goods-main" bindtap="navigateToURL"
+        data-navigate-url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+        <view class="appraise-item-left">
+          <view class="goods-img">
+            <image src="//{{item.GoodsCoverImgPath}}"></image>
+          </view>
+          <view class="goods-title">
+            <view class="goods-title-txt">
+              {{item.GoodsTitle}}
+            </view>
+            {{item.SpecParamVal}}
+          </view>
+        </view>
+        <view class="appraise-item-right">
+          <view>￥{{item.GoodsUnitPrice}}</view>
+          <view style="padding-top: 5px">x {{item.OrderNum}}</view>
+        </view>
+      </view>
+
+      <view class="form-main">
+        <view class="form-main-top"
+          wx:if="{{initAppraiseShopIntegralSetting_Data.AppraiseIntegralSetting[index].IntegralPrice > 0}}">
+          <text
+            style="white-space: nowrap; color:red">评价+晒单可获 {{initAppraiseShopIntegralSetting_Data.AppraiseIntegralSetting[index].IntegralPrice}} 积分</text>
+          <text>评价+晒单_返积分</text>
+        </view>
+        <view class="form-main-bottom">
+
+
+          <view class="appraise-form-ul">
+            <view class="aprraise-form-title">
+              <view class="appraise-form-star">
+                商品评价：
+                <span class="appraise-star-item">
+
+                  <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png"
+                    wx:for="{{initOrderGoodsShopAppraise_Data.GooAppraiseList[index].AppScore}}" wx:for-item="itm"
+                    wx:for-index="idx" bindtap="clickAppraiseStar" data-app-score="{{idx+1}}" data-index="{{index}}" />
+
+                  <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png"
+                    wx:for="{{5-initOrderGoodsShopAppraise_Data.GooAppraiseList[index].AppScore}}" wx:for-item="itm2"
+                    wx:for-index="idx2" bindtap="clickAppraiseStar" data-app-score="{{5-idx2}}"
+                    data-index="{{index}}" />
+
+                </span>
+              </view>
+              <view class="appraise-form-noname">
+                {{ initOrderGoodsShopAppraise_Data.GooAppraiseList[index].WriteDate }}
+              </view>
+            </view>
+            <view style="padding-right:5px">
+              <text
+                class="appraise-content-txtarea">{{initOrderGoodsShopAppraise_Data.GooAppraiseList[index].AppContent}}</text>
+            </view>
+            <view class="appraise-upload-img">
+              <view class="upload-pre">
+
+                <view class="upload-pre-item" wx:for="{{initOrderGoodsShopAppraise_Data.GooAppraiseImgsList}}"
+                  wx:if="{{itm3.GoodsID == initOrderGoodsShopAppraise_Data.GooAppraiseList[index].GoodsID}}"
+                  wx:for-index="idx3" wx:for-item="itm3">
+                  <image src="//{{itm3.ImgUrl}}" bindtap='previewImg' data-pre-index='{{idx3}}' />
+                </view>
+
+              </view>
+            </view>
+          </view>
+
+
+
+        </view>
+      </view>
+
+    </view>
+
+
+
+
+
+  </view>
+
+
+  <!--店铺评分-->
+  <view class="shop-score">
+
+    <view class="shop-title">
+      <navigator url="../../../pages/shop/index/index?SID={{initOrderGoodsMsg_Data.ShopMsg.ShopID}}">
+        <image src="//{{initOrderGoodsMsg_Data.ShopMsg.ShopHeaderImg}}" />{{initOrderGoodsMsg_Data.ShopMsg.ShopName}}
+      </navigator>
+      <view class="shop-prompt-txt">
+        评价店铺_返积分
+      </view>
+    </view>
+
+    <view class="shop-score-list">
+
+      <view class="shop-score-ul">
+        <view>
+          <view>商品符合度</view>
+          <view class="appraise-star-item" id="AppraiseStarItemShop_Goods">
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png"
+              wx:for="{{initOrderGoodsShopAppraise_Data.ShopAppraise.ConformityScore}}" />
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png"
+              wx:for="{{5-initOrderGoodsShopAppraise_Data.ShopAppraise.ConformityScore}}" />
+          </view>
+        </view>
+        <view>
+          <view>店家服务态度</view>
+          <view class="appraise-star-item" id="AppraiseStarItemShop_Goods">
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png"
+              wx:for="{{initOrderGoodsShopAppraise_Data.ShopAppraise.AttitudeScore}}" />
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png"
+              wx:for="{{5-initOrderGoodsShopAppraise_Data.ShopAppraise.AttitudeScore}}" />
+          </view>
+        </view>
+        <view>
+          <view>物流发货速度</view>
+          <view class="appraise-star-item" id="AppraiseStarItemShop_Goods">
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png"
+              wx:for="{{initOrderGoodsShopAppraise_Data.ShopAppraise.ExpressScore}}" />
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png"
+              wx:for="{{5-initOrderGoodsShopAppraise_Data.ShopAppraise.ExpressScore}}" />
+          </view>
+        </view>
+        <view>
+          <view>配送员服务态度</view>
+          <view class="appraise-star-item" id="AppraiseStarItemShop_Goods">
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png"
+              wx:for="{{initOrderGoodsShopAppraise_Data.ShopAppraise.DeliverymanScore}}" />
+            <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png"
+              wx:for="{{5-initOrderGoodsShopAppraise_Data.ShopAppraise.DeliverymanScore}}" />
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+
+
+</view>

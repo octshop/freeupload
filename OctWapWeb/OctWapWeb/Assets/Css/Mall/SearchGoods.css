@@ -1,0 +1,122 @@
+﻿/*=============搜索商品===========*/
+
+.oct-header {
+    align-items: center;
+    padding: 22px 6px;
+}
+
+.oct-header-mid {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.oct-header-right {
+    width: 50px;
+    font-size: 16px;
+    color: #808080;
+    text-align: center;
+}
+
+.oct-header-mid .header-search {
+    width: 100%;
+    background: #dbdbdb;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    justify-content: space-between;
+    padding-top: 10px;
+    height: 30px;
+    color: #3b3b3b;
+    font-weight: normal;
+}
+
+.header-search img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.header-search input {
+    border: none;
+    background: #dbdbdb;
+    width: 100%;
+    padding-left:5px;
+}
+/*搜索提示*/
+.search-result {
+    padding: 6px;
+}
+
+.search-result-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+}
+
+    .search-result-title img {
+        width: 20px;
+        height: 20px;
+        margin-top: -3px;
+    }
+
+.search-result-content {
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.result-item {
+    background: #dbdbdb;
+    margin-right: 15px;
+    padding: 3px 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    font-size: 10px;
+}
+
+.result-item-shop {
+    display: flex;
+    align-items: center;
+    background: #dbdbdb url(../../Imgs/Icon/search_shop.png) 10px center no-repeat;
+    background-size: 18px;
+    padding-top: 5px;
+    padding-left: 30px;
+    width: 95px;
+}
+
+.result-item-goods {
+    display: flex;
+    align-items: center;
+    background: #dbdbdb url(../../Imgs/Icon/search_scart.png) 10px center no-repeat;
+    background-size: 14px;
+    padding-top: 6px;
+    padding-left: 30px;
+    width: 95px;
+}
+
+/*实体店标签*/
+.header-search .header-search-label {
+    font-size: 10px;
+    overflow: hidden;
+    font-weight: normal;
+    background: white;
+    border: 1px solid #c8c8c8;
+    background: none;
+    text-align: center;
+    border-radius: 10px;
+    background: white;
+    width: 60px;
+    overflow: hidden;
+    color: #ff6a00;
+    margin-left:-5px;
+    display:flex;
+    flex-wrap:nowrap;
+    align-items:center;
+    justify-content:center;
+    padding:3px 0px;
+    padding-top:5px;
+    margin-right:1px;
+}

@@ -1,0 +1,243 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>售后申请信息</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/AfterSaleAccCusPage/AfterSaleApplyMsg.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidOctWapWebAddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+    <input type="hidden" id="hidApplyStatus" value="@ViewBag.ApplyStatus" />
+
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=售后管理">售后管理</a></li>
+            <li class="am-active">售后申请信息</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 售后申请信息
+            </div>
+            <div class="title-btn-div am-fl">
+                @*<button class="title-btn am-btn am-btn-xs am-btn-danger am-round am-margin-left-xs" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加</button>*@
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ApplyID_se" placeholder="申请ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="OrderID_se" placeholder="订单ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="GoodsID_se" placeholder="商品ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="SpecID_se" placeholder="规格ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="ApplyStatus_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>售后状态</option>
+                    <option value="确认">确认</option>
+                    <option value="买家发货">买家发货</option>
+                    <option value="待商家签收">待商家签收</option>
+                    <option value="商家处理中">商家处理中</option>
+                    <option value="商家发回">商家发回</option>
+                    <option value="完成">完成</option>
+                    <option value="待上门">待上门</option>
+                    <option value="上门服务中">上门服务中</option>
+                    <option value="退款中">退款中</option>
+                    <option value="已退款">已退款</option>
+                    <option value="拒绝">拒绝</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="ServiceType_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>服务类型</option>
+                    <option value="maintain">维修</option>
+                    <option value="barter">换货</option>
+                    <option value="refund">退货</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="ServiceWay_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>售后方式</option>
+                    <option value="Express">快递售后</option>
+                    <option value="Visiting">上门服务</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="ApplyReason_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>申请原因</option>
+                    <option value="质量问题">质量问题</option>
+                    <option value="商品故障">商品故障</option>
+                    <option value="其他问题">其他问题</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="ProblemDesc_se" placeholder="问题描述" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="ApplyMemo_se" placeholder="售后备注" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="BuyerUserID_se" placeholder="买家UserID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ShopUserID_se" placeholder="商家UserID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="IsLock_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>锁定</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="FinishTime_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="完成时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="OrderTime_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="订购时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="申请时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="10%">申请ID<i style="color: #939393;display:block">订单ID</i></td>
+                        <td width="10%">商品ID<i style="color: #939393;display:block">规格ID</i></td>
+                        <td width="10%">买家UserID<i style="color: #939393;display:block">商家UserID</i></td>
+                        <td width="13%">售后状态<i style="color: #939393;display:block">服务类型</i></td>
+                        <td width="12%">售后方式<i style="color: #939393;display:block">申请原因</i></td>
+                        <td width="10%">申请数量<i style="color: #939393;display:block">锁定</i></td>
+                        <td width="17%">完成时间<i style="color: #939393;display:block">订购时间</i></td>
+                        <td width="10%">写入时间</td>
+                        <td width="8%">
+                            操作
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td>234324<i style="color: #939393;display:block"><a href="#" target="_blank">234324</a></i></td>
+                        <td><a href="#" target="_blank">959885</a><i style="color: #939393;display: block">10234004</i></td>
+
+                        <td><a href="#" target="_blank">10006</a><i style="color: #939393;display:block"><a href="#" target="_blank">10004</a></i></td>
+
+                        <td>买家发货<i style="color: #939393;display:block">维修</i></td>
+
+                        <td>快递售后<i style="color: #939393;display:block">质量问题</i></td>
+                        <td>2343<i style="color: #939393;display:block">否</i></td>
+                        <td> 2019-05-05 13:27:45<i style="color: #939393;display:block"> 2019-05-05 13:27:45</i></td>
+                        <td>
+                            2019-05-05 13:27:45
+                        </td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round">锁定</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-success am-round">详情</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        @*<button type="button" class="am-btn am-btn-default" onclick=""><span class="am-icon-trash-o"></span> 批量删除</button>*@
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                售后申请信息
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

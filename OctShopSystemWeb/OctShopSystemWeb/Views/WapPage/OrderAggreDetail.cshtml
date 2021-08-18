@@ -1,0 +1,135 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>扫码支付订单详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/WapPage/OrderAggreDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/WapPage/OrderAggreDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidAggreOrderID" value="@ViewBag.AggreOrderID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>扫码支付订单详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../WapPage/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+
+        <div class="order-status">
+            <div class="order-status-title">
+                <val id="StatusTtitle">支付成功</val>
+            </div>
+            <div class="order-status-desc">
+                <val id="StatusDesc">线下扫码收单，支付成功！</val>
+            </div>
+        </div>
+        <dl class="order-basic">
+            <dt>基本信息</dt>
+            <dd>
+                <span>扫码支付订单ID：</span><val id="AggregateOrderID"></val>
+                <span>订单总额：</span><val id="OrderPrice"></val>
+            </dd>
+            <dd>
+                <span>交易号：</span><val id="BillNumber">
+                </val>
+            </dd>
+            <dd>
+                <span>下单时间：</span><val id="OrderTime"></val>
+                <span>
+                    是否支付：
+                </span>
+                <val id="IsPaySuccess"></val>
+            </dd>
+            <dd>
+                <span>支付方式：</span><val id="PayWay">
+
+                </val>
+
+            </dd>
+            <dd>
+                <span>支付时间：</span><val id="PayTime"></val>
+            </dd>
+            <dd>
+                <span>支付备注：</span><val id="PayMemo"></val>
+            </dd>
+            <dd>
+                <span>是否结算：</span><val id="IsSettle">
+
+                </val>
+                <span>
+                    是否退款：
+                </span>
+                <val id="IsRefund"></val>
+            </dd>
+            <dd>
+                <span>支付标识：</span><val id="OrderGuid"></val>
+            </dd>
+            <dd class="order-goods-list" id="OrderGoodsListDD">
+                <div id="OrderGoodsMsgList">
+                    <span>
+                        <a href="javascript:void(0)">线下扫码收单-扫码支付</a>
+                    </span>
+                    <span>
+                        &#165;0.00  x 1
+                    </span>
+                </div>
+            </dd>
+        </dl>
+
+
+        <dl class="order-basic order-pay-user">
+            <dt>付款者信息</dt>
+            <dd class="pay-user-dd">
+                <span>昵称：</span>
+                <b id="UserNick">
+                    @*<img src="../Assets/Imgs/header_1.jpg" />
+                        小黄黄(买家)*@
+                </b>
+
+            </dd>
+            <dd>
+                <span>付款者UserID：</span><val id="BuyerUserID">
+
+                </val>
+                <span>绑定手机：</span><val id="BindMobile">
+
+                </val>
+            </dd>
+        </dl>
+
+
+    </div>
+
+
+
+
+</body>
+</html>

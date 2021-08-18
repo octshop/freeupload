@@ -1,0 +1,58 @@
+﻿/*================店铺类别=====================*/
+
+/*添加编辑窗口*/
+.add-edit-main {
+    padding: 10px 15px;
+    padding-bottom: 20px;
+}
+
+.add-edit-ul li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 1px dashed #f3f3f3;
+}
+
+    .add-edit-ul li label {
+        display: inline-block;
+        width: 100px;
+        font-weight: normal;
+        padding-right: 10px;
+    }
+
+.am-form-field {
+    font-size: 12px;
+}
+
+.add-edit-ul li select {
+    padding: 4px;
+}
+
+.goods-type-name {
+    margin-left: 17px;
+}
+
+.add-edit-ul .add-edit-li-checkbox {
+    display: flex;
+    align-items: center;
+}
+.add-edit-ul .add-edit-li-checkbox label {
+    overflow: hidden;
+    padding-right: 0;
+    width: 70px;
+    overflow: hidden;
+}
+
+.type-icon-img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    margin-left: -2px;
+}
+
+.table-content .goods-type-icon {
+    width: 30px;
+    height: 30px;
+}

@@ -1,0 +1,78 @@
+﻿/*=============聚合扫码支付-首页================*/
+
+html, body {
+    background: white;
+}
+
+.oct-content {
+    text-align: center;
+}
+
+.logo-icon {
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+    .logo-icon img {
+        box-shadow: 0px 1px 2px #ffd9ca;
+        border: 4px solid #ffd9ca;
+        width: 140px;
+        height: 140px;
+        border-radius: 100px;
+        margin-bottom: 15px;
+    }
+
+    .logo-icon div {
+        font-size: 16px;
+        font-weight: bold;
+        color: #404040;
+    }
+
+.pay-type {
+    margin: 0 auto;
+}
+
+.pay-type-shop, .pay-type-direct, .pay-type-balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: #39b500;
+    color: white;
+    font-size: 18px;
+    width: 280px;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 8px 0px;
+    border-radius: 40px;
+}
+
+.pay-type-direct {
+    background: #ff6a00;
+}
+
+.pay-type-balance {
+    background: #DB5800;
+}
+
+.pay-type img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.extra-link {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+    .extra-link a {
+        color: #0079ae;
+        Background: #ededed;
+        padding: 5px 10px;
+        border-radius: 30px 10px;
+    }

@@ -1,0 +1,79 @@
+<!--pages/buyer/vip/onlinetopup/onlinetopup.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="在线充值" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_question.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<view class="topup-sum">
+		<view class="topup-sum-top">
+			充值金额
+		</view>
+		<view class="topup-sum-bottom">
+			<input
+				style="background: url({{apiWebDoamin}}/Assets/Imgs/Icon/vip_topup.png) left 5px no-repeat;background-size: 30px;"
+				type="number" class="topup-sum-txt" value="" placeholder="" name="RechargeAmt"
+				bindinput="bindInputRechargeAmt" />
+		</view>
+
+	</view>
+
+	<view class="topup-sum">
+		<view class="topup-sum-top">
+			充值到
+		</view>
+		<view class="topup-sum-bottom">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/vip_balance.png"></image>
+			账户余额
+		</view>
+	</view>
+
+
+
+
+
+	<view class="topup-sum">
+		<view class="topup-sum-top">
+			充值方式
+		</view>
+		<view class="topup-type-bottom">
+			<view class="win-pay-list">
+				<view class="win-pay-item">
+					<view class="pay-item-left pay-item-wx">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_wx.png"></image>
+						微信支付
+					</view>
+					<view class="pay-item-right">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_yes.png" />
+					</view>
+				</view>
+				<!-- <view class="win-pay-item">
+					<view class="pay-item-left pay-item-alipay">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_alipay.png"></image>
+						支付宝
+					</view>
+					<view class="pay-item-right">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_no.png" />
+					</view>
+				</view> -->
+				<!-- <view class="win-pay-item">
+					<view class="pay-item-left pay-item-bank">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/pay_bank.png"></image>
+						银行卡
+					</view>
+					<view class="pay-item-right">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/sel_no.png" />
+					</view>
+				</view> -->
+			</view>
+		</view>
+	</view>
+
+
+	<view class="topup-btn-item">
+		<view class="btn-next" bindtap="addBuyerRecharge">立即充值</view>
+	</view>
+
+</view>

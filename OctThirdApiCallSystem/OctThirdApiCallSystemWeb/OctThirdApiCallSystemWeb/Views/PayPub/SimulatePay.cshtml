@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+           <meta name="viewport" content="width=device-width initial-scale="1" />
+       viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+       原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>支付提醒</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/PayPub/SimulatePay.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+
+    <script src="../Assets/Js/SimulatePay.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input id="hidBillNumber" value="@ViewBag.BillNumber" />
+    <input id="hidUserKeyID" value="@ViewBag.UserKeyID" />
+    <input id="hidPayWay" value="@ViewBag.PayWay" />
+
+    
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>支付提醒</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="@ViewBag.OctWapWeb_WebDomain/Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="pay-logo">
+            <img src="../Assets/Imgs/@ViewBag.LogoImgUrl" />
+        </div>
+        <div class="pay-prompt">
+            <b class="pay-prompt-title">模拟支付提醒</b>
+            <div class="pay-prompt-msg">
+                注意:平台所有数据和商品均为测试体验用，为方便用户测试与体验，支付为模拟支付。
+                <b>如需体验正式的 @ViewBag.PayName ，请联系客服给以配置。</b>
+            </div>
+            <div>
+                <input type="button" class="btn-simulate-pay" id="BtnSimulatePay" value="立即模拟支付" onclick="SimulatePay()" />
+            </div>
+            <div class="pay-customer">
+                <ul>
+                    <li> <b>客服联系方式:</b></li>
+                    <li>
+                        <span>微信：15675178605</span>
+                    </li>
+                    <li>
+                        <span>QQ：277536710</span>
+                    </li>
+                    <li>
+                        <a href="tel:5675178605">电话：15675178605</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+﻿/*=========提交换货申请====================*/
+
+
+
+.oct-content {
+    margin-top: 48px;
+}
+/*商品信息*/
+.as-goods {
+    padding: 10px;
+    background: #ffffff;
+}
+
+.as-goods-company {
+    background: #F7F7F7;
+    padding: 3px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+    .as-goods-company a {
+        color: red;
+    }
+
+.as-goods-list {
+    display: flex;
+    justify-content: space-between;
+    background: #FBFBFB;
+    padding: 5px;
+}
+
+.as-goods-left img {
+    width: 80px;
+    height: 75px;
+    margin-right: 8px;
+}
+
+.as-goods-right {
+    width: 100%;
+}
+
+.goods-spec {
+    color: #a4a4a4;
+}
+
+.goods-price b {
+    padding-right: 5px;
+    padding-left: 2px;
+}
+
+.goods-title {
+    height: 40px;
+    overflow: hidden;
+}
+
+
+/*申请原因*/
+.apply-reason {
+    padding: 0 10px;
+    background: #ffffff;
+    margin-top: 8px;
+}
+
+.apply-reason-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #E4E4E4;
+    align-items: center;
+}
+
+.apply-reason-bottom {
+    padding: 10px 0px;
+    font-size: 12px;
+    color: #a4a4a4;
+}
+
+.reason-top-right {
+    color: #808080;
+    background: url(../../Imgs/Icon/arrows_right_black.png) right 3px no-repeat;
+    background-size: 15px;
+    padding-right: 20px;
+}
+
+/*问题描述*/
+.apply-question {
+    padding: 10px;
+    background: #ffffff;
+    margin-top: 8px;
+}
+
+.apply-question-top {
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+.apply-question-txtArea {
+    width: 100%;
+    height: 100px;
+    background: #F8F8F8;
+    font-size: 12px;
+    color: #000000;
+    border: none;
+    padding: 5px;
+}
+/*上传照片列表*/
+.appraise-upload-img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0px;
+}
+
+.upload-img {
+    width: 45px;
+    font-size: 10px;
+    color: gray;
+    text-align: center;
+}
+
+    .upload-img img {
+        width: 30px;
+        display: block;
+        margin-bottom: 2px;
+        margin: 0 auto;
+    }
+
+.upload-pre {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 12px;
+    width: 100%;
+}
+
+.upload-pre-item {
+    position: relative;
+    margin-left: 10px;
+    border: 1px solid #e0e0e0;
+    width: 62px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #E4E4E4;
+}
+
+    .upload-pre-item img {
+        width: 62px;
+        height: 56px;
+    }
+
+    .upload-pre-item .icon-del {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+    }
+
+/*买家收货地址*/
+.as-recei-addr {
+    padding: 0 10px;
+    background: #ffffff;
+    margin-top: 8px;
+}
+
+.as-recei-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #F2F2F2;
+}
+
+.recei-item-top {
+    font-size: 14px;
+}
+
+.recei-item-bottom {
+    color: #808080;
+    background: url(../../Imgs/Icon/order_addr.png) left center no-repeat;
+    background-size: 20px;
+    padding: 10px 0;
+    padding-left: 30px;
+}
+
+.recei-item-right {
+    background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+    background-size: 15px;
+    padding-right: 20px;
+}
+
+.as-recei-link {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recei-item-val input {
+    width: 150px;
+    text-align: right;
+    color: #a4a4a4;
+    border: none;
+    padding: 3px;
+}
+
+/*页脚*/
+.oct-footer {
+    padding: 10px;
+}
+
+.btn-apply {
+    background: #FF9B39;
+    color: #ffffff;
+    width: 90%;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 6px 0;
+    margin: 0 auto;
+}
+
+
+/*选择投诉类型窗口*/
+.am-close {
+    position: absolute;
+    top: 1px;
+    right: 4px;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.win-reason-content {
+    padding: 10px;
+    clear: both;
+    overflow: hidden;
+    height: 1%;
+    background: #ffffff;
+}
+
+.win-reason-title {
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+
+    .win-reason-title .am-close {
+        top: -2px;
+        right: 2px;
+    }
+
+.win-reason-item {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #fbfbfb;
+    align-items: center;
+    color: #aeaeae;
+}
+
+
+.reason-item-left {
+    padding-left: 0px;
+    color: black;
+}
+
+.as-hint {
+    padding: 10px;
+    padding-top: 20px;
+    text-align: center;
+    margin-bottom: 80px;
+    font-size: 10px;
+    color: #C9C9C9;
+}
+
+
+
+

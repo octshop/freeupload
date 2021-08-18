@@ -1,0 +1,91 @@
+﻿/*================商品分类====================*/
+/*头部*/
+.oct-header {
+    font-size: 16px;
+    color: #000000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+    .oct-header div {
+        width: 80px;
+        text-align: center;
+    }
+
+.tab-nav-current {
+    border-bottom: 2px solid #ff0000;
+    color: #ff0000;
+}
+
+.oct-header .tab-nav-search {
+    background: url(../../Imgs/Icon/buyer_search_black.png) left center no-repeat;
+    background-size: 18px;
+    padding-left: 5px;
+    width: 100px;
+}
+/*主体内容*/
+body .oct-content {
+    background: white;
+    padding: 0;
+    margin: 0;
+    margin-top: 40px;
+    margin-bottom: 53px;
+}
+
+.goods-type-list {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 12px;
+}
+
+.type-list-left {
+    width: 120px;
+    height: 700px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    text-align: center;
+    background: #f6f6f6;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.type-list-ul li {
+    padding: 8px 5px;
+    font-size: 12px;
+}
+.goods-type-current {
+    background: white;
+    color: #ff0000;
+}
+/*右边*/
+.type-list-right {
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    height: 700px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+    .type-list-right a{
+        display:block;
+        clear:both;
+        margin: 5px auto;
+        font-size: 12px;
+        overflow:hidden;
+        line-height:120%;
+        text-align:center;
+        width: 75px;
+    }
+    .type-list-right img {
+        width: 70px;
+        height: 70px;
+        border-radius:3px;
+        margin-bottom:5px;
+    }

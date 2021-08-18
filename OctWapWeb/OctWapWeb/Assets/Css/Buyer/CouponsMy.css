@@ -1,0 +1,173 @@
+﻿/*================我的优惠券===============================*/
+
+.oct-content {
+    margin-top: 80px;
+}
+
+.oct-footer .coupons-msg {
+    background: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coupons-msg-left {
+    background: url(../../Imgs/Icon/coupons_ico.png) left center no-repeat;
+    background-size: 25px;
+    padding-left: 35px;
+    width: 150px;
+    overflow:hidden;
+}
+
+/*.coupons-msg-right {
+    background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+    background-size: 15px;
+    width: 12px;
+}*/
+
+.coupons-msg-left span {
+    color: red;
+}
+/*优惠券列表*/
+.coupons-list li {
+    padding: 10px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.coupons-item-left {
+    display: flex;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    margin-right: 10px;
+    background: -webkit-linear-gradient(left, #FD7C4B, #FF5200); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #FD7C4B, #FF5200); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #FD7C4B, #FF5200); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #FD7C4B, #FF5200); /* 标准的语法（必须放在最后） */
+}
+
+.coupons-price {
+    text-align: center;
+    margin: 0 auto;
+}
+
+    .coupons-price b {
+        font-size: 16px;
+    }
+
+.coupons-item-right {
+    width: 100%;
+}
+
+.coupons-msg-mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-left: 10px;
+}
+
+    .coupons-msg-mid a {
+        background: coral;
+        width: 65px;
+        color: white;
+        font-size: 12px;
+        border-radius: 8px;
+        padding: 3px 10px;
+        text-align: center;
+        margin-right: 5px;
+        display: block;
+    }
+
+.coupons-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .coupons-item-top span {
+        font-size: 8px;
+        background: #FE6A2C;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 15px;
+        display: block;
+        width: 60px;
+        text-align: center;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .coupons-item-top .bage-over-date {
+        display: block;
+        width: 80px;
+    }
+
+.coupons-item-mid {
+    color: #818181;
+    padding: 6px 0;
+}
+
+    .coupons-item-mid span {
+        color: red;
+        padding-left: 10px;
+    }
+
+.coupons-item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .coupons-item-bottom b {
+        color: #FF5200;
+    }
+
+.btn-use {
+    border: 1px solid #FF5200;
+    color: #FF5200;
+    background: no-repeat;
+    font-size: 10px;
+    padding: 3px 15px;
+    border-radius: 10px;
+}
+
+
+
+/*已使用优惠券*/
+.coupons-list .coupons-used {
+    background: white url(../../Imgs/Icon/coupons_used.png) right 20px no-repeat;
+    background-size: 100px;
+}
+
+.coupons-item-bottom {
+    color: gray;
+}
+
+.coupons-used .coupons-item-left {
+    background: #A1A1A1;
+}
+
+.coupons-used .coupons-item-top span {
+    background: #A1A1A1;
+    width: 60px;
+    overflow: hidden;
+    display: block;
+}
+
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 70px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}

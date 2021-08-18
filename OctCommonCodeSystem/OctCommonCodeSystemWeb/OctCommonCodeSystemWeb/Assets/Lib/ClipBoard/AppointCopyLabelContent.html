@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>复制指定标签中的内容</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="clipboard.min.js"></script>
+
+</head>
+<body>
+
+    <!-- 1. Define some markup -->
+    <button class="btn">复制Hello</button>
+
+    <div class="copy-content" style="color: #ff6a00; font-size: 20px; margin-top: 20px; border:1px solid #808080">
+        这里是复制内容hello11122222
+    </div>
+
+
+
+    <!-- 3. Instantiate clipboard -->
+    <script type="text/javascript">
+
+        //实例化剪切板
+        var clipboard = new ClipboardJS('.btn', { //事件响应标签
+            target: function () {
+                //return document.querySelector('div');
+                return document.querySelector('.copy-content'); //复制内容标签
+            }
+        });
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+            alert("复制成功！");
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+            alert("复制失败！");
+        });
+
+    </script>
+
+
+
+</body>
+</html>

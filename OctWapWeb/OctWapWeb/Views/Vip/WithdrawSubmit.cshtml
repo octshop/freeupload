@@ -1,0 +1,129 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>立即提现</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Vip/WithdrawSubmit.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Vip/WithdrawSubmit.js"></script>
+
+</head>
+<body>
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidToType" value="@ViewBag.ToType" />
+    <input type="hidden" id="hidIsInWeiXinBrowse" value="@ViewBag.IsInWeiXinBrowse" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>立即提现</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="#"><img class="header-icon-my" src="../Assets/Imgs/Icon/vip_question.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="topup-sum">
+            <div class="topup-sum-top">
+                提现金额<span>
+                    (余额：<b id="CurrentBalanceB" style="padding-right: 5px;
+        padding-left: 5px;
+">0.00</b> )
+                </span>
+            </div>
+            <div class="topup-sum-bottom">
+                <input type="number" id="WithDrawAmt" class="topup-sum-txt" placeholder="" />
+            </div>
+        </div>
+
+        <!--提现信息-->
+        <div class="withdraw-msg">
+            <ul class="withdraw-ul" id="WxAlipayUl" style="display:none;">
+                <li id="WeChatAccountLi">
+                    <span>微信号：</span>
+                    <input type="text" id="WeChatAccount" class="txt-css" placeholder="请输入提现微信账号" />
+                </li>
+                <li id="AlipayAccountLi">
+                    <span>支付宝：</span>
+                    <input type="text" id="AlipayAccount" class="txt-css" placeholder="请输入提现支付宝账号" />
+                </li>
+                <li>
+                    <span>真实姓名：</span>
+                    <input type="text" id="TrueName" class="txt-css" placeholder="请输入真实姓名" />
+                </li>
+                <li class="withdraw-li-bottom">
+                    <span>联系电话：</span>
+                    <input type="text" id="LinkMobile" class="txt-css" placeholder="请输入联系手机号" />
+                </li>
+            </ul>
+
+            <ul class="withdraw-ul" id="BankUl" style="display:none;">
+                <li>
+                    <span>卡号：</span>
+                    <input type="text" id="BankCardNumber" class="txt-css" placeholder="请输入提现卡号" />
+                </li>
+                <li>
+                    <span>户名：</span>
+                    <input type="text" id="BankAccName" class="txt-css" placeholder="请输入银行卡户名" />
+                </li>
+                <li>
+                    <span>开户行：</span>
+                    <input type="text" id="OpeningBank" class="txt-css" placeholder="请输入开户行名称" />
+                </li>
+                <li class="withdraw-li-bottom">
+                    <span>联系电话：</span>
+                    <input type="text" id="LinkMobileBank" class="txt-css" placeholder="请输入联系手机号" />
+                </li>
+            </ul>
+
+
+        </div>
+
+        <!--发送验证码-->
+        <div class="withdraw-sms">
+            <div class="withdraw-sms-top" id="GetSmsVerifyCodeDiv" style="display:none;">
+                已向注册手机号：<b id="BindMobileB"></b>，发送短信验证码！
+                <div><span id="TimerSecondI"></span> 后失效!</div>
+            </div>
+            <div class="withdraw-sms-top" id="GetSmsVerifyCodeHintDiv">
+                你的绑定手机号：<b id="BindMobileBHint"></b>，请获取短信验证码！
+            </div>
+            <div class="withdraw-sms-bottom">
+                <input type="number" id="VerifyCode" class="txt-sms" style="width:180px;" placeholder="输入短信验证码" />
+                <input class="btn-send" id="BtnGetVerifyCode" onclick="getSmsVerifyCode()" type="button" value="获取验证码" />
+            </div>
+        </div>
+
+        <!--按钮-->
+        <div class="withdraw-btn-div">
+            <input type="button" class="btn-withdraw" id="BtnWithdraw" value="立即提现" onclick="addBuyerWithDraw()" />
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿/*================订单发票详情=======================*/
+
+/*订单发票详情窗口*/
+.order-invoice-ul{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.order-invoice-ul li {
+    padding: 10px 0;
+}
+    .order-invoice-ul li label {
+        padding-right: 10px;
+        padding-left: 20px;
+    }

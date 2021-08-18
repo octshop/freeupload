@@ -1,0 +1,39 @@
+﻿/*===================评价详情==============================*/
+
+.order-list {
+    margin-top: -8px;
+}
+
+.order-goods-item {
+    border-top: 10px solid #FAFAFA;
+    padding: 10px;
+    background: white;
+}
+
+.appraise-form-item {
+    padding-bottom: 15px;
+}
+
+.appraise-form-btn span {
+    color: red;
+}
+
+.appraise-content-txtarea {
+    border: none;
+    padding: 0;
+    color: gray;
+    height: 1%;
+    padding-bottom: 10px;
+}
+
+.upload-pre {
+    padding: 0;
+}
+
+.upload-pre-item {
+    margin-left: 0;
+    margin-right: 10px;
+}
+.shop-prompt-txt{
+    color:red;
+}

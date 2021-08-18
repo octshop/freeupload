@@ -1,0 +1,193 @@
+/* pages/buyer/coupons/coupons.wxss */
+/* 内容导航子菜单 */
+.oct-header-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  background: white;
+  width: 100%;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.oct-header-bottom-nav view {
+  width: 300px;
+  color: #000000;
+  text-align: center;
+  padding: 20rpx 5px;
+  font-size: 30rpx;
+}
+
+.oct-header-bottom-nav .nav-item-current {
+  color: red;
+}
+
+.oct-header-bottom-nav view image {
+  width: 12px;
+  height: 12px;
+}
+
+/* 主体内容 */
+.oct-content {
+  padding: 20rpx 0rpx;
+  font-size: 24rpx;
+}
+
+
+
+
+/*优惠券列表*/
+.coupons-list .coupons-item {
+  padding: 10px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.coupons-item-left {
+  display: flex;
+  align-items: center;
+  color: white;
+  border-radius: 5px;
+  width: 120px;
+  overflow: hidden;
+  height: 70px;
+  margin-right: 10px;
+  background: -webkit-linear-gradient(left, #FD7C4B, #FF5200);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #FD7C4B, #FF5200);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #FD7C4B, #FF5200);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #FD7C4B, #FF5200);
+  /* 标准的语法（必须放在最后） */
+}
+
+.coupons-price {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 40rpx;
+}
+
+.coupons-price b {
+  font-size: 16px;
+}
+
+.coupons-price view {
+  font-size: 24rpx;
+}
+
+.coupons-item-right {
+  width: 100%;
+}
+
+.coupons-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coupons-item-top text {
+  font-size: 8px;
+  background: #FE6A2C;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 15px;
+  white-space: nowrap;
+}
+
+.coupons-item-mid {
+  color: #818181;
+  padding: 6px 0;
+}
+
+.coupons-item-mid span {
+  color: red;
+  padding-left: 10px;
+}
+
+.coupons-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-use {
+  border: 1px solid #FF5200;
+  color: #FF5200;
+  background: no-repeat;
+  font-size: 10px;
+  padding: 3px 15px;
+  border-radius: 10px;
+}
+
+
+/*已使用优惠券*/
+.coupons-list .coupons-used {
+  /* background: white url(../../Imgs/Icon/coupons_used.png) right 20px no-repeat; */
+  background-size: 10px;
+}
+
+.coupons-item-bottom {
+  color: gray;
+}
+
+.coupons-used .coupons-item-left {
+  background: #A1A1A1;
+}
+
+.coupons-used .coupons-item-top text {
+  background: #A1A1A1;
+}
+
+
+
+.coupons-msg {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.coupons-msg .coupons-msg-txt {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 200px;
+  overflow: hidden;
+}
+
+.coupons-msg .coupons-msg-btn-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+}
+
+.coupons-msg navigator {
+  background: coral;
+  color: white;
+  font-size: 12px;
+  display: block;
+  border-radius: 8px;
+  padding: 3px 10px;
+  text-align: center;
+  margin-right: 5px;
+}
+
+.coupons-msg image {
+  width: 20rpx;
+  height: 20rpx;
+  margin-right: 5px;
+}
+
+.coupons-msg .coupons-msg-txt image {
+  width: 38px;
+  height: 15px;
+}

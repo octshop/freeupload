@@ -1,0 +1,242 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>运费模板参数设置</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/ShopPage/FreightTemplateParamList.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+    <script src="../Assets/Js/ShopPage/FreightTemplateParamList.js"></script>
+
+</head>
+<body>
+
+    <!--记录隐藏控件-->
+    <input id="hidFtID" type="hidden" value="@ViewBag.FtID" />
+
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=运费管理">运费管理</a></li>
+            <li class="am-active">运费模板参数设置</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 运费模板参数设置
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加</button>-->
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+        </div>
+
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <div class="table-title">
+                <b>模板名称：</b> <span class="template-name-span" id="FtTitleSpan"></span>
+                <b>模板ID：</b> <span>@ViewBag.FtID</span>
+            </div>
+
+            <div class="table-param-list">
+
+                <table class="table-content am-table-hover" width="100%">
+                    <thead>
+                        <tr class="table-head am-success">
+                            <td width="62%">地区(省份)</td>
+                            <td width="15%">运费(1件)</td>
+                            <td width="16%">续件(每增加1件)</td>
+                            <td width="7%">操作</td>
+                        </tr>
+                    </thead>
+                    <tbody id="TbodyTrPage">
+                        <!--<tr>
+                            <td>
+                                <div class="province-div">
+                                    <span>湖南省</span><span>湖北省</span><span>江西省</span>
+                                    <span>湖南省</span><span>湖北省</span><span>江西省</span>
+                                    <span>湖南省</span><span>湖北省</span><span>江西省</span>
+                                    <span>湖南省</span><span>湖北省</span><span>江西省</span>
+                                    <span>湖南省</span><span>湖北省</span><span>江西省</span>
+
+                                </div>
+                            <b onclick="openSelRegionWin()">编辑</b>
+                            </td>
+                            <td><input type="number" class="freight-txt" value="18.00" /></td>
+                            <td> &nbsp; + &nbsp; <input type="number" class="freight-txt" value="6.00" /></td>
+                            <td>
+                                <button class="table-btn am-btn am-btn-default am-btn-xs am-text-danger  am-round"><span class="am-icon-trash"></span></button>
+                            </td>
+                        </tr>-->
+
+                        <tr id="tr_0">
+                            <td>
+                                <div class="province-list-div">
+                                    <input type="hidden" id="hidRegionArr_0" name="HidRegionArr" value="" />
+                                    <div class="province-div" id="ProvinceDiv_0">未添加地区</div>           <b onclick="openSelRegionWin(0)">编辑</b>
+                                </div>
+                            </td>
+                            <td><input type="number" class="freight-txt" id="freightTxt_0" value="0.00" name="FreightOne" /></td>
+                            <td> &nbsp; + &nbsp; <input type="number" class="freight-txt" id="freightTxtAdd_0" name="FreightAdd" value="0.00" /></td>
+                            <td>
+                                <button class="table-btn am-btn am-btn-default am-btn-xs am-text-danger  am-round" onclick="removeFreightTemplateItem(0)"><span class="am-icon-trash"></span></button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+            <!--按钮区-->
+            <div class="btn-list">
+                <input class="am-btn am-round am-btn-warning am-btn-sm am-margin-right-lg" type="button" value="添加参数项" onclick="addFreightTemplateItem()" />
+                <input class="am-btn am-round am-btn-success am-btn-sm" type="button" value="保存模板参数" onclick="saveFreightTemplateParamVal()" />
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>1 ) 没有设置参数的地区，则运费为零，即免运费。2 ) 运费模板被暂停后，那么使用此模板的商品运费为零，免运费。3 ) 运费以【元】为单位。</span>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <!--添加与编辑窗口主体内容-->
+    <div class="sel-region-win" id="SelRegionWin" style="display:none;">
+        <div class="sel-region-main">
+            <ul class="sel-region-ul">
+                <li>
+                    <div class="region-left">
+                        <input type="checkbox" id="hd" onchange="toggleCheckGroup('hd')" />华东
+                    </div>
+                    <div class="region-right">
+                        <div class="div_310000" style="display:normal"><input type="checkbox" name="hd" id="hd_310000" class="cb_310000" data-province="上海" />上海</div>
+                        <div class="div_320000"><input type="checkbox" name="hd" id="hd_320000" class="cb_320000" data-province="江苏省" />江苏省</div>
+                        <div class="div_330000"><input type="checkbox" name="hd" id="hd_330000" class="cb_330000" data-province="浙江省" />浙江省</div>
+                        <div class="div_340000"><input type="checkbox" name="hd" id="hd_340000" class="cb_340000" data-province="安徽省" />安徽省</div>
+                        <div class="div_360000"><input type="checkbox" name="hd" id="hd_360000" class="cb_360000" data-province="江西省" />江西省</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="region-left">
+                        <input type="checkbox" id="hb" onchange="toggleCheckGroup('hb')" />华北
+                    </div>
+                    <div class="region-right">
+                        <div class="div_110000"><input type="checkbox" name="hb" id="hb_110000" class="cb_110000" data-province="北京" />北京</div>
+                        <div class="div_120000"><input type="checkbox" name="hb" id="hb_120000" class="cb_120000" data-province="天津" />天津</div>
+                        <div class="div_140000"><input type="checkbox" name="hb" id="hb_140000" class="cb_140000" data-province="山西省" />山西省</div>
+                        <div class="div_370000"><input type="checkbox" name="hb" id="hb_370000" class="cb_370000" data-province="山东省" />山东省</div>
+                        <div class="div_130000"><input type="checkbox" name="hb" id="hb_130000" class="cb_130000" data-province="河北省" />河北省</div>
+                        <div class="div_150000"><input type="checkbox" name="hb" id="hb_150000" class="cb_150000" data-province="内蒙古自治区" />内蒙古自治区</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="region-left">
+                        <input type="checkbox" id="hz" onchange="toggleCheckGroup('hz')" />华中
+                    </div>
+                    <div class="region-right">
+                        <div class="div_430000"><input type="checkbox" name="hz" id="hz_430000" class="cb_430000" data-province="湖南省" />湖南省</div>
+                        <div class="div_420000"><input type="checkbox" name="hz" id="hz_420000" class="cb_420000" data-province="湖北省" />湖北省</div>
+                        <div class="div_410000"><input type="checkbox" name="hz" id="hz_410000" class="cb_410000" data-province="河南省" />河南省</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="region-left">
+                        <input type="checkbox" id="hn" onchange="toggleCheckGroup('hn')" />华南
+                    </div>
+                    <div class="region-right">
+                        <div class="div_440000"><input type="checkbox" name="hn" id="hn_440000" class="cb_440000" data-province="广东省" />广东省</div>
+                        <div class="div_450000"><input type="checkbox" name="hn" id="hn_450000" class="cb_450000" data-province="广西壮族自治区" />广西壮族自治区</div>
+                        <div class="div_350000"><input type="checkbox" name="hn" id="hn_350000" class="cb_350000" data-province="福建省" />福建省</div>
+                        <div class="div_460000"><input type="checkbox" name="hn" id="hn_460000" class="cb_460000" data-province="海南省" />海南省</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="region-left">
+                        <input type="checkbox" id="db" onchange="toggleCheckGroup('db')" />东北
+                    </div>
+                    <div class="region-right">
+                        <div class="div_210000"><input type="checkbox" name="db" id="db_210000" class="cb_210000" data-province="辽宁省" />辽宁省</div>
+                        <div class="div_220000"><input type="checkbox" name="db" id="db_220000" class="cb_220000" data-province="吉林省" />吉林省</div>
+                        <div class="div_230000"><input type="checkbox" name="db" id="db_230000" class="cb_230000" data-province="黑龙江省" />黑龙江省</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="region-left">
+                        <input type="checkbox" id="xb" onchange="toggleCheckGroup('xb')" />西北
+                    </div>
+                    <div class="region-right">
+                        <div class="div_610000"><input type="checkbox" name="xb" id="xb_610000" class="cb_610000" data-province="陕西省" />陕西省</div>
+                        <div class="div_650000"><input type="checkbox" name="xb" id="xb_650000" class="cb_650000" data-province="新疆维吾尔自治区省" />新疆维吾尔自治区省</div>
+                        <div class="div_620000"><input type="checkbox" name="xb" id="xb_620000" class="cb_620000" data-province="甘肃省" />甘肃省</div>
+                        <div class="div_640000"><input type="checkbox" name="xb" id="xb_640000" class="cb_640000" data-province="宁夏回族自治区" />宁夏回族自治区</div>
+                        <div class="div_630000"><input type="checkbox" name="xb" id="xb_630000" class="cb_630000" data-province="青海省" />青海省</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="region-left">
+                        <input type="checkbox" id="xn" onchange="toggleCheckGroup('xn')" />西南
+                    </div>
+                    <div class="region-right">
+                        <div class="div_500000"><input type="checkbox" name="xn" id="xn_500000" class="cb_500000" data-province="重庆" />重庆</div>
+                        <div class="div_530000"><input type="checkbox" name="xn" id="xn_530000" class="cb_530000" data-province="云南省" />云南省</div>
+                        <div class="div_520000"><input type="checkbox" name="xn" id="xn_520000" class="cb_520000" data-province="贵州省" />贵州省</div>
+                        <div class="div_540000"><input type="checkbox" name="xn" id="xn_540000" class="cb_540000" data-province="西藏自治区" />西藏自治区</div>
+                        <div class="div_510000"><input type="checkbox" name="xn" id="xn_510000" class="cb_510000" data-province="四川省" />四川省</div>
+                    </div>
+                </li>
+                <li style="border:none;">
+                    <div class="region-left">
+                        <input type="checkbox" id="gat" onchange="toggleCheckGroup('gat')" />港澳台
+                    </div>
+                    <div class="region-right">
+                        <div class="div_810000"><input type="checkbox" name="gat" id="gat_810000" class="cb_810000" data-province="香港特别行政区" />香港特别行政区</div>
+                        <div class="div_820000"><input type="checkbox" name="gat" id="gat_820000" class="cb_820000" data-province="澳门特别行政区" />澳门特别行政区</div>
+                        <div class="div_710000"><input type="checkbox" name="gat" id="gat_710000" class="cb_710000" data-province="台湾" />台湾</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

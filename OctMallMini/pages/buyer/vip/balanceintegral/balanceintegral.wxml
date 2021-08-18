@@ -1,0 +1,61 @@
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="余额积分详情" back-icon="/assets/imgs/icons/navbar_back.png"
+    home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+  <!-- Logo区域 -->
+  <view class="oct-logo">
+
+    <view class="oct-logo-item">
+      <navigator url="../../../buyer/vip/balancedetail/balancedetail" class="oct-logo-left" style="font-size: 16px;">
+        账户余额(元)
+        <view style="padding: 6px 0">
+          {{loadBuyerAllCurBalanceIntegral_Data.CurBalance}}
+        </view>
+      </navigator>
+      <navigator url="../../../buyer/vip/integraldetail/integraldetail" class="oct-logo-right" style="font-size: 16px;">
+        账户积分
+        <view style="padding: 6px 0">
+          {{loadBuyerAllCurBalanceIntegral_Data.CurIntegral}}
+        </view>
+      </navigator>
+    </view>
+
+    <view class="oct-logo-item" style="border-top:1px solid #FE6A43; padding-bottom: 15px">
+      <navigator url="../../../../pages/buyer/vip/balancedetaildividend/balancedetaildividend" class="oct-logo-left">
+        分润余额(元)
+        <view style="padding: 6px 0;font-size:18px">
+          {{loadBuyerAllCurBalanceIntegral_Data.CurBalanceDividend}}
+        </view>
+        <view>
+          <button class="dividend-btn" style="width:120px" catchtap="transDividendToAccBalance">转入账户余额</button>
+        </view>
+      </navigator>
+      <navigator url="../../../../pages/buyer/vip/integraldetaildividend/integraldetaildividend" class="oct-logo-right">
+        分润积分
+        <view style="padding: 6px 0; font-size:18px">
+          {{loadBuyerAllCurBalanceIntegral_Data.CurIntegralDividend}}
+        </view>
+        <view>
+          <button class="dividend-btn" style="width:120px" catchtap="transDividendToAccIntegral">转入账户积分</button>
+        </view>
+      </navigator>
+    </view>
+
+
+  </view>
+
+  <view class="oct-balance-description">
+
+    <text>说明：</text>分润余额、分润积分【转入】账户余额、账户积分后, 可使用账户余额、账户积分在本商城中购买商品。账户余额可以提现，而账户积分不能。
+    <view style="text-align:center;font-weight:bold; padding-top: 20px;">注意：1个积分 = 1元 = 余额1元</view>
+
+  </view>
+
+
+
+
+</view>

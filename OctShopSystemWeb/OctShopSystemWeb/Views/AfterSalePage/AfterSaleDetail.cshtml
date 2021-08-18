@@ -1,0 +1,200 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>售后详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/TradingPage/OrderDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/PhotoSwipe/initPhotoSwipe.js"></script>
+
+    <script src="../Assets/Js/AfterSalePage/AfterSaleDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidApplyID" value="@ViewBag.AID" />
+    <input type="hidden" id="hidOctWapWebAddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=售后管理">售后管理</a></li>
+            <li class="am-active">售后详情</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 售后详情
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding">
+            <div class="order-status after-sale-status">
+                <div class="order-status-title">
+                    <val id="StatusTtitle"></val>
+                </div>
+                <div class="order-status-desc">
+                    <val id="StatusDesc"></val>
+                </div>
+                <div class="order-status-dynamic">
+                    <val id="MsgContent"></val>
+                </div>
+            </div>
+            <dl class="order-basic">
+                <dt>基本信息</dt>
+                <dd>
+                    <span>售后ID：</span><val id="ApplyID"></val>
+                    <span>订单ID：</span><val id="OrderID"></val>
+                    <span>商品ID：</span><val id="GoodsID">
+
+                    </val>
+                    <span>申请数量：</span><val id="ApplyGoodsNum">
+
+                    </val>
+                </dd>
+                <dd>
+                    <span>订购时间：</span><val id="OrderTime"></val>
+                    <span>申请时间：</span><val id="WriteDate"></val>
+                    <span>完成时间：</span><val id="FinishTime"></val>
+
+                </dd>
+                <dd class="order-goods-list" id="OrderGoodsListDD">
+                    <div id="AsOrderGoodsMsgList">
+                        <span>
+                            <a href="#" target="_blank">@*格菲卡纳 毛呢连衣  [2XL 黑色*@]</a>
+                        </span>
+                        <span>
+                            &#165;0.00  x 0
+                        </span>
+                    </div>
+                </dd>
+                <dd>
+                    <span>服务类型：</span><val id="ServiceType"></val>
+                    <span>
+                        售后方式：
+                    </span>
+                    <val id="ServiceWay">
+
+                    </val>
+                    <span>退款金额：</span><val id="RefundMoney">
+
+                    </val>
+                </dd>
+            </dl>
+
+            <dl class="order-basic">
+                <dt>售后原因，回复说明</dt>
+                <dd>
+                    <span>申请原因 ：</span><val id="ApplyReason"></val>
+                </dd>
+                <dd class="problem-desc-dd">
+                    <span>问题描述 ：</span><val id="ProblemDesc"></val>
+                </dd>
+                <dd class="problem-desc-dd">
+                    <span>拒绝理由：</span><val id="ReplyExplain"></val>
+                </dd>
+                <dd class="problem-desc-dd">
+                    <span>官方说明：</span><val id="RefuseReason"></val>
+                </dd>
+                <dd class="problem-desc-dd">
+                    <span>售后备注：</span><val id="ApplyMemo"></val>
+                </dd>
+            </dl>
+
+            <dl class="order-basic after-sale-problemimgs">
+                <dt>售后问题图片展示</dt>
+                <dd>
+                    <div id="ProblemImgList">
+
+                    </div>
+
+                </dd>
+
+            </dl>
+
+
+            <dl class="order-basic">
+                <dt>服务/收货地址(买家)</dt>
+                <dd>
+                    <span>联系人：</span><val id="DeliNameBuyer"></val>
+                    <span>联系电话：</span><val id="MobileBuyer"></val>
+                </dd>
+                <dd>
+                    <span>省市县：</span><val id="RegionNameArrBuyer"></val>
+                    <span>详细地址：</span><val id="DetailAddrBuyer"></val>
+                </dd>
+            </dl>
+
+            <dl class="order-basic">
+                <dt>买家发货信息</dt>
+                <dd>
+                    <span>快递名称：</span><val id="ExpressNameBuyer">
+                    </val>
+                    <span>快递单号：</span><val id="ExpressNumberBuyer">
+                    </val>
+                </dd>
+            </dl>
+
+            <dl class="order-basic">
+                <dt>商家发货或上门信息</dt>
+                <dd>
+                    <span>快递名称：</span><val id="ExpressNameShop">
+                    </val>
+                    <span>快递单号：</span><val id="ExpressNumberShop">
+                    </val>
+                </dd>
+                <dd>
+                    <span>上门人员姓名：</span><val id="SendShopManShop">
+                    </val>
+                    <span>上门联系电话：</span><val id="SendTelNumberShop">
+                    </val>
+                </dd>
+            </dl>
+            <dl class="order-basic">
+                <dt>商家售后服务地址</dt>
+                <dd>
+                    <span>联系人：</span><val id="DeliNameShop"></val>
+                    <span>联系电话：</span><val id="MobileShop"></val>
+                </dd>
+                <dd>
+                    <span>省市县：</span><val id="RegionNameArrShop"></val>
+                    <span>详细地址：</span><val id="DetailAddrShop"></val>
+                </dd>
+            </dl>
+
+
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>

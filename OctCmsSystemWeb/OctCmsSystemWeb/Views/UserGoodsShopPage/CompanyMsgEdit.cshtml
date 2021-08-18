@@ -1,0 +1,298 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>编辑公司信息</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/UserGoodsShopPage/CompanyMsgAdd.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+
+    <script src="../Assets/Js/UserGoodsShopPage/CompanyMsgEdit.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidCompanyID" value="@ViewBag.CompanyID" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=店铺管理">店铺管理</a></li>
+            <li class="am-active">编辑公司</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 编辑公司
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding" id="CompanyMsgDiv" style="display:normal;">
+            <form>
+                <ul class="company-ul">
+                    <li>
+                        <div>
+                            <span class="input-title-span">用户账号：</span>
+                            <input type="text" id="UserAccount" value="@ViewBag.UserAccount" class="txt-css txt-company-acc" placeholder="公司的用户账号(注册手机号),无账号请先注册！" onblur="initBuyerMsg()" />
+                        </div>
+                        <div class="company-acc-hint" id="CompanyAccHintDiv">
+                            <img src="@ViewBag.HeaderImg" class="img-header" /><span>@ViewBag.UserNick</span>，<span>UserID：@ViewBag.UserID</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="company-ul">
+                    <li>
+                        <span class="input-title-span">公司名称：</span>
+                        <input type="text" id="CompanyName" value="@ViewBag.CompanyName" class="txt-css txt-company-name" placeholder="请输入公司名称" />
+                    </li>
+                    <li>
+                        <span class="input-title-span">注册地址：</span>
+                        <input type="text" id="RegAddress" value="@ViewBag.RegAddress" class="txt-css txt-reg-address" placeholder="请输入公司注册地址" />
+                    </li>
+                </ul>
+
+                <ul class="company-ul">
+                    <li class="company-msg-li">
+                        <span>社会信用代码：</span>
+                        <input type="text" id="CreditCode" value="@ViewBag.CreditCode" class="txt-css" placeholder="" />
+                        <span class="am-padding-left-xl">企业法人：</span>
+                        <input type="text" id="LegalPerson" value="@ViewBag.LegalPerson" class="txt-css" placeholder="" />
+                    </li>
+                    <li class="company-msg-li">
+                        <span>注册资本(万元)：</span>
+                        <input type="text" id="RegMoney" value="@ViewBag.RegMoney" class="txt-css" placeholder="" />
+                        <span class="am-padding-left-xl">成立时间：</span>
+
+                        <div><input type="text" id="SetUpDate" style="cursor:pointer; background:none;" value="@ViewBag.SetUpDate" class="am-form-field txt-css" placeholder="选择成立时间" data-am-datepicker="{theme: 'success'}" readonly /></div>
+
+                    </li>
+                </ul>
+                <ul class="company-ul">
+                    <li class="company-msg-li">
+                        <span>公司营业范围：</span>
+                        <textarea class="txt-area txt-css" id="BusiScope" placeholder="公司的营业范围">@ViewBag.BusiScope</textarea>
+                    </li>
+                </ul>
+
+                <div class="btn-list">
+                    <input type="button" value="立即保存" onclick="saveCompanyMsg()" class="am-btn am-btn-success am-btn-sm am-margin-right-lg" />
+                    <input type="reset" value="重置表单" class="am-btn am-btn-default am-btn-sm" />
+                </div>
+            </form>
+        </div>
+
+
+        <!--上传公司图片资质-->
+        <div class="certificate-div" id="CompanyCertificateDiv" style="display:none;">
+
+            <ul class="company-ul certificate-ul">
+                <li>
+                    <div class="certificate-title">
+                        营业执照<i>(必传)</i> <span class="am-close am-close-alt am-close-spin am-icon-times" onclick="delCompanyCertificate(1)"></span>
+                        <input id="hidUploadGuid_1" type="hidden" value="@ViewBag._uploadGuid1" />
+                    </div>
+                    <div class="certificate-form">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                            </button>
+                            <input id="fileupload_1" type="file" multiple>
+                        </div>
+                        <div class="certificate-img-div" id="FileUploadPreImg_1">
+                            @Html.Raw(ViewBag._xhtmlAImg1)
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="certificate-title">
+                        法人身份证<i>(必传)</i> <span class="am-close am-close-alt am-close-spin am-icon-times" onclick="delCompanyCertificate(2)"></span>
+                        <input id="hidUploadGuid_2" type="hidden" value="@ViewBag._uploadGuid2" />
+                    </div>
+                    <div class="certificate-form">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                            </button>
+                            <input id="fileupload_2" type="file" multiple>
+                        </div>
+                        <div class="certificate-img-div" id="FileUploadPreImg_2">
+                            @Html.Raw(ViewBag._xhtmlAImg2)
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="certificate-title">
+                        银行开户许可<i>(必传)</i> <span class="am-close am-close-alt am-close-spin am-icon-times" onclick="delCompanyCertificate(3)"></span>
+                        <input id="hidUploadGuid_3" type="hidden" value="@ViewBag._uploadGuid3" />
+                    </div>
+                    <div class="certificate-form">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                            </button>
+                            <input id="fileupload_3" type="file" multiple>
+                        </div>
+                        <div class="certificate-img-div" id="FileUploadPreImg_3">
+                            @Html.Raw(ViewBag._xhtmlAImg3)
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="certificate-title">
+                        特许经营许可 <span class="am-close am-close-alt am-close-spin am-icon-times" onclick="delCompanyCertificate(4)"></span>
+                        <input id="hidUploadGuid_4" type="hidden" value="@ViewBag._uploadGuid4" />
+                    </div>
+                    <div class="certificate-form">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                            </button>
+                            <input id="fileupload_4" type="file" multiple>
+                        </div>
+                        <div class="certificate-img-div" id="FileUploadPreImg_4">
+                            @Html.Raw(ViewBag._xhtmlAImg4)
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="certificate-title">
+                        商标证书 <span class="am-close am-close-alt am-close-spin am-icon-times" onclick="delCompanyCertificate(5)"></span>
+                        <input id="hidUploadGuid_5" type="hidden" value="@ViewBag._uploadGuid5" />
+                    </div>
+                    <div class="certificate-form">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                            </button>
+                            <input id="fileupload_5" type="file" multiple>
+                        </div>
+                        <div class="certificate-img-div" id="FileUploadPreImg_5">
+                            @Html.Raw(ViewBag._xhtmlAImg5)
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="certificate-title">
+                        商品代理授权 <span class="am-close am-close-alt am-close-spin am-icon-times" onclick="delCompanyCertificate(6)"></span>
+                        <input id="hidUploadGuid_6" type="hidden" value="@ViewBag._uploadGuid6" />
+                    </div>
+                    <div class="certificate-form">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                            </button>
+                            <input id="fileupload_6" type="file" multiple>
+                        </div>
+                        <div class="certificate-img-div" id="FileUploadPreImg_6">
+                            @Html.Raw(ViewBag._xhtmlAImg6)
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="certificate-title">
+                        其他资质许可1 <span class="am-close am-close-alt am-close-spin am-icon-times" onclick="delCompanyCertificate(7)"></span>
+                        <input id="hidUploadGuid_7" type="hidden" value="@ViewBag._uploadGuid7" />
+                    </div>
+                    <div class="certificate-form">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                            </button>
+                            <input id="fileupload_7" type="file" multiple>
+                        </div>
+                        <div class="certificate-img-div" id="FileUploadPreImg_7">
+                            @Html.Raw(ViewBag._xhtmlAImg7)
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="certificate-title">
+                        其他资质许可2 <span class="am-close am-close-alt am-close-spin am-icon-times" onclick="delCompanyCertificate(8)"></span>
+                        <input id="hidUploadGuid_8" type="hidden" value="@ViewBag._uploadGuid8" />
+                    </div>
+                    <div class="certificate-form">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                            </button>
+                            <input id="fileupload_8" type="file" multiple>
+                        </div>
+                        <div class="certificate-img-div" id="FileUploadPreImg_8">
+                            @Html.Raw(ViewBag._xhtmlAImg8)
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="certificate-title">
+                        其他资质许可3 <span class="am-close am-close-alt am-close-spin am-icon-times" onclick="delCompanyCertificate(9)"></span>
+                        <input id="hidUploadGuid_9" type="hidden" value="@ViewBag._uploadGuid9" />
+                    </div>
+                    <div class="certificate-form">
+                        <div class="am-form-group am-form-file">
+                            <button type="button" class="am-btn am-btn-default am-btn-xs am-round">
+                                <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                            </button>
+                            <input id="fileupload_9" type="file" multiple>
+                        </div>
+                        <div class="certificate-img-div" id="FileUploadPreImg_9">
+                            @Html.Raw(ViewBag._xhtmlAImg9)
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="btn-list" style="text-align:center;">
+                <input type="button" onclick="saveCompanyFinish()" value="公司编辑完成" class="am-btn am-btn-success am-btn-sm am-margin-right-lg" />
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>

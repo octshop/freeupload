@@ -1,0 +1,291 @@
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\ApplicationInsights.config
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe.config
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\csc.rsp
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\csi.exe
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\csi.rsp
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.AppContext.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.Collections.Immutable.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.Reflection.Metadata.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe.config
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\vbc.rsp
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe.config
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll.config
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\OctWapWeb.pdb
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\Gma.QrCodeNet.Encoding.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\PublicUtilsNS.pdb
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CoreCompileInputs.cache
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CopyComplete
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.pdb
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\PublicUtilsNS.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Web.Http.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.dll
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.xml
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Web.Http.xml
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.xml
+E:\OpenCodeTigerProject\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csprojAssemblyReference.cache
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\ApplicationInsights.config
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe.config
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\csc.rsp
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\csi.exe
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\csi.rsp
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\System.AppContext.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\System.Collections.Immutable.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\System.Reflection.Metadata.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe.config
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\vbc.rsp
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe.config
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll.config
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\OctWapWeb.pdb
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\Gma.QrCodeNet.Encoding.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\System.Web.Http.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.xml
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\System.Web.Http.xml
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.xml
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CoreCompileInputs.cache
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CopyComplete
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\ApplicationInsights.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\csc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\csi.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\csi.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.AppContext.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.Collections.Immutable.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\System.Reflection.Metadata.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\vbc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\OctWapWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\Gma.QrCodeNet.Encoding.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\PublicUtilsNS.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Web.Http.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\BouncyCastle.Crypto.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\PublicUtilsNS.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Web.Http.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CoreCompileInputs.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CopyComplete
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\WeCahtJsSdk.Utility.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\bin\WeChatJsSdk.SdkCore.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\WeCahtJsSdk.Utility.dll
+F:\OpenCodeTiger\OctWapWeb\OctWapWeb\bin\WeChatJsSdk.SdkCore.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csprojAssemblyReference.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\ApplicationInsights.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\csc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\csi.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\csi.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\System.AppContext.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\System.Collections.Immutable.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\System.Reflection.Metadata.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\vbc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\OctWapWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\Gma.QrCodeNet.Encoding.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\PublicUtilsNS.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\System.Web.Http.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\WeCahtJsSdk.Utility.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\WeChatJsSdk.SdkCore.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\BouncyCastle.Crypto.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\PublicUtilsNS.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\System.Web.Http.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CoreCompileInputs.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CopyComplete
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csprojAssemblyReference.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\ApplicationInsights.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\csc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\csi.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\csi.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\System.AppContext.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\System.Collections.Immutable.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\System.Reflection.Metadata.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\vbc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\OctWapWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\Gma.QrCodeNet.Encoding.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\PublicUtilsNS.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.Http.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\WeCahtJsSdk.Utility.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\WeChatJsSdk.SdkCore.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.Http.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.Helpers.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.Mvc.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.Optimization.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.Razor.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.WebPages.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.WebPages.Deployment.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\System.Web.WebPages.Razor.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\Antlr3.Runtime.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\Microsoft.ApplicationInsights.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\Microsoft.AI.DependencyCollector.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\Microsoft.AI.WindowsServer.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\Microsoft.AI.Web.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\zh-Hans\System.Web.Helpers.resources.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\zh-Hans\System.Web.Mvc.resources.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\zh-Hans\System.Web.Optimization.resources.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\zh-Hans\System.Web.Razor.resources.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\zh-Hans\System.Web.WebPages.resources.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csprojAssemblyReference.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CoreCompileInputs.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CopyComplete
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-FreeUpload\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\ApplicationInsights.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\csc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\csc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\csi.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\csi.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\System.AppContext.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\System.Collections.Immutable.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\System.Reflection.Metadata.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\vbc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\vbc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\roslyn\VBCSCompiler.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\OctWapWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\OctWapWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\Gma.QrCodeNet.Encoding.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\PublicUtilsNS.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\System.Web.Http.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\WeCahtJsSdk.Utility.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\WeChatJsSdk.SdkCore.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\System.Net.Http.Formatting.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\System.Web.Http.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\bin\System.Web.Http.WebHost.xml
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CoreCompileInputs.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.csproj.CopyComplete
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\GiteeFreeUpload\freeupload\OctWapWeb\OctWapWeb\obj\Debug\OctWapWeb.pdb

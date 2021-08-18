@@ -1,0 +1,270 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>商家结算资料</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/TradingPage/SettleShopMsg.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+    <script src="../Assets/Js/TradingPage/SettleShopMsg.js"></script>
+
+</head>
+<body>
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidIsCheck" value="@ViewBag.IsCheck" />
+
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=财务结算">财务结算</a></li>
+            <li class="am-active">商家结算资料</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 商家结算资料
+            </div>
+            <div class="title-btn-div am-fl">
+                @*<button class="title-btn am-btn am-btn-xs am-btn-danger am-round am-margin-left-xs" onclick="window.location.href='../UserGoodsShopPage/ShopAdd'"><i class="am-icon-plus-circle"></i> 添加店铺</button>*@
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="ShopUserID_se" placeholder="商家UserID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="CompanyName_se" placeholder="公司名称" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="CompanyTel_se" placeholder="公司电话" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="CertificateID_se" placeholder="统一社会信用代码" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="LegalPerson_se" placeholder="法人姓名" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="LinkMan_se" placeholder="联系人姓名" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="MobileNumber_se" placeholder="联系人手机号" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="BankAccount_se" placeholder="银行账号" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="IsCheck_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>审核</option>
+                    <option value="pass">通过审核</option>
+                    <option value="false">待审核</option>
+                    <option value="true">不通过</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 100px;">
+                <select id="IsLock_se" data-am-selected="{btnWidth:'80',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>锁定</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="提交日期" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="13%">商家UserID</td>
+                        <td width="12%">公司名称</td>
+                        <td width="8%">联系人</td>
+                        <td width="8%">联系电话</td>
+                        <td width="10%">银行账号</td>
+                        <td width="10%">开户支行</td>
+                        <td width="16%">审核<i style="color: #939393;display:block">审核原因</i></td>
+                        <td width="6%">锁定</td>
+                        <td width="9%">提交时间</td>
+                        <td width="8%">操作</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td>234332</td>
+                        <td>某某餐饮公司</td>
+                        <td>黄小明</td>
+                        <td><a href="tel:13203126532">13203126532</a></td>
+                        <td>6228481100317342910</td>
+                        <td>工商银行长沙支行</td>
+                        <td>
+                            不通过
+                            <i style="color: #939393;display: block">银行账户名称与公司名称不一致</i>
+                        </td>
+                        <td>是</td>
+                        <td>
+                            2019-05-05 13:27:45
+                        </td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-success am-round">详细</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-danger am-round">审核</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round">锁定</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <!--<div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" onclick="delMsgArr()"><span class="am-icon-trash-o"></span> 删除</button>
+                    </div>
+                </div>-->
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                备注说明
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <!--详情内容窗口-->
+    <div class="detail-win" id="DetailWin" style="display:none;">
+        <div class="detail-main">
+            <ul class="detail-ul" id="DetailUL">
+                <li>
+                    <span>商家UserID:</span>23432
+                    <span>统一社会信用代码:</span>23443534--234
+                </li>
+                <li>
+                    <span>公司名称:</span>某某餐饮公司11111
+                </li>
+                <li>
+                    <span>公司地址</span>湖南省_长沙市_长沙县_开元西路23号
+                </li>
+                <li>
+                    <span>公司电话</span>1352698565
+                    <span>营业执照</span><a href="#" target="_blank">查看营业执照照片</a>
+                </li>
+                <li>
+                    <span>企业法人：</span>小黄人
+                    <span>联系人：</span>小黄人
+                    <span>联系人手机：</span>13231563565
+                </li>
+                <li>
+                    <span>所在部门：</span>财务部
+                    <span>邮箱地址：</span>lilingchat@163.com
+                </li>
+                <li>
+                    <span>银行账号：</span>46548998465465489
+                    <span>账户名称：</span>某某餐饮公司
+                </li>
+                <li>
+                    <span>开户支行名称：</span>湖南长沙市工商支行
+                    <span>审核：</span>审核通过
+                </li>
+                <li>
+                    <span>审核原因：</span>审核原因(一般是拒绝时)
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+    <!--添加与编辑窗口主体内容-->
+    <div class="add-edit-win" id="AddEditWin" style="display:none;">
+        <div class="add-edit-main">
+            <ul class="add-edit-ul">
+                <li>
+                    <label class="am-form-label">
+                        商家UserID:<font color="red">*</font>
+                    </label>
+                    <b id="ShopUserID_ae">0 ，xxx公司</b>
+                </li>
+                <li>
+                    <label class="am-form-label">审核状态:<font color="red">*</font></label>
+                    <select id="IsCheck_ae">
+                        <option value="true">不通过</option>
+                        <option value="pass">通过</option>
+                    </select>
+                </li>
+                <li>
+                    <label class="am-form-label">审核原因:</label>
+                    <textarea id="CheckReason_ae" class="am-form-field goods-type-name" placeholder="请准确说明审核通过与否的原因" style="height: 60px;"></textarea>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+</body>
+</html>

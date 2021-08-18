@@ -1,0 +1,257 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+           <meta name="viewport" content="width=device-width initial-scale="1" />
+       viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+       原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>投诉信息处理</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+    <script src="../Assets/Js/AfterSaleAccCusPage/OrderComplainMsg.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidOctWapWebAddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+    <input type="hidden" id="hidComplainStatus" value="@ViewBag.ComplainStatus" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=投诉管理">投诉管理</a></li>
+            <li class="am-active">投诉信息处理</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 投诉信息处理
+            </div>
+            <div class="title-btn-div am-fl">
+                @*<button class="title-btn am-btn am-btn-xs am-btn-danger am-round am-margin-left-xs" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加</button>*@
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ComplainID_se" placeholder="投诉ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="ComplainContent_se" placeholder="投诉内容" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="ShopReply_se" placeholder="商家回复" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="ComplainReply_se" placeholder="官方回复" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="OrderID_se" placeholder="订单ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="ExtraData_se" placeholder="额外数据(如:ID)" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="BuyerUserID_se" placeholder="买家UserID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ShopUserID_se" placeholder="商家UserID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="ComplainCategory_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>投诉分类</option>
+                    <option value="order">订单投诉</option>
+                    <option value="aftersale">售后投诉</option>
+                    <option value="shop">商家投诉</option>
+                    <option value="paltform">平台投诉</option>
+                    <option value="PresentOrder">礼品订单投诉</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="ComplainType_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>投诉类型</option>
+                    <option value="order">质量问题</option>
+                    <option value="aftersale">快递问题</option>
+                    <option value="shop">售后问题</option>
+                    <option value="paltform">其他问题</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="ComplainStatus_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>投诉状态</option>
+                    <option value="商家处理">商家处理</option>
+                    <option value="官方介入">官方介入</option>
+                    <option value="买家确认">买家确认</option>
+                    <option value="完成">完成</option>
+                </select>
+            </div>
+
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="IsLock_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>锁定</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="ShopReplyDate_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="商家回复时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="ReplyDate_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="官方回复时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="写入时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="8%">投诉ID<i style="color: #939393;display:block">订单ID</i></td>
+                        <td width="10%">买家UserID<i style="color: #939393;display:block">商家UserID</i></td>
+                        <td width="20%">投诉状态<i style="color: #939393;display:block">投诉内容</i></td>
+                        <td width="12%">商家回复<i style="color: #939393;display:block">商家回复时间</i></td>
+                        <td width="12%">官方回复<i style="color: #939393;display:block">官方回复时间</i></td>
+                        <td width="13%">投诉分类<i style="color: #939393;display:block">投诉类型</i></td>
+                        <td width="10%">额外数据<i style="color: #939393;display:block">锁定</i></td>
+                        <td width="8%">写入时间</td>
+                        <td width="7%">
+                            操作
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td>234324<i style="color: #939393;display:block"><a href="#" target="_blank">234324</a></i></td>
+                        <td>10006<i style="color: #939393;display: block"><a href="#" target="_blank">10004</a></i></td>
+                        <td>商家处理<i style="color: #939393;display:block">投诉的内容呀</i></td>
+
+                        <td>商家回复内容<i style="color: #939393;display:block">2019-05-05 13:27:45</i></td>
+                        <td>官方回复内容<i style="color: #939393;display:block">2019-05-05 13:27:45</i></td>
+                        <td>订单投诉(order)<i style="color: #939393;display:block">质量问题</i></td>
+                        <td><a href="#" target="_blank">234324</a><i style="color: #939393;display:block">是</i></td>
+                        <td>
+                            2019-05-05 13:27:45
+                        </td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-success am-round">回复</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round">锁定</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        @*<button type="button" class="am-btn am-btn-default" onclick=""><span class="am-icon-trash-o"></span> 批量删除</button>*@
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                投诉信息处理
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+    <!--添加与编辑窗口主体内容-->
+    <div class="add-edit-win" id="AddEditWin" style="display:none;">
+        <div class="add-edit-main">
+            <ul class="add-edit-ul">
+                <li>
+                    <span>投诉ID：</span>
+                    <b id="ComplainIDWin">551587</b>
+                    <span style="padding-left: 20px;">投诉状态：</span>
+                    <b id="ComplainStatusWin">商家处理</b>
+                    <span style="padding-left: 20px;">投诉分类：</span>
+                    <b id="ComplainCategoryWin">order</b>
+                </li>
+                <li style="display:block;clear:both;">
+                    <span>官方回复：</span>
+
+                    <textarea id="ComplainReplyWin" style="width: 100%;height: 100px; clear:both; display:block; margin-left: 0px; margin-top: 10px;" class="txt-css"></textarea>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

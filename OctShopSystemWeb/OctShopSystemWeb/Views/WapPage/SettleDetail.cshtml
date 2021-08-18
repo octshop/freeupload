@@ -1,0 +1,128 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>结算详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/WapPage/SettleDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/WapPage/SettleDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidSettleID" value="@ViewBag.SettleID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>结算详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../WapPage/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="order-status">
+            <div class="order-status-title">
+                <val id="StatusTtitle" class="status-title-val">处理中</val>
+            </div>
+            <div class="order-status-desc">
+                <val id="StatusDesc">结算申请对账处理中，请保持联系电话畅通。</val>
+            </div>
+        </div>
+
+        <dl class="order-basic">
+            <dt>基本信息</dt>
+            <dd>
+                <b style="font-size:18px; padding-right: 10px; color:red;"><span>结算转账金额：</span><b id="SettleTransSum">&#165;0.00</b></b>
+                <div>
+                    <i style="font-size:12px; color:gray; padding-left:10px;">(结算转账金额=申请结算金额-结算单抽成总额)</i>
+                </div>
+            </dd>
+            <dd>
+                <span>结算单ID：</span><val id="SettleID"></val>
+                <span>申请结算金额：</span> <val id="ApplySettleMoney">
+                    &#165; 0.00
+                </val>
+            </dd>
+            <dd>
+                <span>结算抽成总额：</span><val id="SumCommissionMoney">&#165;0.00</val>
+                <span>结算订单总数：</span><val id="CountSettleOrder">0</val>
+            </dd>
+            <dd>
+                <span>结算商城订单总额：</span><val id="MallOrderSettleMoney">
+                    &#165; 0.00
+                </val>
+                <span>商城订单总数：</span><val id="MallCountSettleOrder">0</val>
+            </dd>
+            <dd>
+                <span>结算扫码订单总额：</span><val id="AggreOrderSettleMoney">
+                    &#165; 0.00
+                </val>
+                <span>扫码订单总数：</span><val id="AggreCountSettleOrder">0</val>
+            </dd>
+            <dd>
+                <span>申请人：</span><val id="ApplyName"></val>
+                <span>联系电话：</span><val id="ApplyTel"></val>
+            </dd>
+            <dd>
+                <span>申请时间：</span><val id="ApplyDate"></val>
+            </dd>
+            <dd class="btn-list-dd">
+                <a href="../WapPage/SettleOrderMall?SeID=@ViewBag.SettleID">结算商城订单列表</a>
+                <a href="../WapPage/SettleOrderScan?SeID=@ViewBag.SettleID">结算扫码订单列表</a>
+            </dd>
+        </dl>
+
+
+        <dl class="order-basic">
+            <dt>结算处理结果</dt>
+            <dd class="deal-result-dd">
+                <div>
+                    <span>实际需转账金额：</span> <b id="RealTransSum">&#165;0.00</b>
+                </div>
+                <div>
+                    <span>结算处理人：</span><val id="DisposeMan"></val>
+                    <span>处理时间：</span><val id="DisposeDate"></val>
+                </div>
+                <div class="transfer-voucher-img">
+                    <div><span>转账凭证照片</span></div>
+                    <div id="TransferVoucherImg" class="transfer-voucher-div">
+                        @*<a href="../Assets/Imgs/company.jpg" target="_blank"><img src="../Assets/Imgs/company.jpg" /></a>*@
+                    </div>
+
+                </div>
+            </dd>
+        </dl>
+
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>

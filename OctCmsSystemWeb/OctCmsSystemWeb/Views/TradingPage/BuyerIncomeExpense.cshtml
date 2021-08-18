@@ -1,0 +1,173 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>买家账户余额收支信息</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Js/TradingPage/BuyerIncomeExpense.js"></script>
+
+</head>
+<body>
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=财务结算">财务结算</a></li>
+            <li class="am-active">账户余额收支</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 买家账户余额收支
+            </div>
+            <div class="title-btn-div am-fl">
+                @*<button class="title-btn am-btn am-btn-xs am-btn-danger am-round am-margin-left-xs" onclick="window.location.href='../UserGoodsShopPage/ShopAdd'"><i class="am-icon-plus-circle"></i> 添加店铺</button>*@
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="InExMsgID_se" placeholder="收支ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="BuyerUserID_se" value="@ViewBag.UserID" placeholder="买家UserID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="IncomeSum_se" placeholder="收入金额" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ExpenseSum_se" placeholder="支出金额" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="CurrentBalance_se" placeholder="当前余额" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="InExType_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>收支类型</option>
+                    <option value="Order">订购商品</option>
+                    <option value="TransDividend">分润余额转入账户余额</option>
+                    <option value="Settle">结算</option>
+                    <option value="Refund">退款</option>
+                    <option value="Recharge">平台会员充值</option>
+                    <option value="PlatformReduce">平台扣除余额</option>
+                    <option value="BuyerRecharge">用户余额充值</option>
+                    <option value="WithDraw">用户提现</option>
+                </select>
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="InExMemo_se" placeholder="收支备注" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="ExtraData_se" placeholder="额外数据ID" />
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" style="background:none; width: 130px;" class="datetime-input am-form-field" placeholder="收支时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="8%">收支ID</td>
+                        <td width="10%">买家UserID<i style="color: #939393;display:block">买家昵称</i></td>
+                        <td width="9%">收入金额</td>
+                        <td width="9%">支出金额 </td>
+                        <td width="9%">当前余额  </td>
+                        <td width="13%">收支类型</td>
+                        <td width="10%">额外数据</td>
+                        <td width="14%">收支备注</td>
+                        <td width="8%">收支时间</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    @*<tr>
+                            <td>234324</td>
+                            <td>235433<i style="color: #939393;display: block"><a href="#" target="_blank">买家的昵称呀</a></i></td>
+                            <td>+ 23.23</td>
+                            <td>- 563.65</td>
+                            <td>163.65</td>
+                            <td>订购商品<br />(Order)</td>
+                            <td><a href="#" target="_blank">订单ID:23433</a></td>
+                            <td>收支备注</td>
+                            <td>
+                                2019-05-05 13:27:45
+                            </td>
+                        </tr>*@
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <!--<div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" onclick="delMsgArr()"><span class="am-icon-trash-o"></span> 删除</button>
+                    </div>
+                </div>-->
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                买家账户余额收支
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

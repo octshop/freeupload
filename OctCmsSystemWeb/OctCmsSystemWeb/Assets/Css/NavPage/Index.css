@@ -1,0 +1,45 @@
+﻿/*==================功能导航首页====================*/
+
+html, body {
+    background: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    width: 140px;
+    padding: 5px 10px;
+    border: 1px solid #808080;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 8px;
+    background: #f8f8f8;
+    cursor: pointer;
+}
+
+    .nav-item:hover {
+        background: #e4e4e4;
+    }
+
+    .nav-item a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #515151;
+    }
+
+        .nav-item a i {
+            padding-right: 5px;
+        }

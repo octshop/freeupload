@@ -1,0 +1,113 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>核销验证</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/WapPage/VerifyCode.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/WapPage/VerifyCode.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidExtraDataID" value="@ViewBag.ExtraDataID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>核销验证</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../WapPage/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="verify-content">
+            <ul class="verify-ul">
+                <li>
+                    <span>核销类别：</span>
+                    <select id="VerifyTypeSel" class="txt-css" onchange="chgVerifyType()">
+                        <option value="OrderCheck">商家订单-消费/自取</option>
+                        <option value="PresentOrder">礼品订单-消费/自取</option>
+                        <option value="Coupons">优惠券-线下使用</option>
+                        <option value="ActivityJoin">活动参与验证</option>
+                        <option value="Luckydraw">抽奖领奖验证</option>
+                    </select>
+                </li>
+                <li>
+                    <span>验证码：</span>
+                    <input type="number" id="VerifyCodeTxt" class="txt-css verify-code-txt" />
+                </li>
+                <li>
+                    <!--商家订单-->
+                    <div class="mall-order" id="OrderCheckDiv">
+                        <div>
+                            <span>订单ID:</span>
+                            <input type="number" name="ExtraDataName" id="OrderIDTxt" class="txt-css" placeholder="选填" />
+                        </div>
+                    </div>
+                    <!--礼品订单-->
+                    <div class="present-order" id="PresentOrderDiv" style="display:none;">
+                        <div>
+                            <span>礼品订单ID:</span>
+                            <input type="number" name="ExtraDataName" id="PstOrderID" class="txt-css" placeholder="选填" />
+                        </div>
+                    </div>
+                    <!--优惠券-->
+                    <div class="coupons-verify" id="CouponsDiv" style="display:none;">
+                        <div>
+                            <span>券号:</span>
+                            <input type="number" name="ExtraDataName" id="IssueID" class="txt-css" placeholder="选填" />
+                        </div>
+                    </div>
+                    <!--活动参与验证-->
+                    <div class="activity-join" id="ActivityJoinDiv" style="display:none;">
+                        <div>
+                            <span>活动ID:</span>
+                            <input type="number" name="ExtraDataName" id="ActivityID" class="txt-css" placeholder="选填" />
+                        </div>
+                    </div>
+                    <!--抽奖领奖验证-->
+                    <div class="lucky-draw" id="LuckydrawDiv" style="display:none;">
+                        <div>
+                            <span>中奖ID:</span>
+                            <input type="number" name="ExtraDataName" id="LuckyDrawResultID" class="txt-css" placeholder="选填" />
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <input type="button" class="btn-verify btn-verify-code" value="立即核销验证" onclick="submitVerifyCode()" />
+                </li>
+                <li>
+                    <input type="button" class="btn-verify btn-verify-scan" value="扫码核销验证" onclick="window.location.href='../VerifyCodePage/PopVerifyScanWin'" />
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

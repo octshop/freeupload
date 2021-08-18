@@ -1,0 +1,60 @@
+<!--pages/buyer/receiaddr/receiaddrae/receiaddrae.wxml-->
+<form bindsubmit="formSubmit">
+
+	<view class="nav-bar-content">
+		<navBar id="NavBar" class="nav-bar" title-text="收货地址维护" back-icon="/assets/imgs/icons/navbar_back.png"
+			home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+	</view>
+	<!-- 主体内容  -->
+	<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+		<view class="add-addr oct-section">
+			<view class="addr-add-list">
+				<view class="addr-add-item">
+					<span>收货人</span>
+					<input type="text" name="ReceiName" placeholder="收货人姓名" value="{{initBuyerReceiAddr_Data.ReceiName}}" />
+				</view>
+				<view class="addr-add-item">
+					<span>联系手机</span>
+					<input type="text" name="Mobile" placeholder="联系手机号码" value="{{initBuyerReceiAddr_Data.Mobile}}" />
+				</view>
+				<view class="addr-add-item">
+					<span>所在区域</span>
+
+					<!--省市县选择器-->
+					<picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+						<view class="picker">
+
+							<view class='title-left-addr'>
+								<text> {{ regionShowDefault }} </text>
+								<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png"></image>
+							</view>
+
+						</view>
+					</picker>
+
+
+
+				</view>
+				<view class="addr-add-item">
+					<span>详细地址</span>
+					<input type="text" name="DetailAddr" placeholder="如：街道，小区，门牌号，楼栋号，单元室" value="{{initBuyerReceiAddr_Data.DetailAddr}}" />
+				</view>
+				<view class="addr-add-item">
+					<span style="width: 200rpx">设置默认地址</span>
+					<!-- Switch按钮 -->
+					<switch checked="{{switchChecked ? 'true':''}}" color="#FF5700" bindchange="switchChange" />
+				</view>
+			</view>
+		</view>
+
+
+		<view class="add-addr-btn">
+			<button class="btn-save-address" type="primary" form-type="submit">保存地址</button>
+		</view>
+
+
+	</view>
+
+
+</form>

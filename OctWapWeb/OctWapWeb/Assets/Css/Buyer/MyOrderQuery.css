@@ -1,0 +1,199 @@
+﻿/*================我的订单搜索======================*/
+
+.oct-header {
+    padding-bottom: 10px;
+    height: 50px;
+    align-items: center;
+}
+
+    .oct-header .oct-header-mid {
+        background: #ECECEC url(../../Imgs/Icon/buyer_query.png) 10px center no-repeat;
+        background-size: 15px;
+        padding: 5px 10px;
+        width: 80%;
+        border-radius: 10px;
+        margin-left: -8px
+    }
+
+.oct-header-right {
+    padding-top: 3px;
+}
+
+.txt-query {
+    border: none;
+    font-size: 12px;
+    background: #ECECEC;
+    width: 100%;
+    margin-left: 20px;
+}
+
+/*常买推荐*/
+.often-buy{
+    background:white;
+    padding: 10px;
+    margin-top: 8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:nowrap;
+}
+
+.often-buy-item{
+    width: 30%;
+    overflow:hidden;
+    height:1%;
+    position:relative;
+}
+.often-buy-item img{
+    width: 100%;
+    border-radius: 5px;
+}
+.often-buy-time {
+    background: rgba(33, 33, 33, 0.50);
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+
+/*订单列表*/
+.order-list {
+    margin-top: 8px;
+}
+
+    .order-list .order-item {
+        background: white;
+        margin-bottom: 10px;
+    }
+
+.order-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+    .order-item-top a {
+        display: flex;
+        align-items: center;
+        background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+        background-size: 12px;
+        padding-right: 20px;
+    }
+
+    .order-item-top img {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+
+.order-status-txt {
+    color: red;
+}
+/*商品列表*/
+.order-item-mid {
+    background: #FAFAFA;
+    padding: 0 10px;
+}
+
+.order-goods-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-bottom: 1px dashed #f4f4f4;
+}
+
+.goods-item-left {
+    padding-right: 10px;
+}
+
+    .goods-item-left img {
+        width: 55px;
+        height: 55px;
+        border-radius: 2px;
+    }
+
+.goods-item-mid {
+    width: 100%;
+    padding-right: 5px;
+}
+
+    .goods-item-mid span {
+        display: block;
+    }
+
+.goods-item-spec {
+    color: gray;
+    font-size: 10px;
+}
+
+.goods-item-right {
+    text-align: right;
+}
+
+.goods-item-ordernum {
+    color: gray;
+}
+
+.order-item-bottom {
+    text-align: right;
+    background: white;
+    padding: 8px 10px;
+    border-bottom: 1px solid #FAFAFA
+}
+
+    .order-item-bottom b {
+        color: #ff0000;
+    }
+
+.order-item-btn {
+    padding: 8px 10px;
+    background: white;
+    text-align: right;
+}
+
+    .order-item-btn input {
+        border: 1px solid #e0e0e0;
+        background: white;
+        border-radius: 30px;
+        padding: 4px 10px;
+        font-size: 10px;
+        margin-left: 5px;
+    }
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 48px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}
+
+
+/*列表 -- 秒杀，拼团 -- 徽章*/
+.order-item-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.badge-label {
+    background: #ff6a00;
+    color: white;
+    border-radius: 10px;
+    padding: 2px 5px;
+    margin-right: 10px;
+    display: block;
+    font-size: 10px;
+}

@@ -1,0 +1,64 @@
+﻿/*============商家充积分==============*/
+
+.main-msg {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 16px;
+    background: #f8f8f8;
+    margin-bottom: 10px;
+}
+
+    .main-msg b {
+        padding-right: 20px;
+    }
+
+    .main-msg button {
+        margin-right: 20px;
+    }
+
+/*充值表单*/
+.integral-recharge-form{
+    display:block;
+    clear:both;
+    padding: 10px;
+    padding-left:15px;
+}
+.integral-recharge-form span{
+    font-size:16px;
+}
+    .integral-recharge-form input{
+
+    }
+    .integral-recharge-form button {
+        font-size: 12px;
+        padding: 7px 20px;
+        margin-left: 20px;
+    }
+/*支付表单区域*/
+.pay-content{
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+}
+.pay-content img{
+    width: 205px;
+    height: 205px;
+}
+.wxpay-content img {
+    width: 230px;
+    height: 230px;
+}
+.pay-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pay-content div{
+    text-align:center;
+    padding: 20px 30px;
+}
+    .pay-content .pay-type-name {
+        font-size: 20px;
+        font-weight: bold;
+    }

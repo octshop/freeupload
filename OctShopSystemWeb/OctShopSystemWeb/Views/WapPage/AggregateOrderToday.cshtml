@@ -1,0 +1,99 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>收单提醒</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/WapPage/AggregateOrderToday.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-1.12.1.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/WapPage/AggregateOrderToday.js"></script>
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+
+        <!--提醒区-->
+        <div class="real-hint" id="RealNewOrderMsg" onclick="window.location.href='../WapPage/Index'">
+
+            <div class="real-hint-left">
+                <b id="OrderPrice">&#165; 0000.00</b>
+            </div>
+
+            <div class="real-hint-content-extra">
+
+                <div class="real-hint-mid">
+                    <div><img id="HeaderImg" src="../Assets/Imgs/Icon/user_default.png" /></div>
+                    <div class="user-msg">
+                        <div class="nick-name" id="UserNickBindMobile">匿名用户匿名用户匿名用户(13203156008)</div>
+                        <div id="PayWayName">支付成功(支付宝)</div>
+                        <div id="PayTime">2020-05-15 12:32:32</div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--分页区-->
+        <div class="mescroll" id="mescroll">
+
+            <!--订单列表-->
+            <ul class="order-list" id="PageContentList">
+                @*<li>
+                        <div class="order-user-header">
+                            <img src="../Assets/Imgs/header_1.jpg" />
+                        </div>
+                        <div class="order-user-msg">
+                            <div class="order-nick-name">
+                                昵称名称昵称名称昵称名称(13203156008)
+                            </div>
+                            <div class="order-pay-price">
+                                <b>&#165;123.23</b> - 支付宝 -  2020-05-15 12:32:00
+                            </div>
+                            <div class="order-pay-extra">
+                                订单ID：20060 ，状态：支付成功
+                            </div>
+                        </div>
+                    </li>*@
+
+
+            </ul>
+
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+</html>

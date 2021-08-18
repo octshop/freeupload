@@ -1,0 +1,174 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>抽奖参与信息</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/UserGoodsShopPage/LuckyDrawJoinMsg.js"></script>
+
+    <style type="text/css">
+        .table-content img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            margin: 5px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidLuckydrawID" value="@ViewBag.LuckydrawID" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=抽奖管理">抽奖管理</a></li>
+            <li class="am-active">抽奖参与信息</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 抽奖参与信息
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="window.location.href='../LuckyDrawPage/LuckyDrawMsgAdd'"><i class="am-icon-plus-circle"></i> 发布抽奖</button>-->
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="LuckydrawID_se" placeholder="抽奖ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ShopUserID_se" placeholder="商家UserID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="BuyerUserID_se" placeholder="买家UserID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css" style="width: 200px">
+                <input type="text" class="keyword-input am-form-field am-fl" id="UserNick_se" placeholder="买家昵称" style="width: 180px;" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css" style="width: 200px">
+                <input type="text" class="keyword-input am-form-field am-fl" id="LinkMobile_se" placeholder="联系手机号" style="width: 180px;" />
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" class="datetime-input am-form-field" placeholder="参与时间" data-am-datepicker="{theme: 'success',}" style="background:white;width:150px; cursor:pointer" readonly>
+                </div>
+            </div>
+
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="3%" height="22"><input type="checkbox" id="SelAllCb" name="SelAllCb" onchange="toggleSelAll()" /></td>
+                        <td width="10%">抽奖ID</td>
+                        <td width="12%">买家UserID</td>
+                        <td width="30%">买家昵称</td>
+                        <td width="15%">真实姓名</td>
+                        <td width="12%">联系手机号</td>
+                        <td width="18%">参与时间</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td><a href="../LuckyDrawPage/LuckyDrawMsgDetail?LID=5" target="_blank">234332</a></td>
+                        <td>
+                            <a href="../UserGoodsShopPage/UserAccountDetail?UID=20043" target="_blank">23432</a>
+                        </td>
+                        <td>
+                            <img src="../Assets/Imgs/header_1.jpg" />
+                            买家昵称
+                        </td>
+                        <td>
+                            小黄人
+                        </td>
+                        <td>13203156008</td>
+                        <td>2019-05-05 13:27:45 <font color="red">12</font></td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    @*<div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                            <button type="button" class="am-btn am-btn-default" onclick="delAllLuckyDrawJoinMsgArr()"><span class="am-icon-trash-o"></span> 批量删除</button>
+                        </div>*@
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>备注与说明</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

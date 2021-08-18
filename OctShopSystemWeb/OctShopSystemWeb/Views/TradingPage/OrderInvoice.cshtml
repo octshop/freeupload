@@ -1,0 +1,251 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+           <meta name="viewport" content="width=device-width initial-scale="1" />
+       viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+       原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>订单发票管理</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/TradingPage/OrderInvoice.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+
+    <script src="../Assets/Js/TradingPage/OrderInvoice.js"></script>
+
+</head>
+<body>
+
+
+    <!--========隐藏控件记录信息===========-->
+    <input type="hidden" id="hidOctWapWebAddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=发票管理">发票管理</a></li>
+            <li class="am-active">订单发票管理</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc" style="min-height: 600px;">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 订单发票管理
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="window.location.href='../TradingPage/VerifyCheckCodeOrderStatus'"><i class="am-icon-get-pocket"></i> 订单核销验证</button>-->
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="InvoiceID_se" placeholder="发票ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="OrderID_se" placeholder="订单ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="InvoiceType_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>发票类型(不限)</option>
+                    <option value="General">普通发票</option>
+                    <option value="AddValue">增值税专用发票</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="InvoiceTitle_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>发票抬头(不限)</option>
+                    <option value="Person">个人</option>
+                    <option value="Company">企业</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ReceiMobile_se" placeholder="收票人手机" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="CompanyName_se" placeholder="公司名称" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="IsInvoiced_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>状态(不限)</option>
+                    <option value="false">未开票</option>
+                    <option value="true">已开票</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" class="datetime-input am-form-field" style="background:white; width: 150px;" placeholder="写入时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="3%" height="22"><input type="checkbox" id="SelAllCb" name="SelAllCb" onchange="toggleSelAll()" /></td>
+                        <td width="8%">发票ID</td>
+                        <td width="10%">订单ID</td>
+                        <td width="9%">发票类型</td>
+                        <td width="8%">发票抬头</td>
+                        <td width="9%">发票内容</td>
+                        <td width="11%">收票人手机</td>
+                        <td width="16%">公司名称</td>
+                        <td width="7%">状态</td>
+                        <td width="9%">写入时间</td>
+                        <td width="10%">操作</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>2324</td>
+                        <td><a href="#" target="_blank">23432</a></td>
+                        <td>普通发票</td>
+                        <td>企业</td>
+                        <td>商品明细</td>
+                        <td>13203156008</td>
+                        <td>公司的名称</td>
+                        <td>已开票</td>
+                        <td>2019-05-05 13:27:45</td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round" style="margin-bottom:2px">详情</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round">已开票</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" onclick="makedOrderInvoiceArr('')">
+                            <span class="am-icon-pencil-square-o"></span>
+                            已开票
+                        </button>
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>备注与说明</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <!---------------订单发票详情窗口---------------->
+    <div class="order-invoice-win" id="OrderInVoiceWin" style="display:none;">
+        <div class="order-invoice-main">
+            <ul class="order-invoice-ul">
+                <li>
+                    <label class="am-form-label">发票ID:</label>
+                    <span id="InvoiceID"></span>
+                    <label class="am-form-label">订单ID:</label>
+                    <a id="OrderIDA" href="#" target="_blank">2342</a>
+                    <label class="am-form-label">是否开票:</label>
+                    <span id="IsInvoiced">false-未开票</span>
+                    <label class="am-form-label">发票抬头:</label>
+                    <span id="InvoiceTitle">Person-个人</span>
+                </li>
+                <li>
+                    <label class="am-form-label">发票类型:</label>
+                    <span id="InvoiceType">General-普通发票</span>
+                    <label class="am-form-label">发票内容:</label>
+                    <span id="InvoiceContent">GoodsDetail-商品明细</span>
+                </li>
+                <li>
+                    <label class="am-form-label">收票人手机:</label>
+                    <span id="ReceiMobile">13203156</span>
+                    <label class="am-form-label">收票人邮箱:</label>
+                    <span id="ReceiEmail">156265698855@qq.com</span>
+                </li>
+                <li>
+                    <label class="am-form-label">公司名称:</label>
+                    <span id="CompanyName">某某公司名称</span>
+                    <label class="am-form-label">企业税号:</label>
+                    <span id="TaxNumber">234-234dsdlk-234kdk23</span>
+                    <label class="am-form-label">公司电话:</label>
+                    <span id="CompanyTel">132035456458</span>
+                </li>
+                <li>
+                    <label class="am-form-label">公司注册地址:</label>
+                    <span id="CompanyRegAddr">湖南省长沙省长沙县开元西路234号</span>
+                </li>
+                <li>
+                    <label class="am-form-label">银行账号:</label>
+                    <span id="BankAcc">6228481100318653254</span>
+                    <label class="am-form-label">开户银行名称:</label>
+                    <span id="OpeningBank">工商银行长沙支行</span>
+                </li>
+                <li>
+                    <label class="am-form-label">银行行号:</label>
+                    <span id="BankCode">6228481100318653254</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

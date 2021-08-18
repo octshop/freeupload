@@ -1,0 +1,81 @@
+﻿/*==============结算资料==============*/
+.oct-content{
+    margin-top: 44px;
+}
+.settle-shop-ul {
+    background: white;
+    padding: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+.settle-shop-ul li{
+    padding-top: 12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+    .settle-shop-ul li span{
+        display:inline-block;
+        width: 130px;
+    }
+    .shop-status-span {
+        padding: 10px;
+        color: #ffffff;
+        background: #808080;
+        border-radius: 10px;
+        display:block;
+        width:100%;
+    }
+    .shop-status-span b{
+        font-size:14px;
+        padding-bottom: 5px;
+    }
+    .shop-status-span label {
+        font-size: 12px;
+        font-weight: normal;
+    }
+
+
+
+.settle-shop-ul li.title-li {
+    border-bottom: 1px dashed #c2c2c2;
+    padding-bottom: 10px;
+    padding-top:20px;
+}
+.txt-css{
+    width: 100%;
+}
+.company-addr-li{
+    padding:5px 0px;
+}
+.region-txt{
+    padding:4px 5px;
+    font-size:12px;
+    border-radius:5px;
+    width: 90px;
+    margin-right:2px;
+}
+.upload-shop-li{
+    padding: 20px 0;
+    margin-top: 10px;
+    padding-right:10px;
+}
+.am-form-group{
+    margin-bottom: -8px;
+}
+.img-pre-li img{
+    width: 100%;
+    border-radius:5px;
+    border: 2px solid #d7d7d7;
+    padding:1px;
+}
+/*按钮区*/
+.settle-shop-ul li.btn-list {
+    padding: 60px 10px;
+    padding-top: 40px;
+}
+.btn-list input{
+    width: 50%;
+    border-radius:20px;
+}

@@ -1,0 +1,155 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>提现详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Vip/WithdrawDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Js/Vip/WithdrawDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidWithDrawID" value="@ViewBag.WDID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>提现详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" style="width: 25px; height: 25px;" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+
+        <!--步骤-->
+        <div class="complain-step">
+
+            <!--步骤条-->
+            <div class="complain-step-bg">
+                <div class="complain-step-current">
+                </div>
+            </div>
+            <!--步骤说明-->
+            <div class="compplain-step-desc">
+
+                <div class="step-desc-item">
+                    <div id="StepDescNum1" class="step-desc-num step-desc-num-current">1</div>
+                    <div class="step-desc-txt step-desc-txt-current">提现请求</div>
+                    <div id="StepTime1" class="step-time">
+                        2018-05-15
+                    </div>
+                </div>
+                <div class="step-desc-item">
+                    <div id="StepDescNum2" class="step-desc-num step-desc-num-current">2</div>
+                    <div class="step-desc-txt step-desc-txt-current">平台处理中</div>
+                    <div id="StepTime2" class="step-time">
+                        2018-05-15
+                    </div>
+                </div>
+                <div class="step-desc-item">
+                    <div id="StepDescNum3" class="step-desc-num">3</div>
+                    <div class="step-desc-txt">到账完成</div>
+                    <div id="StepTime3" class="step-time">
+                        @*2018-05-15*@
+                    </div>
+                </div>
+
+            </div>
+            <div class="hint-step-desc">
+                你的提现请求平台处理中，请保持联系方式畅通，有疑问请联系官方客服！
+            </div>
+
+        </div>
+
+        <!--提现金额-->
+        <div class="topup-sum">
+            <div class="topup-sum-top">
+                提现金额<span>( 余额：<b id="CurrentBalanceBuyer">2563.65</b> )</span>
+            </div>
+            <div class="topup-sum-bottom">
+                <div class="withdraw-price" id="WithDrawAmt">256.32</div>
+            </div>
+        </div>
+
+        <!--提现信息-->
+        <div class="withdraw-msg">
+            <ul class="withdraw-ul" id="WeChatAlipayUl">
+                <li class="withdraw-title">
+                    <span>提现到：</span>
+                    <span class="withdraw-val" id="ToTypeName"> (  )</span>
+                </li>
+                <li id="WeChatAccountLi">
+                    <span class="withdraw-span">微信号：</span>
+                    <span id="WeChatAccount"></span>
+                </li>
+                <li id="AlipayAccountLi">
+                    <span class="withdraw-span">支付宝：</span>
+                    <span id="AlipayAccount"></span>
+                </li>
+
+                <li>
+                    <span class="withdraw-span">真实姓名：</span>
+                    <span id="TrueName"></span>
+                </li>
+                <li>
+                    <span class="withdraw-span">联系电话：</span>
+                    <span id="LinkMobile"></span>
+                </li>
+            </ul>
+
+
+            <ul class="withdraw-ul" id="BankUl">
+                <li class="withdraw-title">
+                    <span>提现到：</span>
+                    <span class="withdraw-val"> ( 银行卡 )</span>
+                </li>
+                <li>
+                    <span class="withdraw-span">卡号：</span>
+                    <span id="BankCardNumber"></span>
+                </li>
+                <li>
+                    <span class="withdraw-span">户名：</span>
+                    <span id="BankAccName"></span>
+                </li>
+                <li>
+                    <span class="withdraw-span">开户行：</span>
+                    <span id="OpeningBank"></span>
+                </li>
+                <li>
+                    <span class="withdraw-span">联系电话：</span>
+                    <span id="LinkMobileBank"></span>
+                </li>
+            </ul>
+
+
+        </div>
+
+
+
+    </div>
+
+</body>
+</html>

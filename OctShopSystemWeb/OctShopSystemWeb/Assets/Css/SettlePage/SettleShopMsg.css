@@ -1,0 +1,126 @@
+﻿/*===============商家结算资料===================*/
+
+/*----状态显示-------*/
+.shop-form-ul li span {
+    font-weight: bold;
+}
+
+.shop-status-li {
+    border-bottom: 1px dashed #e1e1e1;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.shop-form-ul li .shop-status-span {
+    display: inline-block;
+    background: #ff6a00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: normal;
+    font-size: 14px;
+
+}
+
+.shop-status-span b {
+    font-size: 18px;
+}
+
+.shop-status-edit {
+    padding-left: 30px;
+}
+/*公司信息*/
+.company-msg {
+    padding:0;
+    margin:0;
+}
+
+    .company-msg li {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        width: 100%;
+        overflow:hidden;
+    }
+
+.input-title-span{
+    display:inline-block;
+    width: 100px;
+}
+
+.company-msg-title {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e1e1e1;
+    margin-bottom: 10px;
+}
+
+.company-msg li input {
+    margin-right: 20px;
+}
+
+.company-name-txt {
+    width: 250px;
+}
+.certificate-id-txt{
+    width: 250px;
+}
+.company-addr-div select{
+    padding: 5px;
+}
+.company-addr-txt{
+    width: 240px;
+}
+
+/*上传文件*/
+.upload-shop-li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.am-form-file {
+    margin-bottom: 0px;
+    margin-right: 20px;
+}
+
+.upload-shop-li .am-icon-cloud-upload {
+    font-size: 12px;
+}
+
+.hint-span {
+    color: gray;
+}
+
+.img-pre-li {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+        .img-pre-li img {
+            width: 400px;
+            margin: 5px;
+            padding:4px;
+            border: 1px solid #e1e1e1;
+        }
+
+/*联系人信息*/
+.link-man-li input{
+    width: 230px;
+}
+
+
+
+/*按钮列表*/
+.btn-list {
+    padding: 20px;
+    padding-top: 40px;
+    padding-left: 50px;
+}
+
+    .btn-list input {
+        width: 300px;
+        border-radius: 10px;
+    }
+

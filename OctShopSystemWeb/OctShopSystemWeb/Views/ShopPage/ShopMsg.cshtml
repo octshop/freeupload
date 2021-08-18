@@ -1,0 +1,248 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>店铺信息</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/ShopPage/ShopMsg.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/RegionCodeName.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+
+    <script src="../Assets/Lib/RegionCodeName.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/ShopPage/ShopMsg.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input id="hidShopID" type="hidden" value="@ViewBag.ShopID" />
+    <input id="hidUserID" type="hidden" value="@ViewBag.UserID" />
+    <input id="hidIsEntity" type="hidden" value="@ViewBag.IsEntity" />
+    <input id="hidShopHeaderImg" type="hidden" value="@ViewBag.ShopHeaderImg" />
+    <input id="hidShopTypeIDArr" type="hidden" value="@ViewBag.ShopTypeIDArr" />
+    <input id="hidRegionCodeArr" type="hidden" value="@ViewBag.RegionCodeArr" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=店铺管理">店铺管理</a></li>
+            <li class="am-active">编辑店铺</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 店铺信息
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding" id="ShopBaseMsgDiv">
+            <form>
+                <ul class="shop-form-ul">
+                    <li class="shop-status-li">
+                        <span class="shop-status-span" style="background:@ViewBag.ShopStatusBg"><b class="am-icon-bell">&nbsp;@ViewBag.ShopStatusTxt</b><br />@ViewBag.ShopStatusDesc</span>
+                    </li>
+                    <li class="shop-acc-li">
+                        <div class="shop-user-account">
+                            <span class="input-title-span">店铺账号：</span>
+                            @ViewBag.UserAccount
+                        </div>
+                        <div class="shop-acc-hint" id="ShopAccHintDiv">
+                            <img src="@ViewBag.HeaderImg" /> @ViewBag.UserNick，UserID：@ViewBag.UserID
+                        </div>
+                        <div class="shop-user-account">
+                            <span class="input-title-span" style="width:100px; text-align:right">自营店铺：</span>
+                            @ViewBag.IsSelfShop
+                        </div>
+                    </li>
+                    <li>
+                        <span class="input-title-span">公司名称：</span>
+                        <span class="company-shop-span" id="CompanyShopSpan">@ViewBag.CompanyName，@ViewBag.RegAddress</span>
+                        <a href="../ShopPage/CompanyMsg" class="am-btn am-btn-success am-btn-xs am-round btn-add-company">公司信息</a>
+                    </li>
+                </ul>
+
+                <ul class="shop-form-ul">
+                    <li class="shop-type-li">
+                        <span class="input-title-span">店铺类别：</span>
+                        <select id="ShopTypeIDFather" onchange="chgLoadSubShopType()"></select>
+                        <select id="ShopTypeIDSub"></select>
+
+
+                    </li>
+                    <li>
+                        <span class="input-title-span">店铺名称：</span>
+                        <input type="text" id="ShopName" class="txt-css txt-shop-name" value="@ViewBag.ShopName" placeholder="控制在15个字符之内" />
+                    </li>
+
+                </ul>
+
+                <!--店铺地址与坐标信息-->
+                <ul class="shop-form-ul shop-addr-gps">
+                    <li style="display:flex; height:30px; padding-top: 30px; align-items:center">
+                        <span class="input-title-span">有实体店：</span>
+                        <input type="checkbox" id="IsEntityCb" @ViewBag.IsEntity class="cb-shop-entity" disabled="disabled" />
+                        <span class="input-title-span addr-gps-span">店铺坐标位置：</span>
+                        <input type="text" id="LatitudeTxt" class="txt-css txt-css-location" placeholder="纬度(latitude)" value="@ViewBag.Latitude" />
+                        <input type="text" id="LongitudeTxt" class="txt-css txt-css-location" placeholder="经度(longitude)" value="@ViewBag.Longitude" />
+                        <a href="javascript:void(0)" onclick="openSelLocationWin()" class="am-btn am-btn-success am-btn-xs am-round btn-add-company">地图上选择</a>
+                    </li>
+                    <li class="shop-addr-li">
+                        <span class="input-title-shop">店铺地址：</span>
+                        <select id="region_province" class="region-txt" style="margin-left: -13px;"></select>
+                        <select id="region_city" class="region-txt"></select>
+                        <select id="region_county" class="region-txt"></select>
+                        <div class="addr-detail-div">
+                            <input type="text" id="DetailAddr" class="txt-css" value="@ViewBag.DetailAddr" placeholder="详细地址:(街道,小区,乡镇,村等)" />
+                        </div>
+                    </li>
+                </ul>
+
+                <!--上传店铺头像和店铺门头照-->
+                <div class="form-main am-nbfc" style="display:normal;" id="ShopImgMsgDiv">
+                    <ul class="shop-form-ul">
+
+                        <li class="upload-header-li">
+                            <span class="input-title-span">店铺头像：</span>
+                            <div class="upload-img-file">
+                                <img src="@ViewBag.ShopHeaderImg" id="ShopHeaderImg" class="shop-header-img" />
+                                <input id="fileupload_0" type="file" name="files[]" multiple="multiple" style="-moz-opacity:0;filter:alpha(opacity=0);opacity:0; width: 120px; height:110px; background:gray; overflow:hidden; position:absolute; left:80px; top:0" />
+                            </div>
+
+                            <div>
+                                请上传店铺相关标志或形象图片<br />
+                                尺寸：600 * 600 像素
+                                <div class="btn-crop-div">
+                                    <a href="#" target="_blank" id="CropHeaderImgA" class="crop-header-img am-btn am-btn-success am-btn-xs am-round" style="display:block; width: 100px;">裁剪头像</a>
+                                    <span onclick="refreshImgSrcRnd('ShopHeaderImg')" class="crop-header-img am-btn am-btn-default am-btn-xs am-round" style="display:block; width: 100px;">刷新头像</span>
+                                </div>
+
+                            </div>
+
+                        </li>
+                        <li class="upload-shop-li">
+                            <span class="input-title-span" style="width: 100px;">店铺门头照：</span>
+                            <div class="am-form-group am-form-file">
+                                <button type="button" class="am-btn am-btn-danger am-btn-xs am-round">
+                                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件
+                                </button>
+                                <input id="fileupload_1" type="file" multiple>
+                            </div>
+                            <span class="hint-span">可上传 5 张照片</span>
+                        </li>
+                        <li class="img-pre-li" id="ImgPreLi">
+                            @Html.Raw(ViewBag.Xhtml)
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="shop-form-ul">
+                    <li class="shop-tel-li">
+                        <div>
+                            <span class="input-title-shop">固定电话:</span>
+                            <input type="text" id="ShopFixTel" class="txt-css" value="@ViewBag.ShopFixTel" placeholder="店铺固定电话(客服)" />
+                        </div>
+                        <div>
+                            <span class="input-title-shop">店铺手机号:</span>
+                            <input type="text" id="ShopMobile" class="txt-css" value="@ViewBag.ShopMobile" placeholder="店铺手机号(客服)" />
+                        </div>
+                        <div>
+                            <span class="input-title-shop">发货电话:</span>
+                            <input type="text" id="SendMobile" class="txt-css" value="@ViewBag.SendMobile" placeholder="发货联系电话(客服)" />
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="shop-form-ul">
+                    <li class="shop-tel-li shop-link-li">
+                        <div>
+                            <span class="input-title-shop">联系人:</span>
+                            <input type="text" id="LinkMan" class="txt-css" value="@ViewBag.LinkMan" placeholder="联系人姓名" />
+                        </div>
+                        <div>
+                            <span class="input-title-shop">联系人手机:</span>
+                            <input type="text" id="LinkManMobile" class="txt-css" value="@ViewBag.LinkManMobile" placeholder="联系人手机号" />
+                        </div>
+                        <div>
+                            <span class="input-title-shop">联系人邮箱:</span>
+                            <input type="text" id="LinkEmail" class="txt-css" value="@ViewBag.LinkEmail" placeholder="联系人邮箱" />
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="shop-form-ul shop-txtare-ul">
+                    <li>
+                        <div>
+                            搜索关键字：
+                        </div>
+                        <textarea class="txtarea-key-word" id="SearchKey" placeholder="控制在80个字符之内">@ViewBag.SearchKey</textarea>
+                    </li>
+                    <li>
+                        <div>
+                            主营商品：
+                        </div>
+                        <textarea class="txtarea-major-goods" id="MajorGoods" placeholder="控制在100个字符之内">@ViewBag.MajorGoods</textarea>
+                    </li>
+                    <li>
+                        <div>
+                            店铺描述：
+                        </div>
+                        <textarea class="txtarea-shop-desc" id="ShopDesc">@ViewBag.ShopDesc</textarea>
+                    </li>
+                </ul>
+
+
+
+                <div class="btn-list">
+                    <input type="button" value="保存信息" onclick="saveShopMsg()" class="am-btn am-btn-success am-btn-sm am-margin-right-lg" />
+                    <input type="reset" value="重置表单" class="am-btn am-btn-default am-btn-sm" />
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+
+    <!--================选择地图位置窗口=================-->
+    <div class="win-form-content" style="display:none;">
+        <div class="win-form-main" style="width:100%; height: 800px; padding: 0; margin: 0;">
+            <iframe id="mapPage" width="100%" height="800" frameborder=0
+                    src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=6C7BZ-3ZPLF-KB5JJ-NM2X4-JZU2S-FTBAN&referer=myapp">
+            </iframe>
+        </div>
+    </div>
+
+
+</body>
+</html>

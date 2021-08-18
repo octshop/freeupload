@@ -1,0 +1,121 @@
+<!--pages/buyer/myorder/myorder.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="我的订单" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_search.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 内容导航子菜单 -->
+<view class="oct-header-bottom-nav" style="top:{{navbarHeight}}px">
+	<view bindtap="chgTab" data-order-status-="" class="{{currentTabNum=='0' ? 'nav-item-current' : ''}}"
+		data-tab-num="0">
+		全部
+	</view>
+	<view bindtap="chgTab" data-order-status="待付款" data-tab-num="1"
+		class="{{currentTabNum=='1' ? 'nav-item-current' : ''}}">
+		待付款
+	</view>
+	<view bindtap="chgTab" data-order-status="待发货" data-tab-num="2"
+		class="{{currentTabNum=='2' ? 'nav-item-current' : ''}}">
+		待发货
+	</view>
+	<view bindtap="chgTab" data-order-status="待收货" data-tab-num="3"
+		class="{{currentTabNum=='3' ? 'nav-item-current' : ''}}">
+		待收货
+	</view>
+	<view bindtap="chgTab" data-order-status="待评价" data-tab-num="4"
+		class="{{currentTabNum=='4' ? 'nav-item-current' : ''}}">
+		待评价
+	</view>
+</view>
+
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--订单列表-->
+	<view class="order-list" id="PageContentList">
+
+		<view class="order-item" wx:for="{{numberPage_Page.DataPage}}">
+			<view class="order-item-top">
+				<navigator url="../../shop/index/index?SID={{numberPage_Page.DataPageExtra[index].ShopID}}">
+					<image src="//{{numberPage_Page.DataPageExtra[index].ShopHeaderImg}}" />
+					{{numberPage_Page.DataPageExtra[index].ShopName}}
+					<image class="arrows-right" src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" />
+				</navigator>
+				<view class="order-status-txt">
+					{{item.OrderStatus}}
+				</view>
+			</view>
+			<view class="order-item-mid">
+
+				<navigator url="../../../pages/buyer/orderdetail/orderdetail?OID={{item.OrderID}}" class="order-goods-item"
+					wx:for="{{orderGoodsList.OrderGoodsList[index].GoodsMsgArr}}" wx:for-item="itm" wx:for-index="idx">
+					<view class="goods-item-left">
+						<image src="//{{itm.GoodsCoverImgPath}}" />
+					</view>
+					<view class="goods-item-mid">
+						<view class="goods-item-title">{{itm.GoodsTitle}}</view>
+						<view class="goods-item-spec">{{itm.SpecPropName}}</view>
+					</view>
+					<view class="goods-item-right">
+						<view class="goods-item-price">￥{{itm.GoodsUnitPrice}}</view>
+						<view class="goods-item-ordernum">x {{itm.OrderNum}}</view>
+					</view>
+				</navigator>
+
+			</view>
+			<view class="order-item-bottom">
+				<text class="badge-label" wx:if="{{item.ExpressType =='shop'}}">到店</text> <text class="badge-label"
+					wx:if="{{item.GroupID > 0}}">拼团</text> <text class="badge-label" wx:if="{{item.SkGoodsID > 0}}">秒杀</text>
+				共<span> {{orderGoodsList.OrderGoodsList[index].GoodsCount}}
+				</span>件商品,实付款：<b>￥ {{item.OrderPrice}}</b>
+			</view>
+			<view class="order-item-btn">
+
+				<view data-gourl="../../buyer/complain/complainsubmit/complainsubmit?OID={{item.OrderID}}"
+					bindtap="navigateURLLabel">投诉</view>
+				<view
+					wx:if="{{item.OrderStatus=='待付款' || item.OrderStatus=='待确认' || item.OrderStatus=='到店付' || item.OrderStatus=='转账'}}"
+					bindtap="cancelOrder" data-order-id="{{item.OrderID}}">
+					取消</view>
+
+
+				<view wx:if="{{item.OrderStatus=='待付款'}}" bindtap="navigateToURL"
+					data-navigate-url="../../../pages/buyer/orderpay/orderpay?OID={{item.OrderID}}">
+					立即付款</view>
+				<view wx:if="{{item.OrderStatus=='待确认' || item.OrderStatus=='到店付' || item.OrderStatus=='转账'}}"
+					bindtap="navigateToURL" data-navigate-url="../../../pages/buyer/orderpay/orderpay?OID={{item.OrderID}}">
+					其他支付</view>
+				<view wx:if="{{item.OrderStatus=='转账'}}" bindtap="navigateToURL"
+					data-navigate-url="../../../pages/buyer/banktransfer/banktransfer?BN={{item.BillNumber}}">
+					转账汇款</view>
+
+				<view
+					wx:if="{{(item.OrderStatus=='待发货' || item.OrderStatus=='待消费/自取') && item.PayWay !='PayDelivery' && item.PayWay !='Integral'}}"
+					bindtap="applyRefund" data-order-id="{{item.OrderID}}">申请退款</view>
+				<view wx:if="{{item.OrderStatus=='退款中'}}" bindtap="remindRefund" data-order-id="{{item.OrderID}}"
+					data-pay-way-name="{{item.payWayName}}" data-shop-user-id="{{item.ShopUserID}}">提醒发货</view>
+
+				<view wx:if="{{item.OrderStatus=='待收货'}}" bindtap="navigateToURL"
+					data-navigate-url="../../buyer/expressdetail/expressdetail?OID={{item.OrderID}}">查看物流</view>
+				<view wx:if="{{item.OrderStatus=='待收货' && item.IsDelayFinishTime != 'true'}}" bindtap="delayReceiOrder"
+					data-order-id="{{item.OrderID}}">延长收货</view>
+				<view wx:if="{{item.OrderStatus=='待收货'}}" bindtap="confirmReceiOrder" data-order-id="{{item.OrderID}}">确认收货
+				</view>
+
+				<view wx:if="{{item.OrderStatus=='待评价' || item.OrderStatus=='完成'}}" bindtap="navigateToURL"
+					data-navigate-url="../../../pages/buyer/aftersale/asmulsel/asmulsel?OID={{item.OrderID}}">申请售后</view>
+				<view wx:if="{{item.OrderStatus=='待评价'}}" bindtap="navigateToURL"
+					data-navigate-url="../../../pages/buyer/appraiseform/appraiseform?OID={{item.OrderID}}">立即评价+积分</view>
+
+				<view wx:if="{{item.OrderStatus=='完成'}}" bindtap="navigateToURL"
+					data-navigate-url="../../../pages/buyer/appraisedetail/appraisedetail?OID={{item.OrderID}}">查看评价</view>
+
+			</view>
+		</view>
+
+
+
+	</view>
+
+</view>

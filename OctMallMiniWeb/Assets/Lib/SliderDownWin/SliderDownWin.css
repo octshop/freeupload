@@ -1,0 +1,23 @@
+﻿/*---------------------从底部滑出的窗口--------------------------*/
+
+.slider-down-win {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    height: 1%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    clear: both;
+    box-shadow: 1px 10px 50px #888888;
+    display: none;
+
+}
+
+.slider-down-win-main {
+    padding: 0px;
+    overflow: hidden;
+    padding-bottom: 0;
+    background: white;
+}

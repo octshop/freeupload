@@ -1,0 +1,89 @@
+<!--pages/buyer/vip/index.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="余额/积分" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!-- Logo区域 -->
+	<view class="oct-logo">
+		<navigator url="../../buyer/vip/balanceintegral/balanceintegral" class="oct-logo-left">
+			账户余额(元)
+			<view style="padding: 6px 0">
+				{{loadBuyerAllCurBalanceIntegral_Data.CurBalance}}
+			</view>
+			<view class="fr-balance">
+				分润余额：<text>{{loadBuyerAllCurBalanceIntegral_Data.CurBalanceDividend}}</text>
+			</view>
+		</navigator>
+		<navigator url="../../buyer/vip/balanceintegral/balanceintegral" class="oct-logo-right">
+			账户积分
+			<view style="padding: 6px 0">
+				{{loadBuyerAllCurBalanceIntegral_Data.CurIntegral}}
+			</view>
+			<view class="fr-Integral">
+				分润积分：<text>{{loadBuyerAllCurBalanceIntegral_Data.CurIntegralDividend}}</text>
+			</view>
+		</navigator>
+	</view>
+
+	<view class="oct-balance-list">
+		<navigator url="../../buyer/vip/viplevel/viplevel" class="oct-balance-item oct-balance-item-1">
+			<view class="balance-item-left">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/balance_vip.png"></image>
+				会员等级
+			</view>
+			<view class="balance-item-right">
+				( {{loadUserVipLevelMsg_Data.VipLevelName}}，信用分：{{loadUserVipLevelMsg_Data.CreditScore}} )
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+			</view>
+		</navigator>
+		<navigator url="../../buyer/vip/withdrawtype/withdrawtype" class="oct-balance-item oct-balance-item-2">
+			<view class="balance-item-left">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/balance_withdraw.png"></image>
+				余额提现
+			</view>
+			<view class="balance-item-right">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+			</view>
+		</navigator>
+		<navigator url="../vip/onlinetopup/onlinetopup" class="oct-balance-item oct-balance-item-3">
+			<view class="balance-item-left">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/balance_recharge.png"></image>
+				在线充值
+			</view>
+			<view class="balance-item-right">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+			</view>
+		</navigator>
+	</view>
+
+
+	<view class="oct-balance-list oct-balance-list-2">
+		<navigator class="oct-balance-item oct-balance-item-4" url="../../buyer/setting/commonquestion/commonquestion">
+			<view class="balance-item-left">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/balance_notice.png"></image>
+				说明事项
+			</view>
+			<view class="balance-item-right">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+			</view>
+		</navigator>
+		<navigator class="oct-balance-item oct-balance-item-5" url="../../buyer/officialservice/officialservice">
+			<view class="balance-item-left">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/balance_customer.png"></image>
+				联系客服
+			</view>
+			<view class="balance-item-right">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png"></image>
+			</view>
+		</navigator>
+	</view>
+
+
+
+
+
+</view>

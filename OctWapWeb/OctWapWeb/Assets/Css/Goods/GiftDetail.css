@@ -1,0 +1,22 @@
+﻿/*================赠品详情==================*/
+
+.price-top-left {
+    font-size: 18px;
+}
+
+.surplus-txt {
+    font-size: 14px;
+    font-weight: normal;
+    color: black;
+}
+
+.price-top-left .integral-no-enough {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.oct-footer {
+    padding-left: 20px;
+}
+
+

@@ -1,0 +1,112 @@
+﻿/*================结算商城订单列表=========================*/
+
+/*========数据分页===========*/
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 55px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 0px;
+    padding-top: 0;
+    margin: 0;
+}
+
+
+/*头部*/
+.oct-header {
+    padding-bottom: 10px;
+    height: 50px;
+    align-items: center;
+}
+
+    .oct-header .oct-header-mid {
+        background: #ECECEC 10px center no-repeat;
+        background-size: 15px;
+        padding: 5px 10px;
+        width: 80%;
+        border-radius: 10px;
+        margin-left: -8px
+    }
+
+.oct-header-right {
+    padding-top: 3px;
+}
+
+.txt-query {
+    border: none;
+    font-size: 14px;
+    background: #ECECEC;
+    width: 100%;
+    height: 23px;
+    text-align: center;
+}
+
+#SearchKeyDateTxt {
+    border-right: 1px dashed #bebebe;
+}
+
+
+/*日期选择器的宽度 android-ics light dw-modal */
+body .dw {
+    width: 90%;
+}
+
+
+
+/*===========列表内容===========*/
+.page-content-list li {
+    background: white;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+/*已申请信息列表*/
+.settle-msg-li b {
+    color: #ff6a00;
+}
+
+.settle-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ededed;
+    font-weight: bold;
+}
+
+    .settle-top b {
+        padding-right: 10px;
+    }
+
+.settle-content {
+    color: gray;
+    border-bottom: 1px dashed #ededed;
+    padding-bottom: 8px;
+    background: #fbfbfb;
+    padding: 5px;
+}
+
+    .settle-content div {
+        padding-bottom: 5px;
+    }
+
+    .settle-content .right-span {
+        padding-left: 10px;
+    }
+
+    .settle-content b {
+        font-weight: normal;
+        color: #000000;
+    }
+
+.settle-date {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+    .settle-date b {
+        font-weight: normal;
+    }

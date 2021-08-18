@@ -1,0 +1,436 @@
+﻿/*=============售后详情================================*/
+
+/*主体内容*/
+.oct-content {
+    margin-top: 40px;
+}
+
+/*Logo内容*/
+.logo-content {
+    background: -webkit-linear-gradient(left, #46E2DA, #03B5B3); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #46E2DA, #03B5B3); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #46E2DA, #03B5B3); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #46E2DA, #03B5B3); /* 标准的语法 */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: #ffffff;
+    align-items: center;
+}
+
+.logo-left div {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.logo-right {
+    width: 60px;
+    height: 40px;
+    background: url(../../Imgs/Icon/as_logo_1.png) right center no-repeat;
+    background-size: 40px;
+}
+.auto-finish-datetime{
+    background:white;
+    padding: 10px;
+    padding-bottom:0;
+    text-align:center;
+    font-size: 12px;
+    color: #FF5100;
+}
+/*步骤*/
+.complain-step {
+    padding: 10px;
+    background: white;
+}
+
+.complain-step-bg {
+    background: #F2F2F2;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.complain-step-current {
+    width: 25%;
+    height: 5px;
+    border-radius: 5px;
+    background: #03B5B3;
+}
+
+.compplain-step-desc {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.step-desc-item {
+    margin-top: -13px;
+}
+
+.step-desc-num {
+    width: 20px;
+    height: 20px;
+    background:#c4c4c4;
+    border-radius: 50%;
+    color: white;
+    margin: 0 auto;
+}
+
+.step-desc-txt {
+    margin-top: 5px;
+}
+
+.step-desc-num-current {
+    background: #03B5B3;
+}
+
+.step-desc-txt-current {
+    color: #03B5B3;
+}
+
+/*快递信息*/
+.express-msg {
+    padding: 10px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.express-msg-mid {
+    overflow: hidden;
+    width: 100%;
+    line-height: 120%;
+}
+
+.express-msg-left {
+    width: 40px;
+    background: url(../../Imgs/Icon/order_greentrucks.png) left center no-repeat;
+    background-size: 25px;
+    height: 25px;
+}
+
+.express-mid-content {
+    color: #339629;
+}
+
+.express-mid-date {
+    color: #c4c4c4;
+    padding-top: 5px;
+}
+
+.express-msg-right {
+    width: 35px;
+    background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+    background-size: 15px;
+}
+
+.express-msg {
+    border-bottom: 1px dashed #f2f2f2;
+    padding-bottom: 5px;
+}
+
+/*商品信息*/
+.as-goods {
+    padding: 10px;
+    background: #ffffff;
+    margin-top: 8px;
+}
+
+.as-goods-company {
+    background: #F7F7F7;
+    padding: 3px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+    .as-goods-company a {
+        color: red;
+    }
+
+.as-goods-list {
+    display: flex;
+    justify-content: space-between;
+    background: #FBFBFB;
+    padding: 5px;
+}
+
+.as-goods-left img {
+    width: 80px;
+    height: 75px;
+    margin-right: 8px;
+}
+
+.as-goods-right {
+    width: 100%;
+}
+
+.goods-spec {
+    color: #a4a4a4;
+}
+
+.goods-price b {
+    padding-right: 5px;
+    padding-left: 2px;
+}
+
+.goods-title {
+    height: 40px;
+    overflow: hidden;
+}
+
+
+/*商家售后地址*/
+.as-shop {
+    padding: 0 10px;
+    background: #ffffff;
+    margin-top: 8px;
+}
+
+.as-shop-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    align-items: center;
+    border-bottom: 1px solid #F2F2F2;
+}
+
+.as-shop-left {
+    width: 150px;
+}
+
+.as-shop-right {
+    width: 100%;
+    text-align: right;
+    color: gray;
+}
+
+
+/*售后信息*/
+.as-msg {
+    padding: 0px 10px;
+    background: #ffffff;
+    margin-top: 8px;
+}
+
+.as-msg-item {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #F2F2F2;
+}
+
+.as-item-right {
+    color: gray;
+}
+
+.as-msg-content .as-msg-title {
+    padding-bottom: 0;
+    padding-top: 8px;
+}
+
+.as-msg-content div {
+    padding: 5px 0;
+}
+
+.as-content-txtarea {
+    border: none;
+    background: #F9F9F9;
+    font-size: 12px;
+    padding: 5px;
+    width: 100%;
+    height: 80px;
+    color: gray;
+}
+
+.as-img-item {
+    display: flex;
+    justify-content: flex-start;
+}
+
+    .as-img-item img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+        margin-right: 15px;
+    }
+
+
+
+/*客服与投诉*/
+.customer-complain {
+    padding: 10px;
+    background: white;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .customer-complain div {
+        color: gray;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+    }
+
+        .customer-complain div img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+/*买家收货地址*/
+.as-hint {
+    padding: 10px;
+    padding-top: 20px;
+    text-align: center;
+    margin-bottom: 80px;
+    font-size: 10px;
+    color: #C9C9C9;
+}
+
+
+/*页脚*/
+.oct-footer {
+    padding: 10px;
+    justify-content: flex-end;
+    border-top: 1px solid #f6f6f6;
+    align-items: center;
+}
+
+    .oct-footer div {
+        border: 1px solid #e0e0e0;
+        color: gray;
+        border-radius: 20px;
+        padding: 3px 10px;
+        margin-left: 10px;
+        cursor: pointer;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+    }
+
+        .oct-footer div.footer-btn-current {
+            border: 1px solid #FF5100;
+            color: #FF5100;
+        }
+
+
+/*买家填写快递信息*/
+.buyer-express-msg {
+    padding: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    background:#ffffff;
+    margin-top: 6px;
+}
+
+    .buyer-express-msg div {
+        padding: 8px 0;
+        width: 320px;
+        text-align: left;
+        margin: 0 auto;
+        font-size: 12px;
+    }
+
+        .buyer-express-msg div span {
+            display: inline-block;
+            width: 65px;
+        }
+
+.txt-css {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 5px;
+    width: 180px;
+    color: #eb5700;
+}
+
+.btn-sel-express {
+    background: white;
+    color: #080808;
+    font-size: 12px;
+    border: 1px solid #c4c4c4;
+    padding: 3px 15px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.btn-submit-express {
+    border: none;
+    background: #009595;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 20px;
+    width: 310px;
+    font-size: 12px;
+}
+
+
+/*-------选择快递窗口-------*/
+.win-express-title {
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+
+    .win-express-title .am-close {
+        position: absolute;
+        top: 6px;
+        right: 4px;
+        font-size: 25px;
+        font-weight: normal;
+    }
+
+.win-sel-express-content {
+    padding: 10px;
+    padding-top: 0;
+    clear: both;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+    .win-sel-express-content div {
+        border: 1px solid #c4c4c4;
+        font-size: 12px;
+        padding: 8px 20px;
+        cursor: pointer;
+        margin: 5px;
+        border-radius: 5px;
+        text-align: center;
+    }
+/*拒绝售后理由*/
+.refuse-explain {
+    background: white;
+    margin-top: 6px;
+    padding: 10px;
+    line-height: 180%;
+    color: #c10000;
+}
+.refuse-explain b{
+   padding-right: 10px;
+   color:#000000;
+}
+/*上门服务信息*/
+.visiting-msg-show{
+    background:white;
+    padding:10px;
+    margin-top: 8px;
+    text-align:center;
+    font-size: 13px;
+    font-weight:bold;
+}
+    .visiting-msg-show span {
+        font-weight: normal;
+    }
+.visiting-msg-show a{
+    color: #005ec4;
+}

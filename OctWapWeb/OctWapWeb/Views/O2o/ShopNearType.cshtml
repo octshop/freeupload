@@ -1,0 +1,134 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>附近商家分类</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/O2o/ShopNearType.css?v=2" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/O2o/ShopNearType.js?v=2"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidFatherTypeID" value="@ViewBag.FatherTypeID" />
+    <input type="hidden" id="hidShopTypeName" value="@ViewBag.ShopTypeName" />
+
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b id="ShopTypeNameB">商家分类</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../O2o/ShopNear"><img class="header-icon-my" style="width:25px; height:25px;" src="../Assets/Imgs/Icon/navbar_home.png" /></a>
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <div class="search-where-1" onclick="searchWhere1()">
+            <span id="SearchWhere1Span">全部分类</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+        <div class="search-where-2" onclick="searchWhere2()">
+            <span id="SearchWhere2Span">全部地区</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+        <div class="search-where-3" onclick="searchWhere3()">
+            <span id="SearchWhere3Span">距离最近</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+    </div>
+    <!--条件显示层-->
+    <div class="all-where-show" id="AllWhereShow" style="display: none;">
+        <div class="all-where-type" id="AllWhereType" style="display:none">
+            @*<span class="goods-type-current">全部分类</span>
+                <span class="goods-type-item">
+                    休闲裤
+                </span>*@
+        </div>
+        <div class="all-where-type" id="AllWhereType2" style="display:none">
+            @*<span class="goods-type-current">全部地区</span>
+                <span>
+                    开福区
+                </span>
+                <span class="region-type-item">
+                    开福区
+                </span>*@
+
+        </div>
+        <div class="all-where-type" id="AllWhereType3" style="display:none">
+            <span class="goods-type-order goods-type-current" onclick="clickItemSearchWhere3('Distance')">距离最近</span>
+            <span class="goods-type-order" onclick="clickItemSearchWhere3('SaleCount')">
+                销量最高
+            </span>
+            <span class="goods-type-order" onclick="clickItemSearchWhere3('GoodsPriceAsc')">
+                价格由低到高
+            </span>
+            <span class="goods-type-order" onclick="clickItemSearchWhere3('GoodsPriceDesc')">
+                价格由高到低
+            </span>
+        </div>
+
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!--店铺列表-->
+            <ul class="goods-list" id="PageContentList">
+
+
+                <!--附近商家Item-->
+                @*<a class="commend-item" href="../Shop/Index?SID=234">
+                        <div class="commend-item-img">
+                            <img src="../Assets/Imgs/04.jpg" />
+                        </div>
+                        <div class="commend-item-msg">
+                            <div class="item-msg-title">
+                                <span>长沙世界之窗(4A)</span>
+                                <span class="item-msg-distance">30.3km</span>
+                            </div>
+                            <div class="item-msg-appraise">
+                                3.5分 | 23432人评价
+                            </div>
+                            <div class="item-msg-badge">
+                                <span>优惠券</span>
+                                <span>活动</span>
+                                <span>打折</span>
+                                <span>团购</span>
+                            </div>
+                            <div class="item-msg-price">
+                                <span><b>&#165; 2343.23</b> 起</span>
+                                <span class="item-msg-sale">已售:2334323</span>
+                            </div>
+                        </div>
+                    </a>*@
+
+            </ul>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

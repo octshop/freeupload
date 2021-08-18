@@ -1,0 +1,68 @@
+﻿/*=================扫码支付订单====================*/
+/*头部*/
+.oct-header-right .header-icon-my {
+    width: 20px;
+    height: 20px;
+}
+/*主体内容*/
+.oct-content {
+    margin-top: 45px;
+}
+
+.aggreorder-list li {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    padding: 10px 8px;
+}
+
+.aggreorder-item-left {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+    .aggreorder-item-left img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 40px;
+    }
+
+.shop-name {
+    font-size: 12px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.pay-time {
+    font-size: 12px;
+    color: gray;
+}
+
+.aggreorder-item-right b {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    display: block;
+    text-align: right;
+}
+
+.aggreorder-item-right div i {
+    display: block;
+    font-size: 10px;
+    width: 100px;
+    text-align: right;
+    color: gray;
+}
+/*========数据分页===========*/
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 43px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}

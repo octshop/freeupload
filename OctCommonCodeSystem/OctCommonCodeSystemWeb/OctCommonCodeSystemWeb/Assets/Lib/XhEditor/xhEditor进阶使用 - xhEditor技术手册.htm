@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0028)http://xheditor.com/manual/2 -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>xhEditor进阶使用 - xhEditor技术手册</title>
+<meta name="description" content="xhEditor是一个基于jQuery开发的简单迷你并且高效的在线可视化HTML编辑器，基于网络访问并且兼容IE 6.0+,Firefox 3.0+,Opera 9.6+,Chrome 1.0+,Safari 3.22+。xhEditor基于Javascript开发，可应用在任何服务端语言环境，如：PHP、ASP.NET、JAVA等。">
+<meta name="copyright" content="xhEditor.com">
+<link rel="stylesheet" type="text/css" href="./xhEditor进阶使用 - xhEditor技术手册_files/common.css">
+<style type="text/css">
+#main{
+	margin:20px;
+	border:1px solid #E1E1E1;
+	-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;
+	padding:20px;
+	font-size:14px;
+}
+#main h1,#main h2{
+	margin:0;
+	border-bottom:1px solid #ccc;
+	padding-bottom:3px;
+}
+#main h1{font-size:18px;}
+#main h2{font-size:15px;color:#FF4314;}
+#main h3{margin:0;font-size:13px;}
+#main dl{margin:1em 0 1em 2em;}
+</style>
+<link rel="stylesheet" type="text/css" href="./xhEditor进阶使用 - xhEditor技术手册_files/prettify.css">
+<script type="text/javascript" src="./xhEditor进阶使用 - xhEditor技术手册_files/common.js"></script>
+<script type="text/javascript" src="./xhEditor进阶使用 - xhEditor技术手册_files/prettify.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<div id="header-nav">
+				<a href="http://xheditor.com/">首页</a> | <a href="http://xheditor.com/about">关于xhEditor</a> | <a href="http://xheditor.com/demo">在线演示</a> | <a href="http://xheditor.com/case">成功案例</a> | <a href="http://xheditor.com/download">免费下载</a> | <a href="http://xheditor.com/wizard">参数向导</a> | <a href="http://xheditor.com/manual">技术手册</a> | <a href="http://xheditor.com/donate">捐赠</a> | <a href="http://forum.xheditor.com/">社区交流</a>
+			</div>
+			<a href="http://xheditor.com/" title="xhEditor开源HTML编辑器"><img src="./xhEditor进阶使用 - xhEditor技术手册_files/xheditor-logo.gif" alt="xhEditor"></a>
+		</div>
+		<div id="main">
+			<h1>2. xhEditor进阶使用</h1>
+			<dl>
+				<dt>2.1. <a href="http://xheditor.com/manual/2#chapter1">进阶使用指导</a></dt>
+				<dt>2.2. <a href="http://xheditor.com/manual/2#chapter2">初始化参数列表</a></dt>
+				<dt>2.3. <a href="http://xheditor.com/manual/2#chapter3">API函数接口列表</a></dt>
+				<dt>2.4. <a href="http://xheditor.com/manual/2#chapter4">上传程序开发规范</a></dt>
+				<dt>2.5. <a href="http://xheditor.com/manual/2#chapter5">插件开发指南</a></dt>
+				<dt>2.6. <a href="http://xheditor.com/manual/2#chapter6">皮肤设计指南</a></dt>
+				<dt>2.7. <a href="http://xheditor.com/manual/2#chapter7">关于二次开发</a></dt>
+			</dl><br>
+			<h2><a name="chapter1"></a>2.1. 进阶使用指导</h2>
+			<p>阅读本章节请先阅读：<a href="http://xheditor.com/manual/1">xhEditor入门基础</a>，若你已经熟悉xhEditor的基本使用，请往下继续。</p>
+			<p>xhEditor提供两种方式初始化编辑器：</p>
+			<ul>
+				<li>
+					方法1：利用class属性来初始化和传递各种初始化参数，例：
+					<pre class="prettyprint"><span class="pln">&nbsp;</span><span class="kwd">class</span><span class="pun">=</span><span class="str">"xheditor {skin:'default'}"</span></pre>
+				</li>
+				<li>
+					方法2：利用xhEditor提供的jQuery插件接口来实现对特定textarea的初始化和传递参数，例：
+					<pre class="prettyprint"><span class="pln">$</span><span class="pun">(</span><span class="str">'#elm1'</span><span class="pun">).</span><span class="pln">xheditor</span><span class="pun">();</span><span class="pln"><br></span><span class="pun">或者</span><span class="pln"><br>$</span><span class="pun">(</span><span class="str">'#elm1'</span><span class="pun">).</span><span class="pln">xheditor</span><span class="pun">({</span><span class="pln">tools</span><span class="pun">:</span><span class="str">'mini'</span><span class="pun">});</span></pre>
+				</li>
+			</ul>
+			<p>特别说明：两种初始化方法只能选择其中一种使用，如果两种方法的代码同时存在页面中，方法2的代码不会有任何效果。</p>
+			<p>我们更倾向于推荐大家使用方法1，因为更简单易用，不涉及任何的Javascript代码。通过简单的参数设置即可定制各种效果的编辑器界面，简单易用且功能强大。</p>
+			<p>如果想实现更加复杂的交互应用，或者希望xhEditor编辑器能够和自己的Javascript代码实现互相访问，那么你可以选择使用方法2，相对具有更大的自由空间。</p>
+			<p>xhEditor也提供了即时的卸载编辑器方法：</p>
+			<pre class="prettyprint"><span class="pln">$</span><span class="pun">(</span><span class="str">'#elm1'</span><span class="pun">).</span><span class="pln">xheditor</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span></pre><br>
+			<h2><a name="chapter2"></a>2.2. 初始化参数列表</h2>
+			<p>初始化参数示例代码：</p>
+			<pre class="prettyprint"><span class="pln">$</span><span class="pun">(</span><span class="str">'#elm1'</span><span class="pun">).</span><span class="pln">xheditor</span><span class="pun">({</span><span class="pln">tools</span><span class="pun">:</span><span class="str">'full'</span><span class="pun">,</span><span class="pln">skin</span><span class="pun">:</span><span class="str">'default'</span><span class="pun">,</span><span class="pln">showBlocktag</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln">internalScript</span><span class="pun">:</span><span class="kwd">false</span><span class="pun">,</span><span class="pln">internalStyle</span><span class="pun">:</span><span class="kwd">false</span><span class="pun">,</span><span class="pln">width</span><span class="pun">:</span><span class="lit">300</span><span class="pun">,</span><span class="pln">height</span><span class="pun">:</span><span class="lit">200</span><span class="pun">,</span><span class="pln">loadCSS</span><span class="pun">:</span><span class="str">'http://xheditor.com/test.css'</span><span class="pun">,</span><span class="pln">fullscreen</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln">sourceMode</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln">forcePtag</span><span class="pun">:</span><span class="kwd">true</span><span class="pun">,</span><span class="pln">upImgUrl</span><span class="pun">:</span><span class="str">"upload.php"</span><span class="pun">,</span><span class="pln">upImgExt</span><span class="pun">:</span><span class="str">"jpg,jpeg,gif,png"</span><span class="pun">});</span></pre>
+			<p>初始化参数列表：</p>
+			<ol>
+				<li>
+					<h3>tools：自定义工具按钮</h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="pln">full</span><span class="pun">(完全),</span><span class="pln">mfull</span><span class="pun">(多行完全),</span><span class="pln">simple</span><span class="pun">(简单),</span><span class="pln">mini</span><span class="pun">(迷你)</span><span class="pln"><br></span><span class="pun">或者自定义字符串，例如：</span><span class="str">'Cut,Copy,Paste,Pastetext,|,Source,Fullscreen,About'</span><span class="pln"><br><br></span><span class="pun">完整按钮表：</span><span class="pln"><br></span><span class="pun">|：分隔符</span><span class="pln"><br></span><span class="pun">/：强制换行</span><span class="pln"><br></span><span class="typ">Cut</span><span class="pun">：剪切</span><span class="pln"><br></span><span class="typ">Copy</span><span class="pun">：复制</span><span class="pln"><br></span><span class="typ">Paste</span><span class="pun">：粘贴</span><span class="pln"><br></span><span class="typ">Pastetext</span><span class="pun">：文本粘贴</span><span class="pln"><br></span><span class="typ">Blocktag</span><span class="pun">：段落标签</span><span class="pln"><br></span><span class="typ">Fontface</span><span class="pun">：字体</span><span class="pln"><br></span><span class="typ">FontSize</span><span class="pun">：字体大小</span><span class="pln"><br></span><span class="typ">Bold</span><span class="pun">：粗体</span><span class="pln"><br></span><span class="typ">Italic</span><span class="pun">：斜体</span><span class="pln"><br></span><span class="typ">Underline</span><span class="pun">：下划线</span><span class="pln"><br></span><span class="typ">Strikethrough</span><span class="pun">：中划线</span><span class="pln"><br></span><span class="typ">FontColor</span><span class="pun">：字体颜色</span><span class="pln"><br></span><span class="typ">BackColor</span><span class="pun">：字体背景色</span><span class="pln"><br></span><span class="typ">SelectAll</span><span class="pun">：全选</span><span class="pln"><br></span><span class="typ">Removeformat</span><span class="pun">：删除文字格式</span><span class="pln"><br></span><span class="typ">Align</span><span class="pun">：对齐</span><span class="pln"><br></span><span class="typ">List</span><span class="pun">：列表</span><span class="pln"><br></span><span class="typ">Outdent</span><span class="pun">：减少缩进</span><span class="pln"><br></span><span class="typ">Indent</span><span class="pun">：增加缩进</span><span class="pln"><br></span><span class="typ">Link</span><span class="pun">：超链接</span><span class="pln"><br></span><span class="typ">Unlink</span><span class="pun">：删除链接</span><span class="pln"><br></span><span class="typ">Anchor</span><span class="pun">：锚点</span><span class="pln"><br></span><span class="typ">Img</span><span class="pun">：图片</span><span class="pln"><br></span><span class="typ">Flash</span><span class="pun">：</span><span class="typ">Flash</span><span class="pun">动画</span><span class="pln"><br></span><span class="typ">Media</span><span class="pun">：</span><span class="typ">Windows</span><span class="pln"> media player</span><span class="pun">视频</span><span class="pln"><br></span><span class="typ">Hr</span><span class="pun">：插入水平线</span><span class="pln"><br></span><span class="typ">Emot</span><span class="pun">：表情</span><span class="pln"><br></span><span class="typ">Table</span><span class="pun">：表格</span><span class="pln"><br></span><span class="typ">Source</span><span class="pun">：切换源代码模式</span><span class="pln"><br></span><span class="typ">Preview</span><span class="pun">：预览当前代码</span><span class="pln"><br></span><span class="typ">Print</span><span class="pun">：打印</span><span class="pln"><br></span><span class="typ">Fullscreen</span><span class="pun">：切换全屏模式</span><span class="pln"><br></span><span class="typ">About</span><span class="pun">：关于</span><span class="pln">xhEditor</span></pre>
+				</li>
+				<li>
+					<h3>skin：皮肤风格选择</h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">default</span><span class="pun">(默认风格),</span><span class="pln">o2007blue</span><span class="pun">(</span><span class="typ">Office</span><span class="pln"> </span><span class="lit">2007</span><span class="pln"> </span><span class="pun">蓝色),</span><span class="pln">o2007silver</span><span class="pun">(</span><span class="typ">Office</span><span class="pln"> </span><span class="lit">2007</span><span class="pln"> </span><span class="pun">银色),</span><span class="pln">vista</span><span class="pun">(</span><span class="typ">Vista</span><span class="pun">),</span><span class="pln">nostyle</span><span class="pun">(</span><span class="typ">NoStyle</span><span class="pun">)</span></pre>
+				</li>
+				<li>
+					<h3>layerShadow：阴影的深度(按钮面板和模式窗口的背景阴影) </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="lit">0</span><span class="pun">(不显示阴影),大于</span><span class="lit">0</span><span class="pun">的数值(显示阴影并设置阴影的深度)</span></pre>
+				</li>
+				<li>
+					<h3>clickCancelDialog：点击任意位置取消按钮面板功能 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：默认</span><span class="kwd">true</span><span class="pun">(开启点击取消功能),</span><span class="kwd">false</span><span class="pun">(关闭点击取消功能，必需要点击“取消”按钮才能关闭按钮面板)</span></pre>
+				</li>
+				<li>
+					<h3>showBlocktag：显示段落标签</h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(显示段落标签),</span><span class="kwd">false</span><span class="pun">(不显示)</span></pre>
+				</li>
+				<li>
+					<h3>linkTag：样式链接link标签保留状态</h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(保留样式链接</span><span class="pln">link</span><span class="pun">标签),</span><span class="kwd">false</span><span class="pun">(清理样式链接</span><span class="pln">link</span><span class="pun">标签)</span></pre>
+				</li>
+				<li>
+					<h3>internalScript：内部JS代码保留状态 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(保留内部</span><span class="pln">JS</span><span class="pun">代码),</span><span class="kwd">false</span><span class="pun">(清理内部</span><span class="pln">JS</span><span class="pun">代码)</span></pre>
+				</li>
+				<li>
+					<h3>inlineScript：内联JS代码保留状态 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(保留内联</span><span class="pln">JS</span><span class="pun">代码),</span><span class="kwd">false</span><span class="pun">(清理内联</span><span class="pln">JS</span><span class="pun">代码)</span></pre>
+				</li>
+				<li>
+					<h3>internalStyle：内部样式保留状态 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(保留内部样式),</span><span class="kwd">false</span><span class="pun">(清理内部样式)</span></pre>
+				</li>
+				<li>
+					<h3>inlineStyle：内联样式保留状态 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(保留内联样式),</span><span class="kwd">false</span><span class="pun">(清理内联样式)</span></pre>
+				</li>
+				<li>
+					<h3>width：编辑器宽度 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：不带单位的数字，例：</span><span class="lit">300</span></pre>
+				</li>
+				<li>
+					<h3>height：编辑器高度 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：不带单位的数字，例：</span><span class="lit">100</span></pre>
+				</li>
+				<li>
+					<h3>background：编辑器背景 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：字符串，例：</span><span class="pln">url</span><span class="pun">(</span><span class="pln">test</span><span class="pun">.</span><span class="pln">gif</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">no</span><span class="pun">-</span><span class="pln">repeat</span><span class="pun">，设置编辑器背景，格式同</span><span class="pln">CSS</span><span class="pun">同名参数一致。建议直接设置</span><span class="pln">textarea</span><span class="pun">的</span><span class="pln">css</span><span class="pun">背景</span><span class="pln"><br></span><span class="pun">备注：</span><span class="pln">v1</span><span class="pun">.</span><span class="lit">1.1</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>loadCSS：加载样式 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="pln">URL</span><span class="pun">地址、</span><span class="pln">URL</span><span class="pun">数组以及直接内部样式，例如：</span><span class="str">'1.css'</span><span class="pun">、[</span><span class="str">'1.css'</span><span class="pun">,</span><span class="str">'2.css'</span><span class="pun">]、</span><span class="str">'&lt;style&gt;body{font-size:20px;}&lt;/style&gt;'</span><span class="pun">&lt;</span><span class="pln">br </span><span class="pun">/&gt;备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> RC3</span><span class="pun">新添加加载内部样式功能</span></pre>
+				</li>
+				<li>
+					<h3>fullscreen：默认全屏显示 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(全屏大小),</span><span class="kwd">false</span><span class="pun">(标准大小)</span></pre>
+				</li>
+				<li>
+					<h3>sourceMode：默认源代码模式</h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(源代码模式),</span><span class="kwd">false</span><span class="pun">(编辑模式)</span></pre>
+				</li>
+				<li>
+					<h3>forcePtag：强制P标签 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(强制使用</span><span class="pln">P</span><span class="pun">标签),</span><span class="kwd">false</span><span class="pun">(不强制),默认</span><span class="kwd">true</span></pre>
+				</li>
+				<li>
+					<h3>cleanPaste：是否清理粘贴的HTML代码 </h3>
+					<pre class="prettyprint"><span class="pun">参数：</span><span class="lit">0</span><span class="pun">(不做任何清理),</span><span class="lit">1</span><span class="pun">(简单清理</span><span class="typ">Word</span><span class="pun">),</span><span class="lit">2</span><span class="pun">(深入清理</span><span class="typ">Word</span><span class="pun">),</span><span class="lit">3</span><span class="pun">(强制转文本),默认为</span><span class="lit">1</span><span class="pun">简单清理</span><span class="typ">Word</span><span class="pln"><br></span><span class="pun">说明：若网站应用需要保留更多的</span><span class="typ">Word</span><span class="pun">样式效果，请设置此值为</span><span class="lit">1</span><span class="pun">，不过产生的</span><span class="pln">HTML</span><span class="pun">代码体积会大大增大</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.1</span><span class="pun">.</span><span class="lit">4</span><span class="pun">版本中新变更，原为</span><span class="pln">wordDeepClean</span><span class="pun">和</span><span class="pln">forcePasteText</span><span class="pun">两个参数</span></pre>
+				</li>
+				<li>
+					<h3>disableContextmenu：禁用编辑区的右键菜单 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(禁用右键菜单),</span><span class="kwd">false</span><span class="pun">(不禁用),默认</span><span class="kwd">false</span><span class="pln"><br></span><span class="pun">备注：</span><span class="pln">v1</span><span class="pun">.</span><span class="lit">1.0</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>editorRoot：编辑器JS文件所在的根路径</h3>
+					<pre class="prettyprint"><span class="pun">参数值：编辑器所在的根路径，用在某些特殊情况下定位编辑器的根路径，默认为空，读取默认的编辑器根路径</span><span class="pln"><br></span><span class="pun">备注：</span><span class="pln">v1</span><span class="pun">.</span><span class="lit">1.0</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>shortcuts：自定义键盘快捷方式 </h3>
+					<pre class="prettyprint"><span class="pun">参数：快捷键对应事件代码的对象数组</span><span class="pln"><br></span><span class="pun">示例：{</span><span class="str">'ctrl+enter'</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#frmTest'</span><span class="pun">).</span><span class="pln">submit</span><span class="pun">();}}</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> beta2</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>urlBase：相对URL地址的基地址</h3>
+					<pre class="prettyprint"><span class="pun">参数：字符串的</span><span class="pln">URL</span><span class="pun">地址，用以解决前后台不在同一路径的资源定位问题</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.1</span><span class="pun">.</span><span class="lit">0</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>urlType：本地URL地址强制转换方式选择</h3>
+					<pre class="prettyprint"><span class="pun">参数：</span><span class="pln">abs</span><span class="pun">(绝对路径),</span><span class="pln">root</span><span class="pun">(根路径),</span><span class="pln">rel</span><span class="pun">(相对路径)</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> beta2</span><span class="pun">新添加,</span><span class="pln">v1</span><span class="pun">.</span><span class="lit">1.0</span><span class="pun">版中名字由</span><span class="pln">localUrl</span><span class="pun">变更为</span><span class="pln">urlType</span></pre>
+				</li>
+				<li>
+					<h3>emotPath：修改表情图片的URL根路径</h3>
+					<pre class="prettyprint"><span class="pun">参数：字符串的</span><span class="pln">URL</span><span class="pun">地址，默认为空，指向编辑器路径下的默认表情</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.1</span><span class="pun">.</span><span class="lit">0</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>emotMark：是否在表情img标签上标注emot属性 </h3>
+					<pre class="prettyprint"><span class="pun">参数：</span><span class="kwd">true</span><span class="pun">(标注),</span><span class="kwd">false</span><span class="pun">(不标注),默认为</span><span class="kwd">false</span><span class="pln"><br></span><span class="pun">说明：若使用了</span><span class="pln">ubb</span><span class="pun">插件，请设置此属性为</span><span class="kwd">true</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> beta2</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>emots：添加自定义表情</h3>
+					<pre class="prettyprint"><span class="pun">参数：可定义多个</span><span class="pln">JSON</span><span class="pun">对象数组，示例如下：{</span><span class="pln">qq</span><span class="pun">:{</span><span class="pln">name</span><span class="pun">:</span><span class="str">'QQ'</span><span class="pun">,</span><span class="pln">count</span><span class="pun">:</span><span class="lit">55</span><span class="pun">,</span><span class="pln">width</span><span class="pun">:</span><span class="lit">25</span><span class="pun">,</span><span class="pln">height</span><span class="pun">:</span><span class="lit">25</span><span class="pun">,</span><span class="pln">line</span><span class="pun">:</span><span class="lit">11</span><span class="pun">},</span><span class="pln">msn</span><span class="pun">:{</span><span class="pln">name</span><span class="pun">:</span><span class="str">'MSN'</span><span class="pun">,</span><span class="pln">count</span><span class="pun">:</span><span class="lit">40</span><span class="pun">,</span><span class="pln">width</span><span class="pun">:</span><span class="lit">22</span><span class="pun">,</span><span class="pln">height</span><span class="pun">:</span><span class="lit">22</span><span class="pun">,</span><span class="pln">line</span><span class="pun">:</span><span class="lit">8</span><span class="pun">}}</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; name</span><span class="pun">：表情分组名</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; count</span><span class="pun">：表情数量</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; list</span><span class="pun">：表情列表，例：{</span><span class="pln">test1</span><span class="pun">:</span><span class="str">'表情1'</span><span class="pun">,</span><span class="pln">test2</span><span class="pun">:</span><span class="str">'表情2'</span><span class="pun">}，键名代表文件名，扩展名必需为</span><span class="pln">gif</span><span class="pun">，键值代表</span><span class="pln">alt</span><span class="pun">信息</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; width</span><span class="pun">：单个表情区域宽度，必需大于或等于表情最大宽度</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; height</span><span class="pun">：单表情区域高度，必需大于或等于表情最大高度</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; line</span><span class="pun">：单行显示表情数量</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">说明：</span><span class="pln">count</span><span class="pun">和</span><span class="pln">list</span><span class="pun">必需选其中一个值，注意</span><span class="pln">count</span><span class="pun">模式插入表情</span><span class="pln">img</span><span class="pun">的</span><span class="pln">alt</span><span class="pun">为空</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> beta2</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>hoverExecDelay：悬停自动执行延迟的时间 </h3>
+					<pre class="prettyprint"><span class="pun">参数：数值(单位毫秒)，默认为</span><span class="lit">100</span><span class="pun">，设置为-</span><span class="lit">1</span><span class="pun">关闭此功能</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> rc2</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>defLinkText：超链接的默认文字</h3>
+					<pre class="prettyprint"><span class="pun">参数值：字符串(默认值：“点击打开链接”)</span><span class="pln"><br></span><span class="pun">说明：只在不选择任何内容的情况下才会用到这个参数值</span></pre>
+				</li>
+				<li>
+					<h3>modalWidth：showModal弹出窗口的默认宽度 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：数值，默认为</span><span class="lit">350</span><span class="pln"><br></span><span class="pun">说明：弹出窗口的默认宽度</span></pre>
+				</li>
+				<li>
+					<h3>modalHeight：showModal弹出窗口的默认高度 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：数值，默认为</span><span class="lit">220</span><span class="pln"><br></span><span class="pun">说明：弹出窗口的默认高度</span></pre>
+				</li>
+				<li>
+					<h3>modalTitle：showModal弹出窗口是否显示上方的标题栏 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(显示),</span><span class="kwd">false</span><span class="pun">(不显示)</span><span class="pln"><br></span><span class="pun">说明：控制弹出窗口是否显示上方的标题栏，默认为显示，若需要显示一个更定制个性化的</span><span class="pln">iframe</span><span class="pun">窗口，可通过此参数隐藏上方的标题栏</span></pre>
+				</li>
+				<li>
+					<h3>upBtnText：上传按钮的文字 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：任意字符串,默认值：“上传”</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> beta2</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>html5Upload：是否开启HTML5上传支持 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：</span><span class="kwd">true</span><span class="pun">(允许),</span><span class="kwd">false</span><span class="pun">(不允许),默认为</span><span class="kwd">true</span><span class="pun">允许</span><span class="pln"><br></span><span class="pun">说明：本功能需要浏览器支持</span><span class="pln">HTML5</span><span class="pun">上传</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> </span><span class="typ">Final</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>upMultiple：允许一次上传多少个文件 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：大于</span><span class="lit">0</span><span class="pun">的数值,默认：</span><span class="lit">99</span><span class="pun">,设置为</span><span class="lit">1</span><span class="pun">关闭多文件上传</span><span class="pln"><br></span><span class="pun">说明：本功能需要浏览器支持</span><span class="pln">HTML5</span><span class="pun">上传</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> RC3</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>upLinkUrl：超链接文件上传接收URL </h3>
+					<pre class="prettyprint"><span class="pun">参数值：接收用户上传的服务器端程序</span><span class="pln">URL</span><span class="pun">，默认留空为禁用超链接上传功能，具体使用方法请参考</span><span class="pln">demo8</span><span class="pun">演示文件</span><span class="pln"><br></span><span class="pun">注：可使用内置变量：{</span><span class="pln">editorRoot</span><span class="pun">}，代表当前编辑器的根路径，例：{</span><span class="pln">editorRoot</span><span class="pun">}</span><span class="pln">upload</span><span class="pun">.</span><span class="pln">php</span></pre>
+				</li>
+				<li>
+					<h3>upLinkExt：超链接上传前限制本地文件扩展名 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：超链接上传前限制的文件扩展名列表，默认为：</span><span class="pln">zip</span><span class="pun">,</span><span class="pln">rar</span><span class="pun">,</span><span class="pln">txt</span><span class="pun">，建议与服务端扩展名检查列表一致</span></pre>
+				</li>
+				<li>
+					<h3>upImgUrl：图片文件上传接收URL </h3>
+					<pre class="prettyprint"><span class="pun">参数值：接收用户上传的服务器端程序</span><span class="pln">URL</span><span class="pun">，默认留空为禁用上传功能，具体使用方法请参考</span><span class="pln">demo8</span><span class="pun">演示文件</span><span class="pln"><br></span><span class="pun">注：可使用内置变量：{</span><span class="pln">editorRoot</span><span class="pun">}，代表当前编辑器的根路径，例：{</span><span class="pln">editorRoot</span><span class="pun">}</span><span class="pln">upload</span><span class="pun">.</span><span class="pln">php</span></pre>
+				</li>
+				<li>
+					<h3>upImgExt：图片上传前限制本地文件扩展名 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：图片上传前限制的文件扩展名列表，默认为：</span><span class="pln">jpg</span><span class="pun">,</span><span class="pln">jpeg</span><span class="pun">,</span><span class="pln">gif</span><span class="pun">,</span><span class="pln">png</span><span class="pun">，建议与服务端扩展名检查列表一致</span></pre>
+				</li>
+				<li>
+					<h3>upFlashUrl：动画文件上传接收URL </h3>
+					<pre class="prettyprint"><span class="pun">参数值：接收用户上传的服务器端程序</span><span class="pln">URL</span><span class="pun">，默认留空为禁用上传功能，具体使用方法请参考</span><span class="pln">demo8</span><span class="pun">演示文件</span><span class="pln"><br></span><span class="pun">注：可使用内置变量：{</span><span class="pln">editorRoot</span><span class="pun">}，代表当前编辑器的根路径，例：{</span><span class="pln">editorRoot</span><span class="pun">}</span><span class="pln">upload</span><span class="pun">.</span><span class="pln">php</span></pre>
+				</li>
+				<li>
+					<h3>upFlashExt：动画上传前限制本地文件扩展名 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：动画上传前限制的文件扩展名列表，默认为：</span><span class="pln">swf</span><span class="pun">，建议与服务端扩展名检查列表一致</span></pre>
+				</li>
+				<li>
+					<h3>upMediaUrl：视频文件上传接收URL </h3>
+					<pre class="prettyprint"><span class="pun">参数值：接收用户上传的服务器端程序</span><span class="pln">URL</span><span class="pun">，默认留空为禁用上传功能，具体使用方法请参考</span><span class="pln">demo8</span><span class="pun">演示文件</span><span class="pln"><br></span><span class="pun">注：可使用内置变量：{</span><span class="pln">editorRoot</span><span class="pun">}，代表当前编辑器的根路径，例：{</span><span class="pln">editorRoot</span><span class="pun">}</span><span class="pln">upload</span><span class="pun">.</span><span class="pln">php</span></pre>
+				</li>
+				<li>
+					<h3>upMediaExt：视频上传前限制本地文件扩展名 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：视频上传前限制的文件扩展名列表，默认为：</span><span class="pln">avi</span><span class="pun">，建议与服务端扩展名检查列表一致</span></pre>
+				</li>
+				<li>
+					<h3>onUpload：文件上传成功回调函数 </h3>
+					<pre class="prettyprint"><span class="pun">参数值：成功后需要执行的函数</span><span class="pln"><br></span><span class="pun">说明：这个函数执行时返回的值为上传程序返回的</span><span class="pln">msg</span><span class="pun">变量，可能为字符串或者数组，若为字符串则直接代表</span><span class="pln">url</span><span class="pun">，若是数组，则必需包含一个</span><span class="pln">url</span><span class="pun">的变量，其它可由可开发者自定义</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> beta2</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>plugins：自定义按钮之插件扩展 </h3>
+					<pre class="prettyprint"><span class="pun">插件对象的属性解释：</span><span class="pln"><br>c</span><span class="pun">：样式表名称</span><span class="pln"><br>t</span><span class="pun">：插件名字(鼠标在按钮上方时显示)</span><span class="pln"><br>s</span><span class="pun">：快捷方式，例：</span><span class="str">"ctrl+enter"</span><span class="pln"><br>h</span><span class="pun">：是否鼠标悬停直接执行,</span><span class="lit">1</span><span class="pun">:直接执行(省略当前值代表不直接执行)</span><span class="pln"><br>e</span><span class="pun">：按钮点击后需要执行的代码(省略执行代码，则把当前的插件名作为参数，调用浏览器的</span><span class="pln">execCommand</span><span class="pun">函数)</span><span class="pln"><br><br></span><span class="pun">特别说明：</span><span class="pln"><br></span><span class="pun">如果您希望样式表存储在系统自带的模板目录</span><span class="pln">ui</span><span class="pun">.</span><span class="pln">css</span><span class="pun">中，请将插件对象的样式名留空，则会自动按照插件名来调用相应的样式，例如：</span><span class="pln">xhEdtBtnCut</span><span class="pun">、</span><span class="pln">xhEdtBtnCopy</span><span class="pun">，其中的</span><span class="typ">Cut</span><span class="pun">和</span><span class="typ">Copy</span><span class="pun">是插件名</span><span class="pln"><br><br></span><span class="pun">具体调用方法请参考演示文件夹中的</span><span class="pln">demo9</span></pre>
+				</li>
+				<li>
+					<h3>submitID：触发表单提交的按钮ID值</h3>
+					<pre class="prettyprint"><span class="pun">参数值：表单提交按钮的</span><span class="pln">ID</span><span class="pun">值，默认在</span><span class="pln">form</span><span class="pun">表单上绑定</span><span class="pln">submit</span><span class="pun">以同步结果</span><span class="pln"><br></span><span class="pun">说明：通过本参数，在非标准</span><span class="pln">submit</span><span class="pun">提交环境下，比如</span><span class="pln">AJAX</span><span class="pun">提交，可以由用户点击提交按钮以触发编辑器最新值的同步</span><span class="pln"><br></span><span class="pun">备注：</span><span class="pln">v1</span><span class="pun">.</span><span class="lit">1.7</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>onPaste：剪切板粘贴回调函数</h3>
+					<pre class="prettyprint"><span class="pun">参数值：用户粘贴后需要执行的函数</span><span class="pln"><br></span><span class="pun">说明：此函数用来过滤用户粘贴的代码，若返回</span><span class="kwd">false</span><span class="pun">禁用粘贴</span><span class="pln"><br></span><span class="pun">备注：</span><span class="pln">v1</span><span class="pun">.</span><span class="lit">1.8</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>localUrlTest：非本站域名测试正则表达式</h3>
+					<pre class="prettyprint"><span class="pun">参数值：正则表达式</span><span class="pln"><br></span><span class="pun">说明：本参数用来测试某些组件中测试</span><span class="pln">URL</span><span class="pun">是否属于本站域名</span><span class="pln"><br></span><span class="pun">备注：</span><span class="pln">v1</span><span class="pun">.</span><span class="lit">1.8</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>remoteImgSaveUrl：远程图片抓取接收程序URL</h3>
+					<pre class="prettyprint"><span class="pun">参数值：字符串(若不设置不开启此功能)</span><span class="pln"><br></span><span class="pun">说明：当</span><span class="pln">localUrlTest</span><span class="pun">测试为</span><span class="kwd">false</span><span class="pun">时，会将图片</span><span class="pln">URL</span><span class="pun">发往当前参数指定的服务器端上传接收程序，抓取成功后将本地</span><span class="pln">URL</span><span class="pun">返回并替换</span><span class="pln"><br></span><span class="pun">备注：</span><span class="pln">v1</span><span class="pun">.</span><span class="lit">1.8</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>readTip：无障碍读屏提示</h3>
+					<pre class="prettyprint"><span class="pun">参数值：字符串(默认为空)</span><span class="pln"><br></span><span class="pun">说明：无障碍读屏软件提示文字，可用来为残疾人士提示快捷键等信息</span><span class="pln"><br></span><span class="pun">备注：</span><span class="pln">v1</span><span class="pun">.</span><span class="lit">1.9</span><span class="pun">新添加</span></pre>
+				</li>
+			</ol><br>
+			<h2><a name="chapter3"></a>2.3. API函数接口列表</h2>
+			<p>API接口示例代码： </p>
+			<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> editor</span><span class="pun">=</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#elm1'</span><span class="pun">).</span><span class="pln">xheditor</span><span class="pun">({</span><span class="pln">tools</span><span class="pun">:</span><span class="str">'full'</span><span class="pun">,</span><span class="pln">skin</span><span class="pun">:</span><span class="str">'default'</span><span class="pun">});</span><span class="pln"><br>editor</span><span class="pun">.</span><span class="pln">focus</span><span class="pun">();</span><span class="pln"><br>editor</span><span class="pun">.</span><span class="pln">setSource</span><span class="pun">(</span><span class="str">'str'</span><span class="pun">)</span><span class="pln"><br>sHtml</span><span class="pun">=</span><span class="pln">editor</span><span class="pun">.</span><span class="pln">getSource</span><span class="pun">()</span><span class="pln"><br>editor</span><span class="pun">.</span><span class="pln">appendHTML</span><span class="pun">(</span><span class="str">'&lt;p&gt;aaa&lt;/p&gt;'</span><span class="pun">)</span><span class="pln"><br>editor</span><span class="pun">.</span><span class="pln">pasteHTML</span><span class="pun">(</span><span class="str">'&lt;p&gt;aaa&lt;/p&gt;'</span><span class="pun">)</span><span class="pln"><br>editor</span><span class="pun">.</span><span class="pln">pasteText</span><span class="pun">(</span><span class="str">'str'</span><span class="pun">)</span><span class="pln"><br>sHtml</span><span class="pun">=</span><span class="pln">editor</span><span class="pun">.</span><span class="pln">formatXHTML</span><span class="pun">(</span><span class="str">'&lt;b&gt;aaa&lt;/b&gt;'</span><span class="pun">)</span><span class="pln"><br>editor</span><span class="pun">.</span><span class="pln">toggleSource</span><span class="pun">()</span><span class="pln"><br>editor</span><span class="pun">.</span><span class="pln">toggleFullscreen</span><span class="pun">()</span><span class="pln"><br>alert</span><span class="pun">(</span><span class="pln">editor</span><span class="pun">.</span><span class="pln">settings</span><span class="pun">.</span><span class="pln">upImgExt</span><span class="pun">);</span><span class="pln"><br>editor</span><span class="pun">.</span><span class="pln">settings</span><span class="pun">.</span><span class="pln">upImgExt</span><span class="pun">=</span><span class="str">'txt,doc'</span><span class="pun">;</span></pre>
+			<p>API接口列表：</p>
+			<ol>
+				<li>
+					<h3>focus：使编辑器获得焦点 </h3>
+					<pre class="prettyprint"><span class="pun">无参数</span></pre>
+				</li>
+				<li>
+					<h3>setSource：设置编辑器源代码 </h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：要设置的源代码内容，例：</span><span class="str">'&lt;p&gt;aaa&lt;/p&gt;'</span></pre>
+				</li>
+				<li>
+					<h3>getSource：返回编辑器格式后的源代码 </h3>
+					<pre class="prettyprint"><span class="pun">无参数</span></pre>
+				</li>
+				<li>
+					<h3>appendHTML：粘贴HTML内容到编辑器结尾处 </h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：要粘贴的</span><span class="pln">HTML</span><span class="pun">代码，例：</span><span class="str">'&lt;p&gt;uuu&lt;/p&gt;'</span><span class="pln"><br></span><span class="pun">注：</span><span class="lit">0.9</span><span class="pun">.</span><span class="lit">5</span><span class="pun">版添加</span></pre>
+				</li>
+				<li>
+					<h3>getSelect：返回当前选中的内容</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：返回格式，可选</span><span class="str">'text'</span><span class="pun">返回文本格式，其它所有值都返回</span><span class="pln">HTML</span><span class="pun">格式</span></pre>
+				</li>
+				<li>
+					<h3>pasteHTML：粘贴HTML内容到编辑器当前光标处</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：要粘贴的</span><span class="pln">HTML</span><span class="pun">代码，例：</span><span class="str">'&lt;p&gt;uuu&lt;/p&gt;'</span><span class="pln"><br></span><span class="pun">参数</span><span class="lit">2</span><span class="pun">：是否覆盖粘贴，留空(覆盖粘贴)、</span><span class="kwd">true</span><span class="pun">(粘贴在光标选择区域之前)、</span><span class="kwd">false</span><span class="pun">(粘贴在光标选择区域之后)</span></pre>
+				</li>
+				<li>
+					<h3>pasteText：粘贴文本到编辑器当前光标处</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：要粘贴的文本，例：</span><span class="str">'这里的内容完全原样显示&lt;strong&gt;aaa&lt;/strong&gt;'</span><span class="pln"><br></span><span class="pun">参数</span><span class="lit">2</span><span class="pun">：是否覆盖粘贴，留空(覆盖粘贴)、</span><span class="kwd">true</span><span class="pun">(粘贴在光标选择区域之前)、</span><span class="kwd">false</span><span class="pun">(粘贴在光标选择区域之后)</span></pre>
+				</li>
+				<li>
+					<h3>formatXHTML：格式化XHTML代码</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：需要格式化的</span><span class="pln">HTML</span><span class="pun">代码，例：</span><span class="str">'&lt;b&gt;aaa&lt;/b&gt;'</span><span class="pun">，返回</span><span class="str">'&lt;strong&gt;aaa&lt;/strong&gt;'</span><span class="pln"><br></span><span class="pun">参数</span><span class="lit">2</span><span class="pun">：是否代码缩进换行,</span><span class="kwd">true</span><span class="pun">(执行缩进格式化),</span><span class="kwd">false</span><span class="pun">(不执行缩进格式化),默认为</span><span class="kwd">false</span></pre>
+				</li>
+				<li>
+					<h3>toggleSource：在源代码模式和编辑模式之间切换</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：空(切换),</span><span class="kwd">true</span><span class="pun">(显示源代码模式),</span><span class="kwd">false</span><span class="pun">(显示编辑模式)</span></pre>
+				</li>
+				<li>
+					<h3>toggleFullscreen：在全屏模式和标准大小之间切换</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：空(切换),</span><span class="kwd">true</span><span class="pun">(显示全屏模式),</span><span class="kwd">false</span><span class="pun">(显示标准模式)</span></pre>
+				</li>
+				<li>
+					<h3>toggleShowBlocktag：切换块标签显示状态</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：空(切换),</span><span class="kwd">true</span><span class="pun">(切换为显示块标签),</span><span class="kwd">false</span><span class="pun">(切换为不显示块标签)</span></pre>
+				</li>
+				<li>
+					<h3>addShortcuts：添加快捷键</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：快捷键值，例：</span><span class="str">'ctrl+enter'</span><span class="pln"><br></span><span class="pun">参数</span><span class="lit">2</span><span class="pun">：用户按下快捷键后需要响应的程序代码，例：</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln">$</span><span class="pun">(</span><span class="str">'#frmTest'</span><span class="pun">).</span><span class="pln">submit</span><span class="pun">();}</span><span class="pln"><br></span><span class="pun">说明：允许为某个相同快捷键值重复添加多个响应代码</span><span class="pln"><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> beta2</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>delShortcuts：删除快捷键</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：快捷键值，例：</span><span class="str">'ctrl+enter'</span><span class="pln"><br><br></span><span class="pun">备注：</span><span class="lit">1.0</span><span class="pun">.</span><span class="lit">0</span><span class="pln"> </span><span class="typ">Final</span><span class="pun">新添加</span></pre>
+				</li>
+				<li>
+					<h3>exec：立即执行按钮及插件</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：工具按钮名称(不区分大小写)，例：</span><span class="typ">Link</span><span class="pun">、</span><span class="pln">img<br></span><span class="pun">说明：此函数可以在插件内部或者外部</span><span class="typ">Javascript</span><span class="pun">代码中进行调用</span></pre>
+				</li>
+				<li>
+					<h3>showModal：显示模式窗口</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：模式窗口的标题</span><span class="pln">title<br></span><span class="pun">参数</span><span class="lit">2</span><span class="pun">：模式窗口的内容</span><span class="pln">content<br></span><span class="pun">参数</span><span class="lit">3</span><span class="pun">：模式窗口的宽度</span><span class="pln">w<br></span><span class="pun">参数</span><span class="lit">4</span><span class="pun">：模式窗口的高度</span><span class="pln">h<br></span><span class="pun">参数</span><span class="lit">5</span><span class="pun">：模式窗口关闭时的回调函数</span><span class="pln">onRemove</span></pre>
+				</li>
+				<li>
+					<h3>showIframeModal：显示iframe式的模式窗口</h3>
+					<pre class="prettyprint"><span class="pun">参数</span><span class="lit">1</span><span class="pun">：模式窗口的标题</span><span class="pln"><br></span><span class="pun">参数</span><span class="lit">2</span><span class="pun">：</span><span class="pln">iframe</span><span class="pun">的地址</span><span class="pln">ifmurl</span><span class="pun">，可使用内置变量：{</span><span class="pln">editorRoot</span><span class="pun">}，代表当前编辑器的根路径，例：{</span><span class="pln">editorRoot</span><span class="pun">}</span><span class="pln">xheditor_plugins</span><span class="pun">/</span><span class="pln">test</span><span class="pun">.</span><span class="pln">html<br></span><span class="pun">参数</span><span class="lit">3</span><span class="pun">：提供给目标</span><span class="pln">iframe</span><span class="pun">页面回调用的回调函数，可以在</span><span class="pln">iframe</span><span class="pun">页面中以这样的形式调用：</span><span class="pln">callback</span><span class="pun">(</span><span class="str">'1.gif'</span><span class="pun">);</span><span class="pln"><br></span><span class="pun">参数</span><span class="lit">4</span><span class="pun">：模式窗口的宽度</span><span class="pln">w<br></span><span class="pun">参数</span><span class="lit">5</span><span class="pun">：模式窗口的高度</span><span class="pln">h<br></span><span class="pun">参数</span><span class="lit">6</span><span class="pun">：模式窗口关闭时的回调函数</span><span class="pln">onRemove</span></pre>
+				</li>
+				<li>
+					<h3>settings：获取或者修改编辑器内部参数 </h3>
+					<pre class="prettyprint"><span class="pln">internalScript</span><span class="pun">:是否清除内部代码</span><span class="pln"><br>inlineScript</span><span class="pun">:是否清除内联代码</span><span class="pln"><br>internalStyle</span><span class="pun">:是否清除内部样式</span><span class="pln"><br>inlineStyle</span><span class="pun">:是否清除内联样式</span><span class="pln"><br>forcePtag</span><span class="pun">:强制使用</span><span class="pln">P</span><span class="pun">标签</span><span class="pln"><br>upLinkUrl</span><span class="pun">:超链接上传接口地址</span><span class="pln"><br>upLinkExt</span><span class="pun">:超链接本地上传扩展限制</span><span class="pln"><br>upImgUrl</span><span class="pun">:图片上传接口地址</span><span class="pln"><br>upImgExt</span><span class="pun">:图片本地上传扩展限制</span><span class="pln"><br>upFlashUrl</span><span class="pun">:动画上传接口地址</span><span class="pln"><br>upFlashExt</span><span class="pun">:动画本地上传扩展限制</span><span class="pln"><br>upMediaUrl</span><span class="pun">:视频上传接口地址</span><span class="pln"><br>upMediaExt</span><span class="pun">:视频本地上传扩展限制</span><span class="pln"><br>beforeSetSource</span><span class="pun">:在设置源代码到编辑器前调用此函数</span><span class="pln"><br>beforeGetSource</span><span class="pun">:从编辑器返回源代码前调用此函数</span><span class="pln"><br>focus</span><span class="pun">:编辑器获得焦点时回调此函数</span><span class="pln"><br>blur</span><span class="pun">:编辑器失去焦点时回调此函数</span><span class="pln"><br><br></span><span class="pun">注：修改有效变量仅限以上，其它的变量都仅在编辑器初始化时使用</span></pre>
+				</li>
+			</ol><br>
+			<h2><a name="chapter4"></a>2.4. 上传程序开发规范</h2>
+			<br><h3>上传接收程序开发必读：</h3>
+			<ul>
+				<li>
+					上传程序分标准HTML4上传和HTML5上传两种情况处理：<br>
+					1, HTML4上传使用标准的表单上传域，上传文件域的name为：filedata<br>
+					2, HTML5上传的整个POST数据流就是上传的文件完整数据，而本地文件名等信息储存于HTTP_CONTENT_DISPOSITION这个服务器变量中
+				</li>
+				<li>返回内容必需是标准的json字符串，结构可以是如下：{"err":"","msg":"200906030521128703.gif"} 或者 {"err":"","msg":{"url":"200906030521128703.jpg","localfile":"test.jpg","id":"1"}} 注：若选择结构2，则url变量是必有</li>
+			</ul>
+			<p>需了解更多细节，请参考发行包中的demos文件夹。其中upload.php、upload.asp、upload.aspx仅为演示参考代码，若您使用的是其它的服务器脚本语言，请自行对初始化参数中的upLinkUrl、upImgUrl、upFlashUrl和upMediaUrl进行修改，并开发相应服务器上传接收程序。若您希望在自己的项目中实际使用，请自行修改代码或者重新开发，开发过程中请注意上传文件的格式及大小限制，注意服务器脚本安全问题。</p><br>
+			<h3>上传文件管理建议方案：</h3>
+			<ul>
+				<li>在编辑器初始化时在upload.php后面跟上一个服务器生成的绝对唯一的跟踪值，例如：upload.php?infoid=123</li>
+				<li>在服务器接收程序中以这个跟踪值保存到数据库中，同时也可以限制单个跟踪值下总上传文件数或者总文件大小，否则就是一个可以上传无限个文件的漏洞了</li>
+				<li>最终当前表单提交时，再根据编辑器提交的HTML内容和数据库中上传内容进行比较，删除所有没有使用的上传文件</li>
+				<li>定期由服务器脚本删除上传数据库中没提交的文件记录，这样就能防止别人将你的网站作为免费相册空间了</li>
+			</ul><br>
+			<h2><a name="chapter5"></a>2.5. 插件开发指南</h2>
+			<p>标准插件开发流程：</p>
+			<ol>
+				<li>设计插件图标并在页面中定义好CSS</li>
+				<li>定义插件参数并写入初始化参数plugins</li>
+				<li>编写插件调用时要执行的代码</li>
+			</ol>
+			<p>下面我们就demo09中的一个最简单插件作介绍：</p>
+			<pre class="prettyprint"><span class="tag">&lt;style</span><span class="pln"> </span><span class="atn">type</span><span class="pun">=</span><span class="atv">"text/css"</span><span class="tag">&gt;</span><span class="pln"><br></span><span class="pun">.</span><span class="pln">testClassName </span><span class="pun">{</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">:</span><span class="pln">transparent url</span><span class="pun">(</span><span class="pln">img</span><span class="pun">/</span><span class="pln">plugin</span><span class="pun">.</span><span class="pln">gif</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">no</span><span class="pun">-</span><span class="pln">repeat </span><span class="lit">20px</span><span class="pln"> </span><span class="lit">20px</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; background</span><span class="pun">-</span><span class="pln">position</span><span class="pun">:</span><span class="lit">3px</span><span class="pln"> </span><span class="lit">3px</span><span class="pun">;</span><span class="pln"><br></span><span class="pun">}</span><span class="pln"><br></span><span class="tag">&lt;/style&gt;</span></pre>
+			<pre class="prettyprint"><span class="pln">test7</span><span class="pun">:{</span><span class="pln">c</span><span class="pun">:</span><span class="str">'testClassName'</span><span class="pun">,</span><span class="pln">t</span><span class="pun">:</span><span class="str">'测试7：showIframeModal (Ctrl+7)'</span><span class="pun">,</span><span class="pln">s</span><span class="pun">:</span><span class="str">'ctrl+7'</span><span class="pun">,</span><span class="pln">i</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">editor</span><span class="pun">){</span><span class="pln"><br>&nbsp; &nbsp; editor</span><span class="pun">.</span><span class="pln">setSource</span><span class="pun">(</span><span class="str">'test'</span><span class="pun">);</span><span class="pln"><br></span><span class="pun">},</span><span class="pln">e</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">(){</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="kwd">var</span><span class="pln"> _this</span><span class="pun">=</span><span class="kwd">this</span><span class="pun">;</span><span class="pln"><br>&nbsp; &nbsp; _this</span><span class="pun">.</span><span class="pln">saveBookmark</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; _this</span><span class="pun">.</span><span class="pln">showIframeModal</span><span class="pun">(</span><span class="str">'测试showIframeModal接口'</span><span class="pun">,</span><span class="str">'uploadgui.html'</span><span class="pun">,</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">v</span><span class="pun">){</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; _this</span><span class="pun">.</span><span class="pln">loadBookmark</span><span class="pun">();</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; _this</span><span class="pun">.</span><span class="pln">pasteText</span><span class="pun">(</span><span class="str">'返回值：\r\n'</span><span class="pun">+</span><span class="pln">v</span><span class="pun">);</span><span class="pln"><br>&nbsp; &nbsp; </span><span class="pun">},</span><span class="lit">500</span><span class="pun">,</span><span class="lit">300</span><span class="pun">);</span><span class="pln"><br></span><span class="pun">}}</span></pre>
+			<p>这个插件实现的功能是打开一个iframe，并将iframe返回的参数字符串插入到当前编辑器光标处。</p>
+			<ul>
+				<li>其中test7为插件的name，用来在tools初始化参数中调用</li>
+				<li>c:'testClassName'为插件的样式名称</li>
+				<li>t:'测试7：showIframeModal (Ctrl+7)'是鼠标放在按钮上显示的提示文字</li>
+				<li>s:'ctrl+7'是定义插件的快捷方式，在编辑器区域里按设置的快捷方式就会执行此插件事件；</li>
+                <li>i:function(){}为插件初始化函数，编辑器初始化完成后会调用此函数</li>
+				<li>e:function(){}为插件点击后要执行的代码</li>
+			</ul>
+			<p>特别说明：</p>
+			<ol>
+				<li>插件执行函数中可以用this.的方式调用2.3.章节中所有的API接口函数。如果使用回调函数，请将this变量保存在临时变量中，例如_this;</li>
+				<li>在某些浏览器下，打开会转移焦点的操作界面，会导致编辑区域焦点丢失。例如：showIframeModal，在showIframeModal之前要先执行saveBookmark保存焦点，再在回调函数中执行loadBookmark函数恢复焦点，之后才能调用pasteHTML等函数;</li>
+				<li>如果希望样式表存储在系统自带的模板目录ui.css中，请将插件对象样式名留空，则会自动按照插件名来调用相应的样式，例如：xhEdtBtnCut、xhEdtBtnCopy，其中的Cut和Copy是插件名;</li>
+			</ol>
+			<p>若希望xhEditor开发团队为您定制特殊的功能、皮肤和插件，请参阅<a href="http://xheditor.com/service">我们提供的商业服务</a>页面。</p><br>
+			<h2><a name="chapter6"></a>2.6. 皮肤设计指南</h2>
+			<p>xhEditor的皮肤保存在xheditor_skin文件夹中，每个皮肤一个子文件夹，文件夹结构如下：</p>
+			<pre class="prettyprint"><span class="pln">xheditor_skin<br>&nbsp; </span><span class="pun">└─</span><span class="kwd">default</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; </span><span class="pun">├─</span><span class="pln">ui</span><span class="pun">.</span><span class="pln">css<br>&nbsp; &nbsp; &nbsp; </span><span class="pun">├─</span><span class="pln">iframe</span><span class="pun">.</span><span class="pln">css<br>&nbsp; &nbsp; &nbsp; </span><span class="pun">└─</span><span class="pln">img<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">├─</span><span class="pln">icons</span><span class="pun">.</span><span class="pln">gif<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">├─...</span><span class="pln"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="pun">└─</span><span class="pln">loading</span><span class="pun">.</span><span class="pln">gif</span></pre>
+			<ul>
+				<li>编辑器按钮、面板、模式窗口等样式全部统一存储在ui.css文件中</li>
+				<li>编辑区域的样式存储在iframe.css文件中</li>
+				<li>编辑器内核用到的图片及css文件中用到的所有图片统一存储在img文件夹中</li>
+			</ul>
+			<h3>ui.css文件简单解析</h3>
+			<p>xheLayout：编辑器table样式；xheTool：工具按钮所在区域的样式；xheButton：按钮样式；xhePanel：操作面板的样式；xheMenu：菜单样式；xheEmot：表情样式；xheColor：颜色选择器的样式；xheDialog：面板上的对话框样式；xheModal：模式窗口样式；</p>
+			<p>xhEditor皮肤结构相对非常简单，有一定的HTML和CSS设计基础即可完成设计工作。</p>
+			<p>若希望xhEditor开发团队为您定制特殊的功能、皮肤和插件，请参阅<a href="http://xheditor.com/service">我们提供的商业服务</a>页面。</p><br>
+			<h2><a name="chapter7"></a>2.7. 关于二次开发</h2>
+			<p>由于二次开发相对复杂度较高，需要对xhEditor源代码结构熟悉，而开发者的水平有高有低，因此容易出现的问题也五花八门。鉴于这个原因，xhEditor开发团队对非商业授权用户不提供任何的技术文档和技术支持，希望大家理解。</p>
+			<p>若希望xhEditor开发团队为您定制特殊的功能、皮肤和插件，请参阅<a href="http://xheditor.com/service">我们提供的商业服务</a>页面。</p><br>
+			<script type="text/javascript">prettyPrint();</script>
+			<div class="pageBottom"><a href="http://weibo.com/yaniswang" target="_blank" title="关注我们"><img src="./xhEditor进阶使用 - xhEditor技术手册_files/weibo_s.gif" alt="我们的微博"></a> <span title="Top" onclick="window.scrollTo(0,0);"></span></div>
+		</div>
+		<div id="footer">
+			<div id="footer-body">
+				<div id="copyright">Copyright © <a href="http://xheditor.com/" target="_blank">xhEditor.com</a>. All rights reserved. | <a href="http://www.miibeian.gov.cn/" target="_blank">浙ICP备11026403号</a> | <script src="./xhEditor进阶使用 - xhEditor技术手册_files/stat.php" language="JavaScript"></script><script src="./xhEditor进阶使用 - xhEditor技术手册_files/core.php" charset="utf-8" type="text/javascript"></script><a href="http://www.cnzz.com/stat/website.php?web_id=5179999" target="_blank" title="站长统计">站长统计</a></div>
+				<a href="http://xheditor.com/aboutus">关于我们</a> | <a href="http://xheditor.com/contact">联系我们</a> | <a href="http://xheditor.com/links">友情链接</a> | <a href="http://xheditor.com/contributors">贡献者</a> | <a href="http://xheditor.com/" onclick="return addBookmark(&#39;xhEditor开源HTML编辑器&#39;,&#39;http://xheditor.com&#39;);" title="xhEditor开源HTML编辑器" rel="sidebar">收藏本站</a>
+			</div>
+		</div>	</div>
+
+</body></html>

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>标签中设置剪切对象,以标签ID为标记</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="clipboard.min.js"></script>
+
+</head>
+<body>
+
+    <h1>标签中设置剪切对象,以标签ID为标记</h1>
+
+    <textarea id="bar">剪切hello22222222</textarea>
+    <button class="btn" data-clipboard-action="cut" data-clipboard-target="#bar">剪切</button>
+
+
+    <!-- 3. Instantiate clipboard -->
+    <script>
+        //实例化ClipBoard对象
+        var clipboard = new ClipboardJS('.btn');
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+            alert("剪切成功");
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+            alert("剪切成功");
+        });
+    </script>
+
+</body>
+</html>

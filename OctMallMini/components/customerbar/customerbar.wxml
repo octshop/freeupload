@@ -1,0 +1,16 @@
+<!--components/customerbar/customerbar.wxml-->
+<!--底部客服条组件-->
+<view class="customer-bar">
+	<view bindtap="buildBuyerGoToImSysURL_ShopWap">
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/order_customer_gray.png" />
+		商家客服
+	</view>
+	<view bindtap="makePhoneCall" data-phone-number="{{phoneNumber}}">
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/order_tel_gray.png" />
+		拨打电话
+	</view>
+	<view bindtap="navigateToURL" data-navigate-url="{{complainNavigateUrl}}">
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/order_complain_gray.png" />
+		投诉商家
+	</view>
+</view>

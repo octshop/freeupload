@@ -1,0 +1,85 @@
+﻿/*===================信息统计==========================*/
+.main {
+    background: #F1F2F7;
+    font-size: 12px;
+    padding: 0;
+}
+
+/*主统计区*/
+.main-msg-sum {
+    background: #ffffff;
+    padding: 10px;
+    clear: both;
+    overflow: hidden;
+}
+
+.echarts-div {
+    width: 100%;
+}
+
+.echarts-tabs {
+}
+
+.echarts-tabs-ul li {
+    float: left;
+    overflow: hidden;
+    padding: 5px 15px;
+    border: 1px solid #ededed;
+    color: #0E90D2;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .echarts-tabs-ul li.echarts-active {
+        border: 1px solid #ff6a00;
+        background: #ff6a00;
+        color: #ffffff;
+    }
+
+.tabs-panel {
+    width: 100%;
+    clear: both;
+    overflow: hidden;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.sum-data-change {
+    margin-top: 10px;
+    text-align: center;
+}
+
+    .sum-data-change button {
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+/*图形显示统计*/
+.echarts-img-list {
+    margin-top: 10px;
+}
+
+.echarts-img-item {
+    width: 400px;
+    float: left;
+    overflow: hidden;
+    background: #ffffff;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.echarts-img-inner {
+    width: 360px;
+}
+/*当屏幕大于800px时下面样式有效*/
+@media screen and (min-width: 800px) {
+    .tabs-panel {
+        width: 100%;
+    }
+
+    .echarts-img-item {
+        width: 390px;
+    }
+    .echarts-img-inner {
+        margin: 0 auto;
+    }
+}

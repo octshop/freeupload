@@ -1,0 +1,81 @@
+﻿/*===================结算详情===========================*/
+
+.oct-content {
+    background: white;
+    padding: 8px 0px;
+    padding-top: 0;
+    margin-bottom: 30px;
+    margin-top: 45px;
+}
+
+/*结算状态*/
+.order-status {
+    background: #ff6a00;
+    color: white;
+    font-size: 12px;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.status-title-val {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/*其他信息*/
+.order-basic {
+    margin-top: 10px;
+    border-top: 6px solid #F7F7F7;
+    padding: 8px;
+    padding-bottom:0px;
+}
+
+    .order-basic dt {
+        font-weight: bold;
+        border-bottom: 1px dashed #f2f2f2;
+        padding-bottom: 8px;
+    }
+
+    .order-basic dd {
+        padding-bottom: 10px;
+    }
+
+        .order-basic dd span {
+            padding-left: 10px;
+        }
+
+        .order-basic dd val {
+            color: #ff6a00;
+        }
+.btn-list-dd{
+    padding-left:10px;
+    padding-top: 10px;
+}
+.btn-list-dd a {
+    background: #ff6a00;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+/*处理结果*/
+.deal-result-dd {
+    padding-top: 8px;
+}
+
+    .deal-result-dd b {
+        color: #ff0000;
+    }
+
+    .deal-result-dd div {
+        padding-bottom: 10px;
+    }
+
+.transfer-voucher-div img {
+    width: 100%;
+    border: 1px solid #F7F7F7;
+    padding: 2px;
+    border-radius: 5px;
+}

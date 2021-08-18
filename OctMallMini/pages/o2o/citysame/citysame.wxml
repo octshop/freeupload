@@ -1,0 +1,134 @@
+<!--pages/o2o/citysame/citysame.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="同城优选" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!-- 轮播区域区域 -->
+	<view class='carousel'>
+		<swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8"
+			autoplay="true" interval='2000' circular='true'>
+			<block wx:for="{{loadAdvCarousel_Data.AdvCarouselList}}">
+				<swiper-item bindtap='navigateToURL' data-navigate-url='{{item.AdvLinkA}}'>
+					<image class="carouselImg" src='//{{item.ImgURL}}' mode='aspectFill'></image>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+
+
+	<!-- 图标导航区 -->
+	<view class='carousel-icon-nav'>
+		<swiper class='carousel_swiper_icon' indicator-color="#f4f4f4" indicator-active-color="#4eb8b8"
+			style="height: 155px">
+			<block>
+
+				<swiper-item>
+
+					<view class="nav-list">
+						<navigator class="nav-item"
+							url="../goodstypeshow/goodstypeshow?GTIDSe={{item.GoodsTypeID}}&GTL=Sec&GTNaSe={{item.GoodsTypeName}}"
+							wx:for="{{loadGoodsTypeSecLevel_Data.GooGoodsTypeSecLevelList}}" wx:if="{{index < 5}}">
+							<image src="//{{item.TypeIcon}}" />
+							{{item.GoodsTypeName}}
+						</navigator>
+					</view>
+
+					<view class="nav-list">
+						<navigator class="nav-item"
+							url="../goodstypeshow/goodstypeshow?GTIDSe={{item.GoodsTypeID}}&GTL=Sec&GTNaSe={{item.GoodsTypeName}}"
+							wx:for="{{loadGoodsTypeSecLevel_Data.GooGoodsTypeSecLevelList}}" wx:if="{{index >= 5 && index <10}}">
+							<image src="//{{item.TypeIcon}}" />
+							{{item.GoodsTypeName}}
+						</navigator>
+					</view>
+
+				</swiper-item>
+
+				<swiper-item>
+
+					<view class="nav-list">
+						<navigator class="nav-item"
+							url="../goodstypeshow/goodstypeshow?GTIDSe={{item.GoodsTypeID}}&GTL=Sec&GTNaSe={{item.GoodsTypeName}}"
+							wx:for="{{loadGoodsTypeSecLevel_Data.GooGoodsTypeSecLevelList}}" wx:if="{{index >= 10 && index <15}}">
+							<image src="//{{item.TypeIcon}}" />
+							{{item.GoodsTypeName}}
+						</navigator>
+					</view>
+
+					<view class="nav-list">
+						<navigator class="nav-item"
+							url="../goodstypeshow/goodstypeshow?GTIDSe={{item.GoodsTypeID}}&GTL=Sec&GTNaSe={{item.GoodsTypeName}}"
+							wx:for="{{loadGoodsTypeSecLevel_Data.GooGoodsTypeSecLevelList}}" wx:if="{{index >= 15 && index <20}}">
+							<image src="//{{item.TypeIcon}}" />
+							{{item.TypeIcon}}
+						</navigator>
+					</view>
+
+
+				</swiper-item>
+
+			</block>
+		</swiper>
+	</view>
+
+
+
+	<!--=================图片列表区广告====================-->
+
+	<block wx:for="{{loadAdvImgList_Data}}">
+
+
+		<!--打折优惠 -->
+		<view class="second-kill" wx:if="{{item.AdvImgSubList.length > 1}}">
+
+			<navigator url="{{item.AdvLinkA}}" class="second-kill-title" wx:if="{{item.AdvTitleNameIsShow == 'true'}}">
+				<view>{{item.AdvTitleName}}</view>
+				<view class="second-kill-arrow">{{item.AdvTitleNameSub}}
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right.png" mode="widthFix" />
+				</view>
+			</navigator>
+
+			<view class="second-kill-list">
+				<navigator url="{{itm.AdvLinkA}}" wx:for="{{item.AdvImgSubList}}" wx:for-index="idx" wx:for-item="itm">
+					<image src="//{{itm.ImgURL}}" mode="widthFix" />
+				</navigator>
+			</view>
+
+		</view>
+
+		<!--横条广告-->
+		<view class="gg-bar" wx:elif="{{item.AdvImgSubList.length <= 1}}">
+			<navigator url="{{itm.AdvLinkA}}" wx:for="{{item.AdvImgSubList}}" wx:for-index="idx" wx:for-item="itm">
+				<image src="//{{itm.ImgURL}}" />
+			</navigator>
+		</view>
+
+
+	</block>
+
+	<!--商品列表-->
+	<view class="goods-list">
+
+		<view class="goods-item" wx:for="{{numberPage_Page.DataPage}}">
+			<navigator url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+				<view class="goods-img">
+					<image src="//{{item.ImgPathCover}}" />
+				</view>
+				<view class="goods-name">{{item.GoodsTitle}}</view>
+				<view class="goods-price">
+					<b>￥{{item.GoodsPrice}}</b>
+					<view>{{item.SaleCount}}人付款</view>
+				</view>
+				<span class="goods-item-badge" wx:if="{{item.GroupDiscount>0}}">团购</span>
+				<span class="goods-item-badge" wx:elif="{{item.SkDiscount>0}}">秒杀</span>
+				<span class="goods-item-badge" wx:elif="{{item.Discount>0}}">{{item.Discount}}折</span>
+			</navigator>
+		</view>
+
+	</view>
+
+
+</view>

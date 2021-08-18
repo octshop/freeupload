@@ -1,0 +1,108 @@
+<!--pages/shop/cusservice/chatmain.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="某某店铺名称" back-icon="/assets/imgs/icons/navbar_back.png" home-icon="/assets/imgs/icons/navbar_shop.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--店铺名称-->
+	<view class="shop-name">
+		<view class="shop-name-left">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+		</view>
+		<view class="shop-name-mid">
+			<view>
+				店铺名称店铺名称店铺名称店铺名称
+			</view>
+			<view class="header-mid-bottom">
+				<span class="header-span-star">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png" />
+				</span>
+				<span class="header-span-val">
+					4.0分
+				</span>
+				<span>
+					粉丝数:
+				</span>
+				<span class="header-span-val">
+					5966565
+				</span>
+			</view>
+		</view>
+		<view class="shop-name-right">
+			<view class="btn-focus">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/fav.png"></image>
+				关注
+			</view>
+		</view>
+	</view>
+
+
+	<!--聊天内容-->
+	<view class="chat-content">
+
+		<!--商家的聊天内容-->
+		<view class="chat-content-item chat-shop-item">
+			<view class="chat-item-left chat-user-header">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+			</view>
+			<view class="chat-item-right chat-content-msg">
+				商家的聊天内容 商家的聊天内容 商家的聊天内容 商家的聊天内容
+			</view>
+		</view>
+
+		<view class="chat-content-item chat-shop-item">
+			<view class="chat-item-left chat-user-header">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+			</view>
+			<view class="chat-item-right chat-content-msg">
+				商家的聊天内容
+			</view>
+		</view>
+
+		<!--买家的聊天内容-->
+		<view class="chat-content-item chat-buyer-item">
+			<view class="chat-item-left chat-content-msg">
+				商家的聊天内容 商家的聊天内容 商家的聊天内容 商家的聊天内容
+			</view>
+			<view class="chat-item-right chat-user-header">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/06.jpg" />
+			</view>
+		</view>
+
+		<view class="chat-content-item chat-buyer-item">
+			<view class="chat-item-left chat-content-msg">
+				商家的聊天内容 商家的聊天内容 商家的聊天内容 商家的聊天内容
+			</view>
+			<view class="chat-item-right chat-user-header">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/06.jpg" />
+			</view>
+		</view>
+	</view>
+
+
+	<!--页脚-->
+	<view class="chat-content-footer">
+		<view class="send-form">
+			<view class="send-form-input">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/chat_tel.png" />
+				<view class="send-content-input">
+					<input type="text" placeholder="输入咨询内容" />
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/chat_face.png" />
+				</view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/chat_add.png" />
+			</view>
+			<view class="send-face-content" style="display:normal;">
+				表情区域
+			</view>
+		</view>
+	</view>
+
+
+
+
+</view>

@@ -1,0 +1,153 @@
+<!--pages/goods/freebiedetail/freebiedetail.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="赠品详情" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 子导航 -->
+<view class="nav-bar-sub" style="top:{{navbarHeight}}px">
+	<view></view>
+	<view class="{{navTabIndex==1 ? 'nav-bar-sub-current' : ''}}" data-tab="1" bindtap="chgTab">
+		赠品
+	</view>
+	<view class="{{navTabIndex==2 ? 'nav-bar-sub-current' : ''}}" data-tab="2" bindtap="chgTab">
+		详情
+	</view>
+	<view></view>
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!-- ===================商品信息======================== -->
+	<view class="oct-content-goods" style="display:{{navTabIndex==1 ? 'normal':'none'}}">
+
+		<!-- 轮播区域区域 -->
+		<view class='carousel'>
+			<swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8"
+				autoplay="true" interval='2000' circular='true'>
+				<block wx:for="{{initGooGiftMsg_Data.GooGiftImgList}}" wx:key="key">
+					<swiper-item>
+						<image class="carouselImg" src='//{{item.ImgURL}}' mode='aspectFill' bindtap='previewImg'
+							data-pre-index='{{index}}'></image>
+					</swiper-item>
+				</block>
+			</swiper>
+		</view>
+
+		<!-- 价格与标题显示区域 -->
+		<view class="title-price">
+
+			<view class="title-content">
+				<text>{{initGooGiftMsg_Data.GooGiftMsg.GiftName}}</text>
+				<view class="goods-btn-fav" bindtap="addBuyerFocusFav">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/fav.png" />
+					关注
+				</view>
+			</view>
+
+			<view class="price-content">
+				<text class="price-text">￥{{initGooGiftMsg_Data.GooGiftMsg.GiftPrice}}</text>
+				<text class="stock-text">剩余：{{initGooGiftMsg_Data.GooGiftMsg.StockNum}}</text>
+			</view>
+
+		</view>
+
+		<!-- 按钮区 -->
+		<view class="btn-bar" data-tab="2" bindtap="chgTab">
+			<view class="btn-detail">查看赠品图文详情</view>
+		</view>
+
+
+		<!--店铺信息-->
+		<view class="shop-msg">
+			<view class="shop-msg-1">
+				<view class="shop-msg-left">
+					<image src="//{{loadShopBarMsg_Data.ShopMsg.ShopHeaderImg}}" />
+				</view>
+				<view class="shop-msg-right" bindtap="navigateToURL"
+					data-navigate-url="../../../pages/shop/index/index?SID={{loadShopBarMsg_Data.ShopMsg.ShopID}}">
+					<view class="shop-right-top">
+						<view class="shop-name-msg">{{loadShopBarMsg_Data.ShopMsg.ShopName}}</view>
+						<span wx:if="{{loadShopBarMsg_Data.ShopMsg.IsSelfShop == 'true'}}" class="shop-label">自营店</span>
+						<span class="shop-label" wx:for="{{shopLabelArr}}">{{item}}</span>
+						<span class="shop-arrow">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/icon/arrows_right.png" />
+						</span>
+					</view>
+					<view class="shop-right-mid">
+						综合: <b>{{loadShopBarMsg_Data.ShopAppScoreList.ShopScoreAvg}}</b>
+						物流: <b>{{loadShopBarMsg_Data.ShopAppScoreList.ExpressScoreAvg}}</b>
+						商品: <b>{{loadShopBarMsg_Data.ShopAppScoreList.ConformityScoreAvg}}</b>
+						服务: <b>{{loadShopBarMsg_Data.ShopAppScoreList.AttitudeScoreAvg}}</b>
+						配送: <b>{{loadShopBarMsg_Data.ShopAppScoreList.DeliverymanScoreAvg}}</b>
+					</view>
+					<view class="shop-right-bottom">
+						<b>{{loadShopBarMsg_Data.ShopFavCount}}</b>人关注
+					</view>
+
+				</view>
+			</view>
+
+			<view class="shop-msg-2">
+				{{loadShopBarMsg_Data.ShopMsg.MajorGoods}}
+			</view>
+
+			<view class="shop-msg-3">
+				<view class="shop-msg-ul">
+
+					<view wx:for="{{loadShopBarMsg_Data.PreListGoodsMsg}}">
+						<navigator url="../../../pages/goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+							<image src="//{{item.CoverImgPath}}" /><br />
+							{{item.GoodsTitle}}
+						</navigator>
+					</view>
+
+					<!-- <view>
+						<navigator url="#">
+							<image src="{{apiWebDoamin}}/Assets/Imgs/02.jpg" /><br />
+							2018年冬季新款
+						</navigator>
+					</view> -->
+
+				</view>
+			</view>
+
+			<view class="shop-msg-4">
+
+				<navigator class="customer-service" bindtap="buildBuyerGoToImSysURL_ShopWap">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/customer.png" />
+					联系客服
+				</navigator>
+				<view style="width:50rpx"></view>
+				<navigator url="../../../pages/shop/index/index?SID={{loadShopBarMsg_Data.ShopMsg.ShopID}}" class="go-shop">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_small.png" />
+					进店逛逛
+				</navigator>
+
+			</view>
+		</view>
+
+
+
+
+
+
+	</view>
+
+
+
+	<!--================= 商品详情 ==================-->
+	<view class="oct-content-detail" style="display:{{navTabIndex==2 ? 'normal':'none'}}">
+		<view class='product-content'>
+			<import src="../../../wxParse/wxParse.wxml" />
+			<view class="wxParse">
+				<scroll-view style="height:2000rpx;" scroll-y='true'>
+					<template is="wxParse" data="{{wxParseData:detail_content.nodes}}" />
+				</scroll-view>
+			</view>
+		</view>
+	</view>
+
+
+
+</view>

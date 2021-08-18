@@ -1,0 +1,329 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>订单管理</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/TradingPage/OrderMan.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+    <script src="../Assets/Js/TradingPage/OrderMan.js"></script>
+
+</head>
+<body>
+
+    <!--========隐藏控件记录信息===========-->
+    <input type="hidden" id="hidOctWapWebAddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+    <input type="hidden" id="hidOrderStatus" value="@ViewBag.OrderStatus" />
+
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=交易管理">交易管理</a></li>
+            <li class="am-active">订单管理</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc" style="min-height: 600px;">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 订单管理
+            </div>
+            <div class="title-btn-div am-fl">
+                <button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="window.location.href='../TradingPage/VerifyCheckCodeOrderStatus'"><i class="am-icon-get-pocket"></i> 订单核销验证</button>
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="OrderID_se" placeholder="订单ID" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="BillNumber_se" placeholder="交易号" />
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="GoodsIDArr_se" placeholder="商品ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="OrderStatus_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>订单状态(不限)</option>
+                    <option value="待付款">待付款</option>
+                    <option value="待确认">待确认(货到付款)</option>
+                    <option value="到店付">到店付</option>
+                    <option value="转账">转账</option>
+                    <option value="待分享">待分享</option>
+                    <option value="待消费/自取">待消费/自取</option>
+                    <option value="待发货">待发货</option>
+                    <option value="待收货">待收货</option>
+                    <option value="待评价">待评价</option>
+                    <option value="完成">完成</option>
+                    <option value="取消">取消</option>
+                    <option value="拒收">买家拒收</option>
+                    <option value="退款中">
+                        退款中
+                    </option>
+                    <option value="退款成功">
+                        退款成功
+                    </option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css" style="width: 200px">
+                <input type="text" class="keyword-input am-form-field am-fl" id="OrderPrice_se" placeholder="订单总额 >=" style="width: 180px;" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="PayWay_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>支付方式(不限)</option>
+                    <option value="WeiXinPay">微信支付</option>
+                    <option value="Alipay">支付宝</option>
+                    <option value="Balance">余额支付</option>
+                    <option value="Transfer">银行转账</option>
+                    <option value="Offline">到店付</option>
+                    <option value="PayDelivery">货到付款</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="ExpressType_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>配送方式(不限)</option>
+                    <option value="express">送货上门(快递物流)</option>
+                    <option value="shop">到店消费/自取</option>
+                </select>
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="IsSettle_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>是否结算(不限)</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="IsRefund_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>是否退款(不限)</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="IsSk_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>秒杀订单(不限)</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 130px;">
+                <select id="IsGroup_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>拼团订单(不限)</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="OrderTime_se" value="@ViewBag.OrderTime" class="datetime-input am-form-field" style="background:white; width: 150px;" placeholder="订购时间" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="3%" height="22"><input type="checkbox" id="SelAllCb" name="SelAllCb" onchange="toggleSelAll()" /></td>
+                        <td width="7%">订单ID</td>
+                        <td width="13%">交易号</td>
+                        <td width="16%">商品ID</td>
+                        <td width="9%">订单状态</td>
+                        <td width="8%">订单总额</td>
+                        <td width="9%">支付方式</td>
+                        <td width="8%">配送方式</td>
+                        <td width="5%">结算</td>
+                        <td width="5%">退款</td>
+                        <td width="9%">订购时间</td>
+                        <td width="8%">操作</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>3244325435</td>
+                        <td>2020051532652656595</td>
+                        <td><a href="#" target="_blank">12334334</a>^<a href="#" target="_blank">12334334</a></td>
+                        <td>待付款</td>
+                        <td>256.32</td>
+                        <td>WeiXinPay微信支付</td>
+                        <td>express<br />送货上门</td>
+                        <td>是</td>
+                        <td>是</td>
+                        <td>2019-05-05 13:27:45</td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round" style="margin-bottom:2px">详情</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round">确认</button>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" onclick="confirmPayDeliveryMul()"><span class="am-icon-check-circle"></span> 确认货到付款</button>
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>备注与说明</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!---------------发货信息窗口---------------->
+    <div class="send-goods-win" id="SendGoodsWin" style="display:none;">
+        <div class="send-goods-main">
+            <ul class="send-goods-ul">
+                <li>
+                    <label class="am-form-label">订单ID:<font color="red">*</font></label>
+                    <a id="OrderIDA" href="#" target="_blank">34543342</a>
+                </li>
+                <li>
+                    <label class="am-form-label">
+                        发货类型:<font color="red">*</font>
+                    </label>
+                    <select id="SendTypeWin" onchange="chgSendType()">
+                        <option value="Express">快递物流</option>
+                        <option value="MySend">自己送货</option>
+                    </select>
+                </li>
+                <li id="ExpressNameLi">
+                    <label class="am-form-label">快递名称:<font color="red">*</font></label>
+                    <input type="text" id="ExpressNameWin" class="txt-css-win" />
+                </li>
+                <li id="ExpressNumberLi">
+                    <label class="am-form-label">快递单号:<font color="red">*</font></label>
+                    <input type="text" id="ExpressNumberWin" class="txt-css-win" />
+                </li>
+                <li id="SendTelNumberLi">
+                    <label class="am-form-label" id="SendTelNumberLabel">发货电话:<font color="red">*</font></label>
+                    <input type="text" id="SendTelNumberWin" value="" placeholder="店铺联系电话" class="txt-css-win" />
+                </li>
+                <li id="SendShopManLi" style="display:none;">
+                    <label class="am-form-label" id="SendShopManLabel">送货人:</label>
+                    <input type="text" id="SendShopManWin" value="" placeholder="送货人姓名" class="txt-css-win" />
+                </li>
+                <li id="SendTelNumberLi">
+                    <label class="am-form-label" id="SendTelNumberLabel">备注:</label>
+                    <input type="text" id="SendGoodsMemoWin" value="" placeholder="" class="txt-css-win" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!---------------核销验证窗口---------------->
+    <div class="check-order-win" id="CheckOrderWin" style="display:none;">
+        <div class="check-order-main">
+            <ul class="check-order-ul">
+                <li>
+                    <label class="am-form-label">订单ID:<font color="red">*</font></label>
+                    <a id="OrderIDA" href="#" target="_blank">34543342</a>
+                </li>
+                <li>
+                    <label class="am-form-label">
+                        发货类型:<font color="red">*</font>
+                    </label>
+                    <select id="CheckTypeWin" onchange="">
+                        <option value="ShopCheck">到店消费/自取验证</option>
+                    </select>
+                </li>
+                <li>
+                    <label class="am-form-label">验证码:<font color="red">*</font></label>
+                    <input type="number" id="CheckCodeWin" placeholder="在买家订单详情中查看" class="txt-css-win" />
+                </li>
+                <li style="height:5px;"></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!---------------订单价格修改窗口---------------->
+    <div class="edit-price-win" id="EditPriceWin" style="display:none;">
+        <div class="edit-price-main">
+            <ul class="edit-price-ul">
+                <li>
+                    <label class="am-form-label">订单ID:<font color="red">*</font></label>
+                    <a id="OrderIDA" href="#" target="_blank">34543342</a>
+                </li>
+                <li class="edit-price-li">
+                    <label class="am-form-label">
+                        订单价格:<font color="red">*</font>
+                    </label>
+                    <input type="number" id="OrderPriceWin" class="txt-css-win" placeholder="请输入订单价格" value="0.00" />元
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,482 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>买家中心</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/Index.css?v=13" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/WeiXin_JSSDK/jweixin-1.6.0.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Buyer/Index.js?v=21"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <!--是否在微信中-->
+    <input type="hidden" id="hidIsInWeiXinBrowse" value="@ViewBag.IsInWeiXinBrowse" />
+    <!--商家管理平台域名-->
+    <input type="hidden" id="hidOctShopSystemWeb_AddrDomain" value="@ViewBag.OctShopSystemWeb_AddrDomain" />
+
+    
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--顶部Logo-->
+        <div class="logo-main">
+            <div class="logo-main-left">
+                <div class="user-header">
+                    <a href="../Vip/Index"><img id="HeaderImg" src="../Assets/Imgs/Icon/header_default.png" /></a>
+                </div>
+                <div class="user-msg">
+                    <div class="user-msg-title" id="UserNickVipLevelName">xxx <span>注册</span></div>
+                    <div class="user-msg-userid" id="UserIDDiv">UID:</div>
+                    <div class="user-mobile-div user-msg-userid" id="UserAccountDiv" style="display:none;">UAC:13203156008</div>
+                </div>
+            </div>
+            <div class="logo-main-right">
+                <div class="tool-bar">
+                    <img src="../Assets/Imgs/Icon/buyer_setting.png" onclick="window.location.href='../Buyer/Setting'" />
+                    <img src="../Assets/Imgs/Icon/scan_buyer.png" id="BtnOpenScan" style="width: 28px; height: 28px;" />
+                </div>
+                <div class="user-balance" onclick="window.location.href='../Vip/Index'">
+                    <div class="user-level">
+                        <img src="../Assets/Imgs/Icon/buyer_level.png" />
+                    </div>
+                    <div class="user-value">
+                        <div>余额：<b id="CurBalanceB">&#165;0.00</b></div>
+                        <div>积分：<b id="CurIntegralB">0</b></div>
+                    </div>
+                </div>
+                @*<div class="user-mobile-div" id="BindMobileDiv">MOBILE:13203156008</div>*@
+            </div>
+        </div>
+
+        <!--主订单导航-->
+        <div class="nav-main">
+            <ul class="nav-main-ul">
+                <li>
+                    <a href="../Buyer/MyOrder?OS=待付款">
+                        <img src="../Assets/Imgs/Icon/buyer_nopay.png" class="ico-nopay" />
+                        待付款
+                    </a>
+                    <div id="WaitPayOrder" style="display:none;">8</div>
+                </li>
+                <li>
+                    <a href="../Buyer/MyOrder?OS=待发货">
+                        <img src="../Assets/Imgs/Icon/buyer_nosend.png" class="ico-nosend" />
+                        待发货
+                    </a>
+                    <div id="WaitSendOrder" style="display:none;">10</div>
+                </li>
+                <li>
+                    <a href="../Buyer/MyOrder?OS=待收货">
+                        <img src="../Assets/Imgs/Icon/buyer_norecei.png" class="ico-norecei" />
+                        待收货
+                    </a>
+                    <div id="WaitReceiOrder" style="display:none;">...</div>
+                </li>
+                <li>
+                    <a href="../Buyer/AppraiseCenter">
+                        <img src="../Assets/Imgs/Icon/buyer_noappraise.png" class="ico-noappraise" />
+                        待评价
+                    </a>
+                    <div id="WaitAppraiseOrder" style="display:none;">10</div>
+                </li>
+                <li class="nav-main-myorder">
+                    <a href="../Buyer/MyOrder">
+                        <img src="../Assets/Imgs/Icon/buyer_myorder.png" class="ico-myorder" />
+                        我的订单
+                    </a>
+                    <div style="display:none;">...</div>
+                </li>
+            </ul>
+        </div>
+
+
+        <!--次订单导航-->
+        @*<div class="nav-main nav-sub">
+            <ul class="nav-main-ul">
+
+                <li>
+                    <a href="../Buyer/MyOrderGroup">
+                        <img src="../Assets/Imgs/Icon/buyer_group.png" class="ico-group" />
+                        拼团订单
+                    </a>
+                    <div id="GroupOrder" style="display:none;">8</div>
+                </li>
+                <li>
+                    <a href="../Buyer/MyPresentOrder">
+                        <img src="../Assets/Imgs/Icon/buyer_gift.png" class="ico-gift" />
+                        礼品订单
+                    </a>
+                    <div id="PresentOrder" style="display:none;">10</div>
+                </li>
+                <li>
+                    <a href="../Buyer/LuckyDrawMsg">
+                        <img src="../Assets/Imgs/Icon/buyer_drawlucky.png" class="ico-drawlucky" />
+                        抽奖信息
+                    </a>
+                    <div id="LuckyDrawCount" style="display:none;">...</div>
+                </li>
+                <li>
+                    <a href="../Buyer/ActivityList">
+                        <img src="../Assets/Imgs/Icon/buyer_activity.png" class="ico-activity" />
+                        参与活动
+                    </a>
+                    <div id="ActivityCount" style="display:none;">10</div>
+                </li>
+                <li>
+                    <a href="../AfterSale/BuyerAsIndex">
+                        <img src="../Assets/Imgs/Icon/buyer_aftersale.png" class="ico-aftersale" />
+                        退换售后
+                    </a>
+                    <div id="AfterSaleCount" style="display:none;">10</div>
+                </li>
+            </ul>
+        </div>*@
+
+
+
+        <!--导航3-->
+        <div class="nav-third">
+            <div class="nav-third-left">
+                <a href="../Buyer/ShopExpenseTake">
+                    到店消费/自取
+                    <span class="nav-third-badge" id="ExpenseTakeOrder" style="display:none;">
+                        0
+                    </span>
+                </a>
+
+            </div>
+            <div class="nav-third-right">
+                <a href="../Buyer/PayDeliveryOrder" class="nav-third-delivery">
+                    货到付款订单
+
+                    <span class="nav-third-badge" id="PayDeliveryOrder" style="display:none;">
+                        0
+                    </span>
+
+                </a>
+            </div>
+        </div>
+
+        <!--导航3-->
+        <div class="nav-third">
+            <div class="nav-third-left buyer-scanpay">
+                <a href="../Vip/AggreOrder">
+                    扫码支付订单
+                    <span class="nav-third-badge" id="" style="display:none;">
+                        0
+                    </span>
+                </a>
+
+            </div>
+            <div class="nav-third-left buyer-fh">
+                <a href="../Vip/BalanceIntegral">
+                    返现分润分红
+                    <span class="nav-third-badge" id="" style="display:none;">
+                        0
+                    </span>
+                </a>
+
+            </div>
+        </div>
+
+
+        <!--最新订单动态
+        <div class="order-status" onclick="window.location.href='../Order/ExpressDetail'">
+            <div class="order-status-1">
+                最新物流<br />
+                08:48
+            </div>
+            <div class="order-status-2">
+                <img src="../Assets/Imgs/02.jpg" />
+            </div>
+            <div class="order-status-3">
+                <div><b>派送中</b></div>
+                <div>
+                    [长沙市]湖南省长沙县老百姓分部派件员：长呆优源控股
+                </div>
+            </div>
+        </div>-->
+        <!--导航4-->
+        <div class="nav-four">
+            <a href="../Buyer/CouponsMy" class="nav-four-item">
+                <img src="../Assets/Imgs/Icon/buyer_ticket.png" class="ico-ticket" />
+                优惠券
+                <span class="nav-four-badge" id="CouponsCount" style="display:none;">10</span>
+            </a>
+            <a href="../Buyer/AttenFav" class="nav-four-item">
+                <img src="../Assets/Imgs/Icon/buyer_fav.png" class="ico-fav" />
+                关注收藏
+            </a>
+            <a href="../Buyer/History" class="nav-four-item">
+                <img src="../Assets/Imgs/Icon/buyer_history.png" class="ico-history" />
+                浏览足迹
+            </a>
+            <a href="#" class="nav-four-item">
+                <img src="../Assets/Imgs/Icon/buyer_complain.png" class="ico-complain" />
+                我的投诉
+                <span class="nav-four-badge" id="ComplainCount" style="display:none;">10</span>
+            </a>
+        </div>
+
+        <!--导航5-->
+        <div class="nav-five">
+
+            <a href="../Buyer/ReceiAddrList" class="nav-five-item">
+                <div class="nav-five-receiaddr">
+                    收货地址
+                </div>
+                <div class="nav-five-right">
+                    快递配送或上门服务地址
+                </div>
+            </a>
+            @*<a href="../Buyer/MyPromoteQRCode" class="nav-five-item">
+                <div class="nav-five-scan">
+                    我的分享码
+                </div>
+                <div class="nav-five-right">
+                    推荐分享二维码
+                </div>
+            </a>
+            <a href="../Buyer/MyPromoteUser" class="nav-five-item">
+                <div class="nav-five-user">
+                    分享的好友
+                </div>
+                <div class="nav-five-right">
+                    我的分享好友
+                </div>
+            </a>*@
+
+            <a href="../Buyer/OfficialService" class="nav-five-item">
+                <div class="nav-five-service">
+                    官方客服
+                </div>
+                <div class="nav-five-right">
+                    平台官方联系方式
+                </div>
+            </a>
+
+            <a href="../Buyer/Setting" class="nav-five-item nav-five-item-bottom">
+                <div class="nav-five-setting">
+                    设置
+                </div>
+                <div class="nav-five-right">
+                    密码,支付,登录
+                </div>
+            </a>
+
+            <a href="../Buyer/Setting" class="nav-five-item nav-five-item-bottom" id="ShopCenterGoA" style="display:none;">
+                <div class="nav-five-shop">
+                    商家中心
+                </div>
+                <div class="nav-five-right">
+                    商家订单,结算,客服
+                </div>
+            </a>
+
+
+        </div>
+
+        <div class="recommend-goods-ico">
+            <img src="../Assets/Imgs/Icon/buyer_recommendgoods.png" />
+            为您推荐
+        </div>
+
+        <!--产品列表-->
+        <div class="goods-list">
+
+            <ul class="goods-ul" id="PageContentList">
+
+                @*<li class="goods-item">
+                <a href="#">
+                    <img src="../Assets/Imgs/pro_01.png" />
+                </a>
+                <div class="goods-item-title">
+                    商品名称商品名称商品名称商品名称
+                </div>
+                <div class="goods-item-price">
+                    <div class="goods-price-left">
+                        <b>&#165; 23.32</b>
+                    </div>
+                    <div class="goods-price-right">
+                        28324人付款
+                    </div>
+                </div>
+            </li>*@
+
+            </ul>
+            <div class="btn-more-goods" id="BtnMoreGoods" style="display:normal;" onclick="nextPage()">
+                … 加载更多 …
+            </div>
+
+
+            @Html.Raw(ViewBag.TechSupport)
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <a href="../Mall/Index">
+            <img src="../Assets/Imgs/Icon/navhome.png" />
+            首页
+        </a>
+        <a href="../Mall/GoodsType">
+            <img src="../Assets/Imgs/Icon/navtype.png" />
+            分类
+        </a>
+        <a href="../Buyer/BuyerMsg">
+            <img src="../Assets/Imgs/Icon/navmsg.png" />
+            消息
+            <div class="badge-div" id="BuyerMsgNavBottom" style="display:none;">..</div>
+        </a>
+        <a href="../Scart/Index">
+            <img src="../Assets/Imgs/Icon/navscart.png" />
+            购物车
+            <div class="badge-div" id="SCartNavBottom" style="display:none;">..</div>
+        </a>
+        <a href="../Buyer/Index" class="nav-current">
+            <img src="../Assets/Imgs/Icon/navmy_red.png" />
+            我的
+            <div class="badge-div" id="MyNavBottom" style="display:none;">..</div>
+        </a>
+
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        //判断是否在微信中
+        var IsInWeiXinBrowse = $("#hidIsInWeiXinBrowse").val().trim();
+        var IsBuyerUserID = $("#hidBuyerUserID").val().trim();
+
+
+        if (IsInWeiXinBrowse == "true" && IsBuyerUserID != "" && IsBuyerUserID != "0") {
+
+
+        wx.config(@Html.Raw(ViewBag.mJsSkdConfig));
+
+        //-------------接口处理--------------//
+        wx.ready(function () {
+
+            //alert("微信JS-SDK Is Ready!");
+
+            //获取用户地理坐标
+            wx.getLocation({
+                type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                success: function (res) {
+
+                    _latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                    _longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+                    _speed = res.speed; // 速度，以米/每秒计
+                    _accuracy = res.accuracy; // 位置精度
+                    console.log("纬度_latitude=" + _latitude + " | 经度_longitude=" + _longitude);
+
+                    //---保存当前用户的位置信息----//
+                    updateUserLongitudeLatitude(_longitude, _latitude);
+
+                    //将用户当前定位到的坐标保存到Cookie中，无需注册
+                    saveCookieLongitudeLatitude(_longitude, _latitude, function () {
+
+                    });
+
+                }
+            });
+
+
+            //-----微信扫一扫-----//
+            $("#BtnOpenScan").click(function () {
+                wx.scanQRCode({
+                    needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+                    scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+                    success: function (res) {
+                        var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+                        //$("#qrCodeContent").text(result);
+                        window.location.href = result;
+                    }
+                });
+            });
+
+        });
+
+        //--------错误处理----------//
+        wx.error(function (res) {
+
+            alert("接口验证失败，详细信息：\n" + JSON.stringify(res));
+
+        });
+
+
+        }
+
+
+        /**
+             * 保存用户最新的位置信息
+             * pLongitude 用户当前经度 (以腾讯地图坐标系为准)
+             * pLatitude 用户当前纬度 (以腾讯地图坐标系为准)
+             */
+        function updateUserLongitudeLatitude(pLongitude, pLatitude) {
+
+            //构造POST参数
+            var dataPOST = {
+                "Type": "4", "Longitude": pLongitude, "Latitude": pLatitude,
+            };
+            console.log(dataPOST);
+            //正式发送异步请求
+            $.ajax({
+                type: "POST",
+                url: "../BuyerAjax/Index?rnd=" + Math.random(),
+                data: dataPOST,
+                dataType: "html",
+                success: function (reTxt, status, xhr) {
+                    console.log("保存用户最新的位置信息=" + reTxt);
+                    if (reTxt != "") {
+                        var _jsonReTxt = JSON.parse(reTxt);
+                        if (_jsonReTxt.Msg != "" && _jsonReTxt.Msg != null && _jsonReTxt.Msg != undefined) {
+
+
+                        }
+                    }
+                }
+            });
+
+        }
+
+
+    </script>
+
+
+
+
+</body>
+</html>

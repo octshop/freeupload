@@ -1,0 +1,454 @@
+/* pages/buyer/scart/scart.wxss */
+.oct-content {
+  padding-bottom: 180rpx;
+}
+
+/*购物车商品列表*/
+.scart-item {
+  background: white;
+  margin: 6px;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 24rpx;
+}
+
+.scart-item-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.scart-item-left {
+  padding-right: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.shop-image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+  margin-left: 8rpx;
+  margin-bottom: -3rpx;
+}
+
+.scart-sel-img {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.scart-item-left navigator {
+  margin-top: -4rpx;
+}
+
+.scart-item-mid {
+  text-align: left;
+  background: url(../../Imgs/Icon/shop.png) left center no-repeat;
+  background-size: 17px;
+  padding-left: 25px;
+  display: flex;
+
+  align-items: center;
+}
+
+
+.scart-item-mid navigator {
+  display: inline-block;
+  background: url(../../Imgs/Icon/arrows_right_black.png) right 5px no-repeat;
+  background-size: 13px;
+  padding-right: 18px;
+  font-size: 15px;
+}
+
+.scart-item-right {
+  width: 60px;
+  text-align: right;
+  cursor: pointer;
+}
+
+/*商品列表*/
+.scart-item-goods {
+  display: flex;
+  align-items: center;
+  background: #FCFCFC;
+  padding: 5px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.item-goods-mid {
+  padding-left: 10px;
+  padding-right: 6px;
+}
+
+.item-goods-mid image {
+  width: 80px;
+  height: 75px;
+  border-radius: 6px;
+  border: 1px solid #fafafa;
+}
+
+.item-goods-right {
+  font-size: 12px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.item-goods-right view {
+  width: 100%;
+}
+
+.goods-right-spec {
+  color: #9d9d9d;
+}
+
+.goods-right-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%
+}
+
+.goods-price {
+  font-weight: bold;
+  color: #FE6600;
+  font-size: 14px;
+  width: 100%;
+  text-align: left;
+}
+
+
+
+.goods-txt-number {
+  border: 1px solid #D7D7D7;
+  padding: 0px;
+  font-weight: bold;
+  border-radius: 5px;
+  background: #ffffff;
+  overflow: hidden;
+  width: 170px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.input-order-number {
+  width: 340rpx;
+  border: none;
+  padding: 0px;
+  text-align: center;
+  color: #FC5109;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.btn-add,
+.btn-reduce {
+  border: none;
+  background: none;
+  font-size: 12px;
+  height: 25px;
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-reduce {
+  border-right: 1px solid #D7D7D7;
+}
+
+.btn-add {
+  border-left: 1px solid #D7D7D7;
+}
+
+.item-goods-right view,
+.item-goods-right view view {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+/*子页脚*/
+.oct-footer-sub {
+  clear: both;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  margin-bottom: -2px;
+  border-bottom: 1px solid #fbfbfb;
+  z-index: 1000;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.oct-footer-sub view {
+  padding: 4px 6px;
+}
+
+.oct-footer-sub-1 {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 130px;
+  overflow: hidden;
+  font-size: 30rpx;
+}
+
+.oct-footer-sub-1 image {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+}
+
+.oct-footer-sub-2 {
+  text-align: left;
+  width: 115px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-del {
+  border: 1px solid #C9C9C9;
+  background: no-repeat;
+  font-size: 12px;
+  border-radius: 10px;
+  color: #808080;
+  text-align: center;
+  padding: 0;
+}
+
+.oct-footer-sub-3 {
+  width: 100%;
+  text-align: right;
+  font-size: 14px;
+}
+
+.oct-footer-sub-3 b {
+  color: #FE6600;
+  padding-right: 0px;
+}
+
+.btn-settle {
+  border: none;
+  background: #FE6600;
+  color: white;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 5px 30px;
+  width: 120rpx;
+  text-align: center;
+}
+
+
+/* ==============底部滑出的自定义窗口 ====================== */
+/* ------遮罩层------- */
+.slide-cover {
+  position: fixed;
+  width: 100%;
+  height: 600px;
+  top: 0;
+  left: 0;
+  z-index: 6000;
+  background: black;
+  filter: alpha(opacity=30);
+  /* IE */
+  -moz-opacity: 0.3;
+  /* 老版Mozilla */
+  -khtml-opacity: 0.3;
+  /* 老版Safari */
+  opacity: 0.3;
+  /* 支持opacity的浏览器*/
+}
+
+/* -----底部栏内容----- */
+.slide-bottom {
+  /* width: 300px;   
+  height: 300px; */
+  position: fixed;
+  left: 0px;
+  bottom: 0;
+  z-index: 6001;
+  overflow: hidden;
+  font-size: 28rpx;
+  /* -----动画----- */
+  -webkit-animation: mymove 0.3s;
+  /* Chrome, Safari, Opera */
+  animation: mymove 0.3s;
+}
+
+/*  --动画- Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+  from {
+    bottom: -600px;
+  }
+
+  /*窗口的高度*/
+  to {
+    bottom: 0px;
+  }
+}
+
+/*  --动画- Standard syntax */
+@keyframes mymove {
+  from {
+    bottom: -600px;
+  }
+
+  /*窗口的高度*/
+  to {
+    bottom: 0px;
+  }
+}
+
+/* -------底部栏主体内容------ */
+
+
+/* 可用优惠券领取窗口 */
+/*领取优惠券窗口*/
+.win-ticket-content {
+  padding: 10px 5px;
+  clear: both;
+  overflow: hidden;
+  height: 1%;
+}
+
+.win-ticket-title {
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+}
+
+.win-ticket-title .am-close {
+  position: absolute;
+  top: -2px;
+  right: 2px;
+}
+
+.win-ticket-integral {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  color: #9b9b9b;
+}
+
+/*优惠券列表*/
+.win-ticket-list {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.win-ticket-item {
+  background: #FFF3E5;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 10px;
+  align-items: center;
+  color: #E85D00;
+
+}
+
+.win-ticket-item-gray {
+  color: #6F6F6F;
+  background: #D3D3D3;
+}
+
+.win-ticket-item-left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-right: 1px dashed #C1B1A4;
+  text-align: left;
+
+}
+
+.win-ticket-item-lef view {
+  padding: 0;
+  margin: 0;
+}
+
+.win-ticket-item-left view {
+  padding-left: 5px;
+}
+
+.win-ticket-item-left view b {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.win-ticket-item-right {
+  font-size: 16px;
+  width: 90px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  overflow: hidden;
+  padding-left: 8px;
+}
+
+.coupons-usetime-win {
+  font-size: 10px;
+}
+
+
+/*购物车为空*/
+.scart-empty-div {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 150px;
+}
+
+.scart-empty-div image {
+  width: 60px;
+  height: 60px;
+}
+
+.scart-empty-div view {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 20px 0;
+}
+
+.scart-empty-div navigator {
+  color: #FE6600;
+  font-size: 14px;
+  padding: 10px;
+}
+
+/* 到店徽章 */
+.badge-express {
+  background: red;
+  color: white;
+  border-radius: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size:12px;
+  margin-left: 2px;
+}

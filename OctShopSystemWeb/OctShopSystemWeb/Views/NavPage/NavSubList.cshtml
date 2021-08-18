@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <meta name="viewport" content="width=device-width" initial-scale="1" />
+    <title>功能子列表导航</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/NavPage/NavSubList.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="main-content">
+
+
+
+        <div class="name-title">
+
+            <a href="../NavPage/Index" class="name-title-a"><i class="@ViewBag.IconName" style="font-size: 22px;"></i>@ViewBag.MainTitle</a>
+
+            <div class="nav-list">
+
+                @Html.Raw(ViewBag.SubItemNavList)
+
+                @*<div class="nav-item">
+                        <a href="#">系统首页</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#">数据统计</a>
+                    </div>*@
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+</body>
+</html>

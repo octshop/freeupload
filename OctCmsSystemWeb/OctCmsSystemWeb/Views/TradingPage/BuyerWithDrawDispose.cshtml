@@ -1,0 +1,153 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>买家余额提现处理</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/TradingPage/BuyerWithDrawDispose.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/TradingPage/BuyerWithDrawDispose.js"></script>
+
+</head>
+<body>
+
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidWithDrawID" value="@ViewBag.WDID " />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=财务结算">财务结算</a></li>
+            <li class="am-active">买家余额提现处理</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 买家余额提现处理
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding">
+            <div class="order-status">
+                <div class="order-status-title">
+                    <val id="StatusTtitle">提现处理中</val>
+                </div>
+                <div class="order-status-desc">
+                    <val id="StatusDesc">请相关处理人员，尽快对账处理。</val>
+                </div>
+            </div>
+            <dl class="order-basic">
+                <dt>基本信息</dt>
+                <dd>
+                    <b style="font-size:18px; padding-right: 10px; color:red;"><span>提现金额：</span><b id="WithDrawAmtB">&#165;0.00</b></b>
+                    <b style="font-size:18px; padding-right: 10px; color:red;"><span>提现到：</span><b id="ToTypeB"></b></b>
+                </dd>
+                <dd>
+                    <span>提现ID：</span><val id="WithDrawID"></val>
+                    <span>业务流水号：</span><val id="SerialNumber">
+                       
+                    </val>
+                    <span>提现状态：</span><val id="WithDrawStatus">
+                       
+                    </val>
+                    <span>真实姓名(账户名)：</span><val id="TrueName">
+                        
+                    </val>
+                </dd>
+                <dd>
+                    <span>联系电话：</span><val id="LinkMobile"></val>
+                    <span>微信号：</span><val id="WeChatAccount"></val>
+                    <span>支付宝账号：</span><val id="AlipayAccount"></val>
+                </dd>
+                <dd>
+                    <span>银行卡号：</span><val id="BankCardNumber"></val>
+                    <span>银行户名：</span><val id="BankAccName"></val>
+                    <span>开户行：</span><val id="OpeningBank"></val>
+                </dd>
+                <dd>
+                    <span>微信OPENID：</span><val id="WxOpenID"></val>
+                    <span>微信UnionID：</span><val id="WxUnionID"></val>
+                </dd>
+                <dd>
+                    <span>提现时间：</span><val id="WriteDate"></val>
+                    <span>完成时间：</span><val id="FinishDate"></val>
+                </dd>
+            </dl>
+
+            <!--处理列表-->
+            <dl class="order-basic dispose-form">
+                <dt>处理操作</dt>
+                <dd>
+                    <textarea class="txtarea-withdraw-memo txt-css" id="WithDrawMemoTxtArea" placeholder="提现处理备注"></textarea>
+                </dd>
+                <dd class="btn-submit-dd" id="BtnSubmitDD" style="display:none;">
+
+                    <input type="button" id="BtnCompanyWxPay" style="display:none;" value="企业付款到微信钱包" class="am-btn am-btn-success am-btn-sm am-margin-right-lg am-radius" onclick="sendWxCompanyPay()" />
+
+                    <input type="button" id="BtnCompanyAliPay" style="display:none;" value="转账到支付宝账户" class="am-btn am-btn-success am-btn-sm am-margin-right-lg am-radius" onclick="sendAlipayCompanyTransPerson()" />
+
+                    <input type="button" id="BtnCompanyPayedPerson" value="已提现到个人" class="am-btn am-btn-danger am-btn-sm am-margin-right-lg am-radius" onclick="finishBuyerWithDraw()" />
+                </dd>
+            </dl>
+
+
+            <dl class="order-basic">
+                <dt>买家信息</dt>
+                <dd class="user-nick-dd">
+                    <span>买家UserID：</span><val id="BuyerUserID"></val>
+                    <span>买家昵称：</span><val id="UserNick" class="user-nick-val">
+                        @*<img src="../Assets/Imgs/header_1.jpg" /> 买家昵称*@
+                    </val>
+                    <span>绑定手机：</span><val id="BindMobile">
+                        
+                    </val>
+                </dd>
+                <dd>
+                    <span>信用评分：</span><val id="CreditScore"></val>
+                    <span>会员等级：</span><val id="VipLevel"></val>
+                </dd>
+
+            </dl>
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+</body>
+</html>

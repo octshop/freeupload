@@ -1,0 +1,249 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>推荐商品商家</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/AdvertiserPage/RcdGoodsShop.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.ui.widget.js"></script>
+    <script src="../Assets/Lib/JqueryFileUpload/jquery.fileupload.js"></script>
+
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/RegionCodeName.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+    <script src="../Assets/Js/AdvertiserPage/RcdGoodsShop.js"></script>
+
+</head>
+<body>
+
+    <!--========隐藏控件记录信息===========-->
+    <input type="hidden" id="hidOctWapWeb_AddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=广告系统">广告系统</a></li>
+            <li class="am-active">推荐商品商家</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 推荐商品商家
+            </div>
+            <div class="title-btn-div am-fl">
+                <button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加推荐</button>
+
+                <button class="title-btn am-btn am-btn-xs am-btn-success am-round" onclick="window.open('@ViewBag.OctWapWeb_AddrDomain/Mall/PagePreMobileIframe?LoadPreURL=@ViewBag.OctWapWeb_AddrDomain/Mall/Index')" style="margin-left: 10px;"><i class="am-icon-internet-explorer"></i> 浏览效果</button>
+
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="RcdGoodsShopID_se" placeholder="推荐ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="AdvType_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>广告类型</option>
+                    <option value="AdvB2c">线上B2C</option>
+                    <option value="AdvO2o">线下O2O</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <select id="RcdType_se" data-am-selected="{btnWidth:'130',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>推荐类别</option>
+                    <option value="Goods">商品</option>
+                    <option value="Shop">店铺</option>
+                </select>
+            </div>
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 120px;">
+                <select id="IsLock_se" data-am-selected="{btnWidth:'110',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>显示</option>
+                    <option value="true">显示中</option>
+                    <option value="false">隐藏中</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="GoodsID_se" placeholder="商品ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ShopID_se" placeholder="店铺ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ShopUserID_se" placeholder="商家UserID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="RcdMemo_se" placeholder="推荐备注" />
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 160px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" style="background:white;width: 130px;" class="datetime-input am-form-field" placeholder="添加日期" data-am-datepicker="{theme: 'success',}" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group region-select-div" style="width: 350px;">
+                <select id="region_province"></select>
+                <select id="region_city"></select>
+                <select id="region_county" style="visibility:hidden"></select>
+            </div>
+
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="4%"><input type="checkbox" id="SelAllCb" name="SelAllCb" onchange="toggleSelAll()" /></td>
+                        <td width="8%">推荐ID</td>
+                        <td width="14%">实体店<i style="color: #939393;display:block">区域</i></td>
+                        <td width="8%">推荐类别</td>
+                        <td width="12%">商品ID</td>
+                        <td width="12%">店铺ID</td>
+                        <td width="8%">显示</td>
+                        <td width="14%">推荐备注</td>
+                        <td width="10%">添加日期</td>
+                        <td width="10%">操作</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>234332</td>
+                        <td>实体店 <i style="color: #939393;display: block">湖南省_长沙市_长沙县</i></td>
+                        <td>
+                            店铺
+                        </td>
+                        <td><a href="#" target="_blank">1234(商品名称)</a></td>
+                        <td>
+                            <a href="#" target="_blank">1234(店铺名称)</a>
+                        </td>
+                        <td>显示</td>
+                        <td>备注备注</td>
+                        <td>2019-05-05 13:27:45</td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round">隐藏</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-success am-round">置顶</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-danger am-round">修改</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" onclick="delRcdGoodsShopArr()"><span class="am-icon-trash-o"></span> 批量删除</button>
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>备注与说明</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--添加与编辑窗口主体内容-->
+    <div class="add-edit-win" id="AddEditWin" style="display:none;">
+        <div class="add-edit-main">
+            <ul class="add-edit-ul">
+                <li>
+                    <span>推荐类别</span>
+                    <select id="RcdTypeWin" style="padding: 8px;">
+                        <option value="Goods">商品</option>
+                        <option value="Shop">店铺</option>
+                    </select>
+                    <span>广告类型</span>
+                    <select id="AdvTypeWin" style="padding: 8px;">
+                        <option value="AdvO2o">线下O2O</option>
+                        <option value="AdvB2c">线上B2C</option>
+                    </select>
+                </li>
+                <li>
+                    <span>城市区域</span>
+                    <select id="2region_province"></select>
+                    <select id="2region_city"></select>
+                    <select id="2region_county" style="visibility:hidden"></select>
+                </li>
+                <li>
+                    <span>商品ID</span>
+                    <input type="number" id="GoodsIDWin" class="txt-css" style="width: 300px;" placeholder="准确输入商品ID" />
+                </li>
+                <li>
+                    <span>店铺ID</span>
+                    <input type="number" id="ShopIDWin" class="txt-css" style="width: 300px;" placeholder="准确输入店铺ID" />
+                </li>
+                <li>
+                    <span>推荐备注</span>
+                    <input type="text" id="RcdMemoWin" class="txt-css c-memo" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+</html>

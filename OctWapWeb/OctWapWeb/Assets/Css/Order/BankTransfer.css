@@ -1,0 +1,103 @@
+﻿/*===================银行转账============================*/
+
+html, body {
+    background: white;
+}
+
+.oct-content {
+    margin: 0;
+    padding: 0;
+    padding-top: 40px;
+    background: white;
+    padding-bottom: 80px;
+}
+/*Logo区*/
+.logo-img img {
+    width: 100%;
+}
+
+/*平台官方汇款账号信息*/
+.shop-transfer{
+    padding: 15px 20px;
+    padding-top: 0;
+}
+.shop-transfer-title {
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid #CCCCCC;
+    padding-bottom: 5px;
+}
+ul li {
+    padding:10px 0;
+    border-bottom: 1px dashed #efefef;
+    font-size: 12px;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    color: #000000
+}
+.shop-transfer ul li .span-field {
+    width: 120px;
+}
+.span-field {
+    color: #808080;
+}
+.span-money{
+    color: #ff6a00;
+    font-weight:bold;
+}
+.btn-other-transfer{
+    border: 1px solid #CCCCCC;
+    color:black;
+    background:none;
+    padding: 5px 20px;
+    font-size: 12px;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+/*买家汇款确认信息*/
+.buyer-transfer ul li {
+    border-bottom: 1px solid #efefef;
+    display:flex;
+    justify-content:space-between;
+}
+    .buyer-transfer ul li span{
+        width: 250px;
+    }
+    .buyer-transfer ul li input {
+        width: 100%;
+        border: none;
+        text-align:right;
+    }
+.upload-camera{
+    width:30px;
+    height: 30px;
+    margin-left: 10px;
+}
+.buyer-transfer ul .bank-list-li {
+    text-align: center;
+}
+.bank-list-li img {
+    width: 100%;
+    margin: 0 auto;
+}
+.li-memo a{
+    color: #0078d1;
+}
+/*页脚*/
+.oct-footer {
+    padding: 8px;
+    text-align: center;
+    border-top: 1px solid #ededed;
+}
+.btn-submit-transfer {
+    border: none;
+    background: #ff6a00;
+    color: white;
+    font-size: 14px;
+    border-radius: 20px;
+    padding:8px 10px;
+    width: 80%;
+    margin: 0 auto;
+}

@@ -1,0 +1,90 @@
+﻿/*===================结算申请处理======================*/
+
+/*订单状态显示*/
+.order-status {
+    background: #DE7400;
+    border: 1px solid #e1e1e1;
+    padding: 8px;
+    color: white;
+    border-radius: 8px;
+}
+
+.order-status-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.order-status-desc {
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+}
+
+.order-status-dynamic {
+    font-size: 12px;
+    color: #eeeeee;
+}
+/*基本信息*/
+.order-basic dd {
+    padding: 8px 5px;
+    color: #f35402;
+}
+
+    .order-basic dd span {
+        padding-left: 10px;
+        color: #000000;
+    }
+
+.order-goods-list {
+    background: #fcfcfc;
+    border: 1px solid #e1e1e1;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+    .order-goods-list div {
+        padding: 5px 0;
+    }
+
+.transfer-voucher-img {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+    .transfer-voucher-img img {
+        width: 500px;
+        margin-left: 10px;
+    }
+
+
+
+/*提交处理结果*/
+.dispose-form span{
+    display:inline-block;
+    width: 120px;
+}
+.txt-css{
+    width: 500px;
+}
+.dispose-form .upload-shop-li {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+}
+.dispose-form .img-pre-li {
+    padding-left: 120px;
+}
+.dispose-form .img-pre-li img{
+    width: 500px;
+    overflow:hidden;
+}
+.dispose-form .btn-submit-dd {
+    padding-left: 120px;
+    padding-top: 20px;
+}
+.dispose-form .btn-submit-dd input{
+    width: 300px;
+    border-radius: 10px;
+}

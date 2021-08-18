@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>测试</title>
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/RegionCodeName.js"></script>
+
+</head>
+<body>
+    <div id="ContentDiv">
+
+        <span>所在地区：</span>
+        <select id="region_province" name="region_province" onchange="onProvinceChange(this)">
+            <!--
+        <option value="">请选择...</option>-->
+        </select>
+        <select id="region_city" name="region_city" onchange="onCityChange(this)">
+            <!--
+        <option value="">请选择...</option>-->
+        </select>
+        <select id="region_county" name="region_county">
+            <!--
+        <option value="">请选择...</option>-->
+        </select>
+        <script type="text/javascript">
+            //初始化下拉表值，加载省份
+            //initSelect2ProvinceValue();
+
+                    ////设置初始省份值
+                    //$("#region_province").find("option[value='1179648']").attr("selected", true);
+                    ////加载城市列表
+                    //onProvinceChange();
+
+                    ////设置初始城市值
+                    //$("#region_city").find("option[value='1179904']").attr("selected", true);
+                    ////加载区县列表
+                    //onCityChange();
+
+        </script>
+
+
+
+
+
+
+    </div>
+</body>
+</html>

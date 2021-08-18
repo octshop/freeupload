@@ -1,0 +1,40 @@
+/* components/shopnavbottom/shopnavbottom.wxss */
+/*页脚*/
+.shop-nav-bottom{
+  padding: 10rpx 0;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  z-index: 1000000;
+  background: #ffffff;
+  overflow: hidden;
+  border-top: 1px solid #F2F2F2;
+}
+
+.shop-nav-bottom view,.shop-nav-bottom view navigator {
+  width: 250rpx;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  text-align: center;
+  padding: 2px 0;
+  justify-content: center;
+  position: relative;
+  font-size: 33rpx;
+}
+
+.shop-nav-bottom image {
+  width: 22px;
+  height: 22px;
+  margin-right: 10rpx;
+}
+

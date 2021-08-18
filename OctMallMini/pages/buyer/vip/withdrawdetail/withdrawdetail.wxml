@@ -1,0 +1,123 @@
+<!--pages/buyer/vip/withdrawdetail/withdrawdetail.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="提现详情" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--步骤-->
+	<view class="complain-step">
+
+		<!--步骤条-->
+		<view class="complain-step-bg">
+			<view class="complain-step-current">
+			</view>
+		</view>
+		<!--步骤说明-->
+		<view class="compplain-step-desc">
+
+			<view class="step-desc-item">
+				<view class="step-desc-num step-desc-num-current">1</view>
+				<view class="step-desc-txt step-desc-txt-current">提现请求</view>
+				<view class="step-time">
+					{{initBuyerWithDrawDetail_Data.WriteDate}}
+				</view>
+			</view>
+			<view class="step-desc-item">
+				<view class="step-desc-num">2</view>
+				<view class="step-desc-txt">平台处理中</view>
+				<view class="step-time">
+					{{initBuyerWithDrawDetail_Data.WriteDate}}
+				</view>
+			</view>
+			<view class="step-desc-item">
+				<view class="step-desc-num">3</view>
+				<view class="step-desc-txt">到账完成</view>
+				<view class="step-time">
+					<!-- 2018-05-15 -->
+				</view>
+			</view>
+
+		</view>
+		<view class="hint-step-desc">
+			你的提现请求平台处理中，请保持联系方式畅通，有疑问请联系官方客服！
+		</view>
+
+	</view>
+
+
+
+	<!--提现金额-->
+	<view class="topup-sum">
+		<view class="topup-sum-top">
+			提现金额
+		</view>
+		<view class="topup-sum-bottom">
+			<view class="withdraw-price">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/vip_topup.png"></image>
+				{{initBuyerWithDrawDetail_Data.WithDrawAmt}}
+			</view>
+		</view>
+	</view>
+
+
+	<!--提现信息-->
+	<view class="withdraw-msg">
+		<view class="withdraw-ul"
+			wx:if="{{initBuyerWithDrawDetail_Data.ToType=='WeChat' || initBuyerWithDrawDetail_Data.ToType=='Alipay'}}">
+			<view class="withdraw-item withdraw-title">
+				<span>提现到：</span>
+				<span class="withdraw-val" wx:if="{{initBuyerWithDrawDetail_Data.ToType=='WeChat'}}"> ( 微信钱包 )</span>
+				<span class="withdraw-val" wx:if="{{initBuyerWithDrawDetail_Data.ToType=='Alipay'}}"> ( 支付宝 )</span>
+			</view>
+			<view class="withdraw-item" wx:if="{{initBuyerWithDrawDetail_Data.ToType=='WeChat'}}">
+				<span class="withdraw-span">微信账号：</span>
+				<span>{{initBuyerWithDrawDetail_Data.WeChatAccount}}</span>
+			</view>
+			<view class="withdraw-item" wx:if="{{initBuyerWithDrawDetail_Data.ToType=='Alipay'}}">
+				<span class="withdraw-span">支付宝账号：</span>
+				<span>{{initBuyerWithDrawDetail_Data.AlipayAccount}}</span>
+			</view>
+
+			<view class="withdraw-item">
+				<span class="withdraw-span">真实姓名：</span>
+				<span>{{initBuyerWithDrawDetail_Data.TrueName}}</span>
+			</view>
+			<view class="withdraw-item">
+				<span class="withdraw-span">联系电话：</span>
+				<span>{{initBuyerWithDrawDetail_Data.LinkMobile}}</span>
+			</view>
+		</view>
+
+
+		<view class="withdraw-ul" wx:if="{{initBuyerWithDrawDetail_Data.ToType=='Bank'}}">
+			<view class="withdraw-item withdraw-title">
+				<span>提现到：</span>
+				<span class="withdraw-val"> ( 银行卡 )</span>
+			</view>
+			<view class="withdraw-item">
+				<span class="withdraw-span">卡号：</span>
+				<span>{{initBuyerWithDrawDetail_Data.BankCardNumber}}</span>
+			</view>
+			<view class="withdraw-item">
+				<span class="withdraw-span">户名：</span>
+				<span>{{initBuyerWithDrawDetail_Data.BankAccName}}</span>
+			</view>
+			<view class="withdraw-item">
+				<span class="withdraw-span">开户行：</span>
+				<span>{{initBuyerWithDrawDetail_Data.OpeningBank}}</span>
+			</view>
+			<view class="withdraw-item">
+				<span class="withdraw-span">联系电话：</span>
+				<span>{{initBuyerWithDrawDetail_Data.LinkMobile}}</span>
+			</view>
+		</view>
+
+
+	</view>
+
+
+
+</view>

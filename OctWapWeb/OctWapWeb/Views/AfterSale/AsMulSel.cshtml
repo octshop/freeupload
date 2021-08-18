@@ -1,0 +1,84 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>申请售后</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/AfterSale/AsMulSel.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/AfterSale/AsMulSel.js"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidOrderID" value="@ViewBag.OID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>申请售后 </b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--售后信息列表-->
+        <ul class="order-list">
+
+            <!--申请售后列表-->
+            <li class="order-item">
+                <div class="order-item-top" id="ShopMsgLabel">
+                    <a href="#"><img src="../Assets/Imgs/02.jpg" /></a>
+                    <div class="order-status-txt">
+                      
+                    </div>
+                </div>
+                <div class="order-item-mid" id="OrderGoodsListLabel" onclick="window.location.href='../Order/OrderDetail?OID=@ViewBag.OID'">
+                    @*<a href="#" class="order-goods-item">
+                        <div class="goods-item-left">
+                            <img src="~/Assets/Imgs/01.jpg" />
+                        </div>
+                        <div class="goods-item-mid">
+                            <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                            <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                        </div>
+                        <div class="goods-item-right">
+                            <span class="goods-item-price">&#165;2354.43</span>
+                            <span class="goods-item-ordernum">&times; 3</span>
+                            <span class="goods-aftersale-span">申请售后</span>
+                        </div>
+                    </a>*@
+                   
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+
+
+
+</body>
+</html>

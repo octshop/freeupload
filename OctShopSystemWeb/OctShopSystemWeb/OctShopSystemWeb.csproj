@@ -1,0 +1,1702 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D8B60717-1B8A-435F-A9C7-382833D38A73}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OctShopSystemWeb</RootNamespace>
+    <AssemblyName>OctShopSystemWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Gma.QrCodeNet.Encoding, Version=0.4.0.0, Culture=neutral, PublicKeyToken=e8a75d24b142be49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin-Libs\Gma.QrCodeNet.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PublicUtilsNS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\EnCcPuDll\PublicUtilsNS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WeCahtJsSdk.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin-Libs\WeCahtJsSdk.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="WeChatJsSdk.SdkCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin-Libs\WeChatJsSdk.SdkCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Assets\Lib\WeiXin_JSSDK\JsSdk.aspx.cs">
+      <DependentUpon>JsSdk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assets\Lib\WeiXin_JSSDK\ReadDataWithDistance.aspx.cs">
+      <DependentUpon>ReadDataWithDistance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Lib\XhEditor\EditorIframe.aspx.cs">
+      <DependentUpon>EditorIframe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Assets\Lib\XhEditor\TestShowEditor.aspx.cs">
+      <DependentUpon>TestShowEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BusiCode\BusiCompany.cs" />
+    <Compile Include="BusiCode\BusiIM.cs" />
+    <Compile Include="BusiCode\BusiLogin.cs" />
+    <Compile Include="BusiCode\BusiOrder.cs" />
+    <Compile Include="BusiCode\BusiShop.cs" />
+    <Compile Include="BusiCode\BusiVerifyCode.cs" />
+    <Compile Include="BusiCode\ModelJsonBack.cs" />
+    <Compile Include="BusiEnterHttp\BusiApiHttp.cs" />
+    <Compile Include="BusiEnterHttp\BusiEnter.cs" />
+    <Compile Include="BusiEnterHttp\BusiHttpCode.cs" />
+    <Compile Include="BusiEnterHttp\BusiRndKey.cs" />
+    <Compile Include="BusiEnterHttp\BusiRndKeyUpload.cs" />
+    <Compile Include="BusiEnterHttp\SendUploadFileHttpRemote.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="PageControllers\AjaxPage\ActivityController.cs" />
+    <Compile Include="PageControllers\AjaxPage\AfterSaleController.cs" />
+    <Compile Include="PageControllers\AjaxPage\AggregateController.cs" />
+    <Compile Include="PageControllers\AjaxPage\BuyerController.cs" />
+    <Compile Include="PageControllers\AjaxPage\ComplainController.cs" />
+    <Compile Include="PageControllers\AjaxPage\CouponsController.cs" />
+    <Compile Include="PageControllers\AjaxPage\FileUploadController.cs" />
+    <Compile Include="PageControllers\AjaxPage\GoodsController.cs" />
+    <Compile Include="PageControllers\AjaxPage\GroupController.cs" />
+    <Compile Include="PageControllers\AjaxPage\ImSysController.cs" />
+    <Compile Include="PageControllers\AjaxPage\IntegralController.cs" />
+    <Compile Include="PageControllers\AjaxPage\LoginController.cs" />
+    <Compile Include="PageControllers\AjaxPage\LuckyDrawController.cs" />
+    <Compile Include="PageControllers\AjaxPage\OrderController.cs" />
+    <Compile Include="PageControllers\AjaxPage\PresentController.cs" />
+    <Compile Include="PageControllers\AjaxPage\SecKillController.cs" />
+    <Compile Include="PageControllers\AjaxPage\SettleController.cs" />
+    <Compile Include="PageControllers\AjaxPage\ShopController.cs" />
+    <Compile Include="PageControllers\AjaxPage\SmsController.cs" />
+    <Compile Include="PageControllers\AjaxPage\SysController.cs" />
+    <Compile Include="PageControllers\AjaxPage\TradingController.cs" />
+    <Compile Include="PageControllers\AjaxPage\VerifyCodeController.cs" />
+    <Compile Include="PageControllers\AjaxPage\WapController.cs" />
+    <Compile Include="PageControllers\WebPage\ActivityPageController.cs" />
+    <Compile Include="PageControllers\WebPage\AfterSalePageController.cs" />
+    <Compile Include="PageControllers\WebPage\AggregatePageController.cs" />
+    <Compile Include="PageControllers\WebPage\CmsFrameController.cs" />
+    <Compile Include="PageControllers\WebPage\ComplainPageController.cs" />
+    <Compile Include="PageControllers\WebPage\CouponsPageController.cs" />
+    <Compile Include="PageControllers\WebPage\GoodsPageController.cs" />
+    <Compile Include="PageControllers\WebPage\GroupPageController.cs" />
+    <Compile Include="PageControllers\WebPage\IframePageController.cs" />
+    <Compile Include="PageControllers\WebPage\IntegralPageController.cs" />
+    <Compile Include="PageControllers\WebPage\LoginPageController.cs" />
+    <Compile Include="PageControllers\WebPage\LuckyDrawPageController.cs" />
+    <Compile Include="PageControllers\WebPage\NavPageController.cs" />
+    <Compile Include="PageControllers\WebPage\OrderPageController.cs" />
+    <Compile Include="PageControllers\WebPage\PresentPageController.cs" />
+    <Compile Include="PageControllers\WebPage\SecKillPageController.cs" />
+    <Compile Include="PageControllers\WebPage\SettlePageController.cs" />
+    <Compile Include="PageControllers\WebPage\ShopPageController.cs" />
+    <Compile Include="PageControllers\WebPage\SysPageController.cs" />
+    <Compile Include="PageControllers\WebPage\TestController.cs" />
+    <Compile Include="PageControllers\WebPage\TradingPageController.cs" />
+    <Compile Include="PageControllers\WebPage\VerifyCodePageController.cs" />
+    <Compile Include="PageControllers\WebPage\WapPageController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysConfig\WebAppConfig.cs" />
+    <Compile Include="ToolWeb\CropZoom\CropZoom.ashx.cs">
+      <DependentUpon>CropZoom.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ToolWeb\CropZoom\CropZoom.aspx.cs">
+      <DependentUpon>CropZoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ToolWeb\CropZoom\CropZoom.aspx.designer.cs">
+      <DependentUpon>CropZoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ToolWeb\GetQrCodeImg.aspx.cs">
+      <DependentUpon>GetQrCodeImg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ToolWeb\GetQrCodeLogoImg.aspx.cs">
+      <DependentUpon>GetQrCodeLogoImg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ToolWeb\ShowImgScale.aspx.cs">
+      <DependentUpon>ShowImgScale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ToolWeb\ShowImgScaleEncry.aspx.cs">
+      <DependentUpon>ShowImgScaleEncry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Css\ActivityPage\ActivityAdd.css" />
+    <Content Include="Assets\Css\AfterSalePage\AfterSaleApplyMsg.css" />
+    <Content Include="Assets\Css\AfterSalePage\ShopSysMsg.css" />
+    <Content Include="Assets\Css\AggregatePage\AggregateOrderToday.css" />
+    <Content Include="Assets\Css\AggregatePage\AggreOrderDetail.css" />
+    <Content Include="Assets\Css\AggregatePage\CreateReceiPayQRCode.css" />
+    <Content Include="Assets\Css\ComplainPage\ComplainMsg.css" />
+    <Content Include="Assets\Css\CouponsPage\CouponsIssueDetail.css" />
+    <Content Include="Assets\Css\CouponsPage\CouponsIssueMsg.css" />
+    <Content Include="Assets\Css\CouponsPage\CouponsMsg.css" />
+    <Content Include="Assets\Css\CouponsPage\CouponsMsgAdd.css" />
+    <Content Include="Assets\Css\CouponsPage\CouponsUseVerify.css" />
+    <Content Include="Assets\Css\GoodsPage\Album.css" />
+    <Content Include="Assets\Css\GoodsPage\AlbumImg.css" />
+    <Content Include="Assets\Css\GoodsPage\AlbumMulUploadImg.css" />
+    <Content Include="Assets\Css\GoodsPage\GooAppraise.css" />
+    <Content Include="Assets\Css\GoodsPage\GoodsAdd.css" />
+    <Content Include="Assets\Css\GoodsPage\GoodsMsg.css" />
+    <Content Include="Assets\Css\GoodsPage\GooGiftImg.css" />
+    <Content Include="Assets\Css\GoodsPage\GooGiftMsg.css" />
+    <Content Include="Assets\Css\GoodsPage\GooGiftMsgEdit.css" />
+    <Content Include="Assets\Css\GoodsPage\GooGiftMsgAdd.css" />
+    <Content Include="Assets\Css\GoodsPage\GooGoodsImg.css" />
+    <Content Include="Assets\Css\GoodsPage\ShopAppraise.css" />
+    <Content Include="Assets\Css\GroupPage\GroupCreateMsg.css" />
+    <Content Include="Assets\Css\GroupPage\GroupGoodsSetting.css" />
+    <Content Include="Assets\Css\IframePage\GoodsList.css" />
+    <Content Include="Assets\Css\IframePage\Index.css" />
+    <Content Include="Assets\Css\IframePage\MsgCount.css" />
+    <Content Include="Assets\Css\IframePage\Public.css" />
+    <Content Include="Assets\Css\Index.css" />
+    <Content Include="Assets\Css\IntegralPage\IntegralMy.css" />
+    <Content Include="Assets\Css\IntegralPage\IntegralRecharge.css" />
+    <Content Include="Assets\Css\IntegralPage\IntegralSetting.css" />
+    <Content Include="Assets\Css\LoginPage\Index.css" />
+    <Content Include="Assets\Css\LoginPage\LoginedScanPrompt.css" />
+    <Content Include="Assets\Css\LoginPage\LoginPwdSetting.css" />
+    <Content Include="Assets\Css\LuckyDrawPage\LuckyDrawMsgAdd.css" />
+    <Content Include="Assets\Css\LuckyDrawPage\LuckyDrawResult.css" />
+    <Content Include="Assets\Css\LuckyDrawPage\LuckyDrawSendGoods.css" />
+    <Content Include="Assets\Css\NavPage\Index.css" />
+    <Content Include="Assets\Css\NavPage\NavSubList.css" />
+    <Content Include="Assets\Css\OrderPage\VerifyOrderCheckCode.css" />
+    <Content Include="Assets\Css\PresentPage\PresentAdd.css" />
+    <Content Include="Assets\Css\PublicCss.css" />
+    <Content Include="Assets\Css\SecKillPage\SecKillGoodsMsg.css" />
+    <Content Include="Assets\Css\SettlePage\SettleApply.css" />
+    <Content Include="Assets\Css\SettlePage\SettleDetail.css" />
+    <Content Include="Assets\Css\SettlePage\SettleShopMsg.css" />
+    <Content Include="Assets\Css\SettlePage\ShopIncomeExpense.css" />
+    <Content Include="Assets\Css\ShopPage\CompanyMsg.css" />
+    <Content Include="Assets\Css\ShopPage\FreightTemplate.css" />
+    <Content Include="Assets\Css\ShopPage\FreightTemplateParamList.css" />
+    <Content Include="Assets\Css\ShopPage\ShopGoodsType.css" />
+    <Content Include="Assets\Css\ShopPage\ShopHomeCarousel.css" />
+    <Content Include="Assets\Css\ShopPage\ShopHomeSection.css" />
+    <Content Include="Assets\Css\ShopPage\ShopMsg.css" />
+    <Content Include="Assets\Css\SysPage\CreateSysQRCode.css" />
+    <Content Include="Assets\Css\SysPage\DataCount.css" />
+    <Content Include="Assets\Css\SysPage\Index.css" />
+    <Content Include="Assets\Css\TradingPage\OrderDetail.css" />
+    <Content Include="Assets\Css\TradingPage\OrderInvoice.css" />
+    <Content Include="Assets\Css\TradingPage\OrderMan.css" />
+    <Content Include="Assets\Css\TradingPage\verifyCheckCodeOrderStatus.css" />
+    <Content Include="Assets\Css\VerifyCodePage\VerifyCodeAll.css" />
+    <Content Include="Assets\Css\WapPage\AggregateOrderMsg.css" />
+    <Content Include="Assets\Css\WapPage\AggregateOrderToday.css" />
+    <Content Include="Assets\Css\WapPage\BalanceDetail.css" />
+    <Content Include="Assets\Css\WapPage\CreateQRScan.css" />
+    <Content Include="Assets\Css\WapPage\ExpressDetail.css" />
+    <Content Include="Assets\Css\WapPage\Index.css" />
+    <Content Include="Assets\Css\WapPage\IntegralDetail.css" />
+    <Content Include="Assets\Css\WapPage\MyOrder.css" />
+    <Content Include="Assets\Css\WapPage\MyOrderQuery.css" />
+    <Content Include="Assets\Css\WapPage\OfficialService.css" />
+    <Content Include="Assets\Css\WapPage\OrderAggreDetail.css" />
+    <Content Include="Assets\Css\WapPage\OrderDetail.css" />
+    <Content Include="Assets\Css\WapPage\OrderDynamic.css" />
+    <Content Include="Assets\Css\WapPage\QuestionDetail.css" />
+    <Content Include="Assets\Css\WapPage\Setting.css" />
+    <Content Include="Assets\Css\WapPage\SettleApply.css" />
+    <Content Include="Assets\Css\WapPage\SettleDetail.css" />
+    <Content Include="Assets\Css\WapPage\SettleOrder.css" />
+    <Content Include="Assets\Css\WapPage\SettleOrderMall.css" />
+    <Content Include="Assets\Css\WapPage\SettleShopMsg.css" />
+    <Content Include="Assets\Css\WapPage\ShopDetail.css" />
+    <Content Include="Assets\Css\WapPage\ShopSysMsg.css" />
+    <Content Include="Assets\Css\WapPage\VerifyCode.css" />
+    <Content Include="Assets\Imgs\company.jpg" />
+    <Content Include="Assets\Imgs\header_1.jpg" />
+    <Content Include="Assets\Imgs\Icon\balance_customer.png" />
+    <Content Include="Assets\Imgs\Icon\icon-del.png" />
+    <Content Include="Assets\Imgs\Icon\icon_no.png" />
+    <Content Include="Assets\Imgs\Icon\login_mobile.png" />
+    <Content Include="Assets\Imgs\Icon\order_customer_orangae.png" />
+    <Content Include="Assets\Imgs\Icon\order_tel_orangae.png" />
+    <Content Include="Assets\Imgs\Icon\order_verify.png" />
+    <Content Include="Assets\Imgs\Icon\sel_no.png" />
+    <Content Include="Assets\Imgs\Icon\sel_yes.png" />
+    <Content Include="Assets\Imgs\Icon\setting_pwd.png" />
+    <Content Include="Assets\Imgs\Icon\setting_pwdlogo.png" />
+    <Content Include="Assets\Imgs\Icon\shop_header.png" />
+    <Content Include="Assets\Imgs\Icon\icon_arrow_right.png" />
+    <Content Include="Assets\Imgs\Icon\icon_camera.png" />
+    <Content Include="Assets\Imgs\Icon\icon_spec_default.png" />
+    <Content Include="Assets\Imgs\Icon\shop_verify.png" />
+    <Content Include="Assets\Imgs\Icon\shop_login.png" />
+    <Content Include="Assets\Imgs\Icon\login_shop.png" />
+    <Content Include="Assets\Imgs\Icon\login_user.png" />
+    <Content Include="Assets\Imgs\Icon\wap_shopindex.png" />
+    <Content Include="Assets\Imgs\product_03.jpg" />
+    <Content Include="Assets\Imgs\product_04.jpg" />
+    <Content Include="Assets\Imgs\product_05.jpg" />
+    <Content Include="Assets\Imgs\scanloginqrcode.png" />
+    <Content Include="Assets\Imgs\shop_1.jpg" />
+    <Content Include="Assets\Imgs\shop_2.jpg" />
+    <Content Include="Assets\Imgs\product_01.jpg" />
+    <Content Include="Assets\Imgs\product_02.jpg" />
+    <Content Include="Assets\JsPublic\PublicPage.js" />
+    <Content Include="Assets\Js\ActivityPage\ActivityAdd.js" />
+    <Content Include="Assets\Js\ActivityPage\ActivityDetail.js" />
+    <Content Include="Assets\Js\ActivityPage\ActivityEdit.js" />
+    <Content Include="Assets\Js\ActivityPage\ActivityJoin.js" />
+    <Content Include="Assets\Js\ActivityPage\ActivityJoinVerify.js" />
+    <Content Include="Assets\Js\ActivityPage\ActivityMsg.js" />
+    <Content Include="Assets\Js\AfterSalePage\AfterSaleApplyMsg.js" />
+    <Content Include="Assets\Js\AfterSalePage\AfterSaleDetail.js" />
+    <Content Include="Assets\Js\AfterSalePage\AfterSaleVisitSend.js" />
+    <Content Include="Assets\Js\AfterSalePage\ShopSysMsg.js" />
+    <Content Include="Assets\Js\AggregatePage\AggregateOrderMsg.js" />
+    <Content Include="Assets\Js\AggregatePage\AggregateOrderToday.js" />
+    <Content Include="Assets\Js\AggregatePage\AggreOrderDetail.js" />
+    <Content Include="Assets\Js\ComplainPage\ComplainDetail.js" />
+    <Content Include="Assets\Js\ComplainPage\ComplainMsg.js" />
+    <Content Include="Assets\Js\CouponsPage\CouponsIssueDetail.js" />
+    <Content Include="Assets\Js\CouponsPage\CouponsIssueMsg.js" />
+    <Content Include="Assets\Js\CouponsPage\CouponsMsg.js" />
+    <Content Include="Assets\Js\CouponsPage\CouponsMsgAdd.js" />
+    <Content Include="Assets\Js\CouponsPage\CouponsMsgEdit.js" />
+    <Content Include="Assets\Js\CouponsPage\CouponsUseVerify.js" />
+    <Content Include="Assets\Js\GoodsPage\Album.js" />
+    <Content Include="Assets\Js\GoodsPage\AlbumImg.js" />
+    <Content Include="Assets\Js\GoodsPage\AlbumMulUploadImg.js" />
+    <Content Include="Assets\Js\GoodsPage\GooAppraise.js" />
+    <Content Include="Assets\Js\GoodsPage\GoodsAdd - 复制.js" />
+    <Content Include="Assets\Js\GoodsPage\GoodsAdd.js" />
+    <Content Include="Assets\Js\GoodsPage\GoodsEdit - 复制.js" />
+    <Content Include="Assets\Js\GoodsPage\GoodsEdit.js" />
+    <Content Include="Assets\Js\GoodsPage\GoodsMsg.js" />
+    <Content Include="Assets\Js\GoodsPage\GooGiftImg.js" />
+    <Content Include="Assets\Js\GoodsPage\GooGiftMsg.js" />
+    <Content Include="Assets\Js\GoodsPage\GooGiftMsgEdit.js" />
+    <Content Include="Assets\Js\GoodsPage\GooGiftMsgAdd.js" />
+    <Content Include="Assets\Js\GoodsPage\GooGoodsImg.js" />
+    <Content Include="Assets\Js\GoodsPage\ShopAppraise.js" />
+    <Content Include="Assets\Js\GroupPage\GroupCreateMsg.js" />
+    <Content Include="Assets\Js\GroupPage\GroupGoodsSetting.js" />
+    <Content Include="Assets\Js\GroupPage\GroupJoinMsg.js" />
+    <Content Include="Assets\Js\IframePage\MsgCount.js" />
+    <Content Include="Assets\Js\IframePage\Public.js" />
+    <Content Include="Assets\Js\IntegralPage\IntegralMy.js" />
+    <Content Include="Assets\Js\IntegralPage\IntegralRecharge.js" />
+    <Content Include="Assets\Js\IntegralPage\IntegralSetting.js" />
+    <Content Include="Assets\Js\LoginPage\Index.js" />
+    <Content Include="Assets\Js\LoginPage\LoginedScanPrompt.js" />
+    <Content Include="Assets\Js\LoginPage\LoginPwdSetting.js" />
+    <Content Include="Assets\Js\LuckyDrawPage\LuckyDrawJoinMsg.js" />
+    <Content Include="Assets\Js\LuckyDrawPage\LuckyDrawMsg.js" />
+    <Content Include="Assets\Js\LuckyDrawPage\LuckyDrawMsgAdd.js" />
+    <Content Include="Assets\Js\LuckyDrawPage\LuckyDrawMsgDetail.js" />
+    <Content Include="Assets\Js\LuckyDrawPage\LuckyDrawMsgEdit.js" />
+    <Content Include="Assets\Js\LuckyDrawPage\LuckyDrawResult.js" />
+    <Content Include="Assets\Js\LuckyDrawPage\LuckyDrawSendGoods.js" />
+    <Content Include="Assets\Js\PresentPage\PresentAdd.js" />
+    <Content Include="Assets\Js\PresentPage\PresentEdit.js" />
+    <Content Include="Assets\Js\PresentPage\PresentImgs.js" />
+    <Content Include="Assets\Js\PresentPage\PresentMsg.js" />
+    <Content Include="Assets\Js\PresentPage\PresentOrderDetail.js" />
+    <Content Include="Assets\Js\PresentPage\PresentOrderMsg.js" />
+    <Content Include="Assets\Js\PublicDataPage.js" />
+    <Content Include="Assets\Js\SecKillPage\SecKillGoodsMsg.js" />
+    <Content Include="Assets\Js\SettlePage\SettleApply.js" />
+    <Content Include="Assets\Js\SettlePage\SettleDetail.js" />
+    <Content Include="Assets\Js\SettlePage\SettleShopMsg.js" />
+    <Content Include="Assets\Js\SettlePage\ShopIncomeExpense.js" />
+    <Content Include="Assets\Js\ShopPage\CompanyMsg.js" />
+    <Content Include="Assets\Js\ShopPage\FreightTemplate.js" />
+    <Content Include="Assets\Js\ShopPage\FreightTemplateParamList.js" />
+    <Content Include="Assets\Js\ShopPage\ShopGoodsType.js" />
+    <Content Include="Assets\Js\ShopPage\ShopHomeCarousel.js" />
+    <Content Include="Assets\Js\ShopPage\ShopHomeSection.js" />
+    <Content Include="Assets\Js\ShopPage\ShopMsg.js" />
+    <Content Include="Assets\Js\SysPage\DataCount.js" />
+    <Content Include="Assets\Js\SysPage\Index.js" />
+    <Content Include="Assets\Js\TradingPage\OrderDetail.js" />
+    <Content Include="Assets\Js\TradingPage\OrderInvoice.js" />
+    <Content Include="Assets\Js\TradingPage\OrderMan.js" />
+    <Content Include="Assets\Js\TradingPage\VerifyCheckCodeOrderStatus.js" />
+    <Content Include="Assets\Js\TradingPage\VerifyOrderCheckCode.js" />
+    <Content Include="Assets\Js\VerifyCodePage\VerifyCodeAll.js" />
+    <Content Include="Assets\Js\WapPage\AggregateOrderMsg.js" />
+    <Content Include="Assets\Js\WapPage\AggregateOrderToday.js" />
+    <Content Include="Assets\Js\WapPage\BalanceDetail.js" />
+    <Content Include="Assets\Js\WapPage\ExpressDetail.js" />
+    <Content Include="Assets\Js\WapPage\Index.js" />
+    <Content Include="Assets\Js\WapPage\MyOrder.js" />
+    <Content Include="Assets\Js\WapPage\MyOrderQuery.js" />
+    <Content Include="Assets\Js\WapPage\OfficialService.js" />
+    <Content Include="Assets\Js\WapPage\OrderAggreDetail.js" />
+    <Content Include="Assets\Js\WapPage\OrderDetail.js" />
+    <Content Include="Assets\Js\WapPage\OrderDynamic.js" />
+    <Content Include="Assets\Js\WapPage\QuestionDetail.js" />
+    <Content Include="Assets\Js\WapPage\Setting.js" />
+    <Content Include="Assets\Js\WapPage\SettleApply.js" />
+    <Content Include="Assets\Js\WapPage\SettleDetail.js" />
+    <Content Include="Assets\Js\WapPage\SettleOrder.js" />
+    <Content Include="Assets\Js\WapPage\SettleOrderMall.js" />
+    <Content Include="Assets\Js\WapPage\SettleOrderScan.js" />
+    <Content Include="Assets\Js\WapPage\SettleShopMsg.js" />
+    <Content Include="Assets\Js\WapPage\ShopDetail.js" />
+    <Content Include="Assets\Js\WapPage\ShopSysMsg.js" />
+    <Content Include="Assets\Js\WapPage\VerifyCode.js" />
+    <Content Include="Assets\Lib\AdminFrame\AdminData.js" />
+    <Content Include="Assets\Lib\AdminFrame\AdminFrame.css" />
+    <Content Include="Assets\Lib\AdminFrame\AdminFrame.js" />
+    <Content Include="Assets\Lib\AdminFrame\AdminPagePublic.css" />
+    <Content Include="Assets\Lib\AdminFrame\AdminPagePublic.js" />
+    <Content Include="Assets\Lib\AdminFrame\jquery.cookie.js" />
+    <Content Include="Assets\Lib\AdminFrame\logo.png" />
+    <Content Include="Assets\Lib\AlertConfirmWin\AlertConfirmWin.css" />
+    <Content Include="Assets\Lib\AlertConfirmWin\AlertConfirmWin.js" />
+    <Content Include="Assets\Lib\AlertConfirmWin\Index.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\admin-404.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\admin-form.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\admin-gallery.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\admin-help.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\admin-index.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\admin-log.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\admin-table.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\admin-user.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\blog.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\css\admin.css" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\css\amazeui.css" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\css\amazeui.flat.css" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\css\amazeui.flat.min.css" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\css\amazeui.min.css" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\css\app.css" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\index.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\iscroll.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\app-icon72x72%402x.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\admin-chrome.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\admin-firefox.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\admin-ie.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\admin-opera.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\admin-safari.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\adminPage.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\blogPage.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\landing.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\landingPage.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\loginPage.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\examples\sidebarPage.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\favicon.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\i\startup-640x1096.png" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\js\amazeui.ie8polyfill.js" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\js\amazeui.ie8polyfill.min.js" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\js\amazeui.js" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\js\amazeui.min.js" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\js\amazeui.widgets.helper.js" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\js\amazeui.widgets.helper.min.js" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\js\app.js" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\js\handlebars.min.js" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\js\jquery-2.2.2.min.js" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\landing.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\login.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\non-responsive.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\sidebar.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\widget.basic.html" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\widget.html" />
+    <Content Include="Assets\Lib\ClipBoard\AppointCopyLabelContent.html" />
+    <Content Include="Assets\Lib\ClipBoard\clipboard.js" />
+    <Content Include="Assets\Lib\ClipBoard\clipboard.min.js" />
+    <Content Include="Assets\Lib\ClipBoard\LabelIDClipboard.html" />
+    <Content Include="Assets\Lib\ClipBoard\LabelListClipboard.html" />
+    <Content Include="Assets\Lib\ClipBoard\SelectorClipboard.html" />
+    <Content Include="Assets\Lib\ClipBoard\TargetCutTextArea.html" />
+    <Content Include="Assets\Lib\ClipBoard\TargetDiv.html" />
+    <Content Include="Assets\Lib\ClipBoard\TargetLabelID.html" />
+    <Content Include="Assets\Lib\ClipBoard\TextToClipboard.html" />
+    <Content Include="Assets\Lib\DateTimeDropper\datedropper.css" />
+    <Content Include="Assets\Lib\DateTimeDropper\datedropper.min.js" />
+    <Content Include="Assets\Lib\DateTimeDropper\timedropper.min.css" />
+    <Content Include="Assets\Lib\DateTimeDropper\timedropper.min.js" />
+    <Content Include="Assets\Lib\DialogWinDrag\DialogWinDrag.css" />
+    <Content Include="Assets\Lib\DialogWinDrag\DialogWinDrag.js" />
+    <Content Include="Assets\Lib\DialogWinDrag\index.html" />
+    <Content Include="Assets\Lib\DialogWinDrag\jquery-1.12.1.min.js" />
+    <Content Include="Assets\Lib\ECharts\citystore.js" />
+    <Content Include="Assets\Lib\ECharts\echarts.min.js" />
+    <Content Include="Assets\Lib\ECharts\images\bj.png" />
+    <Content Include="Assets\Lib\ECharts\images\cc.png" />
+    <Content Include="Assets\Lib\ECharts\images\cdian.png" />
+    <Content Include="Assets\Lib\ECharts\images\gy-bj.png" />
+    <Content Include="Assets\Lib\ECharts\images\gy-kgx.png" />
+    <Content Include="Assets\Lib\ECharts\images\gy-lk.png" />
+    <Content Include="Assets\Lib\ECharts\images\gy-lk1.png" />
+    <Content Include="Assets\Lib\ECharts\images\gy-rt.png" />
+    <Content Include="Assets\Lib\ECharts\images\gy-rt1.png" />
+    <Content Include="Assets\Lib\ECharts\images\gy-scx.png" />
+    <Content Include="Assets\Lib\ECharts\images\gy-taix.png" />
+    <Content Include="Assets\Lib\ECharts\images\gy-tt.png" />
+    <Content Include="Assets\Lib\ECharts\images\jdian.png" />
+    <Content Include="Assets\Lib\ECharts\images\jh.png" />
+    <Content Include="Assets\Lib\ECharts\images\jk.png" />
+    <Content Include="Assets\Lib\ECharts\images\jx1.png" />
+    <Content Include="Assets\Lib\ECharts\images\jx2.png" />
+    <Content Include="Assets\Lib\ECharts\images\jx3.png" />
+    <Content Include="Assets\Lib\ECharts\images\jx4.png" />
+    <Content Include="Assets\Lib\ECharts\images\jx5.png" />
+    <Content Include="Assets\Lib\ECharts\images\jx6.png" />
+    <Content Include="Assets\Lib\ECharts\images\jx7.png" />
+    <Content Include="Assets\Lib\ECharts\images\lx.png" />
+    <Content Include="Assets\Lib\ECharts\images\nybj.png" />
+    <Content Include="Assets\Lib\ECharts\images\ss.png" />
+    <Content Include="Assets\Lib\ECharts\images\w-lx.png" />
+    <Content Include="Assets\Lib\ECharts\images\wg.png" />
+    <Content Include="Assets\Lib\ECharts\images\wl-tt.png" />
+    <Content Include="Assets\Lib\ECharts\images\xx.png" />
+    <Content Include="Assets\Lib\ECharts\images\yw-tt.png" />
+    <Content Include="Assets\Lib\ECharts\images\yw-x.png" />
+    <Content Include="Assets\Lib\ECharts\images\zj.png" />
+    <Content Include="Assets\Lib\ECharts\index.html" />
+    <Content Include="Assets\Lib\ECharts\linesimple.html" />
+    <Content Include="Assets\Lib\ECharts\monitor.js" />
+    <Content Include="Assets\Lib\ECharts\Test.html" />
+    <Content Include="Assets\Lib\jedate\jedate.js" />
+    <Content Include="Assets\Lib\jedate\jedate.min.js" />
+    <Content Include="Assets\Lib\jedate\skin\gray.css" />
+    <Content Include="Assets\Lib\jedate\skin\green.css" />
+    <Content Include="Assets\Lib\jedate\skin\jedate.css" />
+    <Content Include="Assets\Lib\jedate\skin\red.css" />
+    <Content Include="Assets\Lib\jquery-1.12.1.min.js" />
+    <Content Include="Assets\Lib\jquery-2.2.2.min.js" />
+    <Content Include="Assets\Lib\jquery.cookie.js" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\AddFile.gif" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\cancel.png" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\check.php" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\cancel.png" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\css\default.css" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\css\uploadify.css" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\css\_notes\dwsync.xml" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\index.php" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\scripts\check.php" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\scripts\expressInstall.swf" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\scripts\jquery-1.3.2.min.js" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\scripts\jquery.uploadify.v2.1.0.min.js" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\scripts\swfobject.js" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\scripts\uploadify.php" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\scripts\uploadify.swf" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\scripts\_notes\dwsync.xml" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\_notes\dwsync.xml" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\expressInstall.swf" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\jquery-1.3.2.min.js" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\jquery.uploadify.v2.1.0.js" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\jquery.uploadify.v2.1.0.min.js" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\swfobject.js" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\uploadify.allglyphs.swf" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\uploadify.css" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\uploadify.php" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\uploadify.swf" />
+    <Content Include="Assets\Lib\JqueryFileUpload\jquery.fileupload.js" />
+    <Content Include="Assets\Lib\JqueryFileUpload\jquery.ui.widget.js" />
+    <Content Include="Assets\Lib\jsonsql-0.1.js" />
+    <Content Include="Assets\Lib\kindeditor4\kindeditor-all-min.js" />
+    <Content Include="Assets\Lib\kindeditor4\kindeditor-all.js" />
+    <Content Include="Assets\Lib\kindeditor4\lang\ar.js" />
+    <Content Include="Assets\Lib\kindeditor4\lang\en.js" />
+    <Content Include="Assets\Lib\kindeditor4\lang\ko.js" />
+    <Content Include="Assets\Lib\kindeditor4\lang\ru.js" />
+    <Content Include="Assets\Lib\kindeditor4\lang\zh-CN.js" />
+    <Content Include="Assets\Lib\kindeditor4\lang\zh-TW.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\anchor\anchor.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\autoheight\autoheight.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\baidumap\baidumap.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\baidumap\index.html" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\baidumap\map.html" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\clearhtml\clearhtml.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\code\code.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\code\prettify.css" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\code\prettify.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\emoticons.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\0.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\1.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\10.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\100.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\101.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\102.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\103.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\104.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\105.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\106.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\107.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\108.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\109.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\11.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\110.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\111.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\112.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\113.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\114.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\115.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\116.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\117.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\118.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\119.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\12.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\120.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\121.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\122.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\123.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\124.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\125.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\126.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\127.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\128.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\129.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\13.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\130.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\131.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\132.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\133.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\134.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\14.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\15.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\16.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\17.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\18.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\19.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\2.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\20.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\21.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\22.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\23.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\24.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\25.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\26.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\27.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\28.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\29.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\3.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\30.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\31.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\32.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\33.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\34.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\35.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\36.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\37.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\38.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\39.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\4.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\40.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\41.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\42.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\43.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\44.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\45.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\46.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\47.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\48.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\49.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\5.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\50.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\51.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\52.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\53.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\54.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\55.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\56.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\57.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\58.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\59.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\6.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\60.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\61.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\62.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\63.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\64.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\65.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\66.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\67.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\68.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\69.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\7.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\70.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\71.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\72.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\73.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\74.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\75.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\76.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\77.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\78.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\79.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\8.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\80.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\81.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\82.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\83.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\84.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\85.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\86.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\87.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\88.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\89.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\9.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\90.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\91.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\92.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\93.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\94.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\95.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\96.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\97.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\98.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\99.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\emoticons\images\static.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\filemanager\filemanager.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\filemanager\images\file-16.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\filemanager\images\file-64.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\filemanager\images\folder-16.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\filemanager\images\folder-64.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\filemanager\images\go-up.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\fixtoolbar\fixtoolbar.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\flash\flash.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\image\image.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\image\images\align_left.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\image\images\align_right.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\image\images\align_top.gif" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\image\images\refresh.png" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\insertfile\insertfile.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\lineheight\lineheight.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\link\link.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\map\map.html" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\map\map.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\media\media.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\multiimage\images\image.png" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\multiimage\images\select-files-en.png" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\multiimage\images\select-files-zh-CN.png" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\multiimage\images\swfupload.swf" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\multiimage\multiimage.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\pagebreak\pagebreak.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\plainpaste\plainpaste.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\preview\preview.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\quickformat\quickformat.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\table\table.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\template\html\1.html" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\template\html\2.html" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\template\html\3.html" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\template\template.js" />
+    <Content Include="Assets\Lib\kindeditor4\plugins\wordpaste\wordpaste.js" />
+    <Content Include="Assets\Lib\kindeditor4\test.html" />
+    <Content Include="Assets\Lib\kindeditor4\themes\common\anchor.gif" />
+    <Content Include="Assets\Lib\kindeditor4\themes\common\blank.gif" />
+    <Content Include="Assets\Lib\kindeditor4\themes\common\flash.gif" />
+    <Content Include="Assets\Lib\kindeditor4\themes\common\loading.gif" />
+    <Content Include="Assets\Lib\kindeditor4\themes\common\media.gif" />
+    <Content Include="Assets\Lib\kindeditor4\themes\common\rm.gif" />
+    <Content Include="Assets\Lib\kindeditor4\themes\default\background.png" />
+    <Content Include="Assets\Lib\kindeditor4\themes\default\default.css" />
+    <Content Include="Assets\Lib\kindeditor4\themes\default\default.png" />
+    <Content Include="Assets\Lib\kindeditor4\themes\qq\editor.gif" />
+    <Content Include="Assets\Lib\kindeditor4\themes\qq\qq.css" />
+    <Content Include="Assets\Lib\kindeditor4\themes\simple\simple.css" />
+    <Content Include="Assets\Lib\lightslider\lightslider.css" />
+    <Content Include="Assets\Lib\lightslider\lightslider.js" />
+    <Content Include="Assets\Lib\mescroll\mescroll-totop.png" />
+    <Content Include="Assets\Lib\mescroll\mescroll.min.css" />
+    <Content Include="Assets\Lib\mescroll\mescroll.min.js" />
+    <Content Include="Assets\Lib\mescroll\MyTest.html" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\css\mobiscroll.custom-2.5.2.min.css" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\css\wp_icons.png" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\css\wp_icons_light.png" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\css\mobiscroll.android-2.5.1.css" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\css\mobiscroll.android-ics-2.5.2.css" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\css\mobiscroll.animation-2.5.2.css" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\css\mobiscroll.core-2.5.2.css" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\css\mobiscroll.ios-2.5.1.css" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\css\mobiscroll.jqm-2.5.1.css" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\css\mobiscroll.sense-ui-2.5.1.css" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\css\mobiscroll.wp-2.5.2.css" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\css\wp_icons.png" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\css\wp_icons_light.png" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\jquery-1.9.1.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.android-2.5.1.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.android-ics-2.5.2.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.core-2.5.2-zh.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.core-2.5.2.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.datetime-2.5.1-zh.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.datetime-2.5.1.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.ios-2.5.1.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.jqm-2.5.1.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.list-2.5.1.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.select-2.5.1.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\dev\js\mobiscroll.wp-2.5.2.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\index.html" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\jquery-1.12.1.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\js\mobiscroll.custom-2.5.2.min.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\QuoteMobiscrollSelDate.js" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\readme.txt" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\中文精简实例.html" />
+    <Content Include="Assets\Lib\MobiscrollSelDate\增加中文支持.html" />
+    <Content Include="Assets\Lib\PhotoSwipe\default-skin\default-skin.css" />
+    <Content Include="Assets\Lib\PhotoSwipe\default-skin\default-skin.png" />
+    <Content Include="Assets\Lib\PhotoSwipe\default-skin\default-skin.svg" />
+    <Content Include="Assets\Lib\PhotoSwipe\default-skin\preloader.gif" />
+    <Content Include="Assets\Lib\PhotoSwipe\getImageSize.js" />
+    <Content Include="Assets\Lib\PhotoSwipe\initPhotoSwipe.js" />
+    <Content Include="Assets\Lib\PhotoSwipe\photoswipe-ui-default.min.js" />
+    <Content Include="Assets\Lib\PhotoSwipe\photoswipe.css" />
+    <Content Include="Assets\Lib\PhotoSwipe\photoswipe.min.js" />
+    <Content Include="Assets\Lib\PhotoSwipe\test.html" />
+    <Content Include="Assets\Lib\PublicTool.js" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\css\checkbox_radio_img_sprite.css" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\images\about-checkbox-radio.png" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\images\banner.png" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\images\blue.png" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\images\check_blue%402x.png" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\images\green%402x.png" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\images\green.png" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\images\ms-icon-310x310.png" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\images\red.png" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\images\yellow.png" />
+    <Content Include="Assets\Lib\RadioCheckBoxCss\Index.html" />
+    <Content Include="Assets\Lib\RegionCodeName.js" />
+    <Content Include="Assets\Lib\ScrollBarMobileStyle\QuoteScrollBarMobileStyle.js" />
+    <Content Include="Assets\Lib\ScrollBarMobileStyle\zUI.js" />
+    <Content Include="Assets\Lib\select2AreaInitData.js" />
+    <Content Include="Assets\Lib\Select2\css\select2.css" />
+    <Content Include="Assets\Lib\Select2\css\select2.min.css" />
+    <Content Include="Assets\Lib\Select2\js\i18n\ar.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\az.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\bg.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\ca.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\cs.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\da.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\de.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\el.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\en.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\es.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\et.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\eu.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\fa.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\fi.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\fr.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\gl.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\he.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\hi.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\hr.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\hu.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\id.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\is.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\it.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\ja.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\km.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\ko.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\lt.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\lv.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\mk.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\ms.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\nb.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\nl.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\pl.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\pt-BR.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\pt.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\ro.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\ru.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\sk.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\sl.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\sr-Cyrl.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\sr.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\sv.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\th.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\tr.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\uk.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\vi.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\zh-CN.js" />
+    <Content Include="Assets\Lib\Select2\js\i18n\zh-TW.js" />
+    <Content Include="Assets\Lib\Select2\js\select2.full.js" />
+    <Content Include="Assets\Lib\Select2\js\select2.full.min.js" />
+    <Content Include="Assets\Lib\Select2\js\select2.js" />
+    <Content Include="Assets\Lib\Select2\js\select2.min.js" />
+    <Content Include="Assets\Lib\SliderDownWin\SliderDownWin.css" />
+    <Content Include="Assets\Lib\SliderDownWin\SliderDownWin.html" />
+    <Content Include="Assets\Lib\SliderDownWin\SliderDownWin.js" />
+    <Content Include="Assets\Lib\SliderPowerRange\demo.css" />
+    <Content Include="Assets\Lib\SliderPowerRange\dist\powerange.css" />
+    <Content Include="Assets\Lib\SliderPowerRange\dist\powerange.js" />
+    <Content Include="Assets\Lib\SliderPowerRange\dist\powerange.min.css" />
+    <Content Include="Assets\Lib\SliderPowerRange\dist\powerange.min.js" />
+    <Content Include="Assets\Lib\SliderPowerRange\Gruntfile.js" />
+    <Content Include="Assets\Lib\SliderPowerRange\index.html" />
+    <Content Include="Assets\Lib\SliderPowerRange\lib\horizontal.js" />
+    <Content Include="Assets\Lib\SliderPowerRange\lib\main.js" />
+    <Content Include="Assets\Lib\SliderPowerRange\lib\powerange.css" />
+    <Content Include="Assets\Lib\SliderPowerRange\lib\powerange.js" />
+    <Content Include="Assets\Lib\SliderPowerRange\lib\vertical.js" />
+    <Content Include="Assets\Lib\SliderPowerRange\Test.html" />
+    <Content Include="Assets\Lib\slotmachine\Demo.html" />
+    <Content Include="Assets\Lib\slotmachine\jquery.slotmachine.css" />
+    <Content Include="Assets\Lib\slotmachine\Sample.html" />
+    <Content Include="Assets\Lib\slotmachine\slotmachine.js" />
+    <Content Include="Assets\Lib\slotmachine\slotmachine.min.js" />
+    <Content Include="Assets\Lib\SwitchButton\index.html" />
+    <Content Include="Assets\Lib\SwitchButton\switch.css" />
+    <Content Include="Assets\Lib\SwitchButton\switch.js" />
+    <Content Include="Assets\Lib\SwitchButton\test.html" />
+    <Content Include="Assets\Lib\WeiXin_JSSDK\jquery-1.10.2.js" />
+    <Content Include="Assets\Lib\WeiXin_JSSDK\jquery-1.10.2.min.js" />
+    <Content Include="Assets\Lib\WeiXin_JSSDK\JsSdk.aspx" />
+    <Content Include="Assets\Lib\WeiXin_JSSDK\jweixin-1.0.0.js" />
+    <Content Include="Assets\Lib\WeiXin_JSSDK\ReadDataWithDistance.aspx" />
+    <Content Include="Assets\Lib\WxMiniJsEncrypt\aes.js" />
+    <Content Include="Assets\Lib\WxMiniJsEncrypt\base64.js" />
+    <Content Include="Assets\Lib\WxMiniJsEncrypt\jquery-1.12.1.min.js" />
+    <Content Include="Assets\Lib\WxMiniJsEncrypt\md5.js" />
+    <Content Include="Assets\Lib\WxMiniJsEncrypt\sha1.js" />
+    <Content Include="Assets\Lib\WxMiniJsEncrypt\util.js" />
+    <Content Include="Assets\Lib\WxMiniJsEncrypt\wx_rsa.js" />
+    <Content Include="Assets\Lib\XhEditor\Default.aspx" />
+    <Content Include="Assets\Lib\XhEditor\Default.aspx.vb" />
+    <Content Include="Assets\Lib\XhEditor\EditorIframe.aspx" />
+    <Content Include="Assets\Lib\XhEditor\InserImgTest.jpg" />
+    <Content Include="Assets\Lib\XhEditor\jquery\jquery-1.4.4.min.js" />
+    <Content Include="Assets\Lib\XhEditor\jquery\jquery-1.4.4.src.js" />
+    <Content Include="Assets\Lib\XhEditor\JScript.js" />
+    <Content Include="Assets\Lib\XhEditor\mytest\InserImgTest1.jpg" />
+    <Content Include="Assets\Lib\XhEditor\TestShowEditor.aspx" />
+    <Content Include="Assets\Lib\XhEditor\TestShowEditor.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor-1.2.1.min.js" />
+    <Content Include="Assets\Lib\XhEditor\XhEditorOperExe.css" />
+    <Content Include="Assets\Lib\XhEditor\XhEditorOperExe.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\angry.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\awkward.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\bye.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\config.txt" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\crazy.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\cry.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\curse.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\cute.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\despise.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\doubt.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\envy.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\fastcry.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\knock.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\laugh.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\mad.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\ohmy.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\panic.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\proud.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\quiet.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\sad.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\shutup.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\shy.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\sleep.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\smile.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\struggle.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\titter.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\tongue.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\wail.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\default\wronged.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\alien.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\angel.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\angry.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\bandit.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\biglaugh.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\blink.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\blush.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\config.txt" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\cool.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\cry.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\depres.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\devil.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\glare.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\heart.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\joyful.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\kiss.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\laugh.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\magician.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\ninja.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\pinch.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\police.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\sad.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\sick.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\sideways.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\sleep.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\smile.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\surprised.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\tongue.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\unsure.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\w00t.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\whistling.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\wondering.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\ipb\wub.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\1.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\10.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\11.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\12.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\13.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\14.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\15.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\16.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\17.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\18.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\19.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\2.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\20.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\21.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\22.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\23.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\24.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\25.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\26.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\27.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\28.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\29.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\3.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\30.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\31.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\32.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\33.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\34.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\35.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\36.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\37.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\38.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\39.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\4.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\40.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\5.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\6.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\7.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\8.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\msn\9.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\angry.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\bad.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\blush.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\brokenheart.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\bye.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\coffee.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\config.txt" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\cool.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\cry.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\curse.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\cute.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\devil.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\envy.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\gift.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\good.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\kiss.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\laugh.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\love.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\music.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\question.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\rose.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\sad.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\shocked.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\shout.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\sick.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\sleepy.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\smile.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\soccer.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\sweat.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\tired.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\tongue.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\victory.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_emot\pidgin\wink.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_lang\en.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_lang\zh-cn.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_lang\zh-tw.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\html2markdown.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\htmldomparser.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\img\add.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\img\bg1.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\img\bg2.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\img\btnbg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\img\btnbgr.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\img\clear.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\img\progressbg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\img\start.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\multiupload.css" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\multiupload.html" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\multiupload.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\swfupload\swfupload.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\multiupload\swfupload\swfupload.swf" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\showdown.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_plugins\ubb.js" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\blank.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\iframe.css" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\anchor.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\close.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\flash.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\icons.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\loading.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\progress.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\progressbg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\tag-address.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\tag-div.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\tag-h1.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\tag-h2.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\tag-h3.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\tag-h4.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\tag-h5.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\tag-h6.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\tag-p.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\tag-pre.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\waiting.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\wmp.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\img\wordimg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\default\ui.css" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\iframe.css" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\anchor.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\close.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\flash.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\icons.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\loading.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\progress.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\progressbg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\tag-address.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\tag-div.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\tag-h1.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\tag-h2.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\tag-h3.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\tag-h4.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\tag-h5.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\tag-h6.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\tag-p.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\tag-pre.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\waiting.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\wmp.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\img\wordimg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\nostyle\ui.css" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\iframe.css" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\anchor.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\buttonbg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\close.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\flash.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\icons.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\loading.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\progress.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\progressbg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\tag-address.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\tag-div.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\tag-h1.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\tag-h2.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\tag-h3.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\tag-h4.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\tag-h5.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\tag-h6.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\tag-p.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\tag-pre.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\waiting.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\wmp.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\img\wordimg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007blue\ui.css" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\iframe.css" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\anchor.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\buttonbg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\close.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\flash.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\icons.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\loading.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\progress.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\progressbg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\tag-address.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\tag-div.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\tag-h1.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\tag-h2.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\tag-h3.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\tag-h4.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\tag-h5.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\tag-h6.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\tag-p.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\tag-pre.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\waiting.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\wmp.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\img\wordimg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\o2007silver\ui.css" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\iframe.css" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\anchor.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\buttonbg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\close.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\flash.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\icons.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\loading.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\progress.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\progressbg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\tag-address.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\tag-div.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\tag-h1.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\tag-h2.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\tag-h3.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\tag-h4.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\tag-h5.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\tag-h6.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\tag-p.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\tag-pre.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\titlebg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\waiting.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\wmp.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\img\wordimg.gif" />
+    <Content Include="Assets\Lib\XhEditor\xheditor_skin\vista\ui.css" />
+    <Content Include="Assets\Lib\XhEditor\xhEditor进阶使用 - xhEditor技术手册.htm" />
+    <Content Include="Assets\Lib\XhEditor\xhEditor进阶使用 - xhEditor技术手册_files\common.css" />
+    <Content Include="Assets\Lib\XhEditor\xhEditor进阶使用 - xhEditor技术手册_files\common.js" />
+    <Content Include="Assets\Lib\XhEditor\xhEditor进阶使用 - xhEditor技术手册_files\core.php" />
+    <Content Include="Assets\Lib\XhEditor\xhEditor进阶使用 - xhEditor技术手册_files\prettify.css" />
+    <Content Include="Assets\Lib\XhEditor\xhEditor进阶使用 - xhEditor技术手册_files\prettify.js" />
+    <Content Include="Assets\Lib\XhEditor\xhEditor进阶使用 - xhEditor技术手册_files\stat.php" />
+    <Content Include="Assets\Lib\XhEditor\xhEditor进阶使用 - xhEditor技术手册_files\weibo_s.gif" />
+    <Content Include="Assets\Lib\XhEditor\xhEditor进阶使用 - xhEditor技术手册_files\xheditor-logo.gif" />
+    <Content Include="Assets\Sound\6944.wav" />
+    <Content Include="Assets\Sound\9101.wav" />
+    <Content Include="Assets\Sound\money.mp3" />
+    <Content Include="bin-Libs\Gma.QrCodeNet.Encoding.dll" />
+    <Content Include="bin-Libs\WeCahtJsSdk.Utility.dll" />
+    <Content Include="bin-Libs\WeChatJsSdk.SdkCore.dll" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\Microsoft.AI.Agent.Intercept.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.dll" />
+    <Content Include="bin\Microsoft.AI.DependencyCollector.xml" />
+    <Content Include="bin\Microsoft.AI.PerfCounterCollector.dll" />
+    <Content Include="bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+    <Content Include="bin\Microsoft.AI.Web.dll" />
+    <Content Include="bin\Microsoft.AI.Web.xml" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.dll" />
+    <Content Include="bin\Microsoft.AI.WindowsServer.xml" />
+    <Content Include="bin\Microsoft.ApplicationInsights.dll" />
+    <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.dll" />
+    <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="bin\zh-Hans\System.Web.Helpers.resources.dll" />
+    <Content Include="bin\zh-Hans\System.Web.Mvc.resources.dll" />
+    <Content Include="bin\zh-Hans\System.Web.Optimization.resources.dll" />
+    <Content Include="bin\zh-Hans\System.Web.Razor.resources.dll" />
+    <Content Include="bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="bin\zh-Hans\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="bin\zh-Hans\System.Web.WebPages.resources.dll" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Data\RegionNameCode.json" />
+    <Content Include="Assets\Data\SelectAreaInitData.json" />
+    <Content Include="Assets\Lib\AdminFrame\logo.psd" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\Lib\AmazeUI-2.7.2\fonts\FontAwesome.otf" />
+    <Content Include="Assets\Lib\DateTimeDropper\dd-icon\dd-icon.eot" />
+    <Content Include="Assets\Lib\DateTimeDropper\dd-icon\dd-icon.svg" />
+    <Content Include="Assets\Lib\DateTimeDropper\dd-icon\dd-icon.ttf" />
+    <Content Include="Assets\Lib\DateTimeDropper\dd-icon\dd-icon.woff" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\air\logging\FileTarget.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\crypto\HMAC.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\crypto\MD5.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\crypto\MD5Stream.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\crypto\SHA1.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\crypto\SHA224.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\crypto\SHA256.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\crypto\WSSEUsernameToken.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\errors\IllegalStateError.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\fileformats\vcard\Address.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\fileformats\vcard\Email.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\fileformats\vcard\Phone.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\fileformats\vcard\VCard.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\fileformats\vcard\VCardParser.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\images\BitString.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\images\JPGEncoder.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\images\PNGEncoder.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\net\DynamicURLLoader.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\net\IURIResolver.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\net\MimeTypeMap.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\net\proxies\RFC2817Socket.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\net\URI.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\net\URIEncodingBitmap.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\Database.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\Definition.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\Dict.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\DictionaryServer.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\events\ConnectedEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\events\DatabaseEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\events\DefinitionEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\events\DefinitionHeaderEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\events\DictionaryServerEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\events\DisconnectedEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\events\ErrorEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\events\MatchEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\events\MatchStrategiesEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\events\NoMatchEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\MatchStrategy.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\Response.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\util\CompleteResponseEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\protocols\dict\util\SocketHelper.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\serialization\json\JSON.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\serialization\json\JSONDecoder.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\serialization\json\JSONEncoder.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\serialization\json\JSONParseError.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\serialization\json\JSONToken.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\serialization\json\JSONTokenizer.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\serialization\json\JSONTokenType.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\utils\ArrayUtil.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\utils\DateUtil.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\utils\DictionaryUtil.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\utils\IntUtil.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\utils\NumberFormatter.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\utils\StringUtil.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\utils\XMLUtil.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\webapis\events\ServiceEvent.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\webapis\ServiceBase.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\com\adobe\webapis\URLLoaderBase.as" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\example\Thumbs.db" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\Thumbs.db" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\uploadify.fla" />
+    <Content Include="Assets\Lib\jquery.uploadify-v2.1.0\添加文件按钮100x30.psd" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="Assets\Data\RegionNameCode - 复制.json" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="SysLogs\SysLogs.txt" />
+    <Content Include="ToolWeb\CropZoom\CropZoom.aspx" />
+    <Content Include="ToolWeb\CropZoom\CropZoom.css" />
+    <Content Include="ToolWeb\CropZoom\CropZoom.js" />
+    <Content Include="ToolWeb\CropZoom\jquery-1.9.1.js" />
+    <Content Include="ToolWeb\CropZoom\jquery-1.9.1.min.js" />
+    <Content Include="ToolWeb\CropZoom\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="ToolWeb\CropZoom\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="ToolWeb\CropZoom\jquery-ui-1.10.3.js" />
+    <Content Include="ToolWeb\CropZoom\jquery.cropzoom.css" />
+    <Content Include="ToolWeb\CropZoom\jquery.cropzoom.js" />
+    <Content Include="ToolWeb\CropZoom\script.js" />
+    <Content Include="ToolWeb\GetQrCodeImg.aspx" />
+    <Content Include="ToolWeb\GetQrCodeLogoImg.aspx" />
+    <Content Include="ToolWeb\ShowImgScale.aspx" />
+    <Content Include="ToolWeb\ShowImgScaleEncry.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="SysConfig\WebAppConfig.config" />
+    <Content Include="ToolWeb\CropZoom\CropZoom.ashx" />
+    <Content Include="Views\CmsFrame\Index.cshtml" />
+    <Content Include="Views\IframePage\GoodsList.cshtml" />
+    <Content Include="Views\IframePage\Index.cshtml" />
+    <Content Include="Views\IframePage\MsgCount.cshtml" />
+    <Content Include="SysConfig\RndKeyRsa.config" />
+    <Content Include="Views\GoodsPage\GoodsAdd.cshtml" />
+    <Content Include="Views\GoodsPage\GooGiftMsg.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\GoodsPage\GooGiftMsgAdd.cshtml" />
+    <Content Include="Views\GoodsPage\GooGiftMsgEdit.cshtml" />
+    <Content Include="Views\GoodsPage\GoodsAdd - 复制%282%29.cshtml" />
+    <Content Include="Views\GoodsPage\GoodsAdd - 复制%283%29.cshtml" />
+    <Content Include="Views\GoodsPage\GoodsEdit.cshtml" />
+    <Content Include="Views\ShopPage\ShopGoodsType.cshtml" />
+    <Content Include="Views\GoodsPage\GoodsMsg.cshtml" />
+    <Content Include="Views\GoodsPage\GooGoodsImg.cshtml" />
+    <Content Include="Views\GoodsPage\GooGiftImg.cshtml" />
+    <Content Include="Views\GoodsPage\Album.cshtml" />
+    <Content Include="Views\GoodsPage\AlbumMulUploadImg.cshtml" />
+    <Content Include="Views\GoodsPage\AlbumImg.cshtml" />
+    <Content Include="Views\ShopPage\ShopMsg.cshtml" />
+    <Content Include="Views\ShopPage\CompanyMsg.cshtml" />
+    <Content Include="Views\CouponsPage\CouponsMsg.cshtml" />
+    <Content Include="Views\CouponsPage\CouponsMsgAdd.cshtml" />
+    <Content Include="Views\CouponsPage\CouponsIssueMsg.cshtml" />
+    <Content Include="Views\CouponsPage\CouponsMsgEdit.cshtml" />
+    <Content Include="Views\ShopPage\FreightTemplate.cshtml" />
+    <Content Include="Views\ShopPage\FreightTemplateParamList.cshtml" />
+    <Content Include="Views\LoginPage\Index.cshtml" />
+    <Content Include="Views\Test\PointLocation.cshtml" />
+    <Content Include="Views\TradingPage\OrderMan.cshtml" />
+    <Content Include="Views\OrderPage\VerifyOrderCheckCode.cshtml" />
+    <Content Include="Views\TradingPage\verifyCheckCodeOrderStatus.cshtml" />
+    <Content Include="Views\TradingPage\OrderDetail.cshtml" />
+    <Content Include="Views\IntegralPage\IntegralMy.cshtml" />
+    <Content Include="Views\IntegralPage\IntegralSetting.cshtml" />
+    <Content Include="Views\IntegralPage\IntegralRecharge.cshtml" />
+    <Content Include="Views\GoodsPage\GooAppraise.cshtml" />
+    <Content Include="Views\GoodsPage\ShopAppraise.cshtml" />
+    <Content Include="Views\AfterSalePage\AfterSaleApplyMsg.cshtml" />
+    <Content Include="Views\AfterSalePage\AfterSaleDetail.cshtml" />
+    <Content Include="Views\AfterSalePage\AfterSaleVisitSend.cshtml" />
+    <Content Include="Views\TradingPage\OrderInvoice.cshtml" />
+    <Content Include="Views\ComplainPage\ComplainMsg.cshtml" />
+    <Content Include="Views\ComplainPage\ComplainDetail.cshtml" />
+    <Content Include="Views\SecKillPage\SecKillGoodsMsg.cshtml" />
+    <Content Include="Views\GroupPage\GroupGoodsSetting.cshtml" />
+    <Content Include="Views\GroupPage\GroupCreateMsg.cshtml" />
+    <Content Include="Views\GroupPage\GroupJoinMsg.cshtml" />
+    <Content Include="Views\PresentPage\PresentAdd.cshtml" />
+    <Content Include="Views\PresentPage\PresentOrderMsg.cshtml" />
+    <Content Include="Views\PresentPage\PresentMsg.cshtml" />
+    <Content Include="Views\PresentPage\PresentImgs.cshtml" />
+    <Content Include="Views\PresentPage\PresentEdit.cshtml" />
+    <Content Include="Views\VerifyCodePage\VerifyCodeAll.cshtml" />
+    <Content Include="Views\PresentPage\PresentOrderDetail.cshtml" />
+    <Content Include="Views\ActivityPage\ActivityAdd.cshtml" />
+    <Content Include="Views\ActivityPage\ActivityEdit.cshtml" />
+    <Content Include="Views\ActivityPage\ActivityMsg.cshtml" />
+    <Content Include="Views\ActivityPage\ActivityDetail.cshtml" />
+    <Content Include="Views\ActivityPage\ActivityJoin.cshtml" />
+    <Content Include="Views\ActivityPage\ActivityJoinVerify.cshtml" />
+    <Content Include="Views\LuckyDrawPage\LuckyDrawMsg.cshtml" />
+    <Content Include="Views\LuckyDrawPage\LuckyDrawJoinMsg.cshtml" />
+    <Content Include="Views\LuckyDrawPage\LuckyDrawImgs.cshtml" />
+    <Content Include="Views\LuckyDrawPage\LuckyDrawResult.cshtml" />
+    <Content Include="Views\LuckyDrawPage\LuckyDrawSendGoods.cshtml" />
+    <Content Include="Views\LuckyDrawPage\LuckyDrawMsgAdd.cshtml" />
+    <Content Include="Views\LuckyDrawPage\LuckyDrawMsgEdit.cshtml" />
+    <Content Include="Views\LuckyDrawPage\LuckyDrawMsgDetail.cshtml" />
+    <Content Include="Views\CouponsPage\CouponsUseVerify.cshtml" />
+    <Content Include="Views\ShopPage\ShopHomeCarousel.cshtml" />
+    <Content Include="Views\ShopPage\ShopHomeSection.cshtml" />
+    <Content Include="Views\SettlePage\SettleShopMsg.cshtml" />
+    <Content Include="Views\SettlePage\SettleApply.cshtml" />
+    <Content Include="Views\SettlePage\ShopIncomeExpense.cshtml" />
+    <Content Include="Views\SettlePage\SettleDetail.cshtml" />
+    <Content Include="Views\AggregatePage\AggregateOrderMsg.cshtml" />
+    <Content Include="Views\AggregatePage\AggregateOrderToday.cshtml" />
+    <Content Include="Views\AggregatePage\AggreOrderDetail.cshtml" />
+    <Content Include="Views\OrderPage\Index.cshtml" />
+    <Content Include="Views\LoginPage\LoginedScanPrompt.cshtml" />
+    <Content Include="Views\VerifyCodePage\PopVerifyScanWin.cshtml" />
+    <Content Include="Views\CouponsPage\CouponsIssueDetail.cshtml" />
+    <Content Include="Views\SysPage\Index.cshtml" />
+    <Content Include="Views\SysPage\DataCount.cshtml" />
+    <Content Include="Views\AfterSalePage\ShopSysMsg.cshtml" />
+    <Content Include="Views\LoginPage\LoginPwdSetting.cshtml" />
+    <Content Include="Views\AggregatePage\CreateReceiPayQRCode.cshtml" />
+    <Content Include="Views\ShopPage\CreateShopQRCode.cshtml" />
+    <Content Include="Views\SysPage\CreateSysQRCode.cshtml" />
+    <Content Include="Views\WapPage\Index.cshtml" />
+    <Content Include="Views\WapPage\ShopDetail.cshtml" />
+    <Content Include="Views\WapPage\MyOrder.cshtml" />
+    <Content Include="Views\WapPage\OrderDetail.cshtml" />
+    <Content Include="Views\WapPage\OrderDynamic.cshtml" />
+    <Content Include="Views\WapPage\ExpressDetail.cshtml" />
+    <Content Include="Views\WapPage\MyOrderQuery.cshtml" />
+    <Content Include="Views\WapPage\VerifyCode.cshtml" />
+    <Content Include="Views\WapPage\CreateQRScan.cshtml" />
+    <Content Include="Views\WapPage\AggregateOrderToday.cshtml" />
+    <Content Include="Views\WapPage\AggregateOrderMsg.cshtml" />
+    <Content Include="Views\WapPage\BalanceDetail.cshtml" />
+    <Content Include="Views\WapPage\ShopSysMsg.cshtml" />
+    <Content Include="Views\WapPage\OfficialService.cshtml" />
+    <Content Include="Views\WapPage\QuestionDetail.cshtml" />
+    <Content Include="Views\WapPage\Setting.cshtml" />
+    <Content Include="Views\NavPage\Index.cshtml" />
+    <Content Include="Views\NavPage\NavSubList.cshtml" />
+    <Content Include="Views\WapPage\SettleApply.cshtml" />
+    <Content Include="Views\WapPage\SettleOrder.cshtml" />
+    <Content Include="Views\WapPage\SettleShopMsg.cshtml" />
+    <Content Include="Views\WapPage\SettleDetail.cshtml" />
+    <Content Include="Views\WapPage\SettleOrderMall.cshtml" />
+    <Content Include="Views\WapPage\SettleOrderScan.cshtml" />
+    <Content Include="Views\WapPage\OrderAggreDetail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Assets\FontIcon\" />
+    <Folder Include="Assets\Lib\jquery.uploadify-v2.1.0\example\uploads\" />
+    <Folder Include="Cert\" />
+    <Folder Include="Models\" />
+    <Folder Include="PageControllers\ApiPage\" />
+    <Folder Include="Upload\" />
+    <Folder Include="Views\Activity\" />
+    <Folder Include="Views\AfterSale\" />
+    <Folder Include="Views\Buyer\" />
+    <Folder Include="Views\Complain\" />
+    <Folder Include="Views\Coupons\" />
+    <Folder Include="Views\FileIO\" />
+    <Folder Include="Views\FileUpload\" />
+    <Folder Include="Views\GoodsAjax\" />
+    <Folder Include="Views\Goods\" />
+    <Folder Include="Views\Group\" />
+    <Folder Include="Views\ImSys\" />
+    <Folder Include="Views\Integral\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="Views\LuckyDraw\" />
+    <Folder Include="Views\Order\" />
+    <Folder Include="Views\Present\" />
+    <Folder Include="Views\SecKill\" />
+    <Folder Include="Views\Settle\" />
+    <Folder Include="Views\Shop\" />
+    <Folder Include="Views\Sms\" />
+    <Folder Include="Views\Sys\" />
+    <Folder Include="Views\Trading\" />
+    <Folder Include="Views\VerifyCode\" />
+    <Folder Include="Views\Wap\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>45536</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:45536/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://shop.com</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

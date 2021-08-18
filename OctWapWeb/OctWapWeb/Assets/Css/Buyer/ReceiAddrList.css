@@ -1,0 +1,100 @@
+﻿/*===================收货地址列表==========================*/
+.oct-content {
+    margin-top: 40px;
+    margin-bottom: 100px;
+    overflow: hidden;
+    clear: both;
+    height: auto;
+}
+
+.recei-addr-item {
+    padding-top: 10px;
+}
+
+.recei-addr-prompt {
+    background: #FCFCFC;
+    color: #bababa;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: -5px;
+}
+
+.addr-item-top {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.addr-item-default img {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    margin-right: 5px;
+    margin-top: -4px;
+}
+
+.addr-item-mid {
+    padding: 5px 0;
+    border-bottom: 1px solid #f2f2f2;
+    color: #808080;
+}
+
+.addr-item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.addr-item-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .addr-item-btn div {
+        padding: 5px 10px;
+    }
+
+    .addr-item-btn .addr-item-edit {
+        background: url('../../Imgs/Icon/addr_edit.png') 0px 5px no-repeat;
+        background-size: 15px;
+        padding-left: 20px;
+        cursor:pointer;
+    }
+
+    .addr-item-btn .addr-item-del {
+        background: url('../../Imgs/Icon/addr_del .png') 0px 0px no-repeat;
+        background-size: 23px;
+        padding-left: 22px;
+        cursor: pointer;
+    }
+/*添加按钮*/
+.oct-footer {
+    padding: 10px;
+    text-align: center;
+}
+
+    .oct-footer a {
+        display: block;
+        width: 90%;
+        background: #FF5700;
+        color: #ffffff;
+        padding: 5px 10px;
+        border-radius: 20px;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 45px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}
+
+

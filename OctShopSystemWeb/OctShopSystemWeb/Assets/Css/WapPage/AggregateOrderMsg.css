@@ -1,0 +1,97 @@
+﻿/*==============扫码收单===================*/
+
+/*========数据分页===========*/
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 48px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 0px;
+    padding-top: 0;
+    margin: 0;
+}
+
+/*头部*/
+.oct-header {
+    padding-bottom: 10px;
+    height: 50px;
+    align-items: center;
+}
+
+    .oct-header .oct-header-mid {
+        background: #ECECEC  10px center no-repeat;
+        background-size: 15px;
+        padding: 5px 10px;
+        width: 80%;
+        border-radius: 10px;
+        margin-left: -8px
+    }
+
+.oct-header-right {
+    padding-top: 3px;
+}
+
+.txt-query {
+    border: none;
+    font-size: 14px;
+    background: #ECECEC;
+    width: 100%;
+    height: 23px;
+    text-align: center;
+}
+
+#SearchKeyDateTxt {
+    border-right: 1px dashed #bebebe;
+}
+
+
+/*日期选择器的宽度 android-ics light dw-modal */
+body .dw {
+    width: 90%;
+}
+
+
+
+/*搜索列表*/
+
+.order-list li {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    margin: 6px;
+    border-radius: 5px;
+}
+
+.order-user-header {
+    width: 110px;
+    overflow: hidden;
+}
+
+    .order-user-header img {
+        width: 65px;
+        height: 65px;
+        border-radius: 80px;
+    }
+
+.order-user-msg {
+    width: 100%;
+    overflow: hidden;
+}
+
+.order-pay-price b {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff6a00;
+}
+
+.order-nick-name {
+    font-weight: bold;
+}
+
+.order-pay-extra {
+    color: gray;
+}
+

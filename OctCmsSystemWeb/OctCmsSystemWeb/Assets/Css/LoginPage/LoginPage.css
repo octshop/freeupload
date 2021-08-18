@@ -1,0 +1,131 @@
+﻿/*====================登录密码设置=======================*/
+
+html, body {
+    background: white;
+}
+input {
+    outline: none;
+}
+
+/*主体内容*/
+.oct-content {
+    text-align: center;
+    background: white;
+    margin: 0;
+    padding-top: 100px;
+}
+
+.login-icon img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+/*登录表单*/
+.login-form div {
+    padding: 10px 0;
+}
+
+.login-form input {
+    border: none;
+}
+
+.login-form-mobile, .login-form-checkcode {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 280px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 1px solid #bbbbbb;
+    font-size: 16px;
+    color: #000000;
+    padding: 0px 10px;
+    height: 45px;
+    margin: 25px auto;
+    border-radius: 20px;
+}
+
+    .login-form-mobile span {
+        padding-left: 10px;
+        padding-right: 10px;
+        display: block;
+        width: 80px;
+    }
+
+    .login-form-mobile input {
+        text-align: left;
+        width: 100%;
+        font-size: 18px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+    }
+
+.login-form .login-form-checkcode {
+    justify-content: space-between;
+}
+
+.login-form-checkcode input {
+    text-align: center;
+    width: 90%;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+}
+
+.login-form-checkcode span {
+    width: 150px;
+    font-size: 14px;
+    display: block;
+    height: 40px;
+    padding-top: 10px;
+    overflow: hidden;
+    color: #005abb;
+    cursor: pointer;
+}
+
+.login-form-checkcode .reset-check-code {
+    color: gray;
+}
+/*登录按钮*/
+.btn-login-once {
+    background: #10b204;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    margin: 0 auto;
+    border-radius: 50px;
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+    .btn-login-once img {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+        margin-top: -2px;
+    }
+
+    .btn-login-once b {
+        font-weight: normal;
+    }
+
+.login-form .link-a-bottom {
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    margin: 0 auto;
+    margin-top: 25px;
+    color: #bbbbbb;
+}
+
+.link-a-bottom a {
+    color: #0081c3;
+}

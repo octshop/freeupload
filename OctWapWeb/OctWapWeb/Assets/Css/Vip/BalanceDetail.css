@@ -1,0 +1,44 @@
+﻿/*=================余额明细==========================*/
+
+/*头部*/
+.oct-header-right .header-icon-my {
+    width: 20px;
+    height: 20px;
+}
+/*主体内容*/
+.oct-content {
+    margin-top: 45px;
+}
+
+.balance-list li {
+    padding: 10px;
+    border-top: 6px solid #F5F5F5;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.balance-item-right {
+    text-align: right;
+    color:gray;
+}
+.balance-item-right b{
+    color: #000000;
+}
+
+
+
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 38px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}
+
+
+

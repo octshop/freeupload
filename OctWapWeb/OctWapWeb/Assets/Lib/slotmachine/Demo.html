@@ -1,0 +1,337 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>抽奖程序Demo</title>
+
+    <link href="../Assets/Lib/slotmachine/jquery.slotmachine.css" rel="stylesheet" />
+    <link href="../Assets/Css/Demo.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-1.12.1.min.js"></script>
+    <script src="../Assets/Lib/slotmachine/slotmachine.min.js"></script>
+
+
+</head>
+<body>
+    <!--
+               ============【slotmachine 抽奖插件说明 】=============
+
+           -----配置参数名称：
+
+               active 	Number 	0 	起始显示的item索引
+               delay 	Number 	200 切换两张图片的间隔时间（毫秒单位）
+               auto 	Boolean 	是否自动旋转，取值为true or false
+               spins 	Number 	5 	当auto为true的时候，这是每次跳过图标的个数
+               randomize 	Function 	null 	Function (returns number) 设定抽奖的结果Item索引 此属性表示每次旋转后选中值的索引（从0开始）
+               onComplete 	Function（resutIndex） 	null 抽奖停止后的响应函数 传入抽奖结果索引
+               inViewport 	Boolean 	true 	Only spin when the machine is inside the viewport
+               direction 	String 	up 	动画的方向，取值（up||down）
+               transition 	String 	ease-in-out 	The CSS transition
+
+            -----属性名称：
+               machine.nextActive: Get the next active element (only while shuffling).
+               machine.nextIndex: 下一个元素的索引
+               machine.prevIndex: 上一个元素的索引
+               machine.random: 滚动中当前元素索引
+               machine.running: 检测滚动是否正在运行
+               machine.stopping: 检测滚动是否已停止结束
+               machine.visible: Check if the machine is visible.
+               machine.visibleTile: Get the current visible element in the machine viewport.
+               machine.active:  //得到选中的元素的索引 抽奖结果索引
+               machine.randomize: //预设的抽奖结果
+               machine.direction: Alias to the direction setting.
+               machine.transition: Alias to the transition setting.
+
+
+            ------常用方法
+               machine.shuffle( repeat, onStopCallback ); 表示开始旋转，repeat表示每次跳过的图片个数；onstopCallback表示旋转停止后的事件回调方法。
+               machine.prev(); 返回前一个元素
+               machine.next(); 返回后一个元素
+               machine.stop(); 停止旋转
+               machine.run(); 运行抽奖
+               machine.destroy(); 摧毁旋转节点
+
+
+
+
+               -->
+    <!--============ 单个滚轮单个奖项 =============-->
+    <div class="lucky-draw-main">
+        <h1>单个滚轮单个奖项</h1>
+        <div class="lucky-draw-plane" id="planeMachine">
+            <div class="lucky-draw-item">
+                Madrid <span class="badge">11111 <i class="fas fa-euro-sign"></i></span>
+            </div>
+            <div class="lucky-draw-item">
+                London <span class="badge">22222 <i class="fas fa-pound-sign"></i></span>
+            </div>
+            <div class="lucky-draw-item">
+                NY <span class="badge">33333 <i class="fas fa-dollar-sign"></i></span>
+            </div>
+            <div class="lucky-draw-item">
+                Matrix <span class="badge">44444 <i class="fas fa-money-bill-alt"></i></span>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+        const planeMachine = document.querySelector('#planeMachine');
+        new SlotMachine(planeMachine, {
+            active: 1, //设置起始的索引
+            delay: 450, //设置滚动的延迟 毫秒
+            auto: 1500, //设置自动抽奖的间隔数量
+            randomize() { //这个可以设定具体的中奖项 根据索引设置
+                return 1;
+                //return this.nextIndex;
+            }
+        });
+
+        // Using jQuery
+        //$('#planeMachine2').slotMachine({
+        //    active: 1,
+        //    delay: 450,
+        //    auto: 1500,
+        //    randomize() {
+        //        return this.nextIndex;
+        //    }
+        //});
+
+    </script>
+
+
+
+    <!--============ 单个滚轮单个奖项 带开始和停止功能 =============-->
+    <div class="lucky-draw-main">
+        <h1>单个滚轮单个奖项 带开始和停止功能</h1>
+        <div class="lucky-draw-startstop" id="LuckyDrawStartStop">
+            <div><img src="../Assets/Imgs/slot1.png" /></div>
+            <div><img src="../Assets/Imgs/slot2.png" /></div>
+            <div><img src="../Assets/Imgs/slot3.png" /></div>
+            <div><img src="../Assets/Imgs/slot4.png" /></div>
+            <div><img src="../Assets/Imgs/slot5.png" /></div>
+            <div><img src="../Assets/Imgs/slot6.png" /></div>
+            <div><img src="../Assets/Imgs/slot1.png" /></div>
+            <div><img src="../Assets/Imgs/slot2.png" /></div>
+            <div><img src="../Assets/Imgs/slot3.png" /></div>
+            <div><img src="../Assets/Imgs/slot4.png" /></div>
+        </div>
+        <div class="btn-group">
+            <button id="BtnStart" type="button" class="btn btn-primary btn-lg">开始</button>
+            <button id="BtnStop" type="button" class="btn btn-primary btn-lg">停止</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        const _btnStart = document.querySelector('#BtnStart');
+        const _btnStop = document.querySelector('#BtnStop');
+
+        const _eleLuckyDrawStartStop = document.querySelector('#LuckyDrawStartStop');
+
+        const _luckyDrawStartStop = new SlotMachine(_eleLuckyDrawStartStop, {
+            active: 0,
+            delay: 2000,
+            randomize() { //这个可以设定具体的中奖项 根据索引设置
+                return this.nextIndex;
+            },
+            onComplete: function (resutIndex) {
+                console.log("抽奖结果索引：" + resutIndex);
+            }
+        });
+
+        //开始
+        _btnStart.addEventListener('click', () => {
+            _luckyDrawStartStop.shuffle(9999);
+        });
+        //停止
+        _btnStop.addEventListener('click', () => {
+            _luckyDrawStartStop.stop();
+        });
+
+    </script>
+
+
+    <!--============【键盘控制抽奖】 单个滚轮单个奖项 带开始和停止功能 =============-->
+    <div class="lucky-draw-main">
+        <h1>【键盘控制抽奖】 单个滚轮单个奖项 带开始和停止功能</h1>
+        <div class="lucky-draw-startstop" id="LuckyDrawKeyBoard">
+            <div><img src="../Assets/Imgs/slot1.png" /></div>
+            <div><img src="../Assets/Imgs/slot2.png" /></div>
+            <div><img src="../Assets/Imgs/slot3.png" /></div>
+            <div><img src="../Assets/Imgs/slot4.png" /></div>
+            <div><img src="../Assets/Imgs/slot5.png" /></div>
+            <div><img src="../Assets/Imgs/slot6.png" /></div>
+            <div><img src="../Assets/Imgs/slot1.png" /></div>
+            <div><img src="../Assets/Imgs/slot2.png" /></div>
+            <div><img src="../Assets/Imgs/slot3.png" /></div>
+            <div><img src="../Assets/Imgs/slot4.png" /></div>
+        </div>
+        <div class="btn-group">
+            <button id="BtnStartKeyBoard" type="button" class="btn btn-primary btn-lg">开始</button>
+            <button id="BtnStopKeyBoard" type="button" class="btn btn-primary btn-lg">停止</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        const _btnStartKeyBoard = document.querySelector('#BtnStartKeyBoard');
+        const _btnStopKeyBoard = document.querySelector('#BtnStopKeyBoard');
+
+        const _eleLuckyDrawKeyBoard = document.querySelector('#LuckyDrawKeyBoard');
+
+        const _luckyDrawKeyBoard = new SlotMachine(_eleLuckyDrawKeyBoard, {
+            active: 0,
+            delay: 2000,
+            onComplete: function (resutIndex) {
+                console.log("键盘控制抽奖结果索引：" + resutIndex);
+            }
+        });
+
+        //开始
+        _btnStartKeyBoard.addEventListener('click', () => {
+            _luckyDrawKeyBoard.shuffle(9999);
+        });
+        //停止
+        _btnStopKeyBoard.addEventListener('click', () => {
+            _luckyDrawKeyBoard.stop();
+        });
+
+
+        ////键盘按下键
+        //$(window).keydown(function (e) {
+        //    alert(e.keyCode);
+        //    //alert(e.charCode); 这个不能在keydown中应用，只能在keypress中得到
+        //});
+        //$(window).keypress(function (e) {
+        //    alert(e.charCode);
+        //});
+
+
+        ////----------获取鼠标和键盘的按键类型及值----------//
+        ////获取鼠标的按键类型及值 必须是mousedown事件
+        //$("input[type=button]").bind("mousedown", function (e) {
+        //    alert(e.which);
+        //});
+        ////获取键盘的按键类型及值
+        //$("input[type=text]").keyup(function (e) {
+        //    alert(e.which);
+        //});
+        ////判断是否按下了：Alt,Ctrl,Shift
+        //$("input[type=button]").click(function (e) {
+        //    //alert("e.altKey=" + e.altKey);
+        //    //alert("e.ctrlKey=" + e.ctrlKey);
+        //    alert("e.shiftKey=" + e.shiftKey);
+        //});
+
+
+    </script>
+
+
+
+
+    <!--============ 多个滚轮多个奖项一起抽 =============-->
+
+    <div class="lucky-draw-main">
+        <h1>多个滚轮多个奖项一起抽</h1>
+
+        <div class="lucky-draw-list">
+            <div id="casino1" class="slotMachine">
+                <div><img src="../Assets/Imgs/slot1.png" /></div>
+                <div><img src="../Assets/Imgs/slot2.png" /></div>
+                <div><img src="../Assets/Imgs/slot3.png" /></div>
+                <div><img src="../Assets/Imgs/slot4.png" /></div>
+                <div><img src="../Assets/Imgs/slot5.png" /></div>
+                <div><img src="../Assets/Imgs/slot6.png" /></div>
+            </div>
+            <div id="casino2" class="slotMachine">
+                <div><img src="../Assets/Imgs/slot1.png" /></div>
+                <div><img src="../Assets/Imgs/slot2.png" /></div>
+                <div><img src="../Assets/Imgs/slot3.png" /></div>
+                <div><img src="../Assets/Imgs/slot4.png" /></div>
+                <div><img src="../Assets/Imgs/slot5.png" /></div>
+                <div><img src="../Assets/Imgs/slot6.png" /></div>
+            </div>
+            <div id="casino3" class="slotMachine">
+                <div><img src="../Assets/Imgs/slot1.png" /></div>
+                <div><img src="../Assets/Imgs/slot2.png" /></div>
+                <div><img src="../Assets/Imgs/slot3.png" /></div>
+                <div><img src="../Assets/Imgs/slot4.png" /></div>
+                <div><img src="../Assets/Imgs/slot5.png" /></div>
+                <div><img src="../Assets/Imgs/slot6.png" /></div>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button id="casinoShuffle" type="button" class="btn btn-primary btn-lg">开始</button>
+            <button id="casinoStop" type="button" class="btn btn-primary btn-lg">停止</button>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        let count = 0;
+
+        const btnShuffle = document.querySelector('#casinoShuffle');
+        const btnStop = document.querySelector('#casinoStop');
+
+        const casino1 = document.querySelector('#casino1');
+        const casino2 = document.querySelector('#casino2');
+        const casino3 = document.querySelector('#casino3');
+
+        const mCasino1 = new SlotMachine(casino1, {
+            active: 1,
+            delay: 800,
+            onComplete: function (resutIndex) {
+                console.log("1抽奖结果索引：" + resutIndex);
+            }
+        });
+        const mCasino2 = new SlotMachine(casino2, {
+            active: 2,
+            delay: 800,
+            onComplete: function (resutIndex) {
+                console.log("2抽奖结果索引：" + resutIndex);
+            }
+        });
+        const mCasino3 = new SlotMachine(casino3, {
+            active: 3,
+            delay: 800,
+            onComplete: function (resutIndex) {
+                console.log("3抽奖结果索引：" + resutIndex);
+            }
+        });
+        //开始
+        btnShuffle.addEventListener('click', () => {
+            count = 3;
+            mCasino1.shuffle(9999);
+            mCasino2.shuffle(9999);
+            mCasino3.shuffle(9999);
+        });
+        //停止
+        btnStop.addEventListener('click', () => {
+            switch (count) {
+                case 3:
+                    mCasino1.stop();
+                    break;
+                case 2:
+                    mCasino2.stop();
+                    break;
+                case 1:
+                    mCasino3.stop();
+                    break;
+            }
+            count--;
+        });
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

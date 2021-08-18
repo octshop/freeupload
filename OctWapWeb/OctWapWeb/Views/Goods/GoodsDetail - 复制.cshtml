@@ -1,0 +1,597 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+
+    <title>商品详情</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Lib/lightslider/lightslider.css" rel="stylesheet" />
+
+    <link href="../Assets/Css/Goods/GoodsDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/lightslider/lightslider.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+
+    <script src="../Assets/Js/Goods/GoodsDetail.js"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidGID" value="@ViewBag.GID " />
+    <input type="hidden" id="hidInputOrderNumber" value="1111" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="#"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <div class="header-tab-current"><a href="../Goods/GoodsDetail">商品</a></div>
+            <div><a href="../Goods/GoodsDetailMsg">详情</a></div>
+            <div><a href="../Goods/GoodsAppraise">评价</a></div>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" style="width:25px; height:25px;" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!-- 轮播区域 -->
+        <div class="oct-slider">
+
+            <div class="sliderMainContent" id="sliderMainContent" style="overflow:hidden;">
+
+
+            </div>
+
+            <div class="slider-pager-content">
+                <div id="SliderCountDiv">0/0</div>
+            </div>
+        </div>
+
+        <!--可选规格-->
+        <div class="spec-list" id="SpecList" style="display:normal;">
+            <div class="spec-list-left">
+                可选15
+            </div>
+            <div class="spec-list-right" id="SpecListImg">
+                <a href="#">
+                    <img src="~/Assets/Imgs/01.jpg" />
+                </a>
+                <a href="#">
+                    <img class="current-spec-img" src="~/Assets/Imgs/02.jpg" />
+                </a>
+                <a data-href="http://www.baidu.com" data-img="../Assets/Imgs/03.jpg" href="javascript:void(0)" onclick="showSliderFirstSpeckImg(event)">
+                    <img src="~/Assets/Imgs/03.jpg" />
+                </a>
+                <a data-href="#" data-img="../Assets/Imgs/01.jpg" href="javascript:void(0)" onclick="showSliderFirstSpeckImg(event)">
+                    <img src="~/Assets/Imgs/01.jpg" />
+                </a>
+                <a data-href="#" data-img="../Assets/Imgs/02.jpg" href="javascript:void(0)" onclick="showSliderFirstSpeckImg(event)">
+                    <img src="~/Assets/Imgs/02.jpg" />
+                </a>
+                <a href="#">
+                    <img src="~/Assets/Imgs/01.jpg" />
+                </a>
+                <a href="#">
+                    <img src="~/Assets/Imgs/02.jpg" />
+                </a>
+                <a href="#">
+                    <img src="~/Assets/Imgs/03.jpg" />
+                </a>
+                <a href="#">
+
+                </a>
+                <a href="#">
+
+                </a>
+            </div>
+        </div>
+
+        <!--价格区-->
+        <div class="goods-price">
+            <div class="goods-price-top">
+                <div class="price-top-left">
+                    <b id="GoodsPriceLowB">&#165;55.00</b><span id="MarketPrice">&#165;155.00</span>
+                </div>
+                <div class="price-top-right">
+                    <div><b id="Discount">8.5折</b></div>
+                    <div class="btn-fav">关注</div>
+                </div>
+            </div>
+            <div class="goods-price-mid" id="GoodsTitle">
+                创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创意蘑菇台灯创
+                意蘑菇台灯创意
+            </div>
+            <div class="goods-price-bottom">
+                <div id="SpecPropDiv">
+                    <!--2018款，黑色，27码-->
+                </div>
+                <div class="goods-support-msg" id="DeliveryShopExpense">
+                    支持货到付款 &nbsp; <span>需到店自取</span>
+                </div>
+            </div>
+        </div>
+
+        <!--选择规格-->
+        <div class="goods-spec" id="GoodsSpec" onclick="openSelSpecWin()">
+            <div class="goods-spec-left">
+                <span>已选：</span><b id="SelGoodsSpecPropB">1件</b>
+            </div>
+            <div class="goods-spec-right">
+                <img src="../Assets/Imgs/Icon/3point.png" />
+            </div>
+        </div>
+
+        <!--优惠券-->
+        <div class="goods-spec" onclick="openGetTicketWin()">
+            <div class="goods-spec-left">
+                <span>领券：</span> <b class="ticket-b">满300减100</b><b class="ticket-b">满300减100</b>
+            </div>
+            <div class="goods-spec-right">
+                <img src="../Assets/Imgs/Icon/3point.png" />
+            </div>
+        </div>
+
+        <!--运费，送至-->
+        <div class="express-freight">
+
+            <div class="express-freight-top" onclick="openSelReceiAddrWin()">
+                <div class="express-top-left">
+                    <span>送至：</span>
+                    <div class="express-address">
+                        <div>
+                            湖南省-长沙市-长沙县
+                        </div>
+                        <div>
+                            <b>现货</b>,一般两到三天可送到你手中。
+                        </div>
+                    </div>
+                </div>
+                <div class="express-top-right">
+                    <img src="../Assets/Imgs/Icon/3point.png" />
+                </div>
+            </div>
+
+            <div class="express-freight-mid">
+                <span>运费：</span><b>免运费 &#165;10.00</b>
+            </div>
+        </div>
+
+
+        <div class="goods-safe-desc">
+            <div>
+                店铺发货售后
+            </div>
+            <div class="goods-safe-desc-mid">
+                快速发货
+            </div>
+            <div class="goods-safe-desc-mid">
+                闪电退款
+            </div>
+            <div>
+                7天无理由退货
+            </div>
+        </div>
+
+        <!--评价内容-->
+        <div class="appraise-content">
+            <div class="appraise-content-top">
+                <div class="appraise-title-left">
+                    评价(707)
+                </div>
+                <div class="appraise-title-right">
+                    好评度 <b>93%</b>
+                </div>
+            </div>
+            <div class="appraise-content-mid">
+
+                <!--评价项-->
+                <div class="appraise-content-item">
+                    <div class="appraise-list-1">
+                        <div class="appraise-list-header">
+                            <img src="../Assets/Imgs/01.jpg" />美美的呀
+                        </div>
+                        <div class="appraise-list-star">
+                            <img src="../Assets/Imgs/Icon/star_red.png" />
+                            <img src="../Assets/Imgs/Icon/star_red.png" />
+                            <img src="../Assets/Imgs/Icon/star_red.png" />
+                            <img src="../Assets/Imgs/Icon/star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/star_gray.png" />
+                        </div>
+                    </div>
+                    <div class="appraise-list-2">
+                        穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的
+                        ，超有气质的呢穿的美美的，超有气质的呢
+                    </div>
+                    <div class="appraise-list-3">
+                        <div class="appraise-list-img">
+                            <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+                            <a href="#">
+                                <img src="../Assets/Imgs/02.jpg" />
+                            </a>
+                            <a href="#">
+                                <img src="../Assets/Imgs/03.jpg" />
+                            </a>
+                            <a href="#">
+                                <img src="../Assets/Imgs/01.jpg" />
+                            </a>
+                        </div>
+                        <div class="appraise-list-count">
+                            共24张
+                        </div>
+                    </div>
+                    <div class="appraise-list-4">
+                        黑色（7厘米），37码
+                    </div>
+                </div>
+
+                <!--评价项-->
+                <div class="appraise-content-item">
+                    <div class="appraise-list-1">
+                        <div class="appraise-list-header">
+                            <img src="../Assets/Imgs/01.jpg" />美美的呀
+                        </div>
+                        <div class="appraise-list-star">
+                            <img src="../Assets/Imgs/Icon/star_red.png" />
+                            <img src="../Assets/Imgs/Icon/star_red.png" />
+                            <img src="../Assets/Imgs/Icon/star_red.png" />
+                            <img src="../Assets/Imgs/Icon/star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/star_gray.png" />
+                        </div>
+                    </div>
+                    <div class="appraise-list-2">
+                        穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的
+                        ，超有气质的呢穿的美美的，超有气质的呢
+                    </div>
+                    <div class="appraise-list-3">
+                        <div class="appraise-list-img">
+                            <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+                            <a href="#">
+                                <img src="../Assets/Imgs/02.jpg" />
+                            </a>
+                            <a href="#">
+                                <img src="../Assets/Imgs/03.jpg" />
+                            </a>
+                            <a href="#">
+                                <img src="../Assets/Imgs/01.jpg" />
+                            </a>
+                        </div>
+                        <div class="appraise-list-count">
+                            共24张
+                        </div>
+                    </div>
+                    <div class="appraise-list-4">
+                        黑色（7厘米），37码
+                    </div>
+                </div>
+
+                <!--评价项-->
+                <div class="appraise-content-item">
+                    <div class="appraise-list-1">
+                        <div class="appraise-list-header">
+                            <img src="../Assets/Imgs/01.jpg" />美美的呀
+                        </div>
+                        <div class="appraise-list-star">
+                            <img src="../Assets/Imgs/Icon/star_red.png" />
+                            <img src="../Assets/Imgs/Icon/star_red.png" />
+                            <img src="../Assets/Imgs/Icon/star_red.png" />
+                            <img src="../Assets/Imgs/Icon/star_gray.png" />
+                            <img src="../Assets/Imgs/Icon/star_gray.png" />
+                        </div>
+                    </div>
+                    <div class="appraise-list-2">
+                        穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的，超有气质的呢穿的美美的
+                        ，超有气质的呢穿的美美的，超有气质的呢
+                    </div>
+                    <div class="appraise-list-3">
+                        <div class="appraise-list-img">
+                            <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+                            <a href="#">
+                                <img src="../Assets/Imgs/02.jpg" />
+                            </a>
+                            <a href="#">
+                                <img src="../Assets/Imgs/03.jpg" />
+                            </a>
+                            <a href="#">
+                                <img src="../Assets/Imgs/01.jpg" />
+                            </a>
+                        </div>
+                        <div class="appraise-list-count">
+                            共24张
+                        </div>
+                    </div>
+                    <div class="appraise-list-4">
+                        黑色（7厘米），37码
+                    </div>
+                </div>
+            </div>
+            <div class="appraise-content-bottom">
+                <a href="#" class="btn-appraise">查看全部评价</a>
+            </div>
+
+        </div>
+
+        <!--店铺信息-->
+        <div class="shop-msg">
+            <div class="shop-msg-1">
+                <div class="shop-msg-left">
+                    <a href="#">
+                        <img src="../Assets/Imgs/01.jpg" />
+                    </a>
+                </div>
+                <div class="shop-msg-right">
+                    <div class="shop-right-top">
+                        <a href="#" target="_blank">湖漫官方旗舰店官方旗舰店</a>
+                        <span class="shop-label">商城好店</span>
+                        <span class="shop-arrow">&nbsp;</span>
+                    </div>
+                    <div class="shop-right-mid">
+                        综合: <b>9.5</b>
+                        物流: <b>9.5高</b>
+                        商品: <b>9.5高</b>
+                        服务: <b>9.5高</b>
+                    </div>
+                    <div class="shop-right-bottom">
+                        <b>52623</b>人关注
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="shop-msg-2">
+                “ 店铺的描述呀,取前十几个字。店铺的描述呀,取前十几个字店铺的描述呀,取前…… ”
+            </div>
+
+            <div class="shop-msg-3">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" /><br />
+                            2018年冬季新款
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" /><br />
+                            2018年冬季新款
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" /><br />
+                            2018年冬季新款
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" /><br />
+                            2018年冬季新款
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" /><br />
+                            2018年冬季新款
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="shop-msg-4">
+
+                <a href="#" class="customer-service">联系客服</a>
+                <a href="#" class="go-shop">进店逛逛</a>
+
+            </div>
+
+        </div>
+
+        <!--查看商品图文详情-->
+        <div class="view-appraise-img">
+            <a href="../Goods/GoodsDetailMsg" target="_blank">查看商品图文详情</a>
+        </div>
+
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <a href="#">
+            <img src="../Assets/Imgs/Icon/service.png" />
+            客服
+        </a>
+        <a href="#">
+            <img src="../Assets/Imgs/Icon/shop.png" />
+            店铺
+        </a>
+        <a href="#">
+            <img src="../Assets/Imgs/Icon/scart.png" />
+            购物车
+            <div class="badge-div" style="display:none;">3</div>
+        </a>
+        <a href="javascript:void(0)" onclick="window.location.href='../SCart/Index'" class="btn-scart">
+            加入购物车
+        </a>
+        <a href="../Order/PlaceOrder" class="btn-order">
+            立即购买
+        </a>
+    </div>
+
+
+
+
+
+    <!--定义选择规格窗口代码-->
+    <div class="win-sel-spec-win" id="SelSpecWin" style="display:none">
+
+        <div class="win-sel-spec-content">
+
+            <div class="win-sel-spec-top">
+                <div class="win-spec-top-left" style="display:none;">
+                    <a href="#"><img id="SpecPropImgPre" src="../Assets/Imgs/spec01.png" /></a>
+                </div>
+                <div class="win-spec-top-right">
+                    <div class="win-spec-price-div" id="WinSpecPriceDiv">&#165; 85.22</div>
+                    <div id="WinGoodsIDDiv">商品编码：255665454854</div>
+                </div>
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+
+            <div class="win-sel-spec-mid" id="WinSelSpecMidDiv">
+                <div class="win-spec-type" id="WinSpecTitle">
+                    颜色
+                </div>
+                <div class="win-spec-list" id="WinSpeckList">
+                    <span>白色</span><span>黑色黑色</span><span>红色</span><span>红色</span>
+                    <span>白色</span><span>黑色</span><span>红色黑色</span><span>红色黑色</span>
+                    <span>白色</span><span>黑色</span><span>红色黑色</span><span>红色黑色</span>
+                </div>
+                <div class="win-spec-type" id="WinPropTitle">
+                    尺码
+                </div>
+                <div class="win-spec-list" id="WinPropList">
+                    <div class="win-prop-item">
+                        <span>32</span><span>33</span><span>34</span><span>36</span>
+                        <span>38</span><span>39</span><span>40</span><span>44</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="win-order-number">
+                <div class="win-title-number">数量</div>
+                <div class="win-txt-number" id="WinTxtNumber">
+                    <input class="btn-reduce" id="BtnReduce" onclick="chgOrderNum('Reduce')" type="button" value="-" />
+                    <input class="input-order-number" id="InputOrderNumber" type="number" value="1" disabled="disabled" />
+                    <input class="btn-add" id="BtnAdd" onclick="chgOrderNum('Add')" type="button" value="+" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="win-btn-list">
+            <div class="win-btn-scart">
+                加入购物车
+            </div>
+            <div class="win-btn-order">
+                立即购买
+            </div>
+        </div>
+
+    </div>
+
+    <!--领取优惠券窗口-->
+    <div class="win-get-ticket" id="WinGetTicket" style="display:none;">
+
+        <div class="win-ticket-content">
+
+            <div class="win-ticket-title">
+                优惠券
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-ticket-integral">
+                <div>
+                    领券
+                </div>
+                <div>
+                    您的积分: 234
+                </div>
+            </div>
+            <div class="win-ticket-list">
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>&#165;562</b> 店铺券 (需积分:234)</li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (120天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即领取
+                    </div>
+                </div>
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>9.5折</b> 店铺折扣券</li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即领取
+                    </div>
+                </div>
+
+                <div class="win-ticket-item">
+                    <div class="win-ticket-item-left">
+                        <ul>
+                            <li><b>&#165;563</b> 商城券 (需积分:234)</li>
+                            <li>满300使用</li>
+                            <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+                        </ul>
+                    </div>
+                    <div class="win-ticket-item-right">
+                        立即领取
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--选择收货地址-->
+    <div class="win-sel-receiaddr" id="WinSelReceiAddr" style="display:none;">
+        <div class="win-receiaddr-content">
+            <div class="win-receiaddr-title">
+                配送至
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-receiaddr-list">
+                <ul>
+                    <li>
+                        湖南省长沙市长沙县_开元西路243号23室开元西路243号23室
+                    </li>
+                    <li>
+                        湖南省长沙市长沙县_开元西路243号23室开元西路243号23室
+                    </li>
+                    <li>
+                        湖南省长沙市长沙县_开元西路243号23室开元西路243号23室
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="win-receiaddr-btn">
+            <a href="#">选择其他地址</a>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

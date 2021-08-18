@@ -1,0 +1,165 @@
+﻿/*====================商家中心-移动端==============================*/
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+/*主体内容*/
+.oct-content {
+    margin-top: 0;
+    padding: 6px;
+    margin-bottom: 80px;
+}
+
+
+
+/*商家信息*/
+.shop-msg {
+    background: white;
+    border-radius: 10px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+    .shop-msg img {
+        width: 60px;
+        height: 60px;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+.shop-name {
+    font-size: 16px;
+    padding-bottom: 0px;
+}
+
+.company-name {
+    color: gray;
+}
+
+.user-account {
+    font-size: 12px;
+}
+
+    .user-account b {
+        font-weight: normal;
+        padding-left: 5px;
+        color: #7d7d7d;
+    }
+
+/*提示信息*/
+.hint-msg {
+    padding: 6px;
+    background: white;
+    text-align: center;
+    margin-top: 6px;
+    border-radius: 10px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0fcc00;
+}
+
+    .hint-msg .icon-msg {
+        font-size: 14px;
+        margin-top: -3px;
+    }
+
+    .hint-msg b {
+        font-weight: normal;
+    }
+
+/*导航区*/
+.nav-list {
+    margin-bottom: 20px;
+}
+
+.nav-title {
+    padding-top: 20px;
+    padding-bottom: 8px;
+    font-size: 12px;
+    color: gray;
+}
+
+.nav-item {
+}
+
+.nav-item-ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.nav-item img {
+    width: 30px;
+    height: 30px;
+}
+
+.nav-item-ul li {
+    padding: 10px 0;
+    border-right: 1px solid #ededed;
+    text-align: center;
+    width: 25%;
+    overflow: hidden;
+    position: relative;
+}
+
+    .nav-item-ul li div {
+        padding-top: 3px;
+    }
+    /*徽章*/
+    .nav-item-ul li .bage-num {
+        color: white;
+        background: #ff0000;
+        border-radius: 20px;
+        padding: 0px 5px;
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        font-size: 10px;
+    }
+
+/*第二个导航样式*/
+.nav-list-2 {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    padding-right: 5px;
+}
+
+.nav-li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ededed;
+    background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+    background-size: 15px;
+    overflow: hidden;
+}
+
+.nav-li-left {
+    width: 100%;
+    font-size: 14px;
+}
+
+    .nav-li-left img {
+        width: 25px;
+        margin-right: 10px;
+    }
+
+.nav-li .bage-num {
+    color: white;
+    background: #ff0000;
+    border-radius: 20px;
+    padding: 1px 3px;
+    font-size: 10px;
+    margin-right: 20px;
+}

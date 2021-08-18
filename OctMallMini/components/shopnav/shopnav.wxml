@@ -1,0 +1,58 @@
+<!--components/shopnav/shopnav.wxml-->
+<!-- 子导航 -->
+<view class="nav-bar-sub" style="top:{{topFix}}px">
+	<view class="oct-header-top">
+		<view class="oct-header-left" bindtap="navShopMsgDetail" data-shop-id="{{shopId}}">
+			<image src="{{shopHeaderImg}}" />
+		</view>
+		<view class="oct-header-mid" bindtap="navShopMsgDetail" data-shop-id="{{shopId}}">
+			<view class="header-mid-top">
+				{{shopName}} <span class="shop-isself-span" wx:if="{{isSelfShop == 'true'}}">自营店</span>
+			</view>
+			<view class="header-mid-bottom">
+				<span class="header-span-star">
+					
+					<image wx:for="{{appraiseStarRed}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+					<image wx:for="{{appraiseStarGray}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png" />
+
+				</span>
+				<span class="header-span-val">
+					{{avgAppraiseScore}}分
+				</span>
+				<span>
+					粉丝数:
+				</span>
+				<span class="header-span-val">
+					{{countFans}}
+				</span>
+			</view>
+		</view>
+		<view class="oct-header-right">
+			<view class="header-right-top">
+				<view class="btn-focus" bindtap="addBuyerFocusFav" data-shop-id="{{shopId}}">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/fav.png" />
+					关注
+				</view>
+			</view>
+			<view class="header-right-bottom">
+				<span>{{countFavShop}}</span>
+			</view>
+		</view>
+	</view>
+	<view class="oct-header-bottom">
+		<view class="{{tabCurNum==0 ? 'nav-current' : '' }}">
+		  	<navigator url="../../../pages/shop/index/index?SID={{shopId}}" open-type="redirect">首页</navigator>
+		</view>
+		<view class="{{tabCurNum==1 ? 'nav-current' : '' }}">
+			<navigator url="../../../pages/shop/goodsall/goodsall?SID={{shopId}}" open-type="redirect">全部商品</navigator>
+		</view>
+		<view class="{{tabCurNum==2 ? 'nav-current' : '' }}">
+			<navigator url="../../../pages/shop/activity/activity?SID={{shopId}}" open-type="redirect">活动优惠</navigator>
+		</view>
+		<view class="header-bottom-search">
+			<navigator url="../../../pages/shop/shopsearch/shopsearch?SID={{shopId}}">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_query.png" />商品搜索
+			</navigator>
+		</view>
+	</view>
+</view>

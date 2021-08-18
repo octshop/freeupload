@@ -1,0 +1,147 @@
+
+page {
+  background: white;
+}
+
+
+.login-icon {
+  text-align: center;
+}
+
+.login-icon image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5px;
+  margin-top: 50px;
+}
+
+/*登录表单*/
+.login-form view {
+  padding: 10px 0;
+}
+
+.login-form input {
+  border: none;
+}
+
+.login-form-mobile,
+.login-form-checkcode {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 280px;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 1px solid #bbbbbb;
+  font-size: 16px;
+  color: #000000;
+  padding: 0px 10px;
+  height: 25px;
+  margin: 25px auto;
+  border-radius: 20px;
+}
+
+.login-form .login-form-checkcode span {
+  padding-top: 18px;
+  display: block;
+}
+
+.login-form-mobile span {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: block;
+  width: 80px;
+}
+
+.login-form-mobile input {
+  text-align: left;
+  width: 100%;
+  font-size: 18px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+}
+
+.login-form .login-form-checkcode {
+  justify-content: space-between;
+}
+
+.login-form-checkcode input {
+  text-align: center;
+  width: 90%;
+  font-size: 14px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: none;
+}
+
+.login-form-checkcode span {
+  width: 150px;
+  font-size: 14px;
+  display: block;
+  height: 40px;
+  padding-top: 10px;
+  overflow: hidden;
+  color: #005abb;
+}
+
+.login-form-checkcode .reset-check-code {
+  color: gray;
+}
+
+/*登录按钮*/
+.btn-login-once {
+  background: #10b204;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  margin: 0 auto;
+  border-radius: 50px;
+  margin-top: 0px;
+}
+
+.btn-login-once image {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+
+.login-form .link-a-bottom {
+  width: 250px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 14px;
+  margin: 0 auto;
+  margin-top: 25px;
+  color: #bbbbbb;
+}
+
+.link-a-bottom navigation {
+  color: #0081c3;
+}
+
+
+.login-form .extra-link {
+  width: 260px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.extra-link navigation {
+  width: 100px;
+  display: block;
+  color: #0079ae;
+  Background: #ededed;
+  padding: 5px 10px;
+  border-radius: 30px 10px;
+  font-size: 12px;
+}

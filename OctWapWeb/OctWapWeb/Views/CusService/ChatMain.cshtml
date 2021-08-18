@@ -1,0 +1,139 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>聊天主页</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/CusService/ChatMain.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>某某店铺名称</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../shop/index?SID=234"><img class="header-icon-my" src="../Assets/Imgs/Icon/shop_small.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--店铺名称-->
+        <div class="shop-name">
+            <div class="shop-name-left">
+                <img src="../Assets/Imgs/05.jpg" />
+            </div>
+            <div class="shop-name-mid">
+                <div>
+                    店铺名称店铺名称店铺名称
+                </div>
+                <div class="header-mid-bottom">
+                    <span class="header-span-star">
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                    </span>
+                    <span class="header-span-val">
+                        4.0分
+                    </span>
+                    <span>
+                        粉丝数:
+                    </span>
+                    <span class="header-span-val">
+                        5966565
+                    </span>
+                </div>
+            </div>
+            <div class="shop-name-right">
+                <div class="btn-focus">
+                    关注
+                </div>
+            </div>
+        </div>
+
+        <!--聊天内容-->
+        <div class="chat-content">
+
+            <!--商家的聊天内容-->
+            <div class="chat-content-item chat-shop-item">
+                <div class="chat-item-left chat-user-header">
+                    <img src="../Assets/Imgs/05.jpg" />
+                </div>
+                <div class="chat-item-right chat-content-msg">
+                    商家的聊天内容 商家的聊天内容 商家的聊天内容 商家的聊天内容
+                </div>
+            </div>
+
+            <div class="chat-content-item chat-shop-item">
+                <div class="chat-item-left chat-user-header">
+                    <img src="../Assets/Imgs/05.jpg" />
+                </div>
+                <div class="chat-item-right chat-content-msg">
+                    商家的聊天内容
+                </div>
+            </div>
+
+            <!--买家的聊天内容-->
+            <div class="chat-content-item chat-buyer-item">
+                <div class="chat-item-left chat-content-msg">
+                    商家的聊天内容 商家的聊天内容 商家的聊天内容 商家的聊天内容
+                </div>
+                <div class="chat-item-right chat-user-header">
+                    <img src="../Assets/Imgs/06.jpg" />
+                </div>
+            </div>
+
+            <div class="chat-content-item chat-buyer-item">
+                <div class="chat-item-left chat-content-msg">
+                    商家的聊天内容 商家的聊天内容 商家的聊天内容 商家的聊天内容
+                </div>
+                <div class="chat-item-right chat-user-header">
+                    <img src="../Assets/Imgs/06.jpg" />
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+       <div class="send-form">
+           <div class="send-form-input">
+               <img src="../Assets/Imgs/Icon/chat_tel.png" />
+               <div class="send-content-input">
+                   <input type="text" placeholder="输入咨询内容" />
+                   <img src="../Assets/Imgs/Icon/chat_face.png" />
+               </div>
+               <img src="../Assets/Imgs/Icon/chat_add.png" />
+           </div>
+           <div class="send-face-content" style="display:normal;">
+               表情区域
+           </div>
+       </div>
+    </div>
+
+</body>
+</html>

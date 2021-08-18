@@ -1,0 +1,61 @@
+/* pages/buyer/setting/setting.wxss */
+.setting-ul {
+  padding: 10px;
+  background: #ffffff;
+  padding-top: 5px;
+  font-size: 28rpx;
+}
+.setting-ul .arrows-right-black {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 25rpx 0;
+  border-bottom: 1px solid #F7F7F7;
+}
+
+.setting-item image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+  margin-bottom: -8rpx;
+}
+
+.setting-item-1 {
+  /* background: url(../../Imgs/Icon/buyer_question.png) left center no-repeat; */
+  background-size: 20px;
+}
+
+.setting-item-2 {
+  /* background: url(../../Imgs/Icon/buyer_shopenter.png) left center no-repeat; */
+  background-size: 20px;
+}
+
+.setting-item-3 {
+  /* background: url(../../Imgs/Icon/buyer_settingpay.png) left center no-repeat; */
+  background-size: 22px;
+}
+
+.setting-item-4 {
+  /* background: url(../../Imgs/Icon/buyer_password.png) left center no-repeat; */
+  background-size: 22px;
+}
+
+.setting-item-5 {
+  /* background: url(../../Imgs/Icon/buyer_delcookie.png) left center no-repeat; */
+  background-size: 20px;
+}
+
+.setting-exit {
+  padding: 10px;
+  background: white;
+  margin-top: 20px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 28rpx;
+}

@@ -1,0 +1,83 @@
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="店铺搜索" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 搜索栏 -->
+<view class="shop-search" style="top:{{navbarHeight}}px">
+	<view class="oct-header-mid">
+		<view class="header-search">
+			<text wx:if="{{searchType=='Entity'}}">实体店</text>
+			<image wx:else src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_query.png" />
+			<input type="text" class="search-txt" placeholder="输入店铺名称" focus="true" bindinput="bindInputSearchTxt"
+				bindconfirm="clickSearchShop" />
+		</view>
+	</view>
+	<view class="oct-header-right" bindtap="clickSearchShop">
+		<span>搜索</span>
+	</view>
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<view class="search-result">
+		<view class="search-result-title">
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/se_recent.png" />
+				最近搜索
+			</view>
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/se_del.png" bindtap="delSearchHistoryShop" />
+			</view>
+		</view>
+		<view class="search-result-content">
+			<view class="result-item" wx:for="{{loadSearchHistoryShop_Data.SearchHistoryGoodsShopList}}"
+				bindtap="clickSearchShop" data-search-txt="{{item.SearchContent}}">
+				{{item.SearchContent}}
+			</view>
+		</view>
+	</view>
+
+	<view class="search-result">
+		<view class="search-result-title">
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/search_type.png" />
+				搜索方式
+			</view>
+			<view>
+
+			</view>
+		</view>
+		<view class="search-result-content search-type">
+			<navigator url="#" class="result-item" open-type="redirect">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/search_shop.png" style="width:38rpx; height:38rpx" /> 搜索店铺
+			</navigator>
+			<navigator class="result-item" url="../goodssearch/goodssearch?ST={{searchType}}" open-type="redirect">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/search_scart.png" /> 搜索商品
+			</navigator>
+		</view>
+	</view>
+
+	<view class="search-result">
+		<view class="search-result-title">
+			<view>
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/se_find.png" />
+				搜索发现
+			</view>
+			<view>
+
+			</view>
+		</view>
+		<view class="search-result-content">
+
+			<view class="result-item" wx:for="{{loadTopSearchFindMsg_Data.SearchFindMsgList}}" bindtap="clickSearchShop"
+				data-search-txt="{{item.SearchContent}}">
+				{{item.SearchContent}}
+			</view>
+
+		</view>
+	</view>
+
+
+
+</view>

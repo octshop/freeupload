@@ -1,0 +1,20 @@
+<!--components/silderdownwin/silderdownwin.wxml-->
+<!-- ================= 底部滑出的自定义窗口 =================== -->
+<view class="slide-cover" bindtap="closeSlideBottom" bindtouchmove="closeSlideBottom"
+	style="height:2000px;display:{{isDisplaySlide}}">
+</view>
+<!-- =====窗口主体内容 =====-->
+<view class="slide-bottom"
+	style="bottom:0px;width:100%;height:{{slideWinHeight}}px;overflow:hidden;display:{{isDisplaySlide}};background:white">
+	<!-- =====滚动视图 =====-->
+	<view class="win-slide-bottom-title" style="height: 20px" bindtap="closeSlideBottom" wx:if="{{isDisplayTitle=='true'}}">{{slideWinTitle}} <text>×</text></view>
+	<scroll-view scroll-y="true" scroll-x="false" class="scroll-view-slide" style="overflow:hidden;height:{{sDisplayTitle=='true' ? slideWinHeight-28 : slideWinHeight}}px">
+		<view class="win-slide-bottom-content" style="height: 100%;">
+
+			<!--外部传递进来的Wxml代码-->
+			<slot name="outwxml"></slot>
+
+		</view>
+	</scroll-view>
+</view>
+

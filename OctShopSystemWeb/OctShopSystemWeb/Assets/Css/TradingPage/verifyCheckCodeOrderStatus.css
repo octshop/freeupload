@@ -1,0 +1,104 @@
+﻿/*==============订单核销验证======================*/
+
+/*表单区*/
+.check-form{
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 20px;
+}
+.check-form-ul{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+}
+.check-form-ul li{
+    width: 250px;
+}
+    .check-form-ul li span{
+        font-size: 14px;
+        padding-right:5px;
+    }
+    .check-form-ul li .txt-css {
+        padding: 5px;
+        width:150px;
+    }
+.btn-common{
+    padding:5px 20px;
+    margin-left: 30px;
+}
+#CheckCodeTxt{
+    border:1px solid #ff6a00;
+}
+
+/*订单列表*/
+.check-order-list {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:start;
+    justify-content:flex-start;
+}
+.check-order-item{
+    width: 600px;
+    background: #fafafa;
+    padding: 10px;
+    padding-top: 0;
+    overflow:hidden;
+    margin-right:10px;
+    border: 1px solid #e6e6e6;
+    border-radius:5px;
+    margin-bottom:15px;
+}
+.check-order-item ul li{
+    padding-top:10px;
+}
+.order-item-title{
+    border-bottom:1px solid #e6e6e6;
+    padding-bottom:10px;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.order-item-title b{
+    color: #ff6a00;
+    padding-right: 20px;
+}
+.order-item-title a{
+    display:block;
+    border: 1px solid #cccccc;
+    color: #808080;
+    padding:5px 10px;
+    font-size:12px;
+    border-radius:10px;
+    background:white;
+}
+.order-item-goods {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.order-item-goods a{
+    font-size:14px;
+}
+    .order-item-goods span{
+        display:block;
+        width: 40px;
+        overflow:hidden;
+        text-align:right;
+    }
+    .order-user-msg {
+        border-top: 1px solid #e6e6e6;
+        font-size: 14px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .order-user-msg b {
+        color: #ff6a00;
+        padding-right: 20px;
+    }
+    .order-user-msg .btn-common {
+        border-radius: 20px;
+    }

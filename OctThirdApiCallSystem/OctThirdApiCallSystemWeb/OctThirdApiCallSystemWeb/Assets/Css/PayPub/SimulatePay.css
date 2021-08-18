@@ -1,0 +1,56 @@
+﻿/*================支付提醒===========================*/
+body,html {
+    background: white;
+}
+.oct-content {
+    padding: 0;
+    margin: 0;
+    /*padding-top: 40px;*/
+    margin-top: -5px;
+    background:white;
+}
+
+.pay-logo img {
+    width: 100%;
+}
+
+.pay-prompt {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.pay-prompt-title {
+    font-size: 18px;
+}
+
+.pay-prompt-msg{
+    text-align:left;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.pay-prompt-msg b{
+    display:block;
+}
+.btn-simulate-pay {
+    border: none;
+    background: #FF4242;
+    color:white;
+    font-size: 14px;
+    padding:10px 80px;
+    border-radius: 20px;
+    margin: 20px 0;
+}
+.pay-customer{
+    padding-top: 30px;
+    font-size: 12px;
+}
+.pay-customer ul li {
+    padding: 5px;
+}
+.pay-customer ul li a{
+    color: #0052d3;
+}

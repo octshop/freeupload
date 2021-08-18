@@ -1,0 +1,302 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>礼品订单详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Order/OrderDetail.css" rel="stylesheet" />
+    <link href="../Assets/Css/PresentOrder/PresentOrderDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/ClipBoard/clipboard.min.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/PresentOrder/PresentOrderDetail.js?v=1"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidPOID" value="@ViewBag.POID" />
+    <input type="hidden" id="hidBReceiAddrID" value="@ViewBag.BID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>礼品订单详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--Logo区-->
+        <div class="logo-content logo-content-present">
+            <div class="logo-left">
+                <b id="StatusTtitle">商家已发货</b>
+                <div id="StatusDesc">
+                    还剩16天6小时自动确认
+                </div>
+            </div>
+            <div class="logo-right" id="StatusLogoImg">
+                <img src="../Assets/Imgs/Icon/order_trucks.png" />
+            </div>
+        </div>
+
+        <!--快递,送货信息-->
+        <div class="express-recei" id="ExpressSendGoods" style="display:none;">
+            <div class="recei-msg">
+                <div class="recei-msg-left" style="background:url(../../Assets/Imgs/Icon/order_greentrucks.png) 0px center  no-repeat; background-size: 25px;">
+                    &nbsp;
+                </div>
+                <div class="recei-msg-mid">
+                    <div class="recei-msg-nametel" style="padding-bottom: 5px;">
+                        <div id="SendGoodsType">
+                            快递信息
+                        </div>
+                        <div id="SendTelNumber">
+                            <a href="tel:13203156008" style="color: #0266d1;">13203156008</a>
+                        </div>
+                    </div>
+                    <div class="recei-msg-addr" id="SendGoodsContent">
+                        快递名称：顺丰快递  ， 单号: 26623625  <a href="#" style="color: #0266d1;display:inline; padding: 0px 15px;">查询</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--到店消费/自取验证码-->
+        <div class="check-code" id="CheckCodeDiv" style="display:none;">
+            <div class="check-code-left">
+                <div>到店消费/自取-验证码</div>
+                <div class="check-order-id">礼品订单ID：<span>@ViewBag.POID</span></div>
+                <div class="check-code-number"><b id="checkCodeNumberB">563254</b></div>
+                <div>
+                    <input type="button" class="btn-reset" id="BtnReset" value="重新生成" onclick="initShopCheckOrderStatus('true')" />
+                </div>
+            </div>
+            <div class="check-code-right">
+                <a href="../Assets/Imgs/scan.png" id="ScanImgA" target="_blank">
+                    <img id="ScanImg" src="../Assets/Imgs/scan.png" />
+                </a>
+            </div>
+        </div>
+
+
+        <!--收货地址-->
+        <div class="express-recei">
+            <!--收货地址-->
+            <div class="recei-msg" id="ReceiMsg" style="display:none;">
+                <div class="recei-msg-left">
+                    &nbsp;
+                </div>
+                <div class="recei-msg-mid">
+                    <div class="recei-msg-nametel">
+                        <div id="DeliName">
+                            小黄人
+                        </div>
+                        <div id="Mobile">
+                            13203156008
+                        </div>
+                    </div>
+                    <div class="recei-msg-addr" id="RegionDetailAddr">
+                        湖南省长沙市长沙县开元西路12号 湖南省长沙市长沙县开元西路12号
+                    </div>
+                </div>
+                <div class="recei-msg-right" id="ChgReceiAddr" style="display:none; cursor:pointer;" onclick="window.location.href='../Buyer/ReceiAddrList?BackUrl=../PresentOrder/PresentOrderDetail?POID=@ViewBag.POID'">
+                    修<br />改
+                </div>
+            </div>
+
+            <!--到店消费/自取  店铺地址-->
+            <div class="shop-addr-nav" id="ShopAddrNav" style="display:none;">
+                <div class="shop-addr-nav-left">
+                    <span>店铺地址:</span><br />
+                    <img src="../Assets/Imgs/Icon/address.png" />
+                    <b style="color:#cb0000" id="DistanceKmB">2.4km</b>
+                </div>
+                <div class="shop-addr-nav-mid" id="ShopAddrDetailDiv">
+                    湖南省长沙市长沙县开元西路w82号湖南省长沙市长长沙县开元西路w82号
+                </div>
+                <div class="shop-addr-nav-right">
+                    <a href="javascript:openShopNavWin()">
+                        <img src="../Assets/Imgs/Icon/addr_nav.png" /><br />
+                        导航
+                    </a>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <!--订单商品和价格区-->
+        <ul class="order-list">
+            <li class="order-item">
+                <div class="order-item-top">
+                    <a href="#" id="ShopNameA" target="_blank"><img src="../Assets/Imgs/02.jpg" />韩版男装专卖店</a>
+                    <div class="order-status-txt" id="OrderStatusDiv">
+                        待收货
+                    </div>
+                </div>
+                <div class="order-item-mid" id="OrderGoodsListDiv">
+                    <a href="#" class="order-goods-item" target="_blank">
+                        <div class="goods-item-left">
+                            <img src="~/Assets/Imgs/02.jpg" />
+                        </div>
+                        <div class="goods-item-mid">
+                            <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                        </div>
+                        <div class="goods-item-right">
+                            <span class="goods-item-price">2354.43</span>
+                            <span class="goods-item-ordernum">&times; 1</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="order-item-bottom">
+                    <ul class="order-goods-sum">
+                        <li>
+                            <div>
+                                礼品积分
+                            </div>
+                            <div id="SumTotalGoodsPrice">
+                                1523.20
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-item-sum">
+
+                    <ul class="order-sum-ul">
+                        <li>
+                            <div>
+                                实付积分
+                            </div>
+                            <div>
+                                <b class="pay-price-b" id="PayOrderPriceB">1523.20</b>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </li>
+        </ul>
+
+
+
+
+        <!--客服与投诉-->
+        <div class="customer-complain">
+            <div class="customer-item" id="CustomerOnLineDiv">
+                <img src="../Assets/Imgs/Icon/order_customer.png" />商家客服
+            </div>
+            <div class="tel-item" id="ShopMobileDiv">
+                <img src="../Assets/Imgs/Icon/order_tel.png" />拨打电话
+            </div>
+            <div class="complain-item" onclick="serviceComplainBarClick('2')">
+                <img src="../Assets/Imgs/Icon/order_complain.png" />投诉商家
+            </div>
+        </div>
+
+        <!--订单其他信息-->
+        <div class="order-other">
+
+            <ul class="order-other-ul">
+                <li>
+                    <div>礼品订单ID</div>
+                    <div class="order-other-val">
+                        <b id="OrderIDB">2839823498324</b>
+                        <input class="btn-copy" id="BtnCopyOrderID" data-clipboard-text="@ViewBag.POID" type="button" value="复制" />
+                    </div>
+                </li>
+                <li>
+                    <div>是否包邮</div>
+                    <div class="order-other-val" id="IsPinkage">
+                        免运费-包邮
+                    </div>
+                </li>
+                <li>
+                    <div>支付方式</div>
+                    <div class="order-other-val" id="PayWayDiv">
+                        积分支付
+                    </div>
+                </li>
+                <li>
+                    <div>配送方式</div>
+                    <div class="order-other-val" id="ExpressTypeDiv">
+                        顺丰快递
+                    </div>
+                </li>
+                <li>
+                    <div>下单时间</div>
+                    <div class="order-other-val" id="OrderTimeDiv">
+                        2018-05-19 23:32:12
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <div>
+            投诉
+        </div>
+        <div class="footer-btn-current">
+            确认收货
+        </div>
+    </div>
+
+
+
+
+    <!--选择店铺导航地图-->
+    <div class="win-sel-shopnav" id="WinSelShopNav" style="display:none;">
+        <div class="win-shopnav-content">
+            <ul>
+                <li class="shopnav-title-li">
+                    选择导航地图
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="qqmapA">腾讯地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="amapA">高德地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="bdmapA">百度地图</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="toggleSilderDownWin()" style="color: #000000; padding-bottom: 20px;">取消</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

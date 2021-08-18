@@ -1,0 +1,279 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>商家信息详情</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Lib/lightslider/lightslider.css" rel="stylesheet" />
+    <link href="../Assets/Css/Shop/ShopMsgDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/PhotoSwipe/initPhotoSwipe.js"></script>
+    <script src="../Assets/Lib/lightslider/lightslider.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Shop/ShopMsgDetail.js"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidShopID" value="@ViewBag.ShopID" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <input type="hidden" id="hidOctShopSystemWeb_AddrDomain" value="@ViewBag.OctShopSystemWeb_AddrDomain" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>商家详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!-- 轮播区域 -->
+        <div class="oct-slider" id="OctSlider" style="display:none;">
+
+            <div class="sliderMainContent" id="sliderMainContent" style="overflow:hidden;">
+
+                <ul id="content-slider" class="content-slider">
+                    @*<li>
+                            <a href="javascript:void(0)" target="_blank">
+                                <div class="img-slider img-slider-1">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </div>
+                            </a>
+                        </li>*@
+
+                </ul>
+
+            </div>
+
+            <div class="slider-pager-content">
+                <div id="SliderCountDiv">0/0</div>
+            </div>
+        </div>
+
+        <!--店铺名称-->
+        <div class="shop-name">
+            <div class="shop-name-left">
+                <img id="ShopHeaderImgVal" src="../Assets/Imgs/05.jpg" />
+            </div>
+            <div class="shop-name-mid">
+                <div id="ShopNameVal">
+                    店铺名称
+                </div>
+                <div class="header-mid-bottom">
+                    <span class="header-span-star" id="ShopAppraiseVal">
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                    </span>
+                    <span class="header-span-val" id="AvgShopScoreVal">
+                        4.0分
+                    </span>
+                    <span>
+                        粉丝数:
+                    </span>
+                    <span class="header-span-val" id="FansCountVal">
+                        5966565
+                    </span>
+                </div>
+            </div>
+            <div class="shop-name-right" onclick="addBuyerFocusFav()">
+                <div class="btn-focus">
+                    关注
+                </div>
+            </div>
+        </div>
+
+        <!--商家中心-店铺管理-->
+        <div class="shop-center" id="ShopCenterDiv" style="display:none;">
+            <a href="#" id="ShopCenterA" target="_blank">商家中心/店铺管理</a>
+        </div>
+
+        <!--店铺评价-->
+        <div class="shop-appraise">
+            <div class="shop-appraise-title">
+                <b>店铺评价</b>
+                <b id="AvgShopScoreB">4.5分</b>
+            </div>
+            <div class="shop-appraise-content">
+                <div class="app-content-left">
+                    商品符合度
+                </div>
+                <div class="app-content-right">
+                    <span class="header-span-star" id="AvgConformityScoreImg">
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                    </span>
+                    <span class="header-span-val" id="AvgConformityScoreSpan">
+                        4.0分
+                    </span>
+                </div>
+            </div>
+            <div class="shop-appraise-content">
+                <div class="app-content-left">
+                    店家服务态度
+                </div>
+                <div class="app-content-right">
+                    <span class="header-span-star" id="AvgAttitudeScoreImg">
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                    </span>
+                    <span class="header-span-val" id="AvgAttitudeScoreSpan">
+                        4.0分
+                    </span>
+                </div>
+            </div>
+            <div class="shop-appraise-content">
+                <div class="app-content-left">
+                    物流发货速度
+                </div>
+                <div class="app-content-right">
+                    <span class="header-span-star" id="AvgExpressScoreImg">
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                    </span>
+                    <span class="header-span-val" id="AvgExpressScoreSpan">
+                        4.0分
+                    </span>
+                </div>
+            </div>
+            <div class="shop-appraise-content">
+                <div class="app-content-left">
+                    配送员服务态度
+                </div>
+                <div class="app-content-right">
+                    <span class="header-span-star" id="AvgDeliverymanScoreImg">
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                        <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                    </span>
+                    <span class="header-span-val" id="AvgDeliverymanScoreSpan">
+                        4.0分
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!--基本信息-->
+        <div class="shop-appraise shop-basic">
+            <div class="shop-appraise-title">
+                <b>基本信息</b>
+                <b></b>
+            </div>
+            <div class="shop-appraise-content">
+                <div class="app-content-left">
+                    性质
+                </div>
+                <div class="app-content-right" id="IsEntityVal">
+                    有实体店
+                </div>
+            </div>
+            <div class="shop-appraise-content">
+                <div class="app-content-left">
+                    名称
+                </div>
+                <div class="app-content-right" id="ShopNameVal2">
+                    某店铺名称
+                </div>
+            </div>
+            <div class="shop-appraise-content">
+                <div class="app-content-left">
+                    服务电话
+                </div>
+                <div class="app-content-right">
+                    <a id="ShopMobileA" href="tel:15675148605" style="color: #0094ff"> </a>
+                </div>
+            </div>
+            <div class="shop-appraise-content">
+                <div class="app-content-left">
+                    所在地
+                </div>
+                <div class="app-content-right" id="RegionNameArrVal">
+
+                </div>
+            </div>
+            <div class="shop-appraise-content">
+                <div class="app-content-left">
+                    企业资质
+                </div>
+                <div class="app-content-right" id="IsNormalCompanyVal">
+
+                </div>
+            </div>
+            <div class="shop-appraise-content">
+                <div class="app-content-left">
+                    开店时间
+                </div>
+                <div class="app-content-right" id="WriteDateVal">
+
+                </div>
+            </div>
+        </div>
+
+        <!--店铺简介-->
+        <div class="shop-appraise shop-intro">
+            <div class="shop-appraise-title">
+                <b>店铺简介</b>
+                <b></b>
+            </div>
+            <div class="shop-appraise-content" id="ShopDescVal">
+                店铺简介
+            </div>
+        </div>
+
+        <!--主营商品-->
+        <div class="shop-appraise shop-intro">
+            <div class="shop-appraise-title">
+                <b>主营商品</b>
+                <b></b>
+            </div>
+            <div class="shop-appraise-content" id="MajorGoodsVal">
+                主营商品
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+</body>
+</html>

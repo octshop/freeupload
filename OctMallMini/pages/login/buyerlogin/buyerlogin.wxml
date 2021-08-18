@@ -1,0 +1,38 @@
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="买家登录" back-icon="/assets/imgs/icons/navbar_back.png"
+    home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+  <view class="login-icon">
+    <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/login_user.png" />
+  </view>
+  <view class="login-form">
+    <view class="login-form-mobile">
+      <span>+86</span>
+      <input type="number" class="txt-css" id="BindMobile" style="background:none;" placeholder="请输入手机号"
+        bindinput="bindInputBindMobile" />
+    </view>
+    <view class="login-form-checkcode" style=" align-items: center;">
+      <input type="number" id="VerifyCode" class="txt-css" placeholder="短信验证码" bindinput="bindInputSmsVerifyCode" />
+      <span id="BtnSpanGetVerifyCode" bindtap="getSmsVerifyCode" wx:if="{{isGetVerifyCode == false}}">获取验证码</span>
+      <span id="BtnSpanReSetVerifyCode" class="reset-check-code" wx:if="{{isGetVerifyCode == true}}">重新获取(<i
+          id="TimerSecondI">{{countNum}}s</i>) </span>
+    </view>
+    <view class="login-form-btn">
+      <view class="btn-login-once" bindtap="loginBuyerMobile">
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/login_mobile.png" /><b id="BtnResetLoginPwd"
+          style="font-weight:normal;">手机登录</b>
+      </view>
+      <view class="btn-login-once btn-wx-login" bindtap="loginBuyerMobile" bindtap="navigateToURL"
+        data-navigate-url="../../login/bindmobile/bindmobile" wx:if="{{wxMiniIsGetUserMobile=='true'}}">
+        <image src="{{apiWebDoamin}}/Assets/Imgs/Icon/wx_white.png" /><b id="BtnResetLoginPwd"
+          style="font-weight:normal;">微信绑定手机登录</b>
+      </view>
+    </view>
+  </view>
+
+
+
+</view>

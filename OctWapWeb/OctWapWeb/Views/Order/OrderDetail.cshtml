@@ -1,0 +1,480 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>订单详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Order/OrderDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/ClipBoard/clipboard.min.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Order/OrderDetail.js?v=4"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidOrderID" value="@ViewBag.OrderID" />
+    <input type="hidden" id="hidBReceiAddrID" value="@ViewBag.BReceiAddrID" />
+    <input type="hidden" id="hidOctWapWeb_AddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>订单详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--Logo区-->
+        <div class="logo-content">
+            <div class="logo-left">
+                <b id="StatusTtitle">@*商家已发货*@</b>
+                <div id="StatusDesc">
+                    @*还剩16天6小时自动确认*@
+                </div>
+            </div>
+            <div class="logo-right" id="StatusLogoImg">
+                <img src="../Assets/Imgs/Icon/order_trucks.png" />
+            </div>
+        </div>
+
+        <!--赠送信息，积分或优惠券-->
+        <div class="giving-msg" id="GivingMsg" style="display:none;">
+            <!--<div>
+                验证到店消费/自取，商品返积分：+ 28.00。
+            </div>-->
+        </div>
+
+        <!--到店消费/自取验证码-->
+        <div class="check-code" id="CheckCodeDiv" style="display:none;">
+            <div class="check-code-left">
+                <div>到店消费/自取-验证码</div>
+                <div class="check-order-id">订单ID：<span>@ViewBag.OrderID</span></div>
+                <div class="check-code-number"><b id="checkCodeNumberB">563254</b></div>
+                <div>
+                    <input type="button" class="btn-reset" id="BtnReset" value="重新生成" onclick="initShopCheckOrderStatus('true')" />
+                </div>
+            </div>
+            <div class="check-code-right">
+                <a href="../Assets/Imgs/scan.png" id="ScanImgA" target="_blank">
+                    <img id="ScanImg" src="../Assets/Imgs/scan.png" />
+                </a>
+            </div>
+        </div>
+
+        <!--收货地址和快递信息-->
+        <div class="express-recei">
+            <div class="express-msg" id="ExpressMsgDiv" onclick="window.location.href='../order/OrderDynamic?OID=@ViewBag.OrderID'">
+                <div class="express-msg-left">
+                    &nbsp;
+                </div>
+                <div class="express-msg-mid">
+                    <div class="express-mid-content" id="MsgContent">
+                        @*物流快递信息呀物流快递信*@
+                    </div>
+                    <div class="express-mid-date" id="MsgWriteDate">
+
+                    </div>
+                </div>
+                <div class="express-msg-right">
+                    &nbsp;
+                </div>
+            </div>
+            <!--收货地址-->
+            <div class="recei-msg" id="ReceiMsg" style="display:none;">
+                <div class="recei-msg-left">
+                    &nbsp;
+                </div>
+                <div class="recei-msg-mid">
+                    <div class="recei-msg-nametel">
+                        <div id="DeliName">
+                            @*小黄人*@
+                        </div>
+                        <div id="Mobile">
+                            @*13203156008*@
+                        </div>
+                    </div>
+                    <div class="recei-msg-addr" id="RegionDetailAddr">
+                        @*湖南省长沙市长沙县开元西路12号*@
+                    </div>
+                </div>
+                <div class="recei-msg-right" id="ChgReceiAddr" style="display:normal; cursor:pointer;" onclick="window.location.href='../Buyer/ReceiAddrList?BackUrl=../Order/OrderDetail?OID=@ViewBag.OrderID'">
+                    修<br />改
+                </div>
+            </div>
+
+            <!--到店消费/自取  店铺地址-->
+            <div class="shop-addr-nav" id="ShopAddrNav" style="display:none;">
+                <div class="shop-addr-nav-left">
+                    <span>店铺地址:</span><br />
+                    <img src="../Assets/Imgs/Icon/address.png" />
+                    <b style="color:#cb0000" id="DistanceKmB">0.0km</b>
+                </div>
+                <div class="shop-addr-nav-mid" id="ShopAddrDetailDiv">
+                    @*湖南省长沙市长*@
+                </div>
+                <div class="shop-addr-nav-right">
+                    <a href="javascript:openShopNavWin()">
+                        <img src="../Assets/Imgs/Icon/addr_nav.png" /><br />
+                        导航
+                    </a>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <!--订单商品和价格区-->
+        <ul class="order-list">
+            <li class="order-item">
+                <div class="order-item-top">
+                    <a href="#" id="ShopNameA" target="_blank"><img src="../Assets/Imgs/02.jpg" />@*韩版男装专卖店*@</a>
+                    <div class="order-status-txt" id="OrderStatusDiv">
+                        @*待收货*@
+                    </div>
+                </div>
+                <div class="order-item-mid" id="OrderGoodsListDiv">
+                    @*<a href="#" class="order-goods-item">
+                            <div class="goods-item-left">
+                                <img src="~/Assets/Imgs/01.jpg" />
+                            </div>
+                            <div class="goods-item-mid">
+                                <span class="goods-item-title">商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀商品名称呀</span>
+                                <span class="goods-item-spec">规格尺寸规格尺寸</span>
+                            </div>
+                            <div class="goods-item-right">
+                                <span class="goods-item-price">&#165;2354.43</span>
+                                <span class="goods-item-ordernum">&times; 3</span>
+                            </div>
+                        </a>*@
+
+                </div>
+                <div class="order-item-bottom">
+                    <ul class="order-goods-sum">
+                        <li>
+                            <div>
+                                商品总价
+                            </div>
+                            <div id="SumTotalGoodsPrice">
+                                &#165; 0.00
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                运费
+                            </div>
+                            <div id="FreightMoneyDiv">
+                                &#165; 0.00
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                优惠券
+                            </div>
+                            <div id="UseMoneyDiv">
+                                - &#165; 0.00
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-item-sum">
+
+                    <ul class="order-sum-ul">
+                        <li>
+                            <div>
+                                订单总额
+                            </div>
+                            <div id="OrderPriceDIv">
+                                &#165; 0.00
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                实付款
+                            </div>
+                            <div>
+                                <span class="order-type-label" id="OrderTypeLabelSpan" style="display:none;">拼团</span>&nbsp;
+                                <b class="pay-price-b" id="PayOrderPriceB">&#165; 0.00</b>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+            </li>
+        </ul>
+
+        <!--发票信息-->
+        <div class="invoice-msg" onclick="openInvoiceWin()">
+            <div class="invoice-msg-left">
+                发票类型
+            </div>
+            <div class="invoice-msg-right" id="OrderInvoiceDiv">
+                @*不开发票 增值税专票 - 某某公司*@
+            </div>
+        </div>
+
+        <!--赠品信息-->
+        <div class="invoice-msg" onclick="openGiftWin()">
+            <div class="invoice-msg-left">
+                赠品信息
+            </div>
+            <div class="invoice-msg-right" id="OrderGiftArrDiv">
+                共 0 件
+            </div>
+        </div>
+
+
+        <!--客服与投诉-->
+        <div class="customer-complain">
+            <div class="customer-item" id="CustomerOnLineDiv">
+                <img src="../Assets/Imgs/Icon/order_customer.png" />商家客服
+            </div>
+            <div class="tel-item" id="ShopMobileDiv">
+                <img src="../Assets/Imgs/Icon/order_tel.png" />拨打电话
+            </div>
+            <div class="complain-item" onclick="serviceComplainBarClick('2')">
+                <img src="../Assets/Imgs/Icon/order_complain.png" />投诉商家
+            </div>
+        </div>
+
+        <!--订单其他信息-->
+        <div class="order-other">
+
+            <ul class="order-other-ul">
+                <li>
+                    <div>订单ID</div>
+                    <div class="order-other-val">
+                        <b id="OrderIDB"></b>
+                        <input class="btn-copy" id="BtnCopyOrderID" data-clipboard-text="@ViewBag.OrderID" type="button" value="复制" />
+                    </div>
+                </li>
+                <li>
+                    <div>下单时间</div>
+                    <div class="order-other-val" id="OrderTimeDiv">
+
+                    </div>
+                </li>
+                <li>
+                    <div>支付方式</div>
+                    <div class="order-other-val" id="PayWayDiv">
+
+                    </div>
+                </li>
+                <li>
+                    <div>支付时间</div>
+                    <div class="order-other-val" id="PayTimeDiv">
+
+                    </div>
+                </li>
+                <li>
+                    <div>配送方式</div>
+                    <div class="order-other-val" id="ExpressTypeDiv">
+
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <div>
+            查看物流
+        </div>
+        <div>
+            延长收货
+        </div>
+        <div class="footer-btn-current">
+            确认收货
+        </div>
+        <div class="footer-btn-current" onclick="window.location.href='../AfterSale/AsMulSel'">
+            申请售后
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <!--申请发票窗口-->
+    <div class="win-invoice" id="WinInvoice" style="display:none;">
+
+        <div class="win-invoice-content">
+            <div class="win-invoice-title">
+                订单发票
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-invoice-list">
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        发票类型
+                    </div>
+                    <div class="win-invoice-right" id="InvoiceTypeDiv">
+
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        发票抬头
+                    </div>
+                    <div class="win-invoice-right" id="InvoiceTitleDiv">
+
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        收票人手机
+                    </div>
+                    <div class="win-invoice-right" id="ReceiMobileDiv">
+
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        收票人邮箱
+                    </div>
+                    <div class="win-invoice-right" id="ReceiEmailDiv">
+
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        发票内容
+                    </div>
+                    <div class="win-invoice-right" id="InvoiceContentDiv">
+
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        单位名称
+                    </div>
+                    <div class="win-invoice-right" id="CompanyNameDiv">
+
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        企业税号
+                    </div>
+                    <div class="win-invoice-right" id="TaxNumberDiv">
+
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        公司注册地址
+                    </div>
+                    <div class="win-invoice-right" id="CompanyRegAddrDiv">
+
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        公司电话
+                    </div>
+                    <div class="win-invoice-right" id="CompanyTelDiv">
+
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        银行账号
+                    </div>
+                    <div class="win-invoice-right" id="BankAccDiv">
+
+                    </div>
+                </div>
+                <div class="win-invoice-item">
+                    <div class="win-invoice-left">
+                        开户银行名称
+                    </div>
+                    <div class="win-invoice-right" id="OpeningBankDiv">
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!--选择店铺导航地图-->
+    <div class="win-sel-shopnav" id="WinSelShopNav" style="display:none;">
+        <div class="win-shopnav-content">
+            <ul>
+                <li class="shopnav-title-li">
+                    选择导航地图
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="qqmapA">腾讯地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="amapA">高德地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="bdmapA">百度地图</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="toggleSilderDownWin()" style="color: #000000; padding-bottom: 20px;">取消</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!--赠品信息窗口-->
+    <div class="win-order-gift" id="WinOrderGift" style="display:none;">
+        <div class="win-gift-title">
+            赠品信息
+            <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+        </div>
+        <div class="win-order-gift-content" id="WinOrderGiftContent">
+            …无赠品…
+            <!--<div>
+                <a href="#" target="_blank">赠品名称赠品名称</a>
+                <span>x 23</span>
+            </div>-->
+        </div>
+    </div>
+
+
+
+</body>
+</html>

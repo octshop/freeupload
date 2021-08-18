@@ -1,0 +1,40 @@
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="直接买单支付" back-icon="/assets/imgs/icons/navbar_back.png"
+    home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+  <view class="pay-main">
+
+
+    <view class="logo-icon" bindtap="navigateToURL" data-navigate-url="../../../shop/index/index?SID={{shopId}}">
+      <image id="ShopHeaderImg" src="//{{loadShopMsgSimple_Data.ShopHeaderImg}}" />
+      <view id="ShopName">{{loadShopMsgSimple_Data.ShopName}}</view>
+    </view>
+    <view class="pay-form">
+
+      <view class="pay-form-money">
+        <view class="pay-form-title">
+          支付金额<span class="balance-span" style="padding-right: 10px"> (微信支付)</span>
+        </view>
+        <view class="input-money-div" style="padding-top: 20px">
+          <b>￥</b><input class="input-money-txt" style="outline:none;text-align: left;" id="OrderPrice" type="number" bindinput="bindInputOrderPrice"  />
+        </view>
+      </view>
+      <view class="btn-pay-div">
+        <button class="btn-pay btn-pay-balance" bindtap="payAggregateOrder">立即支付</button>
+      </view>
+
+    </view>
+    <view class="extra-link">
+      <navigator url="../../../../pages/shop/index/index?SID={{shopId}}">首页</navigator>
+      <navigator url="../../../../pages/tabbar/buyerindex/buyerindex" open-type="switchTab">会员中心</navigator>
+    </view>
+
+
+
+  </view>
+
+</view>

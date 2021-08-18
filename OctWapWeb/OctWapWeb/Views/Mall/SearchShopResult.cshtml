@@ -1,0 +1,131 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>搜索店铺结果</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Mall/SearchShopResult.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Mall/SearchShopResult.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <input type="hidden" id="hidSearchContent" value="@ViewBag.SearchContent" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid" onclick="window.location.href='../Mall/SearchShop'">
+            <div class="header-search">
+                <img src="../Assets/Imgs/Icon/buyer_query.png" />
+                @ViewBag.SearchContent
+            </div>
+        </div>
+        <div class="oct-header-right" onclick="window.location.href='../Mall/GoodsType'">
+            <img src="../Assets/Imgs/Icon/shop_allgoods.png" /><br />
+            分类
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!--店铺列表-->
+            <ul class="goods-list" id="PageContentList">
+
+                @*<li class="goods-item">
+                    <div class="shop-item-top" onclick="window.location.href='../Shop/Index?SID=2343'">
+                        <div class="shop-item-left">
+                            <div>
+                                <img src="../Assets/Imgs/04.jpg" />
+                            </div>
+                            <div class="shop-name-right">
+                                <div class="shop-name-title">店铺名称店铺名称 <span>实体店</span></div>
+                                <div class="shop-name-extra">
+                                    <span class="header-span-star">
+                                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                                        <img src="../Assets/Imgs/Icon/appraise_star.png" />
+                                        <img src="../Assets/Imgs/Icon/appraise_star_gray.png" />
+                                    </span>
+                                    <span class="header-span-val">
+                                        4.0分
+                                    </span>
+                                    <span>销量：23324</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="shop-item-right">
+                            进店 >>
+                        </div>
+                    </div>
+                    <div class="shop-item-bottom">
+
+                        <ul class="shop-goods-ul">
+                            <li>
+                                <img src="../Assets/Imgs/05.jpg" />
+                                <div>&#165; 23432.23</div>
+                            </li>
+                            <li>
+                                <img src="../Assets/Imgs/05.jpg" />
+                                <div>&#165; 23432.23</div>
+                            </li>
+                            <li>
+                                <img src="../Assets/Imgs/05.jpg" />
+                                <div>&#165; 23432.23</div>
+                            </li>
+                            <li>
+                                <img src="../Assets/Imgs/05.jpg" />
+                                <div>&#165; 23432.23</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="shop-item-bage">
+                        <span>优惠券</span> <span>打折</span> <span>团购</span>
+                        <span>优惠券</span> <span>打折</span> <span>团购</span>
+                    </div>
+
+                    <div class="shop-item-addr">
+                        <div><b>地址:</b></div>
+                        <div>
+                            湖南省_长沙市_长沙县_开元西路23号5栋12号湖南省_长沙市_长沙县_开元西路23号5栋12号
+                        </div>
+                    </div>
+
+                </li>*@
+
+               
+
+            </ul>
+        </div>
+
+    </div>
+
+
+</body>
+</html>

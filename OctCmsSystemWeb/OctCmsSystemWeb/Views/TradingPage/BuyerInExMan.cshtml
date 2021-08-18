@@ -1,0 +1,107 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>会员账户余额管理</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/TradingPage/BuyerInExMan.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/TradingPage/BuyerInExMan.js"></script>
+
+</head>
+<body>
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=财务结算">财务结算</a></li>
+            <li class="am-active">会员账户余额管理</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 会员账户余额管理
+            </div>
+            <div class="title-btn-div am-fl">
+                @*<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加</button>*@
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <!--余额操作表单区-->
+            <div class="buyer-inex-form">
+
+                <div class="inex-form-money">
+                    <span>收支类型：</span>
+                    <select class="inex-type-sel" id="InExType">
+                        <option value="Recharge">会员余额充值</option>
+                        <option value="PlatformReduce">会员余额扣除</option>
+                    </select>
+                    <span>金额：</span>
+                    <input type="number" id="AddReduceSum" class="keyword-input txt-css" />元
+                </div>
+                <div>
+                    <span>会员绑定手机：</span>
+                    <input type="number" id="BindMobile" oninput="initUserVipLevelUserMsg()" class="txt-css bind-mobile" />
+                </div>
+                <div class="user-msg-item">
+                    <span>昵称：</span><b id="UserNick"></b><span>信用评分：</span><b id="CreditScore"></b><span>等级：</span><b id="VipLevel"></b>
+                </div>
+                <div>
+                    <textarea placeholder="收支备注" id="InExMemo" class="inex-memo-txtarea txt-css"></textarea>
+                </div>
+                <div class="btn-item">
+                    <input type="button" id="BtnSubmit" class="btn-submit am-fl am-btn am-radius am-btn-success" onclick="AddReduceBuyerInExPlatform()" value="立即执行" />
+                </div>
+            </div>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>请谨慎操作会员的余额。如果出错，会员整个账号将异常。</span>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>

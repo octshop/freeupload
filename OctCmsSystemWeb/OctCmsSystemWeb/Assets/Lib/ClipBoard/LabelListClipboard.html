@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>以标签列表为复制目标</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="clipboard.min.js"></script>
+
+    <style type="text/css">
+
+        div{
+            border: 1px solid #ff6a00;
+            width: 300px;
+            padding: 10px 50px;
+            margin-top: 20px;
+            color: #ff6a00;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>以标签列表为复制目标</h1><br /><br />
+
+    <div data-clipboard-text="复制1">复制1</div>
+    <div data-clipboard-text="复制2">复制2</div>
+    <div data-clipboard-text="复制3">复制3</div>
+
+    <!-- 3. Instantiate clipboard by passing a list of HTML elements -->
+    <script type="text/javascript">
+        //获取所有复制的标签列表
+        var btns = document.querySelectorAll('div');
+        //实体化Clipboard
+        var clipboard = new ClipboardJS(btns);
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+            alert("复制成功!");
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+            alert("复制失败!");
+        });
+
+    </script>
+
+
+</body>
+</html>

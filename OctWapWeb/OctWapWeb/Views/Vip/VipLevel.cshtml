@@ -1,0 +1,97 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>会员等级</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Vip/VipLevel.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/Vip/VipLevel.js"></script>
+
+
+</head>
+<body>
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back_white.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>会员等级</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my_white.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+       
+        <!--Logo区-->
+        <div class="oct-logo">
+            <div class="oct-logo-txt">
+                <div class="logo-txt-top" id="CreditScore">
+                    0
+                </div>
+                <div class="logo-txt-bottom" id="CreditScoreLevelName">
+                    信用
+                </div>
+            </div>
+        </div>
+
+        <div class="vip-msg">
+            <div class="vip-msg-left" id="VipLevelName">
+                注册会员
+            </div>
+            <div class="vip-msg-mid">
+                <img src="../Assets/Imgs/Icon/vip_cert.png" />
+            </div>
+            <div class="vip-msg-right" id="CreditScoreBottom">
+                信用分:0
+            </div>
+        </div>
+
+        <div class="vip-desc">
+            <dl class="vip-desc-dl">
+                <dt>会员等级说明：</dt>
+                <dd>
+                    <div id="ExplainContent_VipLevel">
+                        @*金牌会员可享受店铺8折优惠，金牌会员可享受店铺8折优
+                        惠，享受店铺8折优享受店铺8折优享受店铺8折优享受店铺8
+                        折优享受店铺8折优享受店铺8折优享受店铺8折优享受
+                        店铺8折优*@
+                    </div>
+                   
+                </dd>
+                <dt>
+                    信用分说明：
+                </dt>
+                <dd>
+                    <div id="ExplainContent_CreditScore">
+                        @*1）会员等级根据信用分多少来划分，信用分越高越可享受，购物的折扣。
+                        申请分期更容易通过。*@
+                    </div>
+                   
+                </dd>
+           
+            </dl>
+        </div>
+
+    </div>
+
+</body>
+</html>

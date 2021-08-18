@@ -1,0 +1,81 @@
+﻿/*=================抽奖信息======================*/
+
+/*主体内容*/
+body .oct-content {
+    padding-top: 20px;
+}
+
+/*商品列表*/
+.goods-list {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+    .goods-list li {
+        margin-top: 8px;
+        background: white;
+        padding: 5px 0;
+    }
+
+.shop-msg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0px;
+    padding-right: 5px;
+}
+
+    .shop-msg img {
+        width: 14px;
+        height: 14px;
+        margin:0 5px;
+        margin-top: -4px;
+    }
+
+.shop-msg-left {
+    display: flex;
+    align-items: center;
+}
+
+.shop-msg-right {
+    color: #ff6a00;
+    display: flex;
+    align-items: center;
+}
+    .shop-msg-right span {
+        border: 1px solid #ff6a00;
+        font-size: 11px;
+        padding-left: 5px;
+        padding: 1px 5px;
+        border-radius:20px;
+    }
+.goods-msg{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    padding: 5px;
+    background: #f8f8f8;
+}
+.goods-msg img {
+    width: 80px;
+    height: 80px;
+    margin-right: 5px;
+    border-radius:5px;
+}
+.goods-msg-extra{
+    color:gray;
+    padding-top: 3px;
+}
+
+/*========数据分页===========*/
+
+/*列表承载Div,必须这样定义样式*/
+.mescroll {
+    position: fixed;
+    top: 68px; /*这个值可以控制滚动区离顶部的距离*/
+    bottom: 0;
+    height: auto;
+    padding-bottom: 80px;
+}
+

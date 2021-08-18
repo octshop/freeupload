@@ -1,0 +1,140 @@
+﻿/*=================直接支付=====================*/
+
+html, body {
+    background: white;
+}
+
+.oct-content {
+    text-align: center;
+    padding: 0px;
+    margin-top: 0;
+    padding-top: 40px;
+}
+
+
+.logo-icon {
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+    .logo-icon img {
+        box-shadow: 0px 1px 2px #ffd9ca;
+        border: 4px solid #ffd9ca;
+        width: 120px;
+        height: 120px;
+        border-radius: 100px;
+        margin-bottom: 15px;
+    }
+
+    .logo-icon div {
+        font-size: 16px;
+        font-weight: bold;
+        color: #404040;
+    }
+
+
+.extra-link {
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+    .extra-link a {
+        color: #0079ae;
+        Background: #ededed;
+        padding: 5px 10px;
+        border-radius: 30px 10px;
+    }
+/*支付表单*/
+.pay-form {
+    width: 280px;
+    margin: 0 auto;
+    text-align: center;
+    background: #fbfbfb;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+    .pay-form div {
+        padding: 5px 0;
+    }
+
+.pay-form-title {
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 15px;
+}
+
+.pay-form-money {
+    text-align: left;
+}
+
+.input-money-div {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border-bottom: 1px solid #cecece;
+    width: 200px;
+    margin: 0 auto;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff6a00;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+    .input-money-div b {
+        margin-bottom: -5px;
+        display: block;
+    }
+
+.input-money-txt {
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 70%;
+    background: none;
+    font-size: 30px;
+    padding-left: 10px;
+    margin-bottom: -3px;
+}
+
+    .input-money-txt:hover, .input-money-txt:focus {
+        border: none;
+    }
+
+.btn-pay {
+    background: #ff6a00;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 40px;
+    width: 90%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+
+/*===================余额支付===================*/
+.balance-span {
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+    .balance-span b {
+        padding-left: 3px;
+        padding-right: 3px;
+        color: #ff6a00;
+    }
+
+.btn-pay-balance {
+    background: #DB5800;
+}

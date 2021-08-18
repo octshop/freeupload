@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ECharts 图片插件 http://echarts.baidu.com/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts</title>
+
+
+    <script src="echarts.min.js"></script>
+
+
+    <style type="text/css">
+
+        .layer04-panel {
+            position: relative;
+            float: left;
+            height: 100%;
+            width: 48%;
+        }
+
+        .layer04-panel-label {
+            width: 100%;
+            height: 15%;
+            color: white;
+            padding-top: 5px;
+        }
+
+        .layer04-panel-chart {
+            width: 100%;
+            height: 85%;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+    <div class="main-content">
+
+
+
+        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <div id="main" style="width: 600px;height:400px;"></div>
+
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('main'));
+
+            // 指定图表的配置项和数据
+            var option = {
+                title: {
+                    text: 'ECharts 入门示例'
+                },
+                tooltip: {},
+                legend: {
+                    data: ['销量']
+                },
+                xAxis: {
+                    data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
+                },
+                yAxis: {},
+                series: [{
+                    name: '销量',
+                    type: 'bar',
+                    data: [5, 20, 36, 10, 10, 20]
+                }]
+            };
+
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option);
+        </script>
+
+
+
+        <div id="main-circle" style="width: 600px;height:400px;"></div>
+        <script>
+            // 绘制图表。
+            echarts.init(document.getElementById('main-circle'), 'dark').setOption({
+                series: {
+                    type: 'pie',
+                    data: [
+                        { name: 'A', value: 1212 },
+                        { name: 'B', value: 2323 },
+                        { name: 'C', value: 1919 }
+                    ],
+
+                    // 高亮样式。
+                    emphasis: {
+                        itemStyle: {
+                            // 高亮时点的颜色。
+                            color: 'blue'
+                        },
+                        label: {
+                            show: true,
+                            // 高亮时标签的文字。
+                            formatter: 'This is a emphasis label.'
+                        }
+                    }
+                }
+            });
+
+
+
+        </script>
+
+
+
+        <div id="layer04" class="layer" style="height:300px; width: 700px; background: #004871;">
+            <div id="layer04_left" class="layer04-panel">
+                <div id="layer04_left_label" class="layer04-panel-label">30天日均线流量趋势</div>
+                <div id="layer04_left_chart" class="layer04-panel-chart"></div>
+            </div>
+        </div>
+
+
+        <script>
+
+            renderLayer04Left()
+
+            function renderLayer04Left() {
+                var myChart = echarts.init(document.getElementById("layer04_left_chart"));
+                myChart.setOption(
+                    {
+                        title: {
+                            text: ''
+                        },
+                        tooltip: {
+                            trigger: 'axis'
+                        },
+                        legend: {
+                            data: []
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '4%',
+                            bottom: '5%',
+                            top: '4%',
+                            containLabel: true
+                        },
+                        xAxis:
+                        {
+                            type: 'category',
+                            boundaryGap: false,
+                            data: getLatestDays(31),
+                            axisLabel: {
+                                textStyle: {
+                                    color: "white", //刻度颜色
+                                    fontSize: 8  //刻度大小
+                                },
+                                rotate: 45,
+                                interval: 2
+                            },
+                            axisTick: { show: false },
+                            axisLine: {
+                                show: true,
+                                lineStyle: {
+                                    color: '#0B3148',
+                                    width: 1,
+                                    type: 'solid'
+                                }
+                            }
+                        },
+                        yAxis:
+                        {
+                            type: 'value',
+                            axisTick: { show: false },
+                            axisLabel: {
+                                textStyle: {
+                                    color: "white", //刻度颜色
+                                    fontSize: 8  //刻度大小
+                                }
+                            },
+                            axisLine: {
+                                show: true,
+                                lineStyle: {
+                                    color: '#0B3148',
+                                    width: 1,
+                                    type: 'solid'
+                                }
+                            },
+                            splitLine: {
+                                show: false
+                            }
+                        },
+                        tooltip: {
+                            formatter: '{c}',
+                            backgroundColor: '#FE8501'
+                        },
+                        series: [
+                            {
+                                name: '',
+                                type: 'line',
+                                smooth: true,
+                                areaStyle: {
+                                    normal: {
+                                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{ offset: 0, color: '#026B6F' }, { offset: 1, color: '#012138' }], false),
+                                        opacity: 0.2
+                                    }
+                                },
+                                itemStyle: {
+                                    normal: {
+                                        color: '#009991'
+                                    },
+                                    lineStyle: {
+                                        normal: {
+                                            color: '#009895',
+                                            opacity: 1
+                                        }
+                                    }
+                                },
+                                symbol: 'none',
+                                data: [48, 52, 45, 46, 89, 120, 110, 100, 88, 96, 88, 45, 78, 67, 89, 103, 104, 56, 45, 104, 112, 132, 120, 110, 89, 95, 90, 89, 102, 110, 110]
+                            }
+                        ]
+                    }
+
+                );
+            }
+
+
+
+
+            function getLatestDays(num) {
+                var currentDay = new Date();
+                var returnDays = [];
+                for (var i = 0; i < num; i++) {
+                    currentDay.setDate(currentDay.getDate() - 1);
+                    returnDays.push((currentDay.getMonth() + 1) + "/" + currentDay.getDate());
+                }
+                return returnDays;
+            }
+
+
+
+        </script>
+
+
+
+
+    </div>
+
+
+</body>
+</html>

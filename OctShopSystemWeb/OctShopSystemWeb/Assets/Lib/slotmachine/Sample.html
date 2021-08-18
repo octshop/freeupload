@@ -1,0 +1,285 @@
+﻿
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>抽奖程序正式例子</title>
+
+    <link href="../Assets/Lib/slotmachine/jquery.slotmachine.css" rel="stylesheet" />
+    <link href="../Assets/Css/Sample.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-1.12.1.min.js"></script>
+    <script src="../Assets/Lib/slotmachine/slotmachine.min.js"></script>
+
+
+
+</head>
+<body>
+
+
+    <!--====================姓名与公司信息===============================-->
+    <div class="person-company-msg" style="width:0; height:0; overflow:hidden;">
+        <div class="person-company-item" data-headerimg="../Assets/Imgs/slot0.png">
+            aa李四<br />139****1200<br />湖南冷博汇网络科技有限公司00
+        </div>
+        <div class="person-company-item" data-headerimg="../Assets/Imgs/slot1.png">
+            bb李四<br />139****1211<br />湖南冷博汇网络科技有限公司11
+        </div>
+        <div class="person-company-item" data-headerimg="../Assets/Imgs/slot2.png">
+            cc李四<br />139****1222<br />湖南冷博汇网络科技有限公司22
+        </div>
+        <div class="person-company-item" data-headerimg="../Assets/Imgs/slot3.png">
+            dd李四<br />139****1233<br />湖南冷博汇网络科技有限公司33
+        </div>
+        <div class="person-company-item" data-headerimg="../Assets/Imgs/slot4.png">
+            ee李四<br />139****1244<br />湖南冷博汇网络科技有限公司44
+        </div>
+        <div class="person-company-item" data-headerimg="../Assets/Imgs/slot5.png">
+            ff李四<br />139****1255<br />湖南冷博汇网络科技有限公司55
+        </div>
+        <div class="person-company-item" data-headerimg="../Assets/Imgs/slot1.png">
+            hh李四<br />139****1266<br />湖南冷博汇网络科技有限公司66
+        </div>
+        <div class="person-company-item" data-headerimg="../Assets/Imgs/slot2.png">
+            ii李四<br />139****1277<br />湖南冷博汇网络科技有限公司77
+        </div>
+        <div class="person-company-item" data-headerimg="../Assets/Imgs/slot3.png">
+            jj李四<br />139****1288<br />湖南冷博汇网络科技有限公司88
+        </div>
+        <div class="person-company-item" data-headerimg="../Assets/Imgs/slot4.png">
+            kk李四<br />139****1299<br />湖南冷博汇网络科技有限公司99
+        </div>
+
+    </div>
+    <!--============ 单个滚轮单个奖项 带开始和停止功能 =============-->
+    <div class="lucky-draw-main">
+        <h1>单个滚轮单个奖项 带开始和停止功能</h1>
+        <div class="lucky-draw-startstop" id="LuckyDrawStartStop">
+            <!--这里面抽奖插件会自动添加两个Item-->
+            <div class="lucky-item"><img class="lucky-user-img" src="../Assets/Imgs/slot0.png" /></div>
+            <div class="lucky-item"><img class="lucky-user-img" src="../Assets/Imgs/slot1.png" /></div>
+            <div class="lucky-item"><img class="lucky-user-img" src="../Assets/Imgs/slot2.png" /></div>
+            <div class="lucky-item"><img class="lucky-user-img" src="../Assets/Imgs/slot3.png" /></div>
+            <div class="lucky-item"><img class="lucky-user-img" src="../Assets/Imgs/slot4.png" /></div>
+            <div class="lucky-item"><img class="lucky-user-img" src="../Assets/Imgs/slot5.png" /></div>
+            <div class="lucky-item"><img class="lucky-user-img" src="../Assets/Imgs/slot1.png" /></div>
+            <div class="lucky-item"><img class="lucky-user-img" src="../Assets/Imgs/slot2.png" /></div>
+            <div class="lucky-item"><img class="lucky-user-img" src="../Assets/Imgs/slot3.png" /></div>
+            <div class="lucky-item"><img class="lucky-user-img" src="../Assets/Imgs/slot4.png" /></div>
+        </div>
+        <div class="lucky-draw-extra" id="LuckyDrawExtra">
+            李四<br />
+            139****1265<br />
+            湖南冷博汇网络科技有限公司
+        </div>
+        <div class="btn-group">
+            <button id="BtnStart" type="button" class="btn btn-primary btn-lg">开始</button>
+            <button id="BtnStop" type="button" class="btn btn-primary btn-lg">停止</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+
+        const _btnStart = document.querySelector('#BtnStart');
+        const _btnStop = document.querySelector('#BtnStop');
+
+        const _eleLuckyDrawStartStop = document.querySelector('#LuckyDrawStartStop');
+
+        const _luckyDrawStartStop = new SlotMachine(_eleLuckyDrawStartStop, {
+            active: 0,
+            delay: 2000,
+            //randomize() { //这个可以设定具体的中奖项 根据索引设置
+            //    return 5; //这个中奖索引从0开始的 没有则选择0
+            //    //return this.nextIndex;
+            //},
+            onComplete: function (resutIndex) {
+
+                //这个中奖索引从0开始的
+                console.log("抽奖结果索引：" + resutIndex);
+
+                //清除定时器
+                clearInterval(mIntervalTimer);
+
+                //得到中奖结果索引
+                mResultIndex = resutIndex;
+                //写入中奖结果
+                writeLuckDrawResult(resutIndex);
+                //得到中奖用户的头像
+                var _userHeaderImgUrl = getUserHeaderImgUrl(resutIndex);
+                console.log(_userHeaderImgUrl);
+            }
+        });
+
+        //开始
+        _btnStart.addEventListener('click', () => {
+
+
+            //开始滚动抽奖
+            startLuckyDraw();
+
+
+        });
+        //停止
+        _btnStop.addEventListener('click', () => {
+
+            //停止抽奖
+            stopLuckyDraw();
+
+
+        });
+
+        //初始化抽奖器
+        initLuckyDraw();
+
+        //----------抽奖公共变量---------//
+        var mIntervalTimer = null; //定时器
+        var mRandomIndex = 0; //当前滚动时的索引
+        var mResultIndex = null; //抽奖停止后的索引，即中奖的索引
+
+        /**
+         * ------初始化抽奖器-----
+         * */
+        function initLuckyDraw() {
+
+            //清除定时器
+            clearInterval(mIntervalTimer);
+
+            //监听键盘事件
+            listenerKeyBoard();
+
+            //得到公司有个人信息标签数组
+            var _personCompanyItemArr = $(".person-company-item");
+            $("#LuckyDrawExtra").html(_personCompanyItemArr.eq(0).html());
+
+        }
+
+        /**
+         * 开始滚动抽奖
+         * */
+        function startLuckyDraw() {
+
+            mResultIndex = null;
+
+            _luckyDrawStartStop.shuffle(9999);
+            //监听抽奖洗牌
+            listenerShuffle();
+
+        }
+
+        /**
+         * 停止抽奖得到结果
+         * */
+        function stopLuckyDraw() {
+
+            if (_luckyDrawStartStop.running) {
+                _luckyDrawStartStop.stop();
+                //console.log("停止抽奖得到结果");
+            }
+        }
+
+        /**
+         * --------监听抽奖洗牌---------
+         * */
+        function listenerShuffle() {
+
+            //清除定时器
+            clearInterval(mIntervalTimer);
+
+            //得到公司有个人信息标签数组
+            var _personCompanyItemArr = $(".person-company-item");
+            //console.log(_personCompanyItemArr.eq(0).html());
+
+            mIntervalTimer = setInterval(function () {
+
+                //获取当前的滚动索引
+                mRandomIndex = _luckyDrawStartStop.random;
+                //console.log(mRandomIndex)
+                $("#LuckyDrawExtra").html(_personCompanyItemArr.eq(mRandomIndex).html());
+
+            }, 100);
+        }
+
+        /**
+         * --------写入中奖结果-------
+         * pResultIndex 中奖结果索引
+         */
+        function writeLuckDrawResult(pResultIndex) {
+
+            //得到公司有个人信息标签数组
+            var _personCompanyItemArr = $(".person-company-item");
+            console.log("_personCompanyItemArr=" + _personCompanyItemArr.length);
+            $("#LuckyDrawExtra").html(_personCompanyItemArr.eq(pResultIndex).html());
+        }
+
+        /**
+         * ----------得到中奖用户的头像--------------
+         * pResultIndex 中奖结果索引
+         */
+        function getUserHeaderImgUrl(pResultIndex) {
+
+            var _personCompanyItemArr = $(".person-company-item");
+
+            return _personCompanyItemArr.eq(pResultIndex).attr("data-headerimg");
+
+        }
+
+        /**
+         * -----------监听键盘事件---------------
+         * */
+        function listenerKeyBoard() {
+
+            var _keyCode = 0;
+
+            //键盘按下键
+            $(window).keydown(function (e) {
+                this.console.log("e.keyCode=" + e.keyCode);
+                //alert(e.charCode); 这个不能在keydown中应用，只能在keypress中得到
+
+                _keyCode = e.keyCode;
+            });
+            //按键弹起
+            $(window).keyup(function (e) {
+                this.console.log("e.keyCode=" + e.keyCode);
+                //alert(e.charCode); 这个不能在keydown中应用，只能在keypress中得到
+
+                if (_keyCode == e.keyCode) {
+                    //判断按了哪个键
+                    if (e.keyCode == 74) //按钮【J】键 开始抽奖
+                    {
+                        //开始滚动抽奖
+                        startLuckyDraw();
+                    }
+                    else if (e.keyCode == 75)  //按钮【K】键 停止得到中奖结果索引
+                    {
+                        //停止抽奖得到结果
+                        stopLuckyDraw();
+                    }
+                    else if (e.keyCode == 76)  //按钮【L】键 确认和提交中奖结果
+                    {
+                        //提交中奖结果记录到数据
+                        submitLuckyDrawResult();
+                    }
+                }
+            });
+        }
+
+        /**
+         * ------------提交中奖结果记录到数据--------------
+         * */
+        function submitLuckyDrawResult() {
+
+            if (mResultIndex != null) {
+                alert("已提交数据,中奖索引=" + mResultIndex);
+            }
+
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

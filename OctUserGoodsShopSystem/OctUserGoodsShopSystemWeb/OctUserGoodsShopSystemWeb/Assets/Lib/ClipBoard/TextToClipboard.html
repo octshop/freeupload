@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Js中直接指定文本写入到剪切板中</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="clipboard.min.js"></script>
+
+</head>
+<body>
+
+    <h1>Js中直接指定文本写入到剪切板中</h1>
+
+    <!-- 1. Define some markup -->
+    <button class="btn">js中变量文本写入剪切板中</button>
+
+
+    <!-- 3. Instantiate clipboard -->
+    <script>
+        var clipboard = new ClipboardJS('.btn', {
+            text: function () {
+                return 'Js中直接指定文本写入到剪切板中';
+            }
+        });
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+            alert("复制成功！");
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+            alert("复制失败！");
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿/*============会员等级========================*/
+
+body, html {
+    background: #ffffff;
+}
+
+.oct-header, .oct-logo {
+    background: -webkit-linear-gradient(left, #FE6944,#FC7939, #FE6944); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #FE6944,#FC7939, #FE6944); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#FE6944,#FC7939, #FE6944); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #FE6944,#FC7939, #FE6944); /* 标准的语法 */
+    border-bottom: 1px solid #FE6944;
+    color: #ffffff;
+}
+
+/*主体区域*/
+.oct-content {
+    margin-top: 38px;
+    background: #ffffff;
+}
+/*Logo区域*/
+.oct-logo {
+    padding: 10px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.oct-logo-txt {
+    border: 2px dashed #ffffff;
+    padding: 10px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.logo-txt-top {
+    font-size: 30px;
+}
+
+.logo-txt-top {
+    margin-bottom: -10px;
+    margin-top: 6px;
+}
+
+.logo-txt-bottom {
+    padding: 0px;
+    margin: 0;
+}
+
+/*会员信息*/
+.vip-msg {
+    background: #ffffff;
+    border-radius: 30px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 30px;
+    padding: 10px 20px;
+    color: #FE6944;
+    margin-top: -30px;
+    box-shadow: 0px 1px 2px #dddddd;
+    margin-bottom: 10px;
+}
+
+.vip-msg-mid img {
+    width: 35px;
+    height: 35px;
+}
+
+/*说明区域*/
+.vip-desc {
+    padding: 10px 40px;
+    padding-top: 20px;
+}
+
+.vip-desc-dl dd {
+    color: #909090;
+    padding: 3px 0;
+}
+
+.vip-msg-left {
+    width: 200px;
+    text-align: right;
+}
+
+.vip-msg-mid {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.vip-msg-right {
+    width: 200px;
+    text-align: left;
+}

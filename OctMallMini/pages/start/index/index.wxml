@@ -1,0 +1,286 @@
+<!--pages/start/index/index.wxml-->
+
+<view class="nav-bar-content">
+  <navBar id="NavBar" class="nav-bar" title-text="OctShop商城系统" back-icon="/assets/imgs/icons/navbar_home.png"
+    home-icon="" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!--头部-->
+<view class="oct-header" style="top:{{navbarHeight}}px">
+  <navigator open-type="redirect" url="../../../pages/start/index/index" class="nav-item nav-item-current">
+    官网首页
+  </navigator>
+  <navigator open-type="redirect" url="../../../pages/home/octshop/featurelist/featurelist" class="nav-item">
+    功能列表
+  </navigator>
+  <navigator open-type="redirect" url="../../../pages/home/octshop/uishow/uishow" class="nav-item">
+    界面展示
+  </navigator>
+  <navigator open-type="redirect" url="../../../pages/home/octshop/customdevelop/customdevelop" class="nav-item">
+    高级定制
+  </navigator>
+  <navigator open-type="redirect" url="../../../pages/home/octshop/aftersale/aftersale" class="nav-item">
+    售后服务
+  </navigator>
+</view>
+
+<!--主体内容-->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+  <view class="mescroll" id="mescroll">
+    <!-- 轮播区域 -->
+    <view class="oct-slider">
+      <view class="sliderMainContent" id="sliderMainContent" style="overflow:hidden;">
+        <!-- 轮播区域区域 -->
+        <view class='carousel'>
+          <swiper class='carousel_swiper' style="width:100%; height:170px;" indicator-dots="true"
+            indicator-color="#f4f4f4" indicator-active-color="#55B500" autoplay="true" interval='5000' circular='true'>
+            <!-- <block wx:for="{{initPresentMsg_Data.PresentImgs}}" wx:key="key">
+              <swiper-item data-url='{{item.PresentImgID}}' bindtap='previewImg' data-pre-index='{{index}}'>
+                <image class="carouselImg" src='//{{item.ImgURL}}' mode='aspectFill'></image>
+              </swiper-item>
+            </block> -->
+
+            <block>
+              <swiper-item>
+                <image class="carouselImg" src='{{octShopWapDoamin}}/Assets/Imgs/carouselwap_01.png'
+                  style="width:100%; height:170px;" bindtap="navigateToURL" data-navigate-url="../../../pages/home/octshop/featuredetail/featuredetail?AID=7&AType=1"></image>
+              </swiper-item>
+              <swiper-item>
+                <image class="carouselImg" src='{{octShopWapDoamin}}/Assets/Imgs/carouselwap_02.png'
+                  style="width:100%; height:170px;" bindtap="navigateToURL" data-navigate-url="../../../pages/home/octshop/featuredetail/featuredetail?AID=10&AType=1"></image>
+              </swiper-item>
+              <swiper-item>
+                <image class="carouselImg" src='{{octShopWapDoamin}}/Assets/Imgs/carouselwap_03.png'
+                  style="width:100%; height:170px;" bindtap="navigateToURL" data-navigate-url="../../../pages/home/octshop/featuredetail/featuredetail?AID=9&AType=1"></image>
+              </swiper-item>
+              <swiper-item>
+                <image class="carouselImg" src='{{octShopWapDoamin}}/Assets/Imgs/carouselwap_04.png'
+                  style="width:100%; height:170px;" bindtap="navigateToURL" data-navigate-url="../../../pages/home/octshop/featuredetail/featuredetail?AID=8&AType=1"></image>
+              </swiper-item>
+            </block>
+
+
+          </swiper>
+        </view>
+
+        <!-- <ul id="content-slider" class="content-slider">
+                        <li>
+                            <navigator url="../OctShopWap/FeatureDetail_7_1_0.html" target="_blank">
+                                <view class="img-slider img-slider-1">
+                                    <image src="{{octShopWapDoamin}}/Assets/Imgs/carouselwap_01.png" />
+                                </view>
+                            </navigator>
+                        </li>
+                        <li>
+                            <navigator url="../OctShopWap/FeatureDetail_10_1_0.html" target="_blank">
+                                <view class="img-slider img-slider-1">
+                                    <image src="{{octShopWapDoamin}}/Assets/Imgs/carouselwap_02.png" />
+                                </view>
+                            </navigator>
+                        </li>
+                        <li>
+                            <navigator url="../OctShopWap/FeatureDetail_9_1_0.html" target="_blank">
+                                <view class="img-slider img-slider-1">
+                                    <image src="{{octShopWapDoamin}}/Assets/Imgs/carouselwap_03.png" />
+                                </view>
+                            </navigator>
+                        </li>
+                        <li>
+                            <navigator url="../OctShopWap/FeatureDetail_8_1_0.html" target="_blank">
+                                <view class="img-slider img-slider-1">
+                                    <image src="{{octShopWapDoamin}}/Assets/Imgs/carouselwap_04.png" />
+                                </view>
+                            </navigator>
+                        </li>
+                    </ul> -->
+      </view>
+      <view class="slider-pager-content">
+        <view id="SliderCountDiv"></view>
+      </view>
+
+    </view>
+
+    <!--其他的内容，描述-->
+    <view class="other-content">
+      <view class="other-content-title">
+        OctShop免费开源大型专业级【B2B2C+O2O一体化】商城系统，开启【淘宝加美团模式】。
+      </view>
+      <view class="other-content-desc">
+        十多年技术积累与沉淀，所有系统均为自主研发，拥有完整版权，强大雄厚的研发实力支持，可实现客户各种功能和运营需求。
+      </view>
+
+      <view class="client-type-main" bindtap="navigateToURL" data-navigate-url="../../../pages/home/octshop/systemdemo/systemdemo">
+        <view class="client-type-title">
+          <span class="client-hint-title">系统演示</span><span>提示：系统演示均为测试数据</span>
+        </view>
+        <view class="client-type">
+          <view class="client-item">
+            <view>
+              <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_gzh.png" style="width:48px; height:40px;" />
+            </view>
+            公众号版
+          </view>
+          <view class="client-item">
+            <view>
+              <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_mini.png" />
+            </view>
+            小程序版
+          </view>
+          <view class="client-item">
+            <view>
+              <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_h5.png" />
+            </view>
+            H5/WAP移动版
+          </view>
+          <view class="client-item" style="border:none;">
+            <view>
+              <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_app.png" />
+            </view>
+            APP版(原生ANDROID/IOS)
+          </view>
+        </view>
+      </view>
+
+
+
+      <!--特色介绍Item-->
+      <view class="item-desc-content" wx:for="{{loadHomeArtSpec_Data.ArtSpecList}}" bindtap="navigateToURL" data-navigate-url="../../../pages/home/octshop/featuredetail/featuredetail?AID={{item.ArtID}}&AType=1">
+        <view class="item-desc-title">
+          {{item.ArtTitle}} <navigator url="#" style="width: 80px;">查看详情</navigator>
+        </view>
+        <view class="item-desc-txt" style="line-height:150%;">
+          <rich-text nodes="{{item.ArtSketch}}"></rich-text>
+        </view>
+        <view class="item-desc-img">
+          <image src="{{octShopWapDoamin}}/{{itm.ImgPath}}" mode="widthFix" wx:for="{{loadHomeArtSpec_Data.ExtraData[index].ArtSpecImgs}}" wx:for-item="itm" wx:for-index="idx" />
+        </view>
+      </view>
+
+
+
+
+
+    </view>
+
+
+    <!--底部-->
+    <view class="bottom-copyright">
+
+      <view class="bottom-nav-list">
+        <navigator url="../../../pages/home/octshop/systemdemo/systemdemo">系统演示</navigator>
+        <navigator url="../../../pages/home/octshop/sourcedown/sourcedown?Type=code">源码下载</navigator>
+        <navigator url="../../../pages/home/octshop/sourcedown/sourcedown?Type=doc">开发文档</navigator>
+        <navigator url="../../../pages/home/octshop/agencyteam/agencyteam">合作代理</navigator>
+      </view>
+
+      <view class="bottom-copyright-top">
+        <view class="footer-mid-item" bindtap="makePhoneCall" data-phone-number="{{loadFooterMsgOctShop_Data.LinkMsg.LinkMobile}}">
+          <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_tel.png" style="width:30px height:30px;" />全栈工程师 <view>
+            咨询电话：</view>
+          <view style="color:#86C9FF">{{loadFooterMsgOctShop_Data.LinkMsg.LinkMobile}}</view>
+        </view>
+        <view class="footer-mid-item">
+          <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_wxwhite.png" style="width:40px height:30px;" />
+          全栈工程师 <view>咨询微信：</view>{{loadFooterMsgOctShop_Data.LinkMsg.LinkWeiXin}}
+        </view>
+        <view class="footer-mid-item">
+          <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_qqwhite.png" style="width:40px height:30px;" />
+          全栈工程师<view>咨询QQ：</view>{{loadFooterMsgOctShop_Data.LinkMsg.LinkQQ}}
+        </view>
+
+      </view>
+
+      <view class="bottom-copyright-bottom">
+        <view class="copyright-content">
+          {{loadFooterMsgOctShop_Data.PageFooterContent.CopyRightContent}}
+        </view>
+        <view class="copyright-address">
+          {{loadFooterMsgOctShop_Data.PageFooterContent.AddressContent}}
+        </view>
+
+        <navigator class="copyright-visit-pc" bindtap="copyContentClipboard" data-copy-content="//pc.opencodetiger.com">电脑版网址http://pc.opencodetiger.com
+        </navigator>
+
+      </view>
+
+      <!--标签,关键字-->
+      <view class="label-key-word">
+        {{loadFooterMsgOctShop_Data.PageFooterContent.LabelKeyWordContent}}
+      </view>
+
+      <!--我们的服务-->
+      <view class="footer-service">
+
+        <view class="footer-service-item">
+          <view>
+            <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_24hour.png" />
+          </view>
+          <view>
+            <view class="footer-cx">7*24</view>
+            全天24小时响应服务请求
+          </view>
+          <view>
+            <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_js.png" />
+          </view>
+          <view>
+            <view class="footer-cx">技术创新突破</view>
+            十多年积累,数十项技术突破
+          </view>
+        </view>
+
+        <view class="footer-service-item">
+          <view>
+            <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_yfsl.png" style="height:35px;" />
+          </view>
+          <view>
+            <view class="footer-cx">自主研发实力</view>
+            所有系统均为自主研发
+          </view>
+          <view>
+            <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_opencode.png" />
+          </view>
+          <view>
+            <view class="footer-cx">
+              免费开源
+            </view>
+            免费提供各系统源码下载
+          </view>
+        </view>
+
+
+        <view class="footer-service-item" style="width: 400; overflow:hidden; margin:8px auto; border:none;">
+          <view>
+            <image src="{{octShopWapDoamin}}/Assets/Imgs/Icon/cpy_level.png" />
+          </view>
+          <view>
+            <view class="footer-cx">升级更新快速</view>
+            专业研发团队保驾护航,更新速度赶快。
+          </view>
+        </view>
+
+      </view>
+
+
+
+
+
+    </view>
+
+
+
+  </view>
+</view>
+
+
+<!--页脚-->
+<view class="oct-footer">
+
+  <view class="footer-nav footer-nav-left footer-nav-current" data-open-type="redirect" bindtap="navigateToURL" data-navigate-url="../../../pages/start/index/index">
+    免费开源大型商城系统
+  </view>
+  <view class="footer-nav" bindtap="navigateToURL" data-open-type="redirect" data-navigate-url="../../../pages/home/octim/index/index">
+    免费IM在线客服系统
+  </view>
+
+
+</view>

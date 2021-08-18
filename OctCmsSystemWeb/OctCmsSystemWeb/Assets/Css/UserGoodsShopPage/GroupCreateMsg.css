@@ -1,0 +1,23 @@
+﻿/*===================发起拼团管理====================*/
+
+
+/*表格内容*/
+.user-header-appraise {
+}
+
+    .user-header-appraise img {
+        width: 30px;
+        height: 30px;
+        border-radius: 25px;
+        margin-right: 6px;
+    }
+
+.appraise-img-msg {
+    color: #0364ad;
+    cursor: pointer;
+}
+
+    .appraise-img-msg b {
+        color: #ff0000;
+        padding: 0 4px;
+    }

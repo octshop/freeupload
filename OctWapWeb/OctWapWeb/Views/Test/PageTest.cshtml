@@ -1,0 +1,345 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <meta name="format-detection" content="telphone=no, email=no" />
+
+    <title>上拉加载，下拉刷新 插件测试</title>
+
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/ReceiAddrList.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.js"></script>
+
+
+    <style type="text/css">
+
+   
+        /*列表承载Div,必须这样定义样式*/
+        .mescroll {
+            position: fixed;
+            top: 60px; /*这个值可以控制滚动区离顶部的距离*/
+            bottom: 0;
+            height: auto;
+            padding-bottom: 80px;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="../Goods/GoodsDetail"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>收货地址</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--列表内容-->
+    <div class="mescroll" id="mescroll">
+
+        <div class="recei-addr-prompt">
+            单击列表选择收货地址
+        </div>
+
+        <div class="page-content-list" id="PageContentList">
+
+            <div class="recei-addr-item oct-section" style="text-align:center;">
+                无数据加载
+            </div>
+
+            <!--<div class="recei-addr-item oct-section">
+                <div class="addr-item-top">
+                    <div>
+                        黄小明
+                    </div>
+                    <div>
+                        13203156008
+                    </div>
+                </div>
+                <div class="addr-item-mid">
+                    湖南省长沙市长沙县开元西路24号湖南省长沙市长沙县开元西路24号湖南省长沙市长沙县开元西
+                    路24号湖南省长沙市长沙县开元西路24号湖南省长沙市长沙县开元西路24号湖南省长沙市
+                </div>
+                <div class="addr-item-bottom">
+                    <div class="addr-item-default">
+                        <img src="../Assets/Imgs/Icon/sel_no.png" />默认地址
+                    </div>
+                    <div class="addr-item-btn">
+                        <div class="addr-item-edit" onclick="window.location.href='../Buyer/ReceiAddrEdit'">
+                            编辑
+                        </div>
+                        <div class="addr-item-del">
+                            删除
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+
+
+        </div>
+    </div>
+
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <a href="../Buyer/ReceiAddrAdd">
+            添加新地址
+        </a>
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+
+
+        var mIsRefresh = true; //是否为刷新
+        var mescroll;
+
+        $(function () {
+
+            //初始化分页滚动对象
+            initPageMescroll();
+
+            console.log(mescroll);
+        });
+
+
+        //初始化分页滚动对象
+        function initPageMescroll() {
+
+            //-------处理分页加载的代码 初始化必须是这样--------//
+            //创建MeScroll对象
+            mescroll = new MeScroll("mescroll", {
+                down: {
+                    auto: false, //是否在初始化完毕之后自动执行下拉回调callback; 默认true
+                    callback: downCallback //下拉刷新的回调
+                },
+                up: {
+                    auto: true, //是否在初始化时以上拉加载的方式自动加载第一页数据; 默认false
+                    isBounce: false, //此处禁止ios回弹,解析(务必认真阅读,特别是最后一点): http://www.mescroll.com/qa.html#q10
+                    callback: upCallback, //上拉回调,此处可简写; 相当于 callback: function (page) { upCallback(page); }
+                    page: {
+                        num: 0, //当前页码,默认0,回调之前会加1,即callback(page)会从1开始
+                        size: 15, //每页数据的数量
+                        time: null //加载第一页数据服务器返回的时间; 防止用户翻页时,后台新增了数据从而导致下一页数据重复;
+                    },
+                    htmlNodata: '<p class="upwarp-nodata">-- END --</p>',
+                    toTop: { //配置回到顶部按钮
+                        src: "../Assets/Lib/mescroll/mescroll-totop.png", //默认滚动到1000px显示,可配置offset修改
+                        //offset : 1000
+                    }
+                }
+            });
+
+        }
+
+
+        /*下拉刷新的回调 */
+        function downCallback(pageDown) {
+
+            //为下拉刷新
+            mIsRefresh = true;
+
+            //重新设置当前分页
+            mescroll.options.up.page.num = 1;
+            //这里hasNext必须设置为true 否则下拉刷新后，上拉加载就失效了。
+            mescroll.options.up.hasNext = true;
+
+            //mescroll会根据传的参数,自动判断列表如果无任何数据,则提示空;列表无下一页数据,则提示无更多数据;
+            console.log("下拉刷新的回调 pageDown.optUp.page.num=" + pageDown.optUp.page.num + ", pageDown.optUp.page.size=" + pageDown.optUp.page.size);
+
+
+            //联网加载数据
+            getListDataFromNet(pageDown.optUp.page.num, pageDown.optUp.page.size, function (curPageData) {
+
+                //联网成功的回调,隐藏下拉刷新的状态
+                mescroll.endSuccess();
+
+                //------这里是操作前台显示代码-----//
+                if (curPageData != null && curPageData != undefined) {
+                    pageSuccess(curPageData);
+                }
+
+
+            }, function () {
+                //联网失败的回调,隐藏下拉刷新的状态
+                mescroll.endErr();
+            });
+        }
+
+        /*上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
+        function upCallback(page) {
+
+            console.log("执行了upCallback(page) 上拉加载的回调");
+
+            //联网加载数据
+            getListDataFromNet(page.num, page.size, function (curPageData) {
+
+                console.log(curPageData);
+                if (curPageData == null || curPageData == undefined) {
+                    //没有下一页
+                    mescroll.options.up.hasNext = false;
+                    //联网失败的回调,隐藏下拉刷新和上拉加载的状态;
+                    mescroll.endErr();
+                    return;
+                }
+                //联网成功的回调,隐藏下拉刷新和上拉加载的状态;
+                //mescroll会根据传的参数,自动判断列表如果无任何数据,则提示空;列表无下一页数据,则提示无更多数据;
+                console.log("上拉加载的回调 page.num=" + page.num + ", page.size=" + page.size + ", curPageData.length=" + curPageData.DataPage.length);
+
+                //方法一(推荐): 后台接口有返回列表的总页数 totalPage
+                mescroll.endByPage(curPageData.DataPage.length, curPageData.PageSum); //必传参数(当前页的数据个数, 总页数)
+
+                //方法二(推荐): 后台接口有返回列表的总数据量 totalSize
+                //mescroll.endBySize(curPageData.length, totalSize); //必传参数(当前页的数据个数, 总数据量)
+
+                //方法三(推荐): 您有其他方式知道是否有下一页 hasNext
+                //mescroll.endSuccess(curPageData.length, hasNext); //必传参数(当前页的数据个数, 是否有下一页true/false)
+
+                //方法四 (不推荐),会存在一个小问题:比如列表共有20条数据,每页加载10条,共2页.如果只根据当前页的数据个数判断,则需翻到第三页才会知道无更多数据,如果传了hasNext,则翻到第二页即可显示无更多数据.
+                //mescroll.endSuccess(curPageData.DataPage.length);
+
+                //------这里是操作前台显示代码-----//
+                pageSuccess(curPageData);
+
+
+            }, function () {
+                //联网失败的回调,隐藏下拉刷新和上拉加载的状态;
+                mescroll.endErr();
+            });
+        }
+        //----------------------处理分页加载的代码 初始化必须是这样------------------------//
+
+        //加载网络数据
+        function getListDataFromNet(pageNum, pageSize, successCallback, errorCallback) {
+
+            //获取搜索条件
+            var SearchTxtArr = "";
+
+            //构造GET参数
+            var dataGET = {
+                "Type": "1",
+                "PageCurrent": pageNum,
+                "SearchTxtArr": SearchTxtArr,
+            };
+            //正式发送GET请求
+            $.ajax({
+                type: "GET",
+                url: "../BuyerAjax/ReceiAddrList?rnd=" + Math.random(),
+                data: dataGET,
+                dataType: "html",
+                success: function (reTxt, status, xhr) {
+                    console.log("Ajax返回的值：" + reTxt);
+
+                    if (reTxt != "") {
+                        //转换为Json对象
+                        var jsonObj = JSON.parse(reTxt);
+                        console.log(jsonObj);
+
+                        //联网成功的回调 并传值，传Json对象
+                        successCallback && successCallback(jsonObj);
+                        //特别注意返回的Json数据中必须要有 JsonObj.DataPage.length, JsonObj.PageSum
+                        return;
+                    }
+
+                    successCallback && successCallback(null);
+                },
+                error: function (xhr, errorTxt, status) {
+
+                    console.log("异步请求错误，errorTxt=" + errorTxt + " | status=" + status);
+
+                    //联网失败的回调
+                    errorCallback && errorCallback();
+
+                    return;
+                }
+            });
+        }
+
+        //构造显示代码
+        function pageSuccess(curPageData) {
+
+            var dataPageArr = curPageData.DataPage;
+            var dataPageExtraArr = curPageData.DataPageExtra;
+
+
+            //前台显示代码
+            var myJsVal = "";
+            for (var i = 0; i < dataPageArr.length; i++) {
+
+                var dataPage = dataPageArr[i];
+                var dataPageExtra = dataPageExtraArr[i];
+
+                myJsVal += "<div class=\"recei-addr-item oct-section\">";
+                myJsVal += "   <div class=\"addr-item-top\">";
+                myJsVal += "       <div>";
+                myJsVal += "" + dataPage.ReceiName + "";
+                myJsVal += "       </div>";
+                myJsVal += "       <div>";
+                myJsVal += "" + dataPage.Mobile + "";
+                myJsVal += "       </div>";
+                myJsVal += "   </div>";
+                myJsVal += "   <div class=\"addr-item-mid\">";
+                myJsVal += "" + dataPage.RegionNameArr + "_" + dataPage.DetailAddr + "";
+                myJsVal += "   </div>";
+                myJsVal += "   <div class=\"addr-item-bottom\">";
+                myJsVal += "       <div class=\"addr-item-default\">";
+                myJsVal += "           <img src=\"../Assets/Imgs/Icon/sel_no.png\" />默认地址";
+                myJsVal += "       </div>";
+                myJsVal += "       <div class=\"addr-item-btn\">";
+                myJsVal += "           <div class=\"addr-item-edit\" onclick=\"window.location.href=\'../Buyer/ReceiAddrEdit\'\">";
+                myJsVal += "               编辑";
+                myJsVal += "           </div>";
+                myJsVal += "           <div class=\"addr-item-del\">";
+                myJsVal += "               删除";
+                myJsVal += "           </div>";
+                myJsVal += "       </div>";
+                myJsVal += "   </div>";
+                myJsVal += "</div>";
+            }
+
+            //显示代码插入前台
+            if (mIsRefresh == false) {
+
+                document.getElementById("PageContentList").innerHTML += myJsVal;
+
+            }
+            else {
+                document.getElementById("PageContentList").innerHTML = myJsVal;
+            }
+
+            mIsRefresh = false;
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>

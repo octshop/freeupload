@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Powerange是一个滑块控件,它很容易定制,由CSS和JavaScript完成。</title>
+
+    <link href="dist/powerange.min.css" rel="stylesheet" />
+    <script src="dist/powerange.min.js"></script>
+
+
+</head>
+<body>
+
+    <div class="main-content">
+
+
+
+        <div class="slider-wrapper" style="width: 300px; height: 300px; margin-top: 80px; margin-left: 80px;">
+
+            <input type="text" class="js-customized" />
+
+        </div>
+
+
+
+    </div>
+
+
+    <script type="text/javascript">
+
+
+        // Basic customization.
+
+        var cust = document.querySelector('.js-customized');
+
+        var initCust = new Powerange(cust, {
+            hideRange: false,
+            vertical: false, //控制是否为垂直方向
+            klass: 'power-ranger',
+            start: 60,
+            callback: function () {
+
+                //得到实时变化的值
+                var _val = document.querySelector('.js-customized').value;
+                console.log(_val);
+
+            }
+        });
+
+
+
+
+    </script>
+
+
+    <!--3、html需要加入的js
+
+    < script >
+    var elem = document.querySelector('.js-min-max-start');//选择input元素
+    var init = new Powerange(elem, { min: 16, max: 256, start: 128 });//实例化powerange类并且初始化参数
+    </script>
+    ps：可选参数如下
+
+    //默认值如下,不同参数请以逗号分隔；
+    defaults = {
+    callback      : function() {}//回调函数
+    , decimal       : false//是否显示小数点
+    , disable       : false//是否禁用
+    , disableOpacity: 0.5//禁用是显示的透明度
+    , hideRange     : false//是否在两头显示最大值和最小值
+    , klass         : ''//添加自定义class
+    , min           : 0//最小值
+    , max           : 100//最大值
+    , start         : null//从哪里开始
+    , step          : null//写上数字可以实现一次滑动你填写的数字
+    , vertical      : false//默认水平显示 true时垂直显示
+    };-->
+
+
+</body>
+</html>

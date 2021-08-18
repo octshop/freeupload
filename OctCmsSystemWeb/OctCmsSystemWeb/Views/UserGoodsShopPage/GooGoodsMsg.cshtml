@@ -1,0 +1,276 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>商品信息管理</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/UserGoodsShopPage/GooGoodsMsg.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+    <script src="../Assets/Js/UserGoodsShopPage/GooGoodsMsg.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidOctWapWebAddrDomain" value="@ViewBag.OctWapWebAddrDomain" />
+    <input type="hidden" id="hidGoodsStatus" value="@ViewBag.GoodsStatus" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=商品管理">商品管理</a></li>
+            <li class="am-active">商品信息管理</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 商品信息管理
+            </div>
+            <div class="title-btn-div am-fl">
+                @*<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加</button>*@
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="GoodsID_se" placeholder="商品ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="GoodsTypeID_se" placeholder="商品类目ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="ShopUserID_se" placeholder="商家UserID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="ShopName_se" placeholder="店铺名称" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="GoodsTitle_se" placeholder="商品标题" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="GoodsCheckReason_se" placeholder="审核原因" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 120px;">
+                <select id="GoodsStatus_se" data-am-selected="{btnWidth:'100',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>商品状态</option>
+                    <option value="售">出售中</option>
+                    <option value="审">审核中</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 120px;">
+                <select id="IsUnSale_se" data-am-selected="{btnWidth:'100',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>是否下架</option>
+                    <option value="false">上架</option>
+                    <option value="true">下架</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 140px;">
+                <select id="IsShopExpense_se" data-am-selected="{btnWidth:'120',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>到店消费/自取</option>
+                    <option value="true">支持到店</option>
+                    <option value="false">快递发货</option>
+                    <option value="both">两者都支持</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 120px;">
+                <select id="IsOfflinePay_se" data-am-selected="{btnWidth:'100',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>到店付</option>
+                    <option value="true">支持</option>
+                    <option value="false">不支持</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 120px;">
+                <select id="IsPayDelivery_se" data-am-selected="{btnWidth:'100',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>货到付款</option>
+                    <option value="true">支持</option>
+                    <option value="false">不支持</option>
+                </select>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 100px;">
+                <select id="IsLock_se" data-am-selected="{btnWidth:'80',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>锁定</option>
+                    <option value="true">是</option>
+                    <option value="false">否</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" class="datetime-input am-form-field" placeholder="添加日期" data-am-datepicker="{theme: 'success',}" style="background:none; cursor:pointer;" readonly>
+                </div>
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="4%"><input type="checkbox" id="SelAllCb" name="SelAllCb" onchange="toggleSelAll()" /></td>
+                        <td width="8%">商品ID<i style="color:gray;display:block;">库存</i></td>
+                        <td width="10%">类目ID<i style="color:gray;display:block;">类目名称</i></td>
+                        <td width="12%">商家UserID<i style="color:gray;display:block;">店铺名称</i></td>
+                        <td width="14%">商品标题</td>
+                        <td width="8%">商品状态<i style="color:gray;display:block;">价格</i></td>
+                        <td width="10%">店消费/自取<i style="color:gray;display:block;">到店付</i></td>
+                        <td width="8%">货到付款<i style="color:gray;display:block;">规格</i></td>
+                        <td width="8%">下架<i style="color:gray;display:block;">锁定</i></td>
+                        <td width="10%">添加时间</td>
+                        <td width="6%">操作</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>
+                            <a href="#" target="_blank">234332</a>
+                            <i style="color:gray;display:block;">536525</i>
+                        </td>
+                        <td>
+                            234324<i style="color:gray;display:block;">连衣裙</i>
+                        </td>
+                        <td>
+                            234 <i style="color: gray;display: block;"><a href="#" target="_blank">店铺名称店铺名称店铺名称</a></i>
+                        </td>
+                        <td>
+                            商品的标题呀商品的标题呀商品的标题呀
+                        </td>
+                        <td>
+                            <font color="red">审核中</font>
+                            <i style="color:gray;display:block;">&#165;234.23</i>
+                        </td>
+                        <td>
+                            支持
+                            <i style="color:gray;display:block;">支持</i>
+                        </td>
+                        <td>
+                            支持
+                            <i style="color:gray;display:block;">有</i>
+                        </td>
+                        <td>是<i style="color:gray;display:block;">否</i></td>
+                        <td>2019-05-05 13:27:45</td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary  am-round">详细</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-warning  am-round">审核</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <button type="button" class="am-btn am-btn-default" onclick="lockGoodsMsgArr('true')"><span class="am-icon-lock"></span> 批量锁定</button>
+                        <button type="button" class="am-btn am-btn-default" onclick="lockGoodsMsgArr('false')"><span class="am-icon-unlock"></span> 批量解锁</button>
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>商品只有通过审核后，才能正常显示与出售。</span>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+    <!--添加与编辑窗口主体内容-->
+    <div class="add-edit-win" id="AddEditWin" style="display:none;">
+        <div class="add-edit-main">
+            <ul class="add-edit-ul">
+                <li>
+                    <label class="am-form-label">商品ID:<font color="red">*</font></label>
+                    <a href="#" target="_blank" id="GoodsIDWin">234324</a>
+                </li>
+                <li>
+                    <label class="am-form-label">商品标题:<font color="red">*</font></label><b id="GoodsTitleWin">这里是商品标题</b>
+                </li>
+                <li>
+                    <label class="am-form-label">店铺名称:<font color="red">*</font></label><b id="ShopNameWin"></b>
+                </li>
+                <li>
+                    <label class="am-form-label">商品状态:<font color="red">*</font></label>
+                    <select id="GoodsStatusWin">
+                        <option value="售">出售中</option>
+                        <option value="审">审核中</option>
+                    </select>
+                </li>
+                <li>
+                    <label class="am-form-label">审核原因:</label>
+                    <input type="text" id="GoodsCheckReasonWin" class="am-form-field txt-css" style="margin-left: 15px;" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

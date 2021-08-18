@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>测试自定义修改后的 PhotoSwipe    --- PhotoSwipe.js|支持移动手机的纯js图片浏览与切换</title>
+
+    <script src="jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="../Assets/Lib/PhotoSwipe/initPhotoSwipe.js"></script>
+
+</head>
+<body>
+       <script type="text/javascript">
+
+            //从Http请求中得到的 需要预览的图片数组信息
+        var _itemImgMsgArr = [
+            {
+                src: 'https://placekitten.com/600/400',
+                title: '<div style=\"font-size: 30px;\">图片标题111111图片标题111111图片标题111111图片标题111111</span>',
+                w: 0,
+                h: 0
+
+            },
+            {
+                src: 'https://placekitten.com/1200/900',
+                title: '图片标题222222',
+                w: 0,
+                h: 0
+            }
+            ,
+            {
+                src: 'http://i1.shaodiyejin.com/uploads/tu/201909/9999/4e7fb15de9.jpg',
+                title: '图片标题222222',
+                w: 0,
+                h: 0
+            }
+            ,
+            {
+                src: 'http://i1.shaodiyejin.com/uploads/tu/201909/9999/906de48376.jpg',
+                title: '图片标题222222',
+                w: 0,
+                h: 0
+            }
+            ,
+            {
+                src: 'http://i1.shaodiyejin.com/uploads/tu/201910/9999/7fb59ddf02.jpg',
+                title: '图片标题222222',
+                w: 0,
+                h: 0
+            }
+            ,
+            {
+                src: 'http://i1.shaodiyejin.com/uploads/tu/201911/9999/320dc3e405.jpg',
+                title: '图片标题222222',
+                w: 0,
+                h: 0
+            }
+
+           ];
+
+           $(function () {
+
+               //初始化 PhotoSwipe 相册浏览   -- $(function(){  在这里调用，必须是加载完成所有文件 });
+               initPhotoSwipeAlbum(_itemImgMsgArr, 3);
+
+
+           })
+
+
+       </script>
+</body>
+</html>

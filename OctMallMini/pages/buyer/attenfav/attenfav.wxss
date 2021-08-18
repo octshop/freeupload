@@ -1,0 +1,108 @@
+/* pages/buyer/attenfav/attenfav.wxss */
+/* 内容导航子菜单 */
+.oct-header-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  background: white;
+  width: 100%;
+}
+
+.oct-header-bottom-nav view {
+  width: 150px;
+  color: #000000;
+  text-align: center;
+  padding: 20rpx 5px;
+  font-size: 30rpx;
+}
+
+.oct-header-bottom-nav .nav-item-current {
+  color: red;
+}
+
+.oct-header-bottom-nav view image {
+  width: 12px;
+  height: 12px;
+}
+
+/* 主体内容 */
+.oct-content {
+  padding: 10rpx 0rpx;
+}
+
+/*收藏商品或店铺*/
+.use-shopgoods {
+  margin-top: 8px;
+  height: 1%;
+  overflow: hidden;
+  font-size: 24rpx;
+}
+
+.use-shopgoods-list {
+  padding-top: 5px;
+  background: #F7F7F7;
+}
+
+.use-list-ul .use-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 10px;
+}
+.use-item-right{
+  width: 100%;
+}
+.use-item-right view {
+  padding-top: 2px;
+}
+.use-item-right .use-item-top{
+  height: 30px;
+}
+.use-item-right .use-item-mid{
+  height: 18px;
+  font-size: 10px;
+}
+
+.use-item-title{
+  height: 65rpx;
+}
+
+.use-item-left {
+  margin-right: 8px;
+}
+
+  .use-item-left image {
+      width: 70px;
+      height: 70px;
+      border-radius: 10rpx;
+  }
+
+.use-item-mid {
+  color: #c8c8c8
+}
+
+.use-item-bottom {
+  color: #FE5C13;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-use {
+  border: 1px solid #FE5C13;
+  border-radius: 20px;
+  background: no-repeat;
+  color: #FE5C13;
+  padding: 10rpx 20rpx;
+  display: flex;
+  align-items: center;
+}
+/*收藏的店铺*/
+.use-item-bottom b {
+  font-weight: normal;
+}
+
+

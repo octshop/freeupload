@@ -1,0 +1,43 @@
+﻿/*======================轮播广告===========================*/
+
+
+/*添加与编辑窗口主体内容*/
+.add-edit-ul span{
+    padding-left: 10px;
+    display:inline-block;
+    width: 80px;
+}
+.c-memo{
+    width: 460px;
+}
+
+/*上传图片预览区*/
+.img-pre-li {
+    padding: 0;
+}
+
+.carousel-pre-img {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-pre-btn {
+    width: 200px;
+}
+
+    .carousel-pre-btn input, .carousel-pre-btn a {
+        border: 1px solid #dcdcdc;
+        border-radius: 10px;
+        background: #ffffff;
+        width: 100px;
+        margin: 11px 10px;
+        padding: 5px;
+        margin-left: 30px;
+        display: block;
+        text-align: center;
+    }
+
+        .carousel-pre-btn input:hover {
+            color: #ff6a00;
+            border: 1px solid #ff6a00;
+        }

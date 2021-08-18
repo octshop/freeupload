@@ -1,0 +1,21 @@
+/* pages/buyer/vip/balancedetail/balancedetail.wxss */
+.balance-list .balance-item {
+  padding: 10px;
+  border-bottom: 5px solid #F5F5F5;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  cursor: pointer;
+}
+
+.balance-item-right {
+  text-align: right;
+  color:gray;
+}
+.balance-item b{
+  color: #000000;
+  font-weight: bold;
+}
+
+

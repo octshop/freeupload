@@ -1,0 +1,29 @@
+<!--pages/buyer/orderdynamic/orderdynamic.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="订单动态" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!--订单动态列表-->
+	<view class="order-dynamic-list" id="OrderDynamicList">
+
+		<view class="order-dynamic-item {{index == 0 ? 'order-dynamic-item-current':''}}" wx:for="{{initOrderDynamic_Data.OrderSysMsgList}}">
+			<navigator url="../orderdetail/orderdetail?OID={{item.OrderID}}">
+				<view class="dynamic-item-left">
+					{{item.WriteDate}}
+				</view>
+				<view class="dynamic-item-mid">
+					<view class="dynamic-circle"></view>
+				</view>
+				<view class="dynamic-item-right">
+				{{item.MsgContent}}
+				</view>
+			</navigator>
+		</view>
+
+	</view>
+
+</view>

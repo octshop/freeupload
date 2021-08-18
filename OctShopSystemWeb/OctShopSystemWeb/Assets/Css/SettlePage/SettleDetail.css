@@ -1,0 +1,10 @@
+﻿/*=====================结算单详情======================*/
+
+.transfer-voucher-img{
+    font-size:14px;
+    font-weight:bold;
+}
+.transfer-voucher-img img{
+    width:500px;
+    margin-left: 10px;
+}

@@ -1,0 +1,245 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>商城首页</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Lib/lightslider/lightslider.css" rel="stylesheet" />
+    <link href="../Assets/Css/Mall/Index.css?rnd=6" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/lightslider/lightslider.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Mall/Index.js"></script>
+
+</head>
+<body>
+    <!--头部-->
+    <div class="oct-header">
+        <div class="goods-search" onclick="window.location.href='../Mall/SearchGoods'">
+            <img src="../Assets/Imgs/Icon/buyer_query.png" />
+            输入商品或店铺名称
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <div class="goods-type-nav">
+            <ul class="goods-type-ul" id="GoodsTypeUl">
+                @*<li>
+                        <div class="goods-type-li-current" onclick="window.location.href='../Mall/Index'">热门</div>
+                    </li>
+                    <li onclick="window.location.href='../Mall/GoodsTypeList?GTID=123'">
+                        <div>男装男装</div>
+                    </li>*@
+            </ul>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!-- 轮播区域 -->
+            <div class="oct-slider">
+
+                <div class="sliderMainContent" id="sliderMainContent" style="overflow:hidden;">
+
+                    <ul id="content-slider" class="content-slider">
+                        @*<li>
+                                <a href="javascript:void(0)" target="_blank">
+                                    <div class="img-slider img-slider-1">
+                                        <img src="../Assets/Imgs/01.jpg" />
+                                    </div>
+                                </a>
+                            </li>*@
+                    </ul>
+
+                </div>
+
+                <div class="slider-pager-content">
+                    <div id="SliderCountDiv">0/0</div>
+                </div>
+            </div>
+
+            <!--导航-->
+            <div class="nav-list">
+
+
+                <div class="sliderMainContent" id="sliderMainContent2" style="overflow:hidden; width: 100%;">
+
+                    <ul id="content-slider-2" class="content-slider">
+
+                        @*<li>
+                                <a class="nav-item" href="../Mall/GroupBuy">
+                                    <img src="../Assets/Imgs/Icon/index_nav01.png" />
+                                    拼团
+                                </a>
+                                <a class="nav-item" href="../Mall/SecondsKill">
+                                    <img src="../Assets/Imgs/Icon/index_nav02.png" />
+                                    秒杀
+                                </a>
+                                <a class="nav-item" href="../Mall/PresentExchange">
+                                    <img src="../Assets/Imgs/Icon/index_nav03.png" />
+                                    礼品
+                                </a>
+                                <a class="nav-item" href="../Mall/DiscountGoods">
+                                    <img src="../Assets/Imgs/Icon/index_nav04.png" />
+                                    打折
+                                </a>
+                                <a class="nav-item" href="../Mall/Coupons">
+                                    <img src="../Assets/Imgs/Icon/index_nav05.png" />
+                                    领券
+                                </a>
+                                <a class="nav-item" href="../Mall/LuckyDraw">
+                                    <img src="../Assets/Imgs/Icon/index_nav06.png" />
+                                    抽奖
+                                </a>
+                                <a class="nav-item" href="../O2o/ShopNear">
+                                    <img src="../Assets/Imgs/Icon/index_nav07.png" />
+                                    实体店
+                                </a>
+                                <a class="nav-item" href="../Mall/Activity">
+                                    <img src="../Assets/Imgs/Icon/index_nav08.png" />
+                                    活动
+                                </a>
+                                <a class="nav-item" href="#">
+                                    <img src="../Assets/Imgs/Icon/index_nav09.png" />
+                                    入驻
+                                </a>
+                                <a class="nav-item" href="#">
+                                    <img src="../Assets/Imgs/Icon/index_nav09.png" />
+                                    全部
+                                </a>
+                            </li>*@
+
+                    </ul>
+
+                </div>
+                <div class="slider-pager-content">
+
+                </div>
+
+            </div>
+
+            <!--自定义栏目-->
+            <div class="section-content" id="SectionContent">
+
+
+                <!--抢购秒杀-->
+                @*<div class="second-kill">
+                        <div class="second-kill-title" onclick="window.open('http://www.baidu.com')">
+                            <div>抢购秒杀</div>
+                            <div class="second-kill-arrow">开抢超低好货低价</div>
+                        </div>
+                        <div class="second-kill-list">
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                            <a href="#"><img src="../Assets/Imgs/06.jpg" /></a>
+                        </div>
+                    </div>*@
+
+
+            </div>
+
+
+
+
+            <!--分割条件-->
+            <div style="padding-bottom: 8px;">
+            </div>
+
+            <!--商品列表-->
+            <ul class="goods-list" id="PageContentList">
+
+                @*<li class="goods-item">
+                        <div class="goods-img">
+                            <img src="../Assets/Imgs/05.jpg" />
+                        </div>
+                        <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                        <div class="goods-price">
+                            <b>&#165;234.2</b>
+                            <div>23432人付款</div>
+                            <img src="../Assets/Imgs/Icon/scart_add.png" />
+                        </div>
+                        <span class="goods-item-badge">9.3折</span>
+                    </li>*@
+
+            </ul>
+            <div class="btn-more-goods" id="BtnMoreGoods" style="display:normal;" onclick="nextPage()">
+                … 加载更多 …
+            </div>
+
+            @Html.Raw(ViewBag.TechSupport)
+
+            <!--底部分隔-->
+            <div style="padding-bottom: 80px;">
+
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <a href="../Mall/Index" class="nav-current">
+            <img src="../Assets/Imgs/Icon/navhome_red.png" />
+            首页
+        </a>
+        <a href="../Mall/GoodsType">
+            <img src="../Assets/Imgs/Icon/navtype.png" />
+            分类
+        </a>
+        <a href="../O2o/Index">
+            <img src="../Assets/Imgs/Icon/navlocation.png" />
+            附近
+            <div class="badge-div" style="display:none;">3</div>
+        </a>
+        <a href="../Scart/Index">
+            <img src="../Assets/Imgs/Icon/navscart.png" />
+            购物车
+            <div class="badge-div" style="display:none;">3</div>
+        </a>
+        <a href="../Buyer/Index">
+            <img src="../Assets/Imgs/Icon/navmy.png" />
+            我的
+            <div class="badge-div" style="display:none;">3</div>
+        </a>
+
+    </div>
+
+    <script type="text/javascript">
+
+
+
+        alertWin("【OctShop免费开源大型专业级商城系统】特别提醒：此为系统演示，非正式商城平台，所有数据均为演示或测试数据！演示站带宽1M，有限速，加载请等待！", 10000);
+
+
+    </script>
+
+
+
+
+</body>
+</html>

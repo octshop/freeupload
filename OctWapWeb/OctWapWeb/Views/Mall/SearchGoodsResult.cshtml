@@ -1,0 +1,140 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>搜索商品结果</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Mall/SearchGoodsResult.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/SimpleSideBar/jquery-ui.min.js"></script>
+    <script src="../Assets/Lib/SimpleSideBar/jquery.simplesidebar.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Mall/SearchGoodsResult.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <input type="hidden" id="hidSearchContent" value="@ViewBag.SearchContent" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid" onclick="window.location.href='../Mall/SearchGoods'">
+            <div class="header-search">
+                <img src="../Assets/Imgs/Icon/buyer_query.png" />
+                @ViewBag.SearchContent
+            </div>
+        </div>
+        <div class="oct-header-right" onclick="window.location.href='../Mall/GoodsType'">
+            <img src="../Assets/Imgs/Icon/shop_allgoods.png" /><br />
+            分类
+        </div>
+    </div>
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <div class="nav-item search-current" onclick="chgTab('1')">综合</div>
+        <div class="nav-item" onclick="chgTab('2')">销量</div>
+        <div class="nav-item search-price" onclick="chgTabPrice()">价格 <img src="../Assets/Imgs/Icon/order_price_gray.png" /></div>
+        <div class="nav-item" onclick="chgTab('5')">新品</div>
+        <div class="nav-item" onclick="chgTab('6')">打折</div>
+        <div class="nav-item" onclick="chgTab('7')">团购</div>
+        <div class="nav-item" onclick="chgTab('8')">秒杀</div>
+        <div class="search-filter" id="OpenSbDiv">
+            筛选
+            <img src="../Assets/Imgs/Icon/filter.png" />
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!--商品列表-->
+            <ul class="goods-list" id="PageContentList">
+                @*<li class="goods-item">
+                    <div class="goods-img">
+                        <img src="../Assets/Imgs/06.jpg" />
+                        <span>7.5折</span>
+                    </div>
+                    <div>
+                        <div>
+                            商品名称商品名称商品名称商品名称商品名名称商品名
+                        </div>
+                        <div class="goods-price">
+                            &#165; 2343.23
+                        </div>
+                        <div class="goods-label">
+                            <span>到店消费/自取</span>
+                            <span>货到付款</span>
+                            <span>优惠券</span>
+                        </div>
+                        <div class="goods-extra">
+                            1200+条评价 98%好评<br />
+                            店铺名称店铺名称店铺名称<a href="#">进店>></a>
+                        </div>
+                    </div>
+                </li>*@
+               
+            </ul>
+
+        </div>
+    </div>
+
+    <!--右边侧边栏-->
+    <section class="sidebar">
+
+        <div class="navContent">
+            <div class="btn-reset" onclick="resetGoodsTypeNeedProp()">
+              重置
+            </div>
+            <a href="javascript:void(0)" onclick="chgTab('1')" class="btn-ok">
+                确定
+            </a>
+        </div>
+
+        <ul id="SideBarListUl">
+            @*<li class="sidebar-title-filter">
+                筛选
+            </li>
+            <li>
+                <div class="subNav sub-nav-current">货到付款</div>
+                <div class="subNav">到店消费/自取</div>
+                <div class="subNav">有赠品</div>
+            </li>
+            <li class="sidebar-title">
+                品牌
+            </li>
+            <li>
+                <div class="subNav sub-nav-current">MOSKI/摩士厅</div>
+                <div class="subNav">摩士厅</div>
+                <div class="subNav"><a href="javascript:void(0)">摩士厅11保修哈哈</a></div>
+            </li>*@
+            <li style="height:30px;"></li>
+        </ul>
+
+    </section>
+
+
+
+</body>
+</html>

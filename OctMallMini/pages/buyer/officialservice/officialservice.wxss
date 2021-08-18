@@ -1,0 +1,96 @@
+/* pages/buyer//officialservice/officialservice.wxss */
+
+/*====================官方客服========================*/
+
+.services-top {
+  background: #ffffff;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.services-top-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.services-top-list view {
+  width: 170px;
+  padding-top: 15px;
+}
+
+.services-top-list navigator {
+  color: #009cd7;
+  cursor: pointer;
+}
+
+.services-top-list text {
+  color: #009cd7;
+  cursor: pointer;
+}
+
+.services-top-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.services-top-btn navigator {
+  width: 200px;
+  color: #ff6a00;
+  height: 30px;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #ff6a00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 15px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.services-top-btn image {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+
+}
+
+/*问题类型*/
+.services-bottom {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.services-bottom view {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.question-ul {
+  background: white;
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+.question-ul view {
+  padding: 8px 0px;
+  font-size: 14px;
+  border-bottom: 1px solid #F7F7F7;
+  /* background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat; */
+  background-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: normal;
+}
+
+.question-ul image {
+  width: 10px;
+  height: 10px;
+}

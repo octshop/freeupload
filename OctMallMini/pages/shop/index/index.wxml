@@ -1,0 +1,547 @@
+<!--pages/shop/index/index.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="{{showData.loadShopHomeMsg.ShopMsgTopBarItem.ShopName}}"
+		back-icon="/assets/imgs/icons/navbar_back.png" home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2"
+		bindhome="home" bindback="back" />
+</view>
+<!-- 店铺导航Logo -->
+<shopNav id="shopNav" top-fix="{{navbarHeight}}" api-web-doamin="{{apiWebDoamin}}"
+	shop-name="{{showData.loadShopHomeMsg.ShopMsgTopBarItem.ShopName}}"
+	avg-appraise-score="{{showData.loadShopHomeMsg.ShopMsgTopBarItem.AvgAppraiseScore}}"
+	count-fans="{{showData.loadShopHomeMsg.ShopMsgTopBarItem.CountFans}}"
+	count-fav-shop="{{showData.loadShopHomeMsg.ShopMsgTopBarItem.CountFavShop}}人"
+	shop-header-img="//{{showData.loadShopHomeMsg.ShopMsgTopBarItem.ShopHeaderImg}}"
+	appraise-star-red="{{appraiseStarRed}}" appraise-star-gray="{{appraiseStarGray}}" tab-cur-num="0" shop-id="{{shopID}}"
+	nologin-back-url="../../../pages/shop/index/index"
+	is-self-shop="{{showData.loadShopHomeMsg.ShopMsgTopBarItem.IsSelfShop}}" />
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!-- 轮播区域区域 -->
+	<view class='carousel' wx:if="{{initSliderGoodsImgData_Data.ShopCarouselList.length>0}}">
+		<swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8"
+			autoplay="true" interval='2000' circular='true'>
+
+			<block wx:for="{{initSliderGoodsImgData_Data.ShopCarouselList}}" wx:key="key">
+				<swiper-item bindtap='navigateToURL' data-navigate-url='{{ShopCarouselHrefList[index]}}'>
+					<image class="carouselImg" src='//{{item.ImgURL}}' mode='aspectFill'></image>
+				</swiper-item>
+			</block>
+
+		</swiper>
+	</view>
+
+	<!--买单区域-->
+	<!-- <view class="pay-bill">
+		<view class="pay-bill-left" bindtap="navigateToURL"
+			data-navigate-url="../../../pages/shop/aggregate/index/index?SID={{shopID}}">
+			<view class="btn-pay-bill">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/aggre_direct.png"></image>直接买单
+			</view>
+		</view>
+		<view class="pay-bill-right">
+			<view bindtap="makePhoneCall" data-phone-number="{{showData.loadShopHomeMsg.ShopAddrLocationTel.ShopMobile}}">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/tel_fix.png" />
+				电话
+			</view>
+			<view bindtap="buildBuyerGoToImSysURL_ShopWap">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/customer.png" />
+				客服
+			</view>
+		</view>
+	</view> -->
+
+	<!--导航地址-->
+	<view class="address-nav" wx:if="{{isShowAddrNav}}">
+		<view class="address-nav-left">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_addr.png" />
+		</view>
+		<view class="address-nav-mid">
+			{{showData.loadShopHomeMsg.ShopAddrLocationTel.RegionNameArr}}_{{showData.loadShopHomeMsg.ShopAddrLocationTel.DetailAddr}}<span>
+				(距您<b>{{showData.loadShopHomeMsg.ShopAddrLocationTel.DistanceKm}}km</b>)</span>
+		</view>
+		<view class="address-nav-right">
+			<view bindtap="openMiniMap" data-latitude="{{showData.loadShopHomeMsg.ShopAddrLocationTel.Latitude}}"
+				data-longitude="{{showData.loadShopHomeMsg.ShopAddrLocationTel.Longitude}}"
+				data-name="{{showData.loadShopHomeMsg.ShopAddrLocationTel.ShopName}}"
+				data-address="{{showData.loadShopHomeMsg.ShopAddrLocationTel.DetailAddr}}">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/addr_nav.png" /><br />
+				导航
+			</view>
+		</view>
+	</view>
+
+	<!--优惠券-->
+	<view class="coupons-content" wx:if="{{loadShopCouponsTopList_Data.CouponsMsgList.length> 0}}">
+		<view class="coupons-list">
+
+
+			<view class="coupons-item" wx:for="{{loadShopCouponsTopList_Data.CouponsMsgList}}" bindtap="buyerGetCoupons"
+				data-coupons-id="{{item.CouponsID}}">
+				<b wx:if="{{item.UseMoney > 0}}">￥{{item.UseMoney}}</b>
+				<b wx:if="{{item.UseDiscount > 0}}">￥{{item.UseDiscount}}折券</b>
+				<view wx:if="{{item.ExpenseReachSum>0}}">
+					满{{item.ExpenseReachSum}}元可用
+				</view>
+				<view wx:if="{{item.ExpenseReachSum<=0}}">
+					无消费限制
+				</view>
+				<span>点击领取>></span>
+			</view>
+
+
+			<!-- <view class="coupons-item">
+				<b>9.5折</b>
+				<view>
+					满243元可用
+				</view>
+				<span>点击领取>></span>
+			</view> -->
+
+		</view>
+		<view class="coupons-more" bindtap="navigateToURL" data-navigate-url="../../shop/activity/activity?SID={{shopID}}">
+			还有更多>>
+		</view>
+	</view>
+
+	<!--排行榜-->
+	<view class="order-content">
+		<view class="order-title">
+			<view class="order-title-left">
+				排行榜
+			</view>
+			<view class="order-title-right">
+				<span class="{{orderTabNum1}}" bindtap="chgOrderTab" data-tab-num="1">销量排行</span>
+				<span class="{{orderTabNum2}}" bindtap="chgOrderTab" data-tab-num="2">关注排行</span>
+			</view>
+		</view>
+		<view class="order-list">
+
+			<view class="order-item" wx:for="{{orderGoodsList}}" bindtap="navigateToURL"
+				data-navigate-url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+				<image src="//{{item.ImgPathCover}}" />
+				<view>
+					{{item.GoodsTitle}}
+				</view>
+				<span>
+					{{item.PaidCount}}付款
+				</span>
+			</view>
+
+		</view>
+
+
+	</view>
+
+
+	<!--自定义栏目区域-->
+	<block wx:for="{{showData.loadShopHomeMsg.ShopShowMsgList.ShopShowMsg}}">
+
+		<!--	团购商品-->
+		<!-- <view class="goods-main" wx:if="{{item.HomeGroupList != undefined && item.HomeGroupList.length > 0}}">
+			<view class="goods-title">
+				<view class="goods-title-left" wx:if="{{item.HomeGroupList != undefined && item.HomeGroupList.length > 0}}">
+					团购商品
+				</view>
+				<view class="goods-title-right" bindtap="navigateToURL"
+					data-navigate-url="../../shop/goodsall/goodsall?SID={{shopID}}&TBN=5"
+					wx:if="{{item.HomeGroupList != undefined && item.HomeGroupList.length > 0}}">
+					更多>>
+				</view>
+			</view>
+			<view class="goods-list">
+				<view class="goods-item"
+					wx:for="{{showData.loadShopHomeMsg.ShopShowMsgList.ShopShowMsgGoods[index].HomeGroupGoodsList}}"
+					wx:for-index="idx" wx:for-item="itm">
+					<navigator url="../../goods/groupdetail/groupdetail?GID={{itm.GoodsID}}">
+						<view class="goods-img">
+							<image src="//{{itm.GoodsCoverImgPath}}" model="aspectFit" />
+						</view>
+						<view class="goods-name">{{itm.GoodsTitle}}</view>
+						<view class="goods-price">
+							<b>￥{{itm.GoodsPrice}}</b>
+							<span>团购</span>
+						</view>
+					</navigator>
+				</view>
+			</view>
+		</view> -->
+
+
+		<!--	礼品领取 -->
+		<!-- <view class="goods-main" wx:if="{{item.HomePresentList != undefined && item.HomePresentList.length > 0}}">
+			<view class="goods-title">
+				<view class="goods-title-left" wx:if="{{item.HomePresentList != undefined && item.HomePresentList.length > 0}}">
+					礼品领取
+				</view>
+				<view class="goods-title-right" wx:if="{{item.HomePresentList != undefined && item.HomePresentList.length > 0}}"
+					bindtap="navigateToURL" data-navigate-url="../../shop/presentall/presentall?SID={{shopID}}">
+					更多>>
+				</view>
+			</view>
+			<view class="goods-list">
+				<view class="goods-item"
+					wx:for="{{showData.loadShopHomeMsg.ShopShowMsgList.ShopShowMsgGoods[index].HomePresentGoodsList}}"
+					wx:for-index="idx" wx:for-item="itm">
+					<navigator url="../../goods/giftdetail/giftdetail?PID={{itm.PresentID}}">
+						<view class="goods-img">
+							<image src="//{{itm.PresentCoverImgURL}}" model="aspectFit" />
+						</view>
+						<view class="goods-name">{{itm.PresentTitle}}</view>
+						<view class="goods-price">
+							<b>积分：{{itm.PresentPrice}}</b>
+							<span class="goods-stock-residue">剩余:{{itm.StockNum}}</span>
+						</view>
+					</navigator>
+				</view>
+			</view>
+		</view> -->
+
+
+		<!--	秒杀商品 -->
+		<!-- <view class="goods-main" wx:if="{{item.HomeSecKillList != undefined && item.HomeSecKillList.length > 0}}">
+			<view class="goods-title">
+				<view class="goods-title-left" wx:if="{{item.HomeSecKillList != undefined && item.HomeSecKillList.length > 0}}">
+					秒杀商品
+				</view>
+				<view class="goods-title-right" bindtap="navigateToURL"
+					data-navigate-url="../../shop/goodsall/goodsall?SID={{shopID}}&TBN=6"
+					wx:if="{{item.HomeSecKillList != undefined && item.HomeSecKillList.length > 0}}">
+					更多>>
+				</view>
+			</view>
+			<view class="goods-list">
+				<view class="goods-item"
+					wx:for="{{showData.loadShopHomeMsg.ShopShowMsgList.ShopShowMsgGoods[index].HomeSecKillGoodsList}}"
+					wx:for-index="idx" wx:for-item="itm">
+					<navigator url="../../goods/goodsdetail/goodsdetail?GID={{itm.GoodsID}}">
+						<view class="goods-img">
+							<image src="//{{itm.GoodsCoverImgPath}}" model="aspectFit" />
+						</view>
+						<view class="goods-name">{{itm.GoodsTitle}}</view>
+						<view class="goods-price">
+							<b>￥{{itm.GoodsPrice}}</b>
+							<span>秒杀</span>
+						</view>
+					</navigator>
+				</view>
+			</view>
+		</view> -->
+
+
+		<!--	商家推荐 -->
+		<view class="goods-main" wx:if="{{item.HomeCommendList != undefined && item.HomeCommendList.length > 0}}">
+			<view class="goods-title">
+				<view class="goods-title-left" wx:if="{{item.HomeCommendList != undefined && item.HomeCommendList.length > 0}}">
+					商家推荐
+				</view>
+				<view class="goods-title-right" bindtap="navigateToURL"
+					data-navigate-url="../../shop/goodsall/goodsall?SID={{shopID}}&TBN=0"
+					wx:if="{{item.HomeCommendList != undefined && item.HomeCommendList.length > 0}}">
+					更多>>
+				</view>
+			</view>
+			<view class="goods-list">
+				<view class="goods-item"
+					wx:for="{{showData.loadShopHomeMsg.ShopShowMsgList.ShopShowMsgGoods[index].HomeCommendGoodsList}}"
+					wx:for-index="idx" wx:for-item="itm">
+					<navigator url="../../goods/goodsdetail/goodsdetail?GID={{itm.GoodsID}}">
+						<view class="goods-img">
+							<image src="//{{itm.GoodsCoverImgPath}}" model="aspectFit" />
+						</view>
+						<view class="goods-name">{{itm.GoodsTitle}}</view>
+						<view class="goods-price">
+							<b>￥{{itm.GoodsPrice}}</b>
+							<span class="goods-price-no">￥{{itm.MarketPrice}}</span>
+						</view>
+					</navigator>
+				</view>
+			</view>
+		</view>
+
+
+		<!--	打折商品 -->
+		<view class="goods-main" wx:if="{{item.HomeDiscountList != undefined && item.HomeDiscountList.length > 0}}">
+			<view class="goods-title">
+				<view class="goods-title-left"
+					wx:if="{{item.HomeDiscountList != undefined && item.HomeDiscountList.length > 0}}">
+					打折商品
+				</view>
+				<view class="goods-title-right" bindtap="navigateToURL"
+					data-navigate-url="../../shop/goodsall/goodsall?SID={{shopID}}&TBN=4"
+					wx:if="{{item.HomeDiscountList != undefined && item.HomeDiscountList.length > 0}}">
+					更多>>
+				</view>
+			</view>
+			<view class="goods-list">
+				<view class="goods-item"
+					wx:for="{{showData.loadShopHomeMsg.ShopShowMsgList.ShopShowMsgGoods[index].HomeDiscountGoodsList}}"
+					wx:for-index="idx" wx:for-item="itm">
+					<navigator url="../../goods/goodsdetail/goodsdetail?GID={{itm.GoodsID}}">
+						<view class="goods-img">
+							<image src="//{{itm.GoodsCoverImgPath}}" model="aspectFit" />
+						</view>
+						<view class="goods-name">{{itm.GoodsTitle}}</view>
+						<view class="goods-price">
+							<b>￥{{itm.GoodsPrice}}</b>
+							<span>{{itm.Discount}}折</span>
+						</view>
+					</navigator>
+				</view>
+			</view>
+		</view>
+
+
+
+
+
+	</block>
+
+
+	<!--团购商品
+	<view class="goods-main">
+		<view class="goods-title">
+			<view class="goods-title-left">
+				团购商品
+			</view>
+			<view class="goods-title-right">
+				更多>>
+			</view>
+		</view>
+		<view class="goods-list">
+
+			<view class="goods-item">
+				<navigator url="../../goods/goodsdetail/goodsdetail">
+					<view class="goods-img">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+					</view>
+					<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+					<view class="goods-price">
+						<b>￥234.2</b>
+						<span>团购</span>
+					</view>
+				</navigator>
+			</view>
+			<view class="goods-item">
+				<navigator url="../../goods/goodsdetail/goodsdetail">
+					<view class="goods-img">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/06.jpg" />
+					</view>
+					<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+					<view class="goods-price">
+						<b>￥234.2</b>
+						<span>团购</span>
+					</view>
+				</navigator>
+			</view>
+
+			<view class="goods-item">
+				<navigator url="../../goods/goodsdetail/goodsdetail">
+					<view class="goods-img">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+					</view>
+					<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+					<view class="goods-price">
+						<b>￥234.2</b>
+						<span>团购</span>
+					</view>
+				</navigator>
+			</view>
+			<view class="goods-item">
+				<navigator url="../../goods/goodsdetail/goodsdetail">
+					<view class="goods-img">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/06.jpg" />
+					</view>
+					<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+					<view class="goods-price">
+						<b>￥234.2</b>
+						<span>团购</span>
+					</view>
+				</navigator>
+			</view>
+
+		</view>
+	</view>-->
+
+
+	<!--商家推荐
+	<view class="goods-main">
+		<view class="goods-title">
+			<view class="goods-title-left">
+				商家推荐
+			</view>
+			<view class="goods-title-right">
+				更多>>
+			</view>
+		</view>
+		<view class="goods-list">
+			<view class="goods-item">
+				<navigator url="../../goods/goodsdetail/goodsdetail">
+					<view class="goods-img">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+					</view>
+					<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+					<view class="goods-price">
+						<b>￥234.2</b>
+						<span class="goods-price-no">￥434.20</span>
+					</view>
+				</navigator>
+			</view>
+			<view class="goods-item">
+				<navigator url="../../goods/goodsdetail/goodsdetail">
+					<view class="goods-img">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/06.jpg" />
+					</view>
+					<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+					<view class="goods-price">
+						<b>￥234.2</b>
+						<span class="goods-price-no">￥434.20</span>
+					</view>
+				</navigator>
+			</view>
+			<view class="goods-item">
+				<view class="goods-img">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/06.jpg" />
+				</view>
+				<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+				<view class="goods-price">
+					<b>￥234.2</b>
+					<span class="goods-price-no">￥434.20</span>
+				</view>
+			</view>
+			<view class="goods-item">
+				<view class="goods-img">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+				</view>
+				<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+				<view class="goods-price">
+					<b>￥234.2</b>
+					<span class="goods-price-no">￥434.20</span>
+				</view>
+			</view>
+		</view>
+	</view>-->
+
+	<!--礼品领取
+	<view class="goods-main">
+		<view class="goods-title">
+			<view class="goods-title-left">
+				礼品领取
+			</view>
+			<view class="goods-title-right">
+				更多>>
+			</view>
+		</view>
+		<view class="goods-list">
+			<view class="goods-item">
+				<navigator url="../../goods/giftdetail/giftdetail">
+					<view class="goods-img">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+					</view>
+					<view class="goods-name">礼品名称礼品名称礼品名称礼品名称</view>
+					<view class="goods-price">
+						<b>积分:234.2</b>
+						<span class="goods-stock-residue">剩余:112312</span>
+					</view>
+				</navigator>
+			</view>
+			<view class="goods-item">
+				<navigator url="../../goods/giftdetail/giftdetail">
+					<view class="goods-img">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/06.jpg" />
+					</view>
+					<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+					<view class="goods-price">
+						<b>积分:234.2</b>
+						<span class="goods-stock-residue">剩余:112312</span>
+					</view>
+				</navigator>
+			</view>
+			<view class="goods-item">
+				<view class="goods-img">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/06.jpg" />
+				</view>
+				<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+				<view class="goods-price">
+					<b>积分:234.2</b>
+					<span class="goods-stock-residue">剩余:112312</span>
+				</view>
+			</view>
+			<view class="goods-item">
+				<view class="goods-img">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+				</view>
+				<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+				<view class="goods-price">
+					<b>积分:234.2</b>
+					<span class="goods-stock-residue">剩余:112312</span>
+				</view>
+			</view>
+		</view>
+	</view>-->
+
+
+	<!--猜你喜欢-->
+	<view class="goods-main favgoods-main">
+		<view class="goods-title">
+			<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/buyer_recommendgoods.png" />
+			猜你喜欢
+		</view>
+		<view class="goods-list">
+
+
+			<view class="goods-item" wx:for="{{pageDataSearch_Page.DataPage}}">
+				<navigator url="../../goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+					<view class="goods-img">
+						<image src="//{{item.ImgPathCover}}" />
+					</view>
+					<view class="goods-name">{{item.GoodsTitle}}</view>
+					<view class="goods-price">
+						<b>￥{{item.GoodsPrice}}</b>
+						<span class="goods-stock-residue">{{item.PaidCount}}人付款</span>
+					</view>
+				</navigator>
+			</view>
+
+
+			<!-- <view class="goods-item">
+				<navigator url="../../goods/goodsdetail/goodsdetail">
+					<view class="goods-img">
+						<image src="{{apiWebDoamin}}/Assets/Imgs/06.jpg" />
+					</view>
+					<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+					<view class="goods-price">
+						<b>￥234.2</b>
+						<span class="goods-price-no">￥434.20</span>
+					</view>
+				</navigator>
+			</view> -->
+
+
+		</view>
+	</view>
+
+</view>
+
+
+
+<!--店铺底部导航-->
+<shopNavBottom id="ShopNavBottom" shop-id="{{shopID}}" api-web-doamin="{{apiWebDoamin}}"
+	bindimshopwap="buildBuyerGoToImSysURL_ShopWap" />
+
+<!--页脚-->
+<!-- <view class="oct-footer">
+	<view onclick="window.location.href='../shop/GoodsAll'">
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_allgoods.png" />
+		全部商品
+	</view>
+	<view>
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_goodstype.png" />
+		热门分类
+	</view>
+	<view onclick="window.location.href='../CusService/ChatMain'">
+		<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/shop_customer.png" />
+		咨询商家
+	</view>
+</view> -->

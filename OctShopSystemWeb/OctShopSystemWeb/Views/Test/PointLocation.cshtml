@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>点选地图位置信息</title>
+</head>
+<body>
+
+    <div style="height: 900px;">
+
+        <iframe id="mapPage" width="100%" height="800" frameborder=0
+                src="https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=6C7BZ-3ZPLF-KB5JJ-NM2X4-JZU2S-FTBAN&referer=myapp">
+        </iframe>
+
+        <script>
+            window.addEventListener('message', function (event) {
+                // 接收位置信息，用户选择确认位置点后选点组件会触发该事件，回传用户的位置信息
+                var loc = event.data;
+                if (loc && loc.module == 'locationPicker') {//防止其他应用也会向该页面post信息，需判断module是否为'locationPicker'
+                    console.log('location', loc);
+
+                    console.log("纬度：" + loc.latlng.lat);
+                    console.log("经度：" + loc.latlng.lng);
+
+
+              
+                    //{
+                    //    module: 'locationPicker',
+                    //        latlng: {
+                    //        lat: 39.998766,
+                    //        lng: 116.273938
+                    //    },
+                    //    poiaddress: "北京市海淀区新建宫门路19号",
+                    //        poiname: "颐和园",
+                    //            cityname: "北京市"
+                    //}
+
+                }
+            }, false);
+        </script>
+
+    </div>
+
+
+
+
+
+</body>
+</html>

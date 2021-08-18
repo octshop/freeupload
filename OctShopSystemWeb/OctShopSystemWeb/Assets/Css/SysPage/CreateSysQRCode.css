@@ -1,0 +1,32 @@
+﻿/*================生成二维码====================*/
+
+.ul-qrcode {
+    margin: 0 auto;
+    width: 600px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.qrcode-title{
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.qrcode-title-sub{
+    font-size: 16px;
+}
+.qrcode-img img{
+    width: 500px;
+    height: 500px;
+}
+.hint-one {
+    font-size: 16px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.hint-two {
+    font-size: 14px;
+    padding-bottom: 100px;
+    color: gray;
+    padding-top: 10px;
+}

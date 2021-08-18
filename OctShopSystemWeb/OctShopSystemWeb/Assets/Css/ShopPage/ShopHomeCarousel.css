@@ -1,0 +1,34 @@
+﻿/*================店铺首页轮播 - 管理==================*/
+.add-edit-ul li{
+
+}
+.add-edit-ul li span{
+    display:inline-block;
+    width: 70px;
+}
+    .add-edit-ul li .txt-css {
+        width: 490px;
+    }
+.img-pre-li{
+    padding: 0;
+}
+.carousel-pre-img {
+    display: flex;
+    align-items:center;
+}
+.carousel-pre-btn{
+    width: 200px;
+}
+.carousel-pre-btn input{
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    background: #ffffff;
+    width: 100px;
+    margin: 11px 10px;
+    padding: 5px;
+    margin-left: 30px;
+}
+    .carousel-pre-btn input:hover {
+        color: #ff6a00;
+        border: 1px solid #ff6a00;
+    }

@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>在线充值</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Vip/OnLineTopUp.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Vip/OnLineTopUp.js?v=1"></script>
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>在线充值</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="#"><img class="header-icon-my" src="../Assets/Imgs/Icon/vip_question.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="topup-sum">
+            <div class="topup-sum-top">
+                充值金额
+            </div>
+            <div class="topup-sum-bottom">
+                <input type="number" id="RechargeAmt" class="topup-sum-txt" placeholder="" />
+            </div>
+        </div>
+
+        <div class="topup-sum">
+            <div class="topup-sum-top">
+                充值到
+            </div>
+            <div class="topup-sum-bottom">
+                <div>账户余额</div>
+            </div>
+        </div>
+
+        <div class="topup-sum">
+            <div class="topup-sum-top">
+                充值方式
+            </div>
+            <div class="topup-type-bottom">
+                <ul class="win-pay-list">
+                    <li class="win-pay-item" onclick="chgPayType('WeChat')">
+                        <div class="pay-item-left pay-item-wx">
+                            微信支付
+                        </div>
+                        <div class="pay-item-right">
+                            <img id="WxPayImg" src="../Assets/Imgs/Icon/sel_yes.png" />
+                        </div>
+                    </li>
+                    <li class="win-pay-item" onclick="chgPayType('Alipay')">
+                        <div class="pay-item-left pay-item-alipay">
+                            支付宝
+                        </div>
+                        <div class="pay-item-right">
+                            <img id="AlipayImg" src="../Assets/Imgs/Icon/sel_no.png" />
+                        </div>
+                    </li>
+                    @*<li class="win-pay-item">
+                            <div class="pay-item-left pay-item-bank">
+                                银行卡
+                            </div>
+                            <div class="pay-item-right">
+                                <img src="../Assets/Imgs/Icon/sel_no.png" />
+                            </div>
+                        </li>*@
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="topup-btn-item">
+            <input type="button" value="立即充值" id="BtnRecharge" class="btn-next" onclick="addBuyerRecharge()" />
+        </div>
+
+    </div>
+
+</body>
+</html>

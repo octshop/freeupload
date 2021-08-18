@@ -1,0 +1,26 @@
+﻿/*==================优惠券线下使用验证===================*/
+
+/*弹出窗口*/
+.detail-ul {
+    padding: 10px 0;
+}
+
+    .detail-ul li {
+        padding: 10px;
+        color: #ff6a00
+    }
+
+        .detail-ul li span {
+            font-weight: bold;
+            color: #787878;
+            padding-right: 8px;
+        }
+
+        .detail-ul li div {
+            padding-top: 10px;
+        }
+
+.span-padding-left {
+    padding-left: 20px;
+}
+

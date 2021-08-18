@@ -1,0 +1,264 @@
+/* pages/goods/freebiedetail/freebiedetail.wxss */
+/* navbar子导航 */
+.nav-bar-sub view {
+  padding: 5rpx 25rpx;
+}
+
+.nav-bar-sub .nav-bar-sub-current {
+  border-bottom: 2px solid red;
+  color: red;
+}
+
+.oct-content-goods,
+.oct-content-detail,
+.oct-content-appraise {
+  overflow: hidden;
+}
+
+/* 轮播区域 */
+.carousel {
+  width: 100%;
+  background-color: rebeccapurple;
+}
+
+.carousel_swiper {
+  width: 100%;
+  height: 700rpx;
+  display: block;
+  position: relative;
+  background: #f4f4f4;
+}
+
+.carouselImg {
+  width: 100%;
+  height: inherit;
+}
+
+/* 价格与标题显示区域 */
+.title-price {
+  background: white;
+  padding: 10rpx;
+}
+
+.title-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-content text {
+  width: 100%;
+}
+
+.goods-btn-fav {
+  width: 73rpx;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.goods-btn-fav image {
+  width: 50rpx;
+  height: 45rpx;
+  display: block;
+  clear: both;
+}
+
+/* 价格 */
+.price-content {
+  padding: 10rpx;
+  padding-top: 5rpx;
+  padding-left: 0;
+  margin-top: 15rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top:1px solid #F5F5F5;
+}
+.price-text {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: red;
+}
+.stock-text {
+  font-size: 28rpx;
+  color: gray;
+}
+
+/* 按钮区 */
+.btn-bar{
+  padding: 20rpx;
+  background: white;
+  margin-top: 20rpx;
+  text-align: center;
+}
+.btn-detail{
+  padding:15rpx 20rpx;
+  font-size: 30rpx;
+  border: 1px solid #E5E5E5;
+  border-radius: 50rpx;
+  width: 70%;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/*店铺信息*/
+.shop-msg {
+  background: white;
+  padding: 10px 5px;
+  clear: both;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.shop-msg-1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.shop-msg-left {
+  width: 75px;
+  overflow: hidden;
+}
+
+.shop-msg-left image {
+  width: 55px;
+  height: 55px;
+  border: 1px solid #F7F7F7;
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 30rpx;
+}
+
+.shop-msg-right {
+  width: 100%;
+  padding-left: 10px;
+}
+
+.shop-msg-right div {
+  padding-bottom: 4px;
+}
+
+.shop-right-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shop-right-top .shop-name-msg {
+  font-size: 14px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.shop-label {
+  background: #894EEE;
+  color: white;
+  padding: 0 5px;
+  border-radius: 8px;
+  font-size: 10px;
+  padding-top: 2px;
+  height: 18px;
+  overflow: hidden;
+}
+
+.shop-arrow image {
+  height: 20rpx;
+  width: 20rpx;
+}
+
+.shop-right-mid {
+  font-size: 24rpx;
+}
+
+.shop-right-mid b {
+  font-weight: normal;
+  color: #EF240F;
+  padding-right: 5px;
+  font-size: 24rpx;
+}
+
+.shop-right-bottom {
+  color: gray;
+  font-size: 24rpx;
+  padding-top: 10rpx;
+}
+
+.shop-msg-2 {
+  border-top: 1px solid #F7F7F7;
+  padding: 6px;
+  padding-bottom: 0;
+  font-size: 28rpx;
+}
+
+.shop-msg-3 {
+  border-bottom: 1px solid #F7F7F7;
+  padding-bottom: 10rpx;
+  padding-top: 6px;
+}
+
+.shop-msg-3 .shop-msg-ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.shop-msg-3 .shop-msg-ul view {
+  width: 80px;
+  height: 90px;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.shop-msg-3 .shop-msg-ul view navigator {
+  color: #909090;
+  font-size: 10px;
+}
+
+.shop-msg-3 .shop-msg-ul view image {
+  width: 55px;
+  height: 55px;
+  border-radius: 5px;
+  margin-bottom: 3px;
+}
+
+.shop-msg-4 {
+  padding: 15px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.shop-msg-4 navigator {
+  display: flex;
+  padding: 3px 20px;
+  margin: 0 10px;
+  border: 1px solid #D7D7D7;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 24rpx;
+}
+
+.shop-msg-4 image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+
+
+
+/* 赠品详情 */
+.oct-content-detail{
+  background: white;
+}

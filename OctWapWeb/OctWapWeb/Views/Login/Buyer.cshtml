@@ -1,0 +1,87 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>买家登录</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Login/Buyer.css?v=12" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Login/Buyer.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBackUrl" value="@ViewBag.BackUrl" />
+
+    <!--买家分享商品返佣KeyEn-->
+    <input type="hidden" id="hidKeyEn" value="@ViewBag.KeyEn" />
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="login-icon">
+            <img src="../Assets/Imgs/Icon/login_user.png" />
+        </div>
+        <div class="login-form">
+            <div class="login-form-mobile">
+                <span>+86</span>
+                <input type="number" id="BindMobile" class="txt-css" style="outline:none;" placeholder="请输入手机号" />
+            </div>
+            <div class="login-form-checkcode">
+                <input id="VerifyCode" type="number" class="txt-css" style="outline:none;" placeholder="短信验证码" />
+                <span id="BtnSpanGetVerifyCode" onclick="getSmsVerifyCode()">获取验证码</span>
+                <span id="BtnSpanReSetVerifyCode" class="reset-check-code" style="display:none;">重新获取(<i id="TimerSecondI">60s</i>) </span>
+            </div>
+            <div class="login-form-btn">
+                <div class="btn-login-once" onclick="loginBuyerMobile()">
+                    <img src="../Assets/Imgs/Icon/login_mobile.png" /><b id="MobileLoginB" style="font-weight:normal;">手机登录</b>
+                </div>
+            </div>
+            <div class="link-a-bottom extra-link">
+                @*<a href="../Mall/Index">..首页..</a> |
+                    <a href="javascript:history.back(-1);">..返回..</a>*@
+                <a href="../Mall/Index">首页</a>
+                <a href="javascript:history.back(-1);">返回</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--<div>
+
+        <ul>
+            <li><b>设置买家用户登录</b></li>
+            <li>
+                <span>用户UserID:</span>
+                <input type="text" id="UserID" value="10006" />
+            </li>
+            <li>
+                <span>登录密码:</span>
+                <input type="text" id="LoginPwd" value="111111" />
+            </li>
+            <li>
+                <input type="button" value="登录" onclick="loginBuyer()" />
+                <input type="button" value="退出登录" onclick="loginExit()" />
+            </li>
+        </ul>
+    </div>-->
+
+
+</body>
+</html>

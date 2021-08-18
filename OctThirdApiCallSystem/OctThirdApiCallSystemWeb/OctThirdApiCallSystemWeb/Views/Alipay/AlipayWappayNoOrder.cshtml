@@ -1,0 +1,76 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <meta name="format-detection" content="telphone=no, email=no" />
+
+    <title>支付宝提示，在微信中显示</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <style type="text/css">
+        html {
+            background: #EFEFEF;
+        }
+
+        .oct-content-img {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .oct-footer {
+            padding: 10px;
+        }
+
+            .oct-footer input {
+                background: #FF5100;
+                color: white;
+                border: none;
+                padding: 10px;
+                font-size: 14px;
+                border-radius: 10px;
+            }
+
+            .oct-footer .btn-my-order {
+                background: #FEA700;
+            }
+    </style>
+
+</head>
+<body style="background: #EFEFEF">
+
+    <!--主体内容-->
+    <div class="oct-content" style="margin:0; margin-bottom: 80px;">
+
+        <div class="oct-content-img">
+            <img src="../Assets/Imgs/alipay_hint.jpg" style="margin: 0 auto;" />
+        </div>
+
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+
+        <input type="button" class="btn-my-order" onclick="window.location.href='@ViewBag.OctWapWeb_WebDomain/Buyer/Index'" value="个人中心" style="margin-right: 6px; width: 40%;" />
+        <input type="button" style="width: 53%;margin-right: 6px;" onclick="window.location.href='@ViewBag.OctWapWeb_WebDomain/Vip/BalanceIntegral'" value="已完成支付" />
+
+    </div>
+
+
+
+
+
+
+</body>
+</html>

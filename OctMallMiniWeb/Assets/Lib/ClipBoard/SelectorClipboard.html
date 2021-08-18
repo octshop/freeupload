@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>以标签ID,Class为复制目标</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="clipboard.min.js"></script>
+
+</head>
+<body>
+
+    <h1>以标签ID,Class为复制目标</h1><br /><br />
+
+    <button class="btn" data-clipboard-text="复制1"> 复制1 </button>
+    <button class="btn" data-clipboard-text="复制2"> 复制2 </button>
+    <button class="btn" data-clipboard-text="复制3"> 复制3 </button>
+
+    <script type="text/javascript">
+        var clipboard = new ClipboardJS('.btn');
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+            alert("复制成功！");
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+            alert("复制失败！");
+        });
+    </script>
+
+
+
+</body>
+</html>

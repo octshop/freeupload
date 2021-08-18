@@ -1,0 +1,355 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+          <meta name="viewport" content="width=device-width initial-scale="1" />
+      viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+      原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>店铺首页栏目</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/ShopPage/ShopHomeSection.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+
+    <script src="../Assets/Js/ShopPage/ShopHomeSection.js"></script>
+
+</head>
+<body>
+    <!--========隐藏控件记录信息===========-->
+    <input type="hidden" id="hidOctWapWeb_AddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+    <input type="hidden" id="hidSID" value="" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=店铺管理">店铺管理</a></li>
+            <li class="am-active">店铺首页栏目</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc" id="SectionContent">
+
+        <!--列表项-->
+        <div class="section-content-item">
+            <!--标题栏-->
+            <div class="main-title am-cf am-nbfc">
+                <div class="title-txt-div am-fl">
+                    <i class="am-icon-list"></i> 打折商品
+                </div>
+                <div class="title-btn-div am-fr">
+                    <span id="HomeDiscountSpanBtn">
+                        <button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="tglAllIsShow('true', 'Discount')"><i class="am-icon-cog"></i> 全部显示</button>
+                    </span>
+
+                    <button class="title-btn am-btn am-btn-xs am-btn-success am-round" name="PreShopBtn"><i class="am-icon-internet-explorer"></i> 浏览效果</button>
+                </div>
+            </div>
+
+            <!--操作表单-->
+            <div class="form-main am-nbfc am-padding">
+                <ul class="goods-item-ul" id="HomeDiscountUl">
+                    @*<li class="goods-item-li">
+                            <a href="#" class="goods-msg">
+                                <img src="../Assets/Imgs/product_01.jpg" />
+                                <div>
+                                    商品标题商品标题商品标题商品标题
+                                </div>
+                                <div class="goods-price-msg">
+                                    <div class="goods-price-left">&#165;234.23</div>
+                                    <div class="goods-extra-right">8.5折</div>
+                                </div>
+                            </a>
+                            <div class="goods-exe">
+                                排序值:<b>43</b> <div>排序</div> <div>显示</div> <div>删除</div>
+                            </div>
+                        </li>
+
+                        <li class="goods-item-li">
+                            <a href="#" class="goods-msg">
+                                <img src="../Assets/Imgs/product_01.jpg" />
+                                <div>
+                                    商品标题商品标题商品标题商品标题
+                                </div>
+                                <div class="goods-price-msg">
+                                    <div class="goods-price-left">&#165;234.23</div>
+                                    <div class="goods-extra-right">8.5折</div>
+                                </div>
+                            </a>
+                            <div class="goods-exe">
+                                排序值:<b>43</b> <div>排序</div> <div>显示</div> <div>删除</div>
+                            </div>
+                        </li>
+
+                        <li class="goods-item-li goods-item-li-add" onclick="openAddWin('Discount')">
+                            <div class="goods-msg goods-msg-btn-add">
+                                添加商品
+                            </div>
+                            <div class="goods-exe">
+                                排序值:<b>1</b> <div>排序</div> <div>显示</div> <div>删除</div>
+                            </div>
+                        </li>*@
+
+
+                </ul>
+            </div>
+
+        </div>
+
+
+
+
+        <!--列表项-->
+        <div class="section-content-item">
+            <!--标题栏-->
+            <div class="main-title am-cf am-nbfc">
+                <div class="title-txt-div am-fl">
+                    <i class="am-icon-list"></i> 团购商品
+                </div>
+                <div class="title-btn-div am-fr">
+
+                    <span id="HomeGroupSpanBtn">
+                        <button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="tglAllIsShow('true', 'Group')"><i class="am-icon-cog"></i> 全部显示</button>
+                    </span>
+
+                    <button class="title-btn am-btn am-btn-xs am-btn-success am-round" name="PreShopBtn"><i class="am-icon-internet-explorer"></i> 浏览效果</button>
+                </div>
+            </div>
+
+            <!--操作表单-->
+            <div class="form-main am-nbfc am-padding">
+                <ul class="goods-item-ul" id="HomeGroupUl">
+                    @*<li class="goods-item-li">
+                            <a href="#" class="goods-msg">
+                                <img src="../Assets/Imgs/product_01.jpg" />
+                                <div>
+                                    商品标题商品标题商品标题商品标题
+                                </div>
+                                <div class="goods-price-msg">
+                                    <div class="goods-price-left">&#165;234.23</div>
+                                    <div class="goods-extra-right">团购</div>
+                                </div>
+                            </a>
+                            <div class="goods-exe">
+                                排序值:<b>43</b> <div>排序</div> <div>显示</div> <div>删除</div>
+                            </div>
+                        </li>
+
+                        <li class="goods-item-li goods-item-li-add" onclick="openAddWin('Group')">
+                            <div class="goods-msg goods-msg-btn-add">
+                                添加商品
+                            </div>
+                            <div class="goods-exe">
+                                排序值:<b>1</b> <div>排序</div> <div>显示</div> <div>删除</div>
+                            </div>
+                        </li>*@
+
+
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <!--列表项-->
+        <div class="section-content-item">
+            <!--标题栏-->
+            <div class="main-title am-cf am-nbfc">
+                <div class="title-txt-div am-fl">
+                    <i class="am-icon-list"></i> 商家推荐
+                </div>
+                <div class="title-btn-div am-fr">
+
+                    <span id="HomeCommendSpanBtn">
+                        <button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="tglAllIsShow('true', 'Commend')"><i class="am-icon-cog"></i> 全部显示</button>
+                    </span>
+
+                    <button class="title-btn am-btn am-btn-xs am-btn-success am-round" name="PreShopBtn"><i class="am-icon-internet-explorer"></i> 浏览效果</button>
+                </div>
+            </div>
+
+            <!--操作表单-->
+            <div class="form-main am-nbfc am-padding">
+                <ul class="goods-item-ul" id="HomeCommendUl">
+                    @*<li class="goods-item-li">
+                            <a href="#" class="goods-msg">
+                                <img src="../Assets/Imgs/product_01.jpg" />
+                                <div>
+                                    商品标题商品标题商品标题商品标题
+                                </div>
+                                <div class="goods-price-msg">
+                                    <div class="goods-price-left">&#165;234.23</div>
+                                    <div class="goods-extra-right goods-extra-right-delline">&#165;234.23</div>
+                                </div>
+                            </a>
+                            <div class="goods-exe">
+                                排序值:<b>43</b> <div>排序</div> <div>显示</div> <div>删除</div>
+                            </div>
+                        </li>
+
+                        <li class="goods-item-li goods-item-li-add" onclick="openAddWin('Commend')">
+                            <div class="goods-msg goods-msg-btn-add">
+                                添加商品
+                            </div>
+                            <div class="goods-exe">
+                                排序值:<b>1</b> <div>排序</div> <div>显示</div> <div>删除</div>
+                            </div>
+                        </li>*@
+
+
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <!--列表项-->
+        <div class="section-content-item">
+            <!--标题栏-->
+            <div class="main-title am-cf am-nbfc">
+                <div class="title-txt-div am-fl">
+                    <i class="am-icon-list"></i> 礼品领取
+                </div>
+                <div class="title-btn-div am-fr">
+
+                    <span id="HomePresentSpanBtn">
+                        <button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="tglAllIsShow('true', 'Present')"><i class="am-icon-cog"></i> 全部显示</button>
+                    </span>
+
+                    <button class="title-btn am-btn am-btn-xs am-btn-success am-round" name="PreShopBtn"><i class="am-icon-internet-explorer"></i> 浏览效果</button>
+                </div>
+            </div>
+
+            <!--操作表单-->
+            <div class="form-main am-nbfc am-padding">
+                <ul class="goods-item-ul" id="HomePresentUl">
+                    @*<li class="goods-item-li">
+                            <a href="#" class="goods-msg">
+                                <img src="../Assets/Imgs/product_01.jpg" />
+                                <div>
+                                    礼品标题
+                                </div>
+                                <div class="goods-price-msg">
+                                    <div class="goods-price-left">&#165;234.23</div>
+                                    <div class="goods-extra-right goods-extra-right-nobg">剩余:23432</div>
+                                </div>
+                            </a>
+                            <div class="goods-exe">
+                                排序值:<b>43</b> <div>排序</div> <div>显示</div> <div>删除</div>
+                            </div>
+                        </li>
+
+
+                        <li class="goods-item-li goods-item-li-add" onclick="openAddWin('Present')">
+                            <div class="goods-msg goods-msg-btn-add">
+                                添加商品
+                            </div>
+                            <div class="goods-exe">
+                                排序值:<b>1</b> <div>排序</div> <div>显示</div> <div>删除</div>
+                            </div>
+                        </li>*@
+
+
+                </ul>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!--添加与编辑窗口主体内容-->
+    <div class="add-edit-win" id="AddEditWin" style="display:none;">
+        <div class="add-edit-main">
+            <ul class="add-edit-ul">
+                <li class="search-li-win">
+                    <input type="text" id="SearchTxtWin" class="search-txt-win" /><input type="button" class="btn-search-win" value="搜索" onclick="searchContent()" />
+                </li>
+                <li style="border:none;">
+                    <ul class="search-result-ul" id="SearchResultUL">
+                        <li>
+                            <div class="search-checkbox">
+                                <input type="checkbox" />
+                            </div>
+                            <div class="goods-title-win">
+                                <a href="#" target="_blank">商品名称商品名称商品名称商品名称商品名称</a>
+                            </div>
+                            <div class="search-stocknum">
+                                库存：23423
+                            </div>
+                        </li>
+                        <li>
+                            <div class="search-checkbox">
+                                <input type="checkbox" />
+                            </div>
+                            <div class="goods-title-win">
+                                <a href="#" target="_blank">商品名称商品名称商品名称商品名称商品名称</a>
+                            </div>
+                            <div class="search-stocknum">
+                                库存：23423
+                            </div>
+                        </li>
+                        <li>
+                            <div class="search-checkbox">
+                                <input type="checkbox" />
+                            </div>
+                            <div class="goods-title-win">
+                                <a href="#" target="_blank">商品名称商品名称商品名称商品名称商品名称</a>
+                            </div>
+                            <div class="search-stocknum">
+                                库存：23423
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="page-bar" style="border:none;" id="PageBar1">
+                    <div>首页</div><div>上一页</div><div>下一页</div><div>尾页</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!--修改排序窗口主体内容-->
+    <div class="add-edit-win" id="EditSortWin" style="display:none;">
+        <div class="add-edit-main">
+            <ul class="add-edit-ul">
+                <li>
+                    <span style="width: 80px;">标题：</span>
+                    <a href="#" id="TitleHrefWin">标题名称值标题名称值标题名称值标题名称值标题名称值</a>
+                </li>
+                <li>
+                    <span style="width: 80px;">排序值：</span>
+                    <input type="number" id="SortNumWin" class="txt-css" style="width: 390px" value="1" />
+                </li>
+                <li>
+                    <span style="color:gray;">提示：排序值越大越靠前排列</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

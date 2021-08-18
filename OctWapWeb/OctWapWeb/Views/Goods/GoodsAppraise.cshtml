@@ -1,0 +1,300 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>商品评价</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Goods/GoodsAppraise.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PhotoSwipe/initPhotoSwipe.js"></script>
+    <script src="../Assets/Js/Goods/GoodsAppraise.js"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidGoodsID" value="@ViewBag.GID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.go(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <div><a href="@ViewBag.MainHref">@ViewBag.MainName</a></div>
+            <div><a href="../Goods/GoodsDetailMsg?GID=@ViewBag.GID&@ViewBag.BtGroup">详情</a></div>
+            <div class="header-tab-current"><a href="../Goods/GoodsAppraise?GID=@ViewBag.GID&@ViewBag.BtGroup">评价</a></div>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="mescroll" id="mescroll">
+
+            <!--评价标题-->
+            <div class="appraise-title">
+                <div class="appraise-title-top">
+                    <div class="appraise-title-count">
+                        评价总数：<b id="CountAppraiseB">0</b>
+                    </div>
+                    <div class="appraise-title-good">
+                        好评度：<b id="GoodAppraisePercentB">0%</b>
+                    </div>
+                </div>
+                <div class="appraise-title-bottom">
+                    <div class="appraise-tab appraise-tab-current" onclick="chgTabAppraise(0)">
+                        全部<b id="CountAppraiseB2">0</b>
+                    </div>
+                    <div class="appraise-tab" onclick="chgTabAppraise(1)">
+                        好评<b id="CountGoodsAppraiseB">0</b>
+                    </div>
+                    <div class="appraise-tab" onclick="chgTabAppraise(2)">
+                        中评<b id="CountMidAppraiseB">0</b>
+                    </div>
+                    <div class="appraise-tab" onclick="chgTabAppraise(3)">
+                        差评<b id="CountBadAppraiseB">0</b>
+                    </div>
+                    <div class="appraise-tab" onclick="chgTabAppraise(4)">
+                        有图<b id="CountAppraiseImgsB">0</b>
+                    </div>
+                </div>
+            </div>
+
+            <!--评价列表-->
+            <div class="appraise-list page-content-list" id="PageContentList">
+
+
+                @*<!--评价列表项-->
+                    <div class="appraise-item">
+
+                        <div class="appraise-item-user">
+                            <div class="appraise-user-left">
+                                <div class="appraise-user-left-img">
+                                    <img src="../Assets/Imgs/02.jpg" />
+                                </div>
+                                <div class="appraise-user-left-txt">
+                                    <div>IT独孤键客</div>
+                                    <div>
+                                        <img src="../Assets/Imgs/Icon/star_red.png" />
+                                        <img src="../Assets/Imgs/Icon/star_red.png" />
+                                        <img src="../Assets/Imgs/Icon/star_red.png" />
+                                        <img src="../Assets/Imgs/Icon/star_gray.png" />
+                                        <img src="../Assets/Imgs/Icon/star_gray.png" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="appraise-user-right">
+                                2018-05-18
+                            </div>
+                        </div>
+
+                        <div class="appraise-item-content">
+
+                            <div class="appraise-item-content-txt">
+                                用户评价的内容呀，用户评价的内容呀，用户评价的内容呀。
+                            </div>
+                            <div class="appraise-item-content-img">
+                                <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/02.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/03.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </a>
+
+                                <div class="appraise-img-count">
+                                    共24张
+                                </div>
+                            </div>
+                            <div class="appraise-item-content-spec">
+                                <div>规格参数</div>
+                                <div class="appraise-give-like">
+                                    <b>3</b>
+                                </div>
+                            </div>
+                            <div class="appraise-shop-back">
+                                这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容
+                                这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!--评价列表项-->
+                    <div class="appraise-item">
+
+                        <div class="appraise-item-user">
+                            <div class="appraise-user-left">
+                                <div class="appraise-user-left-img">
+                                    <img src="../Assets/Imgs/02.jpg" />
+                                </div>
+                                <div class="appraise-user-left-txt">
+                                    <div>IT独孤键客</div>
+                                    <div>
+                                        <img src="../Assets/Imgs/Icon/star_red.png" />
+                                        <img src="../Assets/Imgs/Icon/star_red.png" />
+                                        <img src="../Assets/Imgs/Icon/star_red.png" />
+                                        <img src="../Assets/Imgs/Icon/star_gray.png" />
+                                        <img src="../Assets/Imgs/Icon/star_gray.png" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="appraise-user-right">
+                                2018-05-18
+                            </div>
+                        </div>
+
+                        <div class="appraise-item-content">
+
+                            <div class="appraise-item-content-txt">
+                                用户评价的内容呀，用户评价的内容呀，用户评价的内容呀。
+                            </div>
+                            <div class="appraise-item-content-img">
+                                <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/02.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/03.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </a>
+
+                                <div class="appraise-img-count">
+                                    共24张
+                                </div>
+                            </div>
+                            <div class="appraise-item-content-spec">
+                                <div>规格参数</div>
+                                <div class="appraise-give-like">
+                                    <b>3</b>
+                                </div>
+                            </div>
+                            <div class="appraise-shop-back">
+                                这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容
+                                这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容这里是商家的回复内容
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!--评价列表项-->
+                    <div class="appraise-item">
+
+                        <div class="appraise-item-user">
+                            <div class="appraise-user-left">
+                                <div class="appraise-user-left-img">
+                                    <img src="../Assets/Imgs/02.jpg" />
+                                </div>
+                                <div class="appraise-user-left-txt">
+                                    <div>IT独孤键客</div>
+                                    <div>
+                                        <img src="../Assets/Imgs/Icon/star_red.png" />
+                                        <img src="../Assets/Imgs/Icon/star_red.png" />
+                                        <img src="../Assets/Imgs/Icon/star_red.png" />
+                                        <img src="../Assets/Imgs/Icon/star_gray.png" />
+                                        <img src="../Assets/Imgs/Icon/star_gray.png" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="appraise-user-right">
+                                2018-05-18
+                            </div>
+                        </div>
+
+                        <div class="appraise-item-content">
+
+                            <div class="appraise-item-content-txt">
+                                用户评价的内容呀，用户评价的内容呀，用户评价的内容呀。
+                            </div>
+                            <div class="appraise-item-content-img">
+                                <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/02.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/03.jpg" />
+                                </a>
+                                <a href="#">
+                                    <img src="../Assets/Imgs/01.jpg" />
+                                </a>
+
+                                <div class="appraise-img-count">
+                                    共24张
+                                </div>
+                            </div>
+                            <div class="appraise-item-content-spec">
+                                <div>规格参数</div>
+                                <div class="appraise-give-like">
+                                    <b>3</b>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>*@
+
+
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+    <!--页脚
+    <div class="oct-footer">
+        <a href="#">
+            <img src="../Assets/Imgs/Icon/service.png" />
+            客服
+        </a>
+        <a href="#">
+            <img src="../Assets/Imgs/Icon/shop.png" />
+            店铺
+        </a>
+        <a href="#">
+            <img src="../Assets/Imgs/Icon/scart.png" />
+            购物车
+            <div class="badge-div">3</div>
+        </a>
+        <a href="javascript:void(0)" onclick="alert('加入购物车')" class="btn-scart">
+            加入购物车
+        </a>
+        <a href="javascript:void(0)" class="btn-order">
+            立即购买
+        </a>
+    </div>-->
+
+
+</body>
+</html>

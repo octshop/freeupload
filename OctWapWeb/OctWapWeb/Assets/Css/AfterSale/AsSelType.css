@@ -1,0 +1,166 @@
+﻿/*===========选择售后类型============================*/
+
+.oct-content {
+    margin-top: 48px;
+}
+/*商品信息*/
+.as-goods {
+    padding: 10px;
+    background: #ffffff;
+    padding-bottom: 0;
+}
+
+.as-goods-company {
+    background: #F7F7F7;
+    padding: 3px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+    .as-goods-company a {
+        color: red;
+    }
+
+.as-goods-list {
+    display: flex;
+    justify-content: space-between;
+    background: #FBFBFB;
+    padding: 5px;
+}
+
+.as-goods-left img {
+    width: 80px;
+    height: 75px;
+    margin-right: 8px;
+}
+
+.as-goods-right {
+    width: 100%;
+}
+
+.goods-spec {
+    color: #a4a4a4;
+}
+
+.goods-price b {
+    padding-right: 10px;
+}
+
+.goods-title {
+    height: 40px;
+    overflow: hidden;
+}
+/*申请数量*/
+.as-goods-num {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px;
+    font-weight: bold;
+    align-items: center;
+}
+
+/*增减数量按钮*/
+.goods-txt-number {
+    border: 1px solid #D7D7D7;
+    padding: 0px;
+    font-weight: bold;
+    border-radius: 5px;
+    background: #ffffff;
+    overflow: hidden;
+    width: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-order-number {
+    width: 40px;
+    border: none;
+    padding: 0px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.btn-add, .btn-reduce {
+    border: none;
+    background: none;
+    font-size: 12px;
+    height: 25px;
+    width: 60px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.btn-reduce {
+    border-right: 1px solid #D7D7D7;
+}
+
+.btn-add {
+    border-left: 1px solid #D7D7D7;
+}
+/*选择售后类型*/
+.as-type {
+    padding: 10px;
+    background: #ffffff;
+    margin: 10px;
+    margin-top: 10px;
+}
+
+.as-type-item {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #E4E4E4;
+    background: url(../../Imgs/Icon/arrows_right_black.png) right center no-repeat;
+    background-size: 10px;
+    padding-right: 20px;
+    align-items: center;
+}
+
+.type-item-left {
+    font-weight: bold;
+    font-size: 14px;
+    background: url(../../Imgs/Icon/as_maitain.png) left center no-repeat;
+    background-size: 20px;
+    padding-left: 25px;
+}
+
+.type-item-right {
+    color: #a4a4a4;
+    font-size: 12px;
+}
+
+.as-type-item-2 .type-item-left {
+    background: url(../../Imgs/Icon/as_chg.png) left center no-repeat;
+    background-size: 20px;
+}
+.as-type-item-3 {
+    border:none;
+}
+.as-type-item-3 .type-item-left {
+    padding-top: 3px;
+    background: url(../../Imgs/Icon/as_refund.png) left 0px no-repeat;
+    background-size: 23px;
+}
+
+/*联系客服*/
+.as-customer{
+    padding: 10px;
+    background: #ffffff;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size: 14px;
+    padding-bottom: 8px;
+}
+.as-customer img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin-top: -3px;
+}

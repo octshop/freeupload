@@ -1,0 +1,61 @@
+<!--pages/buyer/vip/inexdetail/inexdetail.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="{{pageTitle}}" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+	<view class="inex-list">
+		<view class="inex-item">
+			<view class="inex-item-left">
+				流水号：
+			</view>
+			<view class="inex-item-right">
+				{{initBuyerIncomeExpenseDetail_Data.InExMsgID != undefined ? initBuyerIncomeExpenseDetail_Data.InExMsgID :
+				initBuyerIntegralDetail_Data.IntegralID}}
+			</view>
+		</view>
+		<view class="inex-item">
+			<view class="inex-item-left">
+				类型：
+			</view>
+			<view class="inex-item-right">
+				{{initBuyerIncomeExpenseDetail_Data.InExType}}
+			</view>
+		</view>
+		<view class="inex-item">
+			<view class="inex-item-left">
+				{{initBuyerIncomeExpenseDetail_Data.IncomeSum > 0 ? '收入' : '支出'}} ：
+			</view>
+			<view class="inex-item-right">
+				{{initBuyerIncomeExpenseDetail_Data.IncomeSum > 0 ? '+' + initBuyerIncomeExpenseDetail_Data.IncomeSum: '-' +
+				initBuyerIncomeExpenseDetail_Data.ExpenseSum}}
+			</view>
+		</view>
+		<view class="inex-item">
+			<view class="inex-item-left">
+				时间：
+			</view>
+			<view class="inex-item-right">
+				{{initBuyerIncomeExpenseDetail_Data.WriteDate}}
+			</view>
+		</view>
+		<view class="inex-item">
+			<view class="inex-item-left">
+				当前{{pageTitle=='账户余额详情' ? '余额':'积分'}}：
+			</view>
+			<view class="inex-item-right">
+				{{initBuyerIncomeExpenseDetail_Data.CurrentBalance}}
+			</view>
+		</view>
+		<view class="inex-item">
+			<view class="inex-item-left">
+				备注：
+			</view>
+			<view class="inex-item-right">
+				{{initBuyerIncomeExpenseDetail_Data.InExMemo}}
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,68 @@
+﻿/*===============余额积分 账户和分润的====================*/
+
+.oct-header, .oct-logo {
+    background: -webkit-linear-gradient(left, #FE6944,#FC7939, #FE6944); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #FE6944,#FC7939, #FE6944); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#FE6944,#FC7939, #FE6944); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #FE6944,#FC7939, #FE6944); /* 标准的语法 */
+    border-bottom: 1px solid #FE6A44;
+    color: #ffffff;
+}
+
+/*主体区域*/
+.oct-content {
+    margin-top: 38px;
+}
+/*Logo区域*/
+.oct-logo {
+    padding: 10px;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.oct-logo-left, .oct-logo-right {
+    font-size: 16px;
+}
+
+    .oct-logo-left div, .oct-logo-right div {
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+/*分润余额积分*/
+.oct-logo-dividend .oct-logo-left, .oct-logo-dividend .oct-logo-right {
+    font-size: 14px;
+}
+.oct-logo-dividend .oct-logo-left div, .oct-logo-dividend .oct-logo-right div {
+    font-size: 22px;
+}
+
+.dividend-btn {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+    .dividend-btn input {
+        border: none;
+        background: #FF3900;
+        color: white;
+        font-size: 14px;
+        padding: 8px;
+        border-radius: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+.oct-balance-description{
+    padding: 10px;
+    background:white;
+    line-height: 180%;
+    font-size: 14px;
+    padding-top: 30px;
+    padding-bottom: 250px;
+}
+.oct-balance-description span{
+    font-weight:bold;
+}

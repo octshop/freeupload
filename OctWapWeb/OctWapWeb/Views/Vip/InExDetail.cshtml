@@ -1,0 +1,104 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>收支详情</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Vip/InExDetail.css?v=12" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Js/Vip/InExDetail.js?v=12"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidInExMsgID" value="@ViewBag.InExMsgID" />
+    <input type="hidden" id="hidIntegralID" value="@ViewBag.IntegralID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b id="InExTitleB">收支详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="#"><img class="header-icon-my" src="../Assets/Imgs/Icon/vip_question.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <ul class="inex-list">
+            <li>
+                <div class="inex-item-left">
+                    流水号：
+                </div>
+                <div class="inex-item-right" id="InExMsgID">
+                    129859645545545855
+                </div>
+            </li>
+            <li>
+                <div class="inex-item-left">
+                    类型：
+                </div>
+                <div class="inex-item-right" id="InExType">
+                    在线支付
+                </div>
+            </li>
+            <li>
+                <div class="inex-item-left" id="IncomeExpenseTtile">
+                    支出：
+                </div>
+                <div class="inex-item-right" id="IncomeExpenseSum">
+                    -185.32
+                </div>
+            </li>
+            <li>
+                <div class="inex-item-left">
+                    时间：
+                </div>
+                <div class="inex-item-right" id="WriteDate">
+                    2018-05-17 12:32:32
+                </div>
+            </li>
+            <li>
+                <div class="inex-item-left" id="CurrentBalanceType">
+                    余额：
+                </div>
+                <div class="inex-item-right" id="CurrentBalance">
+                    256.23
+                </div>
+            </li>
+            <li>
+                <div class="inex-item-left">
+                    备注：
+                </div>
+                <div class="inex-item-right" id="InExMemo">
+                    购买商品（某某产品名称）
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+
+</body>
+</html>

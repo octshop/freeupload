@@ -1,0 +1,54 @@
+﻿/*=============== 店铺商品分类 =================*/
+
+.table-div .table-content td {
+    padding: 5px 0;
+}
+
+.table-div .table-content .tr-father {
+    background: #f1f1f1;
+}
+
+    .table-div .table-content .tr-father td {
+        font-weight: bold;
+    }
+
+/*添加编辑窗口*/
+.add-edit-main {
+    padding: 10px 15px;
+    padding-bottom: 20px;
+}
+
+.add-edit-ul li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 1px dashed #f3f3f3;
+}
+
+    .add-edit-ul li label {
+        display: inline-block;
+        width: 100px;
+        font-weight: normal;
+        padding-right: 10px;
+    }
+
+.am-form-field {
+    font-size: 12px;
+}
+
+.add-edit-ul li select {
+    padding: 4px;
+}
+
+.goods-type-name {
+    margin-left: 17px;
+}
+
+.type-icon-img {
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    margin-left: -2px;
+}

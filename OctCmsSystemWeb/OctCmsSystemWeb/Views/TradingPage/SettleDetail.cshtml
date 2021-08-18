@@ -1,0 +1,249 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>结算申请详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/TradingPage/SettleDispose.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/TradingPage/SettleDetail.js"></script>
+
+</head>
+<body>
+
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidSettleID" value="@ViewBag.SAID" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=财务结算">财务结算</a></li>
+            <li class="am-active">结算申请详情</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 结算申请详情
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding">
+            <div class="order-status">
+                <div class="order-status-title">
+                    <val id="StatusTtitle">结算处理中</val>
+                </div>
+                <div class="order-status-desc">
+                    <val id="StatusDesc">请相关处理人员，尽快对账处理。</val>
+                </div>
+            </div>
+            <dl class="order-basic">
+                <dt>基本信息</dt>
+                <dd>
+                    <b style="font-size:18px; padding-right: 10px; color:red;"><span>结算转账金额：</span><b id="SettleTransSum">&#165;0.00</b></b>
+                    <i style="font-size:12px; color:gray;">(&nbsp; 结算转账金额=申请结算金额-结算单抽成总额 &nbsp;)</i>
+                </dd>
+                <dd>
+                    <span>结算单ID：</span><val id="SettleID"></val>
+                    <span>申请结算金额：</span> &#165;<val id="ApplySettleMoney">
+                        0.00
+                    </val>
+                    <span>商城订单结算总额：</span>&#165;<val id="MallOrderSettleMoney">
+                        0.00
+                    </val>
+                    <span>扫码支付订单结算总额：</span>&#165;<val id="AggreOrderSettleMoney">
+                        0.00
+                    </val>
+
+                </dd>
+                <dd>
+                    <span>结算单抽成总额：</span>&#165;<val id="SumCommissionMoney"></val>
+                    <span>结算订单总数：</span><val id="CountSettleOrder">0</val>
+                    <span>商城订单总数：</span><val id="MallCountSettleOrder">0</val>
+                    <span>扫码支付订单总数：</span><val id="AggreCountSettleOrder">0</val>
+                </dd>
+                <dd>
+                    <span>申请人姓名：</span><val id="ApplyName"></val>
+                    <span>申请人联系电话：</span><val id="ApplyTel"></val>
+                    <span>申请时间：</span><val id="ApplyDate"></val>
+                </dd>
+            </dl>
+
+            <dl class="order-basic">
+                <dt>结算处理结果</dt>
+                <dd class="order-goods-list">
+                    <div>
+                        <span>实际需转账金额：</span> <b id="RealTransSum"></b>
+                        <span>结算处理人：</span><val id="DisposeMan"></val>
+                        <span>处理时间：</span><val id="DisposeDate"></val>
+                    </div>
+                    <div class="transfer-voucher-img">
+                        <div><span>转账凭证照片</span></div>
+                        <div id="TransferVoucherImg">
+                            @*<a href="../Assets/Imgs/company.jpg" target="_blank"><img src="../Assets/Imgs/company.jpg" /></a>*@
+                        </div>
+
+                    </div>
+                </dd>
+            </dl>
+
+            <dl class="order-basic">
+                <dt>商城结算订单</dt>
+                <dd>
+                    <!--可结算-商城订单-->
+                    <div class="table-mall-order" id="TableMallOrder" style="display:normal; width:100%; color:black">
+
+                        <table class="table-content am-table-striped am-table-hover" width="100%">
+                            <thead>
+                                <tr class="table-head am-success">
+                                    <td width="10%">订单ID</td>
+                                    <td width="10%">订单状态</td>
+                                    <td width="10%">支付方式</td>
+                                    <td width="15%">订单金额</td>
+                                    <td width="10%">抽成金额</td>
+                                    <td width="15%">结算金额</td>
+                                    <td width="20%">完成时间</td>
+                                    <td width="10%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody id="TbodyTrPage2">
+                                @*<tr>
+                                        <td><a href="#" target="_blank">234332</a></td>
+                                        <td>待评价</td>
+                                        <td>微信支付</td>
+                                        <td>&#165;23.23</td>
+                                        <td>&#165;23.23</td>
+                                        <td>&#165;23.23</td>
+                                        <td>2019-05-05 13:27:45</td>
+                                        <td>
+                                            <input type="button" class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round" value="详情" />
+                                        </td>
+                                    </tr>*@
+                            </tbody>
+                        </table>
+
+                        <!--表格信息操作区与分页-->
+                        <div class="table-exe-div am-cf">
+                            <div class="table-exe-btn am-fl">
+
+                            </div>
+                            <div class="page-bar am-fr">
+                                <ul class="am-pagination" id="PageBar2">
+                                    <li><a href="#">«</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><span>...</span></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li class="am-active"><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">6</a></li>
+                                    <li><span>...</span></li>
+                                    <li><a href="#">500</a></li>
+                                    <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </dd>
+            </dl>
+
+
+            <dl class="order-basic">
+                <dt>扫码支付结算订单</dt>
+                <dd>
+                    <!--可结算-线下扫码支付订单-->
+                    <div class="table-scan-order" id="TableScanOrder" style="display:normal; width:100%; color:black">
+
+                        <table class="table-content am-table-striped am-table-hover" width="100%">
+                            <thead>
+                                <tr class="table-head am-success">
+                                    <td width="12%">扫码订单ID</td>
+                                    <td width="10%">订单状态</td>
+                                    <td width="10%">支付方式</td>
+                                    <td width="15%">订单金额</td>
+                                    <td width="10%">抽成金额</td>
+                                    <td width="15%">结算金额</td>
+                                    <td width="18%">支付时间</td>
+                                    <td width="10%">操作</td>
+                                </tr>
+                            </thead>
+                            <tbody id="TbodyTrPage3">
+                                @*<tr>
+                                        <td><a href="#" target="_blank">234332</a></td>
+                                        <td>支付成功</td>
+                                        <td>微信支付</td>
+                                        <td>&#165;23.23</td>
+                                        <td>&#165;23.23</td>
+                                        <td>&#165;23.23</td>
+                                        <td>2019-05-05 13:27:45</td>
+                                        <td>
+                                            <input type="button" class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round" value="详情" />
+                                        </td>
+                                    </tr>*@
+                            </tbody>
+                        </table>
+
+                        <!--表格信息操作区与分页-->
+                        <div class="table-exe-div am-cf">
+                            <div class="table-exe-btn am-fl">
+
+                            </div>
+                            <div class="page-bar am-fr">
+                                <ul class="am-pagination" id="PageBar3">
+                                    <li><a href="#">«</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><span>...</span></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li class="am-active"><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">6</a></li>
+                                    <li><span>...</span></li>
+                                    <li><a href="#">500</a></li>
+                                    <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </dd>
+            </dl>
+
+
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿/*================= Iframe 公共样式 ==================*/
+html, body {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+body {
+    background: #F1F2F7;
+}
+
+ul, ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*改变select option 文本字体大小*/
+.am-selected-text {
+    padding: 0px;
+    font-size: 12px;
+}
+/*改变select下拉按钮样式*/
+.am-selected-btn {
+    padding: 4px 15px;
+    font-size: 12px;
+}
+
+
+/*面包屑导航*/
+.nav {
+    background: #ffffff;
+    padding-left: 5px;
+    clear: both;
+    overflow: hidden;
+    height: 37px;
+    font-size: 14px;
+}
+
+/*页脚 版本信息*/
+.page-footer {
+    background: #5B6E84;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+}
+/*返回顶部按钮*/
+.go-page-top {
+    width: 38px;
+    height: 38px;
+    border-radius: 30px;
+    background: #f1f1f1;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    position: fixed;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .go-page-top:hover {
+        background: #d9d9d9;
+    }
+
+.go-page-top-icon {
+    font-size: 22px;
+    color: #808080;
+}
+
+
+/*主体内容*/
+.main {
+    background: #ffffff;
+    clear: both;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+}
+

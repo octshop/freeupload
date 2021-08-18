@@ -1,0 +1,213 @@
+<!--pages/shop/shopmsgdetail/shopmsgdetail.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="店铺详情" back-icon="/assets/imgs/icons/navbar_back.png" home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!-- 轮播区域区域 -->
+	<view class='carousel'>
+		<swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8" autoplay="true" interval='2000' circular='true'>
+
+			<block wx:for="{{loadShopLogoImg_Data.ShopLogoImgList}}" wx:key="key">
+				<swiper-item bindtap='previewImg' data-pre-index='{{index}}'>
+					<image class="carouselImg" src='//{{item.ImgURL}}' mode='aspectFill'></image>
+				</swiper-item>
+			</block>
+
+		</swiper>
+	</view>
+
+	<!--店铺名称-->
+	<view class="shop-name">
+		<view class="shop-name-left">
+			<image src="//{{loadShopDetailMsg_Data.ShopMsg.ShopHeaderImg}}" />
+		</view>
+		<view class="shop-name-mid">
+			<view>
+				{{loadShopDetailMsg_Data.ShopMsg.ShopName}}
+			</view>
+			<view class="header-mid-bottom">
+				<span class="header-span-star">
+
+					<image wx:for="{{appraiseStarRed}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+					<image wx:for="{{appraiseStarGray}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png" />
+
+				
+				</span>
+				<span class="header-span-val">
+					{{loadShopDetailMsg_Data.ShopAppraise.AvgShopScore}}分
+				</span>
+				<span>
+					粉丝数:
+				</span>
+				<span class="header-span-val">
+					{{loadShopDetailMsg_Data.FansCount}}
+				</span>
+			</view>
+		</view>
+		<view class="shop-name-right">
+			<view class="btn-focus" bindtap="addBuyerFocusFav" data-shop-id="{{shopID}}">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/fav.png"></image>
+				关注
+			</view>
+		</view>
+	</view>
+
+
+	<!--店铺评价-->
+	<view class="shop-appraise">
+		<view class="shop-appraise-title">
+			<b>店铺评价</b>
+			<b>{{loadShopDetailMsg_Data.ShopAppraise.AvgShopScore}}分</b>
+		</view>
+		<view class="shop-appraise-content">
+			<view class="app-content-left">
+				商品符合度
+			</view>
+			<view class="app-content-right">
+				<span class="header-span-star">
+
+					<image wx:for="{{avgConformityScoreObj.appraiseStarRed}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+					<image wx:for="{{avgConformityScoreObj.appraiseStarGray}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png" />
+
+				</span>
+				<span class="header-span-val">
+					{{loadShopDetailMsg_Data.ShopAppraise.AvgConformityScore}}分
+				</span>
+			</view>
+		</view>
+		<view class="shop-appraise-content">
+			<view class="app-content-left">
+				店家服务态度
+			</view>
+			<view class="app-content-right">
+				<span class="header-span-star">
+
+					<image wx:for="{{avgAttitudeScoreObj.appraiseStarRed}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+					<image wx:for="{{avgAttitudeScoreObj.appraiseStarGray}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png" />
+
+				
+				</span>
+				<span class="header-span-val">
+					{{loadShopDetailMsg_Data.ShopAppraise.AvgAttitudeScore}}分
+				</span>
+			</view>
+		</view>
+		<view class="shop-appraise-content">
+			<view class="app-content-left">
+				物流发货速度
+			</view>
+			<view class="app-content-right">
+				<span class="header-span-star">
+
+					<image wx:for="{{avgExpressScoreObj.appraiseStarRed}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+					<image wx:for="{{avgExpressScoreObj.appraiseStarGray}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png" />
+
+				</span>
+				<span class="header-span-val">
+					{{loadShopDetailMsg_Data.ShopAppraise.AvgExpressScore}}分
+				</span>
+			</view>
+		</view>
+		<view class="shop-appraise-content">
+			<view class="app-content-left">
+				配送员服务态度
+			</view>
+			<view class="app-content-right">
+				<span class="header-span-star">
+					
+					<image wx:for="{{avgDeliverymanScoreObj.appraiseStarRed}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+					<image wx:for="{{avgDeliverymanScoreObj.appraiseStarGray}}" src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png" />
+
+				</span>
+				<span class="header-span-val">
+					{{loadShopDetailMsg_Data.ShopAppraise.AvgDeliverymanScore}}分
+				</span>
+			</view>
+		</view>
+	</view>
+
+	<!--基本信息-->
+	<view class="shop-appraise shop-basic">
+		<view class="shop-appraise-title">
+			<b>基本信息</b>
+			<b></b>
+		</view>
+		<view class="shop-appraise-content">
+			<view class="app-content-left">
+				性质
+			</view>
+			<view class="app-content-right">
+				{{showData.IsEntityName}}
+			</view>
+		</view>
+		<view class="shop-appraise-content">
+			<view class="app-content-left">
+				名称
+			</view>
+			<view class="app-content-right">
+				{{loadShopDetailMsg_Data.ShopMsg.ShopName}}
+			</view>
+		</view>
+		<view class="shop-appraise-content">
+			<view class="app-content-left">
+				服务电话
+			</view>
+			<view class="app-content-right">
+				<view>{{loadShopDetailMsg_Data.ShopMsg.ShopMobile}}</view>
+			</view>
+		</view>
+		<view class="shop-appraise-content">
+			<view class="app-content-left">
+				所在地
+			</view>
+			<view class="app-content-right">
+				{{loadShopDetailMsg_Data.ShopMsg.RegionNameArr}}
+			</view>
+		</view>
+		<view class="shop-appraise-content">
+			<view class="app-content-left">
+				企业资质
+			</view>
+			<view class="app-content-right">
+				{{showData.IsNormalCompanyName}}
+			</view>
+		</view>
+		<view class="shop-appraise-content">
+			<view class="app-content-left">
+				开店时间
+			</view>
+			<view class="app-content-right">
+				{{loadShopDetailMsg_Data.ShopMsg.WriteDate}}
+			</view>
+		</view>
+	</view>
+
+	<!--店铺简介-->
+	<view class="shop-appraise shop-intro">
+		<view class="shop-appraise-title">
+			<b>店铺简介</b>
+			<b></b>
+		</view>
+		<view class="shop-appraise-content">
+			{{loadShopDetailMsg_Data.ShopMsg.ShopDesc}}
+		</view>
+	</view>
+
+	<!--主营商品-->
+	<view class="shop-appraise shop-intro">
+		<view class="shop-appraise-title">
+			<b>主营商品</b>
+			<b></b>
+		</view>
+		<view class="shop-appraise-content">
+			{{loadShopDetailMsg_Data.ShopMsg.MajorGoods}}
+		</view>
+	</view>
+
+
+
+
+</view>

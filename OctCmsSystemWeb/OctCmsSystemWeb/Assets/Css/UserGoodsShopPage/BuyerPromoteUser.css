@@ -1,0 +1,15 @@
+﻿/*======================推广会员信息======================*/
+
+.td-header-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+    .td-header-img img {
+        width: 40px;
+        height: 40px;
+        border-radius: 25px;
+        margin-right: 3px;
+    }

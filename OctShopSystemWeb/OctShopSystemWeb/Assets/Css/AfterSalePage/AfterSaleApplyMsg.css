@@ -1,0 +1,82 @@
+﻿/*==================售后申请信息===========================*/
+
+/*审核确认窗口*/
+.check-confirm-main, .send-express-main, .refund-recei-main, .refuse-as-main {
+    border-top: 1px solid #e5e5e5;
+    padding: 10px;
+}
+
+.check-confirm-ul a {
+    padding-right: 20px;
+    padding-left: 10px;
+}
+
+.check-confirm-ul li, .send-express-ul li, .refund-recei-ul li, .refuse-as-ul li {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.as-order-msg .am-form-label {
+    width: 50px;
+}
+
+.am-form-label {
+    width: 90px;
+}
+
+.txt-css-win {
+    width: 430px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+}
+
+.refund-msg span {
+    color: #ca0000;
+    padding-right: 40px;
+}
+
+.refund-msg-item {
+    padding-bottom: 10px;
+}
+/*发货窗口*/
+.as-express-win div {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.detail-addr-win {
+    margin-top: 6px;
+    margin-left: 90px;
+}
+
+
+.send-express-ul li, .refund-recei-ul li, .refuse-as-ul li {
+    padding-left: 15px;
+}
+
+    /*退货签收窗口*/
+    .refund-recei-ul li .am-form-label {
+        width: 60px;
+    }
+
+    .refund-recei-ul li a, .refund-recei-ul li span {
+        width: 90px;
+        display: inline-block;
+    }
+
+    /*拒绝售后窗口*/
+    .refuse-as-ul li .am-form-label {
+        width: 60px;
+    }
+
+    .refuse-as-ul li a {
+        padding-right: 40px;
+    }
+
+.reply-explain-txtarea {
+    border: 1px solid #e5e5e5;
+    padding: 5px;
+    width: 525px;
+    height: 80px;
+}

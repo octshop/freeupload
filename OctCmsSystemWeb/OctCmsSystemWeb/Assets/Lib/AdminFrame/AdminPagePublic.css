@@ -1,0 +1,301 @@
+﻿/*===============框架页面公共样式======================*/
+
+html {
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+body {
+    background: #F1F2F7;
+    font-size: 12px;
+}
+
+ul, ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    outline: none;
+}
+
+/*表格自动换行*/
+table, table tr td {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/*改变select option 文本字体大小*/
+.am-selected-text {
+    padding: 0px;
+    font-size: 12px;
+}
+/*改变select下拉按钮样式*/
+.am-selected-btn {
+    padding: 4px 15px;
+    font-size: 12px;
+}
+
+
+/*面包屑导航*/
+.nav {
+    background: #ffffff;
+    padding-left: 5px;
+    clear: both;
+    overflow: hidden;
+    height: 37px;
+    font-size: 14px;
+}
+
+/*页脚 版本信息*/
+.page-footer {
+    background: #5B6E84;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+}
+/*返回顶部按钮*/
+.go-page-top {
+    width: 38px;
+    height: 38px;
+    border-radius: 30px;
+    background: #f1f1f1;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    position: fixed;
+    text-align: center;
+    cursor: pointer;
+}
+
+    .go-page-top:hover {
+        background: #d9d9d9;
+    }
+
+.go-page-top-icon {
+    font-size: 22px;
+    color: #808080;
+}
+
+
+/*主体内容*/
+.main {
+    background: #ffffff;
+    clear: both;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+    font-size: 12px;
+}
+
+
+
+
+/*项目名称，标题栏*/
+.main-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8f8f8f;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.title-btn {
+    padding: 4px 10px;
+    font-size: 11px;
+}
+
+.title-btn-div {
+    padding-left: 10px;
+}
+
+.title-txt-div {
+    padding-top: 2px;
+    color: #414141;
+}
+
+/*搜索栏*/
+.search-bar {
+    padding: 8px 0;
+    clear: both;
+}
+
+    .search-bar .am-btn-group {
+        width: 120px;
+        height: 35px;
+    }
+
+    .search-bar .item-txt-css {
+        width: 160px;
+    }
+/*选择日期文本框*/
+.datetime-input {
+    padding: 4px;
+    background: white;
+    font-size: 12px;
+    width: 100px;
+    cursor: pointer;
+}
+/*地区选择下拉列表*/
+.search-bar .region-select-div {
+    width: 400px;
+}
+
+    .search-bar .region-select-div select {
+        padding: 3px;
+    }
+
+.keyword-input {
+    font-size: 12px;
+    padding: 4px;
+    width: 140px;
+    margin-right: 10px;
+}
+
+.search-btn {
+    padding: 3px 10px;
+    font-size: 11px;
+    margin-top: 0px;
+}
+/*表格区域*/
+.table-content {
+    width: 100%;
+    border-collapse: collapse;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+    .table-content .table-head td {
+        background: #EDF7ED;
+        color: #5EB95E;
+        font-weight: bold;
+        padding: 8px 2px;
+        border-bottom: 2px solid #e8e8e8;
+    }
+
+    .table-content tr td {
+        text-align: center;
+        border: 1px solid #e8e8e8;
+        padding: 2px;
+    }
+
+.table-btn {
+    font-size: 12px;
+    padding: 5px 10px;
+    background: white;
+}
+
+.table-input-text {
+    padding: 2px;
+    font-size: 12px;
+}
+/*表格信息操作区与分页*/
+.table-exe-div {
+    margin-top: 10px;
+}
+
+.table-btn-bottom button {
+    background: white;
+    font-size: 10px;
+    padding: 5px 8px;
+    margin-bottom: 3px;
+}
+
+.table-exe-btn {
+    margin-bottom: 10px;
+}
+/*数据分页条*/
+.am-pagination {
+    padding: 0;
+    margin: 0;
+}
+
+.page-go-text {
+    padding: 6px 2px;
+    width: 45px;
+    font-size: 12px;
+    color: #0E90D2;
+    text-align: center;
+    border: 1px solid #DDDDDD;
+    margin-right: 4px;
+    display: block;
+    height: 28px;
+}
+/*备注说明*/
+.memo-content {
+    clear: both;
+    overflow: hidden;
+    font-size: 12px;
+    border-top: 1px solid #e8e8e8;
+    margin-top: 10px;
+    padding-top: 10px;
+    color: #8f8f8f;
+}
+/*表单输入框*/
+.txt-css {
+    padding: 6px 5px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: 1px solid #CCCCCC;
+}
+
+/*添加编辑窗口*/
+.add-edit-main {
+    padding: 10px 15px;
+    padding-bottom: 20px;
+}
+
+.add-edit-ul li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 1px dashed #f3f3f3;
+}
+
+    .add-edit-ul li label {
+        display: inline-block;
+        width: 100px;
+        font-weight: normal;
+        padding-right: 10px;
+    }
+
+/*添加与编辑窗口主体内容*/
+.add-edit-ul span {
+    padding-left: 10px;
+    display: inline-block;
+    width: 90px;
+}
+
+
+
+.am-form-field {
+    font-size: 12px;
+}
+
+.add-edit-ul li select {
+    padding: 4px;
+}
+
+.add-edit-ul li textarea {
+    margin-left: 17px;
+}
+
+/*日期选择input*/
+.am-form-group .datetime-input {
+    cursor: pointer;
+}
+

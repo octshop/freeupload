@@ -1,0 +1,128 @@
+/* pages/mall/goodssearch/goodssearch.wxss */
+.shop-search {
+  position: fixed;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #F0F0F0;
+  overflow: hidden;
+  padding-bottom: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 10;
+  background: #ffffff;
+  overflow: hidden;
+  align-items: center;
+  padding: 10px;
+}
+
+.oct-header-mid {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.oct-header-right {
+  width: 65px;
+  font-size: 40rpx;
+  text-align: center;
+  color: #808080;
+  padding-right: 20rpx;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.oct-header-mid .header-search {
+  width: 100%;
+  background: #dbdbdb;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  justify-content: space-between;
+  height: 25px;
+  color: #3b3b3b;
+  font-weight: normal;
+  padding: 10rpx;
+  margin-right: 10rpx;
+}
+
+.header-search image {
+  width: 22px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.header-search text {
+  background: white;
+  color: red;
+  font-size: 12px;
+  width: 60px;
+  display: block;
+  padding: 5px 3px;
+  text-align: center;
+  border-radius: 10px;
+  margin-right: 8px;
+}
+
+.header-search input {
+  border: none;
+  background: #dbdbdb;
+  width: 100%;
+  font-size: 35rpx;
+}
+
+/*搜索提示*/
+.search-result {
+  padding: 6px;
+}
+
+.search-result-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.search-result-title view {
+  display: flex;
+  align-items: center;
+}
+
+.search-result-title image {
+  width: 20px;
+  height: 20px;
+  margin-right: 10rpx;
+}
+
+.search-result-content {
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.result-item {
+  background: #dbdbdb;
+  margin-right: 15px;
+  padding: 3px 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  font-size: 27rpx;
+  cursor: pointer;
+}
+
+/* 搜索方式 */
+.search-type .result-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.search-type image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}

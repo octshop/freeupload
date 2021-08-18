@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>余额/积分</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Vip/Index.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Js/Vip/Index.js?v=12"></script>
+
+</head>
+<body>
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back_white.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>余额/积分</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my_white.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="oct-logo">
+            <div class="oct-logo-left" onclick="window.location.href='../Vip/BalanceIntegral'">
+                账户余额(元)
+                <div id="CurBalance">
+                    0.00
+                </div>
+                <div class="oct-logo-dividend">
+                    分润余额：<b id="CurBalanceDividend"> 0.00</b>
+                </div>
+            </div>
+            <div class="oct-logo-right" onclick="window.location.href='../Vip/BalanceIntegral'">
+                账户积分
+                <div id="CurIntegral">
+                    0.00
+                </div>
+                <div class="oct-logo-dividend">
+                    分润积分：<b id="CurIntegralDividend">0.00</b>
+                </div>
+            </div>
+        </div>
+
+        <div class="oct-balance-list">
+            <div class="oct-balance-item oct-balance-item-1" onclick="window.location.href='../Vip/VipLevel'">
+                <div class="balance-item-left">
+                    会员等级
+                </div>
+                <div class="balance-item-right" id="UserVipLevelMsgDiv">
+                    ( 注册会员，信用分：0 )
+                </div>
+            </div>
+            <div class="oct-balance-item oct-balance-item-2" onclick="window.location.href='../Vip/WithdrawType'">
+                <div class="balance-item-left">
+                    余额提现
+                </div>
+                <div class="balance-item-right">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="oct-balance-item oct-balance-item-3" onclick="window.location.href='../Vip/OnLineTopUp'">
+                <div class="balance-item-left">
+                    在线充值
+                </div>
+                <div class="balance-item-right">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+
+        <div class="oct-balance-list oct-balance-list-2">
+            <div class="oct-balance-item oct-balance-item-4" onclick="window.location.href='../Buyer/QuestionList'">
+                <div class="balance-item-left">
+                    说明事项
+                </div>
+                <div class="balance-item-right">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="oct-balance-item oct-balance-item-5" onclick="window.location.href='../Buyer/OfficialService'">
+                <div class="balance-item-left">
+                    联系客服
+                </div>
+                <div class="balance-item-right">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿/*=====================会员账户余额管理================================*/
+
+/*余额操作表单区*/
+.buyer-inex-form{
+    width:460px;
+    overflow:hidden;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.buyer-inex-form div{
+    padding:20px 10px;
+    font-size:14px;
+}
+.inex-type-sel {
+    padding: 5px;
+    margin-right: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.bind-mobile{
+    width: 320px;
+}
+.txt-css {
+    font-size: 14px;
+}
+.keyword-input{
+    color:red;
+    font-weight:bold;
+}
+.user-msg-item b{
+    padding-right: 10px;
+}
+.inex-memo-txtarea {
+    width: 422px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.buyer-inex-form .btn-item {
+    overflow:hidden;
+    clear:both;
+}
+.buyer-inex-form .btn-submit {
+    border-radius: 20px;
+    font-size: 16px;
+    width: 250px;
+    margin: 0 auto;
+}

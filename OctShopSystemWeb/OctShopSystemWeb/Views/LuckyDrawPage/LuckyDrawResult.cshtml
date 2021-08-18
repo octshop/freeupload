@@ -1,0 +1,261 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>中奖结果信息</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/GoodsPage/GoodsMsg.css" rel="stylesheet" />
+    <link href="../Assets/Css/LuckyDrawPage/LuckyDrawResult.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/DialogWinDrag/DialogWinDrag.js"></script>
+
+    <script src="../Assets/Js/LuckyDrawPage/LuckyDrawResult.js"></script>
+
+    <style type="text/css">
+        .table-content img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            margin: 5px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidLuckydrawID" value="@ViewBag.LuckydrawID" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=抽奖管理">抽奖管理</a></li>
+            <li class="am-active">中奖结果信息</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 中奖结果信息
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="window.location.href='../LuckyDrawPage/LuckyDrawMsgAdd'"><i class="am-icon-plus-circle"></i> 发布抽奖</button>-->
+            </div>
+        </div>
+
+        <!--搜索栏-->
+        <div class="search-bar am-btn-toolbar am-cf">
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="LuckyDrawResultID_se" placeholder="中奖ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="number" class="keyword-input am-form-field am-fl" id="LuckydrawID_se" placeholder="抽奖ID" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css">
+                <input type="text" class="keyword-input am-form-field am-fl" id="AwardsItem_se" placeholder="奖项名称" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css" style="width: 200px">
+                <input type="text" class="keyword-input am-form-field am-fl" id="UserNick_se" placeholder="买家昵称" style="width: 180px;" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf item-txt-css" style="width: 200px">
+                <input type="text" class="keyword-input am-form-field am-fl" id="LinkMobile_se" placeholder="联系手机号" style="width: 180px;" />
+            </div>
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 160px;">
+                <select id="IsGetPrize_se" data-am-selected="{btnWidth:'140',btnSize: 'xs',btnStyle: 'default'}">
+                    <option value=" " selected>是否领奖或发货</option>
+                    <option value="true">已-领奖或发货</option>
+                    <option value="false">未-领奖或发货</option>
+                </select>
+            </div>
+
+            <div class="datetime-div am-btn-group am-btn-group-xs am-cf" style="width: 150px;">
+                <div class="am-form-group am-form-icon">
+                    <i class="am-icon-calendar"></i>
+                    <input type="text" id="WriteDate_se" class="datetime-input am-form-field" placeholder="中奖时间" data-am-datepicker="{theme: 'success',}" style="background:white;width:150px; cursor:pointer" readonly>
+                </div>
+            </div>
+
+
+            <div class="am-btn-group am-btn-group-xs am-cf" style="width: 210px;">
+                <button type="button" id="btnSearch" class="search-btn am-fl am-btn am-radius am-btn-success">搜索</button>
+            </div>
+
+
+        </div>
+
+        <!--表单区域-->
+        <div class="table-div">
+
+            <table class="table-content am-table-striped am-table-hover" width="100%">
+                <thead>
+                    <tr class="table-head am-success">
+                        <td width="3%" height="22"><input type="checkbox" id="SelAllCb" name="SelAllCb" onchange="toggleSelAll()" /></td>
+                        <td width="10%">中奖ID</td>
+                        <td width="10%">抽奖ID</td>
+                        <td width="10%">奖项名称</td>
+                        <td width="18%">买家昵称</td>
+                        <td width="11%">联系手机号</td>
+                        <td width="10%">领奖或发货</td>
+                        <td width="8%">领奖发货时间</td>
+                        <td width="10%">中奖时间</td>
+                        <td width="10%">操作</td>
+                    </tr>
+                </thead>
+                <tbody id="TbodyTrPage">
+                    <tr>
+                        <td><input type="checkbox" /></td>
+                        <td>234</td>
+                        <td><a href="../LuckyDrawPage/LuckyDrawMsgDetail?LID=5" target="_blank">234332</a></td>
+                        <td>一等奖</td>
+                        <td>
+                            <img src="../Assets/Imgs/header_1.jpg" />
+                            买家昵称
+                        </td>
+                        <td>13203156008</td>
+                        <td>已领取</td>
+                        <td>2019-05-05 13:27:45</td>
+                        <td>2019-05-05 13:27:45 <font color="red">12</font></td>
+                        <td>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-secondary am-round">领取验证</button>
+                            <button class="table-btn am-btn am-btn-default am-btn-xs am-text-warning am-round">奖品发货</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--表格信息操作区与分页-->
+            <div class="table-exe-div am-cf">
+                <div class="table-exe-btn am-fl">
+                    <div class="table-btn-bottom am-btn-group am-btn-group-xs">
+                        <!--<button type="button" class="am-btn am-btn-default" onclick="delAllLuckyDrawJoinMsgArr()"><span class="am-icon-trash-o"></span> 批量删除</button>-->
+                    </div>
+                </div>
+                <div class="page-bar am-fr">
+                    <ul class="am-pagination" id="PageBar1">
+                        <li><a href="#">«</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li class="am-active"><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><span>...</span></li>
+                        <li><a href="#">500</a></li>
+                        <li><input type="text" class="page-go-text am-form-field" placeholder="跳转页" /></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--备注说明-->
+            <div class="memo-content">
+                注意: <span>备注与说明</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!---------------领取验证窗口---------------->
+    <div class="check-order-win" id="CheckOrderWin" style="display:none;">
+        <div class="check-order-main">
+            <ul class="check-order-ul">
+                <li>
+                    <label class="am-form-label">中奖ID:<font color="red">*</font></label>
+                    <a id="OrderIDA" href="#" target="_blank">34543342</a>
+                </li>
+                <li>
+                    <label class="am-form-label">
+                        验证类型:<font color="red">*</font>
+                    </label>
+                    <select id="CheckTypeWin" onchange="">
+                        <option value="Luckydraw">领奖验证</option>
+                    </select>
+                </li>
+                <li>
+                    <label class="am-form-label">验证码:<font color="red">*</font></label>
+                    <input type="number" id="CheckCodeWin" placeholder="在买家抽奖详情中查看" class="txt-css-win" />
+                </li>
+                <li style="height:5px;"></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <!---------------发货信息窗口---------------->
+    <div class="send-goods-win" id="SendGoodsWin" style="display:none;">
+        <div class="send-goods-main">
+            <ul class="send-goods-ul">
+                <li>
+                    <label class="am-form-label">中奖ID:<font color="red">*</font></label>
+                    <a id="OrderIDSG" href="#" target="_blank">34543342</a>
+                    <span class="confirm-tel-span">中奖者电话:</span>
+                    <val id="LinkMobileWin">13203156008</val>
+                </li>
+                <li class="hint-msg-li">
+                    注意：中奖买家的收货地址，需电话与中奖确认，下面地址仅供参考。
+                </li>
+                <li class="recei-addr-li">
+                    <label class="am-form-label">参考收货信息:</label>
+                    <val id="ReferToReceiVal"></val>
+                </li>
+                <li>
+                    <label class="am-form-label">奖项名称:<font color="red">*</font></label>
+                    <val id="AwardsItemWin">一等奖</val>
+                </li>
+                <li id="ExpressNameLi">
+                    <label class="am-form-label">快递名称:<font color="red">*</font></label>
+                    <input type="text" id="ExpressNameWin" class="txt-css-win" />
+                </li>
+                <li id="ExpressNumberLi">
+                    <label class="am-form-label">快递单号:<font color="red">*</font></label>
+                    <input type="text" id="ExpressNumberWin" class="txt-css-win" />
+                </li>
+                <li id="SendTelNumberLi">
+                    <label class="am-form-label" id="SendTelNumberLabel">发货电话:<font color="red">*</font></label>
+                    <input type="text" id="SendTelNumberWin" value="" placeholder="店铺发货联系电话" class="txt-css-win" />
+                </li>
+                <li id="SendTelNumberLi">
+                    <label class="am-form-label" id="SendTelNumberLabel">备注:</label>
+                    <input type="text" id="SendGoodsMemoWin" value="" placeholder="" class="txt-css-win" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>商品分类_实体店</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/O2o/GoodsType.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/O2o/GoodsTypeO2o.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <input type="hidden" id="hidGoodsTypeIDSec" value="@ViewBag.GoodsTypeIDSec" />
+    <input type="hidden" id="hidGoodsTypeNameSec" value="@ViewBag.GoodsTypeNameSec" />
+
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b id="GoodsTypeTtitleB"> </b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Mall/SearchGoods?ST=Entity"><img class="header-icon-my" style="width:20px; height:20px;" src="../Assets/Imgs/Icon/buyer_search_black.png" /></a>
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <div class="search-where-1" onclick="searchWhere1()">
+            <span id="SearchWhere1Span">全部分类</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+        <div class="search-where-2" onclick="searchWhere2()">
+            <span id="SearchWhere2Span">全部地区</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+        <div class="search-where-3" onclick="searchWhere3()">
+            <span id="SearchWhere3Span">距离最近</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+    </div>
+    <!--条件显示层-->
+    <div class="all-where-show" id="AllWhereShow" style="display:none;">
+
+        <div class="all-where-type" id="AllWhereType1" style="display:none">
+            @*<span>全部分类</span>
+                <span class="goods-type-current">
+                    火锅
+                </span>
+                <span>
+                    烤肉
+                </span>*@
+        </div>
+
+        <div class="all-where-type" id="AllWhereType2" style="display:none">
+            <span class="goods-type-current">全部地区</span>
+            @*<span>
+                    芙蓉区
+                </span>
+                <span>
+                    长沙县
+                </span>*@
+        </div>
+
+        <div class="all-where-type" id="AllWhereType3" style="display:none">
+            <span class="goods-type-order goods-type-current" onclick="clickItemSearchWhere3('Distance')">距离最近</span>
+            <span class="goods-type-order" onclick="clickItemSearchWhere3('SaleCount')">
+                销量最高
+            </span>
+            <span class="goods-type-order" onclick="clickItemSearchWhere3('GoodsPriceAsc')">
+                价格由低到高
+            </span>
+            <span class="goods-type-order" onclick="clickItemSearchWhere3('GoodsPriceDesc')">
+                价格由高到低
+            </span>
+        </div>
+
+
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+
+            <!--商品列表-->
+            <ul class="goods-list" id="PageContentList">
+
+                @*<li class="goods-item">
+                        <div class="goods-img">
+                            <img src="../Assets/Imgs/05.jpg" />
+                        </div>
+                        <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                        <div class="goods-price">
+                            <b>&#165;234.2</b>
+                            <div>23432人付款</div>
+                            <img src="../Assets/Imgs/Icon/scart_add.png" />
+                        </div>
+                        <span class="goods-item-badge">9.3折</span>
+                    </li>*@
+
+            </ul>
+
+
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>

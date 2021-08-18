@@ -1,0 +1,29 @@
+
+Log Entry : 17:58:02 2021年8月14日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://ugs.opencodetiger.com/User/CheckUserAccount
+------------------------------------
+
+Log Entry : 17:58:02 2021年8月14日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 17:58:02 2021年8月14日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+
+Log Entry : 9:04:19 2021年8月15日 
+HttpService:System.Net.WebException: 远程服务器返回错误: (500) 内部服务器错误。
+   在 System.Net.HttpWebRequest.GetResponse()
+   在 HttpServiceNS.HttpService.Post(String url, IDictionary`2 parameters, IDictionary`2 pHeaderParameters, Boolean isUseCert, Int32 timeout)，请求地址：http://tac.opencodetiger.com/Sms/SmsSendMsg
+------------------------------------
+
+Log Entry : 9:04:19 2021年8月15日 
+HttpService，StatusCode : InternalServerError
+------------------------------------
+
+Log Entry : 9:04:19 2021年8月15日 
+HttpService，StatusDescription : Internal Server Error
+------------------------------------
+

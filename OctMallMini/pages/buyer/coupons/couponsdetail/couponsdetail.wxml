@@ -1,0 +1,142 @@
+<!--pages/buyer/coupons/couponsdetail/couponsdetail.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="优惠券详情" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_my.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+
+<!-- 内容导航子菜单 
+<view class="oct-header-bottom-nav" style="top:{{navbarHeight}}px">
+</view>-->
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+
+	<view class="coupons-list {{intCouponsMsgBar_Data.CouponsIssueMsg.IsUsed == 'true' ? 'coupons-list-used' : ''}}">
+
+		<view class="coupons-item"
+			style="background: white url({{apiWebDoamin}}/Assets/Imgs/Icon/coupons_used.png) right center no-repeat; background-size: {{intCouponsMsgBar_Data.CouponsIssueMsg.IsUsed == 'true'?'100':'0'}}px;">
+			<view class="coupons-item-left">
+				<view class="coupons-price">
+
+					<text
+						wx:if="{{intCouponsMsgBar_Data.CouponsMsg.UseDiscount > 0}}">{{intCouponsMsgBar_Data.CouponsMsg.UseDiscount}}折</text>
+					<text wx:else>￥{{intCouponsMsgBar_Data.CouponsMsg.UseMoney}}</text>
+					<view> 满 {{intCouponsMsgBar_Data.CouponsMsg.ExpenseReachSum}} 元可用</view>
+
+				</view>
+			</view>
+			<view class="coupons-item-right">
+				<view class="coupons-item-top">
+					{{intCouponsMsgBar_Data.CouponsMsg.CouponsTitle}}<span>店铺券</span>
+				</view>
+				<view class="coupons-item-mid">
+					有效期：{{intCouponsMsgBar_Data.DataExtra.CouponsOverTime != '' ? intCouponsMsgBar_Data.DataExtra.CouponsOverTime : '永久有效'}}
+					<span
+						wx:if="{{intCouponsMsgBar_Data.DataExtra.OverDayNum != ''}}">{{intCouponsMsgBar_Data.DataExtra.OverDayNum}}天</span>
+
+					<text style="color:red"
+						wx:if="{{intCouponsMsgBar_Data.CouponsIssueMsg.IsUsed == 'true'}}">已省:{{intCouponsMsgBar_Data.DataExtra.OrderUseMoney}}</text>
+
+				</view>
+				<view class="coupons-item-bottom">
+					<view class="coupons-msg-extra">
+						<text>优惠券ID:{{intCouponsMsgBar_Data.CouponsMsg.CouponsID}} </text><text
+							wx:if="{{intCouponsMsgBar_Data.CouponsMsg.IsOfflineUse == 'true'}}">(可线下使用)
+						</text>
+						<text wx:if="{{intCouponsMsgBar_Data.CouponsIssueMsg.IsUsed == 'true'}}" style="padding-left: 10px; margin-top:-16px">
+							使用订单ID:2343</text>
+					</view>
+					<view class="btn-use" bindtap="buyerGetCoupons"
+						wx:if="{{intCouponsMsgBar_Data.DataExtra.IsOverDateCoupons == 'False' && issueId == '' && isGetCoupons==false}}">
+						立即领取</view>
+
+					<view class="btn-use" wx:if="{{isGetCoupons==true}}" style="border:1px solid gray; color:gray;">
+						已领取</view>
+
+				</view>
+			</view>
+		</view>
+	</view>
+
+	<!--线下验证使用-->
+	<view class="check-code" id="CheckCodeDiv"
+		wx:if="{{buyerUserID != '' && intCouponsMsgBar_Data.CouponsMsg.IsOfflineUse=='true' && issueId != '' && intCouponsMsgBar_Data.CouponsIssueMsg.IsUsed == 'false'}}">
+		<view class="check-code-left">
+			<view>线下使用-验证码</view>
+			<view class="check-order-id">券号：<text>{{initCouponsVerifyCode_Data.DataDic.IssueID}}</text></view>
+			<view class="check-code-number"><text>{{initCouponsVerifyCode_Data.DataDic.VerifyCode}}</text></view>
+			<view>
+				<button class="btn-reset" bindtap="initCouponsVerifyCode" data-is-re-set="true">重新生成</button>
+			</view>
+		</view>
+		<view class="check-code-right">
+			<image
+				src="{{apiWebDoamin}}/ToolWeb/GetQrCodeImg.aspx?QrCodeContent={{initCouponsVerifyCode_Data.DataDic.ScanUrl}}"
+				bindtap="previewImgShow"
+				data-img-url="{{apiWebDoamin}}/ToolWeb/GetQrCodeImg.aspx?QrCodeContent={{initCouponsVerifyCode_Data.DataDic.ScanUrl}}">
+			</image>
+		</view>
+	</view>
+
+
+
+	<view class="use-shopgoods-tab">
+		<view class="{{ chgTabNum==1 ? 'use-tab-current' : '' }}" bindtap="chgTab" data-chg-tab-num="1">可使用商品</view>
+		<view class="{{ chgTabNum==2 ? 'use-tab-current' : '' }}" bindtap="chgTab" data-chg-tab-num="2">可使用店铺</view>
+	</view>
+
+
+	<view class="use-list-ul">
+
+		<view class="use-list-item" wx:for="{{loadCouponsAbleUseGoodsList_Data}}" wx:if="{{chgTabNum==1}}">
+			<view class="use-item-left">
+				<navigator url="../../../../pages/goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">
+					<image src="//{{item.GoodsCoverImgPath}}" />
+				</navigator>
+			</view>
+			<view class="use-item-right">
+				<view class="use-item-top">
+					{{item.GoodsTitle}}
+				</view>
+				<view class="use-item-mid">
+					{{item.SpecPropName}}
+				</view>
+				<view class="use-item-bottom">
+					<b>￥{{item.GoodsPrice}}</b>
+					<view class="btn-use" bindtap="navigateToURL"
+						data-navigate-url="../../../../pages/goods/goodsdetail/goodsdetail?GID={{item.GoodsID}}">立即使用</view>
+				</view>
+			</view>
+		</view>
+
+		<!--可使用店铺-->
+		<view class="use-list-item use-shop-item" wx:if="{{chgTabNum==2}}" wx:for="{{loadCouponsAbleUseShopList_Data}}">
+
+			<view class="use-item-left">
+				<navigator url="../../../../pages/shop/index/index?SID={{item.ShopID}}">
+					<image src="//{{item.ShopHeaderImg}}" />
+				</navigator>
+			</view>
+			<view class="use-item-right">
+				<view class="use-item-top">
+					{{item.ShopName}}
+				</view>
+				<view class="use-item-mid">
+					{{item.MajorGoods}}
+				</view>
+				<view class="use-item-bottom">
+					<b>{{item.CountFavShop}}人关注,评分：{{item.ShopAvgAppraiseScore}}</b>
+					<view class="btn-use" bindtap="navigateToURL"
+						data-navigate-url="../../../../pages/shop/index/index?SID={{item.ShopID}}">立即使用</view>
+				</view>
+			</view>
+		</view>
+
+
+	</view>
+
+
+
+
+</view>

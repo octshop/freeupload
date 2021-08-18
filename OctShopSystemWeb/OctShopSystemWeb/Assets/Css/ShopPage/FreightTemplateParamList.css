@@ -1,0 +1,118 @@
+﻿/*============运费模板参数列表设置=================*/
+
+/*表单标题栏*/
+.table-title {
+    padding-bottom: 20px;
+}
+
+    .table-title span {
+        color: #ff6a00;
+    }
+
+    .table-title b {
+        color: #6b6b6b;
+    }
+
+.template-name-span {
+    padding-right: 20px;
+}
+
+/*省份显示*/
+.province-div {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-right: 40px;
+}
+
+
+    .province-div span {
+        border: 1px solid #cecece;
+        border-radius: 5px;
+        padding: 5px 10px;
+        display: block;
+        margin: 5px;
+    }
+
+.province-list-div {
+    position: relative;
+}
+
+    .province-list-div b {
+        font-weight: normal;
+        color: #006bb2;
+        font-size: 12px;
+        position: absolute;
+        top: 2px;
+        right: 8px;
+        cursor: pointer;
+    }
+
+.freight-txt {
+    border: 1px solid #cecece;
+    border-radius: 3px;
+    padding: 7px 3px;
+    text-align: center;
+    width: 80px;
+}
+
+/*按钮区*/
+.btn-list {
+    padding: 25px;
+    text-align: center;
+}
+
+    .btn-list input {
+        font-size: 12px;
+        width: 200px;
+    }
+
+/*弹出窗口显示代码*/
+.sel-region-ul li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #cecece;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.region-left {
+    width: 92px;
+    border-right: 1px dashed #cecece;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+    padding-left: 8px;
+}
+
+    .region-left input {
+        margin-right: 5px;
+        width: 18px;
+        height: 18px;
+    }
+
+.region-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 40px;
+    flex-wrap: wrap;
+}
+
+    .region-right div {
+        width: 150px;
+        display: flex;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+
+        .region-right div input {
+            margin-right: 5px;
+            width: 18px;
+            height: 18px;
+        }

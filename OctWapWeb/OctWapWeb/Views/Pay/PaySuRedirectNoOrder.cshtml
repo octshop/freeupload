@@ -1,0 +1,112 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>支付成功-非订单模式</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Pay/PaySuRedirect.css?v=1" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Pay/PaySuRedirectNoOrder.js?v=1"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input id="hidBillNumber" type="hidden" value="@ViewBag.BillNumber" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back()"><img alt="返回" src="../Assets/Imgs/Icon/back_white.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my_white.png" /></a>
+        </div>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <div class="pay-hint">
+            <div class="pay-icon-title">
+                <img src="../Assets/Imgs/Icon/pay_su.png" /><b id="PayMsgTitleB">支付成功</b>
+            </div>
+            <div class="pay-icon-price" id="PayPriceDiv">
+                实付：<b id="SumBillNumberOrderPriceB">&#165; 0.00</b>
+            </div>
+            <div class="pay-btn-list">
+                <a href="../Mall/Index">返回首页</a>
+                <a href="../Buyer/MyOrder" id="PaySeeBtnA" class="pay-see-btn">查看详情</a>
+            </div>
+
+        </div>
+
+        <!--提示信息-->
+        <div class="pay-msg-hint">
+            <div class="pay-msg-left">
+            </div>
+            <div class="pay-msg-right">
+                <div class="pay-msg-title" id="PayMsgTitle">
+                    @*账户余额,充值成功！*@
+                </div>
+                <div class="pay-msg-desc">
+                    @*确认收货，评价晒单，优惠送不停哦！
+                        支付成功，获取10个积分  满200减100元  满200打9.5折*@
+                </div>
+            </div>
+        </div>
+
+        <!--产品列表-->
+        <div class="goods-list">
+
+            <ul class="goods-ul" id="PageContentList">
+
+                <li class="goods-item">
+                    <a href="#">
+                        <img src="../Assets/Imgs/pro_01.png" />
+                    </a>
+                    <div class="goods-item-title">
+                        商品名称商品名称商品名称商品名称
+                    </div>
+                    <div class="goods-item-price">
+                        <div class="goods-price-left">
+                            <b>&#165; 23.32</b>
+                        </div>
+                        <div class="goods-price-right">
+                            <a href="#">相似</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+            <div class="btn-more-goods" id="BtnMoreGoods" style="display:normal;" onclick="nextPage()">
+                … 加载更多 …
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>打折商品_实体店</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Mall/SearchGoodsResult.css" rel="stylesheet" />
+    <link href="../Assets/Css/Mall/SearchGoodsResultO2o.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/O2o/DiscountGoodsO2o.js"></script>
+
+
+    <style type="text/css">
+        /*弹出条件层*/
+        body .all-where-show {
+            clear: both;
+            display: block;
+            width: 100%;
+            background: white;
+            padding: 6px;
+            position: fixed;
+            top: 75px;
+            left: 0;
+            z-index: 10000;
+            padding-bottom: 10px;
+            padding-top: 8px;
+            height: 400px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>打折商品</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../O2o/index"><img class="header-icon-my" src="../Assets/Imgs/Icon/navbar_home.png" style="width:25px; height:25px;" /></a>
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <div class="nav-item search-where-1" onclick="searchWhere1()">
+            <span id="SearchWhere1Span" style="color:red;">全部分类</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+        <div class="nav-item search-where-1" onclick="searchWhere2()">
+            <span id="SearchWhere2Span" style="color:red;">全部地区</span><img src="../Assets/Imgs/Icon/arrowdownsolid.png" />
+        </div>
+        <div class="goods-type-order search-current" onclick="clickItemSearchWhere3('Distance')">距离最近</div>
+        <div class="goods-type-order" onclick="clickItemSearchWhere3('SaleCount')">销量</div>
+        <div class="goods-type-order search-price" onclick="chgTabPrice()">价格 <img style="width:10px; height:10px;" src="../Assets/Imgs/Icon/order_price_gray.png" /></div>
+        <div class="goods-type-order" onclick="clickItemSearchWhere3('WriteDate')">新品</div>
+    </div>
+    <!--条件显示层-->
+    <div class="all-where-show" id="AllWhereShow" style="display: none;">
+        <div class="all-where-type" id="AllWhereType" style="display:none">
+            <span class="goods-type-current">全部分类</span>
+            <span class="goods-type-item">
+                休闲裤
+            </span>
+        </div>
+        <div class="all-where-type" id="AllWhereType2" style="display:none">
+            <span>全部地区</span>
+            <span class="goods-type-current">
+                开福区
+            </span>
+
+        </div>
+
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!--商品列表-->
+            <ul class="goods-list" id="PageContentList">
+                @*<li class="goods-item">
+                        <div class="goods-img">
+                            <img src="../Assets/Imgs/06.jpg" />
+                            <span>7.5折</span>
+                        </div>
+                        <div>
+                            <div>
+                                商品名称商品名称商品名称商品名称商品名名称商品名
+                            </div>
+                            <div class="goods-price">
+                                &#165; 2343.23
+                            </div>
+                            <div class="goods-label">
+                                <span>到店消费/自取</span>
+                                <span>货到付款</span>
+                                <span>优惠券</span>
+                            </div>
+                            <div class="goods-extra">
+                                1200+条评价 98%好评<br />
+                                店铺名称店铺名称店铺名称<a href="#">进店>></a>
+                            </div>
+                        </div>
+                    </li>*@
+
+            </ul>
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

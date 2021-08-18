@@ -1,0 +1,36 @@
+.navbar{
+  position: relative;
+  background: white;
+}
+.back-icon, .home-icon{
+  width: 28px;
+  height: 100%;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  display: flex;
+}
+.back-icon{
+  left: 6px;
+}
+.home-icon{
+  left: 34px
+}
+.back-icon image{
+  width: 25px;
+  height: 25px;
+  margin: auto;
+}
+.home-icon image{
+  width: 23px;
+  height: 23px;
+  margin: auto;
+}
+.nav-title, .nav-icon{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  font-size: 0;
+  font-weight: bold;
+}

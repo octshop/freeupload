@@ -1,0 +1,137 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=800" />
+    <title>信息统计</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/IframePage/Public.css" rel="stylesheet" />
+    <link href="../Assets/Css/IframePage/MsgCount.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/amazeui.min.js"></script>
+
+    <script src="../Assets/Lib/ECharts/echarts.min.js"></script>
+    <script src="../Assets/Js/IframePage/Public.js"></script>
+    <script src="../Assets/Js/IframePage/MsgCount.js"></script>
+
+
+</head>
+<body>
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="#" class="am-icon-home">首页</a></li>
+            <li><a href="#">系统信息</a></li>
+            <li class="am-active">信息统计</li>
+        </ul>
+    </div>
+
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--主统计区-->
+        <div class="main-msg-sum am-nbfc">
+            <!--选项卡方式显示统计-->
+            <div class="echarts-tabs">
+
+                <ul class="echarts-tabs-ul am-nbfc">
+                    <li class="echarts-active"><div>店铺访问量</div></li>
+                    <li><div>会员增长量</div></li>
+                    <li><div>店铺收入</div></li>
+                </ul>
+                <div class="echarts-tabs-content">
+                    <div class="tabs-panel">
+
+                        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                        <div id="Echarts1" class="echarts-div" style="width:100%; height: 300px; overflow:hidden;clear:both;"></div>
+                        <div class="sum-data-change am-nbfc">
+                            <div class="am-btn-group">
+                                <button type="button" class="am-btn am-btn-success am-round am-active">今天</button>
+                                <button type="button" class="am-btn am-btn-success am-round">本周</button>
+                                <button type="button" class="am-btn am-btn-success am-round">本月</button>
+                                <button type="button" class="am-btn am-btn-success am-round">今年</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="tabs-panel" style="display:none;">
+
+
+                        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                        <div id="Echarts2" class="echarts-div" style="width:100%; height: 300px;overflow:hidden;clear:both;"></div>
+                        <div class="sum-data-change am-nbfc">
+                            <div class="am-btn-group">
+                                <button type="button" class="am-btn am-btn-success am-round">今天</button>
+                                <button type="button" class="am-btn am-btn-success am-round">本周</button>
+                                <button type="button" class="am-btn am-btn-success am-round">本月</button>
+                                <button type="button" class="am-btn am-btn-success am-round">今年</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="tabs-panel" style="display:none;">
+
+                        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                        <div id="Echarts3" class="echarts-div" style="width:100%; height: 300px; overflow:hidden;clear:both;"></div>
+                        <div class="sum-data-change am-nbfc">
+                            <div class="am-btn-group">
+                                <button type="button" class="am-btn am-btn-success am-round">今天</button>
+                                <button type="button" class="am-btn am-btn-success am-round">本周</button>
+                                <button type="button" class="am-btn am-btn-success am-round">本月</button>
+                                <button type="button" class="am-btn am-btn-success am-round">今年</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!--图形显示统计-->
+        <div class="echarts-img-list">
+            <div class="echarts-img-item">
+                <div class="echarts-img-inner">
+                    <div id="Echarts4" style="width:100%; height: 350px; padding: 10px 0; overflow:hidden;clear:both;"></div>
+                </div>
+            </div>
+            <div class="echarts-img-item">
+                <div class="echarts-img-inner">
+                    <div id="Echarts5" style="width:100%; height: 350px; padding: 10px 0; overflow:hidden;clear:both;"></div>
+                </div>
+            </div>
+            <div class="echarts-img-item">
+                <div class="echarts-img-inner">
+                    <div id="Echarts6" style="width:100%; height: 350px; padding: 10px 0; overflow:hidden;clear:both;"></div>
+                </div>
+            </div>
+            <div class="echarts-img-item">
+                <div class="echarts-img-inner">
+                    <div id="Echarts7" style="width:100%; height: 350px; padding: 10px 0; overflow:hidden;clear:both;"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+</body>
+</html>

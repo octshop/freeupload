@@ -1,0 +1,49 @@
+﻿/*==================商品描述=========================*/
+
+/*主体内容*/
+.oct-content {
+    margin-top: 70px;
+    overflow: hidden;
+    height: 1%;
+    background: #ffffff;
+    margin-bottom: 100px;
+}
+/*商品介绍*/
+.goods-desc {
+    font-size: 12px;
+    overflow: hidden;
+    padding: 5px;
+    color: #5a5a5a;
+}
+
+    .goods-desc img {
+        width: 100%;
+        border: none;
+        padding: 0;
+        margin: 0;
+    }
+/*规格参数*/
+.spec-content {
+    font-size: 12px;
+    overflow: hidden;
+    padding: 5px;
+    color: #5a5a5a;
+}
+    .spec-content table {
+        color: #5a5a5a;
+    }
+/*包装信息*/
+.package-aftersale {
+    font-size: 12px;
+    overflow: hidden;
+    padding: 5px;
+    color: #5a5a5a;
+    padding-bottom: 10px;
+}
+.prop-value{
+    color:#8f8f8f;
+}
+.table-content table tr td {
+    padding: 5px 0;
+    font-size: 12px;
+}

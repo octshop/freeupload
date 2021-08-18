@@ -1,0 +1,91 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>参与活动</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/ActivityList.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Js/Buyer/ActivityList.js"></script>
+
+</head>
+<body>
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>参与活动</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--子标题-->
+    <div class="oct-header-sub">
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-1 oct-header-sub-curren-a" onclick="chgJoinStatus('')">全部</a>
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-2" onclick="chgJoinStatus('false')">待参与</a>
+        <a href="javascript:void(0)" class="oct-header-sub-a oct-header-sub-a-2" onclick="chgJoinStatus('true')">已参与</a>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <div class="mescroll" id="mescroll">
+
+            <!--商品列表-->
+            <ul class="goods-list" id="PageContentList">
+                @*<li>
+                    <div class="shop-msg" onclick="window.location.href='../shop/index?SID=2343'">
+                        <div class="shop-msg-left">
+                            <img src="../Assets/Imgs/Icon/shop_activity_black.png" />
+                            活动标题活动标题活动标题活动标题
+                        </div>
+                        <div class="shop-msg-right">
+                            待参与
+                        </div>
+                    </div>
+                    <div class="goods-msg" onclick="window.location.href='../shop/ActivityDetail'">
+                        <div class="goods-msg-left">
+                            <img src="../Assets/Imgs/03.jpg" />
+                        </div>
+                        <div class="goods-msg-right">
+                            <div class="goods-msg-title">
+                                活动简述活动简述活动简述活动简述 活动简述活动简述活动简述活动简述
+                            </div>
+                            <div class="goods-msg-extra">
+                                店铺:某店铺名称某店铺名称，验证码:2343<br />
+                                <div>
+                                    活动时间:2020-05-12 12:22:23 <font color="red">(12天)</font>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>*@
+                
+            </ul>
+
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

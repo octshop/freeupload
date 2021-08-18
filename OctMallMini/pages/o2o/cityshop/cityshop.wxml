@@ -1,0 +1,130 @@
+<!--pages/o2o/cityshop/cityshop.wxml-->
+<!--pages/o2o/shoptypeshow/shoptypeshow.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="附近商家" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<!-- 轮播区域区域 -->
+	<!-- <view class='carousel'>
+		<swiper class='carousel_swiper' indicator-dots="true" indicator-color="#f4f4f4" indicator-active-color="#4eb8b8"
+			autoplay="true" interval='2000' circular='true'>
+			<block wx:for="{{carouselList}}" wx:key="key">
+				<swiper-item bindtap='' data-url='{{item.url}}'>
+					<image class="carouselImg" src='{{apiWebDoamin}}{{item.img}}' mode='aspectFill'></image>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view> -->
+
+
+	<!-- 图标导航区 -->
+	<view class='carousel-icon-nav'>
+		<swiper class='carousel_swiper_icon' indicator-color="#f4f4f4" indicator-active-color="#4eb8b8"
+			style="height: 155px">
+			<block>
+
+				<swiper-item>
+
+					<view class="nav-list">
+						<navigator class="nav-item"
+							url="../../../pages/o2o/shoptypeshow/shoptypeshow?STID={{item.ShopTypeID}}&STIDN={{item.ShopTypeName}}"
+							wx:for="{{loadShopTypeList_Data.ShopTypeList}}" wx:if="{{index < 5}}">
+							<image src="//{{item.TypeIcon}}" />
+							{{item.ShopTypeName}}
+						</navigator>
+					</view>
+
+					<view class="nav-list">
+						<navigator class="nav-item"
+							url="../../../pages/o2o/shoptypeshow/shoptypeshow?STID={{item.ShopTypeID}}&STIDN={{item.ShopTypeName}}"
+							wx:for="{{loadShopTypeList_Data.ShopTypeList}}" wx:if="{{index >= 5 && index <10}}">
+							<image src="//{{item.TypeIcon}}" />
+							{{item.ShopTypeName}}
+						</navigator>
+					</view>
+
+				</swiper-item>
+
+				<swiper-item>
+
+					<view class="nav-list">
+						<navigator class="nav-item"
+							url="../../../pages/o2o/shoptypeshow/shoptypeshow?STID={{item.ShopTypeID}}&STIDN={{item.ShopTypeName}}"
+							wx:for="{{loadShopTypeList_Data.ShopTypeList}}" wx:if="{{index >= 10 && index <15}}">
+							<image src="//{{item.TypeIcon}}" />
+							{{item.ShopTypeName}}
+						</navigator>
+					</view>
+
+					<view class="nav-list">
+						<navigator class="nav-item"
+							url="../../../pages/o2o/shoptypeshow/shoptypeshow?STID={{item.ShopTypeID}}&STIDN={{item.ShopTypeName}}"
+							wx:for="{{loadShopTypeList_Data.ShopTypeList}}" wx:if="{{index >= 15 && index <20}}">
+							<image src="//{{item.TypeIcon}}" />
+							{{item.ShopTypeName}}
+						</navigator>
+					</view>
+
+				</swiper-item>
+
+
+			</block>
+		</swiper>
+	</view>
+
+
+
+	<!--推荐商家-->
+	<view class="commend-shop">
+		<view class="commend-shop-title">
+			<span>附近商家</span>
+			<span class="shop-title-right">
+				<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/addr_nav.png" />
+			</span>
+		</view>
+		<view class="commend-shop-list">
+
+			<!--推荐商家Item-->
+			<navigator class="commend-item" url="../../shop/index/index?SID={{item.ShopID}}"
+				wx:for="{{numberPage_Page.DataPage}}">
+				<view class="commend-item-img">
+					<image src="//{{item.ShopHeaderImg}}" />
+				</view>
+				<view class="commend-item-msg">
+					<view class="item-msg-title">
+						<span>{{item.ShopName}}</span>
+						<span class="item-msg-distance">{{numberPage_Page.DataPageExtra[index].DistanceKm}}km</span>
+					</view>
+					<view class="item-msg-appraise">
+						<image wx:for="{{numberPage_Page.DataPageExtra[index].ShopAvgAppraiseScore}}"
+							src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star.png" />
+						<image wx:for="{{numberPage_Page.DataPageExtra[index].ShopAvgAppraiseScoreGray}}"
+							src="{{apiWebDoamin}}/Assets/Imgs/Icon/appraise_star_gray.png" />
+						{{numberPage_Page.DataPageExtra[index].ShopAvgAppraiseScore}} 分 | {{item.SumPaidCount}}人付款
+					</view>
+					<view class="item-msg-badge">
+						<span wx:if="{{item.CountSecKill > 0}}">秒杀</span>
+						<span wx:if="{{item.CountDiscount > 0}}">打折</span>
+						<span wx:if="{{item.GroupMsgCount > 0}}">团购</span>
+						<span wx:if="{{item.CountActivity > 0}}">活动</span>
+						<span wx:if="{{item.CountLuckyDraw > 0}}">抽奖</span>
+						<span wx:if="{{item.CountPresent > 0}}">礼品</span>
+					</view>
+					<view class="item-msg-price">
+						<span><b>￥ {{item.ShopAllGoodsMinPrice}}</b> 起</span>
+						<span class="item-msg-sale">已售:{{item.SumPaidCount}}</span>
+					</view>
+				</view>
+			</navigator>
+
+
+		</view>
+	</view>
+
+
+
+
+</view>

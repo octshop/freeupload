@@ -1,0 +1,39 @@
+﻿/*================数据统计========================*/
+
+/*统计*/
+.main-today {
+    padding: 15px;
+    border: 1px solid #f2f2f2;
+    border-radius: 10px;
+    /*    background: #fbfbfb;*/
+    margin: 20px 10px;
+}
+
+.today-count-title b {
+    font-size: 18px;
+}
+
+.today-count-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.count-item {
+    padding: 6px 15px;
+    background: #f2f2f2;
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+    .count-item:hover {
+        border: 1px solid #808080;
+    }
+
+    .count-item b {
+        color: #ff6a00;
+    }

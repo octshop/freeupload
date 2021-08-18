@@ -1,0 +1,132 @@
+/* pages/shop/shoptypedetail/shoptypedetail.wxss */
+/* 商品查询类别导航 */
+.oct-header-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  background: white;
+  width: 100%;
+  z-index: 1000;
+}
+
+  .oct-header-bottom-nav view {
+      width: 50px;
+      color: #000000;
+      text-align: center;
+      padding: 5px 2rpx;
+      font-size: 30rpx;
+  }
+
+  .oct-header-bottom-nav .nav-item-current {
+      color: red;
+  }
+
+  .oct-header-bottom-nav view image {
+      width: 12px;
+      height: 12px;
+  }
+
+  .oct-content{
+    padding:20rpx 10rpx;
+  }
+  /*商品列表*/
+  .goods-list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 5px;
+  }
+  
+  .goods-item {
+    width: 47%;
+    overflow: hidden;
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .goods-img {
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    
+  }
+  
+  .goods-img image {
+    width: 100%;
+    height: 350rpx;
+  }
+  
+  .goods-name {
+    font-size: 12px;
+    padding: 4px;
+    text-align: left;
+    height: 38px;
+  }
+  
+  .goods-price {
+    padding: 4px;
+    padding-right: 0;
+    padding-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .goods-price b {
+    color: #fc5c16;
+    font-weight: normal;
+    font-size: 14px;
+  }
+  
+  .goods-price span {
+    background: #fc5c16;
+    font-size: 12px;
+    color: white;
+    padding: 0 5px;
+    border-radius: 20px;
+  }
+  
+  .goods-price .goods-price-no {
+    color: gray;
+    text-decoration: line-through;
+    background: none;
+  }
+  
+  .goods-price .goods-stock-residue {
+    color: gray;
+    background: none;
+  }
+  
+  .goods-price view {
+    font-size: 11px;
+    color: #b5b5b5;
+  }
+  
+  .goods-price image {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  .goods-item {
+    position: relative;
+    overflow: visible;
+  }
+  
+  .goods-item .goods-item-badge {
+    background: #ff6a00;
+    color: white;
+    font-size: 12px;
+    border-radius: 20px;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }

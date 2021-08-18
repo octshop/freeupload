@@ -1,0 +1,187 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>店分类</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/mescroll/mescroll.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Shop/GoodsTypeDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/mescroll/mescroll.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Shop/GoodsTypeDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidShopID" value="@ViewBag.ShopID" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+    <input type="hidden" id="hidShopGoodsTypeID" value="@ViewBag.ShopGoodsTypeID" />
+
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-top">
+            <div class="oct-header-left">
+                <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+            </div>
+            <div class="oct-header-mid">
+                <b id="ShopGoodsNameB">店分类:人身健身设备</b>
+            </div>
+            <div class="oct-header-right">
+                <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+            </div>
+        </div>
+        <!--子标题-->
+        <div class="header-sub">
+            <div class="nav-item nav-item-current" onclick="chgTab('1')">
+                推荐
+            </div>
+            <div class="nav-item" onclick="chgTab('2')">
+                销量
+            </div>
+            <div class="nav-item" onclick="chgTabPrice()">
+                价格<img src="../Assets/Imgs/Icon/order_price_gray.png" />
+            </div>
+            <div class="nav-item" onclick="chgTab('5')">
+                新品
+            </div>
+            <div class="nav-item" onclick="chgTab('6')">
+                打折
+            </div>
+            <div class="nav-item" onclick="chgTab('7')">
+                团购
+            </div>
+            <div class="nav-item" onclick="chgTab('8')">
+                秒杀
+            </div>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <!--商品列表-->
+        <div class="goods-main mescroll" id="mescroll">
+
+            <div class="goods-list" id="PageContentList">
+                …加载中…
+                @*<div class="goods-item">
+                    <div class="goods-img">
+                        <img src="../Assets/Imgs/05.jpg" />
+                    </div>
+                    <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                    <div class="goods-price">
+                        <b>&#165;234.2</b>
+                        <div>23432人付款</div>
+                        <img src="../Assets/Imgs/Icon/scart_add.png" />
+                    </div>
+                    <span class="goods-item-badge">9.3折</span>
+                </div>*@
+
+
+            </div>
+        </div>
+
+        <!--商品列表-->
+        <!--<div class="goods-main">
+            <div class="goods-list">
+
+                <div class="goods-item">
+                    <div class="goods-img">
+                        <img src="../Assets/Imgs/05.jpg" />
+                    </div>
+                    <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                    <div class="goods-price">
+                        <b>&#165;234.2</b>
+                        <div>23432人付款</div>
+                        <img src="../Assets/Imgs/Icon/scart_add.png" />
+                    </div>
+                    <span class="goods-item-badge">9.3折</span>
+                </div>
+
+
+
+                <div class="goods-item">
+                    <div class="goods-img">
+                        <img src="../Assets/Imgs/06.jpg" />
+                    </div>
+                    <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                    <div class="goods-price">
+                        <b>&#165;234.2</b>
+                        <div>23432人付款</div>
+                        <img src="../Assets/Imgs/Icon/scart_add.png" />
+                    </div>
+                    <span class="goods-item-badge">团购</span>
+                </div>
+                <div class="goods-item">
+                    <div class="goods-img">
+                        <img src="../Assets/Imgs/06.jpg" />
+                    </div>
+                    <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                    <div class="goods-price">
+                        <b>&#165;234.2</b>
+                        <div>23432人付款</div>
+                        <img src="../Assets/Imgs/Icon/scart_add.png" />
+                    </div>
+                    <span class="goods-item-badge">团购</span>
+                </div>
+                <div class="goods-item">
+                    <div class="goods-img">
+                        <img src="../Assets/Imgs/05.jpg" />
+                    </div>
+                    <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                    <div class="goods-price">
+                        <b>&#165;234.2</b>
+                        <div>23432人付款</div>
+                        <img src="../Assets/Imgs/Icon/scart_add.png" />
+                    </div>
+                    <span class="goods-item-badge">团购</span>
+                </div>
+                <div class="goods-item">
+                    <div class="goods-img">
+                        <img src="../Assets/Imgs/06.jpg" />
+                    </div>
+                    <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                    <div class="goods-price">
+                        <b>&#165;234.2</b>
+                        <div>23432人付款</div>
+                        <img src="../Assets/Imgs/Icon/scart_add.png" />
+                    </div>
+                    <span class="goods-item-badge">9.3折</span>
+                </div>
+                <div class="goods-item">
+                    <div class="goods-img">
+                        <img src="../Assets/Imgs/05.jpg" />
+                    </div>
+                    <div class="goods-name">商品名称商品名称商品名称商品名称</div>
+                    <div class="goods-price">
+                        <b>&#165;234.2</b>
+                        <div>23432人付款</div>
+                        <img src="../Assets/Imgs/Icon/scart_add.png" />
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+
+    </div>
+
+
+</body>
+</html>

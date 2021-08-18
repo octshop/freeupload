@@ -1,0 +1,136 @@
+﻿/*===================线下扫码核销订单-[待消费/自取]验证========================*/
+
+/*头部*/
+.oct-header {
+    background: #00be27;
+/*    background: red;*/
+    color: white;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #00B424;
+/*    border-bottom: 2px solid #F20000;*/
+}
+
+    .oct-header .oct-header-left {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+        .oct-header .oct-header-left a {
+            color: white;
+        }
+
+.oct-header-left a img {
+    margin-right: 5px;
+    margin-top: -3px;
+}
+.oct-header-left a .shop-header-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    margin-right: 4px;
+}
+
+/*具体内容*/
+.oct-content {
+    margin: 0;
+    padding: 0;
+    padding-top: 40px;
+    background: white;
+}
+/*Logo区域*/
+.main-logo {
+    background: #00be27;
+/*background:red;*/
+    color: white;
+    text-align: center;
+}
+
+.logo-hint-success, .logo-hint-err {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 30px 10px;
+}
+
+    .logo-hint-success img, .logo-hint-err img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        margin-top: -2px;
+    }
+
+    .logo-hint-err .err-hint {
+        font-size: 14px;
+        font-weight: normal;
+        width: 100%;
+        display: block;
+        padding-top: 20px;
+    }
+/*订单信息*/
+.logo-order-msg {
+    padding: 10px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    border: 1px dashed #cacaca;
+    margin: 10px 40px;
+    border-radius: 30px;
+}
+
+.logo-order-price {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+    .logo-order-price span {
+        font-weight: normal;
+    }
+
+.logo-order-code {
+    font-size: 14px;
+    padding-top: 10px;
+}
+/*按钮区*/
+.logo-btn-list {
+    padding: 40px 0;
+}
+
+    .logo-btn-list input {
+        color: white;
+        border: 1px solid white;
+        border-radius: 20px;
+        padding: 8px 15px;
+        background: none;
+        font-size: 14px;
+        font-weight: bold;
+    }
+/*订单商品信息*/
+.order-goods-ul {
+    margin: 0;
+    padding: 0;
+}
+
+    .order-goods-ul li {
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+        .order-goods-ul li a {
+            color: black;
+        }
+
+        .order-goods-ul li span {
+            display: block;
+            width: 120px;
+            text-align: right;
+            color: gray;
+        }

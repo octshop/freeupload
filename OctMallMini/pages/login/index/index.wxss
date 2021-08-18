@@ -1,0 +1,37 @@
+/* pages/login/index.wxss */
+page{
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+.main-content{
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+.main-content image{
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 10rpx;
+}
+.desc-title{
+  font-size:20px;
+  padding-bottom:60rpx;
+}
+.desc-sub-title{
+  font-size: 14px;
+  color:gray;
+  padding-bottom: 70rpx;
+}
+.main-content .btn-user-iinfo{
+  width: 60%;
+}
+.main-content .btn-user-center{
+  color:black;
+  width: 60%;
+  margin-top: 50rpx;
+  font-weight: normal;
+}

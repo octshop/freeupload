@@ -1,0 +1,45 @@
+/* pages/buyer/vip/withdrawtype/withdrawtype.wxss */
+/*列表*/
+.withdraw-list{
+  padding: 20px;
+  background: #ffffff;
+  font-size:14px;
+  padding-bottom: 40px;
+}
+.withdraw-bottom navigator{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 180px;
+  margin: 0 auto;
+  background: #FDFDFD;
+  border: 1px solid #F0F0F0;
+  margin-top: 20px;
+  border-radius: 20px;
+  /* background: url(../../Imgs/Icon/vip_weixin.png) 35px center no-repeat; */
+  background-size: 25px;
+  font-size: 16px;
+  font-weight:bold;
+}
+.withdraw-bottom navigator image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.withdraw-bottom navigator view{
+  width: 75px;
+}
+.withdraw-bottom .withdraw-type-weixin {
+  color: #0AA730;
+}
+.withdraw-bottom .withdraw-type-alipay {
+  color: #1296DB;
+  /* background: url(../../Imgs/Icon/vip_alipay.png) 35px center no-repeat; */
+  background-size: 25px;
+}
+.withdraw-bottom .withdraw-type-bank {
+  color: #DD4430;
+  /* background: url(../../Imgs/Icon/vip_bank.png) 35px center no-repeat; */
+  background-size: 25px;
+}

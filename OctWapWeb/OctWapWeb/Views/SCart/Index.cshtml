@@ -1,0 +1,259 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>购物车</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/SCart/Index.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Js/SCart/Index.js"></script>
+
+</head>
+<body>
+    <!--主体内容-->
+    <div class="oct-content" style="padding-bottom: 150px;">
+
+        <!--隐藏控件记录值-->
+        <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+        <div id="SCartListDiv">
+
+            <!-- <div class="scart-empty-div">
+                <img src="../Assets/Imgs/Icon/buyer_scart.png" />
+                <div>
+                    购物车没有商品,赶紧订购吧！
+                </div>
+                <a href="../Mall/Index">查找优惠打折商品</a>
+            </div>-->
+            <!--购物车列表
+            <div class="scart-item">
+                <div class="scart-item-title">
+                    <div class="scart-item-left">
+                        <img class="scart-sel-img" src="../Assets/Imgs/Icon/sel_no.png" />
+                    </div>
+                    <div class="scart-item-mid">
+                        <a href="#">
+                            店铺名称店铺名称
+                        </a>
+                    </div>
+                    <div class="scart-item-right" onclick="openGetTicketWin()">
+                        领券
+                    </div>
+                </div>
+
+                <div class="scart-item-goods">
+                    <div class="item-goods-left">
+                        <img class="scart-sel-img" src="../Assets/Imgs/Icon/sel_yes.png" />
+                    </div>
+                    <div class="item-goods-mid">
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" />
+                        </a>
+                    </div>
+                    <div class="item-goods-right">
+                        <ul>
+                            <li>
+                                名称商品的名称品的名称商品的名称
+                            </li>
+                            <li class="goods-right-spec">
+                                规格参数
+                            </li>
+                            <li class="goods-right-price">
+                                <div class="goods-price">
+                                    &#165;234.24
+                                </div>
+                                <div class="goods-txt-number">
+                                    <input class="btn-reduce" type="button" value="-" />
+                                    <input class="input-order-number" type="number" value="1" />
+                                    <input class="btn-add" type="button" value="+" />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="scart-item-goods">
+                    <div class="item-goods-left">
+                        <img class="scart-sel-img" src="../Assets/Imgs/Icon/sel_yes.png" />
+                    </div>
+                    <div class="item-goods-mid">
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" />
+                        </a>
+                    </div>
+                    <div class="item-goods-right">
+                        <ul>
+                            <li>
+                                商品的名称商品的名称商品的名称品的名称商品的名称
+                            </li>
+                            <li class="goods-right-spec">
+                                规格参数
+                            </li>
+                            <li class="goods-right-price">
+                                <div class="goods-price">
+                                    &#165;234.24
+                                </div>
+                                <div class="goods-txt-number">
+                                    <input class="btn-reduce" type="button" value="-" />
+                                    <input class="input-order-number" type="number" value="1" />
+                                    <input class="btn-add" type="button" value="+" />
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>-->
+
+
+        </div>
+
+
+    </div>
+
+
+    <!--子页脚-->
+    <div class="oct-footer-sub">
+        <div class="oct-footer-sub-1">
+            <img src="../Assets/Imgs/Icon/sel_yes.png" id="CheckAllImg" onclick="toggleCheckAll()" />全选
+        </div>
+        <div class="oct-footer-sub-2">
+            <input type="button" class="btn-del" value="删除" onclick="delScartGoodsArr()" />
+        </div>
+        <div class="oct-footer-sub-3">
+            合计：<b id="SumPriceB">&#165;0.00</b>
+        </div>
+        <div class="oct-footer-sub-4">
+            <input type="button" class="btn-settle" id="BtnSettle" value="结算" onclick="goSettle()" />
+        </div>
+    </div>
+    <!--页脚-->
+    <div class="oct-footer">
+        <a href="../Mall/Index">
+            <img src="../Assets/Imgs/Icon/navhome.png" />
+            首页
+        </a>
+        <a href="../Mall/GoodsType">
+            <img src="../Assets/Imgs/Icon/navtype.png" />
+            分类
+        </a>
+        <a href="../Buyer/BuyerMsg">
+            <img src="../Assets/Imgs/Icon/navmsg.png" />
+            消息
+            <div class="badge-div" style="display:none">3</div>
+        </a>
+        <a href="../Scart/Index" class="nav-current">
+            <img src="../Assets/Imgs/Icon/navscart_red.png" />
+            购物车
+            <div class="badge-div" style="display:none">3</div>
+        </a>
+        <a href="../Buyer/Index">
+            <img src="../Assets/Imgs/Icon/navmy.png" />
+            我的
+            <div class="badge-div" style="display:none">3</div>
+        </a>
+
+    </div>
+
+
+
+
+    <!--领取优惠券窗口-->
+    <div class="win-get-ticket" id="WinGetTicket" style="display:none;">
+
+        <div class="win-ticket-content">
+
+            <div class="win-ticket-title">
+                优惠券
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+            <div class="win-ticket-integral">
+                <div>
+                    领券
+                </div>
+                <div>
+                    您的积分: 234
+                </div>
+            </div>
+            <div class="win-ticket-list">
+
+                <!--<div class="win-ticket-item">
+        <div class="win-ticket-item-left">
+            <ul>
+                <li><b>&#165;562</b> 店铺券 (需积分:234)</li>
+                <li>满300使用</li>
+                <li>有效期:2018-05/12-2019/05/12 (120天)</li>
+            </ul>
+        </div>
+        <div class="win-ticket-item-right">
+            立即领取
+        </div>
+    </div>
+
+    <div class="win-ticket-item">
+        <div class="win-ticket-item-left">
+            <ul>
+                <li><b>9.5折</b> 店铺折扣券</li>
+                <li>满300使用</li>
+                <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+            </ul>
+        </div>
+        <div class="win-ticket-item-right">
+            立即领取
+        </div>
+    </div>
+
+    <div class="win-ticket-item">
+        <div class="win-ticket-item-left">
+            <ul>
+                <li><b>&#165;563</b> 商城券 (需积分:234)</li>
+                <li>满300使用</li>
+                <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+            </ul>
+        </div>
+        <div class="win-ticket-item-right">
+            立即领取
+        </div>
+    </div>
+
+    <div class="win-ticket-item">
+        <div class="win-ticket-item-left">
+            <ul>
+                <li><b>&#165;563</b> 商城券 (需积分:234)</li>
+                <li>满300使用</li>
+                <li>有效期:2018-05/12-2019/05/12 (20天)</li>
+            </ul>
+        </div>
+        <div class="win-ticket-item-right">
+            立即领取
+        </div>
+    </div>-->
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

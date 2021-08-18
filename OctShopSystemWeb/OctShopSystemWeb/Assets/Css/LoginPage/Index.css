@@ -1,0 +1,128 @@
+﻿/*================系统登录(PC端/移动端)========================*/
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #EDF2F2;
+}
+
+/*主体内容*/
+.oct-content {
+    text-align: center;
+    background: white;
+    padding-top: 100px;
+    margin-top: 0;
+    background: #EDF2F2;
+}
+.txt-css {
+    background: #EDF2F2;
+}
+
+.login-icon img {
+    width: 120px;
+    margin-bottom: 10px;
+}
+/*登录表单*/
+.login-form div {
+    padding: 10px 0;
+}
+
+.login-form input {
+    border: none;
+}
+
+.login-form-mobile, .login-form-checkcode {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 280px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 1px solid #bbbbbb;
+    font-size: 16px;
+    color: #000000;
+    padding: 0px 10px;
+    height: 45px;
+    margin: 25px auto;
+    border-radius: 20px;
+}
+
+    .login-form-mobile span {
+        padding-left: 10px;
+        padding-right: 10px;
+        display: block;
+        width: 80px;
+    }
+
+    .login-form-mobile input {
+        text-align: left;
+        width: 100%;
+        font-size: 18px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: none;
+    }
+
+.login-form .login-form-checkcode {
+    justify-content: space-between;
+}
+
+.login-form-checkcode input {
+    text-align: center;
+    width: 90%;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+}
+
+.login-form-checkcode span {
+    width: 150px;
+    font-size: 14px;
+    display: block;
+    height: 40px;
+    padding-top: 10px;
+    overflow: hidden;
+    color: #005abb;
+    cursor: pointer;
+}
+
+.login-form-checkcode .reset-check-code {
+    color: gray;
+}
+
+/*登录按钮*/
+.btn-login-once {
+    background: #3f4041;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    margin: 0 auto;
+    border-radius: 50px;
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+    .btn-login-once img {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+        margin-top: -3px;
+    }
+    .btn-login-once b{
+        font-weight:normal;
+    }
+    .tgl-login-type {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #808080;
+        padding-top: 30px;
+        width: 250px;
+        margin: 0 auto;
+        cursor: pointer;
+    }

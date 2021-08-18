@@ -1,0 +1,60 @@
+<!--pages/shop/shoptype/shoptype.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="店铺-热门分类" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 店铺导航Logo -->
+<shopNav id="shopNav" top-fix="{{navbarHeight}}" api-web-doamin="{{apiWebDoamin}}"
+	shop-name="{{initShopMsgTopBarItem_Data.ShopName}}"
+	avg-appraise-score="{{initShopMsgTopBarItem_Data.AvgAppraiseScore}}"
+	count-fans="{{initShopMsgTopBarItem_Data.CountFans}}" count-fav-shop="{{initShopMsgTopBarItem_Data.CountFavShop}}人"
+	shop-header-img="//{{initShopMsgTopBarItem_Data.ShopHeaderImg}}" appraise-star-red="{{appraiseStarRed}}"
+	appraise-star-gray="{{appraiseStarGray}}" tab-cur-num="20" shop-id="{{shopID}}" nologin-back-url="../../../pages/shop/shoptype/shoptype" is-self-shop="{{initShopMsgTopBarItem_Data.IsSelfShop}}" />
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+	<view class="goods-type-list">
+
+		<view class="goods-type-item" wx:for="{{loadShopGoodsType_Data.ShopGoodsTypeFather}}">
+			<view class="type-item-title">
+				<navigator
+					url="../../../pages/shop/shoptypedetail/shoptypedetail?SGTID={{item.ShopGoodsTypeID}}&SID={{shopID}}">
+					<span>{{item.ShopGoodsTypeName}}</span>
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png" />
+				</navigator>
+			</view>
+			<view class="type-item-content">
+
+				<navigator wx:for="{{loadShopGoodsType_Data.ShopGoodsTypeSub[index].ShopGoodsTypeSubList}}" wx:for-item="itm"
+					wx:for-index="idx"
+					url="../../../pages/shop/shoptypedetail/shoptypedetail?SGTID={{itm.ShopGoodsTypeID}}&SID={{shopID}}"
+					class="type-name-item">
+					{{itm.ShopGoodsTypeName}}
+				</navigator>
+
+
+			</view>
+		</view>
+
+		<view class="goods-type-item">
+			<view class="type-item-title">
+				<navigator url="../../../pages/shop/shoptypedetail/shoptypedetail?SGTID=1&SID={{shopID}}">
+					<span>未分类商品</span>
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/arrows_right_black.png" />
+				</navigator>
+			</view>
+			<view class="type-item-content">
+			</view>
+		</view>
+
+
+
+	</view>
+
+
+
+</view>
+
+<!--店铺底部导航-->
+<shopNavBottom id="ShopNavBottom" shop-id="{{shopID}}" api-web-doamin="{{apiWebDoamin}}" bindimshopwap="buildBuyerGoToImSysURL_ShopWap" />

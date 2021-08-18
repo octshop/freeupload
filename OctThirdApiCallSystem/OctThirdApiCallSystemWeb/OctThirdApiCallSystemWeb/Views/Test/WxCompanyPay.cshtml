@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>微信支付，企业付款到个人</title>
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+
+</head>
+<body>
+    <div>
+        <input type="text" id="UserKeyID" placeholder="API用户的UserKeyID" value="8866" style="width: 300px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="BillNumber" placeholder="商户订单号(交易号BillNumber)" style="width: 300px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="WxOpenID" placeholder="关注公众号的用户OpenID" style="width: 300px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="ChargeAmt" placeholder="付款的金额(以“元”为单位)" style="width: 500px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="UserTrueName" placeholder="收款用户真实姓名(可选)" style="width: 500px;" />
+    </div>
+    <br />
+    <div>
+        <input type="text" id="Title" placeholder="付款的描述(可选)" style="width: 500px;" />
+    </div>
+    <br />
+    <div>
+        <input type="button" id="BtnRefund" value="企业立即付款到个人" onclick="submitWxCompanyPay()" />
+    </div>
+
+    <script type="text/javascript">
+
+        /*
+        * 提交退款请求
+        */
+        function submitWxCompanyPay() {
+
+            //获取表单
+            var UserKeyID = $("#UserKeyID").val().trim();
+            var BillNumber = $("#BillNumber").val().trim();
+            var WxOpenID = $("#WxOpenID").val().trim();
+            var ChargeAmt = $("#ChargeAmt").val().trim();
+            var UserTrueName = $("#UserTrueName").val().trim();
+            var Title = $("#Title").val().trim();
+
+            //构造GET参数
+            var dataPOST = {
+                "type": "1", "UserKeyID": UserKeyID, "BillNumber": BillNumber,
+                "WxOpenID": WxOpenID, "ChargeAmt": ChargeAmt, "UserTrueName": UserTrueName,
+                "Title": Title,
+            };
+
+            //正式发送GET请求
+            $.ajax({
+                type: "POST",
+                url: "../WxPay/WxCompanyPay?rnd=" + Math.random(),
+                data: dataPOST,
+                dataType: "html",
+                success: function (reTxt, status, xhr) {
+                    console.log(reTxt);
+                    if (reTxt != "") {
+                       
+                    }
+                    else {
+
+                    }
+
+                },
+                error: function (xhr, errorTxt, status) {
+                    console.log("异步请求错误，errorTxt=" + errorTxt + " | status=" + status);
+                    //alert("网速不给力哦,请刷新一下！");
+                    return;
+                }
+            });
+
+
+        }
+
+    </script>
+</body>
+</html>

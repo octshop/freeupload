@@ -1,0 +1,205 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+         <meta name="viewport" content="width=device-width initial-scale="1" />
+     viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+     原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=800,user-scalable=no" initial-scale="1" />
+    <title>抽奖信息详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Lib/AdminFrame/AdminPagePublic.css" rel="stylesheet" />
+    <link href="../Assets/Css/TradingPage/OrderDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/AmazeUI-2.7.2/js/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/AdminFrame/AdminPagePublic.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/LuckyDrawPage/LuckyDrawMsgDetail.js"></script>
+
+    <style type="text/css">
+
+        .activity-img-list img {
+            border: 1px solid #eeeeee;
+            border-radius: 5px;
+            padding: 5px;
+            width: 200px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidLuckydrawID" value="@ViewBag.LuckydrawID" />
+    <input type="hidden" id="hidOctWapWebAddrDomain" value="@ViewBag.OctWapWeb_AddrDomain" />
+
+    <!--面包屑导航-->
+    <div class="nav am-cf am-nbfc" data-am-sticky="{top:0}">
+        <ul class="am-breadcrumb">
+            <li><a href="../NavPage/Index" class="am-icon-home">首页</a></li>
+            <li><a href="../NavPage/NavSubList?NavName=抽奖管理">抽奖管理</a></li>
+            <li class="am-active">抽奖信息详情</li>
+        </ul>
+    </div>
+
+    <!--主体内容-->
+    <div class="main am-nbfc">
+
+        <!--标题栏-->
+        <div class="main-title am-cf am-nbfc">
+            <div class="title-txt-div am-fl">
+                <i class="am-icon-list"></i> 抽奖信息详情
+            </div>
+            <div class="title-btn-div am-fl">
+                <!--<button class="title-btn am-btn am-btn-xs am-btn-danger am-round" onclick="openAddWin()"><i class="am-icon-plus-circle"></i> 添加类别</button>-->
+            </div>
+        </div>
+
+        <!--操作表单-->
+        <div class="form-main am-nbfc am-padding">
+            <div class="order-status order-status-luckydraw">
+                <div class="order-status-title">
+                    <val id="StatusTtitle">审核未通过</val>
+                </div>
+                <div class="order-status-desc">
+                    <val id="StatusDesc"></val>
+                </div>
+            </div>
+            <dl class="order-basic">
+                <dt>基本信息</dt>
+                <dd>
+                    <span>抽奖ID：</span><val id="LuckydrawID">0</val>
+                    <span>实际开奖时间：</span><val id="RealStartLuckyTime"> </val>
+                    <span>发布时间：</span><val id="WriteDate"></val>
+                </dd>
+                <dd class="order-goods-list">
+                    <div id="LuckydrawTitle">
+                        <span>
+                            <b>标题：</b><a href="#" target="_blank">抽奖标题 </a>
+                        </span>
+                    </div>
+                    <div id="LuckydrawDesc">
+                        <span>
+                            <b>抽奖描述：</b>
+                        </span>
+                    </div>
+                </dd>
+                <dd>
+                    <span>抽奖状态：</span><val id="LuckydrawStatus"> 未开奖 </val>
+                    <span>
+                        最大参与人数：
+                    </span>
+                    <val id="JoinNumberMax">
+
+                    </val>
+                    <span>参与条件：</span><val id="LimitJoinType">
+
+                    </val>
+                    <span>暂停参与：</span><val id="IsPauseJoin"> </val>
+                </dd>
+                <dd>
+                    <span>开奖方式：</span><val id="StartLuckyTypeVal"></val>
+                    <span>
+                        开奖人数：
+                    </span>
+                    <val id="StartLuckyNumber">
+
+                    </val>
+                    <span>开奖时间：</span><val id="StartLuckyTime"></val>
+                </dd>
+                <dd>
+                    <span>参与人数：</span><val id="JoinCount">0人</val> <a href="../LuckyDrawPage/LuckyDrawJoinMsg?LID=@ViewBag.LuckydrawID" style="padding:0 15px;">查看参与用户详情</a>
+                </dd>
+            </dl>
+
+            <dl class="order-basic">
+                <dt>抽奖联系</dt>
+                <dd>
+                    <span>联系电话：</span><val id="LuckydrawMobile"> </val>
+                    <span>奖品配送方式：</span><val id="ExpressType"> </val>
+                </dd>
+                <dd>
+                    <span>详细地址：</span><val id="GetAddress"> </val>
+                    <span>活动位置坐标：</span><val id="Loction"></val>
+                </dd>
+
+            </dl>
+
+            <dl class="order-basic">
+                <dt>开奖结果</dt>
+                <dd>
+                    <table class="luckydraw-table">
+                        <thead>
+                            <tr class="table-header">
+                                <td>奖项名称</td>
+                                <td>奖品内容</td>
+                                <td>用户昵称</td>
+                                <td>联系电话</td>
+                            </tr>
+                        </thead>
+                        <tbody id="TableTbodyResult">
+                            @*<tr>
+                                    <td>一等奖</td>
+                                    <td>2000元快客购物卡 x 10 <font color="red">已领取/已发货</font> </td>
+                                    <td>
+                                        <img src="../Assets/Imgs/header_1.jpg" />用户昵称
+                                    </td>
+                                    <td>
+                                        13203156008
+                                    </td>
+                                </tr>*@
+                        </tbody>
+                    </table>
+                </dd>
+                <dd style="text-align:right;">
+                    <a href="../LuckyDrawPage/LuckyDrawResult?LID=@ViewBag.LuckydrawID">奖品领取与发货操作</a>
+                </dd>
+            </dl>
+
+            <dl class="order-basic">
+                <dt>奖项内容</dt>
+                <dd>
+                    <table class="luckydraw-table">
+                        <thead>
+                            <tr class="table-header">
+                                <td>奖项名称</td>
+                                <td>奖品内容</td>
+                                <td>奖项数量</td>
+                            </tr>
+                        </thead>
+                        <tbody id="TableTbody">
+                            @*<tr>
+                                    <td>一等奖</td>
+                                    <td>2000元快客购物卡 x 10 </td>
+                                    <td>20</td>
+                                </tr>*@
+                        </tbody>
+                    </table>
+                </dd>
+            </dl>
+
+            <dl class="order-basic">
+                <dt>抽奖图片</dt>
+                <dd class="activity-img-list" id="LuckyDrawImgsList">
+                </dd>
+            </dl>
+
+
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>

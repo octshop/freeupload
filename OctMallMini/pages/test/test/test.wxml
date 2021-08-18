@@ -1,0 +1,293 @@
+<!--pages/test/test/test.wxml-->
+
+<navBar title-text="自定义导航栏" back-icon="/assets/imgs/icons/navbar_back.png"
+	home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+
+<!-- <shopNav id="shopNav" top-fix="50" api-web-doamin="{{apiWebDoamin}}" shop-name="店铺2234234234" /> -->
+
+
+<view class="main">
+
+	<navigator url="../../../pages/pubpage/redirurl/redirurl?RdType=ShopEnter" style="font-size: 50rpx">商家入驻跳转处理</navigator>
+
+	<navigator url="../../../pages/goods/freebiedetail/freebiedetail?GIID=70014" style="font-size: 50rpx">赠品</navigator>
+
+
+	<navigator url="../../buyer/paysunoorder/paysunoorder?BN=662021060708053927430131733" style="font-size: 50rpx">支付成功--买单支付</navigator>
+
+
+	<navigator url="../../shop/aggregate/index/index?SID=50039" style="font-size: 50rpx">聚合扫码支付-首页</navigator>
+
+
+	<navigator url="../../shop/index/index?SID=50039" style="font-size: 50rpx">店铺首页（50039）</navigator>
+
+
+	<navigator url="../../../pages/buyer/appraisedetail/appraisedetail?OID=661500">
+		评价订单详情
+	</navigator>
+
+
+	<navigator url="../../../pages/buyer/appraiseform/appraiseform?OID=661500">
+		评价订单
+	</navigator>
+
+
+	<navigator
+		url="../../../pages/login/bindmobile/bindmobile?PQRCRSA=SPXwc6Ce9ptlnkAOaDOjM757NF1Gc6AlsXql5ubxQgc5Xnp0w1H4TJ1jW6fiAvKC5rR0hyHh2F6IrIm12slPsDRDRb881n4XuEQn9jzS8eWc85/UTGqj72va8SNkGqmaXIH55BfXamYSTLVUDopncMnuX91kKiUVKQDTiq1DKBQ~">
+		获取微信绑定手机，分享好友链接-带PQRCRSA参数
+	</navigator>
+
+
+	<navigator
+		url="../../../pages/login/buyerlogin/buyerlogin?PQRCRSA=SPXwc6Ce9ptlnkAOaDOjM757NF1Gc6AlsXql5ubxQgc5Xnp0w1H4TJ1jW6fiAvKC5rR0hyHh2F6IrIm12slPsDRDRb881n4XuEQn9jzS8eWc85/UTGqj72va8SNkGqmaXIH55BfXamYSTLVUDopncMnuX91kKiUVKQDTiq1DKBQ~">
+		分享好友链接-带PQRCRSA参数
+	</navigator>
+
+	<navigator
+		url="../../../pages/goods/groupdetail/groupdetail?GID=70092&KeyEn=sLDKZocxEJmJoPqh2PyTF0RgZ3Jbkg3St75k68aCMNWWhxOehIn333WPyLiMBQtyiu7m1c+9KgPj8BwZhAFrKgPuOQpsySKgX0jBYPLI4UK1nMDPTfhhedOs3CXOtQoi4Uz5+AO7nPtFd2cuwKHlgJ+9CDMDn+5BfJIy220fFoY~">
+		分享商品-拼团详情-带KeyEn参数
+	</navigator>
+
+
+	<navigator
+		url="../../../pages/goods/goodsdetail/goodsdetail?GID=70092&KeyEn=xvLJ0tq65CQoRXxX+3UzkOfQVhTWCvhiNZDTeoTVynNHDX5YhTHH6WmycxUUlhLd/om1hWvJFOsCk7mwSvqBbE5akSk1oig92WWVuJAlw6xzciGXLs9hcqcEWaoLc1GjrWzyGWa3daLjSK7q+miOh9mUp5yWeZNWQiXXwKRdZOc~">
+		分享商品-商品详情-带KeyEn参数
+	</navigator>
+
+	<navigator url="../../../pages/goods/goodsdetail/goodsdetail?GID=70092">分享商品-商品详情
+	</navigator>
+
+	<navigator url="../../../pages/o2o/luckydrawo2o/luckydrawo2o">抽奖O2o
+	</navigator>
+
+
+	<navigator url="../../../pages/o2o/activityo2o/activityo2o">活动o2o
+	</navigator>
+
+	<navigator url="../../../pages/buyer/coupons/coupons">优惠券-个人中心
+	</navigator>
+
+
+	<navigator url="../../../pages/o2o/couponso2o/couponso2o">优惠券O2O
+	</navigator>
+
+	<navigator url="../../../pages/o2o/presentexchangeo2o/presentexchangeo2o">礼品O2O
+	</navigator>
+
+	<navigator url="../../../pages/o2o/discountgoodso2o/discountgoodso2o">打折O2O
+	</navigator>
+
+	<navigator url="../../../pages/o2o/secondskillo2o/secondskillo2o">秒杀O2O
+	</navigator>
+
+	<navigator url="../../../pages/o2o/groupbuyo2o/groupbuyo2o">拼团O2O
+	</navigator>
+
+
+	<navigator url="../../../pages/o2o/citysame/citysame">同城优选
+	</navigator>
+
+	<navigator url="../../../pages/o2o/shoptypeshow/shoptypeshow?STID=20033&STIDN=美食">商家分类列表
+	</navigator>
+
+	<navigator url="../../../pages/o2o/cityshop/cityshop">附近商家
+	</navigator>
+
+	<navigator url="../../../pages/tabbar/shopnear/shopnear" open-type="switchTab">附近
+	</navigator>
+
+
+	<navigator url="../../../pages/mall/activity/activity">活动
+	</navigator>
+
+	<navigator url="../../../pages/mall/luckydraw/luckydraw">抽奖
+	</navigator>
+
+	<navigator url="../../../pages/mall/coupons/coupons">领券中心
+	</navigator>
+
+	<navigator url="../../../pages/mall/presentexchange/presentexchange">礼品况换
+	</navigator>
+
+	<navigator url="../../../pages/mall/discountgoods/discountgoods">打折
+	</navigator>
+
+	<navigator url="../../../pages/mall/groupbuy/groupbuy">拼团
+	</navigator>
+
+	<navigator url="../../../pages/mall/secondskill/secondskill">秒杀
+	</navigator>
+
+	<navigator url="../../../pages/mall/goodstypelistdetail/goodstypelistdetail?GTID=40061&LoadAll=true">商品分类详情
+	</navigator>
+
+	<navigator url="../../../pages/tabbar/index/index" open-type="switchTab">商城首页
+	</navigator>
+
+	<navigator url="../../../pages/mall/searchshop/searchshop?ST=Entity">店铺搜索(实体店)
+	</navigator>
+
+	<navigator url="../../../pages/mall/searchshopresult/searchshopresult">店铺搜索结果
+	</navigator>
+
+	<navigator url="../../../pages/mall/searchshop/searchshop">店铺搜索
+	</navigator>
+
+
+	<navigator url="../../../pages/tabbar/shopnear/shopnear" open-type="switchTab">附近
+	</navigator>
+
+	<navigator url="../../../pages/mall/goodssearch/goodssearch?ST=Entity">搜索商品(实体店)
+	</navigator>
+	<navigator url="../../../pages/mall/goodssearch/goodssearch">搜索商品
+	</navigator>
+
+	<navigator url="../../../pages/login/buyerlogin/buyerlogin">买家登录
+	</navigator>
+
+	<navigator url="../../../pages/login/paypwdsetting/paypwdsetting">支付密码设置
+	</navigator>
+
+
+	<navigator url="../../../pages/buyer/setting/setting">设置
+	</navigator>
+
+	<navigator url="../../../pages/buyer/officialservice/officialservice">官方客服
+	</navigator>
+	<navigator url="../../../pages/buyer/mypromoteuser/mypromoteuser">我的分享好友
+	</navigator>
+
+	<navigator url="../../../pages/buyer/mypromoteQRCode/mypromoteQRCode">我的推广码
+	</navigator>
+
+
+	<navigator url="../../../pages/buyer/vip/onlinetopup/onlinetopup">在线充值
+	</navigator>
+
+	<navigator url="../../../pages/buyer/vip/withdrawtype/withdrawtype">余额提现
+	</navigator>
+
+	<navigator url="../../../pages/buyer/vip/balanceintegral/balanceintegral">分润余额中心
+	</navigator>
+
+	<navigator url="../../../pages/buyer/vip/index">买家信息中心
+	</navigator>
+
+	<navigator url="../../../pages/buyer/activity/activitylist/activitylist">活动列表--买家中心
+	</navigator>
+
+	<navigator url="../../../pages/shop/activitydetail/activitydetail?AID=14">活动详情
+	</navigator>
+
+	<navigator url="../../../pages/buyer/luckydraw/luckydrawdetail/luckydrawdetail?LID=30015">参与抽奖详情-买家中心
+	</navigator>
+
+	<navigator url="../../../pages/buyer/luckydraw/luckydrawlist/luckydrawlist">抽奖列表-买家中心
+	</navigator>
+
+	<navigator url="../../../pages/mall/luckydraw/luckydrawdetail/luckydrawdetail?LID=30015">抽奖详情页
+	</navigator>
+
+
+	<navigator url="../../../pages/buyer/presentorder/mypresentorder/mypresentorder">礼品订单列表
+	</navigator>
+
+	<navigator url="../../../pages/goods/giftdetail/giftdetail?PID=20011">礼品详情页
+	</navigator>
+
+	<navigator url="../../../pages/buyer/complain/complainmy/complainmy">投诉列表
+	</navigator>
+
+	<navigator url="../../../pages/buyer/complain/complainsubmit/complainsubmit">各种投诉
+	</navigator>
+
+	<navigator url="../../../pages/buyer/aftersale/asmulsel/asmulsel?OID=661489">订单多商品申请售后
+	</navigator>
+
+	<navigator url="../../../pages/buyer/aftersale/afterseltype/afterseltype?OID=661467&GID=60069&SID=191395">申请售后，选择售后类型
+	</navigator>
+
+
+	<navigator url="../../../pages/buyer/coupons/couponsdetail/couponsdetail?CID=80032">未登录加载 优惠券详情</navigator>
+	<navigator url="../../../pages/buyer/coupons/couponsdetail/couponsdetail?CID=80032&IID=160242">已登录加载 优惠券详情</navigator>
+
+
+	<!--使用组件-->
+	<navigator url="../../../pages/goods/giftdetail/giftdetail" style="font-size: 50rpx">跳转到布局测试页</navigator>
+	<navigator url="../../tabbar/shopnear/shopnear" open-type="switchTab" style="font-size: 50rpx">跳转到Tabbar测试页
+	</navigator>
+	<navigator url="../../tabbar/buyerindex/buyerindex" open-type="switchTab" style="font-size: 50rpx">买家中心</navigator>
+
+	<button type="primary" style="width:100%;" bindtap="openMap">打开地图导航,带定位，可以不带定位，直接打开</button>
+
+	<button type="primary" style="width:100%; margin-top: 20px;" bindtap="openSlideBottom">打开 - 底部滑出的自定义窗口</button>
+
+	<button type="primary" style="width:100%; margin-top: 20px;" bindtap="previewImg">打开 - 图片预览窗口</button>
+
+
+	<button type="primary" style="width:100%; margin-top: 20px;" bindtap="testSignHttp">Http签名测试</button>
+
+	<button type="primary" style="width:100%; margin-top: 20px;" bindtap="getLoginWxMiniMsg">获取登录信息</button>
+
+	<button type="primary" style="width:100%; margin-top: 20px;" open-type="getUserInfo"
+		bindgetuserinfo="getLoginWxUserInfo">得到登录用户的个人信息</button>
+
+
+
+	<button type="primary" style="width:100%; margin-top: 20px;" open-type="getPhoneNumber"
+		bindgetphonenumber="getPhoneNumber">得到登录用户手机号</button>
+
+	<navigator url="../../../pages/buyer/myorderquery/myorderquery" style="font-size: 50rpx">查询订单</navigator>
+
+	<navigator url="../../../pages/buyer/expressdetail/expressdetail?OID=661480" style="font-size: 50rpx">查看物流</navigator>
+
+
+	<navigator url="../../../pages/buyer/orderdynamic/orderdynamic?OID=661474" style="font-size: 50rpx">订单动态</navigator>
+
+
+	<navigator url="../../../pages/buyer/orderpay/orderpay?OID=661462" style="font-size: 50rpx">订单支付</navigator>
+
+	<navigator url="../../../pages/buyer/orderdetail/orderdetail?OID=661462" style="font-size: 50rpx">订单详情</navigator>
+	<navigator url="../../../pages/buyer/myorder/myorder" style="font-size: 50rpx">我的订单</navigator>
+	<navigator url="../../../pages/buyer/paysu/paysu?BN=2021051307095254104170815" style="font-size: 50rpx">支付成功
+	</navigator>
+	<navigator url="../../../pages/tabbar/scart/scart" open-type="switchTab" style="font-size: 50rpx">购物车</navigator>
+
+	<navigator url="../../login/index/index" style="font-size: 50rpx">授权页- 登录注册</navigator>
+	<navigator url="../../login/bindmobile/bindmobile" style="font-size: 50rpx">授权页- 绑定手机</navigator>
+
+
+	<navigator url="../../../pages/goods/goodsdetail/goodsdetail?GID=60069" style="font-size: 50rpx">商品（GID=60069）
+	</navigator>
+	<navigator url="../../../pages/goods/groupdetail/groupdetail?GID=60072" style="font-size: 50rpx">拼团商品（GID=60072)
+	</navigator>
+	<navigator url="../../../pages/buyer/receiaddr/receiaddrae/receiaddrae" style="font-size: 50rpx">添加编辑收货地址</navigator>
+	<navigator url="../../../pages/buyer/paysu/paysu" style="font-size: 50rpx">支付成功</navigator>
+	<navigator url="../../../pages/buyer/banktransfer/banktransfer?BN=2021043016592408608675027" style="font-size: 50rpx">
+		银行转账2021043016592408608675027</navigator>
+
+
+
+	<sliderDownWin id="SliderDownWin_1" is-display-slide="none" slide-win-height="400" slide-win-title="测试滑出窗口">
+
+		<view slot="outwxml">
+			窗口内容窗口内容窗口内容窗口内容
+			窗口内容窗口内容窗口内容窗口内容窗口内容窗口内容窗口内容窗口内容
+			窗口内容窗口内容窗口内容窗口内容 <view style="padding-bottom: 800px"></view> 1111
+		</view>
+
+	</sliderDownWin>
+
+
+
+
+	<view style="height: 1000px"></view>
+
+
+	<!-- <button-test id="btn1" buttonText="单击我吧"></button-test>
+
+<button type="primary" bindtap="controlBtn">控制上面的按钮</button>
+
+<image src="http://localhost:2000/Assets/Imgs/Icon/circle_sel.png"></image> -->
+
+</view>

@@ -1,0 +1,285 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title id="PageAcTitle">活动详情</title>
+
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Shop/ActivityDetail.css?v=1" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/ClipBoard/clipboard.min.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+    <script src="../Assets/Lib/SliderDownWin/SliderDownWin.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Js/Shop/ActivityDetail.js?v=1"></script>
+
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidActivityID" value="@ViewBag.ActivityID" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:window.history.back(-1)"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>活动详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Mall/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/navbar_home.png" style="width:25px; height: 25px;" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+        <!--Logo区-->
+        <div class="logo-msg">
+            <div class="logo-msg-left">
+                <div class="logo-title" id="AcTitle">
+                    线下：活动标题
+                </div>
+                <div class="logo-desc" id="AcSketch">
+                    活动简述活
+                </div>
+                <div class="logo-status" id="AcStatus">
+                    当前报名:0， 活动人数限:0人，参与验证:是<br />
+                    活动时间: 至
+                </div>
+            </div>
+            <div class="logo-msg-right">
+                <img src="../Assets/Imgs/Icon/shop_activity_white.png" />
+            </div>
+        </div>
+
+
+        <!--参与验证-->
+        <div class="check-code" id="CheckCodeDiv" style="display:none;">
+            <div class="check-code-left">
+                <div>参与活动-验证码</div>
+                <div class="check-order-id">活动ID：<span>@ViewBag.ActivityID</span></div>
+                <div class="check-code-number"><b id="checkCodeNumberB"> </b></div>
+                <div>
+                    <input type="button" class="btn-reset" id="BtnReset" value="重新生成" onclick="initActivityJoinVerifyCode('true')" />
+                </div>
+            </div>
+            <div class="check-code-right">
+                <a href="../Assets/Imgs/scan.png" id="ScanImgA" target="_blank">
+                    <img id="ScanImg" src="../Assets/Imgs/scan.png" />
+                </a>
+            </div>
+        </div>
+
+        <!--用户活动参与中-->
+        <div class="user-joining" id="UserJoiningDiv" style="display:none;">
+            <div id="UserJoiningName">
+                <img src="../Assets/Imgs/01.jpg" />用户昵称
+            </div>
+            <div>
+                <b>正在参与活动</b>
+            </div>
+        </div>
+
+
+        <div class="logo-check" id="ActivityStatusDiv" style="display:normal; margin-top: 8px;">
+            <div class="activity-status" id="ActivityStatus">
+                状态：报名中
+            </div>
+            <div>
+                <input type="button" class="btn-apply" id="BtnApply" value="立即报名" onclick="openJoinWin()" />
+            </div>
+        </div>
+
+
+
+
+        <div class="logo-address" id="LocationAddress" style="display:none;">
+            <div class="logo-address-left">
+                活动地址:
+                <div class="logo-address-distance" id="DistanceKm">112.4km</div>
+            </div>
+            <div class="logo-address-mid" id="AcAddress">
+                湖南省长沙市长沙县开元西路25号湖南省长沙市长沙县开元西路25号
+            </div>
+            <div class="logo-address-right" onclick="openShopNavWin()">
+                <img src="../Assets/Imgs/Icon/addr_nav.png" /><br />
+                导航
+            </div>
+        </div>
+
+        <div class="activity-img" id="AcImgsDesc">
+            <!--<a href="../Assets/Imgs/06.jpg"><img src="../Assets/Imgs/06.jpg" /></a>
+            <div class="activity-desc">
+                活动的内容描述活动
+            </div>-->
+        </div>
+
+        <div class="activity-join" id="ActivityJoinDiv">
+            <div class="activity-join-top">
+                当前有<b id="SumJoinUser">1</b>位报名者
+            </div>
+            <div class="activity-join-mid" id="ActivityJoinUserList">
+                <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+            </div>
+            <div class="activity-join-bottom">
+                <a href="javascript:openJoinUserWin()">还有更多>></a>
+            </div>
+        </div>
+
+        <!--分享按钮区-->
+        <div class="share-section">
+            <input class="btn-share-friend" type="button" id="BtnCopyALink" data-clipboard-text="@ViewBag.CurrentALink" value="邀请好友参与" />
+        </div>
+
+        <!--店铺信息-->
+        <div class="shop-msg" id="ShopMsgBar">
+            <div class="shop-msg-1" id="ShopMsgNameTitleDiv">
+                <div class="shop-msg-left" id="ShopHeaderImgDiv">
+                    <a href="#">
+                        <img src="../Assets/Imgs/01.jpg" />
+                    </a>
+                </div>
+                <div class="shop-msg-right">
+                    <div class="shop-right-top" id="ShopNameDiv">
+                        <a href="#" target="_blank">湖漫官方旗舰店官方旗舰店</a>
+                        <span class="shop-label">商城好店</span>
+                        <span class="shop-arrow">&nbsp;</span>
+                    </div>
+                    <div class="shop-right-mid" id="ShopAppraiseDiv">
+                        综合: <b>9.5</b>
+                        物流: <b>9.5高</b>
+                        商品: <b>9.5高</b>
+                        服务: <b>9.5高</b>
+                    </div>
+                    <div class="shop-right-bottom">
+                        <b id="FavAttenB"> 0 </b>人关注
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="shop-msg-2" id="MajorGoodsDiv">
+                店铺主营
+            </div>
+
+            <div class="shop-msg-3">
+                <ul id="PreListGoodsMsgUl">
+                    <li>
+                        <a href="#">
+                            <img src="../Assets/Imgs/02.jpg" /><br />
+                            2018年冬季新款
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="shop-msg-4">
+
+                <a href="#" class="customer-service" id="CusServiceA">联系客服</a>
+                <a href="#" class="go-shop" id="GoShopA">进店逛逛</a>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <!--页脚-->
+    <div class="oct-footer">
+        <div id="CusServiceAFooter">
+            <img src="../Assets/Imgs/Icon/order_customer_gray.png" />
+            商家客服
+        </div>
+        <div id="TelShopPhoneFooter">
+            <img src="../Assets/Imgs/Icon/order_tel_gray.png" />
+            拨打电话
+        </div>
+        <div id="ComplainShopFooter">
+            <img src="../Assets/Imgs/Icon/order_complain_gray.png" />
+            投诉商家
+        </div>
+    </div>
+
+    <!--报名窗口-->
+    <div class="win-join-activity" id="WinJoinActivity" style="display:none;">
+
+        <div class="win-join-content">
+            <div class="win-join-title">
+                活动报名
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+        </div>
+        <div class="win-join-list">
+            <div>
+                <span><font color="red">*</font>联系手机号：</span>
+                <input type="number" class="limit-number-txt" id="LimitNumberWin" placeholder="报名手机号" />
+            </div>
+            <div>
+                <input type="button" class="btn-submit" id="BtnSubmit" value="提交报名" onclick="addActivityJoin()" />
+            </div>
+        </div>
+    </div>
+
+
+    <!--参与用户窗口-->
+    <div class="win-join-user" id="WinJoinUserActivity" style="display:none;">
+
+        <div class="win-join-content">
+            <div class="win-join-title">
+                参与用户
+                <button type="button" class="am-close" onclick="toggleSilderDownWin()">&times;</button>
+            </div>
+        </div>
+        <div class="win-user-list" id="WinUserList">
+            <a href="#"><img src="../Assets/Imgs/01.jpg" /></a>
+        </div>
+    </div>
+
+
+
+    <!--选择店铺导航地图-->
+    <div class="win-sel-shopnav" id="WinSelShopNav" style="display:none;">
+        <div class="win-shopnav-content">
+            <ul>
+                <li class="shopnav-title-li">
+                    选择导航地图
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="qqmapA">腾讯地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="amapA">高德地图</a>
+                </li>
+                <li>
+                    <a href="#" target="_blank" id="bdmapA">百度地图</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" onclick="toggleSilderDownWin()" style="color: #000000; padding-bottom: 20px;">取消</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

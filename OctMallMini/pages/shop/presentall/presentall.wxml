@@ -1,0 +1,59 @@
+<!--pages/shop/PresentAll/PresentAll.wxml-->
+<view class="nav-bar-content">
+	<navBar id="NavBar" class="nav-bar" title-text="店铺-全部礼品" back-icon="/assets/imgs/icons/navbar_back.png"
+		home-icon="/assets/imgs/icons/navbar_home.png" background="#F2F2F2" bindhome="home" bindback="back" />
+</view>
+<!-- 店铺导航Logo -->
+<shopNav id="shopNav" top-fix="{{navbarHeight}}" api-web-doamin="{{apiWebDoamin}}"
+	shop-name="{{initShopMsgTopBarItem_Data.ShopName}}"
+	avg-appraise-score="{{initShopMsgTopBarItem_Data.AvgAppraiseScore}}"
+	count-fans="{{initShopMsgTopBarItem_Data.CountFans}}" count-fav-shop="{{initShopMsgTopBarItem_Data.CountFavShop}}人"
+	shop-header-img="//{{initShopMsgTopBarItem_Data.ShopHeaderImg}}" appraise-star-red="{{appraiseStarRed}}"
+	appraise-star-gray="{{appraiseStarGray}}" tab-cur-num="10" shop-id="{{shopID}}" />
+
+<!-- 主体内容  -->
+<view class="oct-content" style="margin-top:{{octContentMarginTop}}px">
+
+
+	<!--商品列表-->
+	<view class="goods-list">
+
+		<view class="goods-item" wx:for="{{numberPage_Page.DataPage}}">
+			<navigator url="../../goods/giftdetail/giftdetail?PID={{item.PresentID}}">
+				<view class="goods-img">
+					<image src="//{{item.ImgURLCover}}" />
+				</view>
+				<view class="goods-name">{{item.PresentTitle}}</view>
+				<view class="goods-price">
+					<b>￥{{item.PresentPrice}}</b>
+					<view>剩余{{item.StockNum}}</view>
+				</view>
+			</navigator>
+		</view>
+
+		<!-- <view class="goods-item">
+			<navigator url="../../goods/goodsdetail/goodsdetail">
+				<view class="goods-img">
+					<image src="{{apiWebDoamin}}/Assets/Imgs/05.jpg" />
+				</view>
+				<view class="goods-name">商品名称商品名称商品名称商品名称</view>
+				<view class="goods-price">
+					<b>￥234.2</b>
+					<view>23432人付款</view>
+					<image src="{{apiWebDoamin}}/Assets/Imgs/Icon/scart_add.png" />
+				</view>
+				<span class="goods-item-badge">团</span>
+			</navigator>
+		</view> -->
+
+
+
+
+	</view>
+
+
+
+</view>
+
+<!--店铺底部导航-->
+<shopNavBottom id="ShopNavBottom" shop-id="{{shopID}}" api-web-doamin="{{apiWebDoamin}}" />

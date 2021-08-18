@@ -1,0 +1,28 @@
+﻿/*==============说明事项==================*/
+.oct-content{
+    margin-top: 35px;
+}
+/*问题类型*/
+.services-bottom {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+    .services-bottom div {
+        padding: 10px;
+        font-weight: bold;
+    }
+
+.question-ul {
+    background: white;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+    .question-ul li {
+        padding: 8px 10px;
+        font-size: 14px;
+        border-bottom: 2px solid #F7F7F7;
+        background: url(../../Imgs/Icon/arrows_right.png) right center no-repeat;
+        background-size: 15px;
+    }

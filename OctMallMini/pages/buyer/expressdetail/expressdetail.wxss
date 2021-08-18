@@ -1,0 +1,147 @@
+/* pages/buyer/expressdetail/expressdetail.wxss */
+
+.express-msg {
+  background: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.express-msg .express-msg-left {
+  padding-right: 10px;
+  width: 180rpx;
+}
+
+.express-msg-left image {
+  width: 80px;
+  height: 75px;
+}
+
+.express-msg-right {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+}
+
+.express-msg-right navigator {
+  color: #0D8EC9;
+}
+
+.express-msg-right .express-msg-item {
+  margin-top: -25rpx;
+}
+
+.express-msg-right view view {
+  padding-top: 5px;
+  color: gray;
+}
+
+.express-msg-code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-copy {
+  border: 1px solid #e0e0e0;
+  background: no-repeat;
+  font-size: 10px;
+  padding: 3px 10px;
+  padding-bottom: 5px;
+  border-radius: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+
+/*快递动态*/
+.express-dynamic {
+  background: #ffffff;
+  margin-top: 8px;
+}
+
+.express-dynamic-title {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.dynamic-item-right {
+  font-size: 28rpx;
+}
+
+.dynamic-title-right navigator {
+  color: #a7a7a7;
+  font-size: 24rpx;
+  /* background: url(../../Imgs/Icon/express_question.png) right center no-repeat; */
+  background-size: 17px;
+  padding: 10px;
+  padding-right: 0px;
+  color: #a7a7a7;
+}
+
+.dynamic-title-right image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-bottom: -5rpx;
+}
+
+/*动态内容*/
+.express-dynamic-item {
+  background: #ffffff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  margin-top: 15rpx;
+}
+
+.dynamic-item-left {
+  width: 20px;
+  overflow: hidden;
+  border-right: 1px solid #e0e0e0;
+  margin-right: 20px;
+}
+
+.dynamic-right-ul view {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: gray;
+  position: relative;
+}
+
+.dynamic-right-ul view span {
+  width: 10px;
+  height: 10px;
+  background: gray;
+  border-radius: 5px;
+  overflow: hidden;
+  position: absolute;
+  top: 13px;
+  left: -26px;
+}
+
+.express-datetime {
+  color: #aaaaaa;
+}
+
+.dynamic-right-ul .dynamic-current-li,
+.dynamic-right-ul .dynamic-li {
+  border-bottom: 1px solid #F5F5F5;
+  margin-top: -10rpx;
+  margin-bottom: 10rpx;
+  padding: 0;
+}
+
+/*当前物流动态*/
+.dynamic-current-li .express-circle {
+  background: #24B24D;
+}
+
+.dynamic-current-li view {
+  color: #24B24D;
+}

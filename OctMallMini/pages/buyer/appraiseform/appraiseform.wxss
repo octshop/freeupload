@@ -1,0 +1,292 @@
+/* pages/buyer//appraiseform/appraiseform.wxss */
+
+.appraise-list {
+  padding-bottom: 12px;
+}
+
+.appraise-item {
+  background: white;
+  margin-top: 8px;
+  font-size: 12px;
+  padding: 5px;
+  clear: both;
+  padding-top: 8px;
+}
+
+.goods-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #F8F8F8;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+}
+
+.appraise-item-left {
+  display: flex;
+  align-items: center;
+}
+
+.goods-img image {
+  width: 65px;
+  height: 65px;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-top: 3px;
+}
+
+.goods-title {
+  color: gray;
+}
+
+.goods-title-txt {
+  height: 50px;
+  overflow: hidden;
+  padding-right: 5px;
+  color: black;
+}
+
+.appraise-item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height:65px;
+}
+
+.form-main {
+  clear: both;
+  padding: 6px;
+}
+
+.form-main .form-main-top {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: gray;
+  padding-bottom: 5px;
+}
+
+.form-main-top .btn-app-sun {
+  border: 1px solid coral;
+  background: white;
+  font-size: 12px;
+  font-weight: normal;
+  border-radius: 20px;
+  color: coral;
+  padding: 3px 8px;
+  width: 78px;
+  white-space: nowrap;
+}
+
+.form-main-bottom {
+  border-top: 1px solid #F8F8F8;
+
+}
+
+/*------------- 评价表单--------------- */
+
+/*评价晒单表单*/
+.appraise-item-form {
+  background: white;
+  padding: 5px 10px;
+}
+
+.appraise-form-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.appraise-form-btn span {
+  color: red;
+}
+
+.btn-appraise-img {
+  border: 1px solid #e0e0e0;
+  background: white;
+  border-radius: 30px;
+  padding: 4px 10px;
+  font-size: 10px;
+  border: 1px solid red;
+  color: red;
+}
+
+/*表单*/
+.appraise-form-item {
+  border-top: 1px solid #F5F5F5;
+  padding: 10px 0;
+  margin-top: 5px;
+}
+
+.aprraise-form-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 12px;
+}
+
+.appraise-form-star {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*评价星星*/
+.appraise-star-item {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.appraise-star-item image {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+/*匿名评价*/
+.appraise-form-noname {
+  display: flex;
+  align-items: center;
+}
+
+.appraise-form-noname image {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.appraise-content-txtarea {
+  width: 98%;
+  height: 100px;
+  margin-top: 6px;
+  border: #E4E4E4 1px solid;
+  background: #FCFCFC;
+  font-size: 12px;
+  color: red;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/*上传照片列表*/
+.appraise-upload-img {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.upload-img {
+  width: 45px;
+  font-size: 12px;
+  color: gray;
+  text-align: center;
+}
+
+.upload-img image {
+  width: 40px;
+  height: 45px;
+  display: block;
+  margin-bottom: 2px;
+  margin: 0 auto;
+}
+
+.upload-pre {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 12px;
+  width: 100%;
+}
+
+.upload-pre-item {
+  position: relative;
+  margin-left: 10px;
+  border: 1px solid #e0e0e0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E4E4E4;
+}
+
+.upload-pre-item image {
+  width: 52px;
+  height: 52px;
+  border-radius: 5px;
+}
+
+.upload-pre-item .icon-del {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+
+
+/*店铺评分*/
+.shop-score {
+  background: #ffffff;
+  margin-bottom: 80px;
+  font-size: 12px;
+}
+
+.shop-title {
+  padding: 10px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f5f5f5;
+
+}
+.shop-title navigator{
+  display: flex;
+  align-items: center;
+}
+.shop-title image {
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+
+.shop-prompt-txt {
+  font-size: 12px;
+  color: #bbbbbb;
+}
+
+.shop-score-list {
+  padding: 10px;
+  padding-top: 0;
+  padding-bottom: 15px;
+}
+
+.shop-score-ul view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+}
+.appraise-star-item image{
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+
+/* 页脚 */
+.oct-footer .btn-submit-appriase {
+  background: coral;
+  color: white;
+  padding: 7px 5px;
+  border: none;
+  margin: 10px auto;
+  font-size: 14px;
+  font-weight: normal;
+  border-radius: 20px;
+  width: 90%;
+}

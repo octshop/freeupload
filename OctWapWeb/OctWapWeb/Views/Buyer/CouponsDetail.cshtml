@@ -1,0 +1,188 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="overflow: auto; overflow-x: hidden;">
+<head>
+    <!--
+        <meta name="viewport" content="width=device-width initial-scale="1" />
+    viewport是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度（width=device-width），
+    原始缩放比例（initial-scale=1）为1.0，即网页初始大小占屏幕面积的100%。 user-scalable=no  不允许缩放网页 -->
+    <meta name="viewport" content="width=device-width,user-scalable=no" initial-scale="1" />
+    <title>优惠券详情</title>
+    <link href="../Assets/Lib/AmazeUI-2.7.2/css/amazeui.min.css" rel="stylesheet" />
+    <link href="../Assets/Css/PublicCss.css" rel="stylesheet" />
+    <link href="../Assets/Css/Buyer/CouponsDetail.css" rel="stylesheet" />
+
+    <script src="../Assets/Lib/jquery-2.2.2.min.js"></script>
+    <script src="../Assets/Lib/PublicTool.js"></script>
+    <script src="../Assets/Lib/AlertConfirmWin/AlertConfirmWin.js"></script>
+
+    <script src="../Assets/Js/Buyer/CouponsDetail.js"></script>
+
+</head>
+<body>
+
+    <!--隐藏控件记录值-->
+    <input type="hidden" id="hidCouponsID" value="@ViewBag.CID" />
+    <input type="hidden" id="hidIssueID" value="@ViewBag.IID" />
+    <input type="hidden" id="hidBuyerUserID" value="@ViewBag.BuyerUserID" />
+
+    <!--头部-->
+    <div class="oct-header">
+        <div class="oct-header-left">
+            <a href="javascript:history.back(-1);"><img alt="返回" src="../Assets/Imgs/Icon/back.png" /></a>
+        </div>
+        <div class="oct-header-mid">
+            <b>优惠券详情</b>
+        </div>
+        <div class="oct-header-right">
+            <a href="../Buyer/Index"><img class="header-icon-my" src="../Assets/Imgs/Icon/my.png" /></a>
+        </div>
+    </div>
+
+    <!--主体内容-->
+    <div class="oct-content">
+
+        <ul class="coupons-list" id="CouponsListUl">
+            @*<li>
+                    <div class="coupons-item-left">
+                        <div class="coupons-price">
+                            &#165; <b>283.00</b>
+                            <br />
+                            满99元可用
+                        </div>
+                    </div>
+                    <div class="coupons-item-right">
+                        <div class="coupons-item-top">
+                            七匹狼旗舰店七匹狼旗旗<span>店铺券</span>
+                        </div>
+                        <div class="coupons-item-mid">
+                            有效期：2018-05-17 23:32:34 <span>20天</span>
+                        </div>
+                        <div class="coupons-item-bottom">
+                            <div>
+                                券号:152525
+                            </div>
+                            <input class="btn-use" type="button" value="立即领取" />
+                        </div>
+                    </div>
+                </li>
+
+                <li class="coupons-used">
+                    <div class="coupons-item-left">
+                        <div class="coupons-price">
+                            <b>8</b> 折
+                            <br />
+                            满99元可用
+                        </div>
+                    </div>
+                    <div class="coupons-item-right">
+                        <div class="coupons-item-top">
+                            七匹狼旗舰店七匹狼旗旗<span>商城券</span>
+                        </div>
+                        <div class="coupons-item-mid">
+                            有效期：2018-05-17 23:32:34 <span>已省: 23元</span>
+                        </div>
+                        <div class="coupons-item-bottom">
+                            <div>
+                                使用商品:商品的标题和规格参数商品的标商品的
+                            </div>
+                        </div>
+                    </div>
+                </li>*@
+
+        </ul>
+
+        <!--线下验证使用-->
+        <div class="check-code" id="CheckCodeDiv" style="display:none;">
+            <div class="check-code-left">
+                <div>线下使用-验证码</div>
+                <div class="check-order-id">券号：<span>@ViewBag.IID</span></div>
+                <div class="check-code-number"><b id="checkCodeNumberB">000000</b></div>
+                <div>
+                    <input type="button" class="btn-reset" id="BtnReset" value="重新生成" onclick="initCouponsVerifyCode('true')" />
+                </div>
+            </div>
+            <div class="check-code-right">
+                <a href="../Assets/Imgs/scan.png" id="ScanImgA" target="_blank">
+                    <img id="ScanImg" src="../Assets/Imgs/scan.png" />
+                </a>
+            </div>
+        </div>
+
+
+
+        <!--使用商品或店铺-->
+        <div class="use-shopgoods">
+
+            <div class="use-shopgoods-tab">
+                <div class="use-tab use-tab-current" onclick="chgTab('1')">可使用商品</div>
+                <div class="use-tab" onclick="chgTab('2')">可使用店铺</div>
+            </div>
+
+            <div class="use-shopgoods-list">
+
+                <ul class="use-list-ul" id="UserListUL">
+
+                    @*<li>
+                        <div class="use-item-left">
+                            <a href="#">
+                                <img src="../Assets/Imgs/02.png" />
+                            </a>
+                        </div>
+                        <div class="use-item-right">
+                            <div class="use-item-top">
+                                商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品
+                                名称商
+                            </div>
+                            <div class="use-item-mid">
+                                销量：23434，评价：2344
+                            </div>
+                            <div class="use-item-bottom">
+                                <b>&#165;562.32</b>
+                                <input type="button" class="btn-use" value="立即使用" />
+                            </div>
+                        </div>
+                    </li>
+ 
+                    <!--可使用店铺-->
+                    <li class="use-shop-item">
+                        <div class="use-item-left">
+                            <a href="#">
+                                <img src="../Assets/Imgs/03.jpg" />
+                            </a>
+                        </div>
+                        <div class="use-item-right">
+                            <div class="use-item-top">
+                                商店名称商店名称商店名称商店名称商店
+                            </div>
+                            <div class="use-item-mid">
+                                店铺简介呀店铺简介呀店铺简介呀店铺简介呀店铺简介呀店铺简介呀
+                                店铺简介呀店铺简介呀
+                            </div>
+                            <div class="use-item-bottom">
+                                <b>60234人关注,评分：9.3</b>
+                                <input type="button" class="btn-use" value="立即使用" />
+                            </div>
+                        </div>
+                    </li>*@
+
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+</body>
+</html>

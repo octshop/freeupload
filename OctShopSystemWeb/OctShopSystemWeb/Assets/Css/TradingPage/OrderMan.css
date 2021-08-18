@@ -1,0 +1,67 @@
+﻿/*=============订单管理===============*/
+
+/*发货弹出窗口*/
+.send-goods-main{
+}
+.send-goods-ul li{
+    padding: 8px;
+}
+    .send-goods-ul li label{
+        width: 100px;
+    }
+    .send-goods-ul li select{
+        padding:5px 10px;
+    }
+    .txt-css-win {
+        width: 430px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid #e5e5e5;
+    }
+
+
+/*核销验证窗口*/
+.check-order-win {
+}
+
+.check-order-ul li {
+    padding: 8px;
+}
+
+    .check-order-ul li label {
+        width: 100px;
+    }
+
+    .check-order-ul li select {
+        padding: 5px 10px;
+    }
+
+.txt-css-win {
+    width: 430px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+}
+/*修改价格窗口*/
+.edit-price-win{
+
+}
+
+.edit-price-ul li {
+    padding: 8px;
+}
+
+    .edit-price-ul li label {
+        width: 100px;
+    }
+    .edit-price-ul li.edit-price-li {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+.edit-price-ul li .txt-css-win {
+    width: 200px;
+    margin-right: 20px;
+    font-weight: bold;
+    color: #ff0000;
+    font-size: 18px;
+}

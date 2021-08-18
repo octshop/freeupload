@@ -1,0 +1,18 @@
+﻿/*====================投诉信息==================*/
+
+/*处理回复窗口*/
+.reply-content-ul li{
+    padding:10px 20px;
+}
+    .reply-content-ul li a, .reply-content-ul li span{
+        padding-left: 10px;
+        padding-right: 20px;
+    }
+.reply-content-txtarea{
+    width: 100%;
+    height: 80px;
+    border-radius: 5px;
+    border: 1px solid #dbdbdb;
+    padding: 8px;
+    font-size: 14px;
+}

@@ -1,0 +1,158 @@
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\ApplicationInsights.config
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.dll.config
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.pdb
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.exe
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.exe.config
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.rsp
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csi.exe
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csi.rsp
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.AppContext.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Collections.Immutable.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.IO.FileSystem.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Reflection.Metadata.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.exe
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.exe.config
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.rsp
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\VBCSCompiler.exe
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\VBCSCompiler.exe.config
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\Gma.QrCodeNet.Encoding.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\PublicUtilsNS.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\PublicUtilsNS.pdb
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csproj.CoreCompileInputs.cache
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csproj.CopyComplete
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.dll
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.pdb
+E:\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csprojAssemblyReference.cache
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\ApplicationInsights.config
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.dll.config
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.pdb
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.exe
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.exe.config
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.rsp
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csi.exe
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csi.rsp
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.AppContext.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Collections.Immutable.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.IO.FileSystem.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Reflection.Metadata.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.exe
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.exe.config
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.rsp
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\VBCSCompiler.exe
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\VBCSCompiler.exe.config
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\Gma.QrCodeNet.Encoding.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csproj.CoreCompileInputs.cache
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csproj.CopyComplete
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.pdb
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\WeCahtJsSdk.Utility.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\bin\WeChatJsSdk.SdkCore.dll
+F:\OpenCodeTiger\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csprojAssemblyReference.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\ApplicationInsights.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.dll.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csi.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csi.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.AppContext.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Collections.Immutable.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.IO.FileSystem.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Reflection.Metadata.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\VBCSCompiler.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\VBCSCompiler.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\Gma.QrCodeNet.Encoding.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\PublicUtilsNS.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\WeCahtJsSdk.Utility.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\WeChatJsSdk.SdkCore.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\BouncyCastle.Crypto.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\bin\PublicUtilsNS.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csproj.CoreCompileInputs.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csproj.CopyComplete
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csprojAssemblyReference.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\ApplicationInsights.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.dll.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\OctShopSystemWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csi.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\csi.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.AppContext.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Collections.Immutable.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.IO.FileSystem.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\System.Reflection.Metadata.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\vbc.rsp
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\VBCSCompiler.exe
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\roslyn\VBCSCompiler.exe.config
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\Gma.QrCodeNet.Encoding.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\PublicUtilsNS.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\WeCahtJsSdk.Utility.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\WeChatJsSdk.SdkCore.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\BouncyCastle.Crypto.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\bin\PublicUtilsNS.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csproj.CoreCompileInputs.cache
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csproj.CopyComplete
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.dll
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.pdb
+E:\--------开源虎 商城系统-IM在线客服 开发与资料--------\OpenCodeTigerProject-Free\OctShopSystemWeb\OctShopSystemWeb\obj\Debug\OctShopSystemWeb.csprojAssemblyReference.cache
